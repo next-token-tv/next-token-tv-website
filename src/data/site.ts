@@ -1,5 +1,7 @@
 export type Locale = "zh-Hans" | "en";
 
+export const episode001Url = "https://www.xiaoyuzhoufm.com/episode/6a9ad843f03e74ee6b05352c";
+
 type SocialLink = {
   platform: string;
   handle: string;
@@ -60,6 +62,7 @@ export type SiteContent = {
     copy: string;
     topicsLabel: string;
     topics: string[];
+    listenAction: string;
   };
   hosts: {
     heading: [string, string];
@@ -70,6 +73,7 @@ export type SiteContent = {
     heading: [string, string];
     copy: string;
     platformsLabel: string;
+    available: string;
     comingSoon: string;
   };
 };
@@ -95,6 +99,7 @@ const sharedHosts = {
     socials: [
       { platform: "X", handle: "@op7418", href: "https://x.com/op7418" },
       { platform: "GitHub", handle: "@op7418", href: "https://github.com/op7418" },
+      { platform: "Jike", handle: "歸藏" },
       { platform: "Weibo", handle: "@歸藏的AI工具箱", href: "https://www.sina.cn/media/6182606334" },
       { platform: "WeChat", handle: "歸藏的AI工具箱" },
       { platform: "Xiaohongshu", handle: "歸藏" },
@@ -107,10 +112,11 @@ const sharedHosts = {
     socials: [
       { platform: "X", handle: "@oran_ge", href: "https://x.com/oran_ge" },
       { platform: "GitHub", handle: "@orange2ai", href: "https://github.com/orange2ai" },
+      { platform: "Jike", handle: "橘AI" },
       { platform: "Blog", handle: "橘子汽水铺", href: "https://blog.orangesai.com" },
       { platform: "Podcast", handle: "橘座", href: "https://www.xiaoyuzhoufm.com/podcast/6640bb10390b415a59a41773" },
-      { platform: "WeChat", handle: "橘 AI" },
-      { platform: "Xiaohongshu", handle: "橘 AI" },
+      { platform: "WeChat", handle: "橘AI" },
+      { platform: "Xiaohongshu", handle: "橘AI" },
       { platform: "LinkedIn", handle: "Leo Feng", href: "https://www.linkedin.com/in/orangeai" },
     ],
   },
@@ -215,7 +221,7 @@ export const siteContent: Record<Locale, SiteContent> = {
     navigationLabel: "主导航",
     navigation: { about: "关于品牌", weekly: "Next Token Weekly", hosts: "联合主理人", subscribe: "订阅" },
     languageLabel: "语言切换",
-    status: "首期即将上线",
+    status: "首期已上线",
     hero: {
       eyebrow: "Next Token | 词元之外",
       headingLead: "不只预测\n下一个",
@@ -239,11 +245,12 @@ export const siteContent: Record<Locale, SiteContent> = {
     weekly: {
       lede: "第一期开箱 2026 年 8 月 27 日至 9 月 3 日的 24 条 AI 新闻。四位联合主理人从密集发布的模型聊到 Agent、智能硬件、商业变化与 AI 原生组织。",
       imageAlt: "Next Token Weekly 第一期开录现场",
-      eyebrow: "首期 · 24 条新闻 · 即将发布",
+      eyebrow: "首期 · 24 条新闻 · 现已上线",
       heading: ["大模型进入“斩杀线”大战，", "Token 就是新货币"],
       copy: "从 GLM-5.3 Flash、MiniMax H3，到 WorkBuddy、AI 硬件与 Hugging Face 收购话题；四位联合主理人沿着一周新闻，聊模型成本、原厂 Agent、AI 应用回暖，以及每个人都必须闭环的 AI 原生组织。",
       topicsLabel: "本期议题",
       topics: ["24 条新闻", "模型与 Agent", "智能硬件", "商业与组织"],
+      listenAction: "在小宇宙收听",
     },
     hosts: {
       heading: ["四位联合主理人，", "一张开放的圆桌。"],
@@ -251,9 +258,10 @@ export const siteContent: Record<Locale, SiteContent> = {
       items: hosts("zh-Hans"),
     },
     subscribe: {
-      heading: ["首期很快", "和你见面。"],
-      copy: "视频、音频与完整文字稿将同步从这里出发。首期发布后，各平台入口会在本页开放。",
-      platformsLabel: "即将开放的订阅平台",
+      heading: ["首期已经", "和你见面。"],
+      copy: "第一期音频现已在小宇宙上线。其他平台以及视频、完整文字稿入口将继续在本页更新。",
+      platformsLabel: "订阅与收听平台",
+      available: "立即收听",
       comingSoon: "即将开放",
     },
   },
@@ -268,7 +276,7 @@ export const siteContent: Record<Locale, SiteContent> = {
     navigationLabel: "Main navigation",
     navigation: { about: "About", weekly: "Next Token Weekly", hosts: "Co-hosts", subscribe: "Follow" },
     languageLabel: "Language switcher",
-    status: "Episode #001 coming soon",
+    status: "Episode #001 is live",
     hero: {
       eyebrow: "Next Token | Beyond the Next Token",
       headingLead: "More than\nthe next ",
@@ -292,11 +300,12 @@ export const siteContent: Record<Locale, SiteContent> = {
     weekly: {
       lede: "Episode #001 unpacks 24 AI stories from August 27 to September 3, 2026. Four co-hosts move from a crowded week of model releases to agents, AI hardware, business shifts, and AI-native organizations.",
       imageAlt: "Next Token Weekly episode #001 recording session",
-      eyebrow: "Episode #001 · 24 stories · Coming soon",
+      eyebrow: "Episode #001 · 24 stories · Now live",
       heading: ["The LLM “kill line” wars begin.", "Tokens are the new money."],
       copy: "From GLM-5.3 Flash and MiniMax H3 to WorkBuddy, AI hardware, and Hugging Face acquisition talk, four co-hosts trace a week of AI news through model economics, first-party agents, an application rebound, and why every person needs a closed loop inside an AI-native organization.",
       topicsLabel: "Episode topics",
       topics: ["24 stories", "Models & agents", "AI hardware", "Business & organizations"],
+      listenAction: "Listen on Xiaoyuzhou",
     },
     hosts: {
       heading: ["Four co-hosts.", "One open table."],
@@ -304,12 +313,23 @@ export const siteContent: Record<Locale, SiteContent> = {
       items: hosts("en"),
     },
     subscribe: {
-      heading: ["Episode #001", "is coming soon."],
-      copy: "Video, audio, and a full transcript will launch together here. Links to every platform will appear on this page when episode #001 is released.",
-      platformsLabel: "Subscription platforms coming soon",
+      heading: ["Episode #001", "is now live."],
+      copy: "Episode #001 is now available on Xiaoyuzhou. More platforms, video, and the full transcript will be added here as they go live.",
+      platformsLabel: "Listen and follow",
+      available: "Listen now",
       comingSoon: "Coming soon",
     },
   },
 };
 
-export const platforms = ["小宇宙", "Apple Podcasts", "Spotify", "哔哩哔哩", "YouTube"];
+export const platforms = [
+  {
+    zh: "小宇宙",
+    en: "Xiaoyuzhou",
+    href: episode001Url,
+  },
+  { zh: "Apple Podcasts", en: "Apple Podcasts" },
+  { zh: "Spotify", en: "Spotify" },
+  { zh: "哔哩哔哩", en: "Bilibili" },
+  { zh: "YouTube", en: "YouTube" },
+] as const;

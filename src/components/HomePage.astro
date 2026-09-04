@@ -1,20 +1,17 @@
 ---
 import HostCard from "./HostCard.astro";
 import SiteHeader from "./SiteHeader.astro";
-import { platforms, type SiteContent } from "../data/site";
+import { episode001Url, platforms, type SiteContent } from "../data/site";
 
 interface Props {
   content: SiteContent;
 }
 
 const { content } = Astro.props;
-const localizedPlatforms = platforms.map((platform) => {
-  if (content.locale === "en") {
-    if (platform === "小宇宙") return "Xiaoyuzhou";
-    if (platform === "哔哩哔哩") return "Bilibili";
-  }
-  return platform;
-});
+const localizedPlatforms = platforms.map((platform) => ({
+  label: content.locale === "en" ? platform.en : platform.zh,
+  href: "href" in platform ? platform.href : undefined,
+}));
 ---
 
 <a class="skip-link" href="#main">{content.skipLink}</a>
@@ -127,6 +124,9 @@ const localizedPlatforms = platforms.map((platform) => {
           <div class="episode-meta" aria-label={content.weekly.topicsLabel}>
             {content.weekly.topics.map((topic) => <span>{topic}</span>)}
           </div>
+          <a class="episode-listen" href={episode001Url} target="_blank" rel="noopener noreferrer">
+            {content.weekly.listenAction} <span aria-hidden="true">↗</span>
+          </a>
         </div>
       </div>
     </article>
@@ -153,10 +153,16 @@ const localizedPlatforms = platforms.map((platform) => {
       <p>{content.subscribe.copy}</p>
     </div>
     <div class="platform-list" data-reveal aria-label={content.subscribe.platformsLabel}>
-      {localizedPlatforms.map((platform, index) => (
+      {localizedPlatforms.map((platform, index) => platform.href ? (
+        <a class="platform is-live" href={platform.href} target="_blank" rel="noopener noreferrer">
+          <span class="index">{String(index + 1).padStart(2, "0")}</span>
+          <strong>{platform.label}</strong>
+          <span class="coming">{content.subscribe.available} <span aria-hidden="true">↗</span></span>
+        </a>
+      ) : (
         <div class="platform">
           <span class="index">{String(index + 1).padStart(2, "0")}</span>
-          <strong>{platform}</strong>
+          <strong>{platform.label}</strong>
           <span class="coming">{content.subscribe.comingSoon}</span>
         </div>
       ))}

@@ -636,6 +636,30 @@ h1 .accent {
   text-transform: uppercase;
 }
 
+.episode-listen {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 48px;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 1.5rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--signal);
+  color: var(--ink);
+  background: var(--signal);
+  font-size: 0.85rem;
+  font-weight: 900;
+  text-decoration: none;
+  transition: color 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.episode-listen:hover,
+.episode-listen:focus-visible {
+  border-color: var(--white);
+  background: var(--white);
+  transform: translateY(-2px);
+}
+
 .hosts-header {
   display: flex;
   align-items: end;
@@ -669,6 +693,7 @@ h1 .accent {
 
 .host-card {
   display: flex;
+  height: 100%;
   min-width: 0;
   flex-direction: column;
   border-right: 1px solid var(--ink);
@@ -694,6 +719,7 @@ h1 .accent {
 
 .host-info {
   display: flex;
+  flex: 1;
   min-height: 350px;
   flex-direction: column;
   padding: 1.35rem;
@@ -797,6 +823,22 @@ h1 .accent {
   gap: 1rem;
   align-items: center;
   border-bottom: 1px solid var(--ink);
+}
+
+.platform.is-live {
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 180ms ease, padding-inline 180ms ease;
+}
+
+.platform.is-live:hover,
+.platform.is-live:focus-visible {
+  padding-inline: 0.4rem;
+  color: var(--signal);
+}
+
+.platform.is-live .coming {
+  color: var(--signal);
 }
 
 .platform .index {
