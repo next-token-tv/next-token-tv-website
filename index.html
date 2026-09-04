@@ -121,19 +121,11 @@
       .wordmark {
         display: inline-flex;
         align-items: center;
-        gap: 0.7rem;
         font-family: var(--display);
         font-size: clamp(1.35rem, 2.4vw, 1.9rem);
-        line-height: 0.86;
+        line-height: 1;
         letter-spacing: -0.055em;
         text-transform: uppercase;
-      }
-
-      .signal-dot {
-        width: 0.58em;
-        height: 0.58em;
-        flex: 0 0 auto;
-        background: var(--signal);
       }
 
       .nav-links {
@@ -243,8 +235,8 @@
         margin-bottom: 2.25rem;
         font-family: var(--display);
         font-size: clamp(4.25rem, 8.2vw, 9.4rem);
-        line-height: 0.83;
-        letter-spacing: -0.075em;
+        line-height: 1.06;
+        letter-spacing: -0.06em;
         text-wrap: balance;
       }
 
@@ -324,13 +316,23 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: 12% center;
         filter: grayscale(1) contrast(1.08);
-        transition: filter 500ms ease, transform 900ms cubic-bezier(0.2, 0.7, 0, 1);
+        animation: hero-pan 28s ease-in-out infinite alternate;
+        transition: filter 500ms ease;
       }
 
       .hero-visual:hover img {
         filter: grayscale(0.15) contrast(1.03);
-        transform: scale(1.018);
+      }
+
+      @keyframes hero-pan {
+        from {
+          object-position: 12% center;
+        }
+        to {
+          object-position: 88% center;
+        }
       }
 
       .hero-visual::after {
@@ -355,7 +357,7 @@
         background: var(--signal);
         font-family: var(--display);
         font-size: clamp(1.1rem, 2vw, 1.65rem);
-        line-height: 0.92;
+        line-height: 1;
         letter-spacing: -0.04em;
         text-align: center;
         text-transform: uppercase;
@@ -378,7 +380,7 @@
       .visual-caption strong {
         font-family: var(--display);
         font-size: clamp(2rem, 4vw, 4rem);
-        line-height: 0.88;
+        line-height: 0.98;
         letter-spacing: -0.055em;
         text-transform: uppercase;
       }
@@ -455,8 +457,8 @@
         margin-bottom: 2.25rem;
         font-family: var(--display);
         font-size: clamp(3.2rem, 7vw, 7.8rem);
-        line-height: 0.88;
-        letter-spacing: -0.065em;
+        line-height: 1.06;
+        letter-spacing: -0.055em;
         text-wrap: balance;
       }
 
@@ -499,7 +501,7 @@
         margin-bottom: 1.1rem;
         font-family: var(--display);
         font-size: clamp(2.2rem, 4vw, 4rem);
-        line-height: 0.95;
+        line-height: 1.04;
         letter-spacing: -0.055em;
       }
 
@@ -578,7 +580,7 @@
         margin-bottom: 1rem;
         font-family: var(--display);
         font-size: clamp(2.35rem, 4.5vw, 4.9rem);
-        line-height: 0.92;
+        line-height: 1.1;
         letter-spacing: -0.055em;
       }
 
@@ -648,12 +650,10 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        filter: grayscale(1);
-        transition: filter 260ms ease, transform 500ms ease;
+        transition: transform 500ms ease;
       }
 
       .host-card:hover img {
-        filter: grayscale(0);
         transform: scale(1.025);
       }
 
@@ -685,6 +685,11 @@
       }
 
       .subscribe h2 {
+        margin-bottom: 1.5rem;
+        line-height: 1.08;
+      }
+
+      .subscribe .section-index {
         margin-bottom: 1.5rem;
       }
 
@@ -742,7 +747,7 @@
         margin-bottom: 0;
         font-family: var(--display);
         font-size: clamp(4rem, 10vw, 10rem);
-        line-height: 0.8;
+        line-height: 0.9;
         letter-spacing: -0.075em;
       }
 
@@ -919,6 +924,11 @@
           opacity: 1;
           transform: none;
         }
+
+        .hero-visual img {
+          animation: none;
+          object-position: center;
+        }
       }
     </style>
   </head>
@@ -928,7 +938,7 @@
     <header class="site-header">
       <div class="nav shell">
         <a class="wordmark" href="#top" aria-label="Next Token 首页">
-          <span>Next Token</span><span class="signal-dot" aria-hidden="true"></span>
+          <span>Next Token</span>
         </a>
         <nav class="nav-links" aria-label="主导航">
           <a href="#about">关于品牌</a>
@@ -957,7 +967,7 @@
           <div class="hero-footnote" data-reveal>
             <strong>NT.</strong>
             <p>
-              Next Token 是总品牌，承载视频、音频与衍生内容；Next Token Weekly 是当前的旗舰周播。
+              Next Token 是主品牌，承载视频、音频与衍生内容；Next Token Weekly 是当前的旗舰周播。
             </p>
           </div>
         </div>
@@ -999,7 +1009,7 @@
             <span class="number">01</span>
             <h3>Next Token</h3>
             <p>
-              总品牌。以中文世界的一手经验和观点讨论 AI，并把这些观点带入全球对话。
+              主品牌。以中文世界的一手经验和观点讨论 AI，并把这些观点带入全球对话。
             </p>
           </article>
           <article class="manifesto-card">
@@ -1060,7 +1070,7 @@
             <div class="host-photo"><img src="assets/hosts/yang-pan.jpg" alt="联合主理人杨攀" /></div>
             <div class="host-info">
               <h3>杨攀</h3>
-              <p>联合主理人 · bilink.ai 创始人，硅基流动、融云联合创始人</p>
+              <p>联合主理人 · Bilink.ai 创始人，硅基流动、融云联合创始人</p>
             </div>
           </article>
           <article class="host-card">
