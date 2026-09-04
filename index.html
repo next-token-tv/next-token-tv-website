@@ -662,6 +662,7 @@
             message: "英文单词首字母应大写",
             replacement: (matchedText) => matchedText[0].toUpperCase() + matchedText.slice(1),
             ignoreCanonicalTerms: true,
+            rejectMatch: (text, match) => text[match.index - 1] === ".",
           },
           {
             id: "approximate-past-week",
@@ -874,6 +875,7 @@
             }
             rule.pattern.lastIndex = 0;
             return Array.from(textToCheck.matchAll(rule.pattern), (match) => {
+              if (rule.rejectMatch?.(text, match)) return null;
               const matchedText = text.slice(match.index, match.index + match[0].length);
               return {
                 rule,
@@ -883,7 +885,7 @@
                     ? rule.replacement(matchedText)
                     : rule.replacement,
               };
-            });
+            }).filter(Boolean);
           });
         }
 
@@ -1167,6 +1169,9 @@
         console.assert(findCorrections("Hello world").length === 1);
         console.assert(findCorrections("OpenAI GPT").length === 0);
         console.assert(findCorrections("<i>Hello</i>").length === 0);
+        console.assert(findCorrections("LLM.txt").length === 0);
+        console.assert(findCorrections("README.md").length === 0);
+        console.assert(findCorrections("Three.js").length === 0);
       })();
     </script>
   </body>
