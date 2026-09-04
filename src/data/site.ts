@@ -1,6 +1,13 @@
+import episode001 from "./episodes/001.json";
+
 export type Locale = "zh-Hans" | "en";
 
 export const episode001Url = "https://www.xiaoyuzhoufm.com/episode/6a9ad843f03e74ee6b05352c";
+export const episode001Assets = {
+  id: episode001.id,
+  recordedAt: episode001.recorded_at,
+  images: episode001.images,
+} as const;
 
 type SocialLink = {
   platform: string;
@@ -215,7 +222,7 @@ export const siteContent: Record<Locale, SiteContent> = {
     path: "/",
     title: "Next Token | 词元之外",
     description: "Next Token | 词元之外是一档关注 AI 技术、产品、创业与创作的视频播客。Next Token Weekly #001 从 24 条一周新闻出发，讨论模型、Agent、智能硬件、AI 应用与原生组织。",
-    ogDescription: "Next Token Weekly #001｜大模型进入“斩杀线”大战，Token 就是新货币",
+    ogDescription: episode001.title,
     skipLink: "跳到主要内容",
     homeLabel: "Next Token 首页",
     navigationLabel: "主导航",

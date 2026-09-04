@@ -12,11 +12,22 @@
 - `src/pages/`：Astro 路由，当前生成中文首页、英文首页和 404 页。
 - `src/components/`：页面与人物卡片等可复用组件。
 - `src/data/site.ts`：中英文文案、主理人和社交账号的唯一数据源。
+- `src/data/episodes/`：从内容制作仓库导入的已发布单集事实与来源校验信息。
 - `src/styles/global.css`：品牌视觉和响应式样式。
 - `public/assets/`：字体、图片和品牌资产。
 - `wrangler.jsonc`：Cloudflare 静态资产、自定义域名与 404 行为。
 
 Astro 默认在构建时预渲染所有页面，当前不需要 Cloudflare adapter 或 Worker 运行时。
+
+## 导入单集发布包
+
+官网从相邻的内容制作仓库导入已校验的公开单集数据和 WebP 封面：
+
+```bash
+npm run import:episode -- ../next-token/shows/weekly/episodes/001
+```
+
+导入器核对发布 manifest 中的字节数和 SHA-256，并记录内容仓库提交与 manifest 校验值。已有文件不同时默认拒绝覆盖；确认发布变更后使用 `--force`。
 
 ## 本地预览
 

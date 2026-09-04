@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "id": "001",
+  "show": "next-token-weekly",
+  "status": "published",
+  "language": "zh-CN",
+  "title": "Next Token Weekly #001｜大模型进入“斩杀线”大战，Token 就是新货币",
+  "recorded_at": "2026-09-03",
+  "release_date": "2026-09-04",
+  "editorial_window": {
+    "start": "2026-08-27",
+    "end": "2026-09-03"
+  },
+  "participants": [
+    {
+      "slug": "yang-pan",
+      "name": "杨攀",
+      "role": "duty-host"
+    },
+    {
+      "slug": "guizang",
+      "name": "歸藏",
+      "role": "co-host"
+    },
+    {
+      "slug": "orange",
+      "name": "橘子（冯雷）",
+      "role": "co-host"
+    },
+    {
+      "slug": "xiangyang-qiaomu",
+      "name": "向阳乔木（乔向阳）",
+      "role": "co-host"
+    }
+  ],
+  "images": {
+    "960": "/assets/weekly-001-960.webp",
+    "1440": "/assets/weekly-001-1440.webp",
+    "1920": "/assets/weekly-001-1920.webp"
+  },
+  "provenance": {
+    "production_commit": "27bfad3e93ddd0a77e31806cdefc71d6455234d9",
+    "release_manifest_sha256": "d8db3941a513c3494d1c22f1658ae27ffdbb1f708209e1ed73a2ac0f6b079d4f"
+  }
+}

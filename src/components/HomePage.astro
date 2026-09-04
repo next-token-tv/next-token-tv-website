@@ -1,7 +1,7 @@
 ---
 import HostCard from "./HostCard.astro";
 import SiteHeader from "./SiteHeader.astro";
-import { episode001Url, platforms, type SiteContent } from "../data/site";
+import { episode001Assets, episode001Url, platforms, type SiteContent } from "../data/site";
 
 interface Props {
   content: SiteContent;
@@ -43,8 +43,8 @@ const localizedPlatforms = platforms.map((platform) => ({
       <img
         class="pan-if-cropped"
         data-pan-if-cropped
-        src="/assets/weekly-001-960.webp"
-        srcset="/assets/weekly-001-960.webp 960w, /assets/weekly-001-1440.webp 1440w, /assets/weekly-001-1920.webp 1920w"
+        src={episode001Assets.images["960"]}
+        srcset={`${episode001Assets.images["960"]} 960w, ${episode001Assets.images["1440"]} 1440w, ${episode001Assets.images["1920"]} 1920w`}
         sizes="(max-width: 1000px) 100vw, 54vw"
         width="1920"
         height="1080"
@@ -52,10 +52,10 @@ const localizedPlatforms = platforms.map((platform) => ({
         fetchpriority="high"
         alt={content.hero.visualAlt}
       />
-      <div class="episode-stamp">Weekly<br />#001</div>
+      <div class="episode-stamp">Weekly<br />#{episode001Assets.id}</div>
       <div class="visual-caption">
         <strong>24 signals<br />one open table</strong>
-        <span>Recorded · 2026.09.03</span>
+        <span>Recorded · {episode001Assets.recordedAt.replaceAll("-", ".")}</span>
       </div>
     </div>
   </section>
@@ -104,8 +104,8 @@ const localizedPlatforms = platforms.map((platform) => ({
         <img
           class="pan-if-cropped"
           data-pan-if-cropped
-          src="/assets/weekly-001-960.webp"
-          srcset="/assets/weekly-001-960.webp 960w, /assets/weekly-001-1440.webp 1440w, /assets/weekly-001-1920.webp 1920w"
+          src={episode001Assets.images["960"]}
+          srcset={`${episode001Assets.images["960"]} 960w, ${episode001Assets.images["1440"]} 1440w, ${episode001Assets.images["1920"]} 1920w`}
           sizes="(max-width: 1000px) 100vw, 50vw"
           width="1920"
           height="1080"
@@ -116,7 +116,7 @@ const localizedPlatforms = platforms.map((platform) => ({
         <span class="label">Recorded 09.03</span>
       </div>
       <div class="weekly-copy">
-        <div class="episode-number">#001</div>
+        <div class="episode-number">#{episode001Assets.id}</div>
         <div>
           <p class="eyebrow">{content.weekly.eyebrow}</p>
           <h3>{content.weekly.heading[0]}<br />{content.weekly.heading[1]}</h3>
