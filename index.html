@@ -1,0 +1,864 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="本地 SRT 半角字符审校工具，支持文件监视与自动刷新。"
+    />
+    <title>SRT 半角审校</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #080a0d;
+        --panel: #11151a;
+        --panel-raised: #171c22;
+        --line: #2a313a;
+        --line-strong: #414b57;
+        --text: #f2f5f7;
+        --muted: #8d98a5;
+        --accent: #d7ff38;
+        --accent-ink: #111700;
+        --danger: #ff746c;
+        --radius: 16px;
+        --mono: "SFMono-Regular", "Cascadia Code", "Roboto Mono", Consolas, monospace;
+        --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        min-width: 320px;
+        background: var(--bg);
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 85% -10%, rgba(215, 255, 56, 0.08), transparent 30rem),
+          var(--bg);
+        font-family: var(--sans);
+      }
+
+      button,
+      input {
+        font: inherit;
+      }
+
+      button {
+        border: 0;
+      }
+
+      .app {
+        width: min(1120px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 28px 0 80px;
+      }
+
+      .topbar {
+        position: sticky;
+        z-index: 10;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 68px;
+        padding: 12px 0;
+        background: rgba(8, 10, 13, 0.88);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(65, 75, 87, 0.55);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+      }
+
+      .brand-mark {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        flex: 0 0 auto;
+        place-items: center;
+        border: 1px solid var(--line-strong);
+        border-radius: 10px;
+        color: var(--accent);
+        background: #0c0f12;
+        font: 700 17px/1 var(--mono);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 1rem;
+        letter-spacing: 0.01em;
+      }
+
+      .file-name {
+        max-width: 48vw;
+        margin: 3px 0 0;
+        overflow: hidden;
+        color: var(--muted);
+        font: 0.75rem/1.2 var(--mono);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .open-button,
+      .reload-button {
+        display: inline-flex;
+        min-height: 42px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 0.875rem;
+        font-weight: 700;
+        transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
+      }
+
+      .open-button {
+        gap: 8px;
+        padding: 0 16px;
+        color: var(--accent-ink);
+        background: var(--accent);
+      }
+
+      .open-button:hover {
+        background: #e2ff72;
+        transform: translateY(-1px);
+      }
+
+      .open-button:focus-visible,
+      .reload-button:focus-visible,
+      .drop-zone:focus-visible {
+        outline: 3px solid rgba(215, 255, 56, 0.35);
+        outline-offset: 3px;
+      }
+
+      .workspace-header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 20px;
+        align-items: end;
+        padding: 32px 0 22px;
+      }
+
+      .eyebrow {
+        margin: 0 0 9px;
+        color: var(--accent);
+        font: 700 0.72rem/1 var(--mono);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        max-width: 700px;
+        margin: 0;
+        font-size: clamp(1.6rem, 3vw, 2.6rem);
+        line-height: 1.08;
+        letter-spacing: -0.035em;
+      }
+
+      .status {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 9px;
+        min-height: 24px;
+        color: var(--muted);
+        font-size: 0.8125rem;
+        text-align: right;
+      }
+
+      .status-dot {
+        width: 7px;
+        height: 7px;
+        flex: 0 0 auto;
+        border-radius: 50%;
+        background: var(--line-strong);
+      }
+
+      .status.is-live .status-dot {
+        background: var(--accent);
+        box-shadow: 0 0 0 4px rgba(215, 255, 56, 0.09);
+      }
+
+      .status.is-error .status-dot {
+        background: var(--danger);
+      }
+
+      .drop-zone {
+        display: grid;
+        min-height: 260px;
+        place-items: center;
+        border: 1px dashed var(--line-strong);
+        border-radius: var(--radius);
+        background: rgba(17, 21, 26, 0.72);
+        cursor: pointer;
+        transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+      }
+
+      .drop-zone:hover,
+      .drop-zone.is-over {
+        border-color: var(--accent);
+        background: rgba(215, 255, 56, 0.045);
+      }
+
+      .drop-zone.is-over {
+        transform: scale(0.997);
+      }
+
+      .empty-copy {
+        max-width: 440px;
+        padding: 32px;
+        text-align: center;
+      }
+
+      .empty-icon {
+        display: grid;
+        width: 58px;
+        height: 70px;
+        margin: 0 auto 22px;
+        place-items: center;
+        border: 1px solid var(--line-strong);
+        border-radius: 8px;
+        color: var(--accent);
+        background: var(--panel-raised);
+        font: 700 0.8rem/1 var(--mono);
+        box-shadow: 9px 9px 0 rgba(215, 255, 56, 0.08);
+      }
+
+      .empty-copy strong {
+        display: block;
+        margin-bottom: 9px;
+        font-size: 1.08rem;
+      }
+
+      .empty-copy p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.7;
+      }
+
+      .review-panel[hidden],
+      .drop-zone[hidden] {
+        display: none;
+      }
+
+      .summary {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+        gap: 1px;
+        overflow: hidden;
+        margin-bottom: 16px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--line);
+      }
+
+      .metric,
+      .summary-action {
+        min-height: 82px;
+        background: var(--panel);
+      }
+
+      .metric {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 14px 18px;
+      }
+
+      .metric-value {
+        font: 700 1.35rem/1.2 var(--mono);
+      }
+
+      .metric-label {
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 0.75rem;
+      }
+
+      .summary-action {
+        display: grid;
+        min-width: 140px;
+        padding: 14px;
+        place-items: center;
+      }
+
+      .reload-button {
+        width: 100%;
+        padding: 0 13px;
+        border: 1px solid var(--line-strong);
+        color: var(--text);
+        background: transparent;
+      }
+
+      .reload-button:hover {
+        border-color: var(--text);
+        background: var(--panel-raised);
+      }
+
+      .cue-list {
+        display: grid;
+        gap: 9px;
+      }
+
+      .cue {
+        display: grid;
+        grid-template-columns: 90px minmax(0, 1fr);
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--panel);
+      }
+
+      .cue.has-halfwidth {
+        border-color: #3b4424;
+      }
+
+      .cue-meta {
+        padding: 17px 13px;
+        border-right: 1px solid var(--line);
+        color: var(--muted);
+        background: #0d1014;
+        font-family: var(--mono);
+      }
+
+      .cue-number {
+        display: block;
+        color: var(--text);
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+
+      .cue-time {
+        display: block;
+        margin-top: 8px;
+        font-size: 0.625rem;
+        line-height: 1.45;
+        word-break: break-all;
+      }
+
+      .cue-text {
+        min-width: 0;
+        padding: 16px 18px 17px;
+        font-size: 1rem;
+        line-height: 1.75;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+
+      mark {
+        margin: 0 0.04em;
+        padding: 0.11em 0.18em 0.13em;
+        border-radius: 3px;
+        color: var(--accent-ink);
+        background: var(--accent);
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+        font-family: var(--mono);
+        font-weight: 700;
+      }
+
+      .parse-warning {
+        margin: 0 0 16px;
+        padding: 12px 14px;
+        border: 1px solid rgba(255, 116, 108, 0.35);
+        border-radius: 10px;
+        color: #ffaaa5;
+        background: rgba(255, 116, 108, 0.07);
+        font-size: 0.8125rem;
+        line-height: 1.5;
+      }
+
+      .keyboard-hint {
+        margin: 22px 0 0;
+        color: var(--muted);
+        font-size: 0.75rem;
+        text-align: center;
+      }
+
+      kbd {
+        padding: 2px 6px;
+        border: 1px solid var(--line-strong);
+        border-bottom-width: 2px;
+        border-radius: 5px;
+        color: #bdc5ce;
+        background: var(--panel);
+        font: 0.7rem/1 var(--mono);
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      @media (max-width: 720px) {
+        .app {
+          width: min(100% - 24px, 1120px);
+          padding-top: 12px;
+        }
+
+        .topbar {
+          min-height: 62px;
+        }
+
+        .workspace-header {
+          grid-template-columns: 1fr;
+          padding-top: 24px;
+        }
+
+        .status {
+          justify-content: flex-start;
+          text-align: left;
+        }
+
+        .summary {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .summary-action {
+          grid-column: 1 / -1;
+          min-height: 64px;
+        }
+
+        .cue {
+          grid-template-columns: 1fr;
+        }
+
+        .cue-meta {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px;
+          padding: 9px 13px;
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .cue-time {
+          margin: 0;
+          text-align: right;
+        }
+
+        .file-name {
+          max-width: 38vw;
+        }
+
+        .open-button span {
+          display: none;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">Aa</div>
+          <div>
+            <h1>SRT 半角审校</h1>
+            <p class="file-name" id="fileName">尚未打开文件</p>
+          </div>
+        </div>
+        <button class="open-button" id="openButton" type="button">
+          <span aria-hidden="true">＋</span>
+          <span>打开并监视 .srt</span>
+        </button>
+        <input class="sr-only" id="fileInput" type="file" accept=".srt,application/x-subrip,text/plain" />
+      </header>
+
+      <section class="workspace-header" aria-labelledby="pageTitle">
+        <div>
+          <p class="eyebrow">Half-width character review</p>
+          <h2 id="pageTitle">让藏在字幕里的半角字符无处可躲。</h2>
+        </div>
+        <div class="status" id="status" role="status" aria-live="polite">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span id="statusText">等待文件</span>
+        </div>
+      </section>
+
+      <section
+        class="drop-zone"
+        id="dropZone"
+        role="button"
+        tabindex="0"
+        aria-label="选择或拖入 SRT 文件"
+      >
+        <div class="empty-copy">
+          <div class="empty-icon" aria-hidden="true">.SRT</div>
+          <strong>拖入字幕，或点击选择文件</strong>
+          <p>所有可见 ASCII 半角字符都会高亮。使用“打开并监视”可在原文件保存后自动刷新。</p>
+        </div>
+      </section>
+
+      <section class="review-panel" id="reviewPanel" hidden aria-label="字幕审校结果">
+        <div class="summary" aria-label="文件统计">
+          <div class="metric">
+            <span class="metric-value" id="cueCount">0</span>
+            <span class="metric-label">字幕条目</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value" id="affectedCount">0</span>
+            <span class="metric-label">含半角条目</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value" id="characterCount">0</span>
+            <span class="metric-label">半角字符</span>
+          </div>
+          <div class="summary-action">
+            <button class="reload-button" id="reloadButton" type="button">立即刷新</button>
+          </div>
+        </div>
+        <p class="parse-warning" id="parseWarning" hidden></p>
+        <div class="cue-list" id="cueList"></div>
+      </section>
+
+      <p class="keyboard-hint"><kbd>O</kbd> 打开文件 · <kbd>R</kbd> 刷新当前文件</p>
+    </main>
+
+    <script>
+      (() => {
+        "use strict";
+
+        const POLL_INTERVAL = 900;
+        const ASCII_VISIBLE = /[\u0021-\u007e]/;
+        const ASCII_RUNS = /[\u0021-\u007e]+/g;
+
+        const elements = {
+          openButton: document.querySelector("#openButton"),
+          fileInput: document.querySelector("#fileInput"),
+          fileName: document.querySelector("#fileName"),
+          dropZone: document.querySelector("#dropZone"),
+          reviewPanel: document.querySelector("#reviewPanel"),
+          status: document.querySelector("#status"),
+          statusText: document.querySelector("#statusText"),
+          cueCount: document.querySelector("#cueCount"),
+          affectedCount: document.querySelector("#affectedCount"),
+          characterCount: document.querySelector("#characterCount"),
+          reloadButton: document.querySelector("#reloadButton"),
+          parseWarning: document.querySelector("#parseWarning"),
+          cueList: document.querySelector("#cueList"),
+        };
+
+        let fileHandle = null;
+        let fallbackFile = null;
+        let lastSignature = "";
+        let pollTimer = null;
+        let isReading = false;
+
+        function setStatus(message, mode = "idle") {
+          elements.statusText.textContent = message;
+          elements.status.classList.toggle("is-live", mode === "live");
+          elements.status.classList.toggle("is-error", mode === "error");
+        }
+
+        function fileSignature(file) {
+          return `${file.name}:${file.size}:${file.lastModified}`;
+        }
+
+        function parseSrt(source) {
+          const normalized = source.replace(/^\uFEFF/, "").replace(/\r\n?/g, "\n").trim();
+          if (!normalized) return { cues: [], malformed: 0 };
+
+          let malformed = 0;
+          const blocks = normalized.split(/\n{2,}/);
+          const cues = blocks.map((block, position) => {
+            const lines = block.split("\n");
+            const hasIndex = /^\d+$/.test(lines[0]?.trim() || "");
+            const index = hasIndex ? lines.shift().trim() : String(position + 1);
+            const hasTime = /-->/.test(lines[0] || "");
+            const time = hasTime ? lines.shift().trim() : "时间轴格式异常";
+            if (!hasTime) malformed += 1;
+
+            return {
+              index,
+              time,
+              text: lines.join("\n"),
+            };
+          });
+
+          return { cues, malformed };
+        }
+
+        function appendHighlightedText(container, text) {
+          let cursor = 0;
+          for (const match of text.matchAll(ASCII_RUNS)) {
+            if (match.index > cursor) {
+              container.append(document.createTextNode(text.slice(cursor, match.index)));
+            }
+            const mark = document.createElement("mark");
+            mark.textContent = match[0];
+            mark.title = "半角字符";
+            container.append(mark);
+            cursor = match.index + match[0].length;
+          }
+          if (cursor < text.length) {
+            container.append(document.createTextNode(text.slice(cursor)));
+          }
+        }
+
+        function render(source) {
+          const { cues, malformed } = parseSrt(source);
+          const fragment = document.createDocumentFragment();
+          let affected = 0;
+          let characters = 0;
+
+          for (const cue of cues) {
+            const matches = cue.text.match(ASCII_RUNS) || [];
+            const count = matches.reduce((total, run) => total + run.length, 0);
+            if (count > 0) affected += 1;
+            characters += count;
+
+            const article = document.createElement("article");
+            article.className = `cue${count > 0 ? " has-halfwidth" : ""}`;
+
+            const meta = document.createElement("div");
+            meta.className = "cue-meta";
+            const number = document.createElement("span");
+            number.className = "cue-number";
+            number.textContent = `#${cue.index}`;
+            const time = document.createElement("span");
+            time.className = "cue-time";
+            time.textContent = cue.time.replace(" --> ", "\n→ ");
+            meta.append(number, time);
+
+            const text = document.createElement("div");
+            text.className = "cue-text";
+            appendHighlightedText(text, cue.text);
+            article.append(meta, text);
+            fragment.append(article);
+          }
+
+          elements.cueList.replaceChildren(fragment);
+          elements.cueCount.textContent = cues.length.toLocaleString("zh-CN");
+          elements.affectedCount.textContent = affected.toLocaleString("zh-CN");
+          elements.characterCount.textContent = characters.toLocaleString("zh-CN");
+          elements.parseWarning.hidden = malformed === 0;
+          elements.parseWarning.textContent = malformed
+            ? `${malformed} 条内容没有识别到标准时间轴，已保留并标记为格式异常。`
+            : "";
+          elements.dropZone.hidden = true;
+          elements.reviewPanel.hidden = false;
+        }
+
+        async function readFile(file, { preserveScroll = false, live = false } = {}) {
+          if (isReading) return;
+          isReading = true;
+          const scrollRatio = preserveScroll
+            ? window.scrollY / Math.max(1, document.documentElement.scrollHeight - window.innerHeight)
+            : 0;
+
+          try {
+            const source = await file.text();
+            render(source);
+            elements.fileName.textContent = file.name;
+            lastSignature = fileSignature(file);
+            const time = new Intl.DateTimeFormat("zh-CN", {
+              hour: "2-digit",
+              minute: "2-digit",
+              second: "2-digit",
+              hour12: false,
+            }).format(new Date());
+            setStatus(live ? `正在监视 · ${time} 已更新` : `${time} 已载入`, live ? "live" : "idle");
+
+            if (preserveScroll) {
+              requestAnimationFrame(() => {
+                const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+                window.scrollTo({ top: maxScroll * scrollRatio });
+              });
+            }
+          } catch (error) {
+            console.error(error);
+            setStatus("无法读取文件，请重新选择", "error");
+          } finally {
+            isReading = false;
+          }
+        }
+
+        function stopWatching() {
+          if (pollTimer) window.clearInterval(pollTimer);
+          pollTimer = null;
+        }
+
+        function startWatching() {
+          stopWatching();
+          pollTimer = window.setInterval(async () => {
+            if (!fileHandle || isReading || document.hidden) return;
+            try {
+              const file = await fileHandle.getFile();
+              if (fileSignature(file) !== lastSignature) {
+                await readFile(file, { preserveScroll: true, live: true });
+              }
+            } catch (error) {
+              console.error(error);
+              stopWatching();
+              setStatus("文件监视已中断，请重新打开", "error");
+            }
+          }, POLL_INTERVAL);
+        }
+
+        async function openWithWatcher() {
+          if (!("showOpenFilePicker" in window)) {
+            elements.fileInput.value = "";
+            elements.fileInput.click();
+            return;
+          }
+
+          try {
+            [fileHandle] = await window.showOpenFilePicker({
+              multiple: false,
+              types: [
+                {
+                  description: "SRT 字幕",
+                  accept: { "text/plain": [".srt"] },
+                },
+              ],
+            });
+            fallbackFile = null;
+            const file = await fileHandle.getFile();
+            await readFile(file, { live: true });
+            startWatching();
+          } catch (error) {
+            if (error?.name !== "AbortError") {
+              console.error(error);
+              setStatus("文件打开失败，请重试", "error");
+            }
+          }
+        }
+
+        async function loadFallback(file) {
+          if (!file) return;
+          stopWatching();
+          fileHandle = null;
+          fallbackFile = file;
+          await readFile(file);
+          setStatus("已载入 · 拖放模式需手动刷新", "idle");
+        }
+
+        async function reloadCurrent() {
+          if (fileHandle) {
+            const file = await fileHandle.getFile();
+            await readFile(file, { preserveScroll: true, live: true });
+          } else if (fallbackFile) {
+            elements.fileInput.value = "";
+            elements.fileInput.click();
+          } else {
+            await openWithWatcher();
+          }
+        }
+
+        function registerReviewTool() {
+          const context = document.modelContext;
+          if (!context?.registerTool) return;
+
+          try {
+            void Promise.resolve(
+              context.registerTool({
+                name: "review_srt_text",
+                title: "审校 SRT 文本",
+                description: "在页面中加载 SRT 文本并统计、标出其中的可见 ASCII 半角字符。",
+                inputSchema: {
+                  type: "object",
+                  properties: {
+                    content: { type: "string", description: "完整的 SRT 文件内容" },
+                    filename: { type: "string", description: "可选的显示文件名" },
+                  },
+                  required: ["content"],
+                  additionalProperties: false,
+                },
+                annotations: { readOnlyHint: false, untrustedContentHint: true },
+                execute(input) {
+                  if (!input || typeof input.content !== "string") {
+                    throw new TypeError("content 必须是字符串");
+                  }
+                  stopWatching();
+                  fileHandle = null;
+                  fallbackFile = null;
+                  render(input.content);
+                  elements.fileName.textContent =
+                    typeof input.filename === "string" && input.filename.trim()
+                      ? input.filename.trim()
+                      : "Agent 提供的字幕";
+                  setStatus("已载入审校内容", "idle");
+                  return {
+                    cueCount: Number(elements.cueCount.textContent.replaceAll(",", "")),
+                    affectedCueCount: Number(elements.affectedCount.textContent.replaceAll(",", "")),
+                    halfwidthCharacterCount: Number(elements.characterCount.textContent.replaceAll(",", "")),
+                  };
+                },
+              }),
+            ).catch((error) => console.error("WebMCP tool registration failed", error));
+          } catch (error) {
+            console.error("WebMCP tool registration failed", error);
+          }
+        }
+
+        elements.openButton.addEventListener("click", openWithWatcher);
+        elements.dropZone.addEventListener("click", openWithWatcher);
+        elements.dropZone.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openWithWatcher();
+          }
+        });
+        elements.fileInput.addEventListener("change", (event) => loadFallback(event.target.files?.[0]));
+        elements.reloadButton.addEventListener("click", reloadCurrent);
+
+        for (const eventName of ["dragenter", "dragover"]) {
+          elements.dropZone.addEventListener(eventName, (event) => {
+            event.preventDefault();
+            elements.dropZone.classList.add("is-over");
+          });
+        }
+        for (const eventName of ["dragleave", "drop"]) {
+          elements.dropZone.addEventListener(eventName, (event) => {
+            event.preventDefault();
+            elements.dropZone.classList.remove("is-over");
+          });
+        }
+        elements.dropZone.addEventListener("drop", (event) => loadFallback(event.dataTransfer.files?.[0]));
+
+        document.addEventListener("keydown", (event) => {
+          if (event.metaKey || event.ctrlKey || event.altKey) return;
+          if (event.key.toLowerCase() === "o") openWithWatcher();
+          if (event.key.toLowerCase() === "r") reloadCurrent();
+        });
+
+        window.addEventListener("beforeunload", stopWatching);
+        registerReviewTool();
+
+        // Keep this test close to the UI logic: spaces and full-width forms are intentionally excluded.
+        console.assert(ASCII_VISIBLE.test("A") && !ASCII_VISIBLE.test("Ａ") && !ASCII_VISIBLE.test(" "));
+      })();
+    </script>
+  </body>
+</html>

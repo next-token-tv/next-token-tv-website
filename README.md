@@ -1,3 +1,5 @@
-# Next Token TV Website
+# SRT 半角审校
 
-Open-source website project for Next Token TV.
+一个零依赖的本地字幕审校页面，用于高亮 `.srt` 文件中的可见 ASCII 半角字符。
+
+使用 Chromium 系浏览器打开页面后，点击“打开并监视 .srt”。原文件在其他编辑器中保存时，页面会自动刷新。拖放和普通文件选择可作为不支持文件监视时的降级方式。
