@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-Hans">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,8 +15,31 @@
       content="Next Token Weekly #001：模型试不过来，Agent 也试不过来，我们到底该怎么选？"
     />
     <link rel="canonical" href="https://nexttoken.tv/" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://nexttoken.tv/" />
+    <link rel="alternate" hreflang="en" href="https://nexttoken.tv/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://nexttoken.tv/" />
     <link rel="icon" type="image/png" href="assets/favicon.png" />
     <title>Next Token | 词元之外</title>
+    <script>
+      (() => {
+        if (window.location.pathname !== "/") return;
+
+        const storageKey = "next-token-language";
+        let selectedLanguage = null;
+
+        try {
+          selectedLanguage = window.localStorage.getItem(storageKey);
+        } catch {}
+
+        const browserLanguage = navigator.languages?.[0] || navigator.language || "";
+        const prefersChinese = /^zh(?:-|$)/i.test(browserLanguage);
+        const targetLanguage = selectedLanguage || (browserLanguage && !prefersChinese ? "en" : "zh-Hans");
+
+        if (targetLanguage === "en") {
+          window.location.replace(`/en/${window.location.search}${window.location.hash}`);
+        }
+      })();
+    </script>
     <style>
       @font-face {
         font-family: "League Spartan";
@@ -152,11 +175,11 @@
         font-weight: 750;
       }
 
-      .nav-links a {
+      .nav-links > a {
         position: relative;
       }
 
-      .nav-links a::after {
+      .nav-links > a::after {
         position: absolute;
         right: 0;
         bottom: -0.35rem;
@@ -169,9 +192,36 @@
         transition: transform 180ms ease;
       }
 
-      .nav-links a:hover::after {
+      .nav-links > a:hover::after {
         transform: scaleX(1);
         transform-origin: left;
+      }
+
+      .language-switcher {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .language-switcher a {
+        font-family: var(--sans);
+        opacity: 0.45;
+        transition: opacity 180ms ease;
+      }
+
+      .language-switcher a:hover,
+      .language-switcher a:focus-visible,
+      .language-switcher a[aria-current="page"] {
+        opacity: 1;
+      }
+
+      .language-switcher span {
+        opacity: 0.35;
       }
 
       .status-pill {
@@ -844,13 +894,12 @@
           min-height: 66px;
         }
 
-        .nav-links a {
+        .nav-links > a {
           display: none;
         }
 
         .status-pill {
-          min-height: 34px;
-          padding-inline: 0.7rem;
+          display: none;
         }
 
         .hero-copy {
@@ -969,6 +1018,11 @@
           <a href="#weekly">Next Token Weekly</a>
           <a href="#hosts">联合主理人</a>
           <a href="#subscribe">订阅</a>
+          <div class="language-switcher" aria-label="语言切换">
+            <a href="/" lang="zh-Hans" data-language="zh-Hans" aria-current="page">中文</a>
+            <span aria-hidden="true">/</span>
+            <a href="/en/" lang="en" data-language="en">EN</a>
+          </div>
           <span class="status-pill">首期即将上线</span>
         </nav>
       </div>
@@ -1125,7 +1179,7 @@
             </div>
             <div class="host-info">
               <h3>杨攀</h3>
-              <p>联合主理人 · Bilink.ai 创始人，硅基流动、融云联合创始人</p>
+              <p>联合主理人 · Bilink.ai 创始人，融云联合创始人 &amp; 前 CTO，前硅基流动联合创始人</p>
             </div>
           </article>
           <article class="host-card">
@@ -1212,6 +1266,15 @@
       const revealItems = document.querySelectorAll("[data-reveal]");
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const panImages = document.querySelectorAll("[data-pan-if-cropped]");
+      const languageLinks = document.querySelectorAll("[data-language]");
+
+      languageLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          try {
+            window.localStorage.setItem("next-token-language", link.dataset.language);
+          } catch {}
+        });
+      });
 
       const updateImagePan = (image) => {
         const frame = image.parentElement;
