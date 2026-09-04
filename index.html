@@ -665,11 +665,11 @@
             rejectMatch: (text, match) => text[match.index - 1] === ".",
           },
           {
-            id: "approximate-past-week",
+            id: "approximate-one-week",
             label: "虚数格式",
-            pattern: /过去[\u0020\u3000]*1[\u0020\u3000]*周/g,
+            pattern: /1[\u0020\u3000]*周/g,
             message: "表示概数时使用中文数字",
-            replacement: "过去一周",
+            replacement: "一周",
           },
         ];
 
@@ -1164,7 +1164,9 @@
         console.assert(ASCII_VISIBLE.test("A") && !ASCII_VISIBLE.test("Ａ") && !ASCII_VISIBLE.test(" "));
         console.assert(findCorrections("过去 1 周").length === 1);
         console.assert(findCorrections("过去1周").length === 1);
-        console.assert(findCorrections("一共 1 周").length === 0);
+        console.assert(findCorrections("波澜壮阔的 1 周").length === 1);
+        console.assert(findCorrections("一共 1 周").length === 1);
+        console.assert(findCorrections("过去 2 周").length === 0);
         console.assert(findCorrections("hello World").length === 1);
         console.assert(findCorrections("Hello world").length === 1);
         console.assert(findCorrections("OpenAI GPT").length === 0);
