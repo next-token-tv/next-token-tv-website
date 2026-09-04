@@ -122,11 +122,19 @@
       .wordmark {
         display: inline-flex;
         align-items: center;
+        gap: 0.7rem;
         font-family: var(--display);
         font-size: clamp(1.35rem, 2.4vw, 1.9rem);
         line-height: 1;
         letter-spacing: -0.055em;
         text-transform: uppercase;
+      }
+
+      .wordmark img {
+        width: 2.5rem;
+        height: 2.5rem;
+        flex: 0 0 auto;
+        display: block;
       }
 
       .nav-links {
@@ -946,6 +954,7 @@
     <header class="site-header">
       <div class="nav shell">
         <a class="wordmark" href="#top" aria-label="Next Token 首页">
+          <img src="assets/logo-next-token.svg" width="800" height="660" alt="" />
           <span>Next Token</span>
         </a>
         <nav class="nav-links" aria-label="主导航">
