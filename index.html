@@ -604,6 +604,13 @@
         const ASCII_RUNS = /[\u0021-\u007e]+/g;
         const CORRECTION_RULES = [
           {
+            id: "english-word-capitalization",
+            label: "英文大小写",
+            pattern: /\b[a-z][A-Za-z]*(?:['’][A-Za-z]+)?\b/g,
+            message: "英文单词首字母应大写",
+            replacement: (matchedText) => matchedText[0].toUpperCase() + matchedText.slice(1),
+          },
+          {
             id: "approximate-past-week",
             label: "虚数格式",
             pattern: /过去[\u0020\u3000]*1[\u0020\u3000]*周/g,
@@ -687,12 +694,24 @@
         }
 
         function findCorrections(text) {
-          return CORRECTION_RULES.flatMap((rule) =>
-            Array.from(text.matchAll(rule.pattern), (match) => ({
-              rule,
-              matchedText: match[0],
-            })),
+          const textWithoutMarkup = text.replace(/<[^>\n]*>|\{\\[^}\n]*\}/g, (markup) =>
+            " ".repeat(markup.length),
           );
+
+          return CORRECTION_RULES.flatMap((rule) => {
+            rule.pattern.lastIndex = 0;
+            return Array.from(textWithoutMarkup.matchAll(rule.pattern), (match) => {
+              const matchedText = text.slice(match.index, match.index + match[0].length);
+              return {
+                rule,
+                matchedText,
+                replacement:
+                  typeof rule.replacement === "function"
+                    ? rule.replacement(matchedText)
+                    : rule.replacement,
+              };
+            });
+          });
         }
 
         function render(source) {
@@ -744,7 +763,7 @@
                 original.textContent = issue.matchedText;
                 const arrow = document.createTextNode(" → ");
                 const replacement = document.createElement("code");
-                replacement.textContent = issue.rule.replacement;
+                replacement.textContent = issue.replacement;
                 detail.append(original, arrow, replacement);
                 item.append(label, detail);
                 issueList.append(item);
@@ -959,6 +978,10 @@
         console.assert(findCorrections("过去 1 周").length === 1);
         console.assert(findCorrections("过去1周").length === 1);
         console.assert(findCorrections("一共 1 周").length === 0);
+        console.assert(findCorrections("hello World").length === 1);
+        console.assert(findCorrections("Hello world").length === 1);
+        console.assert(findCorrections("OpenAI GPT").length === 0);
+        console.assert(findCorrections("<i>Hello</i>").length === 0);
       })();
     </script>
   </body>
