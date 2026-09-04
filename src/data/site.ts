@@ -278,8 +278,8 @@ export const siteContent: Record<Locale, SiteContent> = {
     languageLabel: "Language switcher",
     status: "Episode #001 is live",
     hero: {
-      eyebrow: "Next Token | Beyond the Next Token",
-      headingLead: "More than\nthe next ",
+      eyebrow: "Next Token | 词元之外",
+      headingLead: "Beyond the\nnext ",
       headingAccent: "token.",
       intro: "A video podcast about AI technology, products, entrepreneurship, and creativity. We start with first-hand experience from the Chinese-speaking world to ask what AI is changing—and what deserves our attention next.",
       primaryAction: "Explore episode #001",
