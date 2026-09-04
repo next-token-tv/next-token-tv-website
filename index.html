@@ -257,7 +257,7 @@
 
       .summary {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+        grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
         gap: 1px;
         overflow: hidden;
         margin-bottom: 16px;
@@ -327,6 +327,11 @@
         border-color: #3b4424;
       }
 
+      .cue.has-issues {
+        grid-template-columns: 90px minmax(0, 1fr) minmax(250px, 0.44fr);
+        border-color: rgba(255, 116, 108, 0.5);
+      }
+
       .cue-meta {
         padding: 17px 13px;
         border-right: 1px solid var(--line);
@@ -357,6 +362,41 @@
         line-height: 1.75;
         white-space: pre-wrap;
         overflow-wrap: anywhere;
+      }
+
+      .cue-issues {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px;
+        border-left: 1px solid rgba(255, 116, 108, 0.24);
+        background: rgba(255, 116, 108, 0.045);
+      }
+
+      .issue {
+        padding: 10px 11px;
+        border: 1px solid rgba(255, 116, 108, 0.3);
+        border-radius: 8px;
+        color: #ffc0bc;
+        background: rgba(255, 116, 108, 0.07);
+        font-size: 0.8125rem;
+        line-height: 1.55;
+      }
+
+      .issue-label {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--danger);
+        font: 700 0.6875rem/1.2 var(--mono);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .issue code {
+        color: var(--text);
+        font-family: var(--mono);
+        font-size: 0.78rem;
       }
 
       mark {
@@ -432,7 +472,7 @@
         }
 
         .summary {
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(2, 1fr);
         }
 
         .summary-action {
@@ -440,7 +480,8 @@
           min-height: 64px;
         }
 
-        .cue {
+        .cue,
+        .cue.has-issues {
           grid-template-columns: 1fr;
         }
 
@@ -457,6 +498,11 @@
         .cue-time {
           margin: 0;
           text-align: right;
+        }
+
+        .cue-issues {
+          border-top: 1px solid rgba(255, 116, 108, 0.24);
+          border-left: 0;
         }
 
         .file-name {
@@ -534,6 +580,10 @@
             <span class="metric-value" id="characterCount">0</span>
             <span class="metric-label">半角字符</span>
           </div>
+          <div class="metric">
+            <span class="metric-value" id="correctionCount">0</span>
+            <span class="metric-label">勘误提示</span>
+          </div>
           <div class="summary-action">
             <button class="reload-button" id="reloadButton" type="button">立即刷新</button>
           </div>
@@ -552,6 +602,15 @@
         const POLL_INTERVAL = 900;
         const ASCII_VISIBLE = /[\u0021-\u007e]/;
         const ASCII_RUNS = /[\u0021-\u007e]+/g;
+        const CORRECTION_RULES = [
+          {
+            id: "approximate-past-week",
+            label: "虚数格式",
+            pattern: /过去[\u0020\u3000]*1[\u0020\u3000]*周/g,
+            message: "表示概数时使用中文数字",
+            replacement: "过去一周",
+          },
+        ];
 
         const elements = {
           openButton: document.querySelector("#openButton"),
@@ -564,6 +623,7 @@
           cueCount: document.querySelector("#cueCount"),
           affectedCount: document.querySelector("#affectedCount"),
           characterCount: document.querySelector("#characterCount"),
+          correctionCount: document.querySelector("#correctionCount"),
           reloadButton: document.querySelector("#reloadButton"),
           parseWarning: document.querySelector("#parseWarning"),
           cueList: document.querySelector("#cueList"),
@@ -626,20 +686,32 @@
           }
         }
 
+        function findCorrections(text) {
+          return CORRECTION_RULES.flatMap((rule) =>
+            Array.from(text.matchAll(rule.pattern), (match) => ({
+              rule,
+              matchedText: match[0],
+            })),
+          );
+        }
+
         function render(source) {
           const { cues, malformed } = parseSrt(source);
           const fragment = document.createDocumentFragment();
           let affected = 0;
           let characters = 0;
+          let corrections = 0;
 
           for (const cue of cues) {
             const matches = cue.text.match(ASCII_RUNS) || [];
             const count = matches.reduce((total, run) => total + run.length, 0);
+            const issues = findCorrections(cue.text);
             if (count > 0) affected += 1;
             characters += count;
+            corrections += issues.length;
 
             const article = document.createElement("article");
-            article.className = `cue${count > 0 ? " has-halfwidth" : ""}`;
+            article.className = `cue${count > 0 ? " has-halfwidth" : ""}${issues.length ? " has-issues" : ""}`;
 
             const meta = document.createElement("div");
             meta.className = "cue-meta";
@@ -655,6 +727,30 @@
             text.className = "cue-text";
             appendHighlightedText(text, cue.text);
             article.append(meta, text);
+
+            if (issues.length) {
+              const issueList = document.createElement("aside");
+              issueList.className = "cue-issues";
+              issueList.setAttribute("aria-label", "勘误提示");
+              for (const issue of issues) {
+                const item = document.createElement("div");
+                item.className = "issue";
+                const label = document.createElement("span");
+                label.className = "issue-label";
+                label.textContent = issue.rule.label;
+                const detail = document.createElement("span");
+                detail.append(document.createTextNode(`${issue.rule.message}：`));
+                const original = document.createElement("code");
+                original.textContent = issue.matchedText;
+                const arrow = document.createTextNode(" → ");
+                const replacement = document.createElement("code");
+                replacement.textContent = issue.rule.replacement;
+                detail.append(original, arrow, replacement);
+                item.append(label, detail);
+                issueList.append(item);
+              }
+              article.append(issueList);
+            }
             fragment.append(article);
           }
 
@@ -662,6 +758,7 @@
           elements.cueCount.textContent = cues.length.toLocaleString("zh-CN");
           elements.affectedCount.textContent = affected.toLocaleString("zh-CN");
           elements.characterCount.textContent = characters.toLocaleString("zh-CN");
+          elements.correctionCount.textContent = corrections.toLocaleString("zh-CN");
           elements.parseWarning.hidden = malformed === 0;
           elements.parseWarning.textContent = malformed
             ? `${malformed} 条内容没有识别到标准时间轴，已保留并标记为格式异常。`
@@ -813,6 +910,7 @@
                     cueCount: Number(elements.cueCount.textContent.replaceAll(",", "")),
                     affectedCueCount: Number(elements.affectedCount.textContent.replaceAll(",", "")),
                     halfwidthCharacterCount: Number(elements.characterCount.textContent.replaceAll(",", "")),
+                    correctionCount: Number(elements.correctionCount.textContent.replaceAll(",", "")),
                   };
                 },
               }),
@@ -858,6 +956,9 @@
 
         // Keep this test close to the UI logic: spaces and full-width forms are intentionally excluded.
         console.assert(ASCII_VISIBLE.test("A") && !ASCII_VISIBLE.test("Ａ") && !ASCII_VISIBLE.test(" "));
+        console.assert(findCorrections("过去 1 周").length === 1);
+        console.assert(findCorrections("过去1周").length === 1);
+        console.assert(findCorrections("一共 1 周").length === 0);
       })();
     </script>
   </body>
