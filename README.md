@@ -15,3 +15,11 @@ npm run dev
 ```bash
 npm run build
 ```
+
+## 部署
+
+官网使用 Cloudflare Workers Static Assets 托管，生产域名为 <https://nexttoken.tv>。部署配置由根目录的 `wrangler.jsonc` 维护，不使用 OpenAI Sites。
+
+```bash
+npm run deploy
+```
