@@ -12,7 +12,7 @@
     <meta property="og:title" content="Next Token | 词元之外" />
     <meta
       property="og:description"
-      content="Next Token Weekly #001：模型试不过来，Agent 也试不过来，我们到底该怎么选？"
+      content="Next Token Weekly #001｜大模型进入“斩杀线”大战，Token 就是新货币"
     />
     <link rel="canonical" href="https://nexttoken.tv/" />
     <link rel="alternate" hreflang="zh-Hans" href="https://nexttoken.tv/" />
@@ -737,7 +737,9 @@
       }
 
       .host-info {
-        min-height: 160px;
+        display: flex;
+        min-height: 350px;
+        flex-direction: column;
         padding: 1.35rem;
       }
 
@@ -753,6 +755,59 @@
         color: var(--muted);
         font-size: 0.84rem;
         line-height: 1.55;
+      }
+
+      .host-socials {
+        margin: auto 0 0;
+        padding: 1.2rem 0 0;
+        list-style: none;
+      }
+
+      .host-socials li {
+        border-top: 1px solid color-mix(in srgb, var(--ink) 28%, transparent);
+      }
+
+      .host-socials a,
+      .social-account {
+        display: grid;
+        grid-template-columns: minmax(3.5rem, auto) minmax(0, 1fr) auto;
+        gap: 0.55rem;
+        align-items: center;
+        padding: 0.52rem 0;
+        color: var(--ink);
+        font-size: 0.7rem;
+        line-height: 1.25;
+      }
+
+      .host-socials a {
+        text-decoration: none;
+        transition: color 180ms ease;
+      }
+
+      .host-socials a:hover,
+      .host-socials a:focus-visible {
+        color: var(--signal);
+      }
+
+      .social-platform {
+        font-weight: 800;
+      }
+
+      .social-handle {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .social-arrow {
+        font-size: 0.8rem;
+      }
+
+      .social-note {
+        color: var(--muted);
+        font-size: 0.55rem;
+        white-space: nowrap;
       }
 
       .subscribe {
@@ -952,6 +1007,22 @@
 
         .host-info {
           min-height: 0;
+          padding: 1rem;
+        }
+
+        .host-socials {
+          padding-top: 1rem;
+        }
+
+        .host-socials a,
+        .social-account {
+          grid-template-columns: minmax(3.2rem, auto) minmax(0, 1fr) auto;
+          gap: 0.4rem;
+          font-size: 0.64rem;
+        }
+
+        .social-note {
+          display: none;
         }
 
         .visual-caption {
@@ -1146,7 +1217,7 @@
             <div class="episode-number">#001</div>
             <div>
               <p class="eyebrow">首期 · 24 条新闻 · 即将发布</p>
-              <h3>模型试不过来，<br />Agent 也试不过来</h3>
+              <h3>大模型进入“斩杀线”大战，<br />Token 就是新货币</h3>
               <p>
                 从 GLM-5.3 Flash、MiniMax H3，到 WorkBuddy、AI 硬件与 Hugging Face 收购话题；四位联合主理人沿着一周新闻，聊模型成本、原厂 Agent、AI 应用回暖，以及每个人都必须闭环的 AI 原生组织。
               </p>
@@ -1183,7 +1254,15 @@
             </div>
             <div class="host-info">
               <h3>杨攀</h3>
-              <p>联合主理人 · Bilink.ai 创始人，融云联合创始人 &amp; 前 CTO，前硅基流动联合创始人</p>
+              <p>联合主理人 · Bilink.ai 创始人，融云联合创始人，前硅基流动联合创始人</p>
+              <ul class="host-socials" aria-label="杨攀的社交账号">
+                <li><a href="https://x.com/ericyangpan" target="_blank" rel="noopener noreferrer"><span class="social-platform">X</span><span class="social-handle">@ericyangpan</span><span class="social-arrow" aria-hidden="true">↗</span></a></li>
+                <li><a href="https://github.com/ericyangpan" target="_blank" rel="noopener noreferrer"><span class="social-platform">GitHub</span><span class="social-handle">@ericyangpan</span><span class="social-arrow" aria-hidden="true">↗</span></a></li>
+                <li><a href="https://m.okjike.com/users/B53205DA-8DDC-463C-87B3-3F65F88B6EA2" target="_blank" rel="noopener noreferrer"><span class="social-platform">即刻</span><span class="social-handle">杨攀同学</span><span class="social-arrow" aria-hidden="true">↗</span></a></li>
+                <li><span class="social-account"><span class="social-platform">公众号</span><span class="social-handle">杨攀同学</span><span class="social-note">微信内搜索</span></span></li>
+                <li><span class="social-account"><span class="social-platform">小红书</span><span class="social-handle">杨攀同学</span><span class="social-note">App 内搜索</span></span></li>
+                <li><a href="https://www.linkedin.com/in/ericyangpan" target="_blank" rel="noopener noreferrer"><span class="social-platform">LinkedIn</span><span class="social-handle">Pan YANG</span><span class="social-arrow" aria-hidden="true">↗</span></a></li>
+              </ul>
             </div>
           </article>
           <article class="host-card">
@@ -1200,6 +1279,13 @@
             <div class="host-info">
               <h3>歸藏</h3>
               <p>联合主理人 · AI 创作者，“超级一人公司”实践者</p>
+              <ul class="host-socials" aria-label="歸藏的社交账号">
+                <li><a href="https://x.com/op7418" target="_blank" rel="noopener noreferrer"><span class="social-platform">X</span><span class="social-handle">@op7418</span><span class="social-arrow" aria-hidden="true">↗</span></a></li>
+                <li><a href="https://github.com/op7418" target="_blank" rel="noopener noreferrer"><span class="social-platform">GitHub</span><span class="social-handle">@op7418</span><span class="social-arrow" aria-hidden="true">↗</span></a></li>
+                <li><a href="https://www.sina.cn/media/6182606334" target="_blank" rel="noopener noreferrer"><span class="social-platform">微博</span><span class="social-handle">@歸藏的AI工具箱</span><span class="social-arrow" aria-hidden="true">↗</span></a></li>
+                <li><span class="social-account"><span class="social-platform">公众号</span><span class="social-handle">歸藏的AI工具箱</span><span class="social-note">微信内搜索</span></span></li>
+                <li><span class="social-account"><span class="social-platform">小红书</span><span class="social-handle">歸藏</span><span class="social-note">App 内搜索</span></span></li>
+              </ul>
             </div>
           </article>
           <article class="host-card">
@@ -1216,6 +1302,15 @@
             <div class="host-info">
               <h3>橘子 Orange</h3>
               <p>联合主理人 · MarsWave 创始人、ListenHub 与 ColaOS 创始人</p>
+              <ul class="host-socials" aria-label="橘子 Orange 的社交账号">
+                <li><a href="https://x.com/oran_ge" target="_blank" rel="noopener noreferrer"><span class="social-platform">X</span><span class="social-handle">@oran_ge</span><span class="social-arrow" aria-hidden="true">↗</span></a></li>
+                <li><a href="https://github.com/marswaveai" target="_blank" rel="noopener noreferrer"><span class="social-platform">GitHub</span><span class="social-handle">@marswaveai · MarsWave</span><span class="social-arrow" aria-hidden="true">↗</span></a></li>
+                <li><a href="https://blog.orangesai.com" target="_blank" rel="noopener noreferrer"><span class="social-platform">博客</span><span class="social-handle">橘子汽水铺</span><span class="social-arrow" aria-hidden="true">↗</span></a></li>
+                <li><a href="https://www.xiaoyuzhoufm.com/podcast/6640bb10390b415a59a41773" target="_blank" rel="noopener noreferrer"><span class="social-platform">播客</span><span class="social-handle">橘座</span><span class="social-arrow" aria-hidden="true">↗</span></a></li>
+                <li><span class="social-account"><span class="social-platform">公众号</span><span class="social-handle">橘 AI</span><span class="social-note">微信内搜索</span></span></li>
+                <li><span class="social-account"><span class="social-platform">小红书</span><span class="social-handle">橘 AI</span><span class="social-note">App 内搜索</span></span></li>
+                <li><a href="https://www.linkedin.com/in/orangeai" target="_blank" rel="noopener noreferrer"><span class="social-platform">LinkedIn</span><span class="social-handle">Leo Feng</span><span class="social-arrow" aria-hidden="true">↗</span></a></li>
+              </ul>
             </div>
           </article>
           <article class="host-card">
@@ -1232,6 +1327,13 @@
             <div class="host-info">
               <h3>向阳乔木</h3>
               <p>联合主理人 · AI 创作者与连续创业者，《AI领导力》合著者</p>
+              <ul class="host-socials" aria-label="向阳乔木的社交账号">
+                <li><a href="https://x.com/vista8" target="_blank" rel="noopener noreferrer"><span class="social-platform">X</span><span class="social-handle">@vista8</span><span class="social-arrow" aria-hidden="true">↗</span></a></li>
+                <li><a href="https://github.com/joeseesun" target="_blank" rel="noopener noreferrer"><span class="social-platform">GitHub</span><span class="social-handle">@joeseesun</span><span class="social-arrow" aria-hidden="true">↗</span></a></li>
+                <li><a href="https://m.okjike.com/users/b66a780a-1572-455a-a0db-d601070d4251" target="_blank" rel="noopener noreferrer"><span class="social-platform">即刻</span><span class="social-handle">向阳乔木</span><span class="social-arrow" aria-hidden="true">↗</span></a></li>
+                <li><span class="social-account"><span class="social-platform">公众号</span><span class="social-handle">向阳乔木推荐看</span><span class="social-note">微信内搜索</span></span></li>
+                <li><span class="social-account"><span class="social-platform">小红书</span><span class="social-handle">向阳乔木</span><span class="social-note">App 内搜索</span></span></li>
+              </ul>
             </div>
           </article>
         </div>
