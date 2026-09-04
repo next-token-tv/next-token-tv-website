@@ -1,0 +1,1143 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f1eee5" />
+    <meta
+      name="description"
+      content="Next Token | 词元之外是一档关注 AI 技术、产品、创业与创作的视频播客。旗舰栏目 Next Token Weekly 每周讨论全球 AI 的重要变化。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Next Token | 词元之外" />
+    <meta
+      property="og:description"
+      content="不只预测下一个词元。关注 AI 技术、产品、创业与创作。"
+    />
+    <link rel="canonical" href="https://nexttoken.tv/" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <title>Next Token | 词元之外</title>
+    <style>
+      @font-face {
+        font-family: "League Spartan";
+        src: url("assets/league-spartan-black.ttf") format("truetype");
+        font-display: swap;
+        font-style: normal;
+        font-weight: 900;
+      }
+
+      :root {
+        color-scheme: light;
+        --paper: #f1eee5;
+        --ink: #111111;
+        --signal: #ff4b18;
+        --muted: #635f58;
+        --line: rgba(17, 17, 17, 0.24);
+        --white: #fffdf6;
+        --gutter: clamp(1.25rem, 4vw, 4.5rem);
+        --display: "League Spartan", Arial Black, Arial, sans-serif;
+        --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        min-width: 320px;
+        scroll-behavior: smooth;
+        background: var(--paper);
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: var(--sans);
+        font-size: 1rem;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button,
+      a {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      :focus-visible {
+        outline: 3px solid var(--signal);
+        outline-offset: 4px;
+      }
+
+      .skip-link {
+        position: fixed;
+        z-index: 100;
+        top: 0.75rem;
+        left: 0.75rem;
+        padding: 0.7rem 1rem;
+        color: var(--white);
+        background: var(--ink);
+        transform: translateY(-160%);
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
+      .shell {
+        width: min(100%, 1600px);
+        margin: 0 auto;
+        padding-inline: var(--gutter);
+      }
+
+      .site-header {
+        position: sticky;
+        z-index: 20;
+        top: 0;
+        border-bottom: 1px solid var(--ink);
+        background: rgba(241, 238, 229, 0.94);
+        backdrop-filter: blur(14px);
+      }
+
+      .nav {
+        display: flex;
+        min-height: 76px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+
+      .wordmark {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        font-family: var(--display);
+        font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+        line-height: 0.86;
+        letter-spacing: -0.055em;
+        text-transform: uppercase;
+      }
+
+      .signal-dot {
+        width: 0.58em;
+        height: 0.58em;
+        flex: 0 0 auto;
+        background: var(--signal);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: clamp(1rem, 2vw, 2.2rem);
+        font-size: 0.88rem;
+        font-weight: 750;
+      }
+
+      .nav-links a {
+        position: relative;
+      }
+
+      .nav-links a::after {
+        position: absolute;
+        right: 0;
+        bottom: -0.35rem;
+        left: 0;
+        height: 2px;
+        background: var(--signal);
+        content: "";
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 180ms ease;
+      }
+
+      .nav-links a:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+
+      .status-pill {
+        display: inline-flex;
+        min-height: 38px;
+        align-items: center;
+        gap: 0.55rem;
+        padding: 0.35rem 0.9rem;
+        border: 1px solid var(--ink);
+        border-radius: 100px;
+        font-size: 0.78rem;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .status-pill::before {
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+        background: var(--signal);
+        box-shadow: 0 0 0 0 rgba(255, 75, 24, 0.45);
+        content: "";
+        animation: pulse 2.4s infinite;
+      }
+
+      @keyframes pulse {
+        70% {
+          box-shadow: 0 0 0 0.45rem rgba(255, 75, 24, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(255, 75, 24, 0);
+        }
+      }
+
+      .hero {
+        display: grid;
+        min-height: calc(100svh - 76px);
+        grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1.08fr);
+        border-bottom: 1px solid var(--ink);
+      }
+
+      .hero-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 680px;
+        padding: clamp(3rem, 7vw, 7.5rem) var(--gutter) clamp(2.5rem, 5vw, 4rem);
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin: 0 0 1.4rem;
+        font-size: 0.73rem;
+        font-weight: 850;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        width: 2.5rem;
+        height: 1px;
+        background: currentColor;
+        content: "";
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 760px;
+        margin-bottom: 2.25rem;
+        font-family: var(--display);
+        font-size: clamp(4.25rem, 8.2vw, 9.4rem);
+        line-height: 0.83;
+        letter-spacing: -0.075em;
+        text-wrap: balance;
+      }
+
+      h1 .accent {
+        color: var(--signal);
+      }
+
+      .hero-intro {
+        max-width: 570px;
+        margin-bottom: 2rem;
+        font-size: clamp(1.05rem, 1.45vw, 1.28rem);
+        line-height: 1.62;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 50px;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        padding: 0.7rem 1.25rem;
+        border: 1px solid var(--ink);
+        font-size: 0.9rem;
+        font-weight: 800;
+        transition: color 160ms ease, background 160ms ease, transform 160ms ease;
+      }
+
+      .button.primary {
+        color: var(--white);
+        background: var(--ink);
+      }
+
+      .button:hover {
+        color: var(--white);
+        background: var(--signal);
+        transform: translateY(-2px);
+      }
+
+      .hero-footnote {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1rem 1.25rem;
+        align-items: start;
+        padding-top: clamp(3rem, 7vw, 7rem);
+      }
+
+      .hero-footnote strong {
+        font-family: var(--display);
+        font-size: 2.8rem;
+        line-height: 0.8;
+        letter-spacing: -0.05em;
+      }
+
+      .hero-footnote p {
+        max-width: 26rem;
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.84rem;
+        line-height: 1.55;
+      }
+
+      .hero-visual {
+        position: relative;
+        min-height: 680px;
+        overflow: hidden;
+        border-left: 1px solid var(--ink);
+        background: var(--ink);
+      }
+
+      .hero-visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(1) contrast(1.08);
+        transition: filter 500ms ease, transform 900ms cubic-bezier(0.2, 0.7, 0, 1);
+      }
+
+      .hero-visual:hover img {
+        filter: grayscale(0.15) contrast(1.03);
+        transform: scale(1.018);
+      }
+
+      .hero-visual::after {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent 50%, rgba(17, 17, 17, 0.75));
+        content: "";
+        pointer-events: none;
+      }
+
+      .episode-stamp {
+        position: absolute;
+        z-index: 2;
+        top: clamp(1.25rem, 3vw, 2.5rem);
+        right: clamp(1.25rem, 3vw, 2.5rem);
+        display: grid;
+        width: clamp(7rem, 14vw, 10.5rem);
+        aspect-ratio: 1;
+        place-items: center;
+        padding: 1rem;
+        color: var(--white);
+        background: var(--signal);
+        font-family: var(--display);
+        font-size: clamp(1.1rem, 2vw, 1.65rem);
+        line-height: 0.92;
+        letter-spacing: -0.04em;
+        text-align: center;
+        text-transform: uppercase;
+        transform: rotate(3deg);
+      }
+
+      .visual-caption {
+        position: absolute;
+        z-index: 2;
+        right: clamp(1.25rem, 3vw, 2.5rem);
+        bottom: clamp(1.25rem, 3vw, 2.5rem);
+        left: clamp(1.25rem, 3vw, 2.5rem);
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 2rem;
+        color: var(--white);
+      }
+
+      .visual-caption strong {
+        font-family: var(--display);
+        font-size: clamp(2rem, 4vw, 4rem);
+        line-height: 0.88;
+        letter-spacing: -0.055em;
+        text-transform: uppercase;
+      }
+
+      .visual-caption span {
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .topic-rail {
+        overflow: hidden;
+        border-bottom: 1px solid var(--ink);
+        background: var(--signal);
+      }
+
+      .rail-track {
+        display: flex;
+        width: max-content;
+        animation: marquee 28s linear infinite;
+      }
+
+      .rail-set {
+        display: flex;
+        align-items: center;
+        flex: 0 0 auto;
+      }
+
+      .rail-set span {
+        display: inline-flex;
+        align-items: center;
+        gap: 1.8rem;
+        padding: 1rem 1.8rem;
+        font-family: var(--display);
+        font-size: 1rem;
+        letter-spacing: 0.015em;
+        text-transform: uppercase;
+      }
+
+      .rail-set span::after {
+        content: "■";
+        font-size: 0.62rem;
+      }
+
+      @keyframes marquee {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      .section {
+        padding: clamp(5rem, 10vw, 9rem) var(--gutter);
+        border-bottom: 1px solid var(--ink);
+      }
+
+      .section-heading {
+        display: grid;
+        grid-template-columns: minmax(12rem, 0.58fr) minmax(0, 1.42fr);
+        gap: clamp(2rem, 7vw, 8rem);
+        align-items: start;
+      }
+
+      .section-index {
+        margin: 0;
+        font-size: 0.75rem;
+        font-weight: 850;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      .section h2 {
+        margin-bottom: 2.25rem;
+        font-family: var(--display);
+        font-size: clamp(3.2rem, 7vw, 7.8rem);
+        line-height: 0.88;
+        letter-spacing: -0.065em;
+        text-wrap: balance;
+      }
+
+      .section-lede {
+        max-width: 790px;
+        margin-bottom: 0;
+        font-size: clamp(1.15rem, 2.05vw, 1.75rem);
+        line-height: 1.55;
+        letter-spacing: -0.015em;
+      }
+
+      .brand-manifesto {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1px;
+        margin-top: clamp(3.5rem, 7vw, 7rem);
+        border: 1px solid var(--ink);
+        background: var(--ink);
+      }
+
+      .manifesto-card {
+        min-height: 360px;
+        padding: clamp(1.8rem, 4vw, 3.5rem);
+        background: var(--paper);
+      }
+
+      .manifesto-card.featured {
+        color: var(--white);
+        background: var(--ink);
+      }
+
+      .manifesto-card .number {
+        display: block;
+        margin-bottom: clamp(5rem, 10vw, 9rem);
+        font-family: var(--display);
+        font-size: 1.15rem;
+      }
+
+      .manifesto-card h3 {
+        margin-bottom: 1.1rem;
+        font-family: var(--display);
+        font-size: clamp(2.2rem, 4vw, 4rem);
+        line-height: 0.95;
+        letter-spacing: -0.055em;
+      }
+
+      .manifesto-card p {
+        max-width: 35rem;
+        margin-bottom: 0;
+        color: var(--muted);
+      }
+
+      .manifesto-card.featured p {
+        color: rgba(255, 253, 246, 0.68);
+      }
+
+      .weekly {
+        color: var(--white);
+        background: var(--ink);
+      }
+
+      .weekly .section-heading {
+        margin-bottom: clamp(3.5rem, 8vw, 7rem);
+      }
+
+      .weekly .section-lede {
+        color: rgba(255, 253, 246, 0.72);
+      }
+
+      .weekly-card {
+        display: grid;
+        grid-template-columns: minmax(360px, 1.08fr) minmax(0, 0.92fr);
+        border: 1px solid rgba(255, 253, 246, 0.35);
+      }
+
+      .weekly-image {
+        position: relative;
+        min-height: 430px;
+        overflow: hidden;
+        border-right: 1px solid rgba(255, 253, 246, 0.35);
+      }
+
+      .weekly-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .weekly-image .label {
+        position: absolute;
+        top: 1.35rem;
+        left: 1.35rem;
+        padding: 0.45rem 0.7rem;
+        color: var(--ink);
+        background: var(--signal);
+        font-size: 0.73rem;
+        font-weight: 900;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .weekly-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: clamp(2rem, 5vw, 4.5rem);
+      }
+
+      .episode-number {
+        margin-bottom: clamp(4rem, 8vw, 7rem);
+        color: var(--signal);
+        font-family: var(--display);
+        font-size: clamp(4rem, 9vw, 8.5rem);
+        line-height: 0.75;
+        letter-spacing: -0.06em;
+      }
+
+      .weekly-copy h3 {
+        margin-bottom: 1rem;
+        font-family: var(--display);
+        font-size: clamp(2.35rem, 4.5vw, 4.9rem);
+        line-height: 0.92;
+        letter-spacing: -0.055em;
+      }
+
+      .weekly-copy p {
+        max-width: 35rem;
+        color: rgba(255, 253, 246, 0.68);
+      }
+
+      .episode-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+      }
+
+      .episode-meta span {
+        padding: 0.45rem 0.7rem;
+        border: 1px solid rgba(255, 253, 246, 0.3);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .hosts-header {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 2rem;
+        margin-bottom: clamp(3rem, 6vw, 5rem);
+      }
+
+      .hosts-header h2 {
+        max-width: 820px;
+        margin-bottom: 0;
+      }
+
+      .hosts-note {
+        max-width: 25rem;
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+
+      .host-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        border-top: 1px solid var(--ink);
+        border-left: 1px solid var(--ink);
+      }
+
+      .host-card {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        border-right: 1px solid var(--ink);
+        border-bottom: 1px solid var(--ink);
+      }
+
+      .host-photo {
+        overflow: hidden;
+        aspect-ratio: 1;
+        background: #ddd8ca;
+      }
+
+      .host-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(1);
+        transition: filter 260ms ease, transform 500ms ease;
+      }
+
+      .host-card:hover img {
+        filter: grayscale(0);
+        transform: scale(1.025);
+      }
+
+      .host-info {
+        min-height: 160px;
+        padding: 1.35rem;
+      }
+
+      .host-info h3 {
+        margin-bottom: 0.35rem;
+        font-family: var(--display);
+        font-size: clamp(1.65rem, 2.7vw, 2.5rem);
+        line-height: 1;
+        letter-spacing: -0.045em;
+      }
+
+      .host-info p {
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 0.84rem;
+        line-height: 1.55;
+      }
+
+      .subscribe {
+        display: grid;
+        grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+        gap: clamp(3rem, 8vw, 9rem);
+        align-items: start;
+      }
+
+      .subscribe h2 {
+        margin-bottom: 1.5rem;
+      }
+
+      .subscribe-copy p {
+        max-width: 36rem;
+        color: var(--muted);
+      }
+
+      .platform-list {
+        border-top: 1px solid var(--ink);
+      }
+
+      .platform {
+        display: grid;
+        grid-template-columns: 2.5rem 1fr auto;
+        gap: 1rem;
+        align-items: center;
+        min-height: 78px;
+        border-bottom: 1px solid var(--ink);
+      }
+
+      .platform .index {
+        color: var(--muted);
+        font-size: 0.75rem;
+        font-weight: 800;
+      }
+
+      .platform strong {
+        font-size: clamp(1.05rem, 2vw, 1.35rem);
+      }
+
+      .platform .coming {
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .site-footer {
+        color: var(--white);
+        background: var(--signal);
+      }
+
+      .footer-main {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 3rem;
+        align-items: end;
+        padding: clamp(5rem, 10vw, 9rem) var(--gutter) 3rem;
+      }
+
+      .footer-main h2 {
+        max-width: 1040px;
+        margin-bottom: 0;
+        font-family: var(--display);
+        font-size: clamp(4rem, 10vw, 10rem);
+        line-height: 0.8;
+        letter-spacing: -0.075em;
+      }
+
+      .footer-mark {
+        width: clamp(4rem, 9vw, 7.5rem);
+        aspect-ratio: 1;
+        background: var(--white);
+      }
+
+      .footer-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        padding: 1.2rem var(--gutter);
+        border-top: 1px solid var(--white);
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.03em;
+      }
+
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 650ms ease, transform 650ms cubic-bezier(0.2, 0.7, 0, 1);
+      }
+
+      [data-reveal].is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 1000px) {
+        .hero {
+          min-height: 0;
+          grid-template-columns: 1fr;
+        }
+
+        .hero-copy {
+          min-height: 620px;
+        }
+
+        .hero-visual {
+          min-height: min(78vw, 720px);
+          border-top: 1px solid var(--ink);
+          border-left: 0;
+        }
+
+        .host-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .weekly-card,
+        .subscribe {
+          grid-template-columns: 1fr;
+        }
+
+        .weekly-image {
+          min-height: min(62vw, 560px);
+          border-right: 0;
+          border-bottom: 1px solid rgba(255, 253, 246, 0.35);
+        }
+
+        .episode-number {
+          margin-bottom: 3.5rem;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .nav {
+          min-height: 66px;
+        }
+
+        .nav-links a {
+          display: none;
+        }
+
+        .status-pill {
+          min-height: 34px;
+          padding-inline: 0.7rem;
+        }
+
+        .hero-copy {
+          min-height: 570px;
+          padding-top: 4rem;
+        }
+
+        h1 {
+          font-size: clamp(3.75rem, 20vw, 6.7rem);
+        }
+
+        .hero-footnote {
+          grid-template-columns: 1fr;
+        }
+
+        .section-heading {
+          grid-template-columns: 1fr;
+          gap: 1.75rem;
+        }
+
+        .brand-manifesto,
+        .host-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .manifesto-card {
+          min-height: 300px;
+        }
+
+        .manifesto-card .number {
+          margin-bottom: 4.5rem;
+        }
+
+        .hosts-header {
+          display: block;
+        }
+
+        .hosts-note {
+          margin-top: 1.5rem;
+        }
+
+        .host-card {
+          display: grid;
+          grid-template-columns: 0.86fr 1.14fr;
+        }
+
+        .host-info {
+          min-height: 0;
+        }
+
+        .visual-caption {
+          align-items: start;
+          flex-direction: column;
+          gap: 0.7rem;
+        }
+
+        .platform {
+          grid-template-columns: 2rem 1fr;
+          padding-block: 1rem;
+        }
+
+        .platform .coming {
+          grid-column: 2;
+        }
+
+        .footer-main {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-mark {
+          display: none;
+        }
+
+        .footer-bottom {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+
+        [data-reveal] {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <header class="site-header">
+      <div class="nav shell">
+        <a class="wordmark" href="#top" aria-label="Next Token 首页">
+          <span>Next Token</span><span class="signal-dot" aria-hidden="true"></span>
+        </a>
+        <nav class="nav-links" aria-label="主导航">
+          <a href="#about">关于品牌</a>
+          <a href="#weekly">Next Token Weekly</a>
+          <a href="#hosts">联合主理人</a>
+          <a href="#subscribe">订阅</a>
+          <span class="status-pill">首期即将上线</span>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <div data-reveal>
+            <p class="eyebrow">Next Token | 词元之外</p>
+            <h1>不只预测<br />下一个<span class="accent">词元。</span></h1>
+            <p class="hero-intro">
+              一档关注 AI 技术、产品、创业与创作的视频播客。我们从中文世界的一手经验出发，讨论 AI 正在改变什么，以及接下来真正值得关注什么。
+            </p>
+            <div class="actions">
+              <a class="button primary" href="#weekly">查看首期预告 <span aria-hidden="true">↘</span></a>
+              <a class="button" href="#about">认识 Next Token</a>
+            </div>
+          </div>
+          <div class="hero-footnote" data-reveal>
+            <strong>NT.</strong>
+            <p>
+              Next Token 是总品牌，承载视频、音频与衍生内容；Next Token Weekly 是当前的旗舰周播。
+            </p>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Next Token Weekly 四位联合主理人录制现场">
+          <img src="assets/weekly-001.jpg" alt="Next Token Weekly 四位联合主理人的圆桌录制现场" />
+          <div class="episode-stamp">Weekly<br />#001</div>
+          <div class="visual-caption">
+            <strong>First signal<br />incoming</strong>
+            <span>Video · Audio · Weekly</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="topic-rail" aria-hidden="true">
+        <div class="rail-track">
+          <div class="rail-set">
+            <span>模型</span><span>Agent 产品</span><span>智能硬件</span><span>创业</span><span>创作</span><span>商业与趋势</span>
+          </div>
+          <div class="rail-set">
+            <span>模型</span><span>Agent 产品</span><span>智能硬件</span><span>创业</span><span>创作</span><span>商业与趋势</span>
+          </div>
+        </div>
+      </div>
+
+      <section class="section shell" id="about">
+        <div class="section-heading" data-reveal>
+          <p class="section-index">01 / The Brand</p>
+          <div>
+            <h2>词元之外，<br />是正在发生的世界。</h2>
+            <p class="section-lede">
+              “Next token”是生成式模型不断做出的下一次预测。Next Token 关注预测动作之外的人、产业、产品、社会与文化。
+            </p>
+          </div>
+        </div>
+
+        <div class="brand-manifesto" data-reveal>
+          <article class="manifesto-card featured">
+            <span class="number">01</span>
+            <h3>Next Token</h3>
+            <p>
+              总品牌。以中文世界的一手经验和观点讨论 AI，并把这些观点带入全球对话。
+            </p>
+          </article>
+          <article class="manifesto-card">
+            <span class="number">02</span>
+            <h3>Beyond the<br />Next Token</h3>
+            <p>
+              英文品牌。向英文听众解释中文世界正在发生什么、为何重要，以及它与全球 AI 发展的关系。
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section weekly" id="weekly">
+        <div class="section-heading" data-reveal>
+          <p class="section-index">02 / The Flagship</p>
+          <div>
+            <h2>Next Token<br />Weekly</h2>
+            <p class="section-lede">
+              Next Token 当前的旗舰栏目。四位联合主理人每周围桌，从全球 AI 新闻中挑出必须谈、值得试和仍需观察的变化。
+            </p>
+          </div>
+        </div>
+
+        <article class="weekly-card" data-reveal>
+          <div class="weekly-image">
+            <img src="assets/weekly-001.jpg" alt="Next Token Weekly 第一期开录现场" />
+            <span class="label">Coming soon</span>
+          </div>
+          <div class="weekly-copy">
+            <div class="episode-number">#001</div>
+            <div>
+              <p class="eyebrow">首期 · 即将发布</p>
+              <h3>开箱这一周的 AI 大事</h3>
+              <p>
+                从模型与 Agent 产品，到智能硬件、创业和商业趋势。四位联合主理人不做新闻复读，而是把各自亲历、分歧和下一步验证带到同一张桌上。
+              </p>
+              <div class="episode-meta" aria-label="节目形式">
+                <span>视频播客</span><span>多人圆桌</span><span>每周更新</span><span>中英双语延展</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section shell" id="hosts">
+        <div class="hosts-header" data-reveal>
+          <div>
+            <p class="section-index">03 / The Hosts</p>
+            <h2>四位联合主理人，<br />一张开放的圆桌。</h2>
+          </div>
+          <p class="hosts-note">
+            节目不设长期固定主持人，也不为任何人预设观点或赛道。每一期，由当值主理人串起真实的讨论与分歧。
+          </p>
+        </div>
+
+        <div class="host-grid" data-reveal>
+          <article class="host-card">
+            <div class="host-photo"><img src="assets/hosts/yang-pan.jpg" alt="联合主理人杨攀" /></div>
+            <div class="host-info">
+              <h3>杨攀</h3>
+              <p>联合主理人 · bilink.ai 创始人，硅基流动、融云联合创始人</p>
+            </div>
+          </article>
+          <article class="host-card">
+            <div class="host-photo"><img src="assets/hosts/guizang.jpg" alt="联合主理人歸藏" /></div>
+            <div class="host-info">
+              <h3>歸藏</h3>
+              <p>联合主理人 · AI 创作者，“超级一人公司”实践者</p>
+            </div>
+          </article>
+          <article class="host-card">
+            <div class="host-photo"><img src="assets/hosts/orange.png" alt="联合主理人橘子 Orange" /></div>
+            <div class="host-info">
+              <h3>橘子 Orange</h3>
+              <p>联合主理人 · MarsWave 创始人、ListenHub 与 ColaOS 创始人</p>
+            </div>
+          </article>
+          <article class="host-card">
+            <div class="host-photo"><img src="assets/hosts/xiangyang-qiaomu.jpg" alt="联合主理人向阳乔木" /></div>
+            <div class="host-info">
+              <h3>向阳乔木</h3>
+              <p>联合主理人 · AI 创作者与连续创业者，《AI领导力》合著者</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shell subscribe" id="subscribe">
+        <div class="subscribe-copy" data-reveal>
+          <p class="section-index">04 / Follow the Signal</p>
+          <h2>首期很快<br />和你见面。</h2>
+          <p>
+            视频、音频与完整文字稿将同步从这里出发。首期发布后，各平台入口会在本页开放。
+          </p>
+        </div>
+        <div class="platform-list" data-reveal aria-label="即将开放的订阅平台">
+          <div class="platform"><span class="index">01</span><strong>小宇宙</strong><span class="coming">即将开放</span></div>
+          <div class="platform"><span class="index">02</span><strong>Apple Podcasts</strong><span class="coming">即将开放</span></div>
+          <div class="platform"><span class="index">03</span><strong>Spotify</strong><span class="coming">即将开放</span></div>
+          <div class="platform"><span class="index">04</span><strong>哔哩哔哩</strong><span class="coming">即将开放</span></div>
+          <div class="platform"><span class="index">05</span><strong>YouTube</strong><span class="coming">即将开放</span></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-main shell">
+        <h2>Beyond the<br />Next Token.</h2>
+        <span class="footer-mark" aria-hidden="true"></span>
+      </div>
+      <div class="footer-bottom shell">
+        <span>Perspectives on AI from the Chinese-speaking world.</span>
+        <span>© <span id="year">2026</span> NEXT TOKEN · NEXTTOKEN.TV</span>
+      </div>
+    </footer>
+
+    <script>
+      const revealItems = document.querySelectorAll("[data-reveal]");
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (reduceMotion || !("IntersectionObserver" in window)) {
+        revealItems.forEach((item) => item.classList.add("is-visible"));
+      } else {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.14 }
+        );
+        revealItems.forEach((item) => observer.observe(item));
+      }
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

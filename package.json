@@ -1,0 +1,9 @@
+{
+  "name": "next-token-tv-website",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "python3 -m http.server 4174 --bind 127.0.0.1",
+    "build": "rm -rf dist && mkdir -p dist && cp index.html dist/index.html && cp -R assets dist/assets"
+  }
+}
