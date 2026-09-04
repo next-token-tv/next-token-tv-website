@@ -20,6 +20,8 @@
         --muted: #8d98a5;
         --accent: #d7ff38;
         --accent-ink: #111700;
+        --term: #5bd7ff;
+        --term-ink: #00151c;
         --danger: #ff746c;
         --radius: 16px;
         --mono: "SFMono-Regular", "Cascadia Code", "Roboto Mono", Consolas, monospace;
@@ -255,9 +257,43 @@
         display: none;
       }
 
+      .term-status {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        min-height: 38px;
+        margin: -6px 0 16px;
+        padding: 8px 12px;
+        border: 1px solid rgba(91, 215, 255, 0.2);
+        border-radius: 10px;
+        color: #a9eaff;
+        background: rgba(91, 215, 255, 0.045);
+        font-size: 0.8125rem;
+      }
+
+      .term-status-dot {
+        width: 7px;
+        height: 7px;
+        flex: 0 0 auto;
+        border-radius: 50%;
+        background: var(--term);
+        box-shadow: 0 0 0 4px rgba(91, 215, 255, 0.08);
+      }
+
+      .term-status.is-error {
+        border-color: rgba(255, 116, 108, 0.28);
+        color: #ffaaa5;
+        background: rgba(255, 116, 108, 0.055);
+      }
+
+      .term-status.is-error .term-status-dot {
+        background: var(--danger);
+        box-shadow: none;
+      }
+
       .summary {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
+        grid-template-columns: repeat(5, minmax(0, 1fr)) auto;
         gap: 1px;
         overflow: hidden;
         margin-bottom: 16px;
@@ -411,6 +447,11 @@
         font-weight: 700;
       }
 
+      mark.term-hit {
+        color: var(--term-ink);
+        background: var(--term);
+      }
+
       .parse-warning {
         margin: 0 0 16px;
         padding: 12px 14px;
@@ -552,6 +593,11 @@
         </div>
       </section>
 
+      <div class="term-status" id="termStatus" role="status" aria-live="polite">
+        <span class="term-status-dot" aria-hidden="true"></span>
+        <span id="termStatusText">正在读取本地术语库…</span>
+      </div>
+
       <section
         class="drop-zone"
         id="dropZone"
@@ -584,6 +630,10 @@
             <span class="metric-value" id="correctionCount">0</span>
             <span class="metric-label">勘误提示</span>
           </div>
+          <div class="metric">
+            <span class="metric-value" id="termCount">0</span>
+            <span class="metric-label">术语命中</span>
+          </div>
           <div class="summary-action">
             <button class="reload-button" id="reloadButton" type="button">立即刷新</button>
           </div>
@@ -600,6 +650,8 @@
         "use strict";
 
         const POLL_INTERVAL = 900;
+        const TERMINOLOGY_POLL_INTERVAL = 1600;
+        const TERMINOLOGY_URL = "../next-token/materials/术语库.txt";
         const ASCII_VISIBLE = /[\u0021-\u007e]/;
         const ASCII_RUNS = /[\u0021-\u007e]+/g;
         const CORRECTION_RULES = [
@@ -609,6 +661,7 @@
             pattern: /\b[a-z][A-Za-z]*(?:['’][A-Za-z]+)?\b/g,
             message: "英文单词首字母应大写",
             replacement: (matchedText) => matchedText[0].toUpperCase() + matchedText.slice(1),
+            ignoreCanonicalTerms: true,
           },
           {
             id: "approximate-past-week",
@@ -627,10 +680,13 @@
           reviewPanel: document.querySelector("#reviewPanel"),
           status: document.querySelector("#status"),
           statusText: document.querySelector("#statusText"),
+          termStatus: document.querySelector("#termStatus"),
+          termStatusText: document.querySelector("#termStatusText"),
           cueCount: document.querySelector("#cueCount"),
           affectedCount: document.querySelector("#affectedCount"),
           characterCount: document.querySelector("#characterCount"),
           correctionCount: document.querySelector("#correctionCount"),
+          termCount: document.querySelector("#termCount"),
           reloadButton: document.querySelector("#reloadButton"),
           parseWarning: document.querySelector("#parseWarning"),
           cueList: document.querySelector("#cueList"),
@@ -640,7 +696,12 @@
         let fallbackFile = null;
         let lastSignature = "";
         let pollTimer = null;
+        let terminologyPollTimer = null;
         let isReading = false;
+        let currentSource = "";
+        let terminologySource = "";
+        let terminology = [];
+        let terminologyPattern = null;
 
         function setStatus(message, mode = "idle") {
           elements.statusText.textContent = message;
@@ -650,6 +711,93 @@
 
         function fileSignature(file) {
           return `${file.name}:${file.size}:${file.lastModified}`;
+        }
+
+        function maskSubtitleMarkup(text) {
+          return text.replace(/<[^>\n]*>|\{\\[^}\n]*\}/g, (markup) => " ".repeat(markup.length));
+        }
+
+        function parseTerminologyText(source) {
+          const terms = source
+            .replace(/^\uFEFF/, "")
+            .replace(/\r\n?/g, "\n")
+            .split("\n")
+            .map((line) => line.trim())
+            .filter((line) => line && !line.startsWith("#"))
+            .map((canonical) => ({ canonical }));
+
+          return Array.from(new Map(terms.map((term) => [term.canonical, term])).values());
+        }
+
+        function escapeRegExp(value) {
+          return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        }
+
+        function rebuildTerminologyPattern() {
+          const alternatives = terminology
+            .map((term) => term.canonical)
+            .filter(Boolean)
+            .sort((left, right) => right.length - left.length)
+            .map(escapeRegExp);
+          terminologyPattern = alternatives.length ? new RegExp(alternatives.join("|"), "gu") : null;
+        }
+
+        function isAsciiWordCharacter(character) {
+          return Boolean(character && /[A-Za-z0-9_]/.test(character));
+        }
+
+        function findTerminologyMatches(text) {
+          if (!terminologyPattern) return [];
+          terminologyPattern.lastIndex = 0;
+          const searchableText = maskSubtitleMarkup(text);
+          const matches = [];
+
+          for (const match of searchableText.matchAll(terminologyPattern)) {
+            const start = match.index;
+            const end = start + match[0].length;
+            if (
+              (isAsciiWordCharacter(match[0][0]) && isAsciiWordCharacter(text[start - 1])) ||
+              (isAsciiWordCharacter(match[0].at(-1)) && isAsciiWordCharacter(text[end]))
+            ) {
+              continue;
+            }
+            matches.push({ start, end, text: text.slice(start, end) });
+          }
+          return matches;
+        }
+
+        async function loadTerminology() {
+          try {
+            const response = await fetch(TERMINOLOGY_URL, { cache: "no-store" });
+            if (!response.ok) throw new Error(`术语库读取失败：${response.status}`);
+            const source = await response.text();
+            if (source === terminologySource) return;
+
+            const nextTerminology = parseTerminologyText(source);
+            if (!nextTerminology.length) throw new Error("术语库中没有识别到有效词条");
+            terminologySource = source;
+            terminology = nextTerminology;
+            rebuildTerminologyPattern();
+            elements.termStatus.classList.remove("is-error");
+            elements.termStatusText.textContent = `术语库：术语库.txt · ${terminology.length} 条标准写法 · 自动刷新`;
+
+            if (currentSource) {
+              const scrollTop = window.scrollY;
+              render(currentSource);
+              requestAnimationFrame(() => window.scrollTo({ top: scrollTop }));
+            }
+          } catch (error) {
+            console.error(error);
+            elements.termStatus.classList.add("is-error");
+            elements.termStatusText.textContent = "未读取到本地术语库，请通过 npm run dev 启动工具";
+          }
+        }
+
+        function startTerminologyWatcher() {
+          if (terminologyPollTimer) window.clearInterval(terminologyPollTimer);
+          terminologyPollTimer = window.setInterval(() => {
+            if (!document.hidden) void loadTerminology();
+          }, TERMINOLOGY_POLL_INTERVAL);
         }
 
         function parseSrt(source) {
@@ -676,7 +824,7 @@
           return { cues, malformed };
         }
 
-        function appendHighlightedText(container, text) {
+        function appendAsciiHighlightedText(container, text) {
           let cursor = 0;
           for (const match of text.matchAll(ASCII_RUNS)) {
             if (match.index > cursor) {
@@ -693,14 +841,39 @@
           }
         }
 
+        function appendReviewedText(container, text, termMatches) {
+          let cursor = 0;
+          for (const match of termMatches) {
+            if (match.start > cursor) {
+              appendAsciiHighlightedText(container, text.slice(cursor, match.start));
+            }
+            const mark = document.createElement("mark");
+            mark.className = "term-hit";
+            mark.textContent = match.text;
+            mark.title = "本地术语库标准写法";
+            container.append(mark);
+            cursor = match.end;
+          }
+          if (cursor < text.length) {
+            appendAsciiHighlightedText(container, text.slice(cursor));
+          }
+        }
+
         function findCorrections(text) {
-          const textWithoutMarkup = text.replace(/<[^>\n]*>|\{\\[^}\n]*\}/g, (markup) =>
-            " ".repeat(markup.length),
-          );
+          const textWithoutMarkup = maskSubtitleMarkup(text);
+          const termMatches = findTerminologyMatches(text);
 
           return CORRECTION_RULES.flatMap((rule) => {
+            let textToCheck = textWithoutMarkup;
+            if (rule.ignoreCanonicalTerms && termMatches.length) {
+              const characters = textWithoutMarkup.split("");
+              for (const match of termMatches) {
+                characters.fill(" ", match.start, match.end);
+              }
+              textToCheck = characters.join("");
+            }
             rule.pattern.lastIndex = 0;
-            return Array.from(textWithoutMarkup.matchAll(rule.pattern), (match) => {
+            return Array.from(textToCheck.matchAll(rule.pattern), (match) => {
               const matchedText = text.slice(match.index, match.index + match[0].length);
               return {
                 rule,
@@ -715,19 +888,23 @@
         }
 
         function render(source) {
+          currentSource = source;
           const { cues, malformed } = parseSrt(source);
           const fragment = document.createDocumentFragment();
           let affected = 0;
           let characters = 0;
           let corrections = 0;
+          let termHits = 0;
 
           for (const cue of cues) {
             const matches = cue.text.match(ASCII_RUNS) || [];
             const count = matches.reduce((total, run) => total + run.length, 0);
+            const termMatches = findTerminologyMatches(cue.text);
             const issues = findCorrections(cue.text);
             if (count > 0) affected += 1;
             characters += count;
             corrections += issues.length;
+            termHits += termMatches.length;
 
             const article = document.createElement("article");
             article.className = `cue${count > 0 ? " has-halfwidth" : ""}${issues.length ? " has-issues" : ""}`;
@@ -744,7 +921,7 @@
 
             const text = document.createElement("div");
             text.className = "cue-text";
-            appendHighlightedText(text, cue.text);
+            appendReviewedText(text, cue.text, termMatches);
             article.append(meta, text);
 
             if (issues.length) {
@@ -778,6 +955,7 @@
           elements.affectedCount.textContent = affected.toLocaleString("zh-CN");
           elements.characterCount.textContent = characters.toLocaleString("zh-CN");
           elements.correctionCount.textContent = corrections.toLocaleString("zh-CN");
+          elements.termCount.textContent = termHits.toLocaleString("zh-CN");
           elements.parseWarning.hidden = malformed === 0;
           elements.parseWarning.textContent = malformed
             ? `${malformed} 条内容没有识别到标准时间轴，已保留并标记为格式异常。`
@@ -823,6 +1001,12 @@
         function stopWatching() {
           if (pollTimer) window.clearInterval(pollTimer);
           pollTimer = null;
+        }
+
+        function stopAllWatching() {
+          stopWatching();
+          if (terminologyPollTimer) window.clearInterval(terminologyPollTimer);
+          terminologyPollTimer = null;
         }
 
         function startWatching() {
@@ -970,8 +1154,9 @@
           if (event.key.toLowerCase() === "r") reloadCurrent();
         });
 
-        window.addEventListener("beforeunload", stopWatching);
+        window.addEventListener("beforeunload", stopAllWatching);
         registerReviewTool();
+        void loadTerminology().finally(startTerminologyWatcher);
 
         // Keep this test close to the UI logic: spaces and full-width forms are intentionally excluded.
         console.assert(ASCII_VISIBLE.test("A") && !ASCII_VISIBLE.test("Ａ") && !ASCII_VISIBLE.test(" "));
