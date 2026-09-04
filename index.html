@@ -396,15 +396,19 @@
       }
 
       .pan-if-cropped.is-pannable {
-        animation: image-pan 28s ease-in-out infinite alternate;
+        animation: image-pan 56s ease-in-out infinite;
       }
 
       @keyframes image-pan {
-        from {
-          object-position: 12% center;
+        0%,
+        100% {
+          object-position: 50% center;
         }
-        to {
+        25% {
           object-position: 88% center;
+        }
+        75% {
+          object-position: 12% center;
         }
       }
 
