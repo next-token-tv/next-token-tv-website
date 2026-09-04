@@ -1,0 +1,45 @@
+---
+import type { Host } from "../data/site";
+
+interface Props {
+  host: Host;
+}
+
+const { host } = Astro.props;
+---
+
+<article class="host-card">
+  <div class="host-photo">
+    <img
+      src={host.photo}
+      width={host.width}
+      height={host.height}
+      loading="lazy"
+      decoding="async"
+      alt={host.alt}
+    />
+  </div>
+  <div class="host-info">
+    <h3>{host.name}</h3>
+    <p>{host.bio}</p>
+    <ul class="host-socials" aria-label={host.socialsLabel}>
+      {host.socials.map((social) => (
+        <li>
+          {social.href ? (
+            <a href={social.href} target="_blank" rel="noopener noreferrer">
+              <span class="social-platform">{social.platform}</span>
+              <span class="social-handle">{social.handle}</span>
+              <span class="social-arrow" aria-hidden="true">↗</span>
+            </a>
+          ) : (
+            <span class="social-account">
+              <span class="social-platform">{social.platform}</span>
+              <span class="social-handle">{social.handle}</span>
+              <span class="social-note">{social.note}</span>
+            </span>
+          )}
+        </li>
+      ))}
+    </ul>
+  </div>
+</article>

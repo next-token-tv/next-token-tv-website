@@ -1,0 +1,30 @@
+---
+import type { SiteContent } from "../data/site";
+
+interface Props {
+  content: SiteContent;
+}
+
+const { content } = Astro.props;
+---
+
+<header class="site-header">
+  <div class="nav shell">
+    <a class="wordmark" href="#top" aria-label={content.homeLabel}>
+      <img src="/assets/logo-next-token.svg?v=2" width="800" height="660" alt="" />
+      <span>Next Token</span>
+    </a>
+    <nav class="nav-links" aria-label={content.navigationLabel}>
+      <a href="#about">{content.navigation.about}</a>
+      <a href="#weekly">{content.navigation.weekly}</a>
+      <a href="#hosts">{content.navigation.hosts}</a>
+      <a href="#subscribe">{content.navigation.subscribe}</a>
+      <div class="language-switcher" aria-label={content.languageLabel}>
+        <a href="/" lang="zh-Hans" data-language="zh-Hans" aria-current={content.locale === "zh-Hans" ? "page" : undefined}>中文</a>
+        <span aria-hidden="true">/</span>
+        <a href="/en/" lang="en" data-language="en" aria-current={content.locale === "en" ? "page" : undefined}>EN</a>
+      </div>
+      <span class="status-pill">{content.status}</span>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,11 @@
+---
+import HomePage from "../components/HomePage.astro";
+import { siteContent } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const content = siteContent["zh-Hans"];
+---
+
+<BaseLayout content={content} autoRedirect>
+  <HomePage content={content} />
+</BaseLayout>

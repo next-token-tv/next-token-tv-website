@@ -1,0 +1,228 @@
+---
+import HostCard from "./HostCard.astro";
+import SiteHeader from "./SiteHeader.astro";
+import { platforms, type SiteContent } from "../data/site";
+
+interface Props {
+  content: SiteContent;
+}
+
+const { content } = Astro.props;
+const localizedPlatforms = platforms.map((platform) => {
+  if (content.locale === "en") {
+    if (platform === "小宇宙") return "Xiaoyuzhou";
+    if (platform === "哔哩哔哩") return "Bilibili";
+  }
+  return platform;
+});
+---
+
+<a class="skip-link" href="#main">{content.skipLink}</a>
+<SiteHeader content={content} />
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <div data-reveal>
+        <p class="eyebrow">{content.hero.eyebrow}</p>
+        <h1>
+          {content.hero.headingLead.split("\n").map((line, index, lines) => (
+            <>{line}{index < lines.length - 1 && <br />}</>
+          ))}<span class="accent">{content.hero.headingAccent}</span>
+        </h1>
+        <p class="hero-intro">{content.hero.intro}</p>
+        <div class="actions">
+          <a class="button primary" href="#weekly">{content.hero.primaryAction} <span aria-hidden="true">↘</span></a>
+          <a class="button" href="#about">{content.hero.secondaryAction}</a>
+        </div>
+      </div>
+      <div class="hero-footnote" data-reveal>
+        <strong>NT.</strong>
+        <p>{content.hero.footnote}</p>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-label={content.hero.visualLabel}>
+      <img
+        class="pan-if-cropped"
+        data-pan-if-cropped
+        src="/assets/weekly-001-960.webp"
+        srcset="/assets/weekly-001-960.webp 960w, /assets/weekly-001-1440.webp 1440w, /assets/weekly-001-1920.webp 1920w"
+        sizes="(max-width: 1000px) 100vw, 54vw"
+        width="1920"
+        height="1080"
+        decoding="async"
+        fetchpriority="high"
+        alt={content.hero.visualAlt}
+      />
+      <div class="episode-stamp">Weekly<br />#001</div>
+      <div class="visual-caption">
+        <strong>24 signals<br />one open table</strong>
+        <span>Recorded · 2026.09.03</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="topic-rail" aria-hidden="true">
+    <div class="rail-track">
+      {[0, 1].map(() => (
+        <div class="rail-set">
+          {content.topics.map((topic) => <span>{topic}</span>)}
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <section class="section shell" id="about">
+    <div class="section-heading" data-reveal>
+      <p class="section-index">01 / The Brand</p>
+      <div>
+        <h2>{content.about.heading[0]}<br />{content.about.heading[1]}</h2>
+        <p class="section-lede">{content.about.lede}</p>
+      </div>
+    </div>
+
+    <div class="brand-manifesto" data-reveal>
+      {content.about.cards.map((card, index) => (
+        <article class:list={["manifesto-card", { featured: index === 0 }]}>
+          <span class="number">{String(index + 1).padStart(2, "0")}</span>
+          <h3>{card.title}{card.titleSecondLine && <><br />{card.titleSecondLine}</>}</h3>
+          <p>{card.copy}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section weekly" id="weekly">
+    <div class="section-heading" data-reveal>
+      <p class="section-index">02 / The Flagship</p>
+      <div>
+        <h2>Next Token<br />Weekly</h2>
+        <p class="section-lede">{content.weekly.lede}</p>
+      </div>
+    </div>
+
+    <article class="weekly-card" data-reveal>
+      <div class="weekly-image">
+        <img
+          class="pan-if-cropped"
+          data-pan-if-cropped
+          src="/assets/weekly-001-960.webp"
+          srcset="/assets/weekly-001-960.webp 960w, /assets/weekly-001-1440.webp 1440w, /assets/weekly-001-1920.webp 1920w"
+          sizes="(max-width: 1000px) 100vw, 50vw"
+          width="1920"
+          height="1080"
+          loading="lazy"
+          decoding="async"
+          alt={content.weekly.imageAlt}
+        />
+        <span class="label">Recorded 09.03</span>
+      </div>
+      <div class="weekly-copy">
+        <div class="episode-number">#001</div>
+        <div>
+          <p class="eyebrow">{content.weekly.eyebrow}</p>
+          <h3>{content.weekly.heading[0]}<br />{content.weekly.heading[1]}</h3>
+          <p>{content.weekly.copy}</p>
+          <div class="episode-meta" aria-label={content.weekly.topicsLabel}>
+            {content.weekly.topics.map((topic) => <span>{topic}</span>)}
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section class="section shell" id="hosts">
+    <div class="hosts-header" data-reveal>
+      <div>
+        <p class="section-index">03 / The Hosts</p>
+        <h2>{content.hosts.heading[0]}<br />{content.hosts.heading[1]}</h2>
+      </div>
+      <p class="hosts-note">{content.hosts.note}</p>
+    </div>
+
+    <div class="host-grid" data-reveal>
+      {content.hosts.items.map((host) => <HostCard host={host} />)}
+    </div>
+  </section>
+
+  <section class="section shell subscribe" id="subscribe">
+    <div class="subscribe-copy" data-reveal>
+      <p class="section-index">04 / Follow the Signal</p>
+      <h2>{content.subscribe.heading[0]}<br />{content.subscribe.heading[1]}</h2>
+      <p>{content.subscribe.copy}</p>
+    </div>
+    <div class="platform-list" data-reveal aria-label={content.subscribe.platformsLabel}>
+      {localizedPlatforms.map((platform, index) => (
+        <div class="platform">
+          <span class="index">{String(index + 1).padStart(2, "0")}</span>
+          <strong>{platform}</strong>
+          <span class="coming">{content.subscribe.comingSoon}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-main shell">
+    <h2>Beyond the<br />Next Token.</h2>
+    <span class="footer-mark" aria-hidden="true"></span>
+  </div>
+  <div class="footer-bottom shell">
+    <span>Perspectives on AI from the Chinese-speaking world.</span>
+    <span>© {new Date().getFullYear()} NEXT TOKEN · NEXTTOKEN.TV</span>
+  </div>
+</footer>
+
+<script>
+  const revealItems = document.querySelectorAll<HTMLElement>("[data-reveal]");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const panImages = document.querySelectorAll<HTMLImageElement>("[data-pan-if-cropped]");
+  const languageLinks = document.querySelectorAll<HTMLAnchorElement>("[data-language]");
+
+  languageLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      try {
+        window.localStorage.setItem("next-token-language", link.dataset.language ?? "zh-Hans");
+      } catch {}
+    });
+  });
+
+  const updateImagePan = (image: HTMLImageElement) => {
+    const frame = image.parentElement;
+    if (!image.naturalWidth || !frame) return;
+
+    const imageRatio = image.naturalWidth / image.naturalHeight;
+    const frameRatio = frame.clientWidth / frame.clientHeight;
+    const isHorizontallyCropped = imageRatio > frameRatio + 0.01;
+    image.classList.toggle("is-pannable", isHorizontallyCropped && !reduceMotion);
+  };
+
+  panImages.forEach((image) => {
+    if (image.complete) updateImagePan(image);
+    else image.addEventListener("load", () => updateImagePan(image), { once: true });
+  });
+
+  const panObserver = new ResizeObserver(() => panImages.forEach(updateImagePan));
+  panImages.forEach((image) => {
+    if (image.parentElement) panObserver.observe(image.parentElement);
+  });
+
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    revealItems.forEach((item) => item.classList.add("is-visible"));
+  } else {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.14 },
+    );
+    revealItems.forEach((item) => observer.observe(item));
+  }
+</script>

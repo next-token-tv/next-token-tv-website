@@ -1,0 +1,57 @@
+---
+import "../styles/global.css";
+import type { SiteContent } from "../data/site";
+
+interface Props {
+  content: SiteContent;
+  autoRedirect?: boolean;
+}
+
+const { content, autoRedirect = false } = Astro.props;
+const canonical = new URL(content.path, Astro.site);
+---
+
+<!doctype html>
+<html lang={content.locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f1eee5" />
+    <meta name="description" content={content.description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={content.title} />
+    <meta property="og:description" content={content.ogDescription} />
+    <meta property="og:url" content={canonical} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="zh-Hans" href={new URL("/", Astro.site)} />
+    <link rel="alternate" hreflang="en" href={new URL("/en/", Astro.site)} />
+    <link rel="alternate" hreflang="x-default" href={new URL("/", Astro.site)} />
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
+    <title>{content.title}</title>
+    {autoRedirect && (
+      <script is:inline>
+        (() => {
+          if (window.location.pathname !== "/") return;
+
+          const storageKey = "next-token-language";
+          let selectedLanguage = null;
+
+          try {
+            selectedLanguage = window.localStorage.getItem(storageKey);
+          } catch {}
+
+          const browserLanguage = navigator.languages?.[0] || navigator.language || "";
+          const prefersChinese = /^zh(?:-|$)/i.test(browserLanguage);
+          const targetLanguage = selectedLanguage || (browserLanguage && !prefersChinese ? "en" : "zh-Hans");
+
+          if (targetLanguage === "en") {
+            window.location.replace(`/en/${window.location.search}${window.location.hash}`);
+          }
+        })();
+      </script>
+    )}
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

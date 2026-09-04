@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteContent } from "../data/site";
+
+const content = {
+  ...siteContent["zh-Hans"],
+  title: "404 | Next Token",
+  description: "页面未找到 / Page not found",
+  ogDescription: "页面未找到 / Page not found",
+};
+---
+
+<BaseLayout content={content}>
+  <main class="not-found">
+    <p>404</p>
+    <h1>这个词元不在上下文里。</h1>
+    <p>The token you requested is outside this context.</p>
+    <a class="button primary" href="/">返回首页 / Back home</a>
+  </main>
+</BaseLayout>

@@ -1,3 +1,5 @@
 dist/
 .DS_Store
 .wrangler/
+.astro/
+node_modules/
