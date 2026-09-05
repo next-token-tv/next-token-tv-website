@@ -214,8 +214,7 @@ a {
 
 .hero {
   display: grid;
-  height: min(720px, calc(100svh - 76px));
-  min-height: 640px;
+  min-height: clamp(640px, calc(100svh - 76px), 720px);
   grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1.08fr);
   border-bottom: 1px solid var(--ink);
 }
