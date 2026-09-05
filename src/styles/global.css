@@ -635,13 +635,19 @@ h1 .accent {
   text-transform: uppercase;
 }
 
+.episode-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
 .episode-listen {
   display: inline-flex;
   width: fit-content;
   min-height: 48px;
   align-items: center;
   gap: 0.65rem;
-  margin-top: 1.5rem;
   padding: 0.7rem 1rem;
   border: 1px solid var(--signal);
   color: var(--ink);

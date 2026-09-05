@@ -3,6 +3,7 @@ import episode001 from "./episodes/001.json";
 export type Locale = "zh-Hans" | "en";
 
 export const episode001Url = "https://www.xiaoyuzhoufm.com/episode/6a9ad843f03e74ee6b05352c";
+export const episode001BilibiliUrl = "https://www.bilibili.com/video/BV1qdtz6LEHf/";
 export const episode001Assets = {
   id: episode001.id,
   recordedAt: episode001.recorded_at,
@@ -70,6 +71,7 @@ export type SiteContent = {
     topicsLabel: string;
     topics: string[];
     listenAction: string;
+    watchAction: string;
   };
   hosts: {
     heading: [string, string];
@@ -258,6 +260,7 @@ export const siteContent: Record<Locale, SiteContent> = {
       topicsLabel: "本期议题",
       topics: ["24 条新闻", "模型与 Agent", "智能硬件", "商业与组织"],
       listenAction: "在小宇宙收听",
+      watchAction: "在哔哩哔哩观看",
     },
     hosts: {
       heading: ["四位联合主理人，", "一张开放的圆桌。"],
@@ -266,8 +269,8 @@ export const siteContent: Record<Locale, SiteContent> = {
     },
     subscribe: {
       heading: ["首期已经", "和你见面。"],
-      copy: "第一期音频现已在小宇宙上线。其他平台以及视频、完整文字稿入口将继续在本页更新。",
-      platformsLabel: "订阅与收听平台",
+      copy: "第一期现已在小宇宙和哔哩哔哩上线。其他平台与完整文字稿入口将继续在本页更新。",
+      platformsLabel: "收听与观看平台",
       available: "立即收听",
       comingSoon: "即将开放",
     },
@@ -313,6 +316,7 @@ export const siteContent: Record<Locale, SiteContent> = {
       topicsLabel: "Episode topics",
       topics: ["24 stories", "Models & agents", "AI hardware", "Business & organizations"],
       listenAction: "Listen on Xiaoyuzhou",
+      watchAction: "Watch on Bilibili",
     },
     hosts: {
       heading: ["Four co-hosts.", "One open table."],
@@ -321,8 +325,8 @@ export const siteContent: Record<Locale, SiteContent> = {
     },
     subscribe: {
       heading: ["Episode #001", "is now live."],
-      copy: "Episode #001 is now available on Xiaoyuzhou. More platforms, video, and the full transcript will be added here as they go live.",
-      platformsLabel: "Listen and follow",
+      copy: "Episode #001 is now available on Xiaoyuzhou and Bilibili. More platforms and the full transcript will be added here as they go live.",
+      platformsLabel: "Listen and watch",
       available: "Listen now",
       comingSoon: "Coming soon",
     },
@@ -334,9 +338,15 @@ export const platforms = [
     zh: "小宇宙",
     en: "Xiaoyuzhou",
     href: episode001Url,
+    action: { zh: "立即收听", en: "Listen now" },
   },
   { zh: "Apple Podcasts", en: "Apple Podcasts" },
   { zh: "Spotify", en: "Spotify" },
-  { zh: "哔哩哔哩", en: "Bilibili" },
+  {
+    zh: "哔哩哔哩",
+    en: "Bilibili",
+    href: episode001BilibiliUrl,
+    action: { zh: "立即观看", en: "Watch now" },
+  },
   { zh: "YouTube", en: "YouTube" },
 ] as const;

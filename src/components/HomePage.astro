@@ -1,7 +1,7 @@
 ---
 import HostCard from "./HostCard.astro";
 import SiteHeader from "./SiteHeader.astro";
-import { episode001Assets, episode001Url, platforms, type SiteContent } from "../data/site";
+import { episode001Assets, episode001BilibiliUrl, episode001Url, platforms, type SiteContent } from "../data/site";
 
 interface Props {
   content: SiteContent;
@@ -11,6 +11,9 @@ const { content } = Astro.props;
 const localizedPlatforms = platforms.map((platform) => ({
   label: content.locale === "en" ? platform.en : platform.zh,
   href: "href" in platform ? platform.href : undefined,
+  action: "action" in platform
+    ? content.locale === "en" ? platform.action.en : platform.action.zh
+    : undefined,
 }));
 ---
 
@@ -124,9 +127,14 @@ const localizedPlatforms = platforms.map((platform) => ({
           <div class="episode-meta" aria-label={content.weekly.topicsLabel}>
             {content.weekly.topics.map((topic) => <span>{topic}</span>)}
           </div>
-          <a class="episode-listen" href={episode001Url} target="_blank" rel="noopener noreferrer">
-            {content.weekly.listenAction} <span aria-hidden="true">↗</span>
-          </a>
+          <div class="episode-actions">
+            <a class="episode-listen" href={episode001Url} target="_blank" rel="noopener noreferrer">
+              {content.weekly.listenAction} <span aria-hidden="true">↗</span>
+            </a>
+            <a class="episode-listen" href={episode001BilibiliUrl} target="_blank" rel="noopener noreferrer">
+              {content.weekly.watchAction} <span aria-hidden="true">↗</span>
+            </a>
+          </div>
         </div>
       </div>
     </article>
@@ -157,7 +165,7 @@ const localizedPlatforms = platforms.map((platform) => ({
         <a class="platform is-live" href={platform.href} target="_blank" rel="noopener noreferrer">
           <span class="index">{String(index + 1).padStart(2, "0")}</span>
           <strong>{platform.label}</strong>
-          <span class="coming">{content.subscribe.available} <span aria-hidden="true">↗</span></span>
+          <span class="coming">{platform.action ?? content.subscribe.available} <span aria-hidden="true">↗</span></span>
         </a>
       ) : (
         <div class="platform">
