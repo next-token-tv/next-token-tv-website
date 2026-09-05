@@ -116,11 +116,15 @@ a {
   flex: 0 0 auto;
 }
 
-.wordmark span {
+.wordmark > span {
   display: inline-flex;
   align-items: center;
   align-self: center;
   transform: translateY(0.25rem);
+}
+
+.wordmark-tagline {
+  margin-left: 0.22em;
 }
 
 .nav-links {
@@ -133,6 +137,7 @@ a {
 
 .nav-links > a {
   position: relative;
+  white-space: nowrap;
 }
 
 .nav-links > a::after {
@@ -1413,6 +1418,23 @@ h1 .accent {
   transform: translateY(0);
 }
 
+@media (max-width: 1250px) {
+  .wordmark-tagline,
+  .status-pill {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-links > a {
+    display: none;
+  }
+
+  .nav-links > a.partners-link {
+    display: inline-block;
+  }
+}
+
 @media (max-width: 1000px) {
   .hero {
     height: auto;
@@ -1507,7 +1529,7 @@ h1 .accent {
     width: 2.8rem;
   }
 
-  .wordmark span {
+  .wordmark > span {
     display: none;
   }
 
