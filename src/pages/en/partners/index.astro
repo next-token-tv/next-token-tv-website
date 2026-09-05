@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PartnerListPage from "../../../components/PartnerListPage.astro";
+import { siteContent } from "../../../data/site";
+
+const content = siteContent.en;
+---
+
+<BaseLayout
+  content={content}
+  pageTitle="Venue Partners | Next Token"
+  description="Meet the venue partners that provide recording and event spaces for Next Token."
+  canonicalPath="/en/partners/"
+  alternatePath="/partners/"
+>
+  <PartnerListPage locale="en" />
+</BaseLayout>

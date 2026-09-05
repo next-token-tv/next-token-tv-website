@@ -1,0 +1,37 @@
+---
+import type { Locale } from "../data/site";
+import type { Partner } from "../data/partners";
+import { partnerPath } from "../data/partners";
+
+interface Props {
+  partner: Partner;
+  locale: Locale;
+}
+
+const { partner, locale } = Astro.props;
+const path = partnerPath(partner, locale);
+const copy = locale === "zh-Hans"
+  ? { map: "地图 POI", detail: "伙伴详情", logo: `${partner.name}标志` }
+  : { map: "Map POI", detail: "Partner profile", logo: `${partner.englishName} logo` };
+---
+
+<article class="partner-row">
+  <div class="partner-row-logo">
+    <img src={partner.logo} width="142" height="101" alt={copy.logo} loading="lazy" />
+  </div>
+  <div class="partner-row-identity">
+    <p class="partner-role">{partner.role[locale]}</p>
+    <h2><a href={path}>{partner.name}</a></h2>
+    <p class="partner-english-name">{partner.englishName}</p>
+  </div>
+  <p class="partner-row-summary">{partner.summary[locale]}</p>
+  <div class="partner-row-location">
+    <span>{partner.location.label[locale]}</span>
+    <a href={partner.location.mapUrl} target="_blank" rel="noreferrer">
+      {copy.map}<span aria-hidden="true">↗</span>
+    </a>
+  </div>
+  <a class="partner-row-action" href={path} aria-label={`${copy.detail}：${partner.name}`}>
+    <span>{copy.detail}</span><span aria-hidden="true">→</span>
+  </a>
+</article>

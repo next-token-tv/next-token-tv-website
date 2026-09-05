@@ -1,0 +1,23 @@
+---
+import type { Locale } from "../data/site";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const perspective = locale === "zh-Hans"
+  ? "来自中文世界的 AI 现场观点。"
+  : "Perspectives on AI from the Chinese-speaking world.";
+---
+
+<footer class="site-footer">
+  <div class="footer-main shell">
+    <h2>Beyond the<br />Next Token.</h2>
+    <span class="footer-mark" aria-hidden="true"></span>
+  </div>
+  <div class="footer-bottom shell">
+    <span>{perspective}</span>
+    <span>© {new Date().getFullYear()} NEXT TOKEN · NEXTTOKEN.TV</span>
+  </div>
+</footer>

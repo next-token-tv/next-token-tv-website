@@ -1,0 +1,151 @@
+---
+import type { Locale } from "../data/site";
+import type { Partner } from "../data/partners";
+import { partnersPath } from "../data/partners";
+
+interface Props {
+  partner: Partner;
+  locale: Locale;
+}
+
+const { partner, locale } = Astro.props;
+const listPath = partnersPath(locale);
+const copy = locale === "zh-Hans"
+  ? {
+      back: "返回场地合作伙伴",
+      logo: `${partner.name}标志`,
+      location: "位置",
+      map: "在高德地图查看 POI",
+      transport: "公共交通",
+      about: "关于空间",
+      capacity: "空间信息",
+      spaces: "空间与活动",
+      gallery: "现场影像",
+      sources: "公开资料",
+      external: "打开外部链接",
+    }
+  : {
+      back: "Back to venue partners",
+      logo: `${partner.englishName} logo`,
+      location: "Location",
+      map: "View POI on Amap",
+      transport: "Public transport",
+      about: "About the space",
+      capacity: "At a glance",
+      spaces: "Space and programs",
+      gallery: "From the venue",
+      sources: "Public sources",
+      external: "Open external link",
+    };
+
+const placeSchema = {
+  "@context": "https://schema.org",
+  "@type": "Place",
+  name: partner.name,
+  alternateName: partner.englishName,
+  description: partner.summary[locale],
+  image: partner.heroImage,
+  address: partner.location.address[locale],
+};
+---
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(placeSchema)} />
+
+<main id="main" class="partner-detail-page">
+  <div class="partner-detail-back shell">
+    <a href={listPath}><span aria-hidden="true">←</span>{copy.back}</a>
+  </div>
+
+  <section class="partner-profile-hero" aria-labelledby="partner-name">
+    <div class="partner-profile-copy">
+      <p class="partner-role">{partner.role[locale]}</p>
+      <img class="partner-profile-logo" src={partner.logo} width="142" height="101" alt={copy.logo} />
+      <h1 id="partner-name">{partner.name}</h1>
+      <p class="partner-profile-english">{partner.englishName}</p>
+      <p class="partner-profile-summary">{partner.summary[locale]}</p>
+    </div>
+    <figure class="partner-profile-image">
+      <img src={partner.heroImage} width="1080" height="720" alt={partner.heroAlt[locale]} />
+    </figure>
+  </section>
+
+  <section class="partner-location shell" aria-labelledby="location-title">
+    <p class="section-kicker" id="location-title">{copy.location}</p>
+    <div class="partner-location-main">
+      <p class="partner-location-label">{partner.location.label[locale]}</p>
+      <address>{partner.location.address[locale]}</address>
+    </div>
+    <div class="partner-location-transit">
+      <span>{copy.transport}</span>
+      <p>{partner.location.transport[locale]}</p>
+    </div>
+    <a class="button primary" href={partner.location.mapUrl} target="_blank" rel="noreferrer">
+      {copy.map}<span aria-hidden="true">↗</span>
+    </a>
+  </section>
+
+  <section class="partner-story shell" aria-labelledby="about-title">
+    <p class="section-kicker">01 / {copy.about}</p>
+    <div>
+      <h2 id="about-title">{copy.about}</h2>
+      {partner.introduction[locale].map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+  </section>
+
+  <section class="partner-facts" aria-labelledby="facts-title">
+    <div class="shell">
+      <p class="section-kicker" id="facts-title">02 / {copy.capacity}</p>
+      <div class="partner-fact-grid">
+        {partner.facts.map((fact) => (
+          <div class="partner-fact">
+            <strong>{fact.value}</strong>
+            <span>{fact.label[locale]}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="partner-spaces shell" aria-labelledby="spaces-title">
+    <div class="partner-section-heading">
+      <p class="section-kicker">03 / {copy.spaces}</p>
+      <h2 id="spaces-title">{copy.spaces}</h2>
+    </div>
+    <div class="partner-space-list">
+      {partner.spaces.map((space, index) => (
+        <article>
+          <span>{String(index + 1).padStart(2, "0")}</span>
+          <h3>{space.title[locale]}</h3>
+          <p>{space.copy[locale]}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="partner-gallery" aria-labelledby="gallery-title">
+    <div class="shell partner-section-heading">
+      <p class="section-kicker">04 / {copy.gallery}</p>
+      <h2 id="gallery-title">{copy.gallery}</h2>
+    </div>
+    <div class="partner-gallery-grid">
+      {partner.gallery.map((image) => (
+        <figure>
+          <img src={image.src} width="1080" height="720" alt={image.alt[locale]} loading="lazy" />
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <aside class="partner-sources shell" aria-labelledby="sources-title">
+    <p class="section-kicker" id="sources-title">{copy.sources}</p>
+    <div>
+      {partner.sources.map((source) => (
+        <a href={source.href} target="_blank" rel="noreferrer">
+          <span>{source.label[locale]}</span>
+          <span class="visually-hidden">{copy.external}</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      ))}
+    </div>
+  </aside>
+</main>

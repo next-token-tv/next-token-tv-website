@@ -1,0 +1,43 @@
+---
+import PartnerRow from "./PartnerRow.astro";
+import type { Locale } from "../data/site";
+import { partners } from "../data/partners";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const copy = locale === "zh-Hans"
+  ? {
+      eyebrow: "Next Token / 合作网络",
+      title: "场地合作伙伴",
+      lede: "这些空间为现场对话提供了真实的发生地，也让技术、产品与人的连接延伸到节目之外。",
+      count: `${partners.length} 个伙伴`,
+      columnLabel: "伙伴目录",
+    }
+  : {
+      eyebrow: "Next Token / Partner network",
+      title: "Venue partners",
+      lede: "These spaces give our conversations a physical home—and carry the connection between technology, products, and people beyond the program.",
+      count: `${partners.length} partner${partners.length === 1 ? "" : "s"}`,
+      columnLabel: "Partner directory",
+    };
+---
+
+<main id="main" class="partners-page">
+  <section class="partners-intro shell" aria-labelledby="partners-title">
+    <p class="eyebrow">{copy.eyebrow}</p>
+    <div class="partners-intro-grid">
+      <h1 id="partners-title">{copy.title}</h1>
+      <div class="partners-intro-copy">
+        <p>{copy.lede}</p>
+        <span>{copy.count}</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="partner-directory shell" aria-label={copy.columnLabel}>
+    {partners.map((partner) => <PartnerRow partner={partner} locale={locale} />)}
+  </section>
+</main>

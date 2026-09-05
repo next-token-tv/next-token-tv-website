@@ -4,15 +4,17 @@
 
 - 中文：<https://nexttoken.tv/>
 - English: <https://nexttoken.tv/en/>
+- 场地合作伙伴：<https://nexttoken.tv/partners/>
 
 首次访问根路径时，网站根据浏览器首选语言选择中文或英文；用户通过页眉切换语言后，后续访问优先沿用手动选择。
 
 ## 技术架构
 
-- `src/pages/`：Astro 路由，当前生成中文首页、英文首页和 404 页。
-- `src/components/`：页面与人物卡片等可复用组件。
+- `src/pages/`：Astro 路由，生成中英文首页、伙伴列表、伙伴详情和 404 页。
+- `src/components/`：公共页头、页脚、页面与内容条目等可复用组件。
 - `src/data/site.ts`：中英文文案、主理人和社交账号的唯一数据源。
 - `src/data/episodes/`：从内容制作仓库导入的已发布单集事实与来源校验信息。
+- `src/data/partners.ts`：场地合作伙伴资料、地图 POI 与详情页内容的数据源。
 - `src/styles/global.css`：品牌视觉和响应式样式。
 - `public/assets/`：字体、图片和品牌资产。
 - `wrangler.jsonc`：Cloudflare 静态资产、自定义域名与 404 行为。

@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PartnerListPage from "../../components/PartnerListPage.astro";
+import { siteContent } from "../../data/site";
+
+const content = siteContent["zh-Hans"];
+---
+
+<BaseLayout
+  content={content}
+  pageTitle="场地合作伙伴 | Next Token"
+  description="认识为 Next Token 提供录制与活动空间支持的场地合作伙伴。"
+  canonicalPath="/partners/"
+  alternatePath="/en/partners/"
+>
+  <PartnerListPage locale="zh-Hans" />
+</BaseLayout>

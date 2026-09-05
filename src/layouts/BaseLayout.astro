@@ -1,14 +1,30 @@
 ---
 import "../styles/global.css";
 import type { SiteContent } from "../data/site";
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHeader from "../components/SiteHeader.astro";
 
 interface Props {
   content: SiteContent;
   autoRedirect?: boolean;
+  pageTitle?: string;
+  description?: string;
+  canonicalPath?: string;
+  alternatePath?: string;
+  noIndex?: boolean;
 }
 
-const { content, autoRedirect = false } = Astro.props;
-const canonical = new URL(content.path, Astro.site);
+const {
+  content,
+  autoRedirect = false,
+  pageTitle = content.title,
+  description = content.description,
+  canonicalPath = content.path,
+  alternatePath = content.locale === "en" ? "/" : "/en/",
+  noIndex = false,
+} = Astro.props;
+const canonical = new URL(canonicalPath, Astro.site);
+const alternate = new URL(alternatePath, Astro.site);
 ---
 
 <!doctype html>
@@ -17,17 +33,18 @@ const canonical = new URL(content.path, Astro.site);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f1eee5" />
-    <meta name="description" content={content.description} />
+    <meta name="description" content={description} />
+    {noIndex && <meta name="robots" content="noindex" />}
     <meta property="og:type" content="website" />
-    <meta property="og:title" content={content.title} />
-    <meta property="og:description" content={content.ogDescription} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang="zh-Hans" href={new URL("/", Astro.site)} />
-    <link rel="alternate" hreflang="en" href={new URL("/en/", Astro.site)} />
-    <link rel="alternate" hreflang="x-default" href={new URL("/", Astro.site)} />
+    <link rel="alternate" hreflang={content.locale} href={canonical} />
+    <link rel="alternate" hreflang={content.locale === "en" ? "zh-Hans" : "en"} href={alternate} />
+    <link rel="alternate" hreflang="x-default" href={content.locale === "zh-Hans" ? canonical : alternate} />
     <link rel="icon" type="image/png" href="/assets/favicon.png" />
-    <title>{content.title}</title>
+    <title>{pageTitle}</title>
     {autoRedirect && (
       <script is:inline>
         (() => {
@@ -52,6 +69,18 @@ const canonical = new URL(content.path, Astro.site);
     )}
   </head>
   <body>
+    <a class="skip-link" href="#main">{content.skipLink}</a>
+    <SiteHeader content={content} currentPath={canonicalPath} alternatePath={alternatePath} />
     <slot />
+    <SiteFooter locale={content.locale} />
+    <script>
+      document.querySelectorAll<HTMLAnchorElement>("[data-language]").forEach((link) => {
+        link.addEventListener("click", () => {
+          try {
+            window.localStorage.setItem("next-token-language", link.dataset.language ?? "zh-Hans");
+          } catch {}
+        });
+      });
+    </script>
   </body>
 </html>

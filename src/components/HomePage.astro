@@ -1,6 +1,5 @@
 ---
 import HostCard from "./HostCard.astro";
-import SiteHeader from "./SiteHeader.astro";
 import { episode001Assets, episode001BilibiliUrl, episode001Url, platforms, type SiteContent } from "../data/site";
 
 interface Props {
@@ -16,9 +15,6 @@ const localizedPlatforms = platforms.map((platform) => ({
     : undefined,
 }));
 ---
-
-<a class="skip-link" href="#main">{content.skipLink}</a>
-<SiteHeader content={content} />
 
 <main id="main">
   <section class="hero" id="top">
@@ -178,31 +174,10 @@ const localizedPlatforms = platforms.map((platform) => ({
   </section>
 </main>
 
-<footer class="site-footer">
-  <div class="footer-main shell">
-    <h2>Beyond the<br />Next Token.</h2>
-    <span class="footer-mark" aria-hidden="true"></span>
-  </div>
-  <div class="footer-bottom shell">
-    <span>Perspectives on AI from the Chinese-speaking world.</span>
-    <span>© {new Date().getFullYear()} NEXT TOKEN · NEXTTOKEN.TV</span>
-  </div>
-</footer>
-
 <script>
   const revealItems = document.querySelectorAll<HTMLElement>("[data-reveal]");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const panImages = document.querySelectorAll<HTMLImageElement>("[data-pan-if-cropped]");
-  const languageLinks = document.querySelectorAll<HTMLAnchorElement>("[data-language]");
-
-  languageLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      try {
-        window.localStorage.setItem("next-token-language", link.dataset.language ?? "zh-Hans");
-      } catch {}
-    });
-  });
-
   const updateImagePan = (image: HTMLImageElement) => {
     const frame = image.parentElement;
     if (!image.naturalWidth || !frame) return;

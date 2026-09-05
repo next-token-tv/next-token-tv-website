@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PartnerDetailPage from "../../components/PartnerDetailPage.astro";
+import { partners, partnerPath, type Partner } from "../../data/partners";
+import { siteContent } from "../../data/site";
+
+export function getStaticPaths() {
+  return partners.map((partner) => ({ params: { slug: partner.slug }, props: { partner } }));
+}
+
+interface Props {
+  partner: Partner;
+}
+
+const { partner } = Astro.props;
+const content = siteContent["zh-Hans"];
+---
+
+<BaseLayout
+  content={content}
+  pageTitle={`${partner.name} | Next Token 场地合作伙伴`}
+  description={partner.summary["zh-Hans"]}
+  canonicalPath={partnerPath(partner, "zh-Hans")}
+  alternatePath={partnerPath(partner, "en")}
+>
+  <PartnerDetailPage partner={partner} locale="zh-Hans" />
+</BaseLayout>

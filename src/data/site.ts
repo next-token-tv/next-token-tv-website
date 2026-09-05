@@ -41,6 +41,7 @@ export type SiteContent = {
     about: string;
     weekly: string;
     hosts: string;
+    partners: string;
     subscribe: string;
   };
   languageLabel: string;
@@ -228,7 +229,7 @@ export const siteContent: Record<Locale, SiteContent> = {
     skipLink: "跳到主要内容",
     homeLabel: "Next Token 首页",
     navigationLabel: "主导航",
-    navigation: { about: "关于品牌", weekly: "Next Token Weekly", hosts: "联合主理人", subscribe: "订阅" },
+    navigation: { about: "关于品牌", weekly: "Next Token Weekly", hosts: "联合主理人", partners: "合作伙伴", subscribe: "订阅" },
     languageLabel: "语言切换",
     status: "首期已上线",
     hero: {
@@ -284,7 +285,7 @@ export const siteContent: Record<Locale, SiteContent> = {
     skipLink: "Skip to main content",
     homeLabel: "Next Token home",
     navigationLabel: "Main navigation",
-    navigation: { about: "About", weekly: "Next Token Weekly", hosts: "Co-hosts", subscribe: "Follow" },
+    navigation: { about: "About", weekly: "Next Token Weekly", hosts: "Co-hosts", partners: "Partners", subscribe: "Follow" },
     languageLabel: "Language switcher",
     status: "Episode #001 is live",
     hero: {
