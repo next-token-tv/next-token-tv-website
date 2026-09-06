@@ -14,7 +14,7 @@
   },
   "participants": [
     {
-      "person": "yang-pan",
+      "person": "yangpan",
       "role": "duty-host"
     },
     {
@@ -36,7 +36,7 @@
     "1920": "/assets/weekly-001-1920.webp"
   },
   "provenance": {
-    "productionCommit": "7d85251d420e7b4c73ef481a9583bfa0facb3d12",
+    "productionCommit": "73620d1c0d3f4d19676b45facb728db5f32c168e",
     "releaseManifestSha256": "d8db3941a513c3494d1c22f1658ae27ffdbb1f708209e1ed73a2ac0f6b079d4f"
   }
 }

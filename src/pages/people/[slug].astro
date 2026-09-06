@@ -1,0 +1,16 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HostProfilePage from "../../components/HostProfilePage.astro";
+import { getHostProfileIds, getPeopleByIds } from "../../data/catalog";
+import { getSiteContent } from "../../data/site";
+export async function getStaticPaths() {
+  return (await getHostProfileIds()).map(slug => ({ params: { slug } }));
+}
+const personId = Astro.params.slug!;
+const [person] = await getPeopleByIds([personId]);
+if (!person) throw new Error(`Unknown profile: ${personId}`);
+const content = await getSiteContent("zh-Hans");
+---
+<BaseLayout content={content} pageTitle={`${person.data.name["zh-Hans"]} | Next Token 联合主理人`} description={person.data.bio["zh-Hans"]} canonicalPath={`/people/${personId}/`} alternatePath={`/en/people/${personId}/`}>
+  <HostProfilePage personId={personId} locale="zh-Hans" />
+</BaseLayout>

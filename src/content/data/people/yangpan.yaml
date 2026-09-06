@@ -4,7 +4,7 @@ name:
 bio:
   zh-Hans: 联合主理人 · Bilink.ai 创始人，融云联合创始人，前硅基流动联合创始人
   en: Co-host · Founder of Bilink.ai; co-founder of RongCloud and SiliconFlow.
-photo: /assets/hosts/yang-pan.webp
+photo: /assets/hosts/yangpan.webp
 width: 400
 height: 400
 alt:
@@ -24,6 +24,8 @@ socials:
     handle: 杨攀同学
     href: https://m.okjike.com/users/B53205DA-8DDC-463C-87B3-3F65F88B6EA2
   - platform: wechat
+    handle: 杨攀同学
+  - platform: wechat-channels
     handle: 杨攀同学
   - platform: rednote
     handle: 杨攀同学

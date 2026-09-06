@@ -15,6 +15,8 @@ type SocialLink = {
 };
 
 export type Host = {
+  id: string;
+  profilePath: string;
   name: string;
   bio: string;
   photo: string;

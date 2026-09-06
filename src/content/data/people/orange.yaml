@@ -27,6 +27,8 @@ socials:
     handle: 橘AI
   - platform: wechat
     handle: 橘AI
+  - platform: wechat-channels
+    handle: AGENT橘
   - platform: rednote
     handle: 橘AI
   - platform: linkedin

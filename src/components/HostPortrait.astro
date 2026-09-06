@@ -1,0 +1,39 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  sizes: string;
+  loading?: "eager" | "lazy";
+  decoding?: "async" | "auto" | "sync";
+  fetchpriority?: "high" | "low" | "auto";
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  sizes,
+  loading,
+  decoding = "async",
+  fetchpriority,
+} = Astro.props;
+const stem = src.endsWith(".webp") ? src.slice(0, -5) : src;
+const srcset = src.endsWith(".webp")
+  ? `${stem}-256.webp 256w, ${src} 512w, ${stem}-1024.webp 1024w`
+  : undefined;
+---
+
+<img
+  src={src}
+  srcset={srcset}
+  sizes={sizes}
+  width={width}
+  height={height}
+  loading={loading}
+  decoding={decoding}
+  fetchpriority={fetchpriority}
+  alt={alt}
+/>

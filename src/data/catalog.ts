@@ -204,11 +204,27 @@ const platformLabels = {
   jike: { "zh-Hans": "即刻", en: "Jike" },
   weibo: { "zh-Hans": "微博", en: "Weibo" },
   wechat: { "zh-Hans": "公众号", en: "WeChat" },
+  "wechat-channels": { "zh-Hans": "视频号", en: "Channels" },
   rednote: { "zh-Hans": "小红书", en: "RedNote" },
   linkedin: { "zh-Hans": "LinkedIn", en: "LinkedIn" },
   blog: { "zh-Hans": "博客", en: "Blog" },
   podcast: { "zh-Hans": "播客", en: "Podcast" },
 } as const;
+
+const socialOrder: (keyof typeof platformLabels)[] = [
+  "podcast", "x", "github", "jike", "wechat", "wechat-channels", "rednote", "weibo", "linkedin", "blog",
+];
+
+function getSocials(socials: CollectionEntry<"people">["data"]["socials"], locale: Locale): Host["socials"] {
+  return [...socials].sort((a, b) => socialOrder.indexOf(a.platform) - socialOrder.indexOf(b.platform)).map(social => ({
+    platform: platformLabels[social.platform][locale],
+    handle: social.handle,
+    href: social.href,
+    note: social.href ? undefined : ["wechat", "wechat-channels"].includes(social.platform)
+      ? (locale === "zh-Hans" ? "微信内搜索" : "Search in WeChat")
+      : (locale === "zh-Hans" ? "App 内搜索" : "Search in app"),
+  }));
+}
 
 export async function getHostsForShow(showId: string, locale: Locale): Promise<Host[]> {
   const catalog = await getContentCatalog();
@@ -222,6 +238,8 @@ export async function getHostsForShow(showId: string, locale: Locale): Promise<H
       const displayName = person.data.name[locale];
 
       return {
+        id: person.id,
+        profilePath: `${locale === "en" ? "/en" : ""}/people/${person.id}/`,
         name: displayName,
         bio: person.data.bio[locale],
         photo: person.data.photo,
@@ -229,16 +247,7 @@ export async function getHostsForShow(showId: string, locale: Locale): Promise<H
         height: person.data.height,
         alt: person.data.alt[locale],
         socialsLabel: person.data.socialsLabel[locale],
-        socials: person.data.socials.map((social) => ({
-          platform: platformLabels[social.platform][locale],
-          handle: social.handle,
-          href: social.href,
-          note: social.href
-            ? undefined
-            : locale === "zh-Hans"
-              ? social.platform === "wechat" ? "微信内搜索" : "App 内搜索"
-              : social.platform === "wechat" ? "Search in WeChat" : "Search in app",
-        })),
+        socials: getSocials(person.data.socials, locale),
       };
     });
 }
@@ -329,4 +338,37 @@ export async function getPeopleByIds(personIds: string[]) {
   const catalog = await getContentCatalog();
   const people = indexById(catalog.people);
   return personIds.map((personId) => requireId(people, personId, "person"));
+}
+
+export async function getHostProfileIds() {
+  const catalog = await getContentCatalog();
+  return [...new Set(catalog.hostMemberships.map(({ data }) => data.person))];
+}
+
+export async function getHostProfile(personId: string, locale: Locale) {
+  const catalog = await getContentCatalog();
+  const memberships = catalog.hostMemberships.filter(({ data }) => data.person === personId);
+  if (!memberships.length) throw new Error(`No host membership for ${personId}`);
+  const person = requireId(indexById(catalog.people), personId, "profile person");
+  const host: Host = {
+    id: personId,
+    profilePath: `${locale === "en" ? "/en" : ""}/people/${personId}/`,
+    name: person.data.name[locale], bio: person.data.bio[locale],
+    photo: person.data.photo, width: person.data.width, height: person.data.height,
+    alt: person.data.alt[locale], socialsLabel: person.data.socialsLabel[locale],
+    socials: getSocials(person.data.socials, locale),
+  };
+  const imports = indexById(catalog.episodeImports);
+  const episodes = catalog.episodes.filter(({ data }) => {
+    const participants = data.status === "announced" ? data.participants
+      : requireId(imports, data.productionImport, "episode production").data.participants;
+    return participants.some(({ person }) => person === personId);
+  }).sort((a, b) => b.data.number.localeCompare(a.data.number));
+  const shows = memberships.map(({ data }) => ({
+    ...requireId(indexById(catalog.shows), data.show, "host show"), active: data.active,
+  }));
+  const profiles = catalog.prose.filter(({ data }) => data.entityType === "person"
+    && data.entity === personId && data.locale === locale && data.slot === "profile");
+  if (profiles.length !== 1) throw new Error(`Expected one ${locale} profile for ${personId}`);
+  return { host, shows, episodes, profile: profiles[0]! };
 }

@@ -50,7 +50,7 @@ const people = defineCollection({
     alt: localizedText,
     socialsLabel: localizedText,
     socials: z.array(z.object({
-      platform: z.enum(["x", "github", "jike", "weibo", "wechat", "rednote", "linkedin", "blog", "podcast"]),
+      platform: z.enum(["x", "github", "jike", "weibo", "wechat", "wechat-channels", "rednote", "linkedin", "blog", "podcast"]),
       handle: z.string(),
       href: z.url().optional(),
     })),

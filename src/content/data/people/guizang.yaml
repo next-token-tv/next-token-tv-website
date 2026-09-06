@@ -22,10 +22,12 @@ socials:
     href: https://github.com/op7418
   - platform: jike
     handle: 歸藏
+  - platform: wechat
+    handle: 歸藏的AI工具箱
+  - platform: wechat-channels
+    handle: 歸藏2079
+  - platform: rednote
+    handle: 歸藏
   - platform: weibo
     handle: "@歸藏的AI工具箱"
     href: https://www.sina.cn/media/6182606334
-  - platform: wechat
-    handle: 歸藏的AI工具箱
-  - platform: rednote
-    handle: 歸藏

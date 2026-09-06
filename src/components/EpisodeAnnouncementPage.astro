@@ -24,7 +24,7 @@ const month = dateParts.find(({ type }) => type === "month")?.value;
 const day = dateParts.find(({ type }) => type === "day")?.value;
 if (!month || !day) throw new Error(`Unable to format date for ${episode.id}`);
 const shortDate = `${month}.${day}`;
-const fullDate = new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-CN", {
+const fullDate = new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-Hans", {
   year: "numeric",
   month: "long",
   day: "numeric",

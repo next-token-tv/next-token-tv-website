@@ -22,7 +22,7 @@ const [{ partner, venue }, participants] = await Promise.all([
 const { Content } = await render(showNotes);
 const homepage = episode.data.homepage[locale];
 const weeklyPath = locale === "en" ? "/en/weekly/" : "/weekly/";
-const recordingDate = new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-CN", {
+const recordingDate = new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-Hans", {
   year: "numeric",
   month: "long",
   day: "numeric",

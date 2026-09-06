@@ -1,0 +1,90 @@
+---
+import HostPortrait from "./HostPortrait.astro";
+import { getHostProfile } from "../data/catalog";
+import { render } from "astro:content";
+import type { Locale } from "../data/types";
+interface Props { personId: string; locale: Locale; }
+const { personId, locale } = Astro.props;
+const { host, shows, episodes, profile } = await getHostProfile(personId, locale);
+const { Content } = await render(profile);
+const en = locale === "en";
+const home = en ? "/en/" : "/";
+---
+
+<main id="main" class="host-profile shell">
+  <a class="profile-back" href={`${home}#hosts`}>← {en ? "Meet the co-hosts" : "认识联合主理人"}</a>
+  <section class="profile-hero" aria-labelledby="profile-name">
+    <div class="host-photo"><HostPortrait src={host.photo} width={host.width} height={host.height} sizes="(max-width: 720px) 320px, 400px" alt={host.alt} decoding="async" fetchpriority="high" /></div>
+    <div class="profile-intro">
+      <p class="section-index">NEXT TOKEN / {en ? "CO-HOST" : "联合主理人"}</p>
+      <h1 id="profile-name">{host.name}</h1>
+      <p class="profile-bio">{host.bio}</p>
+      <div class="profile-description"><Content /></div>
+    </div>
+  </section>
+  <div class="profile-details">
+    <section aria-labelledby="profile-accounts">
+      <h2 id="profile-accounts">{en ? "Find me online" : "在这里找到我"}</h2>
+      <ul class="host-socials" aria-label={host.socialsLabel}>
+        {host.socials.map(social => <li class="profile-account-row">
+          <span class="social-platform">{social.platform}</span>
+          {social.href ? <a class="profile-account-link" href={social.href} aria-label={`${social.platform}: ${social.handle}`} target="_blank" rel="noopener noreferrer"><span class="social-handle">{social.handle}</span><span class="social-arrow" aria-hidden="true">↗</span></a>
+            : <span class="profile-account-value"><span class="social-handle">{social.handle}</span><span class="social-note">{social.note}</span></span>}
+        </li>)}
+      </ul>
+    </section>
+    <section aria-labelledby="profile-shows">
+      <h2 id="profile-shows">{en ? "Shows" : "参与栏目"}</h2>
+      {shows.map(show => <div class="profile-show"><p>{show.active ? (en ? "Co-host" : "联合主理人") : (en ? "Former co-host" : "曾任联合主理人")}</p>{show.id === "next-token-weekly" ? <a href={`${home}weekly/`}>{show.data.name[locale]} →</a> : <strong>{show.data.name[locale]}</strong>}</div>)}
+    </section>
+  </div>
+  <section class="profile-episodes" aria-labelledby="profile-episodes">
+    <p class="section-index">NEXT TOKEN WEEKLY</p>
+    <h2 id="profile-episodes">{en ? "At the table" : "参与的每一期"}</h2>
+    {episodes.length ? <div class="profile-episode-list">{episodes.map(episode => <a href={`${home}weekly/${episode.data.number}/`}>
+      <span class="profile-episode-number">#{episode.data.number}</span>
+      <div class="profile-episode-copy"><small>{episode.data.status === "published" ? (en ? "Now live" : "现已上线") : (en ? "Recording preview" : "录制预告")}</small><h3>{episode.data.title[locale]}</h3></div>
+      <span aria-hidden="true">↗</span>
+    </a>)}</div> : <p>{en ? "Episodes will appear here when announced." : "节目公布后将在这里更新。"}</p>}
+  </section>
+</main>
+
+<style>
+  .host-profile { padding-block: clamp(2rem, 5vw, 5rem) clamp(4rem, 8vw, 8rem); }
+  .profile-back { display: inline-block; margin-bottom: 3rem; font-weight: 700; }
+  .profile-hero { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(2rem, 6vw, 6rem); align-items: center; }
+  .profile-hero .host-photo { width: 100%; max-width: 400px; }
+  .profile-intro { min-width: 0; }
+  .profile-intro .section-index { margin-bottom: 2rem; }
+  h1 { font-family: var(--display); font-size: clamp(2.5rem, 5vw, 5rem); overflow-wrap: anywhere; }
+  .profile-bio { font-size: 1.15rem; line-height: 1.8; max-width: 40rem; margin: 2rem 0 0; }
+  .profile-description { margin-top: 1.5rem; max-width: 40rem; color: var(--muted); font-size: 1rem; line-height: 1.8; }
+  .profile-description :global(p) { margin: 0 0 1rem; }
+  .profile-description :global(p:last-child) { margin-bottom: 0; }
+  .profile-details { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 6vw, 6rem); margin-block: clamp(4rem, 7vw, 7rem); }
+  h2 { font-family: var(--display); font-size: clamp(1.8rem, 3vw, 3rem); margin-bottom: 2rem; }
+  .host-socials { margin: 0; }
+  .profile-account-row { display: grid; grid-template-columns: 5rem minmax(0, 1fr); gap: 1rem; align-items: center; min-height: 48px; }
+  .host-socials .profile-account-link, .profile-account-value { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; min-height: 48px; font-size: 0.95rem; line-height: 1.5; }
+  .social-platform { font-size: 0.85rem; }
+  .social-handle { font-size: 0.95rem; }
+  .social-note { font-size: 0.75rem; }
+  .profile-show { padding-block: 1.25rem; border-top: 1px solid var(--ink); }
+  .profile-show p { color: var(--muted); margin-bottom: 0.5rem; }
+  .profile-show a { font-size: 1.4rem; font-weight: 800; }
+  .profile-episodes .section-index { margin-bottom: 1.5rem; }
+  .profile-episode-list { border-top: 1px solid var(--ink); }
+  .profile-episode-list > a { display: grid; grid-template-columns: 5rem minmax(0, 1fr) 1.5rem; gap: 1.5rem; padding-block: 1.75rem; border-bottom: 1px solid var(--ink); align-items: center; }
+  .profile-episode-number { font-family: var(--display); font-size: 2rem; color: var(--signal); line-height: 1; transform: translateY(0.09em); }
+  .profile-episode-copy { display: flex; flex-direction: column; gap: 0.6rem; min-width: 0; }
+  .profile-episode-list small { color: var(--muted); }
+  h3 { font-size: clamp(1.2rem, 2vw, 1.65rem); line-height: 1.6; margin: 0; }
+  a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+  a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+  @media (max-width: 720px) {
+    .profile-hero, .profile-details { grid-template-columns: minmax(0, 1fr); }
+    .profile-hero .host-photo { max-width: 320px; }
+    .profile-episode-list > a { grid-template-columns: 3.5rem minmax(0, 1fr) 1rem; gap: 0.75rem; }
+    .profile-episode-number { font-size: 1.6rem; }
+  }
+</style>

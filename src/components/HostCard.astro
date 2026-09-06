@@ -1,4 +1,5 @@
 ---
+import HostPortrait from "./HostPortrait.astro";
 import type { Host } from "../data/site";
 
 interface Props {
@@ -9,18 +10,19 @@ const { host } = Astro.props;
 ---
 
 <article class="host-card">
-  <div class="host-photo">
-    <img
+  <a class="host-photo" href={host.profilePath} aria-label={host.name}>
+    <HostPortrait
       src={host.photo}
       width={host.width}
       height={host.height}
+      sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 25vw"
       loading="lazy"
       decoding="async"
       alt={host.alt}
     />
-  </div>
+  </a>
   <div class="host-info">
-    <h3>{host.name}</h3>
+    <h3><a href={host.profilePath}>{host.name}</a></h3>
     <p>{host.bio}</p>
     <ul class="host-socials" aria-label={host.socialsLabel}>
       {host.socials.map((social) => (

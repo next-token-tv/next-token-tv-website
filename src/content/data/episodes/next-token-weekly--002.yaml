@@ -6,7 +6,7 @@ scheduledAt: "2026-09-12T10:00:00+08:00"
 timeZone: Asia/Shanghai
 recordingVenue: agi-bar--shanghai-beiyang
 participants:
-  - person: yang-pan
+  - person: yangpan
     role: co-host
   - person: guizang
     role: co-host
