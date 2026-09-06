@@ -1,5 +1,7 @@
 This website is metadata-driven.
 
+- Follow [the website design guidelines](docs/design-guidelines.md) for presentation changes, including the shared H2 line-height rule.
+
 - Human-authored structured metadata lives as YAML under `src/content/data/`.
 - Localized long-form content lives as Markdown under `src/content/prose/`.
 - Generated snapshots imported from production repositories live as JSON under `src/content/imported/` and must not be hand-edited.
