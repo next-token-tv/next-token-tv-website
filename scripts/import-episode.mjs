@@ -97,32 +97,33 @@ try {
     encoding: "utf8",
   }).trim();
 } catch {
-  // A manifest hash still provides provenance outside a Git checkout.
+  throw new Error(`Production source must be a Git checkout: ${productionRoot}`);
 }
 
-const publicEpisode = {
-  schema_version: 2,
-  id: episode.id,
+const episodeId = `${episode.show}--${episode.id}`;
+const productionImport = {
+  schemaVersion: 2,
+  episodeId,
+  number: episode.id,
   show: episode.show,
   status: episode.status,
   language: episode.language,
-  title: episode.title,
-  recorded_at: episode.recorded_at,
-  recording_venue: episode.recording_venue,
-  release_date: episode.release_date,
-  editorial_window: episode.editorial_window,
-  participants: episode.participants,
+  recordedAt: episode.recorded_at,
+  recordingVenue: `${episode.recording_venue.partner_slug}--${episode.recording_venue.venue_slug}`,
+  releaseDate: episode.release_date,
+  editorialWindow: episode.editorial_window,
+  participants: episode.participants.map(({ slug, role }) => ({ person: slug, role })),
   images: Object.fromEntries(
     webCovers.map(({ width }) => [width, `/assets/weekly-${episode.id}-${width}.webp`]),
   ),
   provenance: {
-    production_commit: sourceCommit,
-    release_manifest_sha256: createHash("sha256").update(manifestSource).digest("hex"),
+    productionCommit: sourceCommit,
+    releaseManifestSha256: createHash("sha256").update(manifestSource).digest("hex"),
   },
 };
 
-const dataPath = resolve(websiteRoot, `src/data/episodes/${episode.id}.json`);
-const serialized = `${JSON.stringify(publicEpisode, null, 2)}\n`;
+const dataPath = resolve(websiteRoot, `src/content/imported/episodes/${episodeId}.production.json`);
+const serialized = `${JSON.stringify(productionImport, null, 2)}\n`;
 const existingData = (await fileExists(dataPath)) ? await readFile(dataPath, "utf8") : null;
 if (existingData !== serialized) {
   if (existingData !== null && !force) {
@@ -134,4 +135,4 @@ if (existingData !== serialized) {
   await rename(temporaryPath, dataPath);
 }
 
-console.log(JSON.stringify({ episode: episode.id, data: dataPath, assets: copyResults }, null, 2));
+console.log(JSON.stringify({ episode: episodeId, data: dataPath, assets: copyResults }, null, 2));

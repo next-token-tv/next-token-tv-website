@@ -1,0 +1,10 @@
+kind: platform-brand
+name:
+  zh-Hans: Hugging Face
+  en: Hugging Face
+aliases:
+  - HuggingFace
+  - HF
+official:
+  website: https://huggingface.co/
+lastVerifiedAt: "2026-09-06"

@@ -1,0 +1,45 @@
+---
+import type { Locale } from "../data/types";
+
+interface Props {
+  locale: Locale;
+  alternatePath: string;
+}
+
+const { locale, alternatePath } = Astro.props;
+const targetLanguage = locale === "zh-Hans" ? "en" : "zh-Hans";
+---
+
+<aside class="language-suggestion shell" data-language-suggestion data-current-language={locale} lang={targetLanguage} aria-label={targetLanguage === "en" ? "Language suggestion" : "语言提示"} hidden>
+  <p>{targetLanguage === "en" ? "This page is also available in English." : "此页面也提供中文版。"}</p>
+  <div class="language-suggestion-actions">
+    <a href={alternatePath} data-language={targetLanguage}>{targetLanguage === "en" ? "Switch to English" : "切换到中文"} <span aria-hidden="true">↗</span></a>
+    <button type="button" data-dismiss-language>{targetLanguage === "en" ? "Stay in Chinese" : "继续浏览英文版"}</button>
+  </div>
+</aside>
+
+<script>
+  import "../scripts/language-suggestion";
+</script>
+
+<style>
+  .language-suggestion[hidden] { display: none; }
+  .language-suggestion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    padding-block: 0.75rem;
+    border-bottom: 1px solid currentColor;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  p { margin: 0; }
+  .language-suggestion-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
+  a, button { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 44px; color: inherit; }
+  a { font-weight: 700; text-underline-offset: 0.2em; }
+  button { padding: 0; border: 0; background: none; font: inherit; cursor: pointer; }
+  button:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+  a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+</style>

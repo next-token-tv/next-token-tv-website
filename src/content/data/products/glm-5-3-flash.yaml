@@ -1,0 +1,12 @@
+kind: model
+brand: zhipu
+parent: glm
+name:
+  zh-Hans: GLM-5.3 Flash
+  en: GLM-5.3 Flash
+aliases:
+  - GLM 5.3 Flash
+status: available
+official:
+  website: https://autoclaw.z.ai/blog/model/glm-5.3-flash/
+lastVerifiedAt: "2026-09-06"

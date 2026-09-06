@@ -1,9 +1,9 @@
 ---
 import HomePage from "../../components/HomePage.astro";
-import { siteContent } from "../../data/site";
+import { getSiteContent } from "../../data/site";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const content = siteContent.en;
+const content = await getSiteContent("en");
 ---
 
 <BaseLayout content={content}>

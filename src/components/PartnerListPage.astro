@@ -1,13 +1,14 @@
 ---
 import PartnerRow from "./PartnerRow.astro";
 import type { Locale } from "../data/site";
-import { partners } from "../data/partners";
+import { getPartners } from "../data/partners";
 
 interface Props {
   locale: Locale;
 }
 
 const { locale } = Astro.props;
+const partners = await getPartners();
 const copy = locale === "zh-Hans"
   ? {
       eyebrow: "Next Token / 合作网络",

@@ -1,0 +1,32 @@
+name:
+  zh-Hans: 杨攀
+  en: 杨攀 Pan YANG
+bio:
+  zh-Hans: 联合主理人 · Bilink.ai 创始人，融云联合创始人，前硅基流动联合创始人
+  en: Co-host · Founder of Bilink.ai; co-founder of RongCloud and SiliconFlow.
+photo: /assets/hosts/yang-pan.webp
+width: 400
+height: 400
+alt:
+  zh-Hans: 联合主理人杨攀
+  en: Co-host Pan YANG
+socialsLabel:
+  zh-Hans: 杨攀的社交账号
+  en: Pan YANG's social accounts
+socials:
+  - platform: x
+    handle: "@ericyangpan"
+    href: https://x.com/ericyangpan
+  - platform: github
+    handle: "@ericyangpan"
+    href: https://github.com/ericyangpan
+  - platform: jike
+    handle: 杨攀同学
+    href: https://m.okjike.com/users/B53205DA-8DDC-463C-87B3-3F65F88B6EA2
+  - platform: wechat
+    handle: 杨攀同学
+  - platform: rednote
+    handle: 杨攀同学
+  - platform: linkedin
+    handle: Pan YANG
+    href: https://www.linkedin.com/in/ericyangpan

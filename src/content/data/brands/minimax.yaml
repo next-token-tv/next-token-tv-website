@@ -1,0 +1,9 @@
+kind: company-brand
+name:
+  zh-Hans: MiniMax
+  en: MiniMax
+aliases:
+  - 稀宇科技
+official:
+  website: https://www.minimax.io/
+lastVerifiedAt: "2026-09-06"

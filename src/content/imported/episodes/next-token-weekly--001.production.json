@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 2,
+  "episodeId": "next-token-weekly--001",
+  "number": "001",
+  "show": "next-token-weekly",
+  "status": "published",
+  "language": "zh-Hans",
+  "recordedAt": "2026-09-03",
+  "recordingVenue": "xiangwai--beijing-fuxi",
+  "releaseDate": "2026-09-04",
+  "editorialWindow": {
+    "start": "2026-08-27",
+    "end": "2026-09-03"
+  },
+  "participants": [
+    {
+      "person": "yang-pan",
+      "role": "duty-host"
+    },
+    {
+      "person": "guizang",
+      "role": "co-host"
+    },
+    {
+      "person": "orange",
+      "role": "co-host"
+    },
+    {
+      "person": "xiangyang-qiaomu",
+      "role": "co-host"
+    }
+  ],
+  "images": {
+    "960": "/assets/weekly-001-960.webp",
+    "1440": "/assets/weekly-001-1440.webp",
+    "1920": "/assets/weekly-001-1920.webp"
+  },
+  "provenance": {
+    "productionCommit": "7d85251d420e7b4c73ef481a9583bfa0facb3d12",
+    "releaseManifestSha256": "d8db3941a513c3494d1c22f1658ae27ffdbb1f708209e1ed73a2ac0f6b079d4f"
+  }
+}

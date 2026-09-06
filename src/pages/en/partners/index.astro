@@ -1,9 +1,9 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import PartnerListPage from "../../../components/PartnerListPage.astro";
-import { siteContent } from "../../../data/site";
+import { getSiteContent } from "../../../data/site";
 
-const content = siteContent.en;
+const content = await getSiteContent("en");
 ---
 
 <BaseLayout

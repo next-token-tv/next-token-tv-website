@@ -1,0 +1,22 @@
+---
+import WeeklyShowPage from "../../components/WeeklyShowPage.astro";
+import { getShowPageData } from "../../data/catalog";
+import { getSiteContent } from "../../data/site";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const [content, show] = await Promise.all([
+  getSiteContent("zh-Hans"),
+  getShowPageData("next-token-weekly", "zh-Hans"),
+]);
+const page = show.data.page["zh-Hans"];
+---
+
+<BaseLayout
+  content={content}
+  pageTitle="Next Token Weekly｜旗舰周播"
+  description={page.lede}
+  canonicalPath="/weekly/"
+  alternatePath="/en/weekly/"
+>
+  <WeeklyShowPage content={content} />
+</BaseLayout>

@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import EpisodeAnnouncementPage from "../../../components/EpisodeAnnouncementPage.astro";
+import EpisodeDetailPage from "../../../components/EpisodeDetailPage.astro";
+import { getEpisode, getEpisodesForShow } from "../../../data/catalog";
+import { getSiteContent } from "../../../data/site";
+
+export async function getStaticPaths() {
+  const episodes = await getEpisodesForShow("next-token-weekly");
+  return episodes.map((episode) => ({
+    params: { number: episode.data.number },
+    props: { episodeId: episode.id },
+  }));
+}
+
+interface Props {
+  episodeId: string;
+}
+
+const { episodeId } = Astro.props;
+const [content, episode] = await Promise.all([
+  getSiteContent("en"),
+  getEpisode(episodeId),
+]);
+const canonicalPath = `/en/weekly/${episode.data.number}/`;
+const alternatePath = `/weekly/${episode.data.number}/`;
+---
+
+<BaseLayout
+  content={content}
+  pageTitle={episode.data.title.en}
+  description={episode.data.status === "published"
+    ? episode.data.homepage.en.lede
+    : episode.data.preview.summary.en}
+  canonicalPath={canonicalPath}
+  alternatePath={alternatePath}
+>
+  {episode.data.status === "published"
+    ? <EpisodeDetailPage episodeId={episodeId} locale="en" />
+    : <EpisodeAnnouncementPage episodeId={episodeId} locale="en" />}
+</BaseLayout>

@@ -1,0 +1,46 @@
+name:
+  zh-Hans: Next Token Weekly
+  en: Next Token Weekly
+ownerBrand: next-token
+type: weekly-roundtable
+status: active
+flagship: true
+cadence: weekly
+defaultLocale: zh-Hans
+page:
+  zh-Hans:
+    eyebrow: Next Token 的旗舰周播
+    heading:
+      - 一周的 AI，
+      - 四个人，一张开放的圆桌。
+    lede: 杨攀、歸藏、橘子和向阳乔木每周圆桌对谈，从中文世界的一手经验出发，分享观察、实践与不同判断。
+    formatHeading:
+      - 不是新闻摘要，
+      - 是一次共同判断。
+    facts:
+      - value: 每周
+        label: 更新节奏
+      - value: "4"
+        label: 联合主理人
+      - value: 圆桌
+        label: 节目形式
+      - value: 视频 + 音频
+        label: 发布形态
+  en:
+    eyebrow: The flagship weekly show from Next Token
+    heading:
+      - One week in AI.
+      - Four voices. One open table.
+    lede: Pan YANG, Guizang, Orange, and Xiangyang Qiaomu meet each week to compare what they observed, put into practice, and came to judge differently.
+    formatHeading:
+      - Not a news dump.
+      - A judgment made together.
+    facts:
+      - value: Weekly
+        label: Cadence
+      - value: "4"
+        label: Co-hosts
+      - value: Roundtable
+        label: Format
+      - value: Video + audio
+        label: Editions

@@ -1,0 +1,20 @@
+name: 象外空间
+englishName: Xanadu Why Space
+role:
+  zh-Hans: 场地合作伙伴
+  en: Venue partner
+summary:
+  zh-Hans: 从书出发，不止于书的复合文化空间，也是 Next Token Weekly 的圆桌录制现场。
+  en: A cultural space that starts with books and goes beyond them—and the home of the Next Token Weekly roundtable recording.
+logo: /assets/partners/xiangwai/logo.svg
+featuredVenue: xiangwai--beijing-fuxi
+displayOrder: 1
+sources:
+  - label:
+      zh-Hans: 阅读北京 · 朝阳区象外空间
+      en: Reading Beijing · Xanadu Why Space
+    href: https://readingbeijing.clcn.net.cn/detail?media=top10-space-detail&id=1649
+  - label:
+      zh-Hans: 象外空间公众号介绍
+      en: Official WeChat introduction
+    href: https://mp.weixin.qq.com/s/Yip3KTJKfds3kW30E6znrg

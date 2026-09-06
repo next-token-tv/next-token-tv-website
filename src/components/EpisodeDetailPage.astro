@@ -1,0 +1,190 @@
+---
+import { render } from "astro:content";
+import ConditionalImagePan from "./ConditionalImagePan.astro";
+import { getEpisodeShowNotes, getPeopleByIds, getPublishedEpisode } from "../data/catalog";
+import { partnerPath, resolveVenueId } from "../data/partners";
+import type { Locale } from "../data/types";
+
+interface Props {
+  episodeId: string;
+  locale: Locale;
+}
+
+const { episodeId, locale } = Astro.props;
+const [episode, showNotes] = await Promise.all([
+  getPublishedEpisode(episodeId),
+  getEpisodeShowNotes(episodeId, locale),
+]);
+const [{ partner, venue }, participants] = await Promise.all([
+  resolveVenueId(episode.data.recordingVenue),
+  getPeopleByIds(episode.data.participants.map(({ person }) => person)),
+]);
+const { Content } = await render(showNotes);
+const homepage = episode.data.homepage[locale];
+const weeklyPath = locale === "en" ? "/en/weekly/" : "/weekly/";
+const recordingDate = new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-CN", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  timeZone: "Asia/Shanghai",
+}).format(new Date(`${episode.data.recordedAt}T12:00:00+08:00`));
+const windowFormatter = new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-Hans", {
+  year: "numeric", month: "long", day: "numeric", timeZone: "Asia/Shanghai",
+});
+const windowValue = windowFormatter.formatRange(
+  new Date(`${episode.data.editorialWindow.start}T12:00:00+08:00`),
+  new Date(`${episode.data.editorialWindow.end}T12:00:00+08:00`),
+);
+const labels = locale === "en" ? {
+  back: "Next Token Weekly",
+  published: `Episode #${episode.data.number} · Now live`,
+  recorded: "Recorded",
+  venue: "Recording venue",
+  window: "Editorial window",
+  windowValue,
+  showNotes: "01 / Show notes",
+  participants: "02 / This episode",
+  participantsHeading: "The voices at this table.",
+  dutyHost: "Duty host",
+  coHost: "Co-host",
+  guest: "Guest",
+  venueProfile: "View venue partner",
+  platforms: "03 / Listen & watch",
+  platformsHeading: "Choose your way in.",
+  comingSoon: "Coming soon",
+} : {
+  back: "返回 Next Token Weekly",
+  published: `第 ${episode.data.number} 期 · 现已上线`,
+  recorded: "录制日期",
+  venue: "录制场地",
+  window: "新闻窗口",
+  windowValue,
+  showNotes: "01 / Show Notes",
+  participants: "02 / 本期人物",
+  participantsHeading: "本期参与者，一张圆桌。",
+  dutyHost: "本期当值",
+  coHost: "联合主理人",
+  guest: "嘉宾",
+  venueProfile: "查看场地伙伴",
+  platforms: "03 / 收听与收看",
+  platformsHeading: "选择你的收看方式。",
+  comingSoon: "即将开放",
+};
+---
+
+<main id="main" class="episode-detail-page">
+  <section class="episode-detail-hero">
+    <div class="episode-detail-image">
+      <img
+        class="pan-if-cropped"
+        data-pan-if-cropped
+        src={episode.data.images["960"]}
+        srcset={`${episode.data.images["960"]} 960w, ${episode.data.images["1440"]} 1440w, ${episode.data.images["1920"]} 1920w`}
+        sizes="(max-width: 1000px) 100vw, 52vw"
+        width="1920"
+        height="1080"
+        decoding="async"
+        fetchpriority="high"
+        alt={homepage.imageAlt}
+      />
+      <span>{labels.published}</span>
+    </div>
+    <div class="episode-detail-hero-copy">
+      <a href={weeklyPath}>← {labels.back}</a>
+      <strong>#{episode.data.number}</strong>
+      <div>
+        <p class="eyebrow">{homepage.eyebrow}</p>
+        <h1>{homepage.heading[0]}<br />{homepage.heading[1]}</h1>
+        <p>{homepage.lede}</p>
+        <div class="episode-actions">
+          {episode.data.platforms.filter(({ href }) => href).map((platform) => (
+            <a class="episode-listen" href={platform.href} target="_blank" rel="noopener noreferrer">
+              {platform.action?.[locale] ?? platform.label[locale]} <span aria-hidden="true">↗</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="episode-detail-content shell">
+    <aside class="episode-detail-meta">
+      <dl>
+        <div>
+          <dt>{labels.recorded}</dt>
+          <dd>{recordingDate}</dd>
+        </div>
+        <div>
+          <dt>{labels.venue}</dt>
+          <dd>{locale === "en" ? `${partner.englishName} · ${venue.name.en}` : `${partner.name} · ${venue.name["zh-Hans"]}`}</dd>
+        </div>
+        <div>
+          <dt>{labels.window}</dt>
+          <dd>{labels.windowValue}</dd>
+        </div>
+      </dl>
+      <a href={partnerPath(partner, locale)}>{labels.venueProfile} <span aria-hidden="true">→</span></a>
+    </aside>
+    <article class="episode-show-notes">
+      <p class="section-kicker">{labels.showNotes}</p>
+      <Content />
+    </article>
+  </section>
+
+  <section class="episode-detail-participants shell">
+    <div class="episode-detail-heading">
+      <p class="section-kicker">{labels.participants}</p>
+      <h2>{labels.participantsHeading}</h2>
+    </div>
+    <div class="episode-detail-participant-grid">
+      {participants.map((person, index) => {
+        const participantRole = episode.data.participants[index]?.role;
+        const role = participantRole === "duty-host" ? labels.dutyHost
+          : participantRole === "guest" ? labels.guest : labels.coHost;
+        return (
+          <article>
+            <div class="host-photo">
+              <img
+                src={person.data.photo}
+                width={person.data.width}
+                height={person.data.height}
+                loading="lazy"
+                decoding="async"
+                alt={person.data.alt[locale]}
+              />
+            </div>
+            <div>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{person.data.name[locale]}</h3>
+              <p>{role}</p>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </section>
+
+  <section class="episode-detail-platforms shell">
+    <div>
+      <p class="section-kicker">{labels.platforms}</p>
+      <h2>{labels.platformsHeading}</h2>
+    </div>
+    <div class="platform-list">
+      {episode.data.platforms.map((platform, index) => platform.href ? (
+        <a class="platform is-live" href={platform.href} target="_blank" rel="noopener noreferrer">
+          <span class="index">{String(index + 1).padStart(2, "0")}</span>
+          <strong>{platform.label[locale]}</strong>
+          <span class="coming">{platform.action?.[locale]} <span aria-hidden="true">↗</span></span>
+        </a>
+      ) : (
+        <div class="platform">
+          <span class="index">{String(index + 1).padStart(2, "0")}</span>
+          <strong>{platform.label[locale]}</strong>
+          <span class="coming">{labels.comingSoon}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+</main>
+
+<ConditionalImagePan />

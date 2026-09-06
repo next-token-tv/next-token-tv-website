@@ -1,0 +1,28 @@
+name: AGI Bar
+englishName: AGI Bar · Knowledge Distillation
+role:
+  zh-Hans: 场地合作伙伴
+  en: Venue partner
+summary:
+  zh-Hans: 白天是 AI 门店，晚上回归酒吧本质的行业社交网络，目前在北京与上海设有空间。
+  en: An AI studio by day and a bar by night, with a growing network of spaces in Beijing and Shanghai.
+logo: /assets/partners/agi-bar/logo.svg
+featuredVenue: agi-bar--beijing-zhongguancun
+displayOrder: 2
+sources:
+  - label:
+      zh-Hans: AGI Bar 官方网站
+      en: AGI Bar official website
+    href: https://agi.bar/
+  - label:
+      zh-Hans: 中关村创业大街 · AGI Bar 入驻介绍
+      en: Zhongguancun Startup Street · AGI Bar introduction
+    href: https://segmentfault.com/a/1190000046708905
+  - label:
+      zh-Hans: 澎湃新闻 · AGI Bar 现场报道
+      en: The Paper · Inside AGI Bar
+    href: https://www.thepaper.cn/newsDetail_forward_33823195
+  - label:
+      zh-Hans: WaytoAGI · 上海北杨活动信息
+      en: WaytoAGI · Shanghai Beiyang event listing
+    href: https://waic.waytoagi.com/events/ai-taste-party-e_67535cbda2

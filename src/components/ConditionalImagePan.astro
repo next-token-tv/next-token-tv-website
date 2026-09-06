@@ -1,0 +1,24 @@
+<script>
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const panImages = document.querySelectorAll<HTMLImageElement>("[data-pan-if-cropped]");
+
+  const updateImagePan = (image: HTMLImageElement) => {
+    const frame = image.parentElement;
+    if (!image.naturalWidth || !frame) return;
+
+    const imageRatio = image.naturalWidth / image.naturalHeight;
+    const frameRatio = frame.clientWidth / frame.clientHeight;
+    const isHorizontallyCropped = imageRatio > frameRatio + 0.01;
+    image.classList.toggle("is-pannable", isHorizontallyCropped && !reduceMotion);
+  };
+
+  panImages.forEach((image) => {
+    if (image.complete) updateImagePan(image);
+    else image.addEventListener("load", () => updateImagePan(image), { once: true });
+  });
+
+  const panObserver = new ResizeObserver(() => panImages.forEach(updateImagePan));
+  panImages.forEach((image) => {
+    if (image.parentElement) panObserver.observe(image.parentElement);
+  });
+</script>

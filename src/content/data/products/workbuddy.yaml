@@ -1,0 +1,10 @@
+kind: agent
+brand: workbuddy
+name:
+  zh-Hans: WorkBuddy
+  en: WorkBuddy
+aliases: []
+status: available
+official:
+  website: https://open.workbuddy.cn/
+lastVerifiedAt: "2026-09-06"

@@ -1,9 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { siteContent } from "../data/site";
+import { getSiteContent } from "../data/site";
 
 const content = {
-  ...siteContent["zh-Hans"],
+  ...await getSiteContent("zh-Hans"),
   title: "404 | Next Token",
   description: "页面未找到 / Page not found",
   ogDescription: "页面未找到 / Page not found",

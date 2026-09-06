@@ -1,0 +1,263 @@
+---
+import ConditionalImagePan from "./ConditionalImagePan.astro";
+import {
+  getAnnouncedEpisodes,
+  getHostsForShow,
+  getPublishedEpisode,
+  getShowPageData,
+} from "../data/catalog";
+import { resolveVenueId } from "../data/partners";
+import type { SiteContent } from "../data/site";
+
+interface Props {
+  content: SiteContent;
+}
+
+const { content } = Astro.props;
+const locale = content.locale;
+const showId = "next-token-weekly";
+const [show, hosts, episode001, announcedEpisodes] = await Promise.all([
+  getShowPageData(showId, locale),
+  getHostsForShow(showId, locale),
+  getPublishedEpisode(),
+  getAnnouncedEpisodes(),
+]);
+const page = show.data.page[locale];
+const episodeCopy = episode001.data.homepage[locale];
+const episode001Recording = await resolveVenueId(episode001.data.recordingVenue);
+const episode001VenueLabel = locale === "en"
+  ? `${episode001Recording.partner.englishName} · ${episode001Recording.venue.name.en}`
+  : `${episode001Recording.partner.name} · ${episode001Recording.venue.name["zh-Hans"]}`;
+const upcoming = announcedEpisodes
+  .filter(({ data }) => data.show === showId)
+  .sort((a, b) => a.data.status === "announced" && b.data.status === "announced"
+    ? Date.parse(a.data.scheduledAt) - Date.parse(b.data.scheduledAt)
+    : 0)[0];
+const upcomingVenue = upcoming?.data.status === "announced"
+  ? await resolveVenueId(upcoming.data.recordingVenue)
+  : undefined;
+const episode001Xiaoyuzhou = episode001.data.platforms.find(({ platform }) => platform === "xiaoyuzhou")?.href;
+const episode001Bilibili = episode001.data.platforms.find(({ platform }) => platform === "bilibili")?.href;
+const weeklyPath = locale === "en" ? "/en/weekly/" : "/weekly/";
+
+if (!episode001Xiaoyuzhou || !episode001Bilibili) {
+  throw new Error("Episode #001 must have Xiaoyuzhou and Bilibili publication URLs");
+}
+
+const labels = locale === "en" ? {
+  overviewIndex: "01 / The Show",
+  formatIndex: "02 / The Format",
+  hostsIndex: "03 / The Co-hosts",
+  hostsHeading: ["Four voices,", "different judgments."],
+  hostsNote: "No permanent host. The duty host rotates, and disagreement remains part of the show.",
+  episodesIndex: "04 / Episodes",
+  episodesHeading: ["One week at a time,", "the signal gets clearer."],
+  currentEpisode: "Latest episode",
+  episodeDetail: "Explore episode #001",
+  recorded: "Recorded",
+  upcoming: "Next recording",
+  previewAction: "View the recording preview",
+  followIndex: "05 / Listen & Watch",
+  followHeading: ["Choose your", "way in."],
+  platformsLabel: "Next Token Weekly platforms",
+  available: "Available now",
+  comingSoon: "Coming soon",
+} : {
+  overviewIndex: "01 / 栏目",
+  formatIndex: "02 / 节目结构",
+  hostsIndex: "03 / 联合主理人",
+  hostsHeading: ["四个人，", "带着不同判断上桌。"],
+  hostsNote: "没有长期固定主持人。当值主理人轮换串场，真实的分歧留在节目里。",
+  episodesIndex: "04 / Episodes",
+  episodesHeading: ["从每一周，", "看见下一步。"],
+  currentEpisode: "最新一期",
+  episodeDetail: "查看 #001 完整内容",
+  recorded: "录制于",
+  upcoming: "下一次录制",
+  previewAction: "查看录制预告",
+  followIndex: "05 / 收听与收看",
+  followHeading: ["选择你的", "收看方式。"],
+  platformsLabel: "Next Token Weekly 发布平台",
+  available: "现已上线",
+  comingSoon: "即将开放",
+};
+
+const formatDate = (date: string, timeZone: string, includeTime = false) => new Intl.DateTimeFormat(
+  locale === "en" ? "en-US" : "zh-CN",
+  {
+    year: "numeric",
+    month: locale === "en" ? "long" : "long",
+    day: "numeric",
+    hour: includeTime ? "numeric" : undefined,
+    minute: includeTime ? "2-digit" : undefined,
+    hour12: locale === "en" ? true : false,
+    timeZone,
+  },
+).format(new Date(date));
+---
+
+<main id="main" class="weekly-show-page">
+  <section class="weekly-show-hero">
+    <div class="weekly-show-hero-copy">
+      <p class="section-kicker">{page.eyebrow}</p>
+      <h1>{page.heading[0]}<br />{page.heading[1]}</h1>
+      <p>{page.lede}</p>
+    </div>
+    <div class="weekly-show-poster" aria-hidden="true">
+      <span>Next Token</span>
+      <strong>Weekly</strong>
+      <div>
+        <span>Four co-hosts</span>
+        <span>Every week</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="weekly-show-overview shell">
+    <p class="section-index">{labels.overviewIndex}</p>
+    <div>
+      <h2>{page.formatHeading[0]}<br />{page.formatHeading[1]}</h2>
+      <div class="weekly-show-prose">
+        {show.overview.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="weekly-show-format">
+    <div class="shell">
+      <p class="section-index">{labels.formatIndex}</p>
+      <div class="weekly-show-facts">
+        {page.facts.map((fact, index) => (
+          <article>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <strong class:list={{ "is-number": /^\d+$/.test(fact.value) }}>{fact.value}</strong>
+            <p>{fact.label}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="weekly-show-hosts shell">
+    <div class="weekly-show-section-heading">
+      <div>
+        <p class="section-index">{labels.hostsIndex}</p>
+        <h2>{labels.hostsHeading[0]}<br />{labels.hostsHeading[1]}</h2>
+      </div>
+      <p>{labels.hostsNote}</p>
+    </div>
+    <div class="weekly-show-host-grid">
+      {hosts.map((host, index) => (
+        <article>
+          <div class="host-photo">
+            <img
+              src={host.photo}
+              width={host.width}
+              height={host.height}
+              loading="lazy"
+              decoding="async"
+              alt={host.alt}
+            />
+          </div>
+          <div class="weekly-show-host-copy">
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <h3>{host.name}</h3>
+            <p>{host.bio}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="weekly-show-episodes weekly">
+    <div class="shell">
+      <div class="weekly-show-section-heading weekly-show-section-heading-inverse">
+        <div>
+          <p class="section-index">{labels.episodesIndex}</p>
+          <h2>{labels.episodesHeading[0]}<br />{labels.episodesHeading[1]}</h2>
+        </div>
+        <p>{episodeCopy.lede}</p>
+      </div>
+
+      <article class="weekly-card">
+        <div class="weekly-image">
+          <img
+            class="pan-if-cropped"
+            data-pan-if-cropped
+            src={episode001.data.images["960"]}
+            srcset={`${episode001.data.images["960"]} 960w, ${episode001.data.images["1440"]} 1440w, ${episode001.data.images["1920"]} 1920w`}
+            sizes="(max-width: 1000px) 100vw, 50vw"
+            width="1920"
+            height="1080"
+            loading="lazy"
+            decoding="async"
+            alt={episodeCopy.imageAlt}
+          />
+          <span class="label">{labels.recorded} {episode001.data.recordedAt.replaceAll("-", ".")} · {episode001VenueLabel}</span>
+        </div>
+        <div class="weekly-copy">
+          <div class="episode-number">#{episode001.data.number}</div>
+          <div>
+            <p class="eyebrow">{labels.currentEpisode} · {episodeCopy.eyebrow}</p>
+            <h3>{episodeCopy.heading[0]}<br />{episodeCopy.heading[1]}</h3>
+            <p>{episodeCopy.copy}</p>
+            <div class="episode-meta" aria-label={episodeCopy.topicsLabel}>
+              {episodeCopy.topics.map((topic) => <span>{topic}</span>)}
+            </div>
+            <div class="episode-actions">
+              <a class="episode-listen" href={`${weeklyPath}${episode001.data.number}/`}>
+                {labels.episodeDetail} <span aria-hidden="true">→</span>
+              </a>
+              <a class="episode-listen" href={episode001Xiaoyuzhou} target="_blank" rel="noopener noreferrer">
+                {episodeCopy.listenAction} <span aria-hidden="true">↗</span>
+              </a>
+              <a class="episode-listen" href={episode001Bilibili} target="_blank" rel="noopener noreferrer">
+                {episodeCopy.watchAction} <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      {upcoming?.data.status === "announced" && upcomingVenue && (
+        <a class="weekly-show-upcoming" href={`${weeklyPath}${upcoming.data.number}/`}>
+          <span>{labels.upcoming}</span>
+          <strong>#{upcoming.data.number}</strong>
+          <p>{upcoming.data.title[locale]}</p>
+          <p>
+            {formatDate(upcoming.data.scheduledAt, upcoming.data.timeZone, true)} · {
+              locale === "en"
+                ? `${upcomingVenue.partner.englishName} · ${upcomingVenue.venue.name.en}`
+                : `${upcomingVenue.partner.name} · ${upcomingVenue.venue.name["zh-Hans"]}`
+            }
+          </p>
+          <span>{labels.previewAction} ↗</span>
+        </a>
+      )}
+    </div>
+  </section>
+
+  <section class="weekly-show-follow shell">
+    <div>
+      <p class="section-index">{labels.followIndex}</p>
+      <h2>{labels.followHeading[0]}<br />{labels.followHeading[1]}</h2>
+    </div>
+    <div class="platform-list" aria-label={labels.platformsLabel}>
+      {episode001.data.platforms.map((platform, index) => platform.href ? (
+        <a class="platform is-live" href={platform.href} target="_blank" rel="noopener noreferrer">
+          <span class="index">{String(index + 1).padStart(2, "0")}</span>
+          <strong>{platform.label[locale]}</strong>
+          <span class="coming">{platform.action?.[locale] ?? labels.available} <span aria-hidden="true">↗</span></span>
+        </a>
+      ) : (
+        <div class="platform">
+          <span class="index">{String(index + 1).padStart(2, "0")}</span>
+          <strong>{platform.label[locale]}</strong>
+          <span class="coming">{labels.comingSoon}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+</main>
+
+<ConditionalImagePan />

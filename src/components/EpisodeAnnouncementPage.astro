@@ -1,0 +1,165 @@
+---
+import { getAnnouncedEpisode, getPeopleByIds } from "../data/catalog";
+import { partnerPath, resolveVenueId } from "../data/partners";
+import type { Locale } from "../data/types";
+
+interface Props {
+  episodeId: string;
+  locale: Locale;
+}
+
+const { episodeId, locale } = Astro.props;
+const episode = await getAnnouncedEpisode(episodeId);
+const [{ partner, venue }, participants] = await Promise.all([
+  resolveVenueId(episode.data.recordingVenue),
+  getPeopleByIds(episode.data.participants.map(({ person }) => person)),
+]);
+const date = new Date(episode.data.scheduledAt);
+const dateParts = new Intl.DateTimeFormat("en-CA", {
+  month: "2-digit",
+  day: "2-digit",
+  timeZone: episode.data.timeZone,
+}).formatToParts(date);
+const month = dateParts.find(({ type }) => type === "month")?.value;
+const day = dateParts.find(({ type }) => type === "day")?.value;
+if (!month || !day) throw new Error(`Unable to format date for ${episode.id}`);
+const shortDate = `${month}.${day}`;
+const fullDate = new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-CN", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  hour: "numeric",
+  minute: "2-digit",
+  hour12: locale === "en",
+  timeZone: episode.data.timeZone,
+}).format(date);
+const preview = {
+  eyebrow: episode.data.preview.eyebrow[locale],
+  heading: episode.data.preview.heading[locale],
+  summary: episode.data.preview.summary[locale],
+  note: episode.data.preview.note[locale],
+};
+const copy = locale === "zh-Hans"
+  ? {
+      announcement: "录制预告",
+      recording: "录制信息",
+      date: "录制日期",
+      partner: "场地合作伙伴",
+      venue: "具体场地",
+      city: "地区",
+      cityName: venue.location.label[locale],
+      participants: "本期参与人",
+      coHost: "联合主理人",
+      dutyHost: "本期当值",
+      guest: "嘉宾",
+      venueProfile: "查看场地伙伴",
+      map: "在地图中查看",
+      updates: "后续更新",
+    }
+  : {
+      announcement: "Recording preview",
+      recording: "Recording details",
+      date: "Recording date",
+      partner: "Venue partner",
+      venue: "Venue",
+      city: "Location",
+      cityName: venue.location.label[locale],
+      participants: "Episode participants",
+      coHost: "Co-host",
+      dutyHost: "Duty host",
+      guest: "Guest",
+      venueProfile: "View venue partner",
+      map: "View on map",
+      updates: "Updates to follow",
+    };
+---
+
+<main id="main" class="episode-announcement-page">
+  <section class="episode-preview-hero" aria-labelledby="episode-preview-title">
+    <div class="episode-preview-copy">
+      <p class="eyebrow">{preview.eyebrow}</p>
+      <h1 id="episode-preview-title">{preview.heading[0]}<br />{preview.heading[1]}</h1>
+      <p>{preview.summary}</p>
+    </div>
+    <div class="episode-preview-poster" aria-label={`${episode.data.title[locale]} · ${fullDate}`}>
+      <span>Next Token Weekly</span>
+      <strong>#{episode.data.number}</strong>
+      <div>
+        <span>{shortDate}</span>
+        <span>{venue.name.en}</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="episode-preview-details shell" aria-labelledby="recording-details-title">
+    <p class="section-kicker">01 / {copy.announcement}</p>
+    <div>
+      <h2 id="recording-details-title">{copy.recording}</h2>
+      <dl class="episode-preview-facts">
+        <div>
+          <dt>{copy.date}</dt>
+          <dd>{fullDate}</dd>
+        </div>
+        <div>
+          <dt>{copy.partner}</dt>
+          <dd>{partner.name}</dd>
+        </div>
+        <div>
+          <dt>{copy.venue}</dt>
+          <dd>{venue.name[locale]}</dd>
+        </div>
+        <div>
+          <dt>{copy.city}</dt>
+          <dd>{copy.cityName}</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="episode-preview-participants shell" aria-labelledby="episode-participants-title">
+    <div class="episode-preview-participants-heading">
+      <p class="section-kicker">02 / {copy.participants}</p>
+      <h2 id="episode-participants-title">{copy.participants}</h2>
+    </div>
+    <div class="episode-preview-participant-grid">
+      {participants.map((person, index) => (
+        <article>
+          <div class="host-photo"><img
+            src={person.data.photo}
+            width={person.data.width}
+            height={person.data.height}
+            loading="lazy"
+            decoding="async"
+            alt={person.data.alt[locale]}
+          /></div>
+          <div>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <h3>{person.data.name[locale]}</h3>
+            <p>{episode.data.participants[index]?.role === "duty-host" ? copy.dutyHost : episode.data.participants[index]?.role === "guest" ? copy.guest : copy.coHost}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="episode-preview-venue" aria-labelledby="episode-venue-title">
+    <div class="episode-preview-venue-logo">
+      <img src={partner.logo} width="142" height="101" alt={`${partner.name} logo`} />
+    </div>
+    <div class="episode-preview-venue-copy">
+      <p class="section-kicker">03 / {copy.partner}</p>
+      <h2 id="episode-venue-title">{partner.name}<br />{venue.name[locale]}</h2>
+      <p>{venue.summary[locale]}</p>
+      <address>{venue.location.address[locale]}</address>
+      <div class="actions">
+        <a class="button" href={partnerPath(partner, locale)}>{copy.venueProfile} <span aria-hidden="true">→</span></a>
+        <a class="button" href={venue.location.mapUrl} target="_blank" rel="noreferrer">{copy.map} <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <aside class="episode-preview-update shell" aria-label={copy.updates}>
+    <span>{copy.updates}</span>
+    <p>{preview.note}</p>
+  </aside>
+</main>

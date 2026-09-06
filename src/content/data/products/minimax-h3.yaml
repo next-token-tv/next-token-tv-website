@@ -1,0 +1,11 @@
+kind: model
+brand: minimax
+name:
+  zh-Hans: MiniMax H3
+  en: MiniMax H3
+aliases:
+  - H3
+status: available
+official:
+  website: https://www.minimax.io/news/minimax-h3-open-source
+lastVerifiedAt: "2026-09-06"

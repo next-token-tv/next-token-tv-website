@@ -1,24 +1,37 @@
 ---
 import HostCard from "./HostCard.astro";
-import { episode001Assets, episode001BilibiliUrl, episode001Url, platforms, type SiteContent } from "../data/site";
-import { resolvePartnerVenue } from "../data/partners";
+import ConditionalImagePan from "./ConditionalImagePan.astro";
+import { getPublishedEpisode } from "../data/catalog";
+import { resolveVenueId } from "../data/partners";
+import type { SiteContent } from "../data/site";
 
 interface Props {
   content: SiteContent;
 }
 
 const { content } = Astro.props;
-const episode001Recording = resolvePartnerVenue(episode001Assets.recordingVenue);
+const episode001 = await getPublishedEpisode();
+const episode001Assets = {
+  id: episode001.data.number,
+  recordedAt: episode001.data.recordedAt,
+  images: episode001.data.images,
+};
+const episode001Recording = await resolveVenueId(episode001.data.recordingVenue);
 const episode001VenueLabel = content.locale === "en"
   ? `${episode001Recording.partner.englishName} · ${episode001Recording.venue.name.en}`
   : `${episode001Recording.partner.name} · ${episode001Recording.venue.name["zh-Hans"]}`;
-const localizedPlatforms = platforms.map((platform) => ({
-  label: content.locale === "en" ? platform.en : platform.zh,
-  href: "href" in platform ? platform.href : undefined,
-  action: "action" in platform
-    ? content.locale === "en" ? platform.action.en : platform.action.zh
-    : undefined,
+const localizedPlatforms = episode001.data.platforms.map((platform) => ({
+  label: platform.label[content.locale],
+  href: platform.href,
+  action: platform.action?.[content.locale],
 }));
+const episode001Url = episode001.data.platforms.find(({ platform }) => platform === "xiaoyuzhou")?.href;
+const episode001BilibiliUrl = episode001.data.platforms.find(({ platform }) => platform === "bilibili")?.href;
+const episode001Path = content.locale === "en" ? "/en/weekly/001/" : "/weekly/001/";
+
+if (!episode001Url || !episode001BilibiliUrl) {
+  throw new Error("Episode #001 must have Xiaoyuzhou and Bilibili publication URLs");
+}
 ---
 
 <main id="main">
@@ -33,7 +46,7 @@ const localizedPlatforms = platforms.map((platform) => ({
         </h1>
         <p class="hero-intro">{content.hero.intro}</p>
         <div class="actions">
-          <a class="button primary" href="#weekly">{content.hero.primaryAction} <span aria-hidden="true">↘</span></a>
+          <a class="button primary" href={episode001Path}>{content.hero.primaryAction} <span aria-hidden="true">↘</span></a>
           <a class="button" href="#about">{content.hero.secondaryAction}</a>
         </div>
       </div>
@@ -179,29 +192,11 @@ const localizedPlatforms = platforms.map((platform) => ({
   </section>
 </main>
 
+<ConditionalImagePan />
+
 <script>
   const revealItems = document.querySelectorAll<HTMLElement>("[data-reveal]");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const panImages = document.querySelectorAll<HTMLImageElement>("[data-pan-if-cropped]");
-  const updateImagePan = (image: HTMLImageElement) => {
-    const frame = image.parentElement;
-    if (!image.naturalWidth || !frame) return;
-
-    const imageRatio = image.naturalWidth / image.naturalHeight;
-    const frameRatio = frame.clientWidth / frame.clientHeight;
-    const isHorizontallyCropped = imageRatio > frameRatio + 0.01;
-    image.classList.toggle("is-pannable", isHorizontallyCropped && !reduceMotion);
-  };
-
-  panImages.forEach((image) => {
-    if (image.complete) updateImagePan(image);
-    else image.addEventListener("load", () => updateImagePan(image), { once: true });
-  });
-
-  const panObserver = new ResizeObserver(() => panImages.forEach(updateImagePan));
-  panImages.forEach((image) => {
-    if (image.parentElement) panObserver.observe(image.parentElement);
-  });
 
   if (reduceMotion || !("IntersectionObserver" in window)) {
     revealItems.forEach((item) => item.classList.add("is-visible"));

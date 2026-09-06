@@ -1,0 +1,29 @@
+name:
+  zh-Hans: 向阳乔木
+  en: 向阳乔木 Xiangyang Qiaomu
+bio:
+  zh-Hans: 联合主理人 · AI 创作者与连续创业者，《AI领导力》合著者
+  en: Co-host · AI creator, serial entrepreneur, and co-author of AI Leadership
+photo: /assets/hosts/xiangyang-qiaomu.webp
+width: 400
+height: 400
+alt:
+  zh-Hans: 联合主理人向阳乔木
+  en: Co-host Xiangyang Qiaomu
+socialsLabel:
+  zh-Hans: 向阳乔木的社交账号
+  en: Xiangyang Qiaomu's social accounts
+socials:
+  - platform: x
+    handle: "@vista8"
+    href: https://x.com/vista8
+  - platform: github
+    handle: "@joeseesun"
+    href: https://github.com/joeseesun
+  - platform: jike
+    handle: 向阳乔木
+    href: https://m.okjike.com/users/b66a780a-1572-455a-a0db-d601070d4251
+  - platform: wechat
+    handle: 向阳乔木推荐看
+  - platform: rednote
+    handle: 向阳乔木

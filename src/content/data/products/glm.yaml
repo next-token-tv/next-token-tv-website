@@ -1,0 +1,8 @@
+kind: model-family
+brand: zhipu
+name:
+  zh-Hans: GLM
+  en: GLM
+aliases:
+  - General Language Model
+lastVerifiedAt: "2026-09-06"

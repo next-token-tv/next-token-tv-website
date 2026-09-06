@@ -1,0 +1,40 @@
+schemaVersion: 2
+number: "002"
+show: next-token-weekly
+status: announced
+scheduledAt: "2026-09-12T10:00:00+08:00"
+timeZone: Asia/Shanghai
+recordingVenue: agi-bar--shanghai-beiyang
+participants:
+  - person: yang-pan
+    role: co-host
+  - person: guizang
+    role: co-host
+  - person: orange
+    role: co-host
+  - person: xiangyang-qiaomu
+    role: co-host
+title:
+  zh-Hans: 'Next Token Weekly #002｜录制预告'
+  en: 'Next Token Weekly #002 | Recording preview'
+preview:
+  eyebrow:
+    zh-Hans: 'Next Token Weekly #002 · 录制预告'
+    en: 'Next Token Weekly #002 · Recording preview'
+  heading:
+    zh-Hans:
+      - 下一次圆桌，
+      - 上海见。
+    en:
+      - The next open table,
+      - in Shanghai.
+  summary:
+    zh-Hans: Next Token Weekly 第二期将于 2026 年 9 月 12 日上午 10 点在上海录制，四位联合主理人全部参加。
+    en: 'Next Token Weekly episode #002 will be recorded in Shanghai at 10:00 AM on September 12, 2026, with all four co-hosts taking part.'
+  note:
+    zh-Hans: 本期主题与发布信息将在确认后更新。
+    en: The episode topic and release information will be added once confirmed.
+mentions:
+  brands: []
+  products: []
+  people: []

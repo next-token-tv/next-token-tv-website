@@ -1,0 +1,22 @@
+---
+import WeeklyShowPage from "../../../components/WeeklyShowPage.astro";
+import { getShowPageData } from "../../../data/catalog";
+import { getSiteContent } from "../../../data/site";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const [content, show] = await Promise.all([
+  getSiteContent("en"),
+  getShowPageData("next-token-weekly", "en"),
+]);
+const page = show.data.page.en;
+---
+
+<BaseLayout
+  content={content}
+  pageTitle="Next Token Weekly | Flagship weekly roundtable"
+  description={page.lede}
+  canonicalPath="/en/weekly/"
+  alternatePath="/weekly/"
+>
+  <WeeklyShowPage content={content} />
+</BaseLayout>

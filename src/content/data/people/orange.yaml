@@ -1,0 +1,34 @@
+name:
+  zh-Hans: 橘子 Orange
+  en: 橘子 Orange
+bio:
+  zh-Hans: 联合主理人 · MarsWave 创始人、ListenHub 与 ColaOS 创始人
+  en: Co-host · Founder of MarsWave, ListenHub, and ColaOS
+photo: /assets/hosts/orange.webp
+width: 320
+height: 320
+alt:
+  zh-Hans: 联合主理人橘子 Orange
+  en: Co-host Orange
+socialsLabel:
+  zh-Hans: 橘子 Orange 的播客与社交账号
+  en: Orange's podcast and social accounts
+socials:
+  - platform: podcast
+    handle: 橘座
+    href: https://www.xiaoyuzhoufm.com/podcast/6640bb10390b415a59a41773
+  - platform: x
+    handle: "@oran_ge"
+    href: https://x.com/oran_ge
+  - platform: github
+    handle: "@orange2ai"
+    href: https://github.com/orange2ai
+  - platform: jike
+    handle: 橘AI
+  - platform: wechat
+    handle: 橘AI
+  - platform: rednote
+    handle: 橘AI
+  - platform: linkedin
+    handle: Leo Feng
+    href: https://www.linkedin.com/in/orangeai

@@ -3,10 +3,10 @@ import "../styles/global.css";
 import type { SiteContent } from "../data/site";
 import SiteFooter from "../components/SiteFooter.astro";
 import SiteHeader from "../components/SiteHeader.astro";
+import LanguageSuggestion from "../components/LanguageSuggestion.astro";
 
 interface Props {
   content: SiteContent;
-  autoRedirect?: boolean;
   pageTitle?: string;
   description?: string;
   canonicalPath?: string;
@@ -16,7 +16,6 @@ interface Props {
 
 const {
   content,
-  autoRedirect = false,
   pageTitle = content.title,
   description = content.description,
   canonicalPath = content.path,
@@ -40,47 +39,18 @@ const alternate = new URL(alternatePath, Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <link rel="canonical" href={canonical} />
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
     <link rel="alternate" hreflang={content.locale} href={canonical} />
     <link rel="alternate" hreflang={content.locale === "en" ? "zh-Hans" : "en"} href={alternate} />
     <link rel="alternate" hreflang="x-default" href={content.locale === "zh-Hans" ? canonical : alternate} />
     <link rel="icon" type="image/png" href="/assets/favicon.png" />
     <title>{pageTitle}</title>
-    {autoRedirect && (
-      <script is:inline>
-        (() => {
-          if (window.location.pathname !== "/") return;
-
-          const storageKey = "next-token-language";
-          let selectedLanguage = null;
-
-          try {
-            selectedLanguage = window.localStorage.getItem(storageKey);
-          } catch {}
-
-          const browserLanguage = navigator.languages?.[0] || navigator.language || "";
-          const prefersChinese = /^zh(?:-|$)/i.test(browserLanguage);
-          const targetLanguage = selectedLanguage || (browserLanguage && !prefersChinese ? "en" : "zh-Hans");
-
-          if (targetLanguage === "en") {
-            window.location.replace(`/en/${window.location.search}${window.location.hash}`);
-          }
-        })();
-      </script>
-    )}
   </head>
   <body>
     <a class="skip-link" href="#main">{content.skipLink}</a>
     <SiteHeader content={content} currentPath={canonicalPath} alternatePath={alternatePath} />
+    {!noIndex && <LanguageSuggestion locale={content.locale} alternatePath={alternatePath} />}
     <slot />
     <SiteFooter locale={content.locale} />
-    <script>
-      document.querySelectorAll<HTMLAnchorElement>("[data-language]").forEach((link) => {
-        link.addEventListener("click", () => {
-          try {
-            window.localStorage.setItem("next-token-language", link.dataset.language ?? "zh-Hans");
-          } catch {}
-        });
-      });
-    </script>
   </body>
 </html>

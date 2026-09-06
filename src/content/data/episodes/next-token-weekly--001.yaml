@@ -1,0 +1,81 @@
+schemaVersion: 2
+number: "001"
+show: next-token-weekly
+status: published
+productionImport: next-token-weekly--001.production
+title:
+  zh-Hans: 'Next Token Weekly #001｜大模型进入“斩杀线”大战，Token 就是新货币'
+  en: 'Next Token Weekly #001 | The LLM “kill line” wars begin. Tokens are the new money.'
+homepage:
+  zh-Hans:
+    lede: 第一期开箱 2026 年 8 月 27 日至 9 月 3 日的 24 条 AI 新闻。四位联合主理人从密集发布的模型聊到 Agent、智能硬件、商业变化与 AI 原生组织。
+    imageAlt: Next Token Weekly 第一期开录现场
+    eyebrow: 首期 · 24 条新闻 · 现已上线
+    heading:
+      - 大模型进入“斩杀线”大战，
+      - Token 就是新货币
+    copy: 从 GLM-5.3 Flash、MiniMax H3，到 WorkBuddy、AI 硬件与 Hugging Face 收购话题；四位联合主理人沿着一周新闻，聊模型成本、原厂 Agent、AI 应用回暖，以及每个人都必须闭环的 AI 原生组织。
+    topicsLabel: 本期议题
+    topics:
+      - 24 条新闻
+      - 模型与 Agent
+      - 智能硬件
+      - 商业与组织
+    listenAction: 在小宇宙收听/收看
+    watchAction: 在哔哩哔哩观看
+  en:
+    lede: 'Episode #001 unpacks 24 AI stories from August 27 to September 3, 2026. Four co-hosts move from a crowded week of model releases to agents, AI hardware, business shifts, and AI-native organizations.'
+    imageAlt: 'Next Token Weekly episode #001 recording session'
+    eyebrow: 'Episode #001 · 24 stories · Now live'
+    heading:
+      - The LLM “kill line” wars begin.
+      - Tokens are the new money.
+    copy: From GLM-5.3 Flash and MiniMax H3 to WorkBuddy, AI hardware, and Hugging Face acquisition talk, four co-hosts trace a week of AI news through model economics, first-party agents, an application rebound, and why every person needs a closed loop inside an AI-native organization.
+    topicsLabel: Episode topics
+    topics:
+      - 24 stories
+      - Models & agents
+      - AI hardware
+      - Business & organizations
+    listenAction: Listen / watch on Xiaoyuzhou
+    watchAction: Watch on Bilibili
+platforms:
+  - platform: xiaoyuzhou
+    label:
+      zh-Hans: 小宇宙
+      en: Xiaoyuzhou
+    href: https://www.xiaoyuzhoufm.com/episode/6a9ad843f03e74ee6b05352c
+    action:
+      zh-Hans: 收听/收看
+      en: Listen / watch
+  - platform: apple-podcasts
+    label:
+      zh-Hans: Apple Podcasts
+      en: Apple Podcasts
+  - platform: spotify
+    label:
+      zh-Hans: Spotify
+      en: Spotify
+  - platform: bilibili
+    label:
+      zh-Hans: 哔哩哔哩
+      en: Bilibili
+    href: https://www.bilibili.com/video/BV1qdtz6LEHf/
+    action:
+      zh-Hans: 立即观看
+      en: Watch now
+  - platform: youtube
+    label:
+      zh-Hans: YouTube
+      en: YouTube
+mentions:
+  brands:
+    - zhipu
+    - minimax
+    - hugging-face
+    - workbuddy
+  products:
+    - glm-5-3-flash
+    - minimax-h3
+    - workbuddy
+  people: []

@@ -1,0 +1,69 @@
+slug: beijing-zhongguancun
+partner: agi-bar
+name:
+  zh-Hans: 北京中关村店
+  en: Beijing Zhongguancun
+summary:
+  zh-Hans: AGI Bar 的首个常设空间，位于中关村创业大街。
+  en: AGI Bar's first permanent space, on Zhongguancun Startup Street.
+heroImage: /assets/partners/agi-bar/hero.webp
+heroAlt:
+  zh-Hans: AGI Bar 知识蒸馏的具身智能活动现场
+  en: An embodied-AI event outside AGI Bar Knowledge Distillation
+gallery:
+  - src: /assets/partners/agi-bar/community.webp
+    alt:
+      zh-Hans: AGI Bar 户外桌边的行业交流
+      en: An industry gathering around the outdoor tables at AGI Bar
+  - src: /assets/partners/agi-bar/street-event.webp
+    alt:
+      zh-Hans: AGI Bar 门前进行的现场访谈
+      en: A live conversation outside AGI Bar
+location:
+  label:
+    zh-Hans: 北京 · 海淀 · 中关村
+    en: Zhongguancun, Haidian, Beijing
+  address:
+    zh-Hans: 北京市海淀区海淀西大街 39 号中关村创业大街 2 号楼
+    en: Building 2, Zhongguancun Startup Street, No. 39 Haidian West Street, Haidian District, Beijing
+  transport:
+    zh-Hans: 地铁 10 号线苏州街站 / 16 号线万泉河桥站
+    en: Suzhoujie Station on Line 10 / Wanquanheqiao Station on Line 16
+  mapUrl: https://maps.apple.com/?ll=39.983620%2C116.306640&q=AGI%20Bar%20%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F%C2%B7%E5%8C%97%E4%BA%AC%E4%B8%AD%E5%85%B3%E6%9D%91
+facts:
+  - value: "2025.06"
+    label:
+      zh-Hans: 北京首店开业
+      en: Beijing opening
+  - value: 15:00–23:00
+    label:
+      zh-Hans: 每日营业时间
+      en: Open daily
+  - value: "6"
+    label:
+      zh-Hans: 官方活动类型
+      en: Official activity formats
+  - value: ¥9.9
+    label:
+      zh-Hans: AGI 泡沫标准杯
+      en: Standard AGI Foam
+spaces:
+  - title:
+      zh-Hans: 发布与冷启动
+      en: Launches and cold starts
+    copy:
+      zh-Hans: 面向新品首发与早期验证，让从业者、创始人与投资人在现场形成即时反馈。
+      en: A setting for debuts and early validation, with immediate feedback from practitioners, founders, and investors.
+  - title:
+      zh-Hans: 圆桌与行业交流
+      en: Roundtables and industry exchange
+    copy:
+      zh-Hans: 松弛的酒吧氛围承载高密度讨论，也适合主题圆桌、现场录制和 After Party。
+      en: A relaxed bar atmosphere carries high-density discussion, themed roundtables, live recording, and after-parties.
+  - title:
+      zh-Hans: AI 实验与场景延伸
+      en: AI experiments and extensions
+    copy:
+      zh-Hans: 具身智能展示把空间变成创新首秀场，酒水投送则将 AGI Bar 的体验延伸到外部活动。
+      en: Embodied-AI showcases turn the venue into a debut stage, while the mobile bar extends the AGI Bar experience to outside events.
+displayOrder: 1

@@ -1,0 +1,31 @@
+name:
+  zh-Hans: 歸藏
+  en: 歸藏 Guizang
+bio:
+  zh-Hans: 联合主理人 · AI 创作者，“超级一人公司”实践者
+  en: Co-host · AI creator and “super individual company” practitioner
+photo: /assets/hosts/guizang.webp
+width: 400
+height: 400
+alt:
+  zh-Hans: 联合主理人歸藏
+  en: Co-host Guizang
+socialsLabel:
+  zh-Hans: 歸藏的社交账号
+  en: Guizang's social accounts
+socials:
+  - platform: x
+    handle: "@op7418"
+    href: https://x.com/op7418
+  - platform: github
+    handle: "@op7418"
+    href: https://github.com/op7418
+  - platform: jike
+    handle: 歸藏
+  - platform: weibo
+    handle: "@歸藏的AI工具箱"
+    href: https://www.sina.cn/media/6182606334
+  - platform: wechat
+    handle: 歸藏的AI工具箱
+  - platform: rednote
+    handle: 歸藏

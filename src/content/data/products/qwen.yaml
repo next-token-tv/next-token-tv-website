@@ -1,0 +1,12 @@
+kind: model-family
+brand: qwen
+name:
+  zh-Hans: Qwen
+  en: Qwen
+aliases:
+  - 通义千问
+  - 千问
+status: available
+official:
+  website: https://qwen.ai/
+lastVerifiedAt: "2026-09-06"
