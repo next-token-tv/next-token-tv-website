@@ -29,7 +29,11 @@ location:
   transport:
     zh-Hans: 地铁 13 号线北苑站 / 17 号线清河营站
     en: Beiyuan Station on Line 13 / Qingheying Station on Line 17
-  mapUrl: https://maps.apple.com/?q=%E8%B1%A1%E5%A4%96%E7%A9%BA%E9%97%B4%C2%B7%E7%A6%8F%E7%86%99%E5%BA%97&address=%E5%8C%97%E4%BA%AC%E5%B8%82%E6%9C%9D%E9%98%B3%E5%8C%BA%E6%B8%85%E6%B2%B3%E8%90%A5%E4%B8%9C%E8%B7%AF3%E5%8F%B7%E9%99%A22%E5%8F%B7%E6%A5%BC1%E5%B1%82
+  mapUrl: https://maps.apple.com/place?place-id=H2710I3F97BE485DA64&coordinate=40.047953,116.436306&name=Xiangwai%20Space%20%28Fuxi%20Shop%29
+  appleMap:
+    placeId: H2710I3F97BE485DA64
+    latitude: 40.047953
+    longitude: 116.436306
 facts:
   - value: 3500 m²
     label:

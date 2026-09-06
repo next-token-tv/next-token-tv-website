@@ -21,6 +21,7 @@ export type PartnerVenue = {
     address: LocalizedText;
     transport?: LocalizedText;
     mapUrl: string;
+    appleMap?: { placeId: string; latitude: number; longitude: number };
   };
   facts?: Array<{
     value: string;

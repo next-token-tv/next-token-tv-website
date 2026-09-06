@@ -1,5 +1,6 @@
 ---
 import type { Locale } from "../data/site";
+import VenueMap from "./VenueMap.astro";
 import type { Partner } from "../data/partners";
 import { featuredVenue, partnersPath } from "../data/partners";
 
@@ -115,6 +116,7 @@ const partnerSchema = {
           <a href={partnerVenue.location.mapUrl} target="_blank" rel="noreferrer">
             {copy.map}<span aria-hidden="true">↗</span>
           </a>
+          {partnerVenue.location.appleMap && import.meta.env.PUBLIC_APPLE_MAPS_EMBED_TOKEN && <div class="partner-venue-map"><VenueMap venue={partnerVenue} locale={locale} /></div>}
         </article>
       ))}
     </div>

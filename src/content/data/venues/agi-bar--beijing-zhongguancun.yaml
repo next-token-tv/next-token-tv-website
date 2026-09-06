@@ -29,7 +29,11 @@ location:
   transport:
     zh-Hans: 地铁 10 号线苏州街站 / 16 号线万泉河桥站
     en: Suzhoujie Station on Line 10 / Wanquanheqiao Station on Line 16
-  mapUrl: https://maps.apple.com/?ll=39.983620%2C116.306640&q=AGI%20Bar%20%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F%C2%B7%E5%8C%97%E4%BA%AC%E4%B8%AD%E5%85%B3%E6%9D%91
+  mapUrl: https://maps.apple.com/place?place-id=H2710I3F992B806F906&coordinate=39.983579,116.306700&name=AGI%20Bar%20Intellectual%20Zhengliu
+  appleMap:
+    placeId: H2710I3F992B806F906
+    latitude: 39.983579
+    longitude: 116.306700
 facts:
   - value: "2025.06"
     label:

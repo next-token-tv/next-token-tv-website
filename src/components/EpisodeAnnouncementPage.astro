@@ -2,6 +2,7 @@
 import { getAnnouncedEpisode, getPeopleByIds } from "../data/catalog";
 import { partnerPath, resolveVenueId } from "../data/partners";
 import type { Locale } from "../data/types";
+import VenueMap from "./VenueMap.astro";
 
 interface Props {
   episodeId: string;
@@ -155,6 +156,7 @@ const copy = locale === "zh-Hans"
         <a class="button" href={partnerPath(partner, locale)}>{copy.venueProfile} <span aria-hidden="true">→</span></a>
         <a class="button" href={venue.location.mapUrl} target="_blank" rel="noreferrer">{copy.map} <span aria-hidden="true">↗</span></a>
       </div>
+      {venue.location.appleMap && import.meta.env.PUBLIC_APPLE_MAPS_EMBED_TOKEN && <div class="episode-preview-map"><VenueMap venue={venue} locale={locale} /></div>}
     </div>
   </section>
 
@@ -163,3 +165,7 @@ const copy = locale === "zh-Hans"
     <p>{preview.note}</p>
   </aside>
 </main>
+
+<style>
+  .episode-preview-map { margin-top: 2rem; border: 1px solid var(--line); }
+</style>

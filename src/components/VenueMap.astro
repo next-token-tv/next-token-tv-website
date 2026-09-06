@@ -1,0 +1,38 @@
+---
+import type { PartnerVenue } from "../data/partners";
+import type { Locale } from "../data/types";
+
+interface Props { venue: PartnerVenue; locale: Locale; }
+const { venue, locale } = Astro.props;
+const token = import.meta.env.PUBLIC_APPLE_MAPS_EMBED_TOKEN;
+const map = venue.location.appleMap;
+const label = locale === "en" ? "View on map" : "在地图中查看";
+const url = map && token ? new URL("https://embed.apple-mapkit.com/v1/embed") : undefined;
+if (url && map) {
+  url.searchParams.set("center", `${map.latitude},${map.longitude}`);
+  url.searchParams.set("cameraDistance", "1200");
+  url.searchParams.set("annotations", JSON.stringify([{ place: map.placeId }]));
+  url.searchParams.set("language", locale === "en" ? "en-US" : "zh-CN");
+  url.searchParams.set("colorScheme", "light");
+  url.searchParams.set("t", "mutedStandard");
+  url.searchParams.set("token", token);
+}
+---
+
+{url && <figure class="venue-map">
+  <iframe src={url.toString()} title={`${venue.name[locale]} — ${locale === "en" ? "Location map" : "位置地图"}`} width="900" height="360" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <figcaption>
+    <span>{venue.name[locale]}</span>
+    <a href={venue.location.mapUrl} target="_blank" rel="noopener noreferrer">{label} <span aria-hidden="true">↗</span></a>
+  </figcaption>
+</figure>}
+
+<style>
+  .venue-map { margin: 0; background: var(--paper); }
+  iframe { display: block; width: 100%; height: clamp(300px, 32vw, 400px); border: 0; }
+  figcaption { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.25rem; border-top: 1px solid var(--line); font-size: 0.85rem; }
+  figcaption > span { color: var(--muted); }
+  a { font-weight: 750; }
+  a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+  a:focus-visible { outline: 2px solid var(--signal); outline-offset: 4px; }
+</style>

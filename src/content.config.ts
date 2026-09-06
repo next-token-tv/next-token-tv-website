@@ -111,6 +111,11 @@ const venues = defineCollection({
       address: localizedText,
       transport: localizedText.optional(),
       mapUrl: z.url(),
+      appleMap: z.object({
+        placeId: z.string().regex(/^[A-Za-z0-9]+$/),
+        latitude: z.number().min(-90).max(90),
+        longitude: z.number().min(-180).max(180),
+      }).optional(),
     }),
     facts: z.array(z.object({ value: z.string(), label: localizedText })).optional(),
     spaces: z.array(z.object({ title: localizedText, copy: localizedText })).optional(),

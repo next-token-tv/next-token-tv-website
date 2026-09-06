@@ -3,3 +3,5 @@ dist/
 .wrangler/
 .astro/
 node_modules/
+.env*
+!.env.example

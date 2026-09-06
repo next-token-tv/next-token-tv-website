@@ -1287,6 +1287,13 @@ h1 .accent {
   font-family: var(--display);
 }
 
+.partner-venue > .partner-venue-map {
+  grid-column: 1 / -1;
+  padding: 0;
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--ink);
+}
+
 .partner-venue-index small {
   color: var(--signal);
   font-family: var(--sans);
