@@ -18,6 +18,7 @@
   --display: "League Spartan", Arial Black, Arial, sans-serif;
   --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --headline-leading: 1.1;
+  --section-heading-leading: 1.25;
 }
 
 * {
@@ -114,7 +115,19 @@ a {
   height: auto;
   flex: 0 0 auto;
   padding: 0.18rem;
-  border: 1px solid var(--ink);
+  border: 1px solid rgba(17, 17, 17, 0.5);
+  animation: logo-border-breathe 5s ease-in-out infinite;
+}
+
+@keyframes logo-border-breathe {
+  0%, 100% {
+    border-color: rgba(17, 17, 17, 0.55);
+    box-shadow: 0 0 0 1px rgba(17, 17, 17, 0.08);
+  }
+  50% {
+    border-color: rgba(17, 17, 17, 0.06);
+    box-shadow: 0 0 0 1px rgba(17, 17, 17, 0);
+  }
 }
 
 .wordmark-title {
@@ -279,6 +292,10 @@ h2,
 h3 {
   margin-top: 0;
   line-height: var(--headline-leading);
+}
+
+h2 {
+  line-height: var(--section-heading-leading);
 }
 
 p {
@@ -571,6 +588,15 @@ h1 .accent {
   font-family: var(--display);
   font-size: clamp(2.2rem, 4vw, 4rem);
   letter-spacing: -0.055em;
+}
+
+.manifesto-card.featured {
+  container-type: inline-size;
+}
+
+.manifesto-card.featured h3 {
+  font-size: clamp(1rem, 8cqi, 3rem);
+  white-space: nowrap;
 }
 
 .manifesto-card p {
@@ -942,11 +968,16 @@ h1 .accent {
 .partners-intro h1 {
   max-width: 1000px;
   margin: 0;
-  font-size: clamp(4.25rem, 9.8vw, 10.5rem);
+  font-size: clamp(3.5rem, 6.4vw, 7rem);
 }
 
 .partners-intro-copy {
   padding-bottom: 0.8rem;
+}
+
+.partners-title-line {
+  display: block;
+  white-space: nowrap;
 }
 
 .partners-intro-copy p {
@@ -1154,6 +1185,7 @@ h1 .accent {
 .partner-profile-copy h1 {
   margin: auto 0 0;
   font-size: clamp(4.5rem, 8vw, 9rem);
+  letter-spacing: 0;
 }
 
 .partner-profile-english {
@@ -1576,7 +1608,6 @@ h1 .accent {
   margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
   font-family: var(--display);
   font-size: clamp(3.5rem, 6.4vw, 7rem);
-  line-height: var(--headline-leading);
   letter-spacing: -0.06em;
 }
 
@@ -1614,6 +1645,7 @@ h1 .accent {
 }
 
 .weekly-show-facts article {
+  container-type: inline-size;
   display: flex;
   min-height: 250px;
   flex-direction: column;
@@ -1631,16 +1663,22 @@ h1 .accent {
 }
 
 .weekly-show-facts strong {
+  --fact-font-size: min(clamp(2rem, 3.8vw, 4.25rem), 18cqi);
   color: var(--signal);
   font-family: var(--sans);
-  font-size: clamp(2rem, 3.8vw, 4.25rem);
+  font-size: var(--fact-font-size);
   font-weight: 900;
   line-height: 1;
   letter-spacing: -0.055em;
+  white-space: nowrap;
 }
 
 .weekly-show-facts strong.is-number {
-  font-size: clamp(2.4rem, 4.4vw, 5rem);
+  font-size: calc(var(--fact-font-size) * 1.18);
+}
+
+html[lang="en"] .weekly-show-facts strong {
+  --fact-font-size: min(clamp(2rem, 3.8vw, 4.25rem), 13cqi);
 }
 
 .weekly-show-facts p {
@@ -1990,7 +2028,6 @@ h1 .accent {
   margin: 0;
   font-family: var(--display);
   font-size: clamp(3.5rem, 6.4vw, 7rem);
-  line-height: var(--headline-leading);
   letter-spacing: -0.06em;
 }
 
@@ -2133,7 +2170,6 @@ h1 .accent {
   margin-bottom: clamp(2.5rem, 5vw, 5rem);
   font-family: var(--display);
   font-size: clamp(3.5rem, 7vw, 7.5rem);
-  line-height: var(--headline-leading);
   letter-spacing: -0.06em;
 }
 
@@ -2186,7 +2222,6 @@ h1 .accent {
   margin: 0;
   font-family: var(--display);
   font-size: clamp(3.5rem, 7vw, 7.5rem);
-  line-height: var(--headline-leading);
   letter-spacing: -0.06em;
 }
 
@@ -2735,7 +2770,7 @@ h1 .accent {
   }
 
   .partners-intro h1 {
-    font-size: clamp(3.75rem, 17vw, 6rem);
+    font-size: clamp(2.75rem, 12vw, 4.5rem);
   }
 
   .partner-directory {
@@ -3016,6 +3051,10 @@ h1 .accent {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .wordmark img {
+    animation: none;
+  }
+
   html {
     scroll-behavior: auto;
   }

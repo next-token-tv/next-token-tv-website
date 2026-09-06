@@ -12,14 +12,14 @@ const partners = await getPartners();
 const copy = locale === "zh-Hans"
   ? {
       eyebrow: "Next Token / 合作网络",
-      title: "场地合作伙伴",
+      title: ["场地", "合作伙伴"],
       lede: "这些空间为现场对话提供了真实的发生地，也让技术、产品与人的连接延伸到节目之外。",
       count: `${partners.length} 个伙伴`,
       columnLabel: "伙伴目录",
     }
   : {
       eyebrow: "Next Token / Partner network",
-      title: "Venue partners",
+      title: ["Venue partners"],
       lede: "These spaces give our conversations a physical home—and carry the connection between technology, products, and people beyond the program.",
       count: `${partners.length} partner${partners.length === 1 ? "" : "s"}`,
       columnLabel: "Partner directory",
@@ -30,7 +30,7 @@ const copy = locale === "zh-Hans"
   <section class="partners-intro shell" aria-labelledby="partners-title">
     <p class="eyebrow">{copy.eyebrow}</p>
     <div class="partners-intro-grid">
-      <h1 id="partners-title">{copy.title}</h1>
+      <h1 id="partners-title">{copy.title.map(line => <span class:list={{ "partners-title-line": locale === "zh-Hans" }}>{line}</span>)}</h1>
       <div class="partners-intro-copy">
         <p>{copy.lede}</p>
         <span>{copy.count}</span>

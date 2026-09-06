@@ -121,14 +121,13 @@ const siteContentBase: Record<Locale, SiteContentBase> = {
       visualLabel: "Next Token Weekly 四位联合主理人录制现场",
       visualAlt: "Next Token Weekly 四位联合主理人的圆桌录制现场",
     },
-    topics: ["模型", "Agent 产品", "智能硬件", "创业", "创作", "商业与趋势"],
+    topics: ["模型", "Agent", "智能硬件", "创业", "创作", "商业与趋势"],
     about: {
       heading: ["词元之外，", "是正在发生的世界。"],
       lede: "“Next token”是生成式模型不断做出的下一次预测。Next Token 关注预测动作之外的人、产业、产品、社会与文化。",
       cards: [
         {
-          title: "Next Token |",
-          titleSecondLine: "词元之外",
+          title: "Next Token | 词元之外",
           copy: "统一主品牌。以中英文连接中文世界的一手 AI 经验与全球对话，承载视频、音频和衍生内容。",
         },
         {
@@ -179,14 +178,13 @@ const siteContentBase: Record<Locale, SiteContentBase> = {
       visualLabel: "Four Next Token Weekly co-hosts recording around a table",
       visualAlt: "Four Next Token Weekly co-hosts recording around a table",
     },
-    topics: ["Models", "Agent products", "AI hardware", "Startups", "Creativity", "Business & trends"],
+    topics: ["Models", "Agent", "AI hardware", "Startups", "Creativity", "Business & trends"],
     about: {
       heading: ["Beyond the token,", "the world in motion."],
       lede: "A “next token” is the prediction a generative model makes over and over. Next Token looks beyond it—to the people, industries, products, societies, and cultures reshaped by AI.",
       cards: [
         {
-          title: "Next Token |",
-          titleSecondLine: "词元之外",
+          title: "Next Token | 词元之外",
           copy: "One brand in Chinese and English, bringing first-hand AI perspectives from the Chinese-speaking world into the global conversation across video, audio, and related formats.",
         },
         {
