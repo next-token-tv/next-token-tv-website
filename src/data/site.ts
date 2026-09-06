@@ -152,7 +152,7 @@ const siteContentBase: Record<Locale, SiteContentBase> = {
   en: {
     locale: "en",
     path: "/en/",
-    title: "Next Token | Beyond the Next Token",
+    title: "Next Token | 词元之外",
     description: "Next Token is a video podcast about AI technology, products, entrepreneurship, and creativity. Next Token Weekly #001 unpacks 24 stories across models, agents, AI hardware, applications, and AI-native organizations.",
     ogDescription: "Next Token Weekly #001 | The LLM “kill line” wars begin. Tokens are the new money.",
     skipLink: "Skip to main content",
