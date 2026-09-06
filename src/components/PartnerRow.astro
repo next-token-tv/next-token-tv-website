@@ -11,8 +11,8 @@ interface Props {
 const { partner, locale } = Astro.props;
 const path = partnerPath(partner, locale);
 const copy = locale === "zh-Hans"
-  ? { map: "地图 POI", detail: "伙伴详情", logo: `${partner.name}标志` }
-  : { map: "Map POI", detail: "Partner profile", logo: `${partner.englishName} logo` };
+  ? { venues: `${partner.venues.length} 个场地`, detail: "伙伴详情", logo: `${partner.name}标志` }
+  : { venues: `${partner.venues.length} venue${partner.venues.length === 1 ? "" : "s"}`, detail: "Partner profile", logo: `${partner.englishName} logo` };
 ---
 
 <article class="partner-row">
@@ -26,10 +26,15 @@ const copy = locale === "zh-Hans"
   </div>
   <p class="partner-row-summary">{partner.summary[locale]}</p>
   <div class="partner-row-location">
-    <span>{partner.location.label[locale]}</span>
-    <a href={partner.location.mapUrl} target="_blank" rel="noreferrer">
-      {copy.map}<span aria-hidden="true">↗</span>
-    </a>
+    <strong>{copy.venues}</strong>
+    <ul>
+      {partner.venues.map((venue) => (
+        <li>
+          <span>{venue.name[locale]}</span>
+          <small>{venue.location.label[locale]}</small>
+        </li>
+      ))}
+    </ul>
   </div>
   <a class="partner-row-action" href={path} aria-label={`${copy.detail}：${partner.name}`}>
     <span>{copy.detail}</span><span aria-hidden="true">→</span>

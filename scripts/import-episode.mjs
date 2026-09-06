@@ -72,6 +72,10 @@ if (!/^\d{3}$/.test(episode.id) || manifest.episode_id !== episode.id) {
   throw new Error("Episode and manifest identifiers must be the same three-digit value");
 }
 
+if (!episode.recording_venue?.partner_slug || !episode.recording_venue?.venue_slug) {
+  throw new Error("Episode metadata must bind recording_venue to a partner_slug and venue_slug");
+}
+
 const manifestFiles = new Map(manifest.files.map((file) => [file.role, file]));
 const webCovers = [960, 1440, 1920].map((width) => {
   const role = `cover-web-${width}`;
@@ -97,13 +101,14 @@ try {
 }
 
 const publicEpisode = {
-  schema_version: 1,
+  schema_version: 2,
   id: episode.id,
   show: episode.show,
   status: episode.status,
   language: episode.language,
   title: episode.title,
   recorded_at: episode.recorded_at,
+  recording_venue: episode.recording_venue,
   release_date: episode.release_date,
   editorial_window: episode.editorial_window,
   participants: episode.participants,

@@ -18,7 +18,11 @@ const isPartners = currentPath.startsWith(partnersPath);
   <div class="nav shell">
     <a class="wordmark" href={homePath} aria-label={content.homeLabel}>
       <img src="/assets/logo-next-token.svg?v=2" width="800" height="660" alt="" />
-      <span class="wordmark-title">Next Token<span class="wordmark-tagline" aria-hidden="true"> | 词元之外</span></span>
+      <span class="wordmark-title">
+        <span class="wordmark-name">Next Token</span>
+        <span class="wordmark-divider" aria-hidden="true">|</span>
+        <span class="wordmark-tagline" lang="zh-Hans">词元之外</span>
+      </span>
     </a>
     <nav class="nav-links" aria-label={content.navigationLabel}>
       <a href={homeSection("about")}>{content.navigation.about}</a>

@@ -1,7 +1,7 @@
 ---
 import type { Locale } from "../data/site";
 import type { Partner } from "../data/partners";
-import { partnersPath } from "../data/partners";
+import { featuredVenue, partnersPath } from "../data/partners";
 
 interface Props {
   partner: Partner;
@@ -10,11 +10,22 @@ interface Props {
 
 const { partner, locale } = Astro.props;
 const listPath = partnersPath(locale);
+const venue = featuredVenue(partner);
+
+if (!venue.heroImage || !venue.heroAlt) {
+  throw new Error(`Featured venue ${partner.slug}/${venue.slug} must define hero media`);
+}
+
+const venueFacts = venue.facts ?? [];
+const venueSpaces = venue.spaces ?? [];
+const venueGallery = venue.gallery ?? [];
 const copy = locale === "zh-Hans"
   ? {
       back: "返回场地合作伙伴",
       logo: `${partner.name}标志`,
-      location: "位置",
+      venues: "旗下场地",
+      venueCount: `${partner.venues.length} 个场地`,
+      featured: "当前展示",
       map: "在高德地图查看 POI",
       transport: "公共交通",
       about: "关于空间",
@@ -27,7 +38,9 @@ const copy = locale === "zh-Hans"
   : {
       back: "Back to venue partners",
       logo: `${partner.englishName} logo`,
-      location: "Location",
+      venues: "Venues",
+      venueCount: `${partner.venues.length} venue${partner.venues.length === 1 ? "" : "s"}`,
+      featured: "Featured here",
       map: "View POI on Amap",
       transport: "Public transport",
       about: "About the space",
@@ -38,18 +51,24 @@ const copy = locale === "zh-Hans"
       external: "Open external link",
     };
 
-const placeSchema = {
+const partnerSchema = {
   "@context": "https://schema.org",
-  "@type": "Place",
+  "@type": "Organization",
   name: partner.name,
   alternateName: partner.englishName,
   description: partner.summary[locale],
-  image: partner.heroImage,
-  address: partner.location.address[locale],
+  logo: partner.logo,
+  location: partner.venues.map((partnerVenue) => ({
+    "@type": "Place",
+    name: `${partner.name} · ${partnerVenue.name[locale]}`,
+    description: partnerVenue.summary[locale],
+    image: partnerVenue.heroImage,
+    address: partnerVenue.location.address[locale],
+  })),
 };
 ---
 
-<script is:inline type="application/ld+json" set:html={JSON.stringify(placeSchema)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(partnerSchema)} />
 
 <main id="main" class="partner-detail-page">
   <div class="partner-detail-back shell">
@@ -65,23 +84,40 @@ const placeSchema = {
       <p class="partner-profile-summary">{partner.summary[locale]}</p>
     </div>
     <figure class="partner-profile-image">
-      <img src={partner.heroImage} width="1080" height="720" alt={partner.heroAlt[locale]} />
+      <img src={venue.heroImage} width="1080" height="720" alt={venue.heroAlt[locale]} />
+      <figcaption>{partner.name} · {venue.name[locale]}</figcaption>
     </figure>
   </section>
 
-  <section class="partner-location shell" aria-labelledby="location-title">
-    <p class="section-kicker" id="location-title">{copy.location}</p>
-    <div class="partner-location-main">
-      <p class="partner-location-label">{partner.location.label[locale]}</p>
-      <address>{partner.location.address[locale]}</address>
+  <section class="partner-venues shell" aria-labelledby="venues-title">
+    <div class="partner-venues-heading">
+      <p class="section-kicker">{copy.venueCount}</p>
+      <h2 id="venues-title">{copy.venues}</h2>
     </div>
-    <div class="partner-location-transit">
-      <span>{copy.transport}</span>
-      <p>{partner.location.transport[locale]}</p>
+    <div class="partner-venue-list">
+      {partner.venues.map((partnerVenue, index) => (
+        <article class:list={["partner-venue", { "is-featured": partnerVenue.slug === partner.featuredVenueSlug }]}>
+          <div class="partner-venue-index">
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            {partnerVenue.slug === partner.featuredVenueSlug && <small>{copy.featured}</small>}
+          </div>
+          <div class="partner-venue-main">
+            <h3>{partnerVenue.name[locale]}</h3>
+            <p>{partnerVenue.summary[locale]}</p>
+          </div>
+          <div class="partner-venue-address">
+            <strong>{partnerVenue.location.label[locale]}</strong>
+            <address>{partnerVenue.location.address[locale]}</address>
+            {partnerVenue.location.transport && (
+              <p><span>{copy.transport}</span>{partnerVenue.location.transport[locale]}</p>
+            )}
+          </div>
+          <a href={partnerVenue.location.mapUrl} target="_blank" rel="noreferrer">
+            {copy.map}<span aria-hidden="true">↗</span>
+          </a>
+        </article>
+      ))}
     </div>
-    <a class="button primary" href={partner.location.mapUrl} target="_blank" rel="noreferrer">
-      {copy.map}<span aria-hidden="true">↗</span>
-    </a>
   </section>
 
   <section class="partner-story shell" aria-labelledby="about-title">
@@ -96,7 +132,7 @@ const placeSchema = {
     <div class="shell">
       <p class="section-kicker" id="facts-title">02 / {copy.capacity}</p>
       <div class="partner-fact-grid">
-        {partner.facts.map((fact) => (
+        {venueFacts.map((fact) => (
           <div class="partner-fact">
             <strong>{fact.value}</strong>
             <span>{fact.label[locale]}</span>
@@ -112,7 +148,7 @@ const placeSchema = {
       <h2 id="spaces-title">{copy.spaces}</h2>
     </div>
     <div class="partner-space-list">
-      {partner.spaces.map((space, index) => (
+      {venueSpaces.map((space, index) => (
         <article>
           <span>{String(index + 1).padStart(2, "0")}</span>
           <h3>{space.title[locale]}</h3>
@@ -128,7 +164,7 @@ const placeSchema = {
       <h2 id="gallery-title">{copy.gallery}</h2>
     </div>
     <div class="partner-gallery-grid">
-      {partner.gallery.map((image) => (
+      {venueGallery.map((image) => (
         <figure>
           <img src={image.src} width="1080" height="720" alt={image.alt[locale]} loading="lazy" />
         </figure>

@@ -1,12 +1,17 @@
 ---
 import HostCard from "./HostCard.astro";
 import { episode001Assets, episode001BilibiliUrl, episode001Url, platforms, type SiteContent } from "../data/site";
+import { resolvePartnerVenue } from "../data/partners";
 
 interface Props {
   content: SiteContent;
 }
 
 const { content } = Astro.props;
+const episode001Recording = resolvePartnerVenue(episode001Assets.recordingVenue);
+const episode001VenueLabel = content.locale === "en"
+  ? `${episode001Recording.partner.englishName} · ${episode001Recording.venue.name.en}`
+  : `${episode001Recording.partner.name} · ${episode001Recording.venue.name["zh-Hans"]}`;
 const localizedPlatforms = platforms.map((platform) => ({
   label: content.locale === "en" ? platform.en : platform.zh,
   href: "href" in platform ? platform.href : undefined,
@@ -44,7 +49,7 @@ const localizedPlatforms = platforms.map((platform) => ({
         data-pan-if-cropped
         src={episode001Assets.images["960"]}
         srcset={`${episode001Assets.images["960"]} 960w, ${episode001Assets.images["1440"]} 1440w, ${episode001Assets.images["1920"]} 1920w`}
-        sizes="(max-width: 1000px) 100vw, 54vw"
+        sizes="(max-width: 1000px) 100vw, 48vw"
         width="1920"
         height="1080"
         decoding="async"
@@ -54,7 +59,7 @@ const localizedPlatforms = platforms.map((platform) => ({
       <div class="episode-stamp">Weekly<br />#{episode001Assets.id}</div>
       <div class="visual-caption">
         <strong>24 signals<br />one open table</strong>
-        <span>Recorded · {episode001Assets.recordedAt.replaceAll("-", ".")}</span>
+        <span>Recorded · {episode001Assets.recordedAt.replaceAll("-", ".")} · {episode001VenueLabel}</span>
       </div>
     </div>
   </section>
@@ -112,7 +117,7 @@ const localizedPlatforms = platforms.map((platform) => ({
           decoding="async"
           alt={content.weekly.imageAlt}
         />
-        <span class="label">Recorded 09.03</span>
+        <span class="label">Recorded 09.03 · {episode001VenueLabel}</span>
       </div>
       <div class="weekly-copy">
         <div class="episode-number">#{episode001Assets.id}</div>

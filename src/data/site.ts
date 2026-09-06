@@ -1,12 +1,18 @@
 import episode001 from "./episodes/001.json";
+import type { PartnerVenueRef } from "./partners";
+import type { Locale } from "./types";
 
-export type Locale = "zh-Hans" | "en";
+export type { Locale } from "./types";
 
 export const episode001Url = "https://www.xiaoyuzhoufm.com/episode/6a9ad843f03e74ee6b05352c";
 export const episode001BilibiliUrl = "https://www.bilibili.com/video/BV1qdtz6LEHf/";
 export const episode001Assets = {
   id: episode001.id,
   recordedAt: episode001.recorded_at,
+  recordingVenue: {
+    partnerSlug: episode001.recording_venue.partner_slug,
+    venueSlug: episode001.recording_venue.venue_slug,
+  } satisfies PartnerVenueRef,
   images: episode001.images,
 } as const;
 
@@ -94,12 +100,28 @@ const sharedHosts = {
     width: 400,
     height: 400,
     socials: [
-      { platform: "X", handle: "@ericyangpan", href: "https://x.com/ericyangpan" },
-      { platform: "GitHub", handle: "@ericyangpan", href: "https://github.com/ericyangpan" },
-      { platform: "Jike", handle: "杨攀同学", href: "https://m.okjike.com/users/B53205DA-8DDC-463C-87B3-3F65F88B6EA2" },
+      {
+        platform: "X",
+        handle: "@ericyangpan",
+        href: "https://x.com/ericyangpan",
+      },
+      {
+        platform: "GitHub",
+        handle: "@ericyangpan",
+        href: "https://github.com/ericyangpan",
+      },
+      {
+        platform: "Jike",
+        handle: "杨攀同学",
+        href: "https://m.okjike.com/users/B53205DA-8DDC-463C-87B3-3F65F88B6EA2",
+      },
       { platform: "WeChat", handle: "杨攀同学" },
       { platform: "Xiaohongshu", handle: "杨攀同学" },
-      { platform: "LinkedIn", handle: "Pan YANG", href: "https://www.linkedin.com/in/ericyangpan" },
+      {
+        platform: "LinkedIn",
+        handle: "Pan YANG",
+        href: "https://www.linkedin.com/in/ericyangpan",
+      },
     ],
   },
   guizang: {
@@ -108,9 +130,17 @@ const sharedHosts = {
     height: 400,
     socials: [
       { platform: "X", handle: "@op7418", href: "https://x.com/op7418" },
-      { platform: "GitHub", handle: "@op7418", href: "https://github.com/op7418" },
+      {
+        platform: "GitHub",
+        handle: "@op7418",
+        href: "https://github.com/op7418",
+      },
       { platform: "Jike", handle: "歸藏" },
-      { platform: "Weibo", handle: "@歸藏的AI工具箱", href: "https://www.sina.cn/media/6182606334" },
+      {
+        platform: "Weibo",
+        handle: "@歸藏的AI工具箱",
+        href: "https://www.sina.cn/media/6182606334",
+      },
       { platform: "WeChat", handle: "歸藏的AI工具箱" },
       { platform: "Xiaohongshu", handle: "歸藏" },
     ],
@@ -121,13 +151,29 @@ const sharedHosts = {
     height: 320,
     socials: [
       { platform: "X", handle: "@oran_ge", href: "https://x.com/oran_ge" },
-      { platform: "GitHub", handle: "@orange2ai", href: "https://github.com/orange2ai" },
+      {
+        platform: "GitHub",
+        handle: "@orange2ai",
+        href: "https://github.com/orange2ai",
+      },
       { platform: "Jike", handle: "橘AI" },
-      { platform: "Blog", handle: "橘子汽水铺", href: "https://blog.orangesai.com" },
-      { platform: "Podcast", handle: "橘座", href: "https://www.xiaoyuzhoufm.com/podcast/6640bb10390b415a59a41773" },
+      {
+        platform: "Blog",
+        handle: "橘子汽水铺",
+        href: "https://blog.orangesai.com",
+      },
+      {
+        platform: "Podcast",
+        handle: "橘座",
+        href: "https://www.xiaoyuzhoufm.com/podcast/6640bb10390b415a59a41773",
+      },
       { platform: "WeChat", handle: "橘AI" },
       { platform: "Xiaohongshu", handle: "橘AI" },
-      { platform: "LinkedIn", handle: "Leo Feng", href: "https://www.linkedin.com/in/orangeai" },
+      {
+        platform: "LinkedIn",
+        handle: "Leo Feng",
+        href: "https://www.linkedin.com/in/orangeai",
+      },
     ],
   },
   xiangyangQiaomu: {
@@ -136,8 +182,16 @@ const sharedHosts = {
     height: 400,
     socials: [
       { platform: "X", handle: "@vista8", href: "https://x.com/vista8" },
-      { platform: "GitHub", handle: "@joeseesun", href: "https://github.com/joeseesun" },
-      { platform: "Jike", handle: "向阳乔木", href: "https://m.okjike.com/users/b66a780a-1572-455a-a0db-d601070d4251" },
+      {
+        platform: "GitHub",
+        handle: "@joeseesun",
+        href: "https://github.com/joeseesun",
+      },
+      {
+        platform: "Jike",
+        handle: "向阳乔木",
+        href: "https://m.okjike.com/users/b66a780a-1572-455a-a0db-d601070d4251",
+      },
       { platform: "WeChat", handle: "向阳乔木推荐看" },
       { platform: "Xiaohongshu", handle: "向阳乔木" },
     ],
@@ -153,10 +207,7 @@ const zhSocialLabels: Record<string, string> = {
   Podcast: "播客",
 };
 
-function localizeSocials(
-  socials: readonly SocialLink[],
-  locale: Locale,
-): SocialLink[] {
+function localizeSocials(socials: readonly SocialLink[], locale: Locale): SocialLink[] {
   return socials.map((social) => ({
     ...social,
     platform: locale === "zh-Hans" ? (zhSocialLabels[social.platform] ?? social.platform) : social.platform,
@@ -179,9 +230,7 @@ function hosts(locale: Locale): Host[] {
     {
       ...sharedHosts.yangPan,
       name: zh ? "杨攀" : "杨攀 Pan YANG",
-      bio: zh
-        ? "联合主理人 · Bilink.ai 创始人，融云联合创始人，前硅基流动联合创始人"
-        : "Co-host · Founder of Bilink.ai; co-founder of RongCloud and SiliconFlow.",
+      bio: zh ? "联合主理人 · Bilink.ai 创始人，融云联合创始人，前硅基流动联合创始人" : "Co-host · Founder of Bilink.ai; co-founder of RongCloud and SiliconFlow.",
       alt: zh ? "联合主理人杨攀" : "Co-host Pan YANG",
       socialsLabel: zh ? "杨攀的社交账号" : "Pan YANG's social accounts",
       socials: localizeSocials(sharedHosts.yangPan.socials, locale),
@@ -189,9 +238,7 @@ function hosts(locale: Locale): Host[] {
     {
       ...sharedHosts.guizang,
       name: zh ? "歸藏" : "歸藏 Guizang",
-      bio: zh
-        ? "联合主理人 · AI 创作者，“超级一人公司”实践者"
-        : "Co-host · AI creator and “super individual company” practitioner",
+      bio: zh ? "联合主理人 · AI 创作者，“超级一人公司”实践者" : "Co-host · AI creator and “super individual company” practitioner",
       alt: zh ? "联合主理人歸藏" : "Co-host Guizang",
       socialsLabel: zh ? "歸藏的社交账号" : "Guizang's social accounts",
       socials: localizeSocials(sharedHosts.guizang.socials, locale),
@@ -199,9 +246,7 @@ function hosts(locale: Locale): Host[] {
     {
       ...sharedHosts.orange,
       name: "橘子 Orange",
-      bio: zh
-        ? "联合主理人 · MarsWave 创始人、ListenHub 与 ColaOS 创始人"
-        : "Co-host · Founder of MarsWave, ListenHub, and ColaOS",
+      bio: zh ? "联合主理人 · MarsWave 创始人、ListenHub 与 ColaOS 创始人" : "Co-host · Founder of MarsWave, ListenHub, and ColaOS",
       alt: zh ? "联合主理人橘子 Orange" : "Co-host Orange",
       socialsLabel: zh ? "橘子 Orange 的社交账号" : "Orange's social accounts",
       socials: localizeSocials(sharedHosts.orange.socials, locale),
@@ -209,9 +254,7 @@ function hosts(locale: Locale): Host[] {
     {
       ...sharedHosts.xiangyangQiaomu,
       name: zh ? "向阳乔木" : "向阳乔木 Xiangyang Qiaomu",
-      bio: zh
-        ? "联合主理人 · AI 创作者与连续创业者，《AI领导力》合著者"
-        : "Co-host · AI creator, serial entrepreneur, and co-author of AI Leadership",
+      bio: zh ? "联合主理人 · AI 创作者与连续创业者，《AI领导力》合著者" : "Co-host · AI creator, serial entrepreneur, and co-author of AI Leadership",
       alt: zh ? "联合主理人向阳乔木" : "Co-host Xiangyang Qiaomu",
       socialsLabel: zh ? "向阳乔木的社交账号" : "Xiangyang Qiaomu's social accounts",
       socials: localizeSocials(sharedHosts.xiangyangQiaomu.socials, locale),
@@ -229,7 +272,13 @@ export const siteContent: Record<Locale, SiteContent> = {
     skipLink: "跳到主要内容",
     homeLabel: "Next Token 首页",
     navigationLabel: "主导航",
-    navigation: { about: "关于品牌", weekly: "Next Token Weekly", hosts: "联合主理人", partners: "合作伙伴", subscribe: "订阅" },
+    navigation: {
+      about: "关于品牌",
+      weekly: "Next Token Weekly",
+      hosts: "联合主理人",
+      partners: "合作伙伴",
+      subscribe: "订阅",
+    },
     languageLabel: "语言切换",
     status: "首期已上线",
     hero: {
@@ -248,8 +297,16 @@ export const siteContent: Record<Locale, SiteContent> = {
       heading: ["词元之外，", "是正在发生的世界。"],
       lede: "“Next token”是生成式模型不断做出的下一次预测。Next Token 关注预测动作之外的人、产业、产品、社会与文化。",
       cards: [
-        { title: "Next Token", copy: "主品牌。以中文世界的一手经验和观点讨论 AI，并把这些观点带入全球对话。" },
-        { title: "Beyond the", titleSecondLine: "Next Token", copy: "英文品牌。向英文听众解释中文世界正在发生什么、为何重要，以及它与全球 AI 发展的关系。" },
+        {
+          title: "Next Token |",
+          titleSecondLine: "词元之外",
+          copy: "统一主品牌。以中英文连接中文世界的一手 AI 经验与全球对话，承载视频、音频和衍生内容。",
+        },
+        {
+          title: "Next Token",
+          titleSecondLine: "Weekly",
+          copy: "当前旗舰周播。四位联合主理人以开放圆桌形式，讨论过去一周真正值得关注的 AI 新闻。",
+        },
       ],
     },
     weekly: {
@@ -260,7 +317,7 @@ export const siteContent: Record<Locale, SiteContent> = {
       copy: "从 GLM-5.3 Flash、MiniMax H3，到 WorkBuddy、AI 硬件与 Hugging Face 收购话题；四位联合主理人沿着一周新闻，聊模型成本、原厂 Agent、AI 应用回暖，以及每个人都必须闭环的 AI 原生组织。",
       topicsLabel: "本期议题",
       topics: ["24 条新闻", "模型与 Agent", "智能硬件", "商业与组织"],
-      listenAction: "在小宇宙收听",
+      listenAction: "在小宇宙收听/收看",
       watchAction: "在哔哩哔哩观看",
     },
     hosts: {
@@ -280,19 +337,27 @@ export const siteContent: Record<Locale, SiteContent> = {
     locale: "en",
     path: "/en/",
     title: "Next Token | Beyond the Next Token",
-    description: "Next Token is a video podcast about AI technology, products, entrepreneurship, and creativity. Next Token Weekly #001 unpacks 24 stories across models, agents, AI hardware, applications, and AI-native organizations.",
+    description:
+      "Next Token is a video podcast about AI technology, products, entrepreneurship, and creativity. Next Token Weekly #001 unpacks 24 stories across models, agents, AI hardware, applications, and AI-native organizations.",
     ogDescription: "Next Token Weekly #001 | The LLM “kill line” wars begin. Tokens are the new money.",
     skipLink: "Skip to main content",
     homeLabel: "Next Token home",
     navigationLabel: "Main navigation",
-    navigation: { about: "About", weekly: "Next Token Weekly", hosts: "Co-hosts", partners: "Partners", subscribe: "Follow" },
+    navigation: {
+      about: "About",
+      weekly: "Next Token Weekly",
+      hosts: "Co-hosts",
+      partners: "Partners",
+      subscribe: "Follow",
+    },
     languageLabel: "Language switcher",
     status: "Episode #001 is live",
     hero: {
       eyebrow: "Next Token | 词元之外",
       headingLead: "Beyond the\nnext ",
       headingAccent: "token.",
-      intro: "A video podcast about AI technology, products, entrepreneurship, and creativity. We start with first-hand experience from the Chinese-speaking world to ask what AI is changing—and what deserves our attention next.",
+      intro:
+        "A video podcast about AI technology, products, entrepreneurship, and creativity. We start with first-hand experience from the Chinese-speaking world to ask what AI is changing—and what deserves our attention next.",
       primaryAction: "Explore episode #001",
       secondaryAction: "Meet Next Token",
       footnote: "Next Token is the main brand across video, audio, and related formats. Next Token Weekly is its flagship weekly show.",
@@ -304,8 +369,16 @@ export const siteContent: Record<Locale, SiteContent> = {
       heading: ["Beyond the token,", "the world in motion."],
       lede: "A “next token” is the prediction a generative model makes over and over. Next Token looks beyond it—to the people, industries, products, societies, and cultures reshaped by AI.",
       cards: [
-        { title: "Next Token", copy: "Our main brand brings first-hand perspectives from the Chinese-speaking world into the global AI conversation." },
-        { title: "Beyond the", titleSecondLine: "Next Token", copy: "Our English-language brand explains what is happening in the Chinese-speaking world, why it matters, and how it connects to global AI." },
+        {
+          title: "Next Token |",
+          titleSecondLine: "词元之外",
+          copy: "One brand in Chinese and English, bringing first-hand AI perspectives from the Chinese-speaking world into the global conversation across video, audio, and related formats.",
+        },
+        {
+          title: "Next Token",
+          titleSecondLine: "Weekly",
+          copy: "Our flagship weekly show. Four co-hosts gather at an open table to discuss the AI stories that genuinely matter each week.",
+        },
       ],
     },
     weekly: {
@@ -316,7 +389,7 @@ export const siteContent: Record<Locale, SiteContent> = {
       copy: "From GLM-5.3 Flash and MiniMax H3 to WorkBuddy, AI hardware, and Hugging Face acquisition talk, four co-hosts trace a week of AI news through model economics, first-party agents, an application rebound, and why every person needs a closed loop inside an AI-native organization.",
       topicsLabel: "Episode topics",
       topics: ["24 stories", "Models & agents", "AI hardware", "Business & organizations"],
-      listenAction: "Listen on Xiaoyuzhou",
+      listenAction: "Listen / watch on Xiaoyuzhou",
       watchAction: "Watch on Bilibili",
     },
     hosts: {
@@ -339,7 +412,7 @@ export const platforms = [
     zh: "小宇宙",
     en: "Xiaoyuzhou",
     href: episode001Url,
-    action: { zh: "立即收听", en: "Listen now" },
+    action: { zh: "收听/收看", en: "Listen / watch" },
   },
   { zh: "Apple Podcasts", en: "Apple Podcasts" },
   { zh: "Spotify", en: "Spotify" },

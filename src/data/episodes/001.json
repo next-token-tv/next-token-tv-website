@@ -1,11 +1,15 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "id": "001",
   "show": "next-token-weekly",
   "status": "published",
-  "language": "zh-CN",
+  "language": "zh-Hans",
   "title": "Next Token Weekly #001｜大模型进入“斩杀线”大战，Token 就是新货币",
   "recorded_at": "2026-09-03",
+  "recording_venue": {
+    "partner_slug": "xiangwai",
+    "venue_slug": "beijing-fuxi"
+  },
   "release_date": "2026-09-04",
   "editorial_window": {
     "start": "2026-08-27",
@@ -39,7 +43,7 @@
     "1920": "/assets/weekly-001-1920.webp"
   },
   "provenance": {
-    "production_commit": "27bfad3e93ddd0a77e31806cdefc71d6455234d9",
+    "production_commit": "7d85251d420e7b4c73ef481a9583bfa0facb3d12",
     "release_manifest_sha256": "d8db3941a513c3494d1c22f1658ae27ffdbb1f708209e1ed73a2ac0f6b079d4f"
   }
 }
