@@ -1,0 +1,62 @@
+# Delivery metadata derived from next-token/assets/brand/README.md.
+# Logo and VI source authority remains in the sibling next-token repository.
+brand: next-token
+preview: /assets/brand-kit/logo-next-token.svg
+description:
+  zh-Hans: 为市场合作、媒体报道与节目推荐准备的官方资料：主品牌与旗舰节目的多种长度介绍、可下载 Logo、品牌色及名称规范。
+  en: 'Official resources for partners, press, and podcast recommendations: introductions to the brand and its flagship show in three lengths, downloadable logos, colors, and naming guidance.'
+downloads:
+  - href: /assets/brand-kit/logo-next-token.svg
+    format: SVG
+    size: 1024
+    use:
+      zh-Hans: 矢量文件 · 字形已转轮廓
+      en: Vector artwork · outlined lettering
+  - href: /assets/brand-kit/logo-next-token-3000.png
+    format: PNG
+    size: 3000
+    use:
+      zh-Hans: 播客节目封面
+      en: Podcast cover
+  - href: /assets/brand-kit/logo-next-token-1280.png
+    format: PNG
+    size: 1280
+    use:
+      zh-Hans: YouTube Podcast 封面
+      en: YouTube Podcast cover
+  - href: /assets/brand-kit/logo-next-token.png
+    format: PNG
+    size: 1024
+    use:
+      zh-Hans: 标准方形图片
+      en: Standard square image
+  - href: /assets/brand-kit/logo-next-token-960.jpg
+    format: JPG
+    size: 960
+    use:
+      zh-Hans: 喜马拉雅专辑封面
+      en: Ximalaya album cover
+  - href: /assets/brand-kit/logo-next-token-512.png
+    format: PNG
+    size: 512
+    use:
+      zh-Hans: 小尺寸图片
+      en: Small image
+colors:
+  - name:
+      zh-Hans: 纸色 · 主背景
+      en: Paper · background
+    hex: "#F1EEE5"
+    foreground: "#111111"
+  - name:
+      zh-Hans: 墨色 · 主前景
+      en: Ink · foreground
+    hex: "#111111"
+    foreground: "#F1EEE5"
+  - name:
+      zh-Hans: 橙色 · 强调色
+      en: Orange · accent
+    hex: "#FF4B18"
+    foreground: "#111111"
+typeface: League Spartan
+weight: Black / 900

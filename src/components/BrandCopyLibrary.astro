@@ -1,0 +1,99 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import type { Locale } from "../data/site";
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const entries = await getCollection("brandCopy", ({data}) => data.locale === locale);
+const formats = ["one-line", "short", "detailed"] as const;
+const ui = locale === "zh-Hans" ? {
+  title: "直接取用的官方介绍", lede: "选择主品牌或旗舰节目，再按使用空间选取版本。复制内容只包含介绍正文，可直接用于合作页面、媒体报道、活动物料与节目推荐。",
+  brand: "主品牌", show: "旗舰节目", labels: ["一句话介绍", "简短简介", "详细介绍"],
+  copy: "复制文案", copied: "已复制", fallback: "文案已选中，请手动复制。", characters: "字符", countHint: "包括空格、标点与段落换行", 
+} : {
+  title: "Ready-to-use introductions", lede: "Choose the brand or its flagship show, then pick a length for your space. Copy just the introduction for partner pages, press coverage, event materials, or podcast recommendations.",
+  brand: "Parent brand", show: "Flagship show", labels: ["One-line introduction", "Short bio", "Detailed introduction"],
+  copy: "Copy text", copied: "Copied", fallback: "Text selected. Please copy it manually.", characters: "characters", countHint: "Includes spaces, punctuation, and paragraph breaks",
+};
+const groups = await Promise.all(([{type:"brand", id:"next-token"}, {type:"show", id:"next-token-weekly"}] as const).map(async group => {
+  const entity = group.type === "brand" ? await getEntry("brands", group.id) : await getEntry("shows", group.id);
+  if (!entity) throw new Error(`Unknown copy entity: ${group.id}`);
+  const cards = formats.map(format => {
+    const matches = entries.filter(({data}) => data.entity === group.id && data.entityType === group.type && data.format === format);
+    if (matches.length !== 1) throw new Error(`Expected one ${locale} ${format} introduction for ${group.id}`);
+    const entry = matches[0]!;
+    const text = (entry.body ?? "").trim();
+    if (!text) throw new Error(`Empty brand copy: ${entry.id}`);
+    return { id:entry.id, text, usage:entry.data.usage };
+  });
+  return {...group, name:entity.data.name[locale], cards};
+}));
+---
+<section id="official-copy" class="copy-library" aria-labelledby="official-copy-title">
+  <p class="eyebrow">02 / {locale === "zh-Hans" ? "官方文案" : "OFFICIAL COPY"}</p>
+  <h2 id="official-copy-title">{ui.title}</h2>
+  <p class="copy-lede">{ui.lede}</p>
+  <div class="copy-groups">
+    {groups.map(group => (
+      <div class="copy-group">
+        <p class="copy-group-label">{group.type === "brand" ? ui.brand : ui.show}</p>
+        <h3>{group.name}</h3>
+        {group.cards.map((card, index) => (
+          <article class="copy-card">
+            <div class="copy-card-header">
+              <h4>{ui.labels[index]}</h4>
+              <span title={ui.countHint}>{Array.from(card.text).length} {ui.characters}</span>
+            </div>
+            <p class="copy-usage">{card.usage}</p>
+            <div class="copy-text" id={`copy-${card.id}`}>{card.text.split(/\n\s*\n/).map(p => <p>{p}</p>)}</div>
+            <div class="copy-controls">
+              <button type="button" hidden data-copy-text={card.text} data-copy-target={`copy-${card.id}`} data-copied={ui.copied} data-fallback={ui.fallback} aria-label={`${ui.copy} — ${group.name} · ${ui.labels[index]}`}>{ui.copy} <span aria-hidden="true">↗</span></button>
+              <span role="status" aria-live="polite"></span>
+            </div>
+          </article>
+        ))}
+      </div>
+    ))}
+  </div>
+</section>
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-copy-text]').forEach(button => {
+    button.hidden = false;
+    button.addEventListener('click', async () => {
+      const status = button.nextElementSibling as HTMLElement;
+      status.textContent = '';
+      try {
+        await navigator.clipboard.writeText(button.dataset.copyText!);
+        status.textContent = button.dataset.copied!;
+      } catch {
+        const target = document.getElementById(button.dataset.copyTarget!);
+        if (target) {
+          const range = document.createRange(); range.selectNodeContents(target);
+          const selection = window.getSelection(); selection?.removeAllRanges(); selection?.addRange(range);
+        }
+        status.textContent = button.dataset.fallback!;
+      }
+    });
+  });
+</script>
+<style>
+  .copy-library { padding-block: clamp(2.5rem, 5vw, 5rem); border-top: 1px solid var(--ink); scroll-margin-top: 6rem; }
+  .copy-library > .eyebrow { margin-bottom: 1.5rem; }
+  h2 { margin: 0; font-size: clamp(2rem, 4vw, 3.5rem); }
+  .copy-lede { max-width: 52rem; margin: 1rem 0 2.5rem; color: var(--muted); }
+  .copy-groups { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: clamp(1.5rem,4vw,3rem); }
+  .copy-group-label { margin: 0 0 .5rem; color: var(--muted); font-size: .875rem; }
+  h3 { margin: 0 0 1.5rem; font-family: var(--sans); font-size: clamp(1.125rem,2.1vw,1.65rem); line-height: 1.5; }
+  .copy-card { padding: clamp(1rem,2.5vw,1.75rem); border: 1px solid var(--line); background: var(--white); }
+  .copy-card + .copy-card { margin-top: 1rem; }
+  .copy-card-header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: .5rem 1rem; }
+  h4 { margin: 0; font-size: 1rem; }
+  .copy-card-header > span { font-size: .8125rem; color: var(--muted); }
+  .copy-usage { margin: .5rem 0 1.25rem; font-size: .875rem; color: var(--muted); }
+  .copy-text p { margin: 0; white-space: pre-line; line-height: 1.8; }
+  .copy-text p + p { margin-top: 1rem; }
+  .copy-controls { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem 1rem; margin-top: 1.25rem; }
+  button { min-height: 44px; padding: .5rem 1rem; border: 1px solid var(--ink); color: var(--paper); background: var(--ink); font: inherit; font-size: .875rem; cursor: pointer; }
+  button:hover { background: var(--signal); color: var(--ink); }
+  .copy-controls [role="status"] { font-size: .875rem; }
+  @media(max-width: 900px) { .copy-groups { grid-template-columns: 1fr; gap: 3rem; } }
+</style>

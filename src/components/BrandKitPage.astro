@@ -1,0 +1,158 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+import type { Locale } from "../data/site";
+import BrandCopyLibrary from "./BrandCopyLibrary.astro";
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const kit = await getEntry("brandKits", "next-token");
+if (!kit) throw new Error("Missing Next Token brand kit");
+const brand = await getEntry("brands", kit.data.brand);
+if (!brand) throw new Error(`Unknown brand referenced by brand kit: ${kit.data.brand}`);
+const guidelines = await getCollection("prose", ({ data }) =>
+  data.entityType === "brand" && data.entity === brand.id && data.locale === locale && data.slot === "brand-kit");
+if (guidelines.length !== 1) throw new Error(`Expected one ${locale} brand kit usage guide`);
+const { Content } = await render(guidelines[0]!);
+const copy = locale === "zh-Hans" ? {
+  title: "品牌素材", eyebrow: "Next Token / Brand Kit", logo: "官方 Logo",
+  preview: "标准方形构图", download: "下载", downloads: "Logo 下载文件",
+  artwork: "一套标准构图，多种交付尺寸。所有文件均保留原有底色与留白。",
+  naming: "一个品牌，中英同名。", nameLabel: "正式品牌名称 · 所有语言",
+  nameNote: "保留完整名称，不将中英文拆成两个品牌。", show: "旗舰周播",
+  colors: "品牌色", typography: "Logo 字体", usage: "使用规范",
+} : {
+  title: "Brand Kit", eyebrow: "Next Token / Brand Kit", logo: "Official logo",
+  preview: "Standard square composition", download: "Download", downloads: "Logo downloads",
+  artwork: "One official composition, in multiple sizes. Every file preserves the original background and spacing.",
+  naming: "One brand, in every language.", nameLabel: "Official brand name · all languages",
+  nameNote: "Keep the complete name. The English and Chinese names identify the same brand.", show: "Flagship weekly show",
+  colors: "Brand colors", typography: "Logo typeface", usage: "Usage guidelines",
+};
+---
+
+<main id="main" class="brand-kit shell">
+  <header class="kit-intro">
+    <p class="eyebrow">{copy.eyebrow}</p>
+    <h1>{copy.title}</h1>
+    <p class="kit-lede">{kit.data.description[locale]}</p>
+    <nav class="kit-shortcuts" aria-label={locale === "en" ? "On this page" : "本页导航"}>
+      <a href="#kit-logo">{locale === "en" ? "Logo downloads" : "Logo 下载"} ↓</a>
+      <a href="#official-copy">{locale === "en" ? "Official copy" : "官方文案"} ↓</a>
+    </nav>
+  </header>
+
+  <section class="kit-section" aria-labelledby="kit-logo">
+    <div class="kit-section-heading">
+      <p class="eyebrow">01 / LOGO</p>
+      <h2 id="kit-logo">{copy.logo}</h2>
+      <p>{copy.artwork}</p>
+    </div>
+    <div class="kit-logo-grid">
+      <figure class="kit-logo-preview">
+        <img src={kit.data.preview} alt={`${brand.data.name[locale]} Logo`} width="1024" height="1024" />
+        <figcaption>{copy.preview}</figcaption>
+      </figure>
+      <ul class="kit-downloads" aria-label={copy.downloads}>
+        {kit.data.downloads.map((asset) => (
+          <li>
+            <a href={asset.href} download>
+              <span><strong>{asset.format}</strong><span class="kit-dimensions">{asset.size} × {asset.size} px</span><span class="kit-download-use">{asset.use[locale]}</span></span>
+              <span class="kit-download-action">{copy.download} <span aria-hidden="true">↓</span></span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <BrandCopyLibrary locale={locale} />
+
+  <section class="kit-section" aria-labelledby="kit-name">
+    <div class="kit-section-heading">
+      <p class="eyebrow">03 / NAME</p>
+      <h2 id="kit-name">{copy.naming}</h2>
+    </div>
+    <div class="kit-nameplate">
+      <p class="kit-label">{copy.nameLabel}</p>
+      <p class="kit-brand-name">{brand.data.name[locale]}</p>
+      <p>{copy.nameNote}</p>
+      <div class="kit-show-name"><span class="kit-label">{copy.show}</span><a href={`${locale === "en" ? "/en" : ""}/weekly/`}>Next Token Weekly <span aria-hidden="true">↗</span></a></div>
+    </div>
+  </section>
+
+  <section class="kit-section" aria-labelledby="kit-colors">
+    <div class="kit-section-heading">
+      <p class="eyebrow">04 / COLOR & TYPE</p>
+      <h2 id="kit-colors">{copy.colors}</h2>
+    </div>
+    <div class="kit-palette">
+      {kit.data.colors.map((color) => (
+        <article class="kit-swatch" style={{ background: color.hex, color: color.foreground }}>
+          <h3>{color.name[locale]}</h3><code>{color.hex}</code>
+        </article>
+      ))}
+    </div>
+    <div class="kit-typeface"><span class="kit-label">{copy.typography}</span><strong>{kit.data.typeface}</strong><span>{kit.data.weight}</span></div>
+  </section>
+
+  <section class="kit-section" aria-labelledby="kit-usage">
+    <div class="kit-section-heading">
+      <p class="eyebrow">05 / GUIDELINES</p>
+      <h2 id="kit-usage">{copy.usage}</h2>
+    </div>
+    <div class="kit-guidelines"><Content /></div>
+  </section>
+</main>
+
+<style>
+  .brand-kit { padding-block: clamp(4rem, 8vw, 8rem); }
+  .kit-intro { padding-bottom: clamp(3rem, 6vw, 6rem); }
+  .kit-intro .eyebrow { margin-bottom: 2rem; }
+  .kit-intro h1 { margin: 0; font-size: clamp(3rem, 7vw, 6rem); }
+  .kit-lede { max-width: 46rem; margin: 2rem 0 0; color: var(--muted); font-size: clamp(1.125rem, 2vw, 1.4rem); }
+  .kit-shortcuts { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin-top: 2rem; }
+  #kit-logo { scroll-margin-top: 6rem; }
+  .kit-shortcuts a { min-height: 44px; padding-block: .5rem; text-decoration: underline; text-underline-offset: .25em; }
+  .kit-section { border-top: 1px solid var(--ink); padding-block: clamp(2.5rem, 5vw, 5rem); }
+  .kit-section:last-child { padding-bottom: 0; }
+  .kit-section-heading { margin-bottom: 2rem; }
+  .kit-section-heading .eyebrow { margin-bottom: 1.5rem; }
+  .kit-section h2 { margin: 0; font-size: clamp(2rem, 4vw, 3.5rem); }
+  .kit-section-heading > p:last-child:not(.eyebrow) { max-width: 45rem; margin: 1rem 0 0; color: var(--muted); }
+  .kit-logo-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); border: 1px solid var(--ink); }
+  .kit-logo-preview { display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0; padding: 2rem; border-right: 1px solid var(--ink); }
+  .kit-logo-preview img { width: min(100%, 26rem); height: auto; }
+  .kit-logo-preview figcaption { margin-top: 1rem; color: var(--muted); font-size: .875rem; }
+  .kit-downloads { list-style: none; padding: 0; margin: 0; }
+  .kit-downloads li + li { border-top: 1px solid var(--line); }
+  .kit-downloads a { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem clamp(1rem, 3vw, 2rem); }
+  .kit-downloads a:hover { background: var(--white); }
+  .kit-downloads a:focus-visible { outline-offset: -4px; }
+  .kit-downloads strong { margin-right: .75rem; }
+  .kit-dimensions { display: inline-block; font-size: .875rem; }
+  .kit-download-use { display: block; color: var(--muted); font-size: .875rem; margin-top: .25rem; }
+  .kit-download-action { flex-shrink: 0; font-size: .875rem; font-weight: 700; }
+  .kit-nameplate { padding: clamp(1.25rem, 4vw, 3rem); background: var(--ink); color: var(--paper); }
+  .kit-nameplate p { margin: 0; }
+  .kit-label { font-size: .875rem; font-weight: 600; }
+  .kit-nameplate .kit-brand-name { margin-block: 1.5rem; font-size: clamp(1.125rem, 3.4vw, 2.5rem); font-weight: 700; white-space: nowrap; }
+  .kit-show-name { display: flex; flex-wrap: wrap; gap: .75rem 2rem; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(241, 238, 229, .3); }
+  .kit-show-name a { text-decoration: underline; text-underline-offset: .25em; }
+  .kit-palette { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--ink); }
+  .kit-swatch { min-height: 13rem; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem; }
+  .kit-swatch h3 { margin: 0; font-family: var(--sans); font-size: 1rem; font-weight: 600; }
+  .kit-swatch code { font-size: clamp(1.25rem, 2.8vw, 2rem); }
+  .kit-typeface { display: flex; align-items: baseline; flex-wrap: wrap; gap: .75rem 2rem; padding-top: 2rem; }
+  .kit-typeface strong { font-family: var(--display); font-size: 2rem; letter-spacing: var(--display-tracking); }
+  .kit-guidelines { max-width: 52rem; }
+  .kit-guidelines :global(h3) { font-size: 1.5rem; margin: 2rem 0 .75rem; line-height: 1.4; }
+  .kit-guidelines :global(h3:first-child) { margin-top: 0; }
+  .kit-guidelines :global(p) { margin: 0; color: var(--muted); line-height: 1.8; }
+  @media (max-width: 720px) {
+    .kit-logo-grid { grid-template-columns: 1fr; }
+    .kit-logo-preview { border-right: 0; border-bottom: 1px solid var(--ink); padding: 1.5rem; }
+    .kit-logo-preview img { width: min(100%, 20rem); }
+    .kit-palette { grid-template-columns: 1fr; }
+    .kit-swatch { min-height: 10rem; }
+  }
+</style>

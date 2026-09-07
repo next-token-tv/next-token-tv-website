@@ -1,0 +1,11 @@
+---
+import { getEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BrandKitPage from "../../components/BrandKitPage.astro";
+import { getSiteContent } from "../../data/site";
+const content = await getSiteContent("zh-Hans");
+const kit = await getEntry("brandKits", "next-token");
+---
+<BaseLayout content={content} pageTitle="品牌素材 Brand Kit | Next Token | 词元之外" description={kit!.data.description["zh-Hans"]} canonicalPath="/brand-kit/" alternatePath="/en/brand-kit/">
+  <BrandKitPage locale="zh-Hans" />
+</BaseLayout>

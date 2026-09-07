@@ -1,0 +1,11 @@
+---
+import { getEntry } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import BrandKitPage from "../../../components/BrandKitPage.astro";
+import { getSiteContent } from "../../../data/site";
+const content = await getSiteContent("en");
+const kit = await getEntry("brandKits", "next-token");
+---
+<BaseLayout content={content} pageTitle="Brand Kit | Next Token | 词元之外" description={kit!.data.description.en} canonicalPath="/en/brand-kit/" alternatePath="/brand-kit/">
+  <BrandKitPage locale="en" />
+</BaseLayout>

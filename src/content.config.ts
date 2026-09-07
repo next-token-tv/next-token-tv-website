@@ -157,6 +157,28 @@ const products = defineCollection({
   }),
 });
 
+const brandKits = defineCollection({
+  loader: yamlLoader("./src/content/data/brand-kits"),
+  schema: z.object({
+    brand: z.string(),
+    preview: assetPath,
+    description: localizedText,
+    downloads: z.array(z.object({
+      href: assetPath,
+      format: z.enum(["SVG", "PNG", "JPG"]),
+      size: z.number().int().positive(),
+      use: localizedText,
+    })).min(1),
+    colors: z.array(z.object({
+      name: localizedText,
+      hex: z.string().regex(/^#[0-9A-F]{6}$/),
+      foreground: z.string().regex(/^#[0-9A-F]{6}$/),
+    })),
+    typeface: z.string(),
+    weight: z.string(),
+  }),
+});
+
 const episodeHomepage = z.object({
   lede: z.string(),
   imageAlt: z.string(),
@@ -256,17 +278,30 @@ const prose = defineCollection({
     entityType: z.enum(["brand", "product", "person", "partner", "venue", "show", "episode"]),
     entity: z.string(),
     locale,
-    slot: z.enum(["introduction", "profile", "overview", "show-notes"]),
+    slot: z.enum(["introduction", "profile", "overview", "show-notes", "brand-kit", "partner-invitation"]),
+  }),
+});
+
+const brandCopy = defineCollection({
+  loader: markdownLoader("./src/content/brand-copy"),
+  schema: z.object({
+    entityType: z.enum(["brand", "show"]),
+    entity: z.string(),
+    locale,
+    format: z.enum(["one-line", "short", "detailed"]),
+    usage: z.string(),
   }),
 });
 
 export const collections = {
+  brandCopy,
   people,
   shows,
   hostMemberships,
   partners,
   venues,
   brands,
+  brandKits,
   products,
   episodes,
   episodeImports,
