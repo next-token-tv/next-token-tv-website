@@ -25,7 +25,6 @@ const copy = locale === "en" ? {
   contents: "Contents",
   chapters: "chapters",
   read: "Full transcript",
-  note: "A † next to a name means the speaker attribution is still being verified.",
   candidate: "speaker attribution pending verification",
 } : {
   back: "返回本期节目",
@@ -33,7 +32,6 @@ const copy = locale === "en" ? {
   contents: "本期目录",
   chapters: "个章节",
   read: "完整文字稿",
-  note: "姓名旁的 † 表示该处人物署名仍待核对。",
   candidate: "人物署名仍待核对",
 };
 ---
@@ -60,7 +58,7 @@ const copy = locale === "en" ? {
 
   <div class="transcript-layout shell">
     <aside class="transcript-sidebar">
-      <details class="transcript-toc">
+      <details class="transcript-toc" open>
         <summary>{copy.contents} · {transcript.data.report.chapters}</summary>
         <ol>
           {transcript.data.chapters.map((chapter, index) => (
@@ -73,7 +71,6 @@ const copy = locale === "en" ? {
           ))}
         </ol>
       </details>
-      <p class="transcript-candidate-note"><span aria-hidden="true">†</span> {copy.note}</p>
     </aside>
 
     <article class="transcript-body" aria-label={copy.read}>

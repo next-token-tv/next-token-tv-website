@@ -2553,14 +2553,14 @@ html[lang="en"] .weekly-show-facts strong {
 }
 
 .transcript-hero {
-  padding-top: clamp(2.5rem, 5vw, 5rem);
-  padding-bottom: clamp(4rem, 8vw, 8rem);
+  padding-top: clamp(1.5rem, 3vw, 2.75rem);
+  padding-bottom: clamp(2rem, 4vw, 3.5rem);
   border-bottom: 1px solid var(--ink);
 }
 
 .transcript-back {
   display: inline-block;
-  margin-bottom: clamp(4rem, 8vw, 8rem);
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
   font-size: 0.8rem;
   font-weight: 850;
 }
@@ -2572,15 +2572,16 @@ html[lang="en"] .weekly-show-facts strong {
 
 .transcript-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.28fr) minmax(18rem, 0.72fr);
-  gap: clamp(3rem, 8vw, 10rem);
+  grid-template-columns: minmax(0, 1fr) minmax(14rem, 18rem);
+  gap: clamp(2rem, 3.5vw, 4rem);
   align-items: end;
 }
 
 .transcript-hero h1 {
-  max-width: 1020px;
-  margin: 1.4rem 0 0;
-  font-size: clamp(3.5rem, 6.2vw, 7rem);
+  max-width: none;
+  margin: 0.75rem 0 0;
+  font-size: clamp(2.35rem, 3.8vw, 4.25rem);
+  line-height: 1.08;
 }
 
 .transcript-hero h1 > span {
@@ -2588,17 +2589,17 @@ html[lang="en"] .weekly-show-facts strong {
 }
 
 .transcript-hero h1 > span:first-child {
-  margin-bottom: 0.12em;
+  margin-bottom: 0.45rem;
   color: var(--signal);
-  font-size: 0.64em;
-  line-height: 1;
+  font-size: clamp(1rem, 1.35vw, 1.3rem);
+  line-height: 1.2;
 }
 
 .transcript-hero-meta {
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 1rem;
-  padding-top: 1.25rem;
+  gap: 0.65rem 1rem;
+  padding-top: 0.9rem;
   border-top: 1px solid var(--ink);
 }
 
@@ -2616,10 +2617,10 @@ html[lang="en"] .weekly-show-facts strong {
 
 .transcript-hero-meta > p {
   grid-column: 1 / -1;
-  margin: 1rem 0 0;
+  margin: 0.45rem 0 0;
   color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.75;
+  font-size: 0.9rem;
+  line-height: 1.65;
 }
 
 .transcript-hero-meta .transcript-notice {
@@ -2630,10 +2631,10 @@ html[lang="en"] .weekly-show-facts strong {
 .transcript-layout {
   display: grid;
   grid-template-columns: minmax(14rem, 0.44fr) minmax(0, 1.56fr);
-  gap: clamp(3rem, 8vw, 10rem);
+  gap: clamp(3rem, 6vw, 7rem);
   align-items: start;
-  padding-top: clamp(4rem, 8vw, 8rem);
-  padding-bottom: clamp(6rem, 10vw, 11rem);
+  padding-top: clamp(2.5rem, 4vw, 4.5rem);
+  padding-bottom: clamp(5rem, 8vw, 9rem);
 }
 
 .transcript-sidebar {
@@ -2688,18 +2689,6 @@ html[lang="en"] .weekly-show-facts strong {
   color: var(--ink);
 }
 
-.transcript-candidate-note {
-  margin: 1.25rem 0 0;
-  color: var(--muted);
-  font-size: 0.75rem;
-  line-height: 1.65;
-}
-
-.transcript-candidate-note span {
-  color: var(--signal);
-  font-weight: 900;
-}
-
 .transcript-body {
   width: 100%;
   max-width: 940px;
@@ -2707,20 +2696,20 @@ html[lang="en"] .weekly-show-facts strong {
 
 .transcript-chapter {
   scroll-margin-top: 110px;
-  padding: 0 0 clamp(5rem, 9vw, 9rem);
+  padding: 0 0 clamp(3.5rem, 6vw, 6rem);
 }
 
 .transcript-chapter + .transcript-chapter {
-  padding-top: clamp(5rem, 9vw, 9rem);
+  padding-top: clamp(3.5rem, 6vw, 6rem);
   border-top: 1px solid var(--ink);
 }
 
 .transcript-chapter > header {
   display: grid;
-  grid-template-columns: 3.5rem 1fr;
-  gap: 1.25rem;
+  grid-template-columns: 2.75rem 1fr;
+  gap: 1rem;
   align-items: start;
-  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+  margin-bottom: clamp(1.75rem, 3vw, 3rem);
 }
 
 .transcript-chapter > header > span {
@@ -2733,7 +2722,7 @@ html[lang="en"] .weekly-show-facts strong {
 .transcript-chapter h2 {
   margin: 0;
   font-family: var(--display);
-  font-size: clamp(2.3rem, 4vw, 4.4rem);
+  font-size: clamp(1.75rem, 2.5vw, 2.8rem);
   line-height: var(--section-heading-leading);
 }
 
@@ -2751,10 +2740,10 @@ html[lang="en"] .weekly-show-facts strong {
   border-left: 2px solid var(--speaker-accent);
 }
 
-.transcript-turn[data-speaker="yangpan"] { --speaker-accent: #e73e10; }
+.transcript-turn[data-speaker="yangpan"] { --speaker-accent: #318fbd; }
 .transcript-turn[data-speaker="guizang"] { --speaker-accent: #a96a00; }
-.transcript-turn[data-speaker="orange"] { --speaker-accent: #2369a8; }
-.transcript-turn[data-speaker="xiangyang-qiaomu"] { --speaker-accent: #7448a0; }
+.transcript-turn[data-speaker="orange"] { --speaker-accent: #f06a31; }
+.transcript-turn[data-speaker="xiangyang-qiaomu"] { --speaker-accent: #171717; }
 
 .transcript-speaker {
   display: flex;
@@ -2775,12 +2764,15 @@ html[lang="en"] .weekly-show-facts strong {
   width: 1.75rem;
   height: 1.75rem;
   object-fit: cover;
-  box-shadow: 0 0.18rem 0.75rem rgba(17, 17, 17, 0.18);
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  border-radius: 50%;
+  outline: 0;
+  box-shadow: none;
 }
 
 .transcript-speaker strong {
   min-width: 0;
-  color: var(--ink);
+  color: var(--speaker-accent);
   line-height: 1.3;
 }
 
@@ -2812,6 +2804,11 @@ html[lang="en"] .weekly-show-facts strong {
   padding: 1.5rem;
   border-left-width: 4px;
   background: rgba(255, 75, 24, 0.07);
+}
+
+.transcript-turn.is-narration .transcript-paragraphs p {
+  font-size: clamp(0.93rem, 1vw, 1.02rem);
+  line-height: 1.8;
 }
 
 .transcript-turn.is-editor-note {
@@ -3022,11 +3019,11 @@ html[lang="en"] .weekly-show-facts strong {
   }
 
   .transcript-hero-grid {
-    gap: 3rem;
+    gap: 1.75rem;
   }
 
   .transcript-layout {
-    gap: 5rem;
+    gap: 2.5rem;
   }
 
   .transcript-sidebar {
@@ -3034,7 +3031,7 @@ html[lang="en"] .weekly-show-facts strong {
   }
 
   .transcript-toc ol {
-    max-height: 420px;
+    max-height: min(30vh, 260px);
   }
 }
 
@@ -3470,15 +3467,15 @@ html[lang="en"] .weekly-show-facts strong {
   }
 
   .transcript-hero {
-    padding-top: 2rem;
+    padding-top: 1.25rem;
   }
 
   .transcript-back {
-    margin-bottom: 4rem;
+    margin-bottom: 1.5rem;
   }
 
   .transcript-hero h1 {
-    font-size: clamp(2.75rem, 13vw, 4.2rem);
+    font-size: clamp(2.15rem, 9.5vw, 3rem);
   }
 
   .transcript-hero-meta {
@@ -3490,8 +3487,8 @@ html[lang="en"] .weekly-show-facts strong {
   }
 
   .transcript-layout {
-    gap: 4rem;
-    padding-top: 3.5rem;
+    gap: 2rem;
+    padding-top: 2rem;
   }
 
   .transcript-chapter > header {
@@ -3500,7 +3497,7 @@ html[lang="en"] .weekly-show-facts strong {
   }
 
   .transcript-chapter h2 {
-    font-size: clamp(2.1rem, 10vw, 3.2rem);
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
   }
 
   .transcript-turn {
