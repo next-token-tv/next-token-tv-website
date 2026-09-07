@@ -1,6 +1,7 @@
 ---
 import { render } from "astro:content";
 import ConditionalImagePan from "./ConditionalImagePan.astro";
+import PlatformBrand from "./PlatformBrand.astro";
 import { getEpisodeShowNotes, getPeopleByIds, getPublishedEpisode } from "../data/catalog";
 import { partnerPath, resolveVenueId } from "../data/partners";
 import type { Locale } from "../data/types";
@@ -98,8 +99,8 @@ const labels = locale === "en" ? {
         <p>{homepage.lede}</p>
         <div class="episode-actions">
           {episode.data.platforms.filter(({ href }) => href).map((platform) => (
-            <a class="episode-listen" href={platform.href} target="_blank" rel="noopener noreferrer">
-              {platform.action?.[locale] ?? platform.label[locale]} <span aria-hidden="true">↗</span>
+            <a class="episode-listen episode-platform" href={platform.href} target="_blank" rel="noopener noreferrer" aria-label={`${platform.label[locale]} · ${platform.action?.[locale] ?? platform.label[locale]}`}>
+              <PlatformBrand platform={platform.platform} name={platform.label[locale]} /> <span aria-hidden="true">↗</span>
             </a>
           ))}
         </div>
@@ -173,13 +174,13 @@ const labels = locale === "en" ? {
       {episode.data.platforms.map((platform, index) => platform.href ? (
         <a class="platform is-live" href={platform.href} target="_blank" rel="noopener noreferrer">
           <span class="index">{String(index + 1).padStart(2, "0")}</span>
-          <strong>{platform.label[locale]}</strong>
+          <strong><PlatformBrand platform={platform.platform} name={platform.label[locale]} /></strong>
           <span class="coming">{platform.action?.[locale]} <span aria-hidden="true">↗</span></span>
         </a>
       ) : (
         <div class="platform">
           <span class="index">{String(index + 1).padStart(2, "0")}</span>
-          <strong>{platform.label[locale]}</strong>
+          <strong><PlatformBrand platform={platform.platform} name={platform.label[locale]} /></strong>
           <span class="coming">{labels.comingSoon}</span>
         </div>
       ))}

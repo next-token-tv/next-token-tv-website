@@ -1,0 +1,22 @@
+---
+interface Props {
+  platform: string;
+  name: string;
+}
+const { platform, name } = Astro.props;
+const icons: Record<string, string> = {
+  xiaoyuzhou: "/assets/platforms/xiaoyuzhou.svg",
+  "apple-podcasts": "/assets/platforms/apple-podcasts.svg",
+  spotify: "/assets/platforms/spotify.svg",
+  bilibili: "/assets/platforms/bilibili.svg",
+  youtube: "/assets/platforms/youtube.svg",
+};
+---
+<span class="platform-brand">
+  {icons[platform] && <img class="platform-logo" src={icons[platform]} width="28" height="28" alt="" aria-hidden="true" />}
+  <span>{name}</span>
+</span>
+<style>
+  .platform-brand { display: inline-flex; align-items: center; gap: .65rem; min-width: 0; }
+  .platform-logo { display: block; flex: 0 0 1.75rem; width: 1.75rem; height: 1.75rem; object-fit: contain; }
+</style>

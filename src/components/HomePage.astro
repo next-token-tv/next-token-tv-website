@@ -1,5 +1,6 @@
 ---
 import HostCard from "./HostCard.astro";
+import PlatformBrand from "./PlatformBrand.astro";
 import ConditionalImagePan from "./ConditionalImagePan.astro";
 import { getPublishedEpisode } from "../data/catalog";
 import { resolveVenueId } from "../data/partners";
@@ -21,17 +22,12 @@ const episode001VenueLabel = content.locale === "en"
   ? `${episode001Recording.partner.englishName} · ${episode001Recording.venue.name.en}`
   : `${episode001Recording.partner.name} · ${episode001Recording.venue.name["zh-Hans"]}`;
 const localizedPlatforms = episode001.data.platforms.map((platform) => ({
+  platform: platform.platform,
   label: platform.label[content.locale],
   href: platform.href,
   action: platform.action?.[content.locale],
 }));
-const episode001Url = episode001.data.platforms.find(({ platform }) => platform === "xiaoyuzhou")?.href;
-const episode001BilibiliUrl = episode001.data.platforms.find(({ platform }) => platform === "bilibili")?.href;
 const episode001Path = content.locale === "en" ? "/en/weekly/001/" : "/weekly/001/";
-
-if (!episode001Url || !episode001BilibiliUrl) {
-  throw new Error("Episode #001 must have Xiaoyuzhou and Bilibili publication URLs");
-}
 ---
 
 <main id="main">
@@ -148,11 +144,8 @@ if (!episode001Url || !episode001BilibiliUrl) {
             {content.weekly.topics.map((topic) => <span>{topic}</span>)}
           </div>
           <div class="episode-actions">
-            <a class="episode-listen" href={episode001Url} target="_blank" rel="noopener noreferrer">
-              {content.weekly.listenAction} <span aria-hidden="true">↗</span>
-            </a>
-            <a class="episode-listen" href={episode001BilibiliUrl} target="_blank" rel="noopener noreferrer">
-              {content.weekly.watchAction} <span aria-hidden="true">↗</span>
+            <a class="episode-listen" href={episode001Path}>
+              {content.locale === "en" ? "Explore episode · Listen / watch" : "查看本期 · 收听/收看"} <span aria-hidden="true">↗</span>
             </a>
           </div>
         </div>
@@ -185,13 +178,13 @@ if (!episode001Url || !episode001BilibiliUrl) {
       {localizedPlatforms.map((platform, index) => platform.href ? (
         <a class="platform is-live" href={platform.href} target="_blank" rel="noopener noreferrer">
           <span class="index">{String(index + 1).padStart(2, "0")}</span>
-          <strong>{platform.label}</strong>
+          <strong><PlatformBrand platform={platform.platform} name={platform.label} /></strong>
           <span class="coming">{platform.action ?? content.subscribe.available} <span aria-hidden="true">↗</span></span>
         </a>
       ) : (
         <div class="platform">
           <span class="index">{String(index + 1).padStart(2, "0")}</span>
-          <strong>{platform.label}</strong>
+          <strong><PlatformBrand platform={platform.platform} name={platform.label} /></strong>
           <span class="coming">{content.subscribe.comingSoon}</span>
         </div>
       ))}

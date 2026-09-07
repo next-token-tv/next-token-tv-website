@@ -777,6 +777,16 @@ h1 .accent {
   transform: translateY(-2px);
 }
 
+.episode-platform {
+  background: var(--white);
+  border-color: var(--white);
+}
+
+.episode-platform:hover,
+.episode-platform:focus-visible {
+  border-color: var(--signal);
+}
+
 .hosts-header {
   display: flex;
   align-items: end;

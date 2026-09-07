@@ -1,6 +1,7 @@
 ---
 import ConditionalImagePan from "./ConditionalImagePan.astro";
 import HostPortrait from "./HostPortrait.astro";
+import PlatformBrand from "./PlatformBrand.astro";
 import {
   getAnnouncedEpisodes,
   getHostsForShow,
@@ -37,13 +38,7 @@ const upcoming = announcedEpisodes
 const upcomingVenue = upcoming?.data.status === "announced"
   ? await resolveVenueId(upcoming.data.recordingVenue)
   : undefined;
-const episode001Xiaoyuzhou = episode001.data.platforms.find(({ platform }) => platform === "xiaoyuzhou")?.href;
-const episode001Bilibili = episode001.data.platforms.find(({ platform }) => platform === "bilibili")?.href;
 const weeklyPath = locale === "en" ? "/en/weekly/" : "/weekly/";
-
-if (!episode001Xiaoyuzhou || !episode001Bilibili) {
-  throw new Error("Episode #001 must have Xiaoyuzhou and Bilibili publication URLs");
-}
 
 const labels = locale === "en" ? {
   overviewIndex: "01 / The Show",
@@ -54,7 +49,7 @@ const labels = locale === "en" ? {
   episodesIndex: "04 / Episodes",
   episodesHeading: ["One week at a time,", "the signal gets clearer."],
   currentEpisode: "Latest episode",
-  episodeDetail: "Explore episode #001",
+  episodeDetail: "Explore episode · Listen / watch",
   recorded: "Recorded",
   upcoming: "Next recording",
   previewAction: "View the recording preview",
@@ -72,7 +67,7 @@ const labels = locale === "en" ? {
   episodesIndex: "04 / Episodes",
   episodesHeading: ["从每一周，", "看见下一步。"],
   currentEpisode: "最新一期",
-  episodeDetail: "查看 #001 完整内容",
+  episodeDetail: "查看本期 · 收听/收看",
   recorded: "录制于",
   upcoming: "下一次录制",
   previewAction: "查看录制预告",
@@ -208,13 +203,7 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
             </div>
             <div class="episode-actions">
               <a class="episode-listen" href={`${weeklyPath}${episode001.data.number}/`}>
-                {labels.episodeDetail} <span aria-hidden="true">→</span>
-              </a>
-              <a class="episode-listen" href={episode001Xiaoyuzhou} target="_blank" rel="noopener noreferrer">
-                {episodeCopy.listenAction} <span aria-hidden="true">↗</span>
-              </a>
-              <a class="episode-listen" href={episode001Bilibili} target="_blank" rel="noopener noreferrer">
-                {episodeCopy.watchAction} <span aria-hidden="true">↗</span>
+                {labels.episodeDetail} <span aria-hidden="true">↗</span>
               </a>
             </div>
           </div>
@@ -248,13 +237,13 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
       {episode001.data.platforms.map((platform, index) => platform.href ? (
         <a class="platform is-live" href={platform.href} target="_blank" rel="noopener noreferrer">
           <span class="index">{String(index + 1).padStart(2, "0")}</span>
-          <strong>{platform.label[locale]}</strong>
+          <strong><PlatformBrand platform={platform.platform} name={platform.label[locale]} /></strong>
           <span class="coming">{platform.action?.[locale] ?? labels.available} <span aria-hidden="true">↗</span></span>
         </a>
       ) : (
         <div class="platform">
           <span class="index">{String(index + 1).padStart(2, "0")}</span>
-          <strong>{platform.label[locale]}</strong>
+          <strong><PlatformBrand platform={platform.platform} name={platform.label[locale]} /></strong>
           <span class="coming">{labels.comingSoon}</span>
         </div>
       ))}
