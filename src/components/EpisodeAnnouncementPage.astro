@@ -77,17 +77,19 @@ const copy = locale === "zh-Hans"
 
 <main id="main" class="episode-announcement-page">
   <section class="episode-preview-hero" aria-labelledby="episode-preview-title">
-    <div class="episode-preview-copy">
-      <p class="eyebrow">{preview.eyebrow}</p>
-      <h1 id="episode-preview-title">{preview.heading[0]}<br />{preview.heading[1]}</h1>
-      <p>{preview.summary}</p>
-    </div>
-    <div class="episode-preview-poster" aria-label={`${episode.data.title[locale]} · ${fullDate}`}>
-      <span>Next Token Weekly</span>
-      <strong>#{episode.data.number}</strong>
-      <div>
-        <span>{shortDate}</span>
-        <span>{venue.name.en}</span>
+    <div class="episode-preview-hero-inner shell">
+      <div class="episode-preview-copy">
+        <p class="eyebrow">{preview.eyebrow}</p>
+        <h1 id="episode-preview-title">{preview.heading[0]}<br />{preview.heading[1]}</h1>
+        <p>{preview.summary}</p>
+      </div>
+      <div class="episode-preview-poster" aria-label={`${episode.data.title[locale]} · ${fullDate}`}>
+        <span>Next Token Weekly</span>
+        <strong>#{episode.data.number}</strong>
+        <div>
+          <span>{shortDate}</span>
+          <span>{venue.name.en}</span>
+        </div>
       </div>
     </div>
   </section>
@@ -144,19 +146,21 @@ const copy = locale === "zh-Hans"
   </section>
 
   <section class="episode-preview-venue" aria-labelledby="episode-venue-title">
-    <div class="episode-preview-venue-logo">
-      <img src={partner.logo} width="142" height="101" alt={`${partner.name} logo`} />
-    </div>
-    <div class="episode-preview-venue-copy">
-      <p class="section-kicker">03 / {copy.partner}</p>
-      <h2 id="episode-venue-title">{partner.name}<br />{venue.name[locale]}</h2>
-      <p>{venue.summary[locale]}</p>
-      <address>{venue.location.address[locale]}</address>
-      <div class="actions">
-        <a class="button" href={partnerPath(partner, locale)}>{copy.venueProfile} <span aria-hidden="true">→</span></a>
-        <a class="button" href={venue.location.mapUrl} target="_blank" rel="noreferrer">{copy.map} <span aria-hidden="true">↗</span></a>
+    <div class="episode-preview-venue-inner shell">
+      <div class="episode-preview-venue-logo">
+        <img src={partner.logo} width="142" height="101" alt={`${partner.name} logo`} />
       </div>
-      {venue.location.appleMap && import.meta.env.PUBLIC_APPLE_MAPS_EMBED_TOKEN && <div class="episode-preview-map"><VenueMap venue={venue} locale={locale} /></div>}
+      <div class="episode-preview-venue-copy">
+        <p class="section-kicker">03 / {copy.partner}</p>
+        <h2 id="episode-venue-title">{partner.name}<br />{venue.name[locale]}</h2>
+        <p>{venue.summary[locale]}</p>
+        <address>{venue.location.address[locale]}</address>
+        <div class="actions">
+          <a class="button" href={partnerPath(partner, locale)}>{copy.venueProfile} <span aria-hidden="true">→</span></a>
+          <a class="button" href={venue.location.mapUrl} target="_blank" rel="noreferrer">{copy.map} <span aria-hidden="true">↗</span></a>
+        </div>
+        {venue.location.appleMap && import.meta.env.PUBLIC_APPLE_MAPS_EMBED_TOKEN && <div class="episode-preview-map"><VenueMap venue={venue} locale={locale} /></div>}
+      </div>
     </div>
   </section>
 
@@ -167,5 +171,8 @@ const copy = locale === "zh-Hans"
 </main>
 
 <style>
-  .episode-preview-map { margin-top: 2rem; border: 1px solid var(--line); }
+  .episode-preview-map {
+    margin-top: 2rem;
+    border: 1px solid var(--line);
+  }
 </style>

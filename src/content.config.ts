@@ -30,7 +30,7 @@ const jsonLoader = (base: string) => glob({
 
 const showPage = z.object({
   eyebrow: z.string(),
-  heading: z.tuple([z.string(), z.string()]),
+  heading: z.array(z.string()).min(2).max(3),
   lede: z.string(),
   formatHeading: z.tuple([z.string(), z.string()]),
   facts: z.array(z.object({

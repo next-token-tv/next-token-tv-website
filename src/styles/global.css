@@ -1592,27 +1592,35 @@ h1 .accent {
 }
 
 .weekly-show-hero {
-  display: grid;
-  min-height: min(760px, calc(100svh - 76px));
-  grid-template-columns: minmax(0, 1.12fr) minmax(27rem, 0.88fr);
   border-bottom: 1px solid var(--ink);
 }
 
+.weekly-show-hero-inner {
+  display: grid;
+  min-height: min(680px, calc(100svh - 76px));
+  grid-template-columns: minmax(0, 1.12fr) minmax(27rem, 0.88fr);
+}
+
 .weekly-show-hero-copy {
+  container-type: inline-size;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(4rem, 8vw, 8rem) var(--gutter);
+  padding-block: clamp(3rem, 4vw, 4rem);
 }
 
 .weekly-show-hero-copy .section-kicker {
-  margin-bottom: clamp(2rem, 3.5vw, 3.5rem);
+  margin-bottom: clamp(1.5rem, 2.5vw, 2.5rem);
 }
 
 .weekly-show-hero-copy h1 {
   max-width: 980px;
-  margin-bottom: clamp(2rem, 4vw, 3.5rem);
-  font-size: clamp(4.5rem, 7.4vw, 8.6rem);
+  margin-bottom: clamp(1.75rem, 2.5vw, 2.5rem);
+  font-size: min(clamp(4.25rem, 5.8vw, 6rem), 13cqi);
+}
+
+.weekly-show-hero-copy h1 > span {
+  display: block;
 }
 
 .weekly-show-hero-copy > p:last-child {
@@ -1627,7 +1635,7 @@ h1 .accent {
   min-width: 0;
   flex-direction: column;
   justify-content: space-between;
-  padding: clamp(2rem, 4vw, 4rem);
+  padding: clamp(2rem, 3vw, 3.25rem);
   border-left: 1px solid var(--ink);
   color: var(--white);
   background: var(--ink);
@@ -1643,7 +1651,7 @@ h1 .accent {
 .weekly-show-poster > strong {
   color: var(--signal);
   font-family: var(--display);
-  font-size: clamp(6.5rem, 12vw, 13rem);
+  font-size: clamp(6.25rem, 15svh, 8rem);
   line-height: 0.75;
   letter-spacing: var(--display-tracking);
   writing-mode: vertical-rl;
@@ -1886,6 +1894,7 @@ html[lang="en"] .weekly-show-facts strong {
 
 .weekly-show-follow h2 {
   margin: 1.25rem 0 0;
+  font-size: clamp(3rem, 5vw, 5.5rem);
 }
 
 .episode-detail-page {
@@ -2155,23 +2164,27 @@ html[lang="en"] .weekly-show-facts strong {
 }
 
 .episode-preview-hero {
-  display: grid;
-  min-height: min(760px, calc(100svh - 76px));
-  grid-template-columns: minmax(0, 1.08fr) minmax(28rem, 0.92fr);
   border-bottom: 1px solid var(--ink);
 }
 
+.episode-preview-hero-inner {
+  display: grid;
+  min-height: min(760px, calc(100svh - 76px));
+  grid-template-columns: minmax(0, 1.08fr) minmax(28rem, 0.92fr);
+}
+
 .episode-preview-copy {
+  container-type: inline-size;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(4rem, 8vw, 8rem) var(--gutter);
+  padding-block: clamp(4rem, 8vw, 8rem);
 }
 
 .episode-preview-copy h1 {
   max-width: 900px;
   margin-bottom: clamp(2rem, 4vw, 3.5rem);
-  font-size: clamp(4.5rem, 7.3vw, 8rem);
+  font-size: min(clamp(4.5rem, 7.3vw, 8rem), 15cqi);
 }
 
 .episode-preview-copy > p:last-child {
@@ -2182,6 +2195,7 @@ html[lang="en"] .weekly-show-facts strong {
 }
 
 .episode-preview-poster {
+  container-type: inline-size;
   display: flex;
   min-width: 0;
   flex-direction: column;
@@ -2202,7 +2216,7 @@ html[lang="en"] .weekly-show-facts strong {
 .episode-preview-poster > strong {
   color: var(--signal);
   font-family: var(--display);
-  font-size: clamp(8rem, 15vw, 16rem);
+  font-size: min(clamp(8rem, 15vw, 16rem), 36cqi);
   line-height: 0.74;
   letter-spacing: var(--display-tracking);
 }
@@ -2331,12 +2345,13 @@ html[lang="en"] .weekly-show-facts strong {
 }
 
 .episode-preview-venue {
-  display: grid;
-  grid-template-columns: minmax(18rem, 0.72fr) minmax(0, 1.28fr);
   border-top: 1px solid var(--ink);
   border-bottom: 1px solid var(--ink);
-  color: var(--white);
-  background: var(--ink);
+}
+
+.episode-preview-venue-inner {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.72fr) minmax(0, 1.28fr);
 }
 
 .episode-preview-venue-logo {
@@ -2358,6 +2373,8 @@ html[lang="en"] .weekly-show-facts strong {
   flex-direction: column;
   justify-content: center;
   padding: clamp(4rem, 8vw, 8rem) var(--gutter);
+  color: var(--white);
+  background: var(--ink);
 }
 
 .episode-preview-venue-copy h2 {
@@ -2609,13 +2626,15 @@ html[lang="en"] .weekly-show-facts strong {
       minmax(8rem, 0.55fr);
   }
 
-  .episode-preview-hero,
-  .episode-preview-venue {
+  .episode-preview-hero-inner,
+  .episode-preview-venue-inner {
     grid-template-columns: 1fr;
   }
 
   .episode-preview-poster {
     min-height: min(78vw, 650px);
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
     border-top: 1px solid var(--ink);
     border-left: 0;
   }
@@ -2630,7 +2649,7 @@ html[lang="en"] .weekly-show-facts strong {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .weekly-show-hero {
+  .weekly-show-hero-inner {
     min-height: 0;
     grid-template-columns: 1fr;
   }
@@ -2641,6 +2660,8 @@ html[lang="en"] .weekly-show-facts strong {
 
   .weekly-show-poster {
     min-height: min(72vw, 620px);
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
     border-top: 1px solid var(--ink);
     border-left: 0;
   }
@@ -3028,7 +3049,7 @@ html[lang="en"] .weekly-show-facts strong {
   }
 
   .weekly-show-hero-copy h1 {
-    font-size: clamp(3.75rem, 17vw, 6.2rem);
+    font-size: clamp(3.25rem, 11vw, 4rem);
   }
 
   .weekly-show-poster {
@@ -3045,6 +3066,10 @@ html[lang="en"] .weekly-show-facts strong {
   .weekly-show-section-heading h2,
   .weekly-show-follow h2 {
     font-size: clamp(3.2rem, 14vw, 5.2rem);
+  }
+
+  .weekly-show-follow h2 {
+    font-size: clamp(2.75rem, 12vw, 4.5rem);
   }
 
   .weekly-show-facts,

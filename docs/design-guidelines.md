@@ -6,6 +6,10 @@
 - Navigation, homepage section headings, card grids, subscription content, and footer content share the same outer content edges in both languages. Internal columns and readable prose may be narrower.
 - Full-width backgrounds are independent of content width. The homepage Weekly section wraps its content in `.shell`; its background and the topic rail remain full bleed. Do not nest padded shells or add a second inline gutter to their parents.
 - The homepage hero uses the same shell: text aligns with its left content edge and the photograph ends at its right content edge. Neither column bleeds beyond the shared content area.
+- The Weekly landing-page and episode-announcement heroes follow the same rule: their two-column blocks use `.shell`, and neither column extends beyond the shared desktop content area. At stacked breakpoints, a background panel may reach the shell edge while its text retains the shared gutter.
+- On wide desktop screens, the Weekly landing hero stays within the first viewport below the header. Its vertical poster lettering scales with viewport height so it cannot force the hero taller; the copy H1 remains the dominant element in the left column.
+- The episode-announcement venue and map block also uses `.shell`. Preserve its two-column composition: the partner logo remains in the left panel, while the venue copy, actions, and embedded map stay together in the right panel. The full block shares the same outer edges as the announcement details and participant grid.
+- Display type inside a constrained hero column scales against that column, not the viewport. Changing a hero's container width requires checking every large display element for added wrapping or overflow.
 - Hero H1 sizing follows the available text column rather than the viewport: `clamp(3rem, 14cqi, 6rem)`. This prevents oversized headings after the layout reaches its maximum width. Other heading sizes remain unchanged.
 - Validate alignment and overflow at 390, 768, 1440, 1920, and 2560 CSS pixels. Background edges need not match content edges; navigation, section content, and footer content must align.
 

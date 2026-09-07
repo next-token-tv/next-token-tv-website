@@ -94,17 +94,19 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
 
 <main id="main" class="weekly-show-page">
   <section class="weekly-show-hero">
-    <div class="weekly-show-hero-copy">
-      <p class="section-kicker">{page.eyebrow}</p>
-      <h1>{page.heading[0]}<br />{page.heading[1]}</h1>
-      <p>{page.lede}</p>
-    </div>
-    <div class="weekly-show-poster" aria-hidden="true">
-      <span>Next Token</span>
-      <strong>Weekly</strong>
-      <div>
-        <span>Four co-hosts</span>
-        <span>Every week</span>
+    <div class="weekly-show-hero-inner shell">
+      <div class="weekly-show-hero-copy">
+        <p class="section-kicker">{page.eyebrow}</p>
+        <h1>{page.heading.map((line) => <span>{line}</span>)}</h1>
+        <p>{page.lede}</p>
+      </div>
+      <div class="weekly-show-poster" aria-hidden="true">
+        <span>Next Token</span>
+        <strong>Weekly</strong>
+        <div>
+          <span>Four co-hosts</span>
+          <span>Every week</span>
+        </div>
       </div>
     </div>
   </section>
