@@ -11,6 +11,9 @@ test("conversion preserves turns and links only the first entity occurrence per 
   const result = convertTranscript(tree, {
     episodeId: "show--001",
     locale: "zh-Hans",
+    sourceRepository: "content",
+    sourceRevision: "b".repeat(40),
+    sourceState: "committed",
     sourcePath: "source.md",
     sourceSha256: "a".repeat(64),
     entities: [
@@ -39,6 +42,11 @@ test("published transcript snapshot retains approved content and deterministic s
   const serialized = JSON.stringify(snapshot);
 
   assert.equal(snapshot.provenance.sourceSha256, "19335764e405b2bfcc171efa3831a46cbad51218c84d1183aebaa5e02fc56f23");
+  assert.equal(snapshot.provenance.sourceRepository, "next-token");
+  assert.equal(snapshot.provenance.sourceRevision, null);
+  assert.equal(snapshot.provenance.sourceState, "untracked");
+  assert.equal(snapshot.provenance.sourcePath, "shows/weekly/episodes/001/04-release/copy/transcript.zh-Hans.md");
+  assert.equal(snapshot.provenance.sourcePath.startsWith("../"), false);
   assert.equal(snapshot.report.chapters, 37);
   assert.equal(snapshot.report.turns, 918);
   assert.equal(snapshot.report.paragraphs, 978);
@@ -53,4 +61,3 @@ test("published transcript snapshot retains approved content and deterministic s
     assert.equal(new Set(linked.map(({ entityType, entityId }) => `${entityType}:${entityId}`)).size, linked.length);
   }
 });
-

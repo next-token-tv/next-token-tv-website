@@ -14,7 +14,7 @@ const GENERIC_CANDIDATES = new Set([
   "Token", "Token Maxxing", "TPS", "TTS", "UX", "Vibe Coding", "Web", "Web 2.0",
 ]);
 
-export const CONVERSION_VERSION = "1.0.0";
+export const CONVERSION_VERSION = "1.1.0";
 
 export function sha256(value) {
   return createHash("sha256").update(value).digest("hex");
@@ -205,7 +205,17 @@ function collectUnlinkedCandidates(chapters, knownAliases) {
     .sort((a, b) => b.count - a.count || a.value.localeCompare(b.value));
 }
 
-export function convertTranscript(tree, { episodeId, locale, sourcePath, sourceSha256, entities, resolutions = {} }) {
+export function convertTranscript(tree, {
+  episodeId,
+  locale,
+  sourceRepository,
+  sourceRevision,
+  sourceState,
+  sourcePath,
+  sourceSha256,
+  entities,
+  resolutions = {},
+}) {
   const matcher = createEntityMatcher(entities, resolutions);
   const linkCounts = new Map();
   const unknownSpeakers = new Set();
@@ -280,7 +290,13 @@ export function convertTranscript(tree, { episodeId, locale, sourcePath, sourceS
     byline,
     notices,
     chapters,
-    provenance: { sourcePath, sourceSha256 },
+    provenance: {
+      sourceRepository,
+      sourceRevision,
+      sourceState,
+      sourcePath,
+      sourceSha256,
+    },
     report: {
       chapters: chapters.length,
       turns,

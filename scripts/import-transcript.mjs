@@ -1,5 +1,7 @@
 import { readFile, readdir, writeFile, mkdir, rename } from "node:fs/promises";
-import { dirname, relative, resolve } from "node:path";
+import { execFile } from "node:child_process";
+import { basename, dirname, relative, resolve } from "node:path";
+import { promisify } from "node:util";
 import { fileURLToPath } from "node:url";
 import { load } from "js-yaml";
 import remarkParse from "remark-parse";
@@ -7,6 +9,7 @@ import { unified } from "unified";
 import { convertTranscript, sha256 } from "./lib/transcript-converter.mjs";
 
 const websiteRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const execFileAsync = promisify(execFile);
 const [episodeId, sourceArgument] = process.argv.slice(2);
 
 if (!episodeId || !sourceArgument) {
@@ -25,6 +28,48 @@ if (manifest.status !== "approved-for-publication") {
   throw new Error(`Transcript is not approved for publication: ${manifest.status}`);
 }
 
+async function inspectSourceProvenance(path) {
+  let sourceRoot;
+  try {
+    ({ stdout: sourceRoot } = await execFileAsync("git", ["-C", dirname(path), "rev-parse", "--show-toplevel"]));
+  } catch {
+    throw new Error("Transcript source must live inside a Git repository");
+  }
+
+  const repositoryRoot = sourceRoot.trim();
+  const repositoryPath = relative(repositoryRoot, path).replaceAll("\\", "/");
+  if (!repositoryPath || repositoryPath.startsWith("../") || repositoryPath.startsWith("/")) {
+    throw new Error("Transcript source path must resolve inside its repository");
+  }
+
+  let tracked = true;
+  try {
+    await execFileAsync("git", ["-C", repositoryRoot, "ls-files", "--error-unmatch", "--", repositoryPath]);
+  } catch {
+    tracked = false;
+  }
+
+  const { stdout: statusOutput } = await execFileAsync("git", [
+    "-C",
+    repositoryRoot,
+    "status",
+    "--porcelain",
+    "--",
+    repositoryPath,
+  ]);
+  const sourceState = !tracked ? "untracked" : statusOutput.trim() ? "modified" : "committed";
+  const sourceRevision = sourceState === "committed"
+    ? (await execFileAsync("git", ["-C", repositoryRoot, "rev-parse", "HEAD"])).stdout.trim()
+    : null;
+
+  return {
+    sourceRepository: basename(repositoryRoot),
+    sourceRevision,
+    sourceState,
+    sourcePath: repositoryPath,
+  };
+}
+
 async function readEntities(directory, entityType) {
   const root = resolve(websiteRoot, `src/content/data/${directory}`);
   const files = (await readdir(root)).filter((file) => /\.ya?ml$/i.test(file)).sort();
@@ -41,6 +86,7 @@ async function readEntities(directory, entityType) {
 
 const rulesPath = resolve(websiteRoot, `src/content/transcript-rules/${episodeId}.json`);
 const rules = JSON.parse(await readFile(rulesPath, "utf8"));
+const sourceProvenance = await inspectSourceProvenance(sourcePath);
 const entities = [
   ...(await readEntities("brands", "brand")),
   ...(await readEntities("products", "product")),
@@ -49,7 +95,7 @@ const tree = unified().use(remarkParse).parse(source);
 const imported = convertTranscript(tree, {
   episodeId,
   locale: rules.locale,
-  sourcePath: relative(websiteRoot, sourcePath).replaceAll("\\", "/"),
+  ...sourceProvenance,
   sourceSha256,
   entities,
   resolutions: rules.resolutions,
@@ -67,8 +113,7 @@ await rename(temporaryPath, outputPath);
 
 console.log(JSON.stringify({
   output: relative(websiteRoot, outputPath),
-  sourceSha256,
+  provenance: imported.provenance,
   conversionVersion: imported.conversionVersion,
   report: imported.report,
 }, null, 2));
-

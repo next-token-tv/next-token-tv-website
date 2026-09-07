@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "conversionVersion": "1.0.0",
+  "conversionVersion": "1.1.0",
   "episodeId": "next-token-weekly--001",
   "locale": "zh-Hans",
   "title": "Weekly #001｜大模型进入“斩杀线”大战，Token 就是新货币",
@@ -14014,7 +14014,10 @@
     }
   ],
   "provenance": {
-    "sourcePath": "../next-token/shows/weekly/episodes/001/04-release/copy/transcript.zh-Hans.md",
+    "sourceRepository": "next-token",
+    "sourceRevision": null,
+    "sourceState": "untracked",
+    "sourcePath": "shows/weekly/episodes/001/04-release/copy/transcript.zh-Hans.md",
     "sourceSha256": "19335764e405b2bfcc171efa3831a46cbad51218c84d1183aebaa5e02fc56f23"
   },
   "report": {

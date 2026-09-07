@@ -305,9 +305,18 @@ const transcriptImports = defineCollection({
       })),
     })),
     provenance: z.object({
-      sourcePath: z.string(),
+      sourceRepository: z.string().min(1),
+      sourceRevision: z.string().regex(/^[0-9a-f]{40}$/).nullable(),
+      sourceState: z.enum(["committed", "modified", "untracked"]),
+      sourcePath: z.string().min(1).refine(
+        (value) => !value.startsWith("/") && !value.split("/").includes(".."),
+        "Transcript sourcePath must be repository-relative",
+      ),
       sourceSha256: z.string().regex(/^[0-9a-f]{64}$/),
-    }),
+    }).refine(
+      ({ sourceRevision, sourceState }) => sourceState === "committed" ? sourceRevision !== null : sourceRevision === null,
+      "Transcript sourceRevision must exist only for committed source files",
+    ),
     report: z.object({
       chapters: z.number().int().positive(),
       turns: z.number().int().positive(),

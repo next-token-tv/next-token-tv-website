@@ -63,15 +63,15 @@ npm run import:episode -- ../next-token/shows/weekly/episodes/001
 
 ## 导入阅读文字稿
 
-已批准发布的阅读文字稿以相邻内容仓库中的 Markdown 为正文 SSOT。官网通过 Markdown AST 转换为章节、发言轮次、自然段、人物署名和行内实体链接：
+已批准发布的阅读文字稿以 `next-token` 内容仓库中的 Markdown 为正文 SSOT。跨仓库职责、发布状态和转换验收以 [内容仓库的网页文字稿转换约定](https://github.com/next-token-tv/next-token/blob/main/docs/production/transcript-web-rendering.md) 为准。
+
+官网只维护网站适配器、实体消歧规则及不可手工编辑的生成快照：
 
 ```bash
 npm run import:transcript -- next-token-weekly--001 ../next-token/shows/weekly/episodes/001/04-release/copy/transcript.zh-Hans.md
 ```
 
-生成结果写入 `src/content/imported/transcripts/`，记录源路径、SHA-256 与转换版本。转换器会核对相邻 `transcript-manifest.json` 的发布批准和输出哈希；姓名后的 `†`、段落顺序与可见正文保持不变。`src/content/transcript-rules/` 只保存同名品牌和产品的显式解析规则，不保存正文。
-
-实体名称和别名来自 `brands` 与 `products` 元数据，按最长名称优先匹配，每个章节只链接同一实体的首次出现。已有链接和代码不会再次处理；未建档候选和未解决歧义保留为纯文本并写入转换报告。公开页面位于 `/weekly/<期号>/transcript/`，只为已有发布稿的语言生成，不虚构翻译版。
+生成结果写入 `src/content/imported/transcripts/`，并记录来源仓库、仓库内路径、源文件 SHA-256、源文件 Git 状态、已提交时的 revision，以及转换版本。正文只能在内容仓库修改；快照必须重新导入生成。`src/content/transcript-rules/` 只保存网站实体的显式消歧规则，不保存正文。
 
 ## 本地预览
 
