@@ -1,5 +1,6 @@
 ---
 import PartnerRow from "./PartnerRow.astro";
+import { getCollection, render } from "astro:content";
 import type { Locale } from "../data/site";
 import { getPartners } from "../data/partners";
 
@@ -9,6 +10,11 @@ interface Props {
 
 const { locale } = Astro.props;
 const partners = await getPartners();
+const invitations = await getCollection("prose", ({ data }) =>
+  data.entityType === "brand" && data.entity === "next-token"
+  && data.locale === locale && data.slot === "partner-invitation");
+if (invitations.length !== 1) throw new Error(`Expected one ${locale} partner invitation`);
+const { Content: Invitation } = await render(invitations[0]!);
 const copy = locale === "zh-Hans"
   ? {
       eyebrow: "Next Token / 合作网络",
@@ -41,4 +47,27 @@ const copy = locale === "zh-Hans"
   <section class="partner-directory shell" aria-label={copy.columnLabel}>
     {partners.map((partner) => <PartnerRow partner={partner} locale={locale} />)}
   </section>
+
+  <section class="partner-invitation shell" aria-labelledby="partner-invitation-title">
+    <div>
+      <p class="eyebrow">{locale === "zh-Hans" ? "Next Token / 合作邀请" : "Next Token / Partner with us"}</p>
+      <h2 id="partner-invitation-title">{locale === "zh-Hans" ? "下一场对话，" : "Make room for"}<br />{locale === "zh-Hans" ? "在你的空间发生。" : "the next conversation."}</h2>
+    </div>
+    <div class="partner-invitation-copy">
+      <Invitation />
+      <a class="partner-contact" href={`${locale === "en" ? "/en" : ""}/#hosts`}>
+        {locale === "zh-Hans" ? "通过主理人联系合作" : "Contact our co-hosts"} <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
 </main>
+
+<style>
+  .partner-invitation { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 6vw, 6rem); border-top: 1px solid var(--ink); padding-block: clamp(3rem, 7vw, 7rem); }
+  .partner-invitation .eyebrow { margin-bottom: 1.5rem; }
+  .partner-invitation h2 { margin: 0; font-size: clamp(2rem, 3.5vw, 3.5rem); }
+  .partner-invitation-copy :global(p) { margin: 0 0 1.25rem; color: var(--muted); line-height: 1.8; }
+  .partner-contact { display: inline-flex; align-items: center; gap: 1.5rem; margin-top: .75rem; padding: 1rem 1.5rem; background: var(--ink); color: var(--paper); font-weight: 700; }
+  .partner-contact:hover { background: var(--signal); color: var(--ink); }
+  @media (max-width: 900px) { .partner-invitation { grid-template-columns: 1fr; } }
+</style>
