@@ -1,5 +1,14 @@
 # Website Design Guidelines
 
+## Content width and alignment
+
+- Shared page containers use `.shell` with `--site-max-width: 1600px`, including responsive inline padding from `--gutter`. Containers are centered; the maximum width includes padding.
+- Navigation, homepage section headings, card grids, subscription content, and footer content share the same outer content edges in both languages. Internal columns and readable prose may be narrower.
+- Full-width backgrounds are independent of content width. The homepage Weekly section wraps its content in `.shell`; its background and the topic rail remain full bleed. Do not nest padded shells or add a second inline gutter to their parents.
+- The homepage hero uses the same shell: text aligns with its left content edge and the photograph ends at its right content edge. Neither column bleeds beyond the shared content area.
+- Hero H1 sizing follows the available text column rather than the viewport: `clamp(3rem, 14cqi, 6rem)`. This prevents oversized headings after the layout reaches its maximum width. Other heading sizes remain unchanged.
+- Validate alignment and overflow at 390, 768, 1440, 1920, and 2560 CSS pixels. Background edges need not match content edges; navigation, section content, and footer content must align.
+
 ## Heading line height
 
 - All H2 section headings use `--section-heading-leading: 1.25`, defined in `src/styles/global.css` and applied by the global `h2` rule.
@@ -20,6 +29,13 @@
 - Preserve the display font, font sizes, and heading line heights. Let headings wrap at word boundaries; adjust available layout space when an intentionally unbroken brand name needs more room.
 - Body copy, navigation, and non-display fact labels retain their own typography rules. Intentional positive tracking for eyebrows, tickers, and compact metadata labels is independent of display tracking.
 - Validate Chinese and English pages at mobile, tablet, and desktop widths. Headings and display text using the shared token must have zero computed tracking; H2 leading remains 1.25. Check glyph separation visually as well as overflow, including the shared footer and mixed-language profile names.
+
+## Compact captions and separators
+
+- Recording captions may wrap between the recording date and the combined partner-and-venue label. Keep the complete partner-and-venue label together, without splitting its words. Preserve the visual headline's existing line breaks and side-by-side caption layout on desktop.
+- At 1001–1300px, the English hero caption stacks below the visual headline so the complete venue label is not clipped. Chinese and wider desktop layouts retain the side-by-side arrangement.
+- Topic-rail separators are CSS squares centered by flex alignment, not font glyphs whose baselines vary between Chinese and Latin fonts.
+- Topic-rail labels preserve the display font and its Chinese fallback. Apply the optical adjustment only to the inner `.rail-label` text (`translateY(0.08em)`); the outer item, separator, and rail geometry remain unchanged.
 
 ## Profile account order
 

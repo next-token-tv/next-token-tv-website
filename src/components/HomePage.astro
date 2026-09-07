@@ -36,6 +36,7 @@ if (!episode001Url || !episode001BilibiliUrl) {
 
 <main id="main">
   <section class="hero" id="top">
+    <div class="hero-grid shell">
     <div class="hero-copy">
       <div data-reveal>
         <p class="eyebrow">{content.hero.eyebrow}</p>
@@ -62,7 +63,7 @@ if (!episode001Url || !episode001BilibiliUrl) {
         data-pan-if-cropped
         src={episode001Assets.images["960"]}
         srcset={`${episode001Assets.images["960"]} 960w, ${episode001Assets.images["1440"]} 1440w, ${episode001Assets.images["1920"]} 1920w`}
-        sizes="(max-width: 1000px) 100vw, 48vw"
+        sizes="(max-width: 1000px) 100vw, (min-width: 1600px) 700px, 48vw"
         width="1920"
         height="1080"
         decoding="async"
@@ -72,8 +73,12 @@ if (!episode001Url || !episode001BilibiliUrl) {
       <div class="episode-stamp">Weekly<br />#{episode001Assets.id}</div>
       <div class="visual-caption">
         <strong>24 signals<br />one open table</strong>
-        <span>Recorded · {episode001Assets.recordedAt.replaceAll("-", ".")} · {episode001VenueLabel}</span>
+        <span class="recording-caption">
+          <span>Recorded · {episode001Assets.recordedAt.replaceAll("-", ".")}</span>
+          <span>· {episode001VenueLabel}</span>
+        </span>
       </div>
+    </div>
     </div>
   </section>
 
@@ -81,7 +86,7 @@ if (!episode001Url || !episode001BilibiliUrl) {
     <div class="rail-track">
       {[0, 1].map(() => (
         <div class="rail-set">
-          {content.topics.map((topic) => <span>{topic}</span>)}
+          {content.topics.map((topic) => <span class="rail-item"><span class="rail-label">{topic}</span></span>)}
         </div>
       ))}
     </div>
@@ -108,6 +113,7 @@ if (!episode001Url || !episode001BilibiliUrl) {
   </section>
 
   <section class="section weekly" id="weekly">
+    <div class="shell">
     <div class="section-heading" data-reveal>
       <p class="section-index">02 / The Flagship</p>
       <div>
@@ -152,6 +158,7 @@ if (!episode001Url || !episode001BilibiliUrl) {
         </div>
       </div>
     </article>
+    </div>
   </section>
 
   <section class="section shell" id="hosts">

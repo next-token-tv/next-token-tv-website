@@ -15,6 +15,7 @@
   --line: rgba(17, 17, 17, 0.24);
   --white: #fffdf6;
   --gutter: clamp(1.25rem, 4vw, 4.5rem);
+  --site-max-width: 1600px;
   --display: "League Spartan", Arial Black, Arial, sans-serif;
   --display-tracking: 0em;
   --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -79,7 +80,7 @@ a {
 }
 
 .shell {
-  width: min(100%, 1600px);
+  width: min(100%, var(--site-max-width));
   margin: 0 auto;
   padding-inline: var(--gutter);
 }
@@ -256,10 +257,13 @@ a {
 }
 
 .hero {
+  border-bottom: 1px solid var(--ink);
+}
+
+.hero-grid {
   display: grid;
   min-height: clamp(640px, calc(100svh - 76px), 720px);
-  grid-template-columns: minmax(0, 1.04fr) minmax(420px, 0.96fr);
-  border-bottom: 1px solid var(--ink);
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
 }
 
 .hero-copy {
@@ -268,6 +272,12 @@ a {
   flex-direction: column;
   justify-content: space-between;
   padding: clamp(2.5rem, 4.5vw, 4rem) var(--gutter) clamp(2.25rem, 3.5vw, 3rem);
+  padding-left: 0;
+  container-type: inline-size;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 14cqi, 6rem);
 }
 
 .eyebrow {
@@ -471,7 +481,7 @@ h1 .accent {
   text-transform: uppercase;
 }
 
-.visual-caption span {
+.visual-caption > span {
   max-width: 22rem;
   font-size: 0.72rem;
   font-weight: 800;
@@ -479,6 +489,32 @@ h1 .accent {
   line-height: 1.45;
   text-align: right;
   text-transform: uppercase;
+}
+
+.recording-caption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0 .4em;
+  margin-left: auto;
+}
+
+.recording-caption > span {
+  white-space: nowrap;
+}
+
+@media (min-width: 1001px) and (max-width: 1300px) {
+  html[lang="en"] .visual-caption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .75rem;
+  }
+
+  html[lang="en"] .recording-caption {
+    margin-left: 0;
+    justify-content: flex-start;
+    text-align: left;
+  }
 }
 
 .topic-rail {
@@ -499,7 +535,7 @@ h1 .accent {
   flex: 0 0 auto;
 }
 
-.rail-set span {
+.rail-item {
   display: inline-flex;
   align-items: center;
   gap: 1.8rem;
@@ -510,9 +546,17 @@ h1 .accent {
   text-transform: uppercase;
 }
 
-.rail-set span::after {
-  content: "■";
-  font-size: 0.62rem;
+.rail-label {
+  display: inline-block;
+  transform: translateY(0.08em);
+}
+
+.rail-item::after {
+  content: "";
+  width: .25rem;
+  height: .25rem;
+  flex: 0 0 .25rem;
+  background: currentColor;
 }
 
 @keyframes marquee {
@@ -609,6 +653,7 @@ h1 .accent {
 }
 
 .weekly {
+  padding-inline: 0;
   color: var(--white);
   background: var(--ink);
 }
@@ -2485,7 +2530,7 @@ html[lang="en"] .weekly-show-facts strong {
 }
 
 @media (max-width: 1000px) {
-  .hero {
+  .hero-grid {
     height: auto;
     min-height: 0;
     grid-template-columns: 1fr;
@@ -2493,6 +2538,7 @@ html[lang="en"] .weekly-show-facts strong {
 
   .hero-copy {
     min-height: 620px;
+    padding-right: 0;
   }
 
   .hero-visual {
@@ -2735,9 +2781,14 @@ html[lang="en"] .weekly-show-facts strong {
     gap: 0.7rem;
   }
 
-  .visual-caption span {
+  .visual-caption > span {
     max-width: 100%;
     text-align: left;
+  }
+
+  .recording-caption {
+    margin-left: 0;
+    justify-content: flex-start;
   }
 
   .platform {
