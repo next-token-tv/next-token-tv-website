@@ -5,7 +5,7 @@ status: published
 productionImport: next-token-weekly--001.production
 title:
   zh-Hans: 'Next Token Weekly #001｜大模型进入“斩杀线”大战，Token 就是新货币'
-  en: 'Next Token Weekly #001 | The LLM “kill line” wars begin. Tokens are the new money.'
+  en: 'Weekly #001 | The LLM “Kill Line” Wars: Tokens Are the New Money - Next Token | 词元之外'
 homepage:
   zh-Hans:
     lede: 第一期开箱 2026 年 8 月 27 日至 9 月 3 日的 24 条 AI 新闻。四位联合主理人从密集发布的模型聊到 Agent、智能硬件、商业变化与 AI 原生组织。
@@ -28,8 +28,8 @@ homepage:
     imageAlt: 'Next Token Weekly episode #001 recording session'
     eyebrow: 'Episode #001 · 24 stories · Now live'
     heading:
-      - The LLM “kill line” wars begin.
-      - Tokens are the new money.
+      - 'The LLM “Kill Line” Wars:'
+      - Tokens Are the New Money
     copy: From GLM-5.3 Flash and MiniMax H3 to WorkBuddy, AI hardware, and Hugging Face acquisition talk, four co-hosts trace a week of AI news through model economics, first-party agents, an application rebound, and why every person needs a closed loop inside an AI-native organization.
     topicsLabel: Episode topics
     topics:
@@ -52,6 +52,10 @@ platforms:
     label:
       zh-Hans: Apple Podcasts
       en: Apple Podcasts
+    href: https://podcasts.apple.com/us/podcast/id6809305832?i=1000788229037
+    action:
+      zh-Hans: 立即收听
+      en: Listen now
   - platform: spotify
     label:
       zh-Hans: Spotify
@@ -72,6 +76,10 @@ platforms:
     label:
       zh-Hans: YouTube
       en: YouTube
+    href: https://youtu.be/U1QWTPQSSYo
+    action:
+      zh-Hans: 立即观看
+      en: Watch now
 mentions:
   brands:
     - zhipu

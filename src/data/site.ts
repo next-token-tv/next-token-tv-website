@@ -143,7 +143,7 @@ const siteContentBase: Record<Locale, SiteContentBase> = {
     },
     subscribe: {
       heading: ["首期已经", "和你见面。"],
-      copy: "第一期现已在小宇宙和哔哩哔哩上线。其他平台与完整文字稿入口将继续在本页更新。",
+      copy: "第一期现已在小宇宙、Apple Podcasts、Spotify、哔哩哔哩和 YouTube 上线。选择你习惯的平台，收听或收看完整节目。",
       platformsLabel: "收听与观看平台",
       available: "立即收听",
       comingSoon: "即将开放",
@@ -154,7 +154,7 @@ const siteContentBase: Record<Locale, SiteContentBase> = {
     path: "/en/",
     title: "Next Token | 词元之外",
     description: "Next Token is a video podcast about AI technology, products, entrepreneurship, and creativity. Next Token Weekly #001 unpacks 24 stories across models, agents, AI hardware, applications, and AI-native organizations.",
-    ogDescription: "Next Token Weekly #001 | The LLM “kill line” wars begin. Tokens are the new money.",
+    ogDescription: "Weekly #001 | The LLM “Kill Line” Wars: Tokens Are the New Money - Next Token | 词元之外",
     skipLink: "Skip to main content",
     homeLabel: "Next Token home",
     navigationLabel: "Main navigation",
@@ -200,7 +200,7 @@ const siteContentBase: Record<Locale, SiteContentBase> = {
     },
     subscribe: {
       heading: ["Episode #001", "is now live."],
-      copy: "Episode #001 is now available on Xiaoyuzhou and Bilibili. More platforms and the full transcript will be added here as they go live.",
+      copy: "Episode #001 is now available on Xiaoyuzhou, Apple Podcasts, Spotify, Bilibili, and YouTube. Listen to or watch the full episode on your preferred platform.",
       platformsLabel: "Listen and watch",
       available: "Listen now",
       comingSoon: "Coming soon",
