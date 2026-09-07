@@ -16,6 +16,7 @@
   --white: #fffdf6;
   --gutter: clamp(1.25rem, 4vw, 4.5rem);
   --display: "League Spartan", Arial Black, Arial, sans-serif;
+  --display-tracking: 0em;
   --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --headline-leading: 1.1;
   --section-heading-leading: 1.25;
@@ -141,7 +142,7 @@ a {
 .wordmark-name {
   font-family: var(--display);
   line-height: 0.82;
-  letter-spacing: -0.045em;
+  letter-spacing: var(--display-tracking);
 }
 
 .wordmark-divider {
@@ -292,6 +293,7 @@ h2,
 h3 {
   margin-top: 0;
   line-height: var(--headline-leading);
+  letter-spacing: var(--display-tracking);
 }
 
 h2 {
@@ -307,7 +309,6 @@ h1 {
   margin-bottom: 2.25rem;
   font-family: var(--display);
   font-size: clamp(4.25rem, 7.1vw, 8rem);
-  letter-spacing: -0.06em;
   text-wrap: balance;
 }
 
@@ -369,7 +370,7 @@ h1 .accent {
   font-family: var(--display);
   font-size: 2.8rem;
   line-height: 0.8;
-  letter-spacing: -0.05em;
+  letter-spacing: var(--display-tracking);
   /* Center League Spartan's visible capitals, rather than its asymmetric line box. */
   transform: translateY(0.09em);
 }
@@ -443,7 +444,7 @@ h1 .accent {
   font-family: var(--display);
   font-size: clamp(1.1rem, 2vw, 1.65rem);
   line-height: 1;
-  letter-spacing: -0.04em;
+  letter-spacing: var(--display-tracking);
   text-align: center;
   text-transform: uppercase;
   transform: rotate(3deg);
@@ -466,7 +467,7 @@ h1 .accent {
   font-family: var(--display);
   font-size: clamp(2rem, 4vw, 4rem);
   line-height: 0.98;
-  letter-spacing: -0.055em;
+  letter-spacing: var(--display-tracking);
   text-transform: uppercase;
 }
 
@@ -544,7 +545,6 @@ h1 .accent {
   margin-bottom: 2.25rem;
   font-family: var(--display);
   font-size: clamp(3.1rem, 5.6vw, 6.5rem);
-  letter-spacing: -0.055em;
   text-wrap: balance;
 }
 
@@ -587,7 +587,6 @@ h1 .accent {
   margin-bottom: 1.1rem;
   font-family: var(--display);
   font-size: clamp(2.2rem, 4vw, 4rem);
-  letter-spacing: -0.055em;
 }
 
 .manifesto-card.featured {
@@ -668,7 +667,7 @@ h1 .accent {
   font-family: var(--display);
   font-size: clamp(4rem, 9vw, 8.5rem);
   line-height: 0.75;
-  letter-spacing: -0.06em;
+  letter-spacing: var(--display-tracking);
 }
 
 .weekly-copy h3 {
@@ -676,7 +675,6 @@ h1 .accent {
   font-family: var(--display);
   font-size: clamp(2.35rem, 4.5vw, 4.9rem);
   line-height: 1.18;
-  letter-spacing: -0.055em;
 }
 
 .weekly-copy p {
@@ -803,7 +801,6 @@ h1 .accent {
   margin-bottom: 0.35rem;
   font-family: var(--display);
   font-size: clamp(1.65rem, 2.7vw, 2.5rem);
-  letter-spacing: -0.045em;
 }
 
 .host-info p {
@@ -1054,7 +1051,6 @@ h1 .accent {
   margin: auto 0 0.2rem;
   font-family: var(--display);
   font-size: clamp(2rem, 3vw, 3.4rem);
-  letter-spacing: -0.055em;
 }
 
 .partner-row-identity h2 a {
@@ -1185,7 +1181,6 @@ h1 .accent {
 .partner-profile-copy h1 {
   margin: auto 0 0;
   font-size: clamp(4.5rem, 8vw, 9rem);
-  letter-spacing: 0;
 }
 
 .partner-profile-english {
@@ -1253,7 +1248,6 @@ h1 .accent {
   margin: clamp(1.5rem, 3vw, 2.5rem) 0 0;
   font-family: var(--display);
   font-size: clamp(2.5rem, 4.6vw, 5rem);
-  letter-spacing: -0.04em;
 }
 
 .partner-venue-list {
@@ -1267,6 +1261,20 @@ h1 .accent {
     minmax(9rem, 0.55fr);
   min-height: 185px;
   border-bottom: 1px solid var(--ink);
+}
+
+@media (min-width: 721px) {
+  html[lang="en"] .partner-venue {
+    grid-template-columns: 6rem minmax(clamp(15rem, 25vw, 26rem), 1fr) minmax(13rem, 1.25fr) 7rem;
+  }
+
+  html[lang="en"] .partner-venue-index {
+    padding-inline: 0.75rem;
+  }
+
+  html[lang="en"] .partner-venue > a {
+    padding-inline: 1rem;
+  }
 }
 
 .partner-venue > * {
@@ -1307,7 +1315,6 @@ h1 .accent {
   margin: 0 0 1rem;
   font-family: var(--display);
   font-size: clamp(1.7rem, 2.7vw, 3rem);
-  letter-spacing: -0.045em;
 }
 
 .partner-venue-main p,
@@ -1377,7 +1384,6 @@ h1 .accent {
   margin-bottom: clamp(2rem, 4vw, 3.5rem);
   font-family: var(--display);
   font-size: clamp(3.2rem, 7vw, 7.5rem);
-  letter-spacing: -0.06em;
 }
 
 .partner-story > div p {
@@ -1416,7 +1422,7 @@ h1 .accent {
   font-family: var(--display);
   font-size: clamp(2rem, 3.4vw, 4rem);
   line-height: 1;
-  letter-spacing: -0.05em;
+  letter-spacing: var(--display-tracking);
 }
 
 .partner-fact span {
@@ -1458,7 +1464,6 @@ h1 .accent {
   margin: 0;
   font-family: var(--display);
   font-size: clamp(1.7rem, 2.8vw, 3rem);
-  letter-spacing: -0.045em;
 }
 
 .partner-space-list p {
@@ -1577,7 +1582,7 @@ h1 .accent {
 .weekly-show-poster > span {
   font-family: var(--display);
   font-size: clamp(1.6rem, 2.8vw, 3rem);
-  letter-spacing: -0.04em;
+  letter-spacing: var(--display-tracking);
 }
 
 .weekly-show-poster > strong {
@@ -1585,7 +1590,7 @@ h1 .accent {
   font-family: var(--display);
   font-size: clamp(6.5rem, 12vw, 13rem);
   line-height: 0.75;
-  letter-spacing: -0.075em;
+  letter-spacing: var(--display-tracking);
   writing-mode: vertical-rl;
   transform: rotate(180deg);
 }
@@ -1615,7 +1620,6 @@ h1 .accent {
   margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
   font-family: var(--display);
   font-size: clamp(3.5rem, 6.4vw, 7rem);
-  letter-spacing: -0.06em;
 }
 
 .weekly-show-prose {
@@ -1760,7 +1764,6 @@ html[lang="en"] .weekly-show-facts strong {
   font-family: var(--display);
   font-size: clamp(1.65rem, 2.6vw, 2.75rem);
   line-height: 1.05;
-  letter-spacing: -0.045em;
 }
 
 .weekly-show-host-grid p {
@@ -1894,7 +1897,7 @@ html[lang="en"] .weekly-show-facts strong {
   font-family: var(--display);
   font-size: clamp(5.5rem, 10vw, 10rem);
   line-height: 0.75;
-  letter-spacing: -0.07em;
+  letter-spacing: var(--display-tracking);
 }
 
 .episode-detail-hero-copy h1 {
@@ -1981,14 +1984,12 @@ html[lang="en"] .weekly-show-facts strong {
   margin: clamp(4rem, 7vw, 7rem) 0 1.5rem;
   font-family: var(--display);
   font-size: clamp(2.75rem, 5vw, 5.5rem);
-  letter-spacing: -0.055em;
 }
 
 .episode-show-notes h3 {
   margin: 3rem 0 1rem;
   font-family: var(--display);
   font-size: clamp(1.7rem, 2.8vw, 3rem);
-  letter-spacing: -0.045em;
 }
 
 .episode-show-notes ul {
@@ -2035,7 +2036,6 @@ html[lang="en"] .weekly-show-facts strong {
   margin: 0;
   font-family: var(--display);
   font-size: clamp(3.5rem, 6.4vw, 7rem);
-  letter-spacing: -0.06em;
 }
 
 .episode-detail-participant-grid {
@@ -2075,7 +2075,6 @@ html[lang="en"] .weekly-show-facts strong {
   font-family: var(--display);
   font-size: clamp(1.65rem, 2.6vw, 2.75rem);
   line-height: 1.05;
-  letter-spacing: -0.045em;
 }
 
 .episode-detail-participant-grid p {
@@ -2150,7 +2149,7 @@ html[lang="en"] .weekly-show-facts strong {
   font-family: var(--display);
   font-size: clamp(8rem, 15vw, 16rem);
   line-height: 0.74;
-  letter-spacing: -0.075em;
+  letter-spacing: var(--display-tracking);
 }
 
 .episode-preview-poster > div {
@@ -2177,7 +2176,6 @@ html[lang="en"] .weekly-show-facts strong {
   margin-bottom: clamp(2.5rem, 5vw, 5rem);
   font-family: var(--display);
   font-size: clamp(3.5rem, 7vw, 7.5rem);
-  letter-spacing: -0.06em;
 }
 
 .episode-preview-facts {
@@ -2229,7 +2227,6 @@ html[lang="en"] .weekly-show-facts strong {
   margin: 0;
   font-family: var(--display);
   font-size: clamp(3.5rem, 7vw, 7.5rem);
-  letter-spacing: -0.06em;
 }
 
 .episode-preview-participant-grid {
@@ -2270,7 +2267,6 @@ html[lang="en"] .weekly-show-facts strong {
   font-family: var(--display);
   font-size: clamp(1.65rem, 2.6vw, 2.75rem);
   line-height: 1.04;
-  letter-spacing: -0.04em;
 }
 
 .episode-preview-participant-grid p {
@@ -2375,7 +2371,6 @@ html[lang="en"] .weekly-show-facts strong {
   margin-bottom: 0;
   font-family: var(--display);
   font-size: clamp(4rem, 10vw, 10rem);
-  letter-spacing: -0.075em;
 }
 
 .footer-mark {
@@ -2403,6 +2398,7 @@ html[lang="en"] .weekly-show-facts strong {
   gap: 0.5rem 1.5rem;
 }
 
+.footer-link,
 .footer-github {
   display: inline-flex;
   align-items: center;
@@ -2416,11 +2412,13 @@ html[lang="en"] .weekly-show-facts strong {
   flex-shrink: 0;
 }
 
+.footer-link:hover,
 .footer-github:hover {
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
 
+.footer-link:focus-visible,
 .footer-github:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 4px;

@@ -13,6 +13,14 @@
 - Check every rendered H2 on Chinese and English pages at desktop, tablet, and mobile widths. Its computed line height divided by font size must equal 1.25 (allowing browser rounding).
 - Inspect multiline headings visually for readable spacing, unintended word breaks, clipping, and overlap with adjacent content.
 
+## Display typography and letter spacing
+
+- League Spartan display text uses `--display-tracking: 0em`. H1, H2, and H3 inherit this shared rule; other display labels, wordmarks, captions, and numerals reference the same token.
+- The rule applies in both locales, including English words inside Chinese or mixed-language headings. Do not reintroduce per-page negative tracking to fit a title into a column.
+- Preserve the display font, font sizes, and heading line heights. Let headings wrap at word boundaries; adjust available layout space when an intentionally unbroken brand name needs more room.
+- Body copy, navigation, and non-display fact labels retain their own typography rules. Intentional positive tracking for eyebrows, tickers, and compact metadata labels is independent of display tracking.
+- Validate Chinese and English pages at mobile, tablet, and desktop widths. Headings and display text using the shared token must have zero computed tracking; H2 leading remains 1.25. Check glyph separation visually as well as overflow, including the shared footer and mixed-language profile names.
+
 ## Profile account order
 
 - Homepage cards and profile pages share the same account ordering: Podcast, X, GitHub, Jike, WeChat official account, WeChat Channels, RedNote, Weibo, LinkedIn. Omit platforms without account data.
