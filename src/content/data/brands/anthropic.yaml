@@ -1,0 +1,12 @@
+kind: company-brand
+name:
+  zh-Hans: Anthropic
+  en: Anthropic
+summary:
+  zh-Hans: 研发 Claude 模型与 Claude Code 等产品的人工智能公司。
+  en: An AI company developing the Claude model family and products including Claude Code.
+aliases: []
+official:
+  website: https://www.anthropic.com/
+  documentation: https://docs.anthropic.com/
+lastVerifiedAt: "2026-09-07"

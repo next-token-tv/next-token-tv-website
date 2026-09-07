@@ -1,0 +1,14 @@
+kind: model
+brand: anthropic
+parent: claude
+name:
+  zh-Hans: Claude 3.5
+  en: Claude 3.5
+summary:
+  zh-Hans: Anthropic 于 2024 年推出的 Claude 3.5 模型代际。
+  en: The Claude 3.5 model generation introduced by Anthropic in 2024.
+aliases: []
+status: available
+official:
+  website: https://www.anthropic.com/news/claude-3-5-sonnet
+lastVerifiedAt: "2026-09-07"

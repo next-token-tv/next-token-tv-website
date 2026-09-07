@@ -1,0 +1,16 @@
+kind: model
+brand: anthropic
+parent: claude
+name:
+  zh-Hans: Claude Fable 5.1
+  en: Claude Fable 5.1
+summary:
+  zh-Hans: Anthropic 面向广泛使用推出的 Claude 5.1 模型，在高风险网络安全和生物学任务上采用专门防护。
+  en: Anthropic's broadly available Claude 5.1 model with dedicated safeguards for high-risk cybersecurity and biology tasks.
+aliases:
+  - Fable 5.1
+  - Fable
+status: available
+official:
+  website: https://www.anthropic.com/claude/fable
+lastVerifiedAt: "2026-09-07"

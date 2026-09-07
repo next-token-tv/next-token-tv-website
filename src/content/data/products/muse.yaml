@@ -1,0 +1,13 @@
+kind: model-family
+brand: meta
+name:
+  zh-Hans: Muse
+  en: Muse
+summary:
+  zh-Hans: Meta 面向开发者提供的多模态人工智能模型家族。
+  en: Meta's family of multimodal AI models for developers.
+aliases: []
+status: preview
+official:
+  website: https://ai.meta.com/llama/
+lastVerifiedAt: "2026-09-07"

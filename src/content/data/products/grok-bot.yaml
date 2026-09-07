@@ -1,0 +1,15 @@
+kind: agent
+brand: xai
+parent: grok
+name:
+  zh-Hans: Grok Bot
+  en: Grok Bot
+summary:
+  zh-Hans: xAI 面向企业工作流提供的自主 Agent，运行在持久化云端计算环境中。
+  en: xAI's autonomous enterprise agent running in a persistent cloud computing environment.
+aliases: []
+status: available
+official:
+  website: https://x.ai/news/grok-bot-for-enterprise
+  documentation: https://docs.x.ai/grok-bot/overview
+lastVerifiedAt: "2026-09-07"

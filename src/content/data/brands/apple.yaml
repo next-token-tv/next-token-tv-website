@@ -1,0 +1,12 @@
+kind: company-brand
+name:
+  zh-Hans: Apple
+  en: Apple
+summary:
+  zh-Hans: 设计 Mac、iPhone 等硬件以及 macOS、iOS 等软件平台的科技公司。
+  en: A technology company designing hardware including Mac and iPhone and software platforms including macOS and iOS.
+aliases:
+  - 苹果
+official:
+  website: https://www.apple.com/
+lastVerifiedAt: "2026-09-07"

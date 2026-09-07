@@ -1,0 +1,15 @@
+kind: open-source-project
+brand: openclaw-foundation
+name:
+  zh-Hans: OpenClaw
+  en: OpenClaw
+summary:
+  zh-Hans: 可在用户自己的设备上运行、连接消息渠道与工具的开源个人 AI 助手。
+  en: An open-source personal AI assistant that runs on users' own devices and connects to messaging channels and tools.
+aliases:
+  - OpenClaw 2.0
+status: available
+official:
+  website: https://openclaw.ai/
+  repository: https://github.com/openclaw/openclaw
+lastVerifiedAt: "2026-09-07"

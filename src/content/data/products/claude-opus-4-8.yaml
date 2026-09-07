@@ -1,0 +1,15 @@
+kind: model
+brand: anthropic
+parent: claude
+name:
+  zh-Hans: Claude Opus 4.8
+  en: Claude Opus 4.8
+summary:
+  zh-Hans: Anthropic 的 Opus 系列高能力 Claude 模型版本。
+  en: A high-capability Claude model in Anthropic's Opus series.
+aliases:
+  - Opus 4.8
+status: available
+official:
+  website: https://www.anthropic.com/system-cards
+lastVerifiedAt: "2026-09-07"

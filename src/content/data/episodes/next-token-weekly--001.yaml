@@ -82,14 +82,50 @@ platforms:
       en: Watch now
 mentions:
   brands:
-    - zhipu
-    - minimax
+    - anthropic
+    - apple
+    - deepseek
+    - google
     - hugging-face
+    - meta
     - workbuddy
+    - minimax
+    - nous-research
+    - openai
+    - openclaw-foundation
+    - qwen
+    - xai
+    - zhipu
   products:
+    - chatgpt
+    - chatgpt-work
+    - chrome
+    - claude
+    - claude-3-5
+    - claude-code
+    - claude-fable-5-1
+    - claude-mythos-5-1
+    - claude-opus-4-8
+    - codex
+    - deepseek-harness
+    - deepseek-v4-flash
+    - deepseek-v4-flash-vision-exp
+    - gemini
     - glm
     - glm-5-3-flash
+    - grok
+    - grok-bot
+    - hermes-agent
+    - mac
+    - mac-mini
+    - mac-studio
     - minimax-h3
+    - muse
+    - muse-spark-1-3
+    - muse-voice-transcribe
+    - macos
+    - openai-api
+    - openclaw
     - qwen
     - workbuddy
   people: []

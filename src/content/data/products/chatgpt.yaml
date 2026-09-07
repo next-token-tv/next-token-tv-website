@@ -1,0 +1,13 @@
+kind: application
+brand: openai
+name:
+  zh-Hans: ChatGPT
+  en: ChatGPT
+summary:
+  zh-Hans: OpenAI 面向个人与组织提供的通用人工智能助手。
+  en: OpenAI's general-purpose AI assistant for individuals and organizations.
+aliases: []
+status: available
+official:
+  website: https://chatgpt.com/
+lastVerifiedAt: "2026-09-07"

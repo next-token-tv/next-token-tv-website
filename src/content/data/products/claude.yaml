@@ -1,0 +1,14 @@
+kind: model-family
+brand: anthropic
+name:
+  zh-Hans: Claude
+  en: Claude
+summary:
+  zh-Hans: Anthropic 的通用人工智能模型与助手家族。
+  en: Anthropic's family of general-purpose AI models and assistants.
+aliases: []
+status: available
+official:
+  website: https://www.anthropic.com/claude
+  documentation: https://docs.anthropic.com/en/docs/about-claude/models/overview
+lastVerifiedAt: "2026-09-07"

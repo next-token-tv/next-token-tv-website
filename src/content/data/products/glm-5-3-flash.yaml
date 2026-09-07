@@ -9,6 +9,7 @@ summary:
   en: The first natively multimodal model in the GLM-5 family, designed for complex tasks, agentic workflows, visual understanding, and professional work with fewer active parameters and open weights.
 aliases:
   - GLM 5.3 Flash
+  - 牛来
 status: available
 releasedAt: "2026-09-07"
 official:

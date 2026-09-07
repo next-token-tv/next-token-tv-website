@@ -1,0 +1,15 @@
+kind: agent
+brand: openai
+name:
+  zh-Hans: ChatGPT Work
+  en: ChatGPT Work
+summary:
+  zh-Hans: ChatGPT 中面向较长、多步骤任务和完整交付物的工作型 Agent。
+  en: The work agent in ChatGPT for longer, multi-step tasks and finished deliverables.
+aliases:
+  - ChatGPT Cloud
+  - GPT Work
+status: available
+official:
+  website: https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex
+lastVerifiedAt: "2026-09-07"

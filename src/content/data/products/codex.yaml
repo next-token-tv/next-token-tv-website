@@ -1,0 +1,14 @@
+kind: agent
+brand: openai
+name:
+  zh-Hans: Codex
+  en: Codex
+summary:
+  zh-Hans: OpenAI 面向软件开发工作的编码 Agent，可在编辑器、终端、桌面应用和云端协作完成任务。
+  en: OpenAI's coding agent for software development across editors, terminals, the desktop app, and the cloud.
+aliases:
+  - Codex 200
+official:
+  website: https://openai.com/codex/
+  documentation: https://developers.openai.com/codex/
+lastVerifiedAt: "2026-09-07"

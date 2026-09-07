@@ -1,0 +1,12 @@
+kind: company-brand
+name:
+  zh-Hans: Nous Research
+  en: Nous Research
+summary:
+  zh-Hans: 研发开放模型与 Hermes Agent 等开源人工智能工具的研究公司。
+  en: An AI research company developing open models and open-source tools including Hermes Agent.
+aliases: []
+official:
+  website: https://nousresearch.com/
+  repository: https://github.com/NousResearch
+lastVerifiedAt: "2026-09-07"

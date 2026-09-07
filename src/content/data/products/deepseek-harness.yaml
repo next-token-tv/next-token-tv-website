@@ -1,0 +1,14 @@
+kind: open-source-project
+brand: deepseek
+name:
+  zh-Hans: DeepSeek Harness
+  en: DeepSeek Harness
+summary:
+  zh-Hans: DeepSeek 面向编码 Agent 工作流推出的开源、插件化 Agent 框架。
+  en: DeepSeek's open-source, plugin-based agent framework for coding-agent workflows.
+aliases: []
+status: preview
+official:
+  website: https://www.deepseek.com/harness/en/
+  repository: https://github.com/deepseek-ai/deepseek-harness
+lastVerifiedAt: "2026-09-07"

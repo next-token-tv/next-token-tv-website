@@ -1,0 +1,14 @@
+kind: hardware
+brand: apple
+parent: mac
+name:
+  zh-Hans: Mac Studio
+  en: Mac Studio
+summary:
+  zh-Hans: Apple 面向高性能专业工作流的紧凑型桌面 Mac。
+  en: Apple's compact desktop Mac for high-performance professional workflows.
+aliases: []
+status: available
+official:
+  website: https://www.apple.com/mac-studio/
+lastVerifiedAt: "2026-09-07"

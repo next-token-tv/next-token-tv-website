@@ -1,0 +1,13 @@
+kind: company-brand
+name:
+  zh-Hans: DeepSeek
+  en: DeepSeek
+summary:
+  zh-Hans: 研发 DeepSeek 模型并提供面向开发者的模型 API 与 Agent 工具的人工智能公司。
+  en: An AI company developing DeepSeek models, developer APIs, and agent tooling.
+aliases:
+  - 深度求索
+official:
+  website: https://www.deepseek.com/
+  documentation: https://api-docs.deepseek.com/
+lastVerifiedAt: "2026-09-07"

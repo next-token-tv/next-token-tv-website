@@ -1,0 +1,14 @@
+kind: application
+brand: google
+name:
+  zh-Hans: Chrome
+  en: Chrome
+summary:
+  zh-Hans: Google 推出的跨平台网页浏览器。
+  en: Google's cross-platform web browser.
+aliases:
+  - Google Chrome
+status: available
+official:
+  website: https://www.google.com/chrome/
+lastVerifiedAt: "2026-09-07"

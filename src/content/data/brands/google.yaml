@@ -1,0 +1,12 @@
+kind: company-brand
+name:
+  zh-Hans: Google
+  en: Google
+summary:
+  zh-Hans: 提供搜索、浏览器、云服务与 Gemini 人工智能产品的科技公司。
+  en: A technology company providing search, browser, cloud, and Gemini AI products.
+aliases:
+  - 谷歌
+official:
+  website: https://about.google/
+lastVerifiedAt: "2026-09-07"

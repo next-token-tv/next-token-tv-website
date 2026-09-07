@@ -1,0 +1,12 @@
+kind: company-brand
+name:
+  zh-Hans: OpenAI
+  en: OpenAI
+summary:
+  zh-Hans: 研发并提供基础模型、ChatGPT、Codex 与开发者 API 的人工智能公司。
+  en: An AI company developing foundation models, ChatGPT, Codex, and APIs for developers.
+aliases: []
+official:
+  website: https://openai.com/
+  documentation: https://developers.openai.com/
+lastVerifiedAt: "2026-09-07"

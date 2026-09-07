@@ -1,0 +1,15 @@
+kind: model
+brand: anthropic
+parent: claude
+name:
+  zh-Hans: Claude Mythos 5.1
+  en: Claude Mythos 5.1
+summary:
+  zh-Hans: Anthropic 面向经审核组织提供的高能力研究模型，重点服务网络安全与生命科学用途。
+  en: Anthropic's high-capability research model for vetted organizations, focused on cybersecurity and life-sciences use cases.
+aliases:
+  - Mythos 5.1
+status: available
+official:
+  website: https://www.anthropic.com/claude/mythos
+lastVerifiedAt: "2026-09-07"

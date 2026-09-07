@@ -1,0 +1,15 @@
+kind: open-source-project
+brand: nous-research
+name:
+  zh-Hans: Hermes Agent
+  en: Hermes Agent
+summary:
+  zh-Hans: Nous Research 推出的开源 Agent，可在本地或云端运行并通过工具与技能执行任务。
+  en: An open-source agent from Nous Research that runs locally or in the cloud and executes tasks through tools and skills.
+aliases:
+  - Hermes
+status: available
+official:
+  website: https://hermes-agent.ai/
+  repository: https://github.com/hermes-agent-org/hermes
+lastVerifiedAt: "2026-09-07"

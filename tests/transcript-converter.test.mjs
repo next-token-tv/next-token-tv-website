@@ -41,10 +41,10 @@ test("published transcript snapshot retains approved content and deterministic s
   ));
   const serialized = JSON.stringify(snapshot);
 
-  assert.equal(snapshot.provenance.sourceSha256, "19335764e405b2bfcc171efa3831a46cbad51218c84d1183aebaa5e02fc56f23");
+  assert.equal(snapshot.provenance.sourceSha256, "dc0c36f2dad5a342ef20058f7aae1e089f5358e2566454b747d500bab354d925");
   assert.equal(snapshot.provenance.sourceRepository, "next-token");
   assert.equal(snapshot.provenance.sourceRevision, null);
-  assert.equal(snapshot.provenance.sourceState, "untracked");
+  assert.equal(snapshot.provenance.sourceState, "modified");
   assert.equal(snapshot.provenance.sourcePath, "shows/weekly/episodes/001/04-release/copy/transcript.zh-Hans.md");
   assert.equal(snapshot.provenance.sourcePath.startsWith("../"), false);
   assert.equal(snapshot.report.chapters, 37);

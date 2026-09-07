@@ -1,0 +1,13 @@
+kind: platform
+brand: apple
+name:
+  zh-Hans: macOS
+  en: macOS
+summary:
+  zh-Hans: Apple 为 Mac 提供的桌面操作系统。
+  en: Apple's desktop operating system for Mac.
+aliases: []
+status: available
+official:
+  website: https://www.apple.com/macos/
+lastVerifiedAt: "2026-09-07"

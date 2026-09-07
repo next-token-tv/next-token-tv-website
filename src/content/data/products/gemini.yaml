@@ -1,0 +1,15 @@
+kind: model-family
+brand: google
+name:
+  zh-Hans: Gemini
+  en: Gemini
+summary:
+  zh-Hans: Google 的多模态人工智能模型与助手家族。
+  en: Google's family of multimodal AI models and assistants.
+aliases:
+  - Google Gemini
+status: available
+official:
+  website: https://gemini.google.com/
+  documentation: https://ai.google.dev/gemini-api/docs/models
+lastVerifiedAt: "2026-09-07"

@@ -1,0 +1,15 @@
+kind: model
+brand: deepseek
+name:
+  zh-Hans: DeepSeek-V4-Flash
+  en: DeepSeek-V4-Flash
+summary:
+  zh-Hans: DeepSeek 面向推理、Agent 与编码工作推出的 V4 系列高效模型。
+  en: An efficient DeepSeek V4 model for reasoning, agentic, and coding workloads.
+aliases:
+  - DeepSeek V4 Flash
+  - DeepSeek Flash
+status: preview
+official:
+  website: https://api-docs.deepseek.com/updates/
+lastVerifiedAt: "2026-09-07"

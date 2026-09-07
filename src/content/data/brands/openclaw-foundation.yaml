@@ -1,0 +1,13 @@
+kind: open-source-brand
+name:
+  zh-Hans: OpenClaw Foundation
+  en: OpenClaw Foundation
+summary:
+  zh-Hans: 维护开源个人 AI 助手 OpenClaw 的独立非营利组织。
+  en: The independent nonprofit organization stewarding the open-source OpenClaw personal AI assistant.
+aliases:
+  - OpenClaw 项目
+official:
+  website: https://openclaw.ai/
+  repository: https://github.com/openclaw/openclaw
+lastVerifiedAt: "2026-09-07"

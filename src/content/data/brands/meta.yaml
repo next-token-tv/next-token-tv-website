@@ -1,0 +1,12 @@
+kind: company-brand
+name:
+  zh-Hans: Meta
+  en: Meta
+summary:
+  zh-Hans: 运营社交产品并研发开放人工智能模型、开发者平台与智能硬件的科技公司。
+  en: A technology company operating social products and developing open AI models, developer platforms, and smart hardware.
+aliases: []
+official:
+  website: https://about.meta.com/
+  documentation: https://ai.meta.com/
+lastVerifiedAt: "2026-09-07"

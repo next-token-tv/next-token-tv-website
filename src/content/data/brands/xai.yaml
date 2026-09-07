@@ -1,0 +1,13 @@
+kind: company-brand
+name:
+  zh-Hans: xAI
+  en: xAI
+summary:
+  zh-Hans: 研发 Grok 模型及相关个人与企业人工智能产品的公司。
+  en: An AI company developing the Grok model family and related consumer and enterprise products.
+aliases:
+  - X.AI
+official:
+  website: https://x.ai/
+  documentation: https://docs.x.ai/
+lastVerifiedAt: "2026-09-07"

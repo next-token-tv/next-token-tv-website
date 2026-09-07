@@ -1,0 +1,14 @@
+kind: agent
+brand: anthropic
+name:
+  zh-Hans: Claude Code
+  en: Claude Code
+summary:
+  zh-Hans: Anthropic 面向终端、编辑器和软件工程工作流的编码 Agent。
+  en: Anthropic's coding agent for terminal, editor, and software-engineering workflows.
+aliases: []
+status: available
+official:
+  website: https://www.anthropic.com/claude-code
+  documentation: https://docs.anthropic.com/en/docs/claude-code/overview
+lastVerifiedAt: "2026-09-07"

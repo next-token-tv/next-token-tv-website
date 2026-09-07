@@ -1,0 +1,16 @@
+kind: hardware
+brand: apple
+parent: mac
+name:
+  zh-Hans: Mac mini
+  en: Mac mini
+summary:
+  zh-Hans: Apple 的小型台式 Mac 产品线。
+  en: Apple's compact desktop Mac product line.
+aliases:
+  - Mac Mini
+  - Mac Mini M6
+status: available
+official:
+  website: https://www.apple.com/mac-mini/
+lastVerifiedAt: "2026-09-07"
