@@ -11,7 +11,11 @@
 - The episode-announcement venue and map block also uses `.shell`. Preserve its two-column composition: the partner logo remains in the left panel, while the venue copy, actions, and embedded map stay together in the right panel. The full block shares the same outer edges as the announcement details and participant grid.
 - Display type inside a constrained hero column scales against that column, not the viewport. Changing a hero's container width requires checking every large display element for added wrapping or overflow.
 - Hero H1 sizing follows the available text column rather than the viewport: `clamp(3rem, 14cqi, 6rem)`. This prevents oversized headings after the layout reaches its maximum width. Other heading sizes remain unchanged.
-- Validate alignment and overflow at 390, 768, 1440, 1920, and 2560 CSS pixels. Background edges need not match content edges; navigation, section content, and footer content must align.
+- Validate alignment and overflow at 390, 768, 1280, 1440, 1920, and 2560 CSS pixels. Background edges need not match content edges; navigation, section content, and footer content must align.
+- Brand and product directory heroes, directory rows, detail heroes, fact grids, related entities, and related episodes all use `.shell`. Their internal column ratios may differ, but their outer edges align with the header and footer.
+- Brand/product is the primary library switch. The secondary filter row uses the entity `kind` taxonomy, displays only categories present in the current collection, and keeps the active category in the `type` query parameter. On narrow screens the filter row scrolls horizontally inside the shell without causing page overflow.
+- Brand and product detail heroes use an editorial identity panel: the entity class is the dominant graphic element, while the name, summary, and aliases remain readable content. Verification dates are provenance metadata, shown as one quiet line beneath the official links rather than as a primary fact card.
+- Full-episode transcripts use a long-form editorial layout rather than chat bubbles: a restrained chapter rail, 24–28 px speaker portraits at turn starts, always-visible speaker names, and a narrow reading measure with generous line height. Candidate attribution markers remain visible beside the name with a short explanation.
 
 ## Heading line height
 
@@ -25,6 +29,8 @@
 
 - Check every rendered H2 on Chinese and English pages at desktop, tablet, and mobile widths. Its computed line height divided by font size must equal 1.25 (allowing browser rounding).
 - Inspect multiline headings visually for readable spacing, unintended word breaks, clipping, and overlap with adjacent content.
+- `npm run test:visual` is the required geometry and screenshot regression check. It covers Chinese and English pages at 390, 768, 1280, 1440, 1920, and 2560 CSS pixels; screenshot baselines are stored for mobile and wide layouts.
+- Snapshot baselines represent an approved visual outcome. Update them only when the rendered change is intentional and has been inspected.
 
 ## Display typography and letter spacing
 

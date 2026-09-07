@@ -12,6 +12,7 @@ type Catalog = {
   products: CollectionEntry<"products">[];
   episodes: CollectionEntry<"episodes">[];
   episodeImports: CollectionEntry<"episodeImports">[];
+  transcriptImports: CollectionEntry<"transcriptImports">[];
   prose: CollectionEntry<"prose">[];
 };
 
@@ -122,6 +123,20 @@ function validateCatalog(catalog: Catalog) {
     episode.data.mentions.people.forEach((person) => requireId(people, person, `person mentioned by episode ${episode.id}`));
   }
 
+  for (const transcript of catalog.transcriptImports) {
+    requireId(episodes, transcript.data.episodeId, `episode referenced by transcript ${transcript.id}`);
+    const expectedId = `${transcript.data.episodeId}.${transcript.data.locale}`;
+    if (transcript.id !== expectedId) {
+      throw new Error(`Transcript import ${transcript.id} must use ID ${expectedId}`);
+    }
+    if (transcript.data.report.chapters !== transcript.data.chapters.length) {
+      throw new Error(`Transcript import ${transcript.id} chapter count does not match its report`);
+    }
+    transcript.data.chapters.flatMap(({ turns }) => turns).forEach((turn) => {
+      if (turn.speakerId) requireId(people, turn.speakerId, `speaker referenced by transcript ${transcript.id}`);
+    });
+  }
+
   for (const entry of catalog.prose) {
     const relation = `${entry.data.entityType} referenced by prose ${entry.id}`;
     switch (entry.data.entityType) {
@@ -188,9 +203,10 @@ export async function getContentCatalog(): Promise<Catalog> {
     getCollection("products"),
     getCollection("episodes"),
     getCollection("episodeImports"),
+    getCollection("transcriptImports"),
     getCollection("prose"),
-  ]).then(([people, shows, hostMemberships, partners, venues, brands, products, episodes, episodeImports, prose]) => {
-    const catalog = { people, shows, hostMemberships, partners, venues, brands, products, episodes, episodeImports, prose };
+  ]).then(([people, shows, hostMemberships, partners, venues, brands, products, episodes, episodeImports, transcriptImports, prose]) => {
+    const catalog = { people, shows, hostMemberships, partners, venues, brands, products, episodes, episodeImports, transcriptImports, prose };
     validateCatalog(catalog);
     return catalog;
   });
@@ -320,6 +336,29 @@ export async function getPublishedEpisode(episodeId = "next-token-weekly--001") 
   };
 }
 
+export async function getEpisodeTranscript(episodeId: string, locale: Locale) {
+  const catalog = await getContentCatalog();
+  requireId(indexById(catalog.episodes), episodeId, "transcript episode");
+  return requireId(
+    indexById(catalog.transcriptImports),
+    `${episodeId}.${locale}`,
+    `${locale} transcript for ${episodeId}`,
+  );
+}
+
+export async function getEpisodeTranscriptOrNull(episodeId: string, locale: Locale) {
+  const catalog = await getContentCatalog();
+  return catalog.transcriptImports.find(({ data }) => data.episodeId === episodeId && data.locale === locale) ?? null;
+}
+
+export async function getTranscriptEpisodes(locale: Locale) {
+  const catalog = await getContentCatalog();
+  const episodeIds = new Set(
+    catalog.transcriptImports.filter(({ data }) => data.locale === locale).map(({ data }) => data.episodeId),
+  );
+  return catalog.episodes.filter(({ id }) => episodeIds.has(id));
+}
+
 export async function getAnnouncedEpisodes() {
   const catalog = await getContentCatalog();
   return catalog.episodes.filter((episode) => episode.data.status === "announced");
@@ -371,4 +410,80 @@ export async function getHostProfile(personId: string, locale: Locale) {
     && data.entity === personId && data.locale === locale && data.slot === "profile");
   if (profiles.length !== 1) throw new Error(`Expected one ${locale} profile for ${personId}`);
   return { host, shows, episodes, profile: profiles[0]! };
+}
+
+function newestEpisodeFirst(
+  a: CollectionEntry<"episodes">,
+  b: CollectionEntry<"episodes">,
+) {
+  return b.data.number.localeCompare(a.data.number);
+}
+
+export async function getBrandDirectory(locale: Locale) {
+  const catalog = await getContentCatalog();
+  return catalog.brands
+    .map((brand) => {
+      const products = catalog.products.filter(({ data }) => data.brand === brand.id);
+      const productIds = new Set(products.map(({ id }) => id));
+      const episodes = catalog.episodes.filter(({ data }) =>
+        data.mentions.brands.includes(brand.id)
+        || data.mentions.products.some((product) => productIds.has(product)));
+      return { brand, productsCount: products.length, episodesCount: episodes.length };
+    })
+    .sort((a, b) => a.brand.data.name[locale].localeCompare(b.brand.data.name[locale], locale));
+}
+
+export async function getProductDirectory(locale: Locale) {
+  const catalog = await getContentCatalog();
+  const brands = indexById(catalog.brands);
+  return catalog.products
+    .map((product) => ({
+      product,
+      brand: requireId(brands, product.data.brand, `brand referenced by product ${product.id}`),
+      episodesCount: catalog.episodes.filter(({ data }) => data.mentions.products.includes(product.id)).length,
+    }))
+    .sort((a, b) => a.product.data.name[locale].localeCompare(b.product.data.name[locale], locale));
+}
+
+export async function getBrandProfile(brandId: string) {
+  const catalog = await getContentCatalog();
+  const brand = requireId(indexById(catalog.brands), brandId, "brand");
+  const products = catalog.products
+    .filter(({ data }) => data.brand === brandId)
+    .sort((a, b) => a.data.name.en.localeCompare(b.data.name.en));
+  const productIds = new Set(products.map(({ id }) => id));
+  const episodes = catalog.episodes.filter(({ data }) =>
+    data.mentions.brands.includes(brandId)
+    || data.mentions.products.some((product) => productIds.has(product)))
+    .sort(newestEpisodeFirst);
+  return { brand, products, episodes };
+}
+
+export async function getProductProfile(productId: string) {
+  const catalog = await getContentCatalog();
+  const products = indexById(catalog.products);
+  const brands = indexById(catalog.brands);
+  const product = requireId(products, productId, "product");
+  const brand = requireId(brands, product.data.brand, `brand referenced by product ${productId}`);
+  const parent = product.data.parent
+    ? requireId(products, product.data.parent, `parent referenced by product ${productId}`)
+    : undefined;
+  const children = catalog.products
+    .filter(({ data }) => data.parent === productId)
+    .sort((a, b) => a.data.name.en.localeCompare(b.data.name.en));
+  const episodes = catalog.episodes
+    .filter(({ data }) => data.mentions.products.includes(productId))
+    .sort(newestEpisodeFirst);
+  return { product, brand, parent, children, episodes };
+}
+
+export async function getEpisodeMentionEntities(episodeId: string) {
+  const catalog = await getContentCatalog();
+  const episode = requireId(indexById(catalog.episodes), episodeId, "episode");
+  const brands = indexById(catalog.brands);
+  const products = indexById(catalog.products);
+  return {
+    brands: episode.data.mentions.brands.map((id) => requireId(brands, id, `brand mentioned by ${episodeId}`)),
+    products: episode.data.mentions.products.map((id) => requireId(products, id, `product mentioned by ${episodeId}`)),
+  };
 }

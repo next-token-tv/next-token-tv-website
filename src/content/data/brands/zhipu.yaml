@@ -2,11 +2,14 @@ kind: company-brand
 name:
   zh-Hans: 智谱
   en: Zhipu AI
+summary:
+  zh-Hans: 以 GLM 模型家族为核心的人工智能公司，提供基础模型、开发平台与面向真实工作流程的 AI 产品。
+  en: An AI company centered on the GLM model family, providing foundation models, developer services, and AI products for real-world workflows.
 aliases:
-  - 智谱AI
+  - 智谱 AI
   - Zhipu
   - Zhipu AI
   - Z.ai
 official:
   website: https://www.z.ai/
-lastVerifiedAt: "2026-09-06"
+lastVerifiedAt: "2026-09-07"

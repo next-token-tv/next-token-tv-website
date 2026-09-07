@@ -1,0 +1,52 @@
+---
+import type { CollectionEntry } from "astro:content";
+import type { Locale } from "../data/types";
+
+interface Props {
+  episodes: CollectionEntry<"episodes">[];
+  locale: Locale;
+}
+
+const { episodes, locale } = Astro.props;
+const prefix = locale === "en" ? "/en" : "";
+const copy = locale === "en"
+  ? { kicker: "Related episodes", title: "Mentioned on Next Token", published: "Now live", announced: "Recording preview" }
+  : { kicker: "相关节目", title: "在 Next Token 中出现", published: "现已上线", announced: "录制预告" };
+---
+
+{episodes.length > 0 && (
+  <section class="entity-related-episodes shell" aria-labelledby="related-episodes-title">
+    <div>
+      <p class="section-kicker">03 / {copy.kicker}</p>
+      <h2 id="related-episodes-title">{copy.title}</h2>
+    </div>
+    <div class="entity-related-episode-list">
+      {episodes.map((episode) => (
+        <a href={`${prefix}/weekly/${episode.data.number}/`}>
+          <strong>#{episode.data.number}</strong>
+          <span>{episode.data.status === "published" ? copy.published : copy.announced}</span>
+          <p>{episode.data.title[locale]}</p>
+          <b aria-hidden="true">→</b>
+        </a>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .entity-related-episodes { display: grid; grid-template-columns: minmax(16rem, .65fr) minmax(0, 1.35fr); gap: clamp(3rem, 8vw, 9rem); padding-block: clamp(5rem, 9vw, 9rem); border-top: 1px solid var(--ink); }
+  .entity-related-episodes h2 { max-width: 34rem; margin: 1.5rem 0 0; font-size: clamp(2.5rem, 4.5vw, 4.5rem); }
+  .entity-related-episode-list { border-top: 1px solid var(--ink); }
+  .entity-related-episode-list a { display: grid; grid-template-columns: 6rem 8rem minmax(0, 1fr) 2rem; gap: 1rem; align-items: center; padding: 1.5rem 0; border-bottom: 1px solid var(--ink); }
+  .entity-related-episode-list strong { color: var(--signal); font-family: var(--display); font-size: 1.6rem; }
+  .entity-related-episode-list span { color: var(--muted); font-size: .78rem; }
+  .entity-related-episode-list p { margin: 0; font-weight: 750; line-height: 1.45; }
+  .entity-related-episode-list b { font-size: 1.5rem; text-align: right; }
+  @media (max-width: 760px) {
+    .entity-related-episodes { grid-template-columns: 1fr; gap: 2.5rem; }
+    .entity-related-episode-list a { grid-template-columns: 4.5rem minmax(0, 1fr) 2rem; }
+    .entity-related-episode-list span { grid-column: 2; }
+    .entity-related-episode-list p { grid-column: 2; }
+    .entity-related-episode-list b { grid-column: 3; grid-row: 1 / span 3; }
+  }
+</style>

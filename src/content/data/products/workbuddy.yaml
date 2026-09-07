@@ -3,8 +3,11 @@ brand: workbuddy
 name:
   zh-Hans: WorkBuddy
   en: WorkBuddy
+summary:
+  zh-Hans: 面向桌面办公任务的 Agent 产品，通过 Buddy 应用把行业知识和专业数据接入具体工作流程。
+  en: A desktop-work agent product that brings industry knowledge and professional data into concrete workflows through Buddy applications.
 aliases: []
 status: available
 official:
   website: https://open.workbuddy.cn/
-lastVerifiedAt: "2026-09-06"
+lastVerifiedAt: "2026-09-07"

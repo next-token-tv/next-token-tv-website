@@ -4,7 +4,7 @@ show: next-token-weekly
 status: published
 productionImport: next-token-weekly--001.production
 title:
-  zh-Hans: 'Next Token Weekly #001｜大模型进入“斩杀线”大战，Token 就是新货币'
+  zh-Hans: 'Weekly #001｜大模型进入“斩杀线”大战，Token 就是新货币 - Next Token | 词元之外'
   en: 'Weekly #001 | The LLM “Kill Line” Wars: Tokens Are the New Money - Next Token | 词元之外'
 homepage:
   zh-Hans:
@@ -87,7 +87,9 @@ mentions:
     - hugging-face
     - workbuddy
   products:
+    - glm
     - glm-5-3-flash
     - minimax-h3
+    - qwen
     - workbuddy
   people: []

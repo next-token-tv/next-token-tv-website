@@ -2,8 +2,11 @@ kind: company-brand
 name:
   zh-Hans: MiniMax
   en: MiniMax
+summary:
+  zh-Hans: 成立于 2022 年的通用人工智能公司，研发覆盖文本、音频、图像、视频与音乐的多模态基础模型，并提供面向个人、企业和开发者的 AI 原生产品与开放平台。
+  en: A general AI company founded in 2022, developing multimodal foundation models across text, audio, images, video, and music, together with AI-native products and an open platform for individuals, enterprises, and developers.
 aliases:
   - 稀宇科技
 official:
   website: https://www.minimax.io/
-lastVerifiedAt: "2026-09-06"
+lastVerifiedAt: "2026-09-07"

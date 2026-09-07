@@ -2,10 +2,13 @@ kind: model-brand
 name:
   zh-Hans: Qwen
   en: Qwen
+summary:
+  zh-Hans: 阿里巴巴推出的模型品牌，覆盖语言、视觉、语音等多种模态，并通过开放权重模型、应用产品和 API 服务开发者与用户。
+  en: Alibaba's model brand spanning language, vision, speech, and other modalities, available through open-weight models, user-facing products, and APIs.
 aliases:
   - 通义千问
   - 千问
   - Tongyi Qianwen
 official:
   website: https://qwen.ai/
-lastVerifiedAt: "2026-09-06"
+lastVerifiedAt: "2026-09-07"

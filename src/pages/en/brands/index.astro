@@ -1,0 +1,17 @@
+---
+import EntityDirectoryPage from "../../../components/EntityDirectoryPage.astro";
+import { getSiteContent } from "../../../data/site";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const content = await getSiteContent("en");
+---
+
+<BaseLayout
+  content={content}
+  pageTitle="Brands | Next Token"
+  description="Organizations, model families, platforms, and product brands referenced in Next Token conversations."
+  canonicalPath="/en/brands/"
+  alternatePath="/brands/"
+>
+  <EntityDirectoryPage entityType="brands" locale="en" />
+</BaseLayout>

@@ -11,9 +11,12 @@ const { content, currentPath, alternatePath } = Astro.props;
 const homePath = content.locale === "en" ? "/en/" : "/";
 const partnersPath = content.locale === "en" ? "/en/partners/" : "/partners/";
 const weeklyPath = content.locale === "en" ? "/en/weekly/" : "/weekly/";
+const libraryPath = content.locale === "en" ? "/en/brands/" : "/brands/";
 const homeSection = (id: string) => currentPath === homePath ? `#${id}` : `${homePath}#${id}`;
 const isPartners = currentPath.startsWith(partnersPath);
 const isWeekly = currentPath.startsWith(weeklyPath);
+const isLibrary = currentPath.startsWith(content.locale === "en" ? "/en/brands/" : "/brands/")
+  || currentPath.startsWith(content.locale === "en" ? "/en/products/" : "/products/");
 ---
 
 <header class="site-header">
@@ -29,6 +32,7 @@ const isWeekly = currentPath.startsWith(weeklyPath);
     <nav class="nav-links" aria-label={content.navigationLabel}>
       <a href={homeSection("about")}>{content.navigation.about}</a>
       <a href={weeklyPath} aria-current={isWeekly ? "page" : undefined}>{content.navigation.weekly}</a>
+      <a class="library-link" href={libraryPath} aria-current={isLibrary ? "page" : undefined}>{content.navigation.library}</a>
       <a href={homeSection("hosts")}>{content.navigation.hosts}</a>
       <a class="partners-link" href={partnersPath} aria-current={isPartners ? "page" : undefined}>{content.navigation.partners}</a>
       <a href={homeSection("subscribe")}>{content.navigation.subscribe}</a>

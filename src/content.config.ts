@@ -128,6 +128,7 @@ const brands = defineCollection({
   schema: z.object({
     kind: z.enum(["company-brand", "media-brand", "model-brand", "product-brand", "platform-brand", "open-source-brand"]),
     name: localizedText,
+    summary: localizedText,
     aliases: z.array(z.string()).default([]),
     official: z.object({
       website: z.url().optional(),
@@ -145,6 +146,7 @@ const products = defineCollection({
     brand: z.string(),
     parent: z.string().optional(),
     name: localizedText,
+    summary: localizedText,
     aliases: z.array(z.string()).default([]),
     status: z.enum(["announced", "preview", "available", "deprecated", "discontinued"]).optional(),
     releasedAt: z.iso.date().optional(),
@@ -272,6 +274,62 @@ const episodeImports = defineCollection({
   }),
 });
 
+const transcriptSegment = z.object({
+  type: z.enum(["text", "entity-link", "external-link", "code"]),
+  value: z.string(),
+  href: z.string().optional(),
+  entityType: z.enum(["brand", "product"]).optional(),
+  entityId: z.string().optional(),
+  marks: z.array(z.enum(["strong", "emphasis"])).optional(),
+});
+
+const transcriptImports = defineCollection({
+  loader: jsonLoader("./src/content/imported/transcripts"),
+  schema: z.object({
+    schemaVersion: z.number().int().positive(),
+    conversionVersion: z.string(),
+    episodeId: z.string(),
+    locale,
+    title: z.string(),
+    byline: z.string(),
+    notices: z.array(z.string()),
+    chapters: z.array(z.object({
+      id: z.string(),
+      title: z.string(),
+      turns: z.array(z.object({
+        kind: z.enum(["speech", "narration", "editor-note"]),
+        speaker: z.string(),
+        speakerId: z.string().nullable(),
+        candidate: z.boolean(),
+        paragraphs: z.array(z.array(transcriptSegment)),
+      })),
+    })),
+    provenance: z.object({
+      sourcePath: z.string(),
+      sourceSha256: z.string().regex(/^[0-9a-f]{64}$/),
+    }),
+    report: z.object({
+      chapters: z.number().int().positive(),
+      turns: z.number().int().positive(),
+      paragraphs: z.number().int().positive(),
+      candidateSpeakerMarkers: z.number().int().nonnegative(),
+      linkedEntities: z.array(z.object({
+        entity: z.string(),
+        chapterCount: z.number().int().positive(),
+      })),
+      ambiguousAliases: z.array(z.object({
+        alias: z.string(),
+        matches: z.array(z.string()),
+      })),
+      unknownSpeakers: z.array(z.string()),
+      unlinkedCandidates: z.array(z.object({
+        value: z.string(),
+        count: z.number().int().positive(),
+      })),
+    }),
+  }),
+});
+
 const prose = defineCollection({
   loader: markdownLoader("./src/content/prose"),
   schema: z.object({
@@ -305,5 +363,6 @@ export const collections = {
   products,
   episodes,
   episodeImports,
+  transcriptImports,
   prose,
 };

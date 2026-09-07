@@ -1,0 +1,40 @@
+---
+import { getEpisodeMentionEntities } from "../data/catalog";
+import type { Locale } from "../data/types";
+
+interface Props { episodeId: string; locale: Locale; }
+const { episodeId, locale } = Astro.props;
+const mentions = await getEpisodeMentionEntities(episodeId);
+const prefix = locale === "en" ? "/en" : "";
+const copy = locale === "en"
+  ? { kicker: "Referenced in this episode", title: "Brands and products", brand: "Brand", product: "Product" }
+  : { kicker: "本期提及", title: "品牌与产品", brand: "品牌", product: "产品" };
+const items = [
+  ...mentions.brands.map((brand) => ({ type: copy.brand, name: brand.data.name[locale], href: `${prefix}/brands/${brand.id}/` })),
+  ...mentions.products.map((product) => ({ type: copy.product, name: product.data.name[locale], href: `${prefix}/products/${product.id}/` })),
+];
+---
+
+{items.length > 0 && (
+  <section class="episode-mentions shell" aria-labelledby="episode-mentions-title">
+    <div>
+      <p class="section-kicker">02 / {copy.kicker}</p>
+      <h2 id="episode-mentions-title">{copy.title}</h2>
+    </div>
+    <div class="episode-mention-list">
+      {items.map((item) => <a href={item.href}><span>{item.type}</span><strong>{item.name}</strong><b aria-hidden="true">→</b></a>)}
+    </div>
+  </section>
+)}
+
+<style>
+  .episode-mentions { display: grid; grid-template-columns: minmax(16rem, .65fr) minmax(0, 1.35fr); gap: clamp(3rem, 8vw, 9rem); padding-block: clamp(4rem, 8vw, 8rem); border-top: 1px solid var(--ink); }
+  .episode-mentions h2 { margin: 1.25rem 0 0; font-size: clamp(2.5rem, 4.5vw, 4.5rem); }
+  .episode-mention-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
+  .episode-mention-list a { display: grid; min-height: 150px; grid-template-columns: 1fr auto; align-content: space-between; padding: 1.25rem; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+  .episode-mention-list span { font-size: .72rem; font-weight: 750; text-transform: uppercase; }
+  .episode-mention-list strong { align-self: end; font-family: var(--display); font-size: clamp(1.4rem, 2.5vw, 2.4rem); line-height: 1.1; }
+  .episode-mention-list b { grid-column: 2; grid-row: 1 / span 2; align-self: end; font-size: 1.5rem; }
+  .episode-mention-list a:hover { color: var(--paper); background: var(--ink); }
+  @media (max-width: 760px) { .episode-mentions { grid-template-columns: 1fr; gap: 2.5rem; } .episode-mention-list { grid-template-columns: 1fr; } }
+</style>

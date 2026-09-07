@@ -12,6 +12,8 @@ interface Props {
   canonicalPath?: string;
   alternatePath?: string;
   noIndex?: boolean;
+  hasLocaleAlternate?: boolean;
+  ogType?: "website" | "article";
 }
 
 const {
@@ -21,6 +23,8 @@ const {
   canonicalPath = content.path,
   alternatePath = content.locale === "en" ? "/" : "/en/",
   noIndex = false,
+  hasLocaleAlternate = true,
+  ogType = "website",
 } = Astro.props;
 const canonical = new URL(canonicalPath, Astro.site);
 const alternate = new URL(alternatePath, Astro.site);
@@ -34,22 +38,27 @@ const alternate = new URL(alternatePath, Astro.site);
     <meta name="theme-color" content="#f1eee5" />
     <meta name="description" content={description} />
     {noIndex && <meta name="robots" content="noindex" />}
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="Next Token | 词元之外" />
+    <meta property="og:locale" content={content.locale === "en" ? "en_US" : "zh_CN"} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
-    <link rel="alternate" hreflang={content.locale} href={canonical} />
-    <link rel="alternate" hreflang={content.locale === "en" ? "zh-Hans" : "en"} href={alternate} />
-    <link rel="alternate" hreflang="x-default" href={content.locale === "zh-Hans" ? canonical : alternate} />
+    {hasLocaleAlternate && <link rel="alternate" hreflang={content.locale} href={canonical} />}
+    {hasLocaleAlternate && <link rel="alternate" hreflang={content.locale === "en" ? "zh-Hans" : "en"} href={alternate} />}
+    {hasLocaleAlternate && <link rel="alternate" hreflang="x-default" href={content.locale === "zh-Hans" ? canonical : alternate} />}
     <link rel="icon" type="image/png" href="/assets/favicon.png" />
     <title>{pageTitle}</title>
   </head>
   <body>
     <a class="skip-link" href="#main">{content.skipLink}</a>
     <SiteHeader content={content} currentPath={canonicalPath} alternatePath={alternatePath} />
-    {!noIndex && <LanguageSuggestion locale={content.locale} alternatePath={alternatePath} />}
+    {!noIndex && hasLocaleAlternate && <LanguageSuggestion locale={content.locale} alternatePath={alternatePath} />}
     <slot />
     <SiteFooter locale={content.locale} />
   </body>

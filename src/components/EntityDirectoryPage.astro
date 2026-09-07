@@ -1,0 +1,230 @@
+---
+import { getBrandDirectory, getProductDirectory } from "../data/catalog";
+import type { Locale } from "../data/types";
+
+interface Props {
+  entityType: "brands" | "products";
+  locale: Locale;
+}
+
+const { entityType, locale } = Astro.props;
+const prefix = locale === "en" ? "/en" : "";
+const brandKind = {
+  "company-brand": { "zh-Hans": "公司品牌", en: "Company brand" },
+  "media-brand": { "zh-Hans": "媒体品牌", en: "Media brand" },
+  "model-brand": { "zh-Hans": "模型品牌", en: "Model brand" },
+  "product-brand": { "zh-Hans": "产品品牌", en: "Product brand" },
+  "platform-brand": { "zh-Hans": "平台品牌", en: "Platform brand" },
+  "open-source-brand": { "zh-Hans": "开源品牌", en: "Open-source brand" },
+} as const;
+const productKind = {
+  "model-family": { "zh-Hans": "模型家族", en: "Model family" },
+  model: { "zh-Hans": "模型", en: "Model" },
+  application: { "zh-Hans": "应用", en: "Application" },
+  agent: { "zh-Hans": "Agent", en: "Agent" },
+  "developer-tool": { "zh-Hans": "开发者工具", en: "Developer tool" },
+  platform: { "zh-Hans": "平台", en: "Platform" },
+  "api-service": { "zh-Hans": "API 服务", en: "API service" },
+  hardware: { "zh-Hans": "硬件", en: "Hardware" },
+  framework: { "zh-Hans": "框架", en: "Framework" },
+  "open-source-project": { "zh-Hans": "开源项目", en: "Open-source project" },
+} as const;
+
+const entries = entityType === "brands"
+  ? (await getBrandDirectory(locale)).map(({ brand, productsCount, episodesCount }) => ({
+      id: brand.id,
+      name: brand.data.name[locale],
+      kindId: brand.data.kind,
+      kind: brandKind[brand.data.kind][locale],
+      summary: brand.data.summary[locale],
+      aliases: brand.data.aliases,
+      relation: locale === "en"
+        ? `${productsCount} product${productsCount === 1 ? "" : "s"} · ${episodesCount} episode${episodesCount === 1 ? "" : "s"}`
+        : `${productsCount} 个产品 · ${episodesCount} 期节目`,
+    }))
+  : (await getProductDirectory(locale)).map(({ product, brand, episodesCount }) => ({
+      id: product.id,
+      name: product.data.name[locale],
+      kindId: product.data.kind,
+      kind: productKind[product.data.kind][locale],
+      summary: product.data.summary[locale],
+      aliases: product.data.aliases,
+      relation: locale === "en"
+        ? `${brand.data.name.en} · ${episodesCount} episode${episodesCount === 1 ? "" : "s"}`
+        : `${brand.data.name["zh-Hans"]} · ${episodesCount} 期节目`,
+    }));
+
+const copy = locale === "en"
+  ? {
+      eyebrow: "Next Token / AI reference library",
+      title: entityType === "brands" ? "Brands" : "Products",
+      lede: entityType === "brands"
+        ? "The organizations, model families, platforms, and product brands that appear in Next Token conversations."
+        : "Models, agents, applications, and tools referenced across Next Token episodes.",
+      count: `${entries.length} ${entityType}`,
+      brands: "Brands",
+      products: "Products",
+      aliases: "Also known as",
+      open: entityType === "brands" ? "Brand profile" : "Product profile",
+      filterLabel: entityType === "brands" ? "Brand type" : "Product type",
+      all: "All",
+    }
+  : {
+      eyebrow: "Next Token / AI 资料库",
+      title: entityType === "brands" ? "品牌库" : "产品库",
+      lede: entityType === "brands"
+        ? "整理 Next Token 对话中出现的公司、模型、平台与产品品牌。"
+        : "整理节目中提到的模型、Agent、应用与开发工具。",
+      count: `${entries.length} 个${entityType === "brands" ? "品牌" : "产品"}`,
+      brands: "品牌",
+      products: "产品",
+      aliases: "别名",
+      open: entityType === "brands" ? "品牌详情" : "产品详情",
+      filterLabel: entityType === "brands" ? "品牌类型" : "产品类型",
+      all: "全部",
+    };
+
+const filterOptions = entityType === "brands"
+  ? (Object.keys(brandKind) as Array<keyof typeof brandKind>)
+      .map((id) => ({ id, label: brandKind[id][locale], count: entries.filter((entry) => entry.kindId === id).length }))
+      .filter(({ count }) => count > 0)
+  : (Object.keys(productKind) as Array<keyof typeof productKind>)
+      .map((id) => ({ id, label: productKind[id][locale], count: entries.filter((entry) => entry.kindId === id).length }))
+      .filter(({ count }) => count > 0);
+---
+
+<main id="main" class="entity-index-page">
+  <section class="entity-index-hero shell" aria-labelledby="entity-index-title">
+    <p class="eyebrow">{copy.eyebrow}</p>
+    <div>
+      <h1 id="entity-index-title">{copy.title}</h1>
+      <div class="entity-index-intro">
+        <p>{copy.lede}</p>
+        <strong>{copy.count}</strong>
+      </div>
+    </div>
+  </section>
+
+  <nav class="entity-library-switch shell" aria-label={locale === "en" ? "AI reference library" : "AI 资料库"}>
+    <a href={`${prefix}/brands/`} aria-current={entityType === "brands" ? "page" : undefined}>{copy.brands}</a>
+    <a href={`${prefix}/products/`} aria-current={entityType === "products" ? "page" : undefined}>{copy.products}</a>
+  </nav>
+
+  <div class="entity-secondary-filters shell" data-entity-filters>
+    <p>{copy.filterLabel}</p>
+    <div role="group" aria-label={copy.filterLabel}>
+      <button type="button" data-entity-filter="all" aria-pressed="true" aria-controls="entity-directory-list">
+        <span>{copy.all}</span><strong>{entries.length}</strong>
+      </button>
+      {filterOptions.map((option) => (
+        <button type="button" data-entity-filter={option.id} aria-pressed="false" aria-controls="entity-directory-list">
+          <span>{option.label}</span><strong>{option.count}</strong>
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <section id="entity-directory-list" class="entity-directory shell" aria-label={copy.title} aria-live="polite">
+    {entries.map((entry, index) => (
+      <a class="entity-directory-row" href={`${prefix}/${entityType}/${entry.id}/`} data-entity-kind={entry.kindId}>
+        <span class="entity-directory-index">{String(index + 1).padStart(2, "0")}</span>
+        <div class="entity-directory-identity">
+          <span>{entry.kind}</span>
+          <h2>{entry.name}</h2>
+          {entry.aliases.length > 0 && <p><span>{copy.aliases}</span>{entry.aliases.join(" · ")}</p>}
+        </div>
+        <p class="entity-directory-summary">{entry.summary}</p>
+        <span class="entity-directory-relation">{entry.relation}</span>
+        <span class="entity-directory-open"><span>{copy.open}</span><b aria-hidden="true">→</b></span>
+      </a>
+    ))}
+  </section>
+</main>
+
+<script>
+  const filterRoot = document.querySelector<HTMLElement>("[data-entity-filters]");
+  const rows = [...document.querySelectorAll<HTMLElement>("[data-entity-kind]")];
+  const buttons = filterRoot ? [...filterRoot.querySelectorAll<HTMLButtonElement>("[data-entity-filter]")] : [];
+  const validFilters = new Set(buttons.map((button) => button.dataset.entityFilter));
+
+  function setFilter(requestedFilter: string | null, updateUrl = false) {
+    const filter = requestedFilter && validFilters.has(requestedFilter) ? requestedFilter : "all";
+    buttons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.entityFilter === filter)));
+    rows.forEach((row) => { row.hidden = filter !== "all" && row.dataset.entityKind !== filter; });
+
+    if (updateUrl) {
+      const url = new URL(window.location.href);
+      if (filter === "all") url.searchParams.delete("type");
+      else url.searchParams.set("type", filter);
+      window.history.pushState({}, "", `${url.pathname}${url.search}${url.hash}`);
+    }
+  }
+
+  buttons.forEach((button) => button.addEventListener("click", () => setFilter(button.dataset.entityFilter ?? "all", true)));
+  window.addEventListener("popstate", () => setFilter(new URLSearchParams(window.location.search).get("type")));
+  setFilter(new URLSearchParams(window.location.search).get("type"));
+</script>
+
+<style>
+  .entity-index-hero { padding-block: clamp(4rem, 8vw, 8rem); border-bottom: 1px solid var(--ink); }
+  .entity-index-hero > .eyebrow { margin-bottom: clamp(2rem, 5vw, 5rem); }
+  .entity-index-hero > div { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(18rem, .75fr); gap: clamp(3rem, 8vw, 9rem); align-items: end; }
+  .entity-index-hero h1 { margin: 0; font-size: clamp(4.5rem, 9vw, 8rem); }
+  .entity-index-intro { padding-bottom: .75rem; }
+  .entity-index-intro p { max-width: 36rem; margin: 0 0 2rem; color: var(--muted); font-size: clamp(1.05rem, 1.5vw, 1.35rem); line-height: 1.7; }
+  .entity-index-intro strong { font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; }
+  .entity-library-switch { display: grid; grid-template-columns: repeat(2, 1fr); padding-block: 2rem; }
+  .entity-library-switch a { padding: 1rem 1.25rem; border: 1px solid var(--ink); font-family: var(--display); font-size: clamp(1.3rem, 2.4vw, 2rem); text-align: center; }
+  .entity-library-switch a + a { border-left: 0; }
+  .entity-library-switch a[aria-current="page"] { color: var(--paper); background: var(--ink); }
+  .entity-secondary-filters { display: grid; grid-template-columns: minmax(9rem, .25fr) minmax(0, 1.75fr); gap: 2rem; align-items: start; padding-block: 1rem 2.5rem; }
+  .entity-secondary-filters > p { margin: .85rem 0 0; color: var(--muted); font-size: .875rem; font-weight: 750; }
+  .entity-secondary-filters > div { display: flex; flex-wrap: wrap; gap: .65rem; }
+  .entity-secondary-filters button { display: inline-flex; min-height: 44px; align-items: center; gap: 1.5rem; padding: .65rem .85rem; border: 1px solid var(--ink); color: var(--ink); background: transparent; font: inherit; font-size: .875rem; font-weight: 750; cursor: pointer; }
+  .entity-secondary-filters button strong { color: var(--muted); font-size: .75rem; }
+  .entity-secondary-filters button:hover { color: var(--paper); background: var(--ink); }
+  .entity-secondary-filters button:hover strong { color: rgba(255,255,255,.65); }
+  .entity-secondary-filters button[aria-pressed="true"] { color: var(--ink); border-color: var(--signal); background: var(--signal); }
+  .entity-secondary-filters button[aria-pressed="true"] strong { color: var(--ink); }
+  .entity-directory { padding-bottom: clamp(5rem, 10vw, 10rem); }
+  .entity-directory-row { display: grid; grid-template-columns: 5rem minmax(14rem, .9fr) minmax(18rem, 1.25fr) minmax(10rem, .55fr) 5rem; min-height: 220px; border: 1px solid var(--ink); border-bottom: 0; transition: color 180ms ease, background 180ms ease; }
+  .entity-directory-row[hidden] { display: none; }
+  .entity-directory-row:last-child { border-bottom: 1px solid var(--ink); }
+  .entity-directory-row:hover { color: var(--paper); background: var(--ink); }
+  .entity-directory-row > * { padding: 1.5rem; }
+  .entity-directory-row > * + * { border-left: 1px solid var(--ink); }
+  .entity-directory-row:hover > * + * { border-color: rgba(255,255,255,.32); }
+  .entity-directory-index { font-weight: 800; }
+  .entity-directory-identity > span { display: block; margin-bottom: 2.5rem; font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+  .entity-directory-identity h2 { margin: 0; font-size: clamp(1.8rem, 3vw, 3rem); line-height: var(--section-heading-leading); }
+  .entity-directory-identity p { margin: 1rem 0 0; color: var(--muted); font-size: .82rem; line-height: 1.5; }
+  .entity-directory-row:hover .entity-directory-identity p { color: rgba(255,255,255,.7); }
+  .entity-directory-identity p > span { display: block; font-size: .68rem; font-weight: 800; text-transform: uppercase; }
+  .entity-directory-summary { margin: 0; color: var(--muted); line-height: 1.75; }
+  .entity-directory-row:hover .entity-directory-summary { color: rgba(255,255,255,.75); }
+  .entity-directory-relation { align-self: stretch; font-size: .82rem; font-weight: 700; }
+  .entity-directory-open { display: flex; flex-direction: column; justify-content: space-between; background: var(--ink); color: var(--paper); }
+  .entity-directory-open > span { font-size: .72rem; font-weight: 800; }
+  .entity-directory-open b { align-self: end; font-size: 2rem; }
+  .entity-directory-row:hover .entity-directory-open { color: var(--ink); background: var(--signal); }
+  @media (max-width: 1050px) {
+    .entity-directory-row { grid-template-columns: 4rem minmax(13rem, .8fr) minmax(0, 1.2fr) 4rem; }
+    .entity-directory-relation { display: none; }
+  }
+  @media (max-width: 720px) {
+    .entity-index-hero > div { grid-template-columns: 1fr; gap: 2rem; }
+    .entity-index-hero h1 { font-size: clamp(3.5rem, 19vw, 5rem); }
+    .entity-library-switch { padding-block: 1.25rem; }
+    .entity-secondary-filters { grid-template-columns: 1fr; gap: .9rem; padding-bottom: 1.5rem; }
+    .entity-secondary-filters > p { margin: 0; }
+    .entity-secondary-filters > div { flex-wrap: nowrap; overflow-x: auto; padding-bottom: .35rem; scrollbar-width: thin; }
+    .entity-secondary-filters button { flex: 0 0 auto; }
+    .entity-directory-row { grid-template-columns: 3.5rem minmax(0, 1fr) 3.5rem; min-height: 0; }
+    .entity-directory-row > * { padding: 1.1rem; }
+    .entity-directory-identity { grid-column: 2; }
+    .entity-directory-summary { grid-column: 1 / -1; border-top: 1px solid var(--ink); border-left: 0 !important; }
+    .entity-directory-open { grid-column: 3; grid-row: 1; }
+    .entity-directory-open > span { display: none; }
+    .entity-directory-open b { margin: auto; }
+  }
+</style>

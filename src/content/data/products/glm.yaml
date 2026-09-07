@@ -3,6 +3,9 @@ brand: zhipu
 name:
   zh-Hans: GLM
   en: GLM
+summary:
+  zh-Hans: 智谱的通用语言与多模态模型家族，为对话、推理、代码、工具调用和 Agent 等任务提供基础能力。
+  en: Zhipu AI's language and multimodal model family, providing foundation capabilities for conversation, reasoning, coding, tool use, and agentic tasks.
 aliases:
   - General Language Model
-lastVerifiedAt: "2026-09-06"
+lastVerifiedAt: "2026-09-07"

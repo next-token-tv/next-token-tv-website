@@ -1,8 +1,9 @@
 ---
 import { render } from "astro:content";
 import ConditionalImagePan from "./ConditionalImagePan.astro";
+import EpisodeMentions from "./EpisodeMentions.astro";
 import PlatformBrand from "./PlatformBrand.astro";
-import { getEpisodeShowNotes, getPeopleByIds, getPublishedEpisode } from "../data/catalog";
+import { getEpisodeShowNotes, getEpisodeTranscriptOrNull, getPeopleByIds, getPublishedEpisode } from "../data/catalog";
 import { partnerPath, resolveVenueId } from "../data/partners";
 import type { Locale } from "../data/types";
 
@@ -12,9 +13,10 @@ interface Props {
 }
 
 const { episodeId, locale } = Astro.props;
-const [episode, showNotes] = await Promise.all([
+const [episode, showNotes, transcript] = await Promise.all([
   getPublishedEpisode(episodeId),
   getEpisodeShowNotes(episodeId, locale),
+  getEpisodeTranscriptOrNull(episodeId, locale),
 ]);
 const [{ partner, venue }, participants] = await Promise.all([
   resolveVenueId(episode.data.recordingVenue),
@@ -44,15 +46,16 @@ const labels = locale === "en" ? {
   window: "Editorial window",
   windowValue,
   showNotes: "01 / Show notes",
-  participants: "02 / This episode",
+  participants: "03 / This episode",
   participantsHeading: "The voices at this table.",
   dutyHost: "Duty host",
   coHost: "Co-host",
   guest: "Guest",
   venueProfile: "View venue partner",
-  platforms: "03 / Listen & watch",
+  platforms: "04 / Listen & watch",
   platformsHeading: "Choose your way in.",
   comingSoon: "Coming soon",
+  transcript: "Read the transcript",
 } : {
   back: "返回 Next Token Weekly",
   published: `第 ${episode.data.number} 期 · 现已上线`,
@@ -61,15 +64,16 @@ const labels = locale === "en" ? {
   window: "新闻窗口",
   windowValue,
   showNotes: "01 / Show Notes",
-  participants: "02 / 本期人物",
+  participants: "03 / 本期人物",
   participantsHeading: "本期参与者，一张圆桌。",
   dutyHost: "本期当值",
   coHost: "联合主理人",
   guest: "嘉宾",
   venueProfile: "查看场地伙伴",
-  platforms: "03 / 收听与收看",
+  platforms: "04 / 收听与收看",
   platformsHeading: "选择你的收看方式。",
   comingSoon: "即将开放",
+  transcript: "阅读完整文字稿",
 };
 ---
 
@@ -104,6 +108,11 @@ const labels = locale === "en" ? {
             </a>
           ))}
         </div>
+        {transcript && (
+          <a class="episode-transcript-cta" href={`${weeklyPath}${episode.data.number}/transcript/`}>
+            {labels.transcript} <span aria-hidden="true">→</span>
+          </a>
+        )}
       </div>
     </div>
   </section>
@@ -131,6 +140,8 @@ const labels = locale === "en" ? {
       <Content />
     </article>
   </section>
+
+  <EpisodeMentions episodeId={episodeId} locale={locale} />
 
   <section class="episode-detail-participants shell">
     <div class="episode-detail-heading">

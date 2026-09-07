@@ -39,6 +39,7 @@ export type SiteContent = {
   navigation: {
     about: string;
     weekly: string;
+    library: string;
     hosts: string;
     partners: string;
     subscribe: string;
@@ -104,6 +105,7 @@ const siteContentBase: Record<Locale, SiteContentBase> = {
     navigation: {
       about: "关于品牌",
       weekly: "Next Token Weekly",
+      library: "资料库",
       hosts: "联合主理人",
       partners: "合作伙伴",
       subscribe: "订阅",
@@ -161,6 +163,7 @@ const siteContentBase: Record<Locale, SiteContentBase> = {
     navigation: {
       about: "About",
       weekly: "Next Token Weekly",
+      library: "Library",
       hosts: "Co-hosts",
       partners: "Partners",
       subscribe: "Follow",

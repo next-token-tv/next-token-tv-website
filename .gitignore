@@ -3,5 +3,7 @@ dist/
 .wrangler/
 .astro/
 node_modules/
+playwright-report/
+test-results/
 .env*
 !.env.example

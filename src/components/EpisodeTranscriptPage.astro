@@ -1,0 +1,123 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getPeopleByIds } from "../data/catalog";
+import type { Locale } from "../data/types";
+import TranscriptSegments from "./TranscriptSegments.astro";
+
+interface Props {
+  transcript: CollectionEntry<"transcriptImports">;
+  episodeNumber: string;
+  locale: Locale;
+}
+
+const { transcript, episodeNumber, locale } = Astro.props;
+const speakerIds = [...new Set(
+  transcript.data.chapters.flatMap(({ turns }) => turns.map(({ speakerId }) => speakerId).filter(Boolean)),
+)] as string[];
+const people = await getPeopleByIds(speakerIds);
+const peopleById = new Map(people.map((person) => [person.id, person]));
+const [seriesTitle, ...topicParts] = transcript.data.title.split("｜");
+const topicTitle = topicParts.join("｜");
+const episodePath = `${locale === "en" ? "/en" : ""}/weekly/${episodeNumber}/`;
+const copy = locale === "en" ? {
+  back: "Back to episode",
+  kicker: `Weekly #${episodeNumber} / Transcript`,
+  contents: "Contents",
+  chapters: "chapters",
+  read: "Full transcript",
+  note: "A † next to a name means the speaker attribution is still being verified.",
+  candidate: "speaker attribution pending verification",
+} : {
+  back: "返回本期节目",
+  kicker: `Weekly #${episodeNumber} / 阅读文字稿`,
+  contents: "本期目录",
+  chapters: "个章节",
+  read: "完整文字稿",
+  note: "姓名旁的 † 表示该处人物署名仍待核对。",
+  candidate: "人物署名仍待核对",
+};
+---
+
+<main id="main" class="transcript-page">
+  <header class="transcript-hero shell">
+    <a class="transcript-back" href={episodePath}>← {copy.back}</a>
+    <div class="transcript-hero-grid">
+      <div>
+        <p class="section-kicker">{copy.kicker}</p>
+        <h1 aria-label={transcript.data.title}>
+          <span>{seriesTitle}</span>
+          {topicTitle && <span>{topicTitle}</span>}
+        </h1>
+      </div>
+      <div class="transcript-hero-meta">
+        <strong>{copy.read}</strong>
+        <span>{String(transcript.data.report.chapters).padStart(2, "0")} {copy.chapters}</span>
+        <p>{transcript.data.byline}</p>
+        {transcript.data.notices.map((notice) => <p class="transcript-notice">{notice}</p>)}
+      </div>
+    </div>
+  </header>
+
+  <div class="transcript-layout shell">
+    <aside class="transcript-sidebar">
+      <details class="transcript-toc">
+        <summary>{copy.contents} · {transcript.data.report.chapters}</summary>
+        <ol>
+          {transcript.data.chapters.map((chapter, index) => (
+            <li>
+              <a href={`#${chapter.id}`}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                {chapter.title}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </details>
+      <p class="transcript-candidate-note"><span aria-hidden="true">†</span> {copy.note}</p>
+    </aside>
+
+    <article class="transcript-body" aria-label={copy.read}>
+      {transcript.data.chapters.map((chapter, chapterIndex) => (
+        <section class="transcript-chapter" id={chapter.id}>
+          <header>
+            <span>{String(chapterIndex + 1).padStart(2, "0")}</span>
+            <h2>{chapter.title}</h2>
+          </header>
+
+          <div class="transcript-turns">
+            {chapter.turns.map((turn) => {
+              const person = turn.speakerId ? peopleById.get(turn.speakerId) : undefined;
+              return (
+                <div class:list={["transcript-turn", `is-${turn.kind}`]} data-speaker={turn.speakerId ?? undefined}>
+                  <div class="transcript-speaker">
+                    {person ? (
+                      <a href={`/people/${person.id}/`} aria-label={`查看${turn.speaker}的个人页面`}>
+                        <img
+                          src={person.data.photo}
+                          width="28"
+                          height="28"
+                          loading="lazy"
+                          decoding="async"
+                          alt=""
+                        />
+                      </a>
+                    ) : <span class="transcript-speaker-mark" aria-hidden="true"></span>}
+                    <strong>{turn.speaker}</strong>
+                    {turn.candidate && (
+                      <span class="transcript-candidate" title={copy.candidate} aria-label={copy.candidate}>†</span>
+                    )}
+                  </div>
+                  <div class="transcript-paragraphs">
+                    {turn.paragraphs.map((paragraph) => (
+                      <p><TranscriptSegments segments={paragraph} /></p>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      ))}
+    </article>
+  </div>
+</main>

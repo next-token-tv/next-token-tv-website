@@ -1,0 +1,21 @@
+{
+  "locale": "zh-Hans",
+  "resolutions": {
+    "Qwen": {
+      "entityType": "product",
+      "id": "qwen"
+    },
+    "通义千问": {
+      "entityType": "product",
+      "id": "qwen"
+    },
+    "千问": {
+      "entityType": "product",
+      "id": "qwen"
+    },
+    "WorkBuddy": {
+      "entityType": "product",
+      "id": "workbuddy"
+    }
+  }
+}

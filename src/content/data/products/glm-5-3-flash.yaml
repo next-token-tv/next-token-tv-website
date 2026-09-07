@@ -4,9 +4,13 @@ parent: glm
 name:
   zh-Hans: GLM-5.3 Flash
   en: GLM-5.3 Flash
+summary:
+  zh-Hans: GLM-5 家族首个原生多模态模型，以较少激活参数面向复杂任务、Agent 工作流、视觉理解和专业工作，并开放模型权重。
+  en: The first natively multimodal model in the GLM-5 family, designed for complex tasks, agentic workflows, visual understanding, and professional work with fewer active parameters and open weights.
 aliases:
   - GLM 5.3 Flash
 status: available
+releasedAt: "2026-09-07"
 official:
   website: https://autoclaw.z.ai/blog/model/glm-5.3-flash/
-lastVerifiedAt: "2026-09-06"
+lastVerifiedAt: "2026-09-07"

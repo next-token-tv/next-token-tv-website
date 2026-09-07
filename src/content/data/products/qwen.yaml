@@ -3,10 +3,13 @@ brand: qwen
 name:
   zh-Hans: Qwen
   en: Qwen
+summary:
+  zh-Hans: Qwen 的基础模型家族，覆盖语言、视觉及其他模态，通过开放权重和 API 支持聊天、创作、翻译、总结、代码与多模态理解等场景。
+  en: Qwen's foundation-model family across language, vision, and other modalities, available through open weights and APIs for chat, creation, translation, summarization, coding, and multimodal understanding.
 aliases:
   - 通义千问
   - 千问
 status: available
 official:
   website: https://qwen.ai/
-lastVerifiedAt: "2026-09-06"
+lastVerifiedAt: "2026-09-07"

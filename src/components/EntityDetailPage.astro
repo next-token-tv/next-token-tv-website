@@ -1,0 +1,221 @@
+---
+import { getBrandProfile, getProductProfile } from "../data/catalog";
+import type { Locale } from "../data/types";
+import RelatedEpisodes from "./RelatedEpisodes.astro";
+
+interface Props {
+  entityType: "brand" | "product";
+  entityId: string;
+  locale: Locale;
+}
+
+const { entityType, entityId, locale } = Astro.props;
+const prefix = locale === "en" ? "/en" : "";
+const brandKind = {
+  "company-brand": { "zh-Hans": "公司品牌", en: "Company brand" },
+  "media-brand": { "zh-Hans": "媒体品牌", en: "Media brand" },
+  "model-brand": { "zh-Hans": "模型品牌", en: "Model brand" },
+  "product-brand": { "zh-Hans": "产品品牌", en: "Product brand" },
+  "platform-brand": { "zh-Hans": "平台品牌", en: "Platform brand" },
+  "open-source-brand": { "zh-Hans": "开源品牌", en: "Open-source brand" },
+} as const;
+const productKind = {
+  "model-family": { "zh-Hans": "模型家族", en: "Model family" }, model: { "zh-Hans": "模型", en: "Model" },
+  application: { "zh-Hans": "应用", en: "Application" }, agent: { "zh-Hans": "Agent", en: "Agent" },
+  "developer-tool": { "zh-Hans": "开发者工具", en: "Developer tool" }, platform: { "zh-Hans": "平台", en: "Platform" },
+  "api-service": { "zh-Hans": "API 服务", en: "API service" }, hardware: { "zh-Hans": "硬件", en: "Hardware" },
+  framework: { "zh-Hans": "框架", en: "Framework" }, "open-source-project": { "zh-Hans": "开源项目", en: "Open-source project" },
+} as const;
+const statusLabels = {
+  announced: { "zh-Hans": "已公布", en: "Announced" }, preview: { "zh-Hans": "预览", en: "Preview" },
+  available: { "zh-Hans": "可用", en: "Available" }, deprecated: { "zh-Hans": "已弃用", en: "Deprecated" },
+  discontinued: { "zh-Hans": "已停止", en: "Discontinued" },
+} as const;
+
+const copy = locale === "en"
+  ? {
+      back: entityType === "brand" ? "All brands" : "All products", library: "AI reference library",
+      aliases: "Also known as", facts: "At a glance", type: "Type", products: "Products", episodes: "Episodes",
+      brand: "Brand", status: "Status", released: "Released", verified: "Last verified", official: "Official links",
+      website: "Website", documentation: "Documentation", repository: "Repository", connections: "Related products",
+      verification: "Information last verified",
+    }
+  : {
+      back: entityType === "brand" ? "全部品牌" : "全部产品", library: "AI 资料库",
+      aliases: "别名", facts: "基本信息", type: "类型", products: "旗下产品", episodes: "相关节目",
+      brand: "所属品牌", status: "状态", released: "发布日期", verified: "最近核验", official: "官方链接",
+      website: "官方网站", documentation: "开发文档", repository: "代码仓库", connections: "相关产品",
+      verification: "资料最近核验于",
+    };
+
+let entity;
+let kind;
+let official;
+let verified;
+let facts: Array<{ label: string; value: string; href?: string }> = [];
+let connections: Array<{ name: string; kind: string; href: string }> = [];
+let episodes;
+let schema;
+
+if (entityType === "brand") {
+  const profile = await getBrandProfile(entityId);
+  entity = profile.brand;
+  kind = brandKind[profile.brand.data.kind][locale];
+  official = profile.brand.data.official;
+  verified = profile.brand.data.lastVerifiedAt;
+  episodes = profile.episodes;
+  facts = [
+    { label: copy.type, value: kind },
+    { label: copy.products, value: String(profile.products.length) },
+    { label: copy.episodes, value: String(profile.episodes.length) },
+  ];
+  connections = profile.products.map((product) => ({
+    name: product.data.name[locale], kind: productKind[product.data.kind][locale], href: `${prefix}/products/${product.id}/`,
+  }));
+  schema = {
+    "@context": "https://schema.org",
+    "@type": ["company-brand", "media-brand"].includes(profile.brand.data.kind) ? "Organization" : "Brand",
+    name: profile.brand.data.name[locale], alternateName: profile.brand.data.aliases,
+    description: profile.brand.data.summary[locale], url: official?.website,
+  };
+} else {
+  const profile = await getProductProfile(entityId);
+  entity = profile.product;
+  kind = productKind[profile.product.data.kind][locale];
+  official = profile.product.data.official;
+  verified = profile.product.data.lastVerifiedAt;
+  episodes = profile.episodes;
+  facts = [
+    { label: copy.type, value: kind },
+    { label: copy.brand, value: profile.brand.data.name[locale], href: `${prefix}/brands/${profile.brand.id}/` },
+    ...(profile.product.data.status ? [{ label: copy.status, value: statusLabels[profile.product.data.status][locale] }] : []),
+    ...(profile.product.data.releasedAt ? [{
+      label: copy.released,
+      value: new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-Hans", { dateStyle: "long", timeZone: "UTC" })
+        .format(new Date(`${profile.product.data.releasedAt}T12:00:00Z`)),
+    }] : []),
+  ];
+  connections = [
+    ...(profile.parent ? [{ name: profile.parent.data.name[locale], kind: productKind[profile.parent.data.kind][locale], href: `${prefix}/products/${profile.parent.id}/` }] : []),
+    ...profile.children.map((product) => ({ name: product.data.name[locale], kind: productKind[product.data.kind][locale], href: `${prefix}/products/${product.id}/` })),
+  ];
+  schema = {
+    "@context": "https://schema.org", "@type": "Product", name: profile.product.data.name[locale],
+    alternateName: profile.product.data.aliases, description: profile.product.data.summary[locale], url: official?.website,
+    brand: { "@type": "Brand", name: profile.brand.data.name[locale] },
+    releaseDate: profile.product.data.releasedAt,
+  };
+}
+
+const officialLinks = official ? [
+  official.website && { label: copy.website, href: official.website },
+  official.documentation && { label: copy.documentation, href: official.documentation },
+  official.repository && { label: copy.repository, href: official.repository },
+].filter(Boolean) as Array<{ label: string; href: string }> : [];
+const verifiedValue = verified
+  ? new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-Hans", {
+      year: "numeric", month: "long", day: "numeric", timeZone: "UTC",
+    }).format(new Date(`${verified}T12:00:00Z`))
+  : undefined;
+const posterWord = entityType === "brand" ? "BRAND" : "PRODUCT";
+---
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+<main id="main" class="entity-detail-page">
+  <div class="entity-detail-back shell">
+    <a href={`${prefix}/${entityType === "brand" ? "brands" : "products"}/`}><span aria-hidden="true">←</span>{copy.back}</a>
+  </div>
+
+  <section class="entity-detail-hero shell" aria-labelledby="entity-name">
+    <div class="entity-detail-poster">
+      <p class="eyebrow">Next Token / {copy.library}</p>
+      <strong aria-hidden="true">{posterWord}</strong>
+      <span><small>{copy.type}</small>{kind}</span>
+    </div>
+    <div class="entity-detail-copy">
+      <h1 id="entity-name">{entity.data.name[locale]}</h1>
+      <p class="entity-detail-summary">{entity.data.summary[locale]}</p>
+      {entity.data.aliases.length > 0 && <p class="entity-detail-aliases"><span>{copy.aliases}</span>{entity.data.aliases.join(" · ")}</p>}
+    </div>
+  </section>
+
+  <section class="entity-detail-facts shell" aria-labelledby="entity-facts-title">
+    <div>
+      <p class="section-kicker">01 / {copy.facts}</p>
+      <h2 id="entity-facts-title">{copy.facts}</h2>
+    </div>
+    <dl>
+      {facts.map((fact) => <div><dt>{fact.label}</dt><dd>{fact.href ? <a href={fact.href}>{fact.value} →</a> : fact.value}</dd></div>)}
+    </dl>
+  </section>
+
+  {(connections.length > 0 || officialLinks.length > 0 || verifiedValue) && (
+    <section class="entity-detail-links shell" aria-labelledby="entity-links-title">
+      <div>
+        <p class="section-kicker">02 / {connections.length > 0 ? copy.connections : copy.official}</p>
+        <h2 id="entity-links-title">{connections.length > 0 ? copy.connections : copy.official}</h2>
+      </div>
+      <div class="entity-detail-links-content">
+        {connections.length > 0 && <div class="entity-connection-list">
+          {connections.map((item) => <a class="entity-connection" href={item.href}><span>{item.kind}</span><strong>{item.name}</strong><b aria-hidden="true">→</b></a>)}
+        </div>}
+        {officialLinks.length > 0 && <div class="entity-official-block">
+          <p>{copy.official}</p>
+          <div class="entity-official-links" aria-label={copy.official}>
+            {officialLinks.map((item) => <a href={item.href} target="_blank" rel="noopener noreferrer"><span>{item.label}</span><b aria-hidden="true">↗</b></a>)}
+          </div>
+        </div>}
+        {verifiedValue && <p class="entity-verification">{copy.verification} {verifiedValue}</p>}
+      </div>
+    </section>
+  )}
+
+  <RelatedEpisodes episodes={episodes} locale={locale} />
+</main>
+
+<style>
+  .entity-detail-back { padding-block: 1.5rem; border-bottom: 1px solid var(--ink); }
+  .entity-detail-back a { display: inline-flex; align-items: center; gap: .75rem; font-weight: 750; }
+  .entity-detail-hero { display: grid; grid-template-columns: minmax(18rem, .58fr) minmax(0, 1.42fr); gap: clamp(3rem, 7vw, 8rem); min-height: clamp(560px, calc(100svh - 126px), 680px); align-items: stretch; }
+  .entity-detail-poster { display: flex; min-height: 100%; flex-direction: column; justify-content: space-between; padding: clamp(2rem, 4vw, 3.5rem); color: var(--paper); background: var(--ink); overflow: hidden; }
+  .entity-detail-poster .eyebrow { gap: .6rem; margin: 0; font-size: .68rem; letter-spacing: .1em; white-space: nowrap; }
+  .entity-detail-poster .eyebrow::before { width: 1.75rem; flex: 0 0 auto; }
+  .entity-detail-poster strong { align-self: center; color: var(--signal); font-family: var(--display); font-size: clamp(4.2rem, 8vh, 6.4rem); line-height: .82; letter-spacing: var(--display-tracking); writing-mode: vertical-rl; transform: rotate(180deg); }
+  .entity-detail-poster > span { font-family: var(--display); font-size: clamp(1.65rem, 2.5vw, 2.7rem); line-height: 1.1; }
+  .entity-detail-poster small { display: block; margin-bottom: .55rem; color: rgba(255,255,255,.58); font-family: var(--sans); font-size: .72rem; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
+  .entity-detail-copy { align-self: center; padding-block: clamp(3rem, 7vw, 7rem); }
+  .entity-detail-copy h1 { max-width: 62rem; margin: 0 0 2.5rem; font-size: clamp(4rem, 8vw, 8rem); line-height: 1; overflow-wrap: anywhere; }
+  .entity-detail-summary { max-width: 54rem; margin: 0; color: var(--muted); font-size: clamp(1.3rem, 2.3vw, 2rem); line-height: 1.6; }
+  .entity-detail-aliases { margin: 2.5rem 0 0; color: var(--muted); }
+  .entity-detail-aliases span { display: block; margin-bottom: .35rem; color: var(--ink); font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+  .entity-detail-facts, .entity-detail-links { display: grid; grid-template-columns: minmax(16rem, .65fr) minmax(0, 1.35fr); gap: clamp(3rem, 8vw, 9rem); padding-block: clamp(5rem, 9vw, 9rem); border-top: 1px solid var(--ink); }
+  .entity-detail-facts h2, .entity-detail-links h2 { margin: 1.5rem 0 0; font-size: clamp(2.5rem, 4.5vw, 4.5rem); }
+  .entity-detail-facts dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); margin: 0; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
+  .entity-detail-facts dl > div { min-height: 150px; padding: 1.5rem; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+  .entity-detail-facts dt { margin-bottom: 2.5rem; color: var(--muted); font-size: .75rem; font-weight: 700; }
+  .entity-detail-facts dd { margin: 0; font-family: var(--display); font-size: clamp(1.3rem, 2vw, 2rem); line-height: 1.15; }
+  .entity-detail-links-content { min-width: 0; }
+  .entity-connection-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
+  .entity-connection { display: grid; min-height: 160px; grid-template-columns: minmax(0, 1fr) 2rem; gap: 1rem; align-content: space-between; padding: 1.5rem; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+  .entity-connection span { color: var(--muted); font-size: .78rem; }
+  .entity-connection strong { align-self: end; font-size: clamp(1.3rem, 2.3vw, 2rem); }
+  .entity-connection b { grid-column: 2; grid-row: 1 / span 2; align-self: end; font-size: 1.5rem; text-align: right; }
+  .entity-connection:hover { color: var(--paper); background: var(--ink); }
+  .entity-connection:hover span { color: rgba(255,255,255,.62); }
+  .entity-official-block { margin-top: 2.5rem; }
+  .entity-official-block > p { margin: 0 0 .8rem; color: var(--muted); font-size: .75rem; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+  .entity-official-links { display: flex; flex-wrap: wrap; gap: .75rem; }
+  .entity-official-links a { display: inline-flex; gap: 1.5rem; padding: .9rem 1.15rem; border: 1px solid var(--ink); font-weight: 750; }
+  .entity-official-links a:hover { color: var(--paper); background: var(--ink); }
+  .entity-verification { margin: 2rem 0 0; padding-top: 1rem; border-top: 1px solid rgba(17,17,17,.25); color: var(--muted); font-size: .75rem; line-height: 1.5; }
+  @media (max-width: 760px) {
+    .entity-detail-hero { grid-template-columns: 1fr; min-height: 0; gap: 3rem; }
+    .entity-detail-poster { min-height: 220px; }
+    .entity-detail-poster .eyebrow { white-space: normal; }
+    .entity-detail-poster strong { align-self: flex-start; font-size: clamp(3.6rem, 18vw, 5rem); writing-mode: horizontal-tb; transform: none; }
+    .entity-detail-copy h1 { font-size: clamp(3.4rem, 18vw, 5.5rem); }
+    .entity-detail-facts, .entity-detail-links { grid-template-columns: 1fr; gap: 2.5rem; }
+    .entity-detail-facts dl { grid-template-columns: 1fr; }
+  }
+</style>

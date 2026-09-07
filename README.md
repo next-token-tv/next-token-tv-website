@@ -5,12 +5,14 @@
 - 中文：<https://nexttoken.tv/>
 - English: <https://nexttoken.tv/en/>
 - 场地合作伙伴：<https://nexttoken.tv/partners/>
+- 品牌库：<https://nexttoken.tv/brands/>
+- 产品库：<https://nexttoken.tv/products/>
 
 各语言 URL 始终直接展示对应内容，不按浏览器语言自动跳转。全站在语言偏好与当前页面不一致时提供双向切换提示：中文页显示 “Switch to English”，英文页显示“切换到中文”。手动选择优先于浏览器语言；继续浏览当前语言也会保存为偏好。切换保留对应页面路径、查询参数与锚点。存储不可用时，切换链接仍正常工作。
 
 ## 技术架构
 
-- `src/pages/`：Astro 路由，生成中英文首页、伙伴列表、伙伴详情和 404 页。
+- `src/pages/`：Astro 路由，生成中英文首页、栏目、分期、人物、合作伙伴、品牌、产品、品牌素材和 404 页面。
 - `src/components/`：公共页头、页脚、页面与内容条目等可复用组件。
 - `src/content.config.ts`：所有元数据集合的 schema，以及跨集合加载入口。
 - `src/content/data/`：由人维护的 YAML 结构化元数据，包括人物、主理人关系、节目、合作伙伴、具体场地、单集公开展示、行业品牌和行业产品。
@@ -38,9 +40,12 @@ Astro 默认在构建时预渲染所有页面，当前不需要 Cloudflare adapt
 - `host-memberships`：人物担任某一栏目的主理人关系，不承载通用履历。
 - `partners` 与 `venues`：场地合作伙伴和其名下的具体场地。
 - `episodes`：网站编辑的单集标题、平台链接、首页展示文案与提及实体。
+- `transcriptImports`：由已批准发布的 Markdown 阅读文字稿确定性生成的结构化快照。
 - `brands` 与 `products`：AI 行业品牌和产品知识库。产品必须引用所属品牌，也可以引用父产品。
 
 品牌/产品库的 SSOT 在本仓库。Next Token 自身的 Logo 与 VI 源文件仍以相邻的 `next-token` 仓库为 SSOT，`public/assets/` 中仅保存网站发布副本。当前没有 SRT 工具集成；后续工具应读取这里的稳定实体 ID。
+
+品牌库使用 `/brands/<brand-id>/`，产品库使用 `/products/<product-id>/`；英文版统一增加 `/en/` 前缀。品牌与产品列表以各自的 `kind` 元数据提供二级筛选，并用 `type` 查询参数保留筛选状态。详情页展示双语摘要、别名、官方链接、上下级产品关系和相关节目。节目详情页反向列出本期提到的品牌与产品。所有关系均直接来自分期 YAML 中的 `mentions`，不在模板中重复维护。
 
 单集支持 `announced` 与 `published` 两个网站生命周期。预告状态保存已经确认的录制日期、具体场地与预告文案，不要求制作快照；发布状态必须通过 `productionImport` 关联制作仓快照。预告页面按元数据生成在 `/weekly/<期号>/` 与 `/en/weekly/<期号>/`。
 
@@ -55,6 +60,18 @@ npm run import:episode -- ../next-token/shows/weekly/episodes/001
 导入结果写入 `src/content/imported/episodes/<show>--<episode>.production.json`。每期源数据必须通过 `recording_venue.partner_slug` 和 `recording_venue.venue_slug` 绑定一个具体录制场地。导入器核对发布 manifest 中的字节数和 SHA-256，并记录内容仓库提交与 manifest 校验值。已有文件不同时默认拒绝覆盖；确认发布变更后使用 `--force`。
 
 单集的公开展示文案、平台链接和实体提及仍由 `src/content/data/episodes/` 下的 YAML 维护；制作日期、参与人、录制场地和发布产物来自上述 JSON 快照。两者通过 `productionImport` ID 关联，构建时会校验所有引用。
+
+## 导入阅读文字稿
+
+已批准发布的阅读文字稿以相邻内容仓库中的 Markdown 为正文 SSOT。官网通过 Markdown AST 转换为章节、发言轮次、自然段、人物署名和行内实体链接：
+
+```bash
+npm run import:transcript -- next-token-weekly--001 ../next-token/shows/weekly/episodes/001/04-release/copy/transcript.zh-Hans.md
+```
+
+生成结果写入 `src/content/imported/transcripts/`，记录源路径、SHA-256 与转换版本。转换器会核对相邻 `transcript-manifest.json` 的发布批准和输出哈希；姓名后的 `†`、段落顺序与可见正文保持不变。`src/content/transcript-rules/` 只保存同名品牌和产品的显式解析规则，不保存正文。
+
+实体名称和别名来自 `brands` 与 `products` 元数据，按最长名称优先匹配，每个章节只链接同一实体的首次出现。已有链接和代码不会再次处理；未建档候选和未解决歧义保留为纯文本并写入转换报告。公开页面位于 `/weekly/<期号>/transcript/`，只为已有发布稿的语言生成，不虚构翻译版。
 
 ## 本地预览
 
@@ -77,13 +94,27 @@ npm run build
 npm run preview
 ```
 
+视觉回归测试覆盖中英文关键页面，并在 390、768、1280、1440、1920 与 2560 CSS 像素宽度检查全局内容边界、横向溢出和 H2 行高；移动端与宽屏保存截图基线：
+
+```bash
+npm run test:visual
+```
+
+只有在确认视觉变化符合预期后更新基线：
+
+```bash
+npm run test:visual:update
+```
+
 ## Sitemap 与搜索索引
 
 本地开发与预览接受有无末尾斜杠的页面地址，避免 `/en` 等手动输入地址返回 404。静态产物使用目录格式，canonical、站内链接与 sitemap 统一使用带末尾斜杠的页面 URL；生产环境由 Cloudflare 的默认目录索引规则将无斜杠地址跳转到带斜杠地址。
 
 `@astrojs/sitemap` 在每次生产构建时根据实际生成的页面自动创建 `dist/sitemap-index.xml` 和分片 sitemap。入口为 <https://nexttoken.tv/sitemap-index.xml>，`/robots.txt` 和公共页面的 HTML head 都声明该入口。
 
-Sitemap 包含中英文首页、栏目、分期和合作伙伴页面，包括公开的录制预告；404 页面不进入 sitemap。语言对应关系使用 `zh-Hans` 和 `en`，中文保留无语言前缀的路径。新增静态页面或由元数据生成的新分期会自动纳入。
+Sitemap 包含中英文首页、栏目、分期、人物、合作伙伴、品牌、产品和品牌素材页面，包括公开的录制预告；404 页面不进入 sitemap。语言对应关系使用 `zh-Hans` 和 `en`，中文保留无语言前缀的路径。新增静态页面或由元数据生成的新分期、品牌或产品会自动纳入。
+
+所有页面提供 canonical、双向 `hreflang`、Open Graph 与 Twitter 基础元数据。品牌和产品详情页另提供 JSON-LD 实体数据，名称、摘要、别名、品牌关系和发布日期均来自元数据 SSOT。
 
 分期从预告更新为正式内容时保留原 URL。当前未设置 `lastmod`：后续只能从可信的内容更新时间生成，不使用构建时间或录制日期代替。生产发布后可在 Google Search Console 中提交上述 sitemap 入口。
 

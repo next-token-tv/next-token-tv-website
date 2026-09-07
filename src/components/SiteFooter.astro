@@ -9,6 +9,7 @@ const { locale } = Astro.props;
 const perspective = locale === "zh-Hans"
   ? "来自中文世界的 AI 现场观点。"
   : "Perspectives on AI from the Chinese-speaking world.";
+const libraryPath = `${locale === "en" ? "/en" : ""}/brands/`;
 ---
 
 <footer class="site-footer">
@@ -22,6 +23,9 @@ const perspective = locale === "zh-Hans"
       <span>© {new Date().getFullYear()} NEXT TOKEN · NEXTTOKEN.TV</span>
       <a class="footer-link" href={`${locale === "en" ? "/en" : ""}/brand-kit/`}>
         {locale === "en" ? "Brand Kit" : "品牌素材"}
+      </a>
+      <a class="footer-link" href={libraryPath}>
+        {locale === "en" ? "Library" : "资料库"}
       </a>
       <a class="footer-github" href={siteLinks.github} target="_blank" rel="noopener noreferrer">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">

@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import EpisodeTranscriptPage from "../../../components/EpisodeTranscriptPage.astro";
+import { getEpisodeTranscript, getPublishedEpisode, getTranscriptEpisodes } from "../../../data/catalog";
+import { getSiteContent } from "../../../data/site";
+
+export async function getStaticPaths() {
+  const episodes = await getTranscriptEpisodes("zh-Hans");
+  return episodes.map((episode) => ({
+    params: { number: episode.data.number },
+    props: { episodeId: episode.id },
+  }));
+}
+
+interface Props {
+  episodeId: string;
+}
+
+const { episodeId } = Astro.props;
+const [content, episode, transcript] = await Promise.all([
+  getSiteContent("zh-Hans"),
+  getPublishedEpisode(episodeId),
+  getEpisodeTranscript(episodeId, "zh-Hans"),
+]);
+const canonicalPath = `/weekly/${episode.data.number}/transcript/`;
+const episodePath = `/weekly/${episode.data.number}/`;
+const description = `${transcript.data.byline} 共 ${transcript.data.report.chapters} 个章节，保留完整对谈顺序与人物标注。`;
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: transcript.data.title,
+  inLanguage: "zh-Hans",
+  isPartOf: new URL(episodePath, Astro.site).toString(),
+  url: new URL(canonicalPath, Astro.site).toString(),
+  datePublished: episode.data.releaseDate,
+  publisher: {
+    "@type": "Organization",
+    name: "Next Token | 词元之外",
+    url: new URL("/", Astro.site).toString(),
+  },
+};
+---
+
+<BaseLayout
+  content={content}
+  pageTitle={`阅读文字稿｜${transcript.data.title} - Next Token | 词元之外`}
+  description={description}
+  canonicalPath={canonicalPath}
+  alternatePath={`/en/weekly/${episode.data.number}/`}
+  hasLocaleAlternate={false}
+  ogType="article"
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  <EpisodeTranscriptPage transcript={transcript} episodeNumber={episode.data.number} locale="zh-Hans" />
+</BaseLayout>

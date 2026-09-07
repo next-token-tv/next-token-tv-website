@@ -1,0 +1,28 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+type Segment = CollectionEntry<"transcriptImports">["data"]["chapters"][number]["turns"][number]["paragraphs"][number][number];
+
+interface Props {
+  segments: Segment[];
+}
+
+const { segments } = Astro.props;
+---
+
+{segments.map((segment) => {
+  const content = segment.marks?.includes("strong")
+    ? <strong>{segment.value}</strong>
+    : segment.marks?.includes("emphasis")
+      ? <em>{segment.value}</em>
+      : segment.value;
+
+  if (segment.type === "entity-link") {
+    return <a class="transcript-entity-link" href={segment.href}>{content}</a>;
+  }
+  if (segment.type === "external-link") {
+    return <a href={segment.href} target="_blank" rel="noopener noreferrer">{content}</a>;
+  }
+  if (segment.type === "code") return <code>{segment.value}</code>;
+  return content;
+})}
