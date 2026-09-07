@@ -9,10 +9,12 @@
   "scripts": {
     "dev": "astro dev --host 127.0.0.1 --port 4174",
     "import:episode": "node scripts/import-episode.mjs",
-    "build": "astro check && astro build",
+    "build": "npm run check:chapters && astro check && astro build",
     "preview": "astro preview --host 127.0.0.1 --port 4174",
-    "check": "astro check",
-    "deploy": "npm run build && wrangler deploy"
+    "check": "npm run check:chapters && astro check",
+    "deploy": "npm run build && wrangler deploy",
+    "import:chapters": "node scripts/import-chapters.mjs",
+    "check:chapters": "node scripts/check-chapters.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",

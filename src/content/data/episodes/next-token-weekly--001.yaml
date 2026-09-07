@@ -56,6 +56,10 @@ platforms:
     label:
       zh-Hans: Spotify
       en: Spotify
+    href: https://open.spotify.com/episode/0RJ44NMBaNvI01vZ6JQz6e
+    action:
+      zh-Hans: 立即收听
+      en: Listen now
   - platform: bilibili
     label:
       zh-Hans: 哔哩哔哩

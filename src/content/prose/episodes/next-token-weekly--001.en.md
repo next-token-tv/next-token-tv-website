@@ -23,56 +23,62 @@ Recorded on September 3, 2026, this episode covers news from August 27 through S
 
 ## Timeline
 
+<!-- chapters:website-en:start -->
+- 00:00 Intro
+
 ### The model kill line: capability, cost, and real experience
 
-- 00:00 Opening: a crowded week of model releases
-- 03:39 GLM 5.3 Flash and MiniMax H3: why inexpensive models reach real use sooner
-- 10:23 How Computer Use is changing the acceptance test for vibe coding
-- 14:47 Can agents route automatically between capable and inexpensive models?
-- 16:01 Harness evaluation: completion rate, token cost, and the kill line
-- 23:22 Why Chinese model makers suddenly accelerated their release cadence
-- 27:40 How users choose when every model feels similar
-- 32:09 Why voice and multimodal models still feel difficult to use
-- 34:52 Do not be embarrassed to sell tokens: experience arbitrage and reselling opportunities
+- 00:48 Opening: a crowded week of model releases
+- 04:27 GLM 5.3 Flash and MiniMax H3: why inexpensive models reach real use sooner
+- 11:11 How Computer Use is changing the acceptance test for vibe coding
+- 15:35 Can agents route automatically between capable and inexpensive models?
+- 16:49 Harness evaluation: completion rate, token cost, and the kill line
+- 24:10 Why Chinese model makers suddenly accelerated their release cadence
+- 28:28 How users choose when every model feels similar
+- 32:57 Why voice and multimodal models still feel difficult to use
+- 35:40 Do not be embarrassed to sell tokens: experience arbitrage and reselling opportunities
 
 ### Agent products: capability without exposed complexity
 
-- 36:06 Will first-party models plus first-party agents become the default?
-- 40:48 Omarchy and the experience of an agent-first Linux desktop
-- 45:35 Whether benchmarks still matter after continuous releases
-- 49:55 WorkBuddy, Qoder, OpenClaw, and DeepSeek Harness
-- 53:01 OpenClaw and coding agents are converging from both directions
-- 57:36 Grok Bot and why an agent needs an always-on cloud computer
-- 01:01:39 Progressive authorization: ask for a connector only when it is needed
-- 01:03:58 Financial data, fortune-telling, and agent use cases with measurable returns
+- 36:54 Will first-party models plus first-party agents become the default?
+- 41:36 Omarchy and the experience of an agent-first Linux desktop
+- 46:23 Whether benchmarks still matter after continuous releases
+- 50:43 WorkBuddy, Qoder, OpenClaw, and DeepSeek Harness
+- 53:49 OpenClaw and coding agents are converging from both directions
+- 58:24 Grok Bot and why an agent needs an always-on cloud computer
+- 01:02:27 Progressive authorization: ask for a connector only when it is needed
+- 01:04:46 Financial data, fortune-telling, and agent use cases with measurable returns
 
 ### Hardware and local context: from toy robots to personal compute
 
-- 01:05:55 Why Microduck became popular overnight
-- 01:08:05 ESP32 as the new Lego and the rise of everyday inventors
-- 01:09:47 Local models move into browsers and robots
-- 01:10:26 Mac Studio, local inference, and an always-on computer
-- 01:12:11 Can cloud agents and local memory coexist?
-- 01:13:28 Could a NAS become the home of personal AI context?
+- 01:06:43 Why Microduck became popular overnight
+- 01:08:53 ESP32 as the new Lego and the rise of everyday inventors
+- 01:10:35 Local models move into browsers and robots
+- 01:11:14 Mac Studio, local inference, and an always-on computer
+- 01:12:59 Can cloud agents and local memory coexist?
+- 01:14:16 Could a NAS become the home of personal AI context?
 
 ### Tokens as new money: infrastructure, consumption, and application businesses
 
-- 01:17:23 Acquisitions, ARR, and Claude plan disputes: a rapid business-news round
-- 01:19:00 The value of Hugging Face and why Nvidia supports the broader industry
-- 01:21:49 Is AI a bubble, or is supply still the real constraint?
-- 01:22:39 Token Is New Money: a Mac Studio as a mint at home
-- 01:25:14 Do frontier and inexpensive models compete for the same business?
-- 01:27:49 AI short dramas bring token consumption into a new content market
-- 01:31:00 Is the AI application market recovering? Margins are more concrete than demand
+- 01:18:11 Acquisitions, ARR, and Claude plan disputes: a rapid business-news round
+- 01:19:48 The value of Hugging Face and why Nvidia supports the broader industry
+- 01:22:37 Is AI a bubble, or is supply still the real constraint?
+- 01:23:27 Token Is New Money: a Mac Studio as a mint at home
+- 01:26:02 Do frontier and inexpensive models compete for the same business?
+- 01:28:37 AI short dramas bring token consumption into a new content market
+- 01:31:48 Is the AI application market recovering? Margins are more concrete than demand
 
 ### AI-native organizations: reallocating the complete loop
 
-- 01:34:41 Why AI application teams still struggle to outrun model companies
-- 01:37:00 Product iteration speed as a new organizational capability
-- 01:38:01 Why the Codex team’s way of working is difficult to copy
-- 01:39:34 Token maxxing is not the same as an AI-native organization
-- 01:40:20 Design engineers, full-stack ownership, and “everyone as an OPC”
-- 01:42:26 Venue thanks and a preview of future open recordings
+- 01:35:29 Why AI application teams still struggle to outrun model companies
+- 01:37:48 Product iteration speed as a new organizational capability
+- 01:38:49 Why the Codex team’s way of working is difficult to copy
+- 01:40:22 Token maxxing is not the same as an AI-native organization
+- 01:41:08 Design engineers, full-stack ownership, and “everyone as an OPC”
+- 01:43:14 Venue thanks and a preview of future open recordings
+
+- 01:44:10 Outro
+<!-- chapters:website-en:end -->
 
 ## References
 
