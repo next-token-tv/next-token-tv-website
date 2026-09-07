@@ -1080,7 +1080,7 @@ h1 .accent {
   display: grid;
   min-height: 250px;
   grid-template-columns:
-    minmax(9rem, 0.56fr) minmax(12rem, 0.82fr) minmax(18rem, 1.45fr)
+    minmax(9rem, 0.56fr) minmax(15rem, 1fr) minmax(18rem, 1.27fr)
     minmax(13rem, 0.92fr) minmax(7.5rem, 0.52fr);
   border-top: 1px solid var(--ink);
 }
@@ -1129,9 +1129,11 @@ h1 .accent {
   margin: auto 0 0.2rem;
   font-family: var(--display);
   font-size: clamp(2rem, 3vw, 3.4rem);
+  white-space: nowrap;
 }
 
 .partner-row-identity h2 a {
+  display: inline-block;
   transition: color 180ms ease;
 }
 
@@ -2899,7 +2901,7 @@ html[lang="en"] .weekly-show-facts strong {
   }
 
   .partner-row {
-    grid-template-columns: 10rem minmax(12rem, 0.8fr) minmax(0, 1.2fr) 9rem;
+    grid-template-columns: 10rem minmax(14rem, 0.9fr) minmax(0, 1.1fr) 9rem;
   }
 
   .partner-row-location {
