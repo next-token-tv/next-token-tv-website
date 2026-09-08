@@ -1,0 +1,125 @@
+---
+import type { Locale } from "../data/types";
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const en = locale === "en";
+const copy = en ? {
+  eyebrow: "Next Token / Design System",
+  title: "Interface standards",
+  intro: "A reference surface for the shared visual roles used across Next Token pages.",
+  typography: "Typography roles",
+  display: "Display section",
+  displaySample: "Ideas beyond the next token.",
+  content: "Content section",
+  contentSample: "Brands, products, and people in context.",
+  compact: "Compact section",
+  compactSample: "Useful details, clearly grouped.",
+  colors: "Core colors",
+  spacing: "Spacing scale",
+} : {
+  eyebrow: "Next Token / 设计系统",
+  title: "界面标准",
+  intro: "集中展示 Next Token 各页面共用的视觉角色，作为设计与开发的统一参照。",
+  typography: "排版角色",
+  display: "大型章节",
+  displaySample: "词元之外，是正在发生的世界。",
+  content: "内容章节",
+  contentSample: "品牌、产品与人物，放回真实语境。",
+  compact: "紧凑章节",
+  compactSample: "相关信息，清晰成组。",
+  colors: "核心颜色",
+  spacing: "间距比例",
+};
+
+const colors = [
+  { name: "Paper", token: "--paper", value: "#f1eee5" },
+  { name: "Ink", token: "--ink", value: "#111111" },
+  { name: "Signal", token: "--signal", value: "#ff4b18" },
+  { name: "White", token: "--white", value: "#fffdf6" },
+];
+const spaces = ["--space-1", "--space-2", "--space-3", "--space-4", "--space-6", "--space-8", "--space-12", "--space-16"];
+---
+
+<main id="main" class="design-system shell">
+  <header class="design-system-intro">
+    <p class="eyebrow">{copy.eyebrow}</p>
+    <h1>{copy.title}</h1>
+    <p>{copy.intro}</p>
+  </header>
+
+  <section class="design-system-section" aria-labelledby="type-title">
+    <div class="design-system-section-heading">
+      <p class="section-index">01 / TYPE</p>
+      <h2 class="heading-section-content" id="type-title">{copy.typography}</h2>
+    </div>
+    <div class="type-specimens">
+      <article>
+        <div><strong>{copy.display}</strong><code>heading-section-display</code></div>
+        <h2 class="heading-section-display">{copy.displaySample}</h2>
+      </article>
+      <article>
+        <div><strong>{copy.content}</strong><code>heading-section-content</code></div>
+        <h2 class="heading-section-content">{copy.contentSample}</h2>
+      </article>
+      <article>
+        <div><strong>{copy.compact}</strong><code>heading-section-compact</code></div>
+        <h2 class="heading-section-compact">{copy.compactSample}</h2>
+      </article>
+    </div>
+  </section>
+
+  <section class="design-system-section" aria-labelledby="color-title">
+    <div class="design-system-section-heading">
+      <p class="section-index">02 / COLOR</p>
+      <h2 class="heading-section-content" id="color-title">{copy.colors}</h2>
+    </div>
+    <div class="color-specimens">
+      {colors.map((color) => (
+        <article style={{ "--swatch": color.value }}>
+          <div aria-hidden="true"></div>
+          <strong>{color.name}</strong>
+          <code>{color.token}<br />{color.value}</code>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="design-system-section" aria-labelledby="spacing-title">
+    <div class="design-system-section-heading">
+      <p class="section-index">03 / SPACE</p>
+      <h2 class="heading-section-content" id="spacing-title">{copy.spacing}</h2>
+    </div>
+    <div class="spacing-specimens">
+      {spaces.map((space) => <div><code>{space}</code><span style={{ width: `var(${space})` }}></span></div>)}
+    </div>
+  </section>
+</main>
+
+<style>
+  .design-system { padding-block: clamp(4rem, 8vw, 8rem); }
+  .design-system-intro { max-width: 58rem; padding-bottom: clamp(4rem, 8vw, 7rem); }
+  .design-system-intro h1 { margin-bottom: 1.5rem; font-size: clamp(3rem, 7vw, 6rem); }
+  .design-system-intro > p:last-child { max-width: 46rem; color: var(--muted); font-size: 1.2rem; }
+  .design-system-section { padding-block: clamp(3rem, 6vw, 6rem); border-top: 1px solid var(--ink); }
+  .design-system-section-heading { display: grid; grid-template-columns: minmax(10rem, .42fr) minmax(0, 1.58fr); gap: clamp(2rem, 7vw, 8rem); align-items: end; margin-bottom: 3rem; }
+  .design-system-section-heading h2 { margin: 0; }
+  .type-specimens { display: grid; gap: 1px; border: 1px solid var(--ink); background: var(--ink); }
+  .type-specimens article { padding: clamp(1.5rem, 4vw, 3.5rem); background: var(--paper); }
+  .type-specimens article > div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem 2rem; margin-bottom: 2rem; }
+  .type-specimens strong { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+  .type-specimens code, .color-specimens code, .spacing-specimens code { color: var(--muted); font-family: var(--sans); font-size: .75rem; }
+  .type-specimens h2 { max-width: 65rem; margin: 0; }
+  .color-specimens { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
+  .color-specimens article { display: grid; grid-template-columns: 1fr auto; gap: 1rem; padding: 1rem; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+  .color-specimens article > div { grid-column: 1 / -1; aspect-ratio: 4 / 3; background: var(--swatch); border: 1px solid var(--line); }
+  .color-specimens strong { font-size: .85rem; }
+  .color-specimens code { text-align: right; }
+  .spacing-specimens { display: grid; gap: 1rem; }
+  .spacing-specimens > div { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 1.5rem; align-items: center; min-height: 2rem; }
+  .spacing-specimens span { display: block; min-width: .25rem; height: 1rem; background: var(--signal); }
+  @media (max-width: 47.5rem) {
+    .design-system-section-heading { grid-template-columns: 1fr; gap: 1rem; }
+    .color-specimens { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+</style>

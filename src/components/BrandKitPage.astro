@@ -44,7 +44,7 @@ const copy = locale === "zh-Hans" ? {
   <section class="kit-section" aria-labelledby="kit-logo">
     <div class="kit-section-heading">
       <p class="eyebrow">01 / LOGO</p>
-      <h2 id="kit-logo">{copy.logo}</h2>
+      <h2 class="heading-section-compact" id="kit-logo">{copy.logo}</h2>
       <p>{copy.artwork}</p>
     </div>
     <div class="kit-logo-grid">
@@ -70,7 +70,7 @@ const copy = locale === "zh-Hans" ? {
   <section class="kit-section" aria-labelledby="kit-name">
     <div class="kit-section-heading">
       <p class="eyebrow">03 / NAME</p>
-      <h2 id="kit-name">{copy.naming}</h2>
+      <h2 class="heading-section-compact" id="kit-name">{copy.naming}</h2>
     </div>
     <div class="kit-nameplate">
       <p class="kit-label">{copy.nameLabel}</p>
@@ -83,7 +83,7 @@ const copy = locale === "zh-Hans" ? {
   <section class="kit-section" aria-labelledby="kit-colors">
     <div class="kit-section-heading">
       <p class="eyebrow">04 / COLOR & TYPE</p>
-      <h2 id="kit-colors">{copy.colors}</h2>
+      <h2 class="heading-section-compact" id="kit-colors">{copy.colors}</h2>
     </div>
     <div class="kit-palette">
       {kit.data.colors.map((color) => (
@@ -98,7 +98,7 @@ const copy = locale === "zh-Hans" ? {
   <section class="kit-section" aria-labelledby="kit-usage">
     <div class="kit-section-heading">
       <p class="eyebrow">05 / GUIDELINES</p>
-      <h2 id="kit-usage">{copy.usage}</h2>
+      <h2 class="heading-section-compact" id="kit-usage">{copy.usage}</h2>
     </div>
     <div class="kit-guidelines"><Content /></div>
   </section>
@@ -117,7 +117,7 @@ const copy = locale === "zh-Hans" ? {
   .kit-section:last-child { padding-bottom: 0; }
   .kit-section-heading { margin-bottom: 2rem; }
   .kit-section-heading .eyebrow { margin-bottom: 1.5rem; }
-  .kit-section h2 { margin: 0; font-size: clamp(2rem, 4vw, 3.5rem); }
+  .kit-section h2 { margin: 0; }
   .kit-section-heading > p:last-child:not(.eyebrow) { max-width: 45rem; margin: 1rem 0 0; color: var(--muted); }
   .kit-logo-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); border: 1px solid var(--ink); }
   .kit-logo-preview { display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0; padding: 2rem; border-right: 1px solid var(--ink); }

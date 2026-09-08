@@ -1,0 +1,11 @@
+---
+import DesignSystemPage from "../../../components/DesignSystemPage.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getSiteContent } from "../../../data/site";
+
+const content = await getSiteContent("en");
+---
+
+<BaseLayout content={content} pageTitle="Interface standards | Next Token" description="The Next Token website design system and interface standards." canonicalPath="/en/design-system/" alternatePath="/design-system/" noIndex>
+  <DesignSystemPage locale="en" />
+</BaseLayout>

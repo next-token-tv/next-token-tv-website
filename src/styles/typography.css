@@ -1,0 +1,43 @@
+@layer base {
+  @font-face {
+    font-family: "League Spartan";
+    src: url("/assets/league-spartan-black.ttf") format("truetype");
+    font-display: swap;
+    font-style: normal;
+    font-weight: 900;
+  }
+
+  h1,
+  h2,
+  h3 {
+    margin-top: 0;
+    line-height: var(--headline-leading);
+    letter-spacing: var(--display-tracking);
+  }
+
+  h2 {
+    line-height: var(--section-heading-leading);
+  }
+}
+
+@layer utilities {
+  .heading-section-display,
+  .heading-section-content,
+  .heading-section-compact {
+    font-family: var(--display);
+    line-height: var(--section-heading-leading);
+    text-wrap: balance;
+  }
+
+  .heading-section-display {
+    font-size: var(--heading-section-display-size);
+  }
+
+  .heading-section-content {
+    font-size: var(--heading-section-content-size);
+  }
+
+  .heading-section-compact {
+    font-size: var(--heading-section-compact-size);
+  }
+}

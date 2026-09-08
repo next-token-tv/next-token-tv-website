@@ -143,7 +143,7 @@ const posterWord = entityType === "brand" ? "BRAND" : "PRODUCT";
   <section class="entity-detail-facts shell" aria-labelledby="entity-facts-title">
     <div>
       <p class="section-kicker">01 / {copy.facts}</p>
-      <h2 id="entity-facts-title">{copy.facts}</h2>
+      <h2 class="heading-section-content" id="entity-facts-title">{copy.facts}</h2>
     </div>
     <dl>
       {facts.map((fact) => <div><dt>{fact.label}</dt><dd>{fact.href ? <a href={fact.href}>{fact.value} →</a> : fact.value}</dd></div>)}
@@ -154,7 +154,7 @@ const posterWord = entityType === "brand" ? "BRAND" : "PRODUCT";
     <section class="entity-detail-links shell" aria-labelledby="entity-links-title">
       <div>
         <p class="section-kicker">02 / {connections.length > 0 ? copy.connections : copy.official}</p>
-        <h2 id="entity-links-title">{connections.length > 0 ? copy.connections : copy.official}</h2>
+        <h2 class="heading-section-content" id="entity-links-title">{connections.length > 0 ? copy.connections : copy.official}</h2>
       </div>
       <div class="entity-detail-links-content">
         {connections.length > 0 && <div class="entity-connection-list">
@@ -190,7 +190,7 @@ const posterWord = entityType === "brand" ? "BRAND" : "PRODUCT";
   .entity-detail-aliases { margin: 2.5rem 0 0; color: var(--muted); }
   .entity-detail-aliases span { display: block; margin-bottom: .35rem; color: var(--ink); font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
   .entity-detail-facts, .entity-detail-links { display: grid; grid-template-columns: minmax(16rem, .65fr) minmax(0, 1.35fr); gap: clamp(3rem, 8vw, 9rem); padding-block: clamp(5rem, 9vw, 9rem); border-top: 1px solid var(--ink); }
-  .entity-detail-facts h2, .entity-detail-links h2 { margin: 1.5rem 0 0; font-size: clamp(2.5rem, 4.5vw, 4.5rem); }
+  .entity-detail-facts h2, .entity-detail-links h2 { margin: 1.5rem 0 0; }
   .entity-detail-facts dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); margin: 0; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
   .entity-detail-facts dl > div { min-height: 150px; padding: 1.5rem; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
   .entity-detail-facts dt { margin-bottom: 2.5rem; color: var(--muted); font-size: .75rem; font-weight: 700; }

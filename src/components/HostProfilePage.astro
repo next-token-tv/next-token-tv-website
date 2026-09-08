@@ -24,7 +24,7 @@ const home = en ? "/en/" : "/";
   </section>
   <div class="profile-details">
     <section aria-labelledby="profile-accounts">
-      <h2 id="profile-accounts">{en ? "Find me online" : "在这里找到我"}</h2>
+      <h2 class="heading-section-compact" id="profile-accounts">{en ? "Find me online" : "在这里找到我"}</h2>
       <ul class="host-socials" aria-label={host.socialsLabel}>
         {host.socials.map(social => <li class="profile-account-row">
           <span class="social-platform">{social.platform}</span>
@@ -34,13 +34,13 @@ const home = en ? "/en/" : "/";
       </ul>
     </section>
     <section aria-labelledby="profile-shows">
-      <h2 id="profile-shows">{en ? "Shows" : "参与栏目"}</h2>
+      <h2 class="heading-section-compact" id="profile-shows">{en ? "Shows" : "参与栏目"}</h2>
       {shows.map(show => <div class="profile-show"><p>{show.active ? (en ? "Co-host" : "联合主理人") : (en ? "Former co-host" : "曾任联合主理人")}</p>{show.id === "next-token-weekly" ? <a href={`${home}weekly/`}>{show.data.name[locale]} →</a> : <strong>{show.data.name[locale]}</strong>}</div>)}
     </section>
   </div>
   <section class="profile-episodes" aria-labelledby="profile-episodes">
     <p class="section-index">NEXT TOKEN WEEKLY</p>
-    <h2 id="profile-episodes">{en ? "At the table" : "参与的每一期"}</h2>
+    <h2 class="heading-section-compact" id="profile-episodes">{en ? "At the table" : "参与的每一期"}</h2>
     {episodes.length ? <div class="profile-episode-list">{episodes.map(episode => <a href={`${home}weekly/${episode.data.number}/`}>
       <span class="profile-episode-number">#{episode.data.number}</span>
       <div class="profile-episode-copy"><small>{episode.data.status === "published" ? (en ? "Now live" : "现已上线") : (en ? "Recording preview" : "录制预告")}</small><h3>{episode.data.title[locale]}</h3></div>
@@ -62,7 +62,7 @@ const home = en ? "/en/" : "/";
   .profile-description :global(p) { margin: 0 0 1rem; }
   .profile-description :global(p:last-child) { margin-bottom: 0; }
   .profile-details { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 6vw, 6rem); margin-block: clamp(4rem, 7vw, 7rem); }
-  h2 { font-family: var(--display); font-size: clamp(1.8rem, 3vw, 3rem); margin-bottom: 2rem; }
+  h2 { margin-bottom: 2rem; }
   .host-socials { margin: 0; }
   .profile-account-row { display: grid; grid-template-columns: 5rem minmax(0, 1fr); gap: 1rem; align-items: center; min-height: 48px; }
   .host-socials .profile-account-link, .profile-account-value { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; min-height: 48px; font-size: 0.95rem; line-height: 1.5; }

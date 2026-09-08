@@ -18,7 +18,7 @@ const copy = locale === "en"
   <section class="entity-related-episodes shell" aria-labelledby="related-episodes-title">
     <div>
       <p class="section-kicker">03 / {copy.kicker}</p>
-      <h2 id="related-episodes-title">{copy.title}</h2>
+      <h2 class="heading-section-content" id="related-episodes-title">{copy.title}</h2>
     </div>
     <div class="entity-related-episode-list">
       {episodes.map((episode) => (
@@ -35,7 +35,7 @@ const copy = locale === "en"
 
 <style>
   .entity-related-episodes { display: grid; grid-template-columns: minmax(16rem, .65fr) minmax(0, 1.35fr); gap: clamp(3rem, 8vw, 9rem); padding-block: clamp(5rem, 9vw, 9rem); border-top: 1px solid var(--ink); }
-  .entity-related-episodes h2 { max-width: 34rem; margin: 1.5rem 0 0; font-size: clamp(2.5rem, 4.5vw, 4.5rem); }
+  .entity-related-episodes h2 { max-width: 34rem; margin: 1.5rem 0 0; }
   .entity-related-episode-list { border-top: 1px solid var(--ink); }
   .entity-related-episode-list a { display: grid; grid-template-columns: 6rem 8rem minmax(0, 1fr) 2rem; gap: 1rem; align-items: center; padding: 1.5rem 0; border-bottom: 1px solid var(--ink); }
   .entity-related-episode-list strong { color: var(--signal); font-family: var(--display); font-size: 1.6rem; }

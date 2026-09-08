@@ -146,7 +146,7 @@ const labels = locale === "en" ? {
   <section class="episode-detail-participants shell">
     <div class="episode-detail-heading">
       <p class="section-kicker">{labels.participants}</p>
-      <h2>{labels.participantsHeading}</h2>
+      <h2 class="heading-section-content">{labels.participantsHeading}</h2>
     </div>
     <div class="episode-detail-participant-grid">
       {participants.map((person, index) => {
@@ -179,7 +179,7 @@ const labels = locale === "en" ? {
   <section class="episode-detail-platforms shell">
     <div>
       <p class="section-kicker">{labels.platforms}</p>
-      <h2>{labels.platformsHeading}</h2>
+      <h2 class="heading-section-content">{labels.platformsHeading}</h2>
     </div>
     <div class="platform-list">
       {episode.data.platforms.map((platform, index) => platform.href ? (

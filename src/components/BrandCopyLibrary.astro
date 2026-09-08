@@ -30,7 +30,7 @@ const groups = await Promise.all(([{type:"brand", id:"next-token"}, {type:"show"
 ---
 <section id="official-copy" class="copy-library" aria-labelledby="official-copy-title">
   <p class="eyebrow">02 / {locale === "zh-Hans" ? "官方文案" : "OFFICIAL COPY"}</p>
-  <h2 id="official-copy-title">{ui.title}</h2>
+  <h2 class="heading-section-compact" id="official-copy-title">{ui.title}</h2>
   <p class="copy-lede">{ui.lede}</p>
   <div class="copy-groups">
     {groups.map(group => (
@@ -78,7 +78,7 @@ const groups = await Promise.all(([{type:"brand", id:"next-token"}, {type:"show"
 <style>
   .copy-library { padding-block: clamp(2.5rem, 5vw, 5rem); border-top: 1px solid var(--ink); scroll-margin-top: 6rem; }
   .copy-library > .eyebrow { margin-bottom: 1.5rem; }
-  h2 { margin: 0; font-size: clamp(2rem, 4vw, 3.5rem); }
+  h2 { margin: 0; }
   .copy-lede { max-width: 52rem; margin: 1rem 0 2.5rem; color: var(--muted); }
   .copy-groups { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: clamp(1.5rem,4vw,3rem); }
   .copy-group-label { margin: 0 0 .5rem; color: var(--muted); font-size: .875rem; }

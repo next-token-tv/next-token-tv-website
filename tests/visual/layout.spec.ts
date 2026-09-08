@@ -100,6 +100,12 @@ test.describe("entity metadata and links", () => {
     await page.goto("/weekly/001/");
     await expect(page.locator('.episode-mention-list a[href="/brands/zhipu/"]')).toHaveCount(1);
     await expect(page.locator('.episode-mention-list a[href="/products/glm-5-3-flash/"]')).toHaveCount(1);
+    const brandGroup = page.locator('[data-mention-kind="brand"]');
+    const productGroup = page.locator('[data-mention-kind="product"]');
+    await expect(brandGroup).toHaveCount(1);
+    await expect(productGroup).toHaveCount(1);
+    await expect(brandGroup.locator(".episode-mention-list a")).toHaveCount(Number(await brandGroup.locator(".episode-mention-group-heading span").textContent()));
+    await expect(productGroup.locator(".episode-mention-list a")).toHaveCount(Number(await productGroup.locator(".episode-mention-group-heading span").textContent()));
 
     await page.goto("/brands/zhipu/");
     await expect(page.locator('.entity-related-episode-list a[href="/weekly/001/"]')).toHaveCount(1);
@@ -117,8 +123,9 @@ test.describe("entity metadata and links", () => {
 
   test("secondary filters restore from and update the URL", async ({ page }) => {
     await page.goto("/brands/?type=company-brand");
-    await expect(page.locator('[data-entity-filter="company-brand"]')).toHaveAttribute("aria-pressed", "true");
-    await expect(page.locator("[data-entity-kind]:visible")).toHaveCount(2);
+    const companyFilter = page.locator('[data-entity-filter="company-brand"]');
+    await expect(companyFilter).toHaveAttribute("aria-pressed", "true");
+    await expect(page.locator("[data-entity-kind]:visible")).toHaveCount(Number(await companyFilter.locator("strong").textContent()));
 
     await page.locator('[data-entity-filter="model-brand"]').click();
     await expect(page).toHaveURL(/\/brands\/\?type=model-brand$/);
@@ -126,8 +133,9 @@ test.describe("entity metadata and links", () => {
     await expect(page.locator('[data-entity-kind="company-brand"]:visible')).toHaveCount(0);
 
     await page.goto("/en/products/?type=model");
-    await expect(page.locator('[data-entity-filter="model"]')).toHaveAttribute("aria-pressed", "true");
-    await expect(page.locator("[data-entity-kind]:visible")).toHaveCount(2);
+    const modelFilter = page.locator('[data-entity-filter="model"]');
+    await expect(modelFilter).toHaveAttribute("aria-pressed", "true");
+    await expect(page.locator("[data-entity-kind]:visible")).toHaveCount(Number(await modelFilter.locator("strong").textContent()));
   });
 
   test("sitemap contains stable episode and entity URLs", async ({ request }) => {
@@ -138,6 +146,7 @@ test.describe("entity metadata and links", () => {
     expect(sitemap).toContain("https://nexttoken.tv/weekly/001/transcript/");
     expect(sitemap).toContain("https://nexttoken.tv/brands/zhipu/");
     expect(sitemap).toContain("https://nexttoken.tv/en/products/glm-5-3-flash/");
+    expect(sitemap).not.toContain("/design-system/");
   });
 
   test("published episode links to its structured transcript", async ({ page }) => {
@@ -152,4 +161,58 @@ test.describe("entity metadata and links", () => {
     await expect(page.locator("body")).not.toContainText("5.1 担心");
     await expect(page.locator('link[rel="alternate"]')).toHaveCount(0);
   });
+});
+
+test("shared heading roles keep their documented scales", async ({ page }) => {
+  const sizesInRem = async (selector: string) => page
+    .locator(selector)
+    .evaluateAll((headings) => {
+      const rootSize = Number.parseFloat(getComputedStyle(document.documentElement).fontSize);
+      return headings.map((heading) => Number.parseFloat(getComputedStyle(heading).fontSize) / rootSize);
+    });
+
+  const roleSteps = [
+    { width: 390, display: 3.1, content: 2.25, compact: 1.8 },
+    { width: 768, display: 4.25, content: 2.65, compact: 2.15 },
+    { width: 1440, display: 5.25, content: 3, compact: 2.5 },
+    { width: 1920, display: 5.25, content: 3, compact: 2.5 },
+  ];
+
+  for (const step of roleSteps) {
+    await page.setViewportSize({ width: step.width, height: 900 });
+    await page.goto("/design-system/");
+    await expect.poll(async () => (await sizesInRem(".type-specimens .heading-section-display"))[0]).toBeCloseTo(step.display, 2);
+    await expect.poll(async () => (await sizesInRem(".type-specimens .heading-section-content"))[0]).toBeCloseTo(step.content, 2);
+    await expect.poll(async () => (await sizesInRem(".type-specimens .heading-section-compact"))[0]).toBeCloseTo(step.compact, 2);
+  }
+
+  await page.setViewportSize({ width: 1440, height: 900 });
+
+  await page.goto("/");
+  const displaySizes = await sizesInRem(".heading-section-display");
+  expect(displaySizes.length).toBeGreaterThan(1);
+  expect(new Set(displaySizes).size).toBe(1);
+
+  await page.goto("/weekly/001/");
+  const episodeSizesInRem = await sizesInRem(".heading-section-content");
+  expect(new Set(episodeSizesInRem).size).toBe(1);
+  expect(episodeSizesInRem[0]).toBeGreaterThanOrEqual(2.25);
+  expect(episodeSizesInRem[0]).toBeLessThanOrEqual(3.75);
+  expect(displaySizes[0]!).toBeGreaterThan(episodeSizesInRem[0]!);
+
+  await page.goto("/brand-kit/");
+  const compactSizes = await sizesInRem(".heading-section-compact");
+  expect(compactSizes.length).toBeGreaterThan(1);
+  expect(new Set(compactSizes).size).toBe(1);
+  expect(episodeSizesInRem[0]!).toBeGreaterThan(compactSizes[0]!);
+
+  await page.goto("/design-system/");
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex");
+  await expect(page.locator(".type-specimens .heading-section-display")).toBeVisible();
+  await expect(page.locator(".type-specimens .heading-section-content")).toBeVisible();
+  await expect(page.locator(".type-specimens .heading-section-compact")).toBeVisible();
+
+  await page.goto("/en/design-system/");
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex");
+  await expect(page.getByRole("heading", { level: 1, name: "Interface standards" })).toBeVisible();
 });

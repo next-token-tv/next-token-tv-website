@@ -151,6 +151,8 @@ const filterOptions = entityType === "brands"
     const filter = requestedFilter && validFilters.has(requestedFilter) ? requestedFilter : "all";
     buttons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.entityFilter === filter)));
     rows.forEach((row) => { row.hidden = filter !== "all" && row.dataset.entityKind !== filter; });
+    const visibleRows = rows.filter((row) => !row.hidden);
+    rows.forEach((row) => row.classList.toggle("is-last-visible", row === visibleRows.at(-1)));
 
     if (updateUrl) {
       const url = new URL(window.location.href);
@@ -189,7 +191,8 @@ const filterOptions = entityType === "brands"
   .entity-directory { padding-bottom: clamp(5rem, 10vw, 10rem); }
   .entity-directory-row { display: grid; grid-template-columns: 5rem minmax(14rem, .9fr) minmax(18rem, 1.25fr) minmax(10rem, .55fr) 5rem; min-height: 220px; border: 1px solid var(--ink); border-bottom: 0; transition: color 180ms ease, background 180ms ease; }
   .entity-directory-row[hidden] { display: none; }
-  .entity-directory-row:last-child { border-bottom: 1px solid var(--ink); }
+  .entity-directory-row:last-child,
+  .entity-directory-row.is-last-visible { border-bottom: 1px solid var(--ink); }
   .entity-directory-row:hover { color: var(--paper); background: var(--ink); }
   .entity-directory-row > * { padding: 1.5rem; }
   .entity-directory-row > * + * { border-left: 1px solid var(--ink); }
