@@ -1,4 +1,5 @@
 ---
+import PersonCard from "./PersonCard.astro";
 import { getAnnouncedEpisode, getPeopleByIds } from "../data/catalog";
 import { partnerPath, resolveVenueId } from "../data/partners";
 import type { Locale } from "../data/types";
@@ -126,21 +127,12 @@ const copy = locale === "zh-Hans"
     </div>
     <div class="episode-preview-participant-grid">
       {participants.map((person, index) => (
-        <article>
-          <div class="host-photo"><img
-            src={person.data.photo}
-            width={person.data.width}
-            height={person.data.height}
-            loading="lazy"
-            decoding="async"
-            alt={person.data.alt[locale]}
-          /></div>
-          <div>
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <h3>{person.data.name[locale]}</h3>
-            <p>{episode.data.participants[index]?.role === "duty-host" ? copy.dutyHost : episode.data.participants[index]?.role === "guest" ? copy.guest : copy.coHost}</p>
-          </div>
-        </article>
+        <PersonCard
+            name={person.data.name[locale]} bio={episode.data.participants[index]?.role === "duty-host" ? copy.dutyHost : episode.data.participants[index]?.role === "guest" ? copy.guest : copy.coHost}
+            photo={person.data.photo} alt={person.data.alt[locale]}
+            width={person.data.width} height={person.data.height} index={index}
+            profilePath={`${locale === "en" ? "/en" : ""}/people/${person.id}/`}
+          />
       ))}
     </div>
   </section>

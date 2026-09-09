@@ -1,0 +1,39 @@
+---
+import { getAnnouncedEpisodes } from "../data/catalog";
+import { resolveVenueId } from "../data/partners";
+import type { Locale } from "../data/types";
+
+interface Props { locale: Locale; showId?: string }
+const { locale, showId = "next-token-weekly" } = Astro.props;
+const episodes = await getAnnouncedEpisodes();
+const episode = episodes.filter(({ data }) => data.show === showId)
+  .sort((a, b) => a.data.status === "announced" && b.data.status === "announced"
+    ? Date.parse(a.data.scheduledAt) - Date.parse(b.data.scheduledAt) : 0)[0];
+const data = episode?.data.status === "announced" ? episode.data : undefined;
+const recording = data ? await resolveVenueId(data.recordingVenue) : undefined;
+const date = data ? new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-Hans", {
+  month: "short", day: "numeric", hour: "numeric", minute: "2-digit",
+  hour12: locale === "en", timeZone: data.timeZone,
+}).format(new Date(data.scheduledAt)) : "";
+const venue = recording ? `${locale === "en" ? recording.partner.englishName : recording.partner.name} · ${recording.venue.name[locale]}` : "";
+---
+
+{data && (
+  <a class="upcoming-episode-link" href={`${locale === "en" ? "/en" : ""}/weekly/${data.number}/`}>
+    <span class="upcoming-episode-label">{locale === "en" ? "Next recording" : "下期录制预告"} · Weekly #{data.number}</span>
+    <span class="upcoming-episode-meta">{date} · {venue}</span>
+    <span class="upcoming-episode-action">{locale === "en" ? "View preview" : "查看预告"} <span aria-hidden="true">→</span></span>
+  </a>
+)}
+
+<style>
+  .upcoming-episode-link { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.4rem 1rem; margin-top: 1.5rem; padding-top: 1rem; border-top: 0.0625rem solid var(--ink); font-size: 0.875rem; line-height: 1.5; }
+  .upcoming-episode-label { font-weight: 750; }
+  .upcoming-episode-meta { grid-column: 1; color: var(--muted); font-size: 0.8rem; }
+  .upcoming-episode-action { grid-column: 2; grid-row: 1 / 3; align-self: center; color: var(--signal); white-space: nowrap; }
+  .upcoming-episode-link:hover .upcoming-episode-label { text-decoration: underline; text-underline-offset: 0.2em; }
+  @media (max-width: 30rem) {
+    .upcoming-episode-link { grid-template-columns: 1fr; }
+    .upcoming-episode-action { grid-column: 1; grid-row: auto; }
+  }
+</style>

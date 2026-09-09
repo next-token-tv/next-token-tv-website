@@ -1,0 +1,32 @@
+---
+import HostPortrait from "./HostPortrait.astro";
+
+interface Props {
+  name: string;
+  bio: string;
+  photo: string;
+  alt: string;
+  width: number;
+  height: number;
+  profilePath: string;
+  index?: number;
+  class?: string;
+  copyClass?: string;
+}
+
+const { name, bio, photo, alt, width, height, profilePath, index, class: className, copyClass } = Astro.props;
+---
+
+<article class={className}>
+  <a class="host-photo" href={profilePath} aria-label={name}>
+    <HostPortrait src={photo} width={width} height={height}
+      sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 25vw"
+      loading="lazy" decoding="async" alt={alt} />
+  </a>
+  <div class={copyClass}>
+    {index !== undefined && <span>{String(index + 1).padStart(2, "0")}</span>}
+    <h3><a href={profilePath}>{name}</a></h3>
+    <p>{bio}</p>
+    <slot />
+  </div>
+</article>

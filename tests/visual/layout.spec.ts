@@ -14,9 +14,9 @@ const routes = [
   { path: "/en/", shell: ".hero-grid.shell", visual: ".hero-grid" },
   { path: "/weekly/", shell: ".weekly-show-hero-inner.shell", visual: ".weekly-show-hero" },
   { path: "/en/weekly/", shell: ".weekly-show-hero-inner.shell", visual: ".weekly-show-hero" },
-  { path: "/weekly/001/", shell: ".episode-detail-content.shell", visual: ".episode-detail-hero" },
+  { path: "/weekly/001/", shell: ".episode-detail-hero-inner.shell", visual: ".episode-detail-hero" },
   { path: "/weekly/001/transcript/", shell: ".transcript-hero.shell", visual: ".transcript-hero" },
-  { path: "/en/weekly/001/", shell: ".episode-detail-content.shell", visual: ".episode-detail-hero" },
+  { path: "/en/weekly/001/", shell: ".episode-detail-hero-inner.shell", visual: ".episode-detail-hero" },
   { path: "/weekly/002/", shell: ".episode-preview-hero-inner.shell", visual: ".episode-preview-hero" },
   { path: "/en/weekly/002/", shell: ".episode-preview-hero-inner.shell", visual: ".episode-preview-hero" },
   { path: "/partners/", shell: ".partners-intro.shell", visual: ".partners-intro" },
@@ -30,6 +30,43 @@ const routes = [
   { path: "/products/glm-5-3-flash/", shell: ".entity-detail-hero.shell", visual: ".entity-detail-hero" },
   { path: "/en/products/glm-5-3-flash/", shell: ".entity-detail-hero.shell", visual: ".entity-detail-hero" },
 ] as const;
+
+test("platform lists share localized labels, logos and destinations", async ({ page }) => {
+  for (const prefix of ["", "/en"]) {
+    let expected;
+    for (const path of ["/", "/weekly/", "/weekly/001/"]) {
+      await page.goto(`${prefix}${path}`);
+      const list = page.locator(".platform-list");
+      await expect(list.locator("a.platform.is-live")).toHaveCount(5);
+      await expect(list.locator("img.platform-logo")).toHaveCount(5);
+      const entries = await list.locator(".platform").evaluateAll((rows) => rows.map((row) => ({
+        text: row.textContent?.replace(/\s+/g, " ").trim(),
+        href: row.getAttribute("href"),
+        target: row.getAttribute("target"),
+        rel: row.getAttribute("rel"),
+      })));
+      if (expected) expect(entries).toEqual(expected);
+      else expected = entries;
+      await expect(list.locator('a[href*="spotify.com"] .coming')).toContainText(prefix ? "Listen / watch" : "收听/收看");
+    }
+  }
+});
+
+test("person cards link portraits and names to localized profiles", async ({ page }) => {
+  for (const prefix of ["", "/en"]) {
+    for (const path of ["/", "/weekly/", "/weekly/001/", "/weekly/002/"]) {
+      await page.goto(`${prefix}${path}`);
+      const portraits = page.locator("article > a.host-photo");
+      await expect(portraits).toHaveCount(4);
+      for (const portrait of await portraits.all()) {
+        const href = await portrait.getAttribute("href");
+        expect(href).toMatch(new RegExp(`^${prefix}/people/[^/]+/$`));
+        await expect(portrait.locator("..").locator("h3 a")).toHaveAttribute("href", href!);
+        expect((await page.request.get(href!)).status()).toBe(200);
+      }
+    }
+  }
+});
 
 for (const viewport of viewports) {
   test.describe(`${viewport.name} ${viewport.width}px`, () => {
@@ -215,4 +252,30 @@ test("shared heading roles keep their documented scales", async ({ page }) => {
   await page.goto("/en/design-system/");
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex");
   await expect(page.getByRole("heading", { level: 1, name: "Interface standards" })).toBeVisible();
+});
+
+test("featured episode identity never exceeds its section heading", async ({ page }) => {
+  const cases = [
+    { path: "/", heading: ".weekly .section-heading h2" },
+    { path: "/weekly/", heading: ".weekly-show-episodes .weekly-show-section-heading h2" },
+    { path: "/en/", heading: ".weekly .section-heading h2" },
+    { path: "/en/weekly/", heading: ".weekly-show-episodes .weekly-show-section-heading h2" },
+  ];
+
+  for (const width of [390, 768, 1440, 1920]) {
+    await page.setViewportSize({ width, height: 900 });
+    for (const item of cases) {
+      await page.goto(item.path);
+      const sizes = await page.evaluate((headingSelector) => {
+        const size = (selector: string) => Number.parseFloat(getComputedStyle(document.querySelector(selector)!).fontSize);
+        return {
+          heading: size(headingSelector),
+          number: size(".weekly-card .episode-number"),
+          title: size(".weekly-card .weekly-copy h3"),
+        };
+      }, item.heading);
+      expect(sizes.number).toBeLessThanOrEqual(sizes.heading);
+      expect(sizes.title).toBeLessThanOrEqual(sizes.heading);
+    }
+  }
 });

@@ -5,6 +5,8 @@
 - Shared design values live in `src/styles/tokens.css`; shared typography roles live in `src/styles/typography.css`; page and component composition remains in `src/styles/global.css` or the owning Astro component.
 - The cascade order is `reset`, `tokens`, `base`, `layouts`, `components`, `utilities`, then `overrides`. Shared role classes own their font family, size, and line height; component styles may control layout and spacing but must not redefine those properties.
 - Promote a value to a global token only when the same semantic role occurs across page templates. Keep genuinely page-specific display treatments scoped to their owning page.
+- Homepage, show, and episode viewing-platform lists share `PlatformList.astro`, including numbered rows, colored logos, localized actions, and unavailable states. Platform metadata remains the source of names, destinations, and actions; pages control the surrounding section layout.
+- Homepage, show, and episode participant cards share `PersonCard.astro`. Portrait and name link to the same localized person profile; page composition controls spacing and supplies either the biography or episode role. `HostCard.astro` adds homepage social accounts through the shared card slot.
 - `/design-system/` and `/en/design-system/` are non-indexed reference pages for inspecting shared typography, color, and spacing tokens. They are not part of public navigation or the sitemap.
 
 ## Content width and alignment
@@ -14,6 +16,7 @@
 - Full-width backgrounds are independent of content width. The homepage Weekly section wraps its content in `.shell`; its background and the topic rail remain full bleed. Do not nest padded shells or add a second inline gutter to their parents.
 - The homepage hero uses the same shell: text aligns with its left content edge and the photograph ends at its right content edge. Neither column bleeds beyond the shared content area.
 - The Weekly landing-page and episode-announcement heroes follow the same rule: their two-column blocks use `.shell`, and neither column extends beyond the shared desktop content area. At stacked breakpoints, a background panel may reach the shell edge while its text retains the shared gutter.
+- Published episode heroes use `.episode-detail-hero-inner.shell` for both image and copy; only the outer dark background spans the viewport.
 - On wide desktop screens, the Weekly landing hero stays within the first viewport below the header. Its vertical poster lettering scales with viewport height so it cannot force the hero taller; the copy H1 remains the dominant element in the left column.
 - The episode-announcement venue and map block also uses `.shell`. Preserve its two-column composition: the partner logo remains in the left panel, while the venue copy, actions, and embedded map stay together in the right panel. The full block shares the same outer edges as the announcement details and participant grid.
 - Display type inside a constrained hero column scales against that column, not the viewport. Changing a hero's container width requires checking every large display element for added wrapping or overflow.
@@ -30,6 +33,7 @@
 - Repeated content sections use `.heading-section-content`: `2.25rem` below `48rem`, `2.65rem` from `48rem`, and `3rem` from `80rem`. This role includes episode mentions, participants, viewing platforms, entity facts, entity links, and related episodes.
 - Repeated compact sections use `.heading-section-compact`: `1.8rem` below `48rem`, `2.15rem` from `48rem`, and `2.5rem` from `80rem`. This role includes profile details and Brand Kit sections.
 - Shared section headings use discrete responsive steps and remain fixed between breakpoints. They stop growing after the `80rem` desktop breakpoint, regardless of viewport width.
+- Featured-episode cards on the homepage and Weekly landing page use the content-section size for both the episode number and episode title. Neither element may exceed the corresponding section H2 at any breakpoint.
 - Page-specific display headings remain local to their page template. The Weekly landing page uses `--weekly-display-heading-size: clamp(2.75rem, 4.5vw, 4.75rem)` for its large editorial statements.
 - Card titles, transcript chapter titles, article subheadings, and large display slogans are separate typographic roles. Keep a page-only role in its component; promote it to a shared token only when the same semantic role appears across page templates.
 - Typography tokens and breakpoints use `rem`. Do not define font sizes in `px`; genuinely fluid, page-specific display treatments may use viewport- or container-relative units inside bounded `clamp()` values.
@@ -44,6 +48,7 @@
 - Check every rendered H2 on Chinese and English pages at desktop, tablet, and mobile widths. Its computed line height divided by font size must equal 1.25 (allowing browser rounding).
 - At the same viewport width, headings within each shared role must resolve to the same computed font size.
 - Shared role sizes must match their documented breakpoint values and remain unchanged above the desktop breakpoint.
+- Featured-episode numbers and titles must be no larger than their enclosing section H2 on both the homepage and Weekly landing page.
 - Inspect multiline headings visually for readable spacing, unintended word breaks, clipping, and overlap with adjacent content.
 - `npm run lint:styles` rejects pixel-based font sizes. `npm run check` includes this rule.
 - `npm run test:visual` is the required geometry and screenshot regression check. It covers Chinese and English pages at 390, 768, 1280, 1440, 1920, and 2560 CSS pixels; screenshot baselines are stored for mobile and wide layouts.

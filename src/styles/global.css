@@ -675,19 +675,19 @@ h1 .accent {
 }
 
 .episode-number {
-  margin-bottom: clamp(4rem, 8vw, 7rem);
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
   color: var(--signal);
   font-family: var(--display);
-  font-size: clamp(4rem, 9vw, 8.5rem);
-  line-height: 0.75;
+  font-size: var(--heading-section-content-size);
+  line-height: 1;
   letter-spacing: var(--display-tracking);
 }
 
 .weekly-copy h3 {
   margin-bottom: 1rem;
   font-family: var(--display);
-  font-size: clamp(2.35rem, 4.5vw, 4.9rem);
-  line-height: 1.18;
+  font-size: var(--heading-section-content-size);
+  line-height: var(--section-heading-leading);
 }
 
 .weekly-copy p {
@@ -818,6 +818,7 @@ h1 .accent {
 }
 
 .host-photo {
+  display: block;
   overflow: hidden;
   aspect-ratio: 1;
   background: #ddd8ca;
@@ -1616,11 +1617,17 @@ h1 .accent {
   display: block;
 }
 
-.weekly-show-hero-copy > p:last-child {
+.weekly-show-hero-copy > p:not(.section-kicker) {
   max-width: 48rem;
   margin: 0;
   font-size: clamp(1.08rem, 1.6vw, 1.4rem);
   line-height: 1.7;
+}
+
+@media (min-width: 62.5625rem) {
+  .weekly-show-hero-copy > .upcoming-episode-link {
+    margin-inline-end: 2rem;
+  }
 }
 
 .weekly-show-poster {
@@ -1894,12 +1901,15 @@ html[lang="en"] .weekly-show-facts strong {
 }
 
 .episode-detail-hero {
-  display: grid;
-  min-height: min(800px, calc(100svh - 76px));
-  grid-template-columns: minmax(28rem, 1.05fr) minmax(0, 0.95fr);
   border-bottom: 1px solid var(--ink);
   color: var(--white);
   background: var(--ink);
+}
+
+.episode-detail-hero-inner {
+  display: grid;
+  min-height: min(50rem, calc(100svh - 4.75rem));
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
 }
 
 .episode-detail-image {
@@ -2960,7 +2970,7 @@ html[lang="en"] .weekly-show-facts strong {
     grid-column: 3 / -1;
   }
 
-  .episode-detail-hero,
+  .episode-detail-hero-inner,
   .episode-detail-content,
   .episode-detail-platforms {
     grid-template-columns: 1fr;

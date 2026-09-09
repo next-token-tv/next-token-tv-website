@@ -1,6 +1,7 @@
 ---
+import UpcomingEpisodeLink from "./UpcomingEpisodeLink.astro";
+import PlatformList from "./PlatformList.astro";
 import HostCard from "./HostCard.astro";
-import PlatformBrand from "./PlatformBrand.astro";
 import ConditionalImagePan from "./ConditionalImagePan.astro";
 import { getPublishedEpisode } from "../data/catalog";
 import { resolveVenueId } from "../data/partners";
@@ -46,6 +47,7 @@ const episode001Path = content.locale === "en" ? "/en/weekly/001/" : "/weekly/00
           <a class="button primary" href={episode001Path}>{content.hero.primaryAction} <span aria-hidden="true">↘</span></a>
           <a class="button" href="#about">{content.hero.secondaryAction}</a>
         </div>
+        <UpcomingEpisodeLink locale={content.locale} />
       </div>
       <div class="hero-footnote" data-reveal>
         <strong>NT.</strong>
@@ -174,21 +176,7 @@ const episode001Path = content.locale === "en" ? "/en/weekly/001/" : "/weekly/00
       <h2 class="heading-section-display">{content.subscribe.heading[0]}<br />{content.subscribe.heading[1]}</h2>
       <p>{content.subscribe.copy}</p>
     </div>
-    <div class="platform-list" data-reveal aria-label={content.subscribe.platformsLabel}>
-      {localizedPlatforms.map((platform, index) => platform.href ? (
-        <a class="platform is-live" href={platform.href} target="_blank" rel="noopener noreferrer">
-          <span class="index">{String(index + 1).padStart(2, "0")}</span>
-          <strong><PlatformBrand platform={platform.platform} name={platform.label} /></strong>
-          <span class="coming">{platform.action ?? content.subscribe.available} <span aria-hidden="true">↗</span></span>
-        </a>
-      ) : (
-        <div class="platform">
-          <span class="index">{String(index + 1).padStart(2, "0")}</span>
-          <strong><PlatformBrand platform={platform.platform} name={platform.label} /></strong>
-          <span class="coming">{content.subscribe.comingSoon}</span>
-        </div>
-      ))}
-    </div>
+    <PlatformList platforms={localizedPlatforms} label={content.subscribe.platformsLabel} available={content.subscribe.available} comingSoon={content.subscribe.comingSoon} reveal />
   </section>
 </main>
 

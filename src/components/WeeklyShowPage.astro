@@ -1,7 +1,8 @@
 ---
+import UpcomingEpisodeLink from "./UpcomingEpisodeLink.astro";
+import PlatformList from "./PlatformList.astro";
 import ConditionalImagePan from "./ConditionalImagePan.astro";
-import HostPortrait from "./HostPortrait.astro";
-import PlatformBrand from "./PlatformBrand.astro";
+import PersonCard from "./PersonCard.astro";
 import {
   getAnnouncedEpisodes,
   getHostsForShow,
@@ -99,6 +100,7 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
         <p class="section-kicker">{page.eyebrow}</p>
         <h1>{page.heading.map((line) => <span>{line}</span>)}</h1>
         <p>{page.lede}</p>
+        <UpcomingEpisodeLink locale={locale} />
       </div>
       <div class="weekly-show-poster" aria-hidden="true">
         <span>Next Token</span>
@@ -146,24 +148,7 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
     </div>
     <div class="weekly-show-host-grid">
       {hosts.map((host, index) => (
-        <article>
-          <div class="host-photo">
-            <HostPortrait
-              src={host.photo}
-              width={host.width}
-              height={host.height}
-              sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 25vw"
-              loading="lazy"
-              decoding="async"
-              alt={host.alt}
-            />
-          </div>
-          <div class="weekly-show-host-copy">
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <h3><a href={host.profilePath}>{host.name}</a></h3>
-            <p>{host.bio}</p>
-          </div>
-        </article>
+        <PersonCard {...host} index={index} copyClass="weekly-show-host-copy" />
       ))}
     </div>
   </section>
@@ -235,21 +220,7 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
       <p class="section-index">{labels.followIndex}</p>
       <h2>{labels.followHeading[0]}<br />{labels.followHeading[1]}</h2>
     </div>
-    <div class="platform-list" aria-label={labels.platformsLabel}>
-      {episode001.data.platforms.map((platform, index) => platform.href ? (
-        <a class="platform is-live" href={platform.href} target="_blank" rel="noopener noreferrer">
-          <span class="index">{String(index + 1).padStart(2, "0")}</span>
-          <strong><PlatformBrand platform={platform.platform} name={platform.label[locale]} /></strong>
-          <span class="coming">{platform.action?.[locale] ?? labels.available} <span aria-hidden="true">↗</span></span>
-        </a>
-      ) : (
-        <div class="platform">
-          <span class="index">{String(index + 1).padStart(2, "0")}</span>
-          <strong><PlatformBrand platform={platform.platform} name={platform.label[locale]} /></strong>
-          <span class="coming">{labels.comingSoon}</span>
-        </div>
-      ))}
-    </div>
+    <PlatformList platforms={episode001.data.platforms.map((platform) => ({ ...platform, label: platform.label[locale], action: platform.action?.[locale] }))} label={labels.platformsLabel} available={labels.available} comingSoon={labels.comingSoon} />
   </section>
 </main>
 

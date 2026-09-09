@@ -1,0 +1,31 @@
+---
+import PlatformBrand from "./PlatformBrand.astro";
+
+interface Props {
+  platforms: { platform: string; label: string; href?: string; action?: string }[];
+  label?: string;
+  available?: string;
+  comingSoon: string;
+  reveal?: boolean;
+}
+
+const { platforms, label, available, comingSoon, reveal = false } = Astro.props;
+---
+
+<div class="platform-list" aria-label={label} data-reveal={reveal || undefined}>
+  {platforms.map((platform, index) => {
+    const Tag = platform.href ? "a" : "div";
+    return (
+      <Tag class:list={["platform", { "is-live": !!platform.href }]}
+        href={platform.href} target={platform.href ? "_blank" : undefined}
+        rel={platform.href ? "noopener noreferrer" : undefined}>
+        <span class="index">{String(index + 1).padStart(2, "0")}</span>
+        <strong><PlatformBrand platform={platform.platform} name={platform.label} /></strong>
+        <span class="coming">
+          {platform.href ? platform.action ?? available : comingSoon}
+          {platform.href && <> <span aria-hidden="true">↗</span></>}
+        </span>
+      </Tag>
+    );
+  })}
+</div>
