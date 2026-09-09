@@ -1,0 +1,119 @@
+---
+import type { Locale } from "../data/types";
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const en = locale === "en";
+---
+<div class="transcript-search" hidden data-reader-tools data-language={locale}>
+  <label for="transcript-search">{en ? "Search transcript" : "搜索文字稿"}</label>
+  <div class="transcript-search-input">
+    <input id="transcript-search" type="search" placeholder={en ? "Name, product or keyword" : "人物、产品或关键词"} autocomplete="off" />
+    <button type="button" data-clear hidden>{en ? "Clear" : "清除"}</button>
+  </div>
+  <p role="status" aria-live="polite" data-search-status></p>
+  <ol data-search-results></ol>
+</div>
+<script>
+  const tools = document.querySelector<HTMLElement>('[data-reader-tools]');
+  if (tools) {
+    tools.hidden = false;
+    const en = tools.dataset.language === 'en';
+    const input = tools.querySelector<HTMLInputElement>('input')!;
+    const clear = tools.querySelector<HTMLButtonElement>('[data-clear]')!;
+    const status = tools.querySelector<HTMLElement>('[data-search-status]')!;
+    const results = tools.querySelector<HTMLOListElement>('[data-search-results]')!;
+    const chapters = [...document.querySelectorAll<HTMLElement>('.transcript-chapter')];
+    const entries = chapters.flatMap((chapter) => {
+      const heading = chapter.querySelector('h2')!;
+      const title = heading.textContent ?? '';
+      const turns = [...chapter.querySelectorAll<HTMLElement>('.transcript-turn')];
+      return [{ id: chapter.id, title, text: title }, ...turns.map((turn, i) => {
+        turn.id = `${chapter.id}-turn-${i + 1}`;
+        return { id: turn.id, title, text: turn.textContent?.replace(/\s+/g, ' ').trim() ?? '' };
+      })];
+    });
+    const search = () => {
+      clear.hidden = input.value.length === 0;
+      const query = input.value.trim().toLocaleLowerCase();
+      results.replaceChildren();
+      if (!query) { status.textContent = ''; return; }
+      const matches = entries.filter(({ text }) => text.toLocaleLowerCase().includes(query));
+      status.textContent = en ? `${matches.length} results${matches.length > 50 ? ' · showing first 50' : ''}` : `${matches.length} 处匹配${matches.length > 50 ? ' · 显示前 50 处' : ''}`;
+      for (const match of matches.slice(0, 50)) {
+        const li = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = `#${match.id}`;
+        const at = match.text.toLocaleLowerCase().indexOf(query);
+        const from = Math.max(0, at - 24);
+        const snippet = match.text.slice(from, at + query.length + 50);
+        const text = `${match.title} — ${from ? '…' : ''}${snippet}`;
+        const folded = text.toLocaleLowerCase();
+        let cursor = 0;
+        let found = folded.indexOf(query);
+        while (found !== -1) {
+          link.append(document.createTextNode(text.slice(cursor, found)));
+          const mark = document.createElement('mark');
+          mark.textContent = text.slice(found, found + query.length);
+          link.append(mark);
+          cursor = found + query.length;
+          found = folded.indexOf(query, cursor);
+        }
+        link.append(document.createTextNode(text.slice(cursor)));
+        li.append(link); results.append(li);
+      }
+    };
+    input.addEventListener('input', search);
+    clear.addEventListener('click', () => { input.value = ''; search(); input.focus(); });
+    search();
+    for (const chapter of chapters) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'transcript-copy-link';
+      button.textContent = en ? 'Copy chapter link' : '复制章节链接';
+      const feedback = document.createElement('span');
+      feedback.setAttribute('role', 'status');
+      button.addEventListener('click', async () => {
+        const url = new URL(document.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.href ?? location.href);
+        url.hash = chapter.id;
+        try {
+          await navigator.clipboard.writeText(url.href);
+          feedback.textContent = en ? ' Copied' : ' 已复制';
+        } catch {
+          feedback.textContent = en ? ' Copy this link: ' : ' 请复制此链接：';
+          const fallback = document.createElement('input');
+          fallback.value = url.href; fallback.readOnly = true;
+          fallback.setAttribute('aria-label', en ? 'Chapter link' : '章节链接');
+          feedback.append(fallback); fallback.select();
+        }
+      });
+      const row = document.createElement('div');
+      row.className = 'transcript-share'; row.append(button, feedback);
+      chapter.querySelector('header')!.append(row);
+    }
+    if (location.hash) document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView();
+  }
+</script>
+<style is:global>
+  @media (min-width: 62.5625rem) {
+    .transcript-sidebar { max-height: calc(100svh - 8rem); overflow-y: auto; }
+  }
+  .transcript-search { margin-bottom: 1rem; font-size: 0.85rem; }
+  .transcript-search label { display: block; margin-bottom: 0.5rem; font-weight: 700; }
+  .transcript-search-input { display: flex; align-items: center; border: 0.0625rem solid var(--muted); }
+  .transcript-search-input:focus-within { border-color: var(--signal); box-shadow: inset 0 0 0 0.0625rem var(--signal); }
+  .transcript-search input { min-width: 0; width: 100%; padding: 0.625rem; border: 0; border-radius: 0; background: transparent; font: inherit; appearance: none; }
+  .transcript-search input:focus-visible { outline: none; }
+  .transcript-search input::-webkit-search-cancel-button { appearance: none; }
+  .transcript-search-input button { margin-inline-end: 0.5rem; flex-shrink: 0; }
+  .transcript-search-input button:focus-visible { outline: 0.125rem solid var(--signal); outline-offset: 0; }
+  .transcript-search button, .transcript-copy-link { padding: 0.25rem; border: 0; background: transparent; color: var(--ink); font: inherit; cursor: pointer; white-space: nowrap; }
+  .transcript-search [role="status"] { margin: 0.5rem 0; color: var(--muted); }
+  .transcript-search ol { max-height: 16rem; overflow: auto; padding: 0; list-style: none; }
+  .transcript-search li { margin-bottom: 0.75rem; }
+  .transcript-search mark { background: #ffd6a3; color: var(--ink); font-weight: 750; }
+  .transcript-search a:hover, .transcript-copy-link:hover { text-decoration: underline; }
+  .transcript-share { grid-column: 2; font-size: 0.8rem; color: var(--muted); }
+  .transcript-share input { max-width: 100%; font: inherit; }
+  .transcript-turn { scroll-margin-top: 7rem; }
+  .transcript-turn:target { outline: 0.0625rem solid var(--signal); outline-offset: 0.5rem; }
+</style>

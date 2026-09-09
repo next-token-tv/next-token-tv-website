@@ -3,6 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import { getPeopleByIds } from "../data/catalog";
 import type { Locale } from "../data/types";
 import TranscriptSegments from "./TranscriptSegments.astro";
+import TranscriptReaderTools from "./TranscriptReaderTools.astro";
 
 interface Props {
   transcript: CollectionEntry<"transcriptImports">;
@@ -58,6 +59,7 @@ const copy = locale === "en" ? {
 
   <div class="transcript-layout shell">
     <aside class="transcript-sidebar">
+      <TranscriptReaderTools locale={locale} />
       <details class="transcript-toc" open>
         <summary>{copy.contents} · {transcript.data.report.chapters}</summary>
         <ol>
