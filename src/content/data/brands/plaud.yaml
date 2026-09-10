@@ -1,0 +1,17 @@
+kind: company-brand
+name:
+  zh-Hans: Plaud
+  en: Plaud
+summary:
+  zh-Hans: 研发 AI 录音硬件与笔记服务的品牌，提供语音记录、转写、总结和知识整理产品。
+  en: A brand developing AI recording hardware and note-taking services for capturing, transcribing, summarizing, and organizing conversations.
+aliases:
+  - PLAUD
+official:
+  website: https://www.plaud.ai/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.plaud.ai/

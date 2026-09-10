@@ -1,0 +1,18 @@
+kind: application
+brand: marswave
+name:
+  zh-Hans: "ListenHub"
+  en: "ListenHub"
+summary:
+  zh-Hans: "将创意、文档与链接转化为播客、配音、图片、演示文稿和视频的 AI 内容创作平台。"
+  en: "AI content creation platform turning ideas, documents and links into podcasts, voiceovers, images, slides and videos."
+aliases: []
+status: available
+official:
+  website: https://listenhub.ai/
+lastVerifiedAt: "2026-09-09"
+sources:
+  - label:
+      zh-Hans: "产品官网"
+      en: "Product website"
+    href: https://listenhub.ai/

@@ -1,0 +1,20 @@
+kind: platform
+name:
+  zh-Hans: X
+  en: X
+summary:
+  zh-Hans: 原名 Twitter 的社交平台，提供公开发帖、实时讨论和创作者内容服务。
+  en: The social platform formerly known as Twitter, offering public posts, real-time conversations, and creator content.
+aliases:
+  - Twitter
+  - 推特
+  - x.com
+  - 𝕏
+official:
+  website: https://x.com/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: X 官方介绍
+      en: About X
+    href: https://about.x.com/en

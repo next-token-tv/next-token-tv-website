@@ -1,0 +1,18 @@
+kind: platform
+brand: evoken
+name:
+  zh-Hans: "Liblib"
+  en: "Liblib"
+summary:
+  zh-Hans: "提供 AI 图像创作、模型分享和创作者社区服务的平台。"
+  en: "Platform for AI image creation, model sharing and creator communities."
+aliases: ["LiblibAI","哩布哩布AI"]
+status: available
+official:
+  website: https://www.liblib.art/
+lastVerifiedAt: "2026-09-09"
+sources:
+  - label:
+      zh-Hans: "产品官网"
+      en: "Product website"
+    href: https://www.liblib.art/

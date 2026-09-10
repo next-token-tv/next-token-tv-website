@@ -1,0 +1,25 @@
+---
+import EntityDetailPage from "../../../../components/EntityDetailPage.astro";
+import { getProductDirectory, getProductProfile } from "../../../../data/catalog";
+import { getSiteContent } from "../../../../data/site";
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const products = await getProductDirectory("en");
+  return products.map(({ product }) => ({ params: { slug: product.id }, props: { productId: product.id } }));
+}
+
+interface Props { productId: string; }
+const { productId } = Astro.props;
+const [content, profile] = await Promise.all([getSiteContent("en"), getProductProfile(productId)]);
+---
+
+<BaseLayout
+  content={content}
+  pageTitle={`${profile.product.data.name.en} | Product Library | Next Token`}
+  description={profile.product.data.summary.en}
+  canonicalPath={`/en/wiki/products/${productId}/`}
+  alternatePath={`/wiki/products/${productId}/`}
+>
+  <EntityDetailPage entityType="product" entityId={productId} locale="en" />
+</BaseLayout>

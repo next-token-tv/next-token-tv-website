@@ -1,0 +1,16 @@
+kind: agent
+name:
+  zh-Hans: Manus
+  en: Manus
+summary:
+  zh-Hans: 可规划并执行多步骤任务的通用 AI Agent，面向调研、内容制作与工作流程自动化。
+  en: A general-purpose AI agent that plans and executes multi-step tasks for research, content creation, and workflow automation.
+aliases: []
+official:
+  website: https://manus.im/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://manus.im/

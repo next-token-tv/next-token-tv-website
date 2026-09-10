@@ -1,0 +1,18 @@
+kind: agent
+brand: evoken
+name:
+  zh-Hans: "Lovart"
+  en: "Lovart"
+summary:
+  zh-Hans: "面向设计工作的 AI Agent，将创意转化为视觉设计素材，并支持生成、编辑与设计协作。"
+  en: "AI design agent that turns ideas into visual assets with generation, editing and collaborative design workflows."
+aliases: []
+status: available
+official:
+  website: https://www.lovart.ai/
+lastVerifiedAt: "2026-09-09"
+sources:
+  - label:
+      zh-Hans: "产品官网"
+      en: "Product website"
+    href: https://www.lovart.ai/

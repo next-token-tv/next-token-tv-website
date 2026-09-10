@@ -44,7 +44,20 @@ function validateCatalog(catalog: Catalog) {
   const episodes = indexById(catalog.episodes);
   const episodeImports = indexById(catalog.episodeImports);
 
+  for (const person of catalog.people) {
+    const seen = new Set<string>();
+    for (const relation of person.data.relations) {
+      const key = `${relation.entityType}:${relation.entity}`;
+      if (seen.has(key)) throw new Error(`Duplicate person relation ${person.id}: ${key}`);
+      seen.add(key);
+      if (relation.entityType === "brand") requireId(brands, relation.entity, `brand related to ${person.id}`);
+      else requireId(products, relation.entity, `product related to ${person.id}`);
+    }
+  }
+
   for (const membership of catalog.hostMemberships) {
+    const hostPerson = requireId(people, membership.data.person, "host portrait");
+    if (!hostPerson.data.photo || !hostPerson.data.width || !hostPerson.data.height) throw new Error(`Host ${hostPerson.id} requires portrait dimensions`);
     requireId(people, membership.data.person, `person referenced by host membership ${membership.id}`);
     requireId(shows, membership.data.show, `show referenced by host membership ${membership.id}`);
     const expectedId = `${membership.data.show}--${membership.data.person}`;
@@ -73,7 +86,7 @@ function validateCatalog(catalog: Catalog) {
   }
 
   for (const product of catalog.products) {
-    requireId(brands, product.data.brand, `brand referenced by product ${product.id}`);
+    if (product.data.brand) requireId(brands, product.data.brand, `brand referenced by product ${product.id}`);
     if (product.data.parent) {
       const parent = requireId(products, product.data.parent, `parent referenced by product ${product.id}`);
       if (parent.id === product.id) throw new Error(`Product ${product.id} cannot be its own parent`);
@@ -255,12 +268,12 @@ export async function getHostsForShow(showId: string, locale: Locale): Promise<H
 
       return {
         id: person.id,
-        profilePath: `${locale === "en" ? "/en" : ""}/people/${person.id}/`,
+        profilePath: `${locale === "en" ? "/en" : ""}/wiki/people/${person.id}/`,
         name: displayName,
         bio: person.data.bio[locale],
-        photo: person.data.photo,
-        width: person.data.width,
-        height: person.data.height,
+        photo: person.data.photo!,
+        width: person.data.width!,
+        height: person.data.height!,
         alt: person.data.alt[locale],
         socialsLabel: person.data.socialsLabel[locale],
         socials: getSocials(person.data.socials, locale),
@@ -379,6 +392,38 @@ export async function getPeopleByIds(personIds: string[]) {
   return personIds.map((personId) => requireId(people, personId, "person"));
 }
 
+export async function getEntityPeopleRelations(entityType: "person" | "brand" | "product", entityId: string, locale: Locale) {
+  const catalog = await getContentCatalog();
+  const prefix = locale === "en" ? "/en" : "";
+  if (entityType === "person") {
+    const person = requireId(indexById(catalog.people), entityId, "person relationships");
+    return person.data.relations.map(relation => {
+      const entity = relation.entityType === "brand"
+        ? requireId(indexById(catalog.brands), relation.entity, "related brand")
+        : requireId(indexById(catalog.products), relation.entity, "related product");
+      return { name: entity.data.name[locale], role: relation.role[locale], href: `${prefix}/wiki/${relation.entityType === "brand" ? "brands" : "products"}/${entity.id}/`, sources: relation.sources };
+    });
+  }
+  return catalog.people.flatMap(person => person.data.relations
+    .filter(relation => relation.entityType === entityType && relation.entity === entityId)
+    .map(relation => ({ name: person.data.name[locale], role: relation.role[locale], href: `${prefix}/wiki/people/${person.id}/`, sources: relation.sources })));
+}
+
+export async function getPeopleDirectory() {
+  const catalog = await getContentCatalog();
+  const hostOrder = (id: string) => catalog.hostMemberships.find(m => m.data.person === id)?.data.displayOrder ?? Number.MAX_SAFE_INTEGER;
+  return catalog.people.slice().sort((a, b) => hostOrder(a.id) - hostOrder(b.id) || a.id.localeCompare(b.id)).map(person => ({
+    person,
+    isHost: catalog.hostMemberships.some(m => m.data.person === person.id),
+    episodesCount: catalog.episodes.filter(episode => {
+      const data = episode.data;
+      const participants = data.status === "announced" ? data.participants
+        : catalog.episodeImports.find(i => i.id === data.productionImport)?.data.participants ?? [];
+      return episode.data.mentions.people.includes(person.id) || participants.some(p => p.person === person.id);
+    }).length,
+  }));
+}
+
 export async function getHostProfileIds() {
   const catalog = await getContentCatalog();
   return [...new Set(catalog.hostMemberships.map(({ data }) => data.person))];
@@ -391,9 +436,9 @@ export async function getHostProfile(personId: string, locale: Locale) {
   const person = requireId(indexById(catalog.people), personId, "profile person");
   const host: Host = {
     id: personId,
-    profilePath: `${locale === "en" ? "/en" : ""}/people/${personId}/`,
+    profilePath: `${locale === "en" ? "/en" : ""}/wiki/people/${personId}/`,
     name: person.data.name[locale], bio: person.data.bio[locale],
-    photo: person.data.photo, width: person.data.width, height: person.data.height,
+    photo: person.data.photo!, width: person.data.width!, height: person.data.height!,
     alt: person.data.alt[locale], socialsLabel: person.data.socialsLabel[locale],
     socials: getSocials(person.data.socials, locale),
   };
@@ -439,7 +484,7 @@ export async function getProductDirectory(locale: Locale) {
   return catalog.products
     .map((product) => ({
       product,
-      brand: requireId(brands, product.data.brand, `brand referenced by product ${product.id}`),
+      brand: product.data.brand ? requireId(brands, product.data.brand, `brand referenced by product ${product.id}`) : undefined,
       episodesCount: catalog.episodes.filter(({ data }) => data.mentions.products.includes(product.id)).length,
     }))
     .sort((a, b) => a.product.data.name[locale].localeCompare(b.product.data.name[locale], locale));
@@ -464,7 +509,7 @@ export async function getProductProfile(productId: string) {
   const products = indexById(catalog.products);
   const brands = indexById(catalog.brands);
   const product = requireId(products, productId, "product");
-  const brand = requireId(brands, product.data.brand, `brand referenced by product ${productId}`);
+  const brand = product.data.brand ? requireId(brands, product.data.brand, `brand referenced by product ${productId}`) : undefined;
   const parent = product.data.parent
     ? requireId(products, product.data.parent, `parent referenced by product ${productId}`)
     : undefined;
@@ -483,6 +528,7 @@ export async function getEpisodeMentionEntities(episodeId: string) {
   const brands = indexById(catalog.brands);
   const products = indexById(catalog.products);
   return {
+    people: episode.data.mentions.people.map((id) => requireId(indexById(catalog.people), id, `person mentioned by ${episodeId}`)),
     brands: episode.data.mentions.brands.map((id) => requireId(brands, id, `brand mentioned by ${episodeId}`)),
     products: episode.data.mentions.products.map((id) => requireId(products, id, `product mentioned by ${episodeId}`)),
   };

@@ -1,0 +1,20 @@
+kind: application
+name:
+  zh-Hans: Dia
+  en: Dia
+summary:
+  zh-Hans: 内置 AI 助手的浏览器，可围绕当前网页、多个标签页与选中文本提问、总结和写作，并将常用请求保存为可复用的技能。
+  en: A browser with a built-in AI assistant for questions, summaries, and writing using the current page, multiple tabs, and selected text, with reusable skills for frequent requests.
+aliases:
+  - Dia Browser
+  - Dia 浏览器
+status: available
+official:
+  website: https://www.diabrowser.com/
+  documentation: https://www.diabrowser.com/help
+lastVerifiedAt: "2026-09-10"
+sources:
+  - label:
+      zh-Hans: Dia 官方产品介绍
+      en: Dia product overview
+    href: https://www.diabrowser.com/download/thanks

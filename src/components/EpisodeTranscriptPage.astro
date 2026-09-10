@@ -90,7 +90,7 @@ const copy = locale === "en" ? {
                 <div class:list={["transcript-turn", `is-${turn.kind}`]} data-speaker={turn.speakerId ?? undefined}>
                   <div class="transcript-speaker">
                     {person ? (
-                      <a href={`/people/${person.id}/`} aria-label={`查看${turn.speaker}的个人页面`}>
+                      <a href={`/wiki/people/${person.id}/`} aria-label={`查看${turn.speaker}的个人页面`}>
                         <img
                           src={person.data.photo}
                           width="28"

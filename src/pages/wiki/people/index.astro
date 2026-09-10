@@ -1,0 +1,9 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import EntityDirectoryPage from "../../../components/EntityDirectoryPage.astro";
+import { getSiteContent } from "../../../data/site";
+const content = await getSiteContent("zh-Hans");
+---
+<BaseLayout content={content} pageTitle="人物库 | Next Token" description="Next Token 对谈中的主理人、创业者、开发者与研究者。" canonicalPath="/wiki/people/" alternatePath="/en/wiki/people/">
+  <EntityDirectoryPage entityType="people" locale="zh-Hans" />
+</BaseLayout>

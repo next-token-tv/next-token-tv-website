@@ -1,0 +1,17 @@
+---
+import EntityDirectoryPage from "../../../components/EntityDirectoryPage.astro";
+import { getSiteContent } from "../../../data/site";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const content = await getSiteContent("zh-Hans");
+---
+
+<BaseLayout
+  content={content}
+  pageTitle="产品库｜Next Token"
+  description="整理 Next Token 节目中提到的模型、Agent、应用与开发工具。"
+  canonicalPath="/wiki/products/"
+  alternatePath="/en/wiki/products/"
+>
+  <EntityDirectoryPage entityType="products" locale="zh-Hans" />
+</BaseLayout>

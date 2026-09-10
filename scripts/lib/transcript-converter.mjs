@@ -14,7 +14,7 @@ const GENERIC_CANDIDATES = new Set([
   "Token", "Token Maxxing", "TPS", "TTS", "UX", "Vibe Coding", "Web", "Web 2.0",
 ]);
 
-export const CONVERSION_VERSION = "1.1.0";
+export const CONVERSION_VERSION = "1.4.0";
 
 export function sha256(value) {
   return createHash("sha256").update(value).digest("hex");
@@ -77,8 +77,11 @@ export function createEntityMatcher(entities, resolutions = {}) {
 function nextEntityMatch(text, cursor, candidates) {
   let best;
   for (const candidate of candidates) {
-    const index = text.indexOf(candidate.alias, cursor);
-    if (index < 0 || !hasWordBoundary(text, index, candidate.alias)) continue;
+    let index = text.indexOf(candidate.alias, cursor);
+    while (index >= 0 && !hasWordBoundary(text, index, candidate.alias)) {
+      index = text.indexOf(candidate.alias, index + 1);
+    }
+    if (index < 0) continue;
     if (!best || index < best.index || (index === best.index && candidate.alias.length > best.candidate.alias.length)) {
       best = { index, candidate };
     }
@@ -100,22 +103,19 @@ function linkifyText(text, matcher, linkedInChapter, linkCounts) {
     const { alias, entity } = match.candidate;
     const end = match.index + alias.length;
     const entityKey = `${entity.entityType}:${entity.id}`;
-    if (linkedInChapter.has(entityKey)) {
-      segments.push({ type: "text", value: text.slice(cursor, end) });
-      cursor = end;
-      continue;
-    }
-
     if (match.index > cursor) segments.push({ type: "text", value: text.slice(cursor, match.index) });
     segments.push({
       type: "entity-link",
       value: alias,
       entityType: entity.entityType,
       entityId: entity.id,
-      href: `/${entity.entityType === "brand" ? "brands" : "products"}/${entity.id}/`,
+      href: entity.href ?? `/wiki/${{ brand: "brands", product: "products", person: "people" }[entity.entityType]}/${entity.id}/`,
     });
-    linkedInChapter.add(entityKey);
-    linkCounts.set(entityKey, (linkCounts.get(entityKey) ?? 0) + 1);
+    // Report chapter coverage, not occurrence count, while linking every occurrence.
+    if (!linkedInChapter.has(entityKey)) {
+      linkCounts.set(entityKey, (linkCounts.get(entityKey) ?? 0) + 1);
+      linkedInChapter.add(entityKey);
+    }
     cursor = end;
   }
 
@@ -215,8 +215,10 @@ export function convertTranscript(tree, {
   sourceSha256,
   entities,
   resolutions = {},
+  excludedEntities = [],
 }) {
-  const matcher = createEntityMatcher(entities, resolutions);
+  const excluded = new Set(excludedEntities);
+  const matcher = createEntityMatcher(entities.filter(entity => !excluded.has(`${entity.entityType}:${entity.id}`)), resolutions);
   const linkCounts = new Map();
   const unknownSpeakers = new Set();
   const chapters = [];
@@ -269,7 +271,18 @@ export function convertTranscript(tree, {
   }
 
   if (!title || !chapters.length) throw new Error("Transcript must include one H1 and at least one H2 chapter");
-  for (const current of chapters) delete current.linkedEntities;
+  for (const current of chapters) {
+    // No eligible known entity may remain unlinked in body text.
+    for (const segment of current.turns.flatMap(turn => turn.paragraphs.flat())) {
+      if (segment.type !== "text") continue;
+      const match = nextEntityMatch(segment.value, 0, matcher.candidates);
+      if (match) {
+        const { entity, alias } = match.candidate;
+        throw new Error(`Known entity missing link in ${current.id}: ${entity.entityType}:${entity.id} (${alias})`);
+      }
+    }
+    delete current.linkedEntities;
+  }
 
   const paragraphs = chapters.reduce(
     (sum, current) => sum + current.turns.reduce((turnSum, currentTurn) => turnSum + currentTurn.paragraphs.length, 0),

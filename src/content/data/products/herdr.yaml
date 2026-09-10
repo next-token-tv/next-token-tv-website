@@ -1,0 +1,18 @@
+kind: developer-tool
+name:
+  zh-Hans: Herdr
+  en: Herdr
+summary:
+  zh-Hans: 在终端中运行、管理与协调多个编程智能体的运行环境。
+  en: A terminal runtime for running, managing and coordinating multiple coding agents.
+aliases:
+  - herdr
+status: available
+official:
+  website: https://herdr.dev/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://herdr.dev/

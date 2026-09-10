@@ -1,0 +1,18 @@
+kind: company-brand
+name:
+  zh-Hans: 中兴
+  en: ZTE
+summary:
+  zh-Hans: 提供通信网络设备、数字基础设施与智能终端的科技公司。
+  en: A technology company providing telecommunications equipment, digital infrastructure, and smart devices.
+aliases:
+  - 中兴通讯
+  - ZTE Corporation
+official:
+  website: https://www.zte.com.cn/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.zte.com.cn/global/index.html

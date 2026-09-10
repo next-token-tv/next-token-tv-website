@@ -1,0 +1,9 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SitemapPage from "../../components/SitemapPage.astro";
+import { getSiteContent } from "../../data/site";
+const content = await getSiteContent("zh-Hans");
+---
+<BaseLayout content={content} pageTitle="网站地图｜Next Token" description="浏览 Next Token 的节目、文字稿、主理人、合作伙伴、品牌与产品。" canonicalPath="/sitemap/" alternatePath="/en/sitemap/">
+  <SitemapPage locale="zh-Hans" />
+</BaseLayout>

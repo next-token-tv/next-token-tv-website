@@ -1,6 +1,5 @@
 kind: hardware
 brand: apple
-parent: mac
 name:
   zh-Hans: Mac mini
   en: Mac mini

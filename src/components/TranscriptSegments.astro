@@ -18,7 +18,7 @@ const { segments } = Astro.props;
       : segment.value;
 
   if (segment.type === "entity-link") {
-    return <a class="transcript-entity-link" href={segment.href}>{content}</a>;
+    return <a class="transcript-entity-link" data-entity-type={segment.entityType} href={segment.href}>{content}</a>;
   }
   if (segment.type === "external-link") {
     return <a href={segment.href} target="_blank" rel="noopener noreferrer">{content}</a>;

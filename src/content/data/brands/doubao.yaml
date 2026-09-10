@@ -1,0 +1,17 @@
+kind: product-brand
+name:
+  zh-Hans: 豆包
+  en: Doubao
+summary:
+  zh-Hans: 字节跳动旗下的 AI 品牌，覆盖智能助手、基础模型与工作任务产品。
+  en: ByteDance's AI brand spanning assistants, foundation models, and work-oriented products.
+aliases:
+  - Doubao
+official:
+  website: https://www.doubao.com/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.doubao.com/legal/feature_intro

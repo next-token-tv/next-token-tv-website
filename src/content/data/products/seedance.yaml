@@ -1,0 +1,19 @@
+kind: model-family
+brand: doubao
+name:
+  zh-Hans: Seedance
+  en: Seedance
+summary:
+  zh-Hans: 字节跳动 Seed 团队研发的视频生成模型家族，支持根据文本和图像生成视频。
+  en: A video generation model family developed by ByteDance's Seed team for generating videos from text and images.
+aliases:
+  - Seedance 1.0
+  - Seedance 2.5
+official:
+  website: https://seed.bytedance.com/en/seedance2_5
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://seed.bytedance.com/en/seedance2_5

@@ -1,0 +1,19 @@
+kind: agent
+name:
+  zh-Hans: Qoder
+  en: Qoder
+summary:
+  zh-Hans: 面向编程与多步骤任务的 AI Agent 产品，可通过桌面应用、IDE、终端与云端服务参与开发工作。
+  en: An AI agent product for coding and multi-step tasks, supporting development through desktop apps, IDEs, the terminal, and cloud services.
+aliases:
+  - New Qoder
+status: available
+official:
+  website: https://qoder.com/
+  documentation: https://docs.qoder.com/product-series/what-is-qoder
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://qoder.com/

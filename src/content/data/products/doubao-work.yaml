@@ -1,0 +1,19 @@
+kind: application
+brand: doubao
+name:
+  zh-Hans: 豆包工作
+  en: Doubao Work
+summary:
+  zh-Hans: 面向个人与团队的 AI 工作产品，可执行调研、文档与演示文稿生成、表格处理、定时任务和电脑操作，并结合飞书中的工作知识协作。
+  en: An AI work product for individuals and teams, supporting research, document and presentation creation, spreadsheets, scheduled tasks, and computer use, with Feishu collaboration.
+aliases:
+  - Doubao Work
+status: available
+official:
+  website: https://www.doubao.com/work
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.doubao.com/work

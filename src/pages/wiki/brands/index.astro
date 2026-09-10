@@ -1,0 +1,17 @@
+---
+import EntityDirectoryPage from "../../../components/EntityDirectoryPage.astro";
+import { getSiteContent } from "../../../data/site";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const content = await getSiteContent("zh-Hans");
+---
+
+<BaseLayout
+  content={content}
+  pageTitle="品牌库｜Next Token"
+  description="整理 Next Token 对话中出现的公司、模型、平台与产品品牌。"
+  canonicalPath="/wiki/brands/"
+  alternatePath="/en/wiki/brands/"
+>
+  <EntityDirectoryPage entityType="brands" locale="zh-Hans" />
+</BaseLayout>

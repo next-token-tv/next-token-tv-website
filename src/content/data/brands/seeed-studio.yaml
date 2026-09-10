@@ -1,0 +1,17 @@
+kind: company-brand
+name:
+  zh-Hans: Seeed Studio
+  en: Seeed Studio
+summary:
+  zh-Hans: 面向开发者与企业的物联网硬件品牌，提供开发板、传感器、边缘计算设备与硬件服务。
+  en: An IoT hardware brand providing development boards, sensors, edge computing devices, and hardware services for developers and businesses.
+aliases:
+  - Seeed
+official:
+  website: https://www.seeedstudio.com/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://wiki.seeedstudio.com/Getting_Started/

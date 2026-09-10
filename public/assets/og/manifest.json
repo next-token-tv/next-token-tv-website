@@ -1,0 +1,118 @@
+{
+  "/": {
+    "image": "/assets/og/home-dc248a74e062.png",
+    "alt": "NEXT TOKEN — 不只预测 下一个词元。"
+  },
+  "/weekly/": {
+    "image": "/assets/og/weekly-f94cd4f7bb74.png",
+    "alt": "NEXT TOKEN WEEKLY — 一周的 AI， 四个人， 一张开放的圆桌。"
+  },
+  "/wiki/people/aj/": {
+    "image": "/assets/og/wiki-people-aj-ec44fc771436.png",
+    "alt": "人物库 — AJ"
+  },
+  "/wiki/people/chen-mian/": {
+    "image": "/assets/og/wiki-people-chen-mian-2f7ed03a149a.png",
+    "alt": "人物库 — 陈冕"
+  },
+  "/wiki/people/dhh/": {
+    "image": "/assets/og/wiki-people-dhh-2d488c7a556b.png",
+    "alt": "人物库 — David Heinemeier Hansson"
+  },
+  "/wiki/people/guanlan-dai/": {
+    "image": "/assets/og/wiki-people-guanlan-dai-9078389a2558.png",
+    "alt": "人物库 — 戴冠兰"
+  },
+  "/wiki/people/guizang/": {
+    "image": "/assets/og/wiki-people-guizang-08c4887521e6.png",
+    "alt": "联合主理人 — 歸藏"
+  },
+  "/wiki/people/luo-fuli/": {
+    "image": "/assets/og/wiki-people-luo-fuli-0739d124a360.png",
+    "alt": "人物库 — 罗福莉"
+  },
+  "/wiki/people/orange/": {
+    "image": "/assets/og/wiki-people-orange-d8e2aa0d8c65.png",
+    "alt": "联合主理人 — 橘子 Orange"
+  },
+  "/wiki/people/wang-le/": {
+    "image": "/assets/og/wiki-people-wang-le-9427c8acfb10.png",
+    "alt": "人物库 — 王乐"
+  },
+  "/wiki/people/xiangyang-qiaomu/": {
+    "image": "/assets/og/wiki-people-xiangyang-qiaomu-5ff067b58e33.png",
+    "alt": "联合主理人 — 向阳乔木"
+  },
+  "/wiki/people/yangpan/": {
+    "image": "/assets/og/wiki-people-yangpan-3d4de4a89e47.png",
+    "alt": "联合主理人 — 杨攀"
+  },
+  "/weekly/001/": {
+    "image": "/assets/og/weekly-001-f87241fa6e76.png",
+    "alt": "WEEKLY #001 · 本期节目 — 大模型进入“斩杀线”大战，Token 就是新货币"
+  },
+  "/weekly/002/": {
+    "image": "/assets/og/weekly-002-bacfa6da88c5.png",
+    "alt": "WEEKLY #002 · 录制预告 — 下一次圆桌，上海见。"
+  },
+  "/en/": {
+    "image": "/assets/og/en-f3543cea9c32.png",
+    "alt": "NEXT TOKEN — Beyond the next token."
+  },
+  "/en/weekly/": {
+    "image": "/assets/og/en-weekly-b3fa4b50d153.png",
+    "alt": "NEXT TOKEN WEEKLY — One week in AI. Four voices. One open table."
+  },
+  "/en/wiki/people/aj/": {
+    "image": "/assets/og/en-wiki-people-aj-8e4c874dd82a.png",
+    "alt": "PEOPLE — AJ"
+  },
+  "/en/wiki/people/chen-mian/": {
+    "image": "/assets/og/en-wiki-people-chen-mian-34711e67e66e.png",
+    "alt": "PEOPLE — Chen Mian"
+  },
+  "/en/wiki/people/dhh/": {
+    "image": "/assets/og/en-wiki-people-dhh-b5d8edbd9cfd.png",
+    "alt": "PEOPLE — David Heinemeier Hansson"
+  },
+  "/en/wiki/people/guanlan-dai/": {
+    "image": "/assets/og/en-wiki-people-guanlan-dai-f68944cbeeae.png",
+    "alt": "PEOPLE — Guanlan Dai"
+  },
+  "/en/wiki/people/guizang/": {
+    "image": "/assets/og/en-wiki-people-guizang-bb0827a3ea11.png",
+    "alt": "CO-HOST — 歸藏 Guizang"
+  },
+  "/en/wiki/people/luo-fuli/": {
+    "image": "/assets/og/en-wiki-people-luo-fuli-a36770140bbf.png",
+    "alt": "PEOPLE — Fuli Luo"
+  },
+  "/en/wiki/people/orange/": {
+    "image": "/assets/og/en-wiki-people-orange-039d4c651592.png",
+    "alt": "CO-HOST — 橘子 Orange"
+  },
+  "/en/wiki/people/wang-le/": {
+    "image": "/assets/og/en-wiki-people-wang-le-d5cd4b5e0a1b.png",
+    "alt": "PEOPLE — Wang Le"
+  },
+  "/en/wiki/people/xiangyang-qiaomu/": {
+    "image": "/assets/og/en-wiki-people-xiangyang-qiaomu-eff1e405110b.png",
+    "alt": "CO-HOST — 向阳乔木 Xiangyang Qiaomu"
+  },
+  "/en/wiki/people/yangpan/": {
+    "image": "/assets/og/en-wiki-people-yangpan-197f824e5c33.png",
+    "alt": "CO-HOST — 杨攀 Pan YANG"
+  },
+  "/en/weekly/001/": {
+    "image": "/assets/og/en-weekly-001-9700e539f551.png",
+    "alt": "WEEKLY #001 · EPISODE — The LLM “Kill Line” Wars: Tokens Are the New Money"
+  },
+  "/en/weekly/002/": {
+    "image": "/assets/og/en-weekly-002-ccc171ddb618.png",
+    "alt": "WEEKLY #002 · PREVIEW — The next open table,in Shanghai."
+  },
+  "/weekly/001/transcript/": {
+    "image": "/assets/og/weekly-001-transcript-fa316d77d40e.png",
+    "alt": "WEEKLY #001 · 文字稿 — 大模型进入“斩杀线”大战，Token 就是新货币"
+  }
+}

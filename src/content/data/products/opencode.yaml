@@ -1,0 +1,17 @@
+kind: agent
+name:
+  zh-Hans: "OpenCode"
+  en: "OpenCode"
+summary:
+  zh-Hans: "可在终端、编辑器及桌面使用的开源 AI 编程智能体。"
+  en: "An open-source AI coding agent available in the terminal, editor and desktop."
+aliases: ["opencode"]
+status: available
+official:
+  website: https://opencode.ai/
+lastVerifiedAt: "2026-09-10"
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://opencode.ai/

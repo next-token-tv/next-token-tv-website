@@ -1,0 +1,18 @@
+kind: application
+name:
+  zh-Hans: Obsidian
+  en: Obsidian
+summary:
+  zh-Hans: 以本地 Markdown 文件为基础的笔记与知识管理应用，支持笔记关联、插件扩展与个性化工作流。
+  en: A note-taking and knowledge management app built on local Markdown files, with linked notes, plugins, and customizable workflows.
+aliases: []
+status: available
+official:
+  website: https://obsidian.md/
+  documentation: https://help.obsidian.md/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://obsidian.md/

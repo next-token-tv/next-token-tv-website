@@ -1,0 +1,17 @@
+kind: application
+name:
+  zh-Hans: 微信
+  en: WeChat
+summary:
+  zh-Hans: 腾讯的即时通讯与社交应用，支持聊天、语音视频通话、朋友圈与小程序等服务。
+  en: Tencent's messaging and social app with chat, voice and video calls, Moments, and Mini Programs.
+aliases:
+  - Weixin
+official:
+  website: https://weixin.qq.com/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.tencent.com/products/weixin-wechat/

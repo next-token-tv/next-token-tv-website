@@ -131,7 +131,7 @@ const copy = locale === "zh-Hans"
             name={person.data.name[locale]} bio={episode.data.participants[index]?.role === "duty-host" ? copy.dutyHost : episode.data.participants[index]?.role === "guest" ? copy.guest : copy.coHost}
             photo={person.data.photo} alt={person.data.alt[locale]}
             width={person.data.width} height={person.data.height} index={index}
-            profilePath={`${locale === "en" ? "/en" : ""}/people/${person.id}/`}
+            profilePath={`${locale === "en" ? "/en" : ""}/wiki/people/${person.id}/`}
           />
       ))}
     </div>

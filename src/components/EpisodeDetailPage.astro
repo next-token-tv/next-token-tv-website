@@ -1,11 +1,12 @@
 ---
+import TranscriptLink from "./TranscriptLink.astro";
 import PlatformList from "./PlatformList.astro";
 import PersonCard from "./PersonCard.astro";
 import { render } from "astro:content";
 import ConditionalImagePan from "./ConditionalImagePan.astro";
 import EpisodeMentions from "./EpisodeMentions.astro";
 import PlatformBrand from "./PlatformBrand.astro";
-import { getEpisodeShowNotes, getEpisodeTranscriptOrNull, getPeopleByIds, getPublishedEpisode } from "../data/catalog";
+import { getEpisodeShowNotes, getPeopleByIds, getPublishedEpisode } from "../data/catalog";
 import { partnerPath, resolveVenueId } from "../data/partners";
 import type { Locale } from "../data/types";
 
@@ -15,10 +16,9 @@ interface Props {
 }
 
 const { episodeId, locale } = Astro.props;
-const [episode, showNotes, transcript] = await Promise.all([
+const [episode, showNotes] = await Promise.all([
   getPublishedEpisode(episodeId),
   getEpisodeShowNotes(episodeId, locale),
-  getEpisodeTranscriptOrNull(episodeId, locale),
 ]);
 const [{ partner, venue }, participants] = await Promise.all([
   resolveVenueId(episode.data.recordingVenue),
@@ -99,11 +99,12 @@ const labels = locale === "en" ? {
     </div>
     <div class="episode-detail-hero-copy">
       <a href={weeklyPath}>← {labels.back}</a>
-      <strong>#{episode.data.number}</strong>
+      <strong class="episode-hero-number">#{episode.data.number}</strong>
       <div>
         <p class="eyebrow">{homepage.eyebrow}</p>
-        <h1>{homepage.heading[0]}<br />{homepage.heading[1]}</h1>
+        <h1 class="episode-hero-title">{homepage.heading[0]}<br />{homepage.heading[1]}</h1>
         <p>{homepage.lede}</p>
+        <TranscriptLink episodeId={episodeId} number={episode.data.number} locale={locale} />
         <div class="episode-actions">
           {episode.data.platforms.filter(({ href }) => href).map((platform) => (
             <a class="episode-listen episode-platform" href={platform.href} target="_blank" rel="noopener noreferrer" aria-label={`${platform.label[locale]} · ${platform.action?.[locale] ?? platform.label[locale]}`}>
@@ -111,11 +112,6 @@ const labels = locale === "en" ? {
             </a>
           ))}
         </div>
-        {transcript && (
-          <a class="episode-transcript-cta" href={`${weeklyPath}${episode.data.number}/transcript/`}>
-            {labels.transcript} <span aria-hidden="true">→</span>
-          </a>
-        )}
       </div>
     </div>
     </div>
@@ -162,7 +158,7 @@ const labels = locale === "en" ? {
             name={person.data.name[locale]} bio={role}
             photo={person.data.photo} alt={person.data.alt[locale]}
             width={person.data.width} height={person.data.height} index={index}
-            profilePath={`${locale === "en" ? "/en" : ""}/people/${person.id}/`}
+            profilePath={`${locale === "en" ? "/en" : ""}/wiki/people/${person.id}/`}
           />
         );
       })}

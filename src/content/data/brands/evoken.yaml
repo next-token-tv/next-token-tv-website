@@ -1,0 +1,14 @@
+kind: company-brand
+name:
+  zh-Hans: "演语科技"
+  en: "Evoken"
+summary:
+  zh-Hans: "陈冕创立的 AI 应用公司，旗下产品包括 Liblib、Lovart 和 LibTV。"
+  en: "AI application company founded by Chen Mian, behind Liblib, Lovart and LibTV."
+aliases: ["Evoken"]
+lastVerifiedAt: "2026-09-09"
+sources:
+  - label:
+      zh-Hans: "晚点 LatePost 创始人访谈（转载）"
+      en: "LatePost founder interview (republished)"
+    href: https://www.chwang.com/article/208345738693

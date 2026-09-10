@@ -1,0 +1,16 @@
+kind: platform
+name:
+  zh-Hans: TikTok
+  en: TikTok
+summary:
+  zh-Hans: 用于观看、创作和分享短视频的内容平台，支持内容发现与创作者互动。
+  en: A platform for watching, creating, and sharing short videos, with content discovery and creator interaction.
+aliases: []
+official:
+  website: https://www.tiktok.com/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.tiktok.com/about?lang=en

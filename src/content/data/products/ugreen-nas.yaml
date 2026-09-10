@@ -1,0 +1,24 @@
+kind: hardware
+name:
+  zh-Hans: 绿联 NAS
+  en: UGREEN NAS
+summary:
+  zh-Hans: 绿联的网络附加存储产品系列，用于文件集中管理、多设备访问、数据备份和多媒体存储。
+  en: UGREEN's network-attached storage product range for centralized file management, multi-device access, backups, and media storage.
+aliases:
+  - 绿联NAS
+  - 绿联 NAS 私有云
+  - 绿联NAS私有云
+official:
+  website: https://www.ugnas.com/
+  documentation: https://support.ugnas.com/
+lastVerifiedAt: "2026-09-10"
+sources:
+  - label:
+      zh-Hans: 绿联 NAS 官方网站
+      en: UGREEN NAS official website
+    href: https://www.ugnas.com/
+  - label:
+      zh-Hans: 绿联 NAS 系统介绍
+      en: UGREEN NAS system overview
+    href: https://support.ugnas.com/detail/article/zh-CN/772

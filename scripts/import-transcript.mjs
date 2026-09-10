@@ -79,6 +79,7 @@ async function readEntities(directory, entityType) {
     return {
       entityType,
       id,
+      ...(entityType === "show" ? { href: data.pagePath } : {}),
       aliases: [data.name?.["zh-Hans"], data.name?.en, ...(data.aliases ?? [])],
     };
   }));
@@ -90,8 +91,20 @@ const sourceProvenance = await inspectSourceProvenance(sourcePath);
 const entities = [
   ...(await readEntities("brands", "brand")),
   ...(await readEntities("products", "product")),
+  ...(await readEntities("people", "person")),
+  ...(await readEntities("shows", "show")),
 ];
 const tree = unified().use(remarkParse).parse(source);
+const episode = load(await readFile(resolve(websiteRoot, `src/content/data/episodes/${episodeId}.yaml`), "utf8"));
+const membershipsRoot = resolve(websiteRoot, "src/content/data/host-memberships");
+const memberships = await Promise.all((await readdir(membershipsRoot)).filter(file => file.endsWith(".yaml"))
+  .map(async file => load(await readFile(resolve(membershipsRoot, file), "utf8"))));
+const excludedEntities = memberships.filter(m => m.show === episode.show).map(m => `person:${m.person}`);
+for (const { entityType, id, alias } of rules.scopedAliases ?? []) {
+  const entity = entities.find(item => item.entityType === entityType && item.id === id);
+  if (!entity || !alias?.trim()) throw new Error(`Invalid scoped alias: ${id}`);
+  entity.aliases.push(alias);
+}
 const imported = convertTranscript(tree, {
   episodeId,
   locale: rules.locale,
@@ -99,10 +112,14 @@ const imported = convertTranscript(tree, {
   sourceSha256,
   entities,
   resolutions: rules.resolutions,
+  excludedEntities,
 });
 
 if (imported.report.unknownSpeakers.length) {
   throw new Error(`Unknown transcript speakers: ${imported.report.unknownSpeakers.join(", ")}`);
+}
+if (imported.report.ambiguousAliases.length) {
+  throw new Error(`Ambiguous transcript aliases require explicit resolutions: ${imported.report.ambiguousAliases.map(item => item.alias).join(", ")}`);
 }
 
 const outputPath = resolve(websiteRoot, `src/content/imported/transcripts/${episodeId}.${rules.locale}.json`);

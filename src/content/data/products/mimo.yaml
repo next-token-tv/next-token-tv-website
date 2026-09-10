@@ -1,0 +1,24 @@
+kind: model-family
+brand: xiaomi
+name:
+  zh-Hans: MiMo
+  en: MiMo
+summary:
+  zh-Hans: 小米研发的人工智能模型家族，覆盖推理、编程、智能体与多模态任务。
+  en: Xiaomi's AI model family for reasoning, coding, agentic workflows, and multimodal tasks.
+aliases:
+  - Xiaomi MiMo
+  - 小米 MiMo
+  - MiMo 2.5
+  - MiMo-V2.5
+  - MiMo V2.5
+status: available
+official:
+  website: https://mimo.mi.com/
+  documentation: https://mimo.mi.com/docs/zh-CN/news/latest/v2.5-news
+lastVerifiedAt: "2026-09-10"
+sources:
+  - label:
+      zh-Hans: MiMo 官方模型介绍
+      en: Official MiMo model overview
+    href: https://mimo.mi.com/models/zh-CN/mimo-v2.5

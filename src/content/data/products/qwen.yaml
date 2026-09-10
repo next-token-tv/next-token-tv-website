@@ -1,5 +1,4 @@
 kind: model-family
-brand: qwen
 name:
   zh-Hans: Qwen
   en: Qwen
@@ -9,7 +8,29 @@ summary:
 aliases:
   - 通义千问
   - 千问
+  - Qwen 3.8 Flash Next
+  - Qwen3.8-Flash-Next
+  - Qwen 3.8 Max 0902
+  - Qwen3.8-Max-0902
+  - qwen3.8-max-0902
+  - qwen3.8-max-2026-09-02
+  - Qwen 3.8 Max
+  - Qwen3.8-Max
+  - Tongyi Qianwen
 status: available
 official:
   website: https://qwen.ai/
-lastVerifiedAt: "2026-09-07"
+lastVerifiedAt: '2026-09-07'
+sources:
+  - label:
+      zh-Hans: Qwen 3.8 Flash Next 官方资料
+      en: Qwen 3.8 Flash Next official information
+    href: https://huggingface.co/Qwen/Qwen3.8-Flash-Next
+  - label:
+      zh-Hans: Qwen 3.8 Max 0902 官方资料
+      en: Qwen 3.8 Max 0902 official information
+    href: https://help.aliyun.com/en/model-studio/qwen3-8-max
+  - label:
+      zh-Hans: Qwen 3.8 Max 官方资料
+      en: Qwen 3.8 Max official information
+    href: https://www.alibabacloud.com/help/en/model-studio/vision-model

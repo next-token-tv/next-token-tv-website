@@ -1,0 +1,24 @@
+kind: agent
+name:
+  zh-Hans: TRAE
+  en: TRAE
+summary:
+  zh-Hans: 面向软件开发的 AI 编程产品，支持理解代码、生成与修改代码以及执行开发任务。
+  en: An AI coding product for understanding, generating, and editing code and carrying out software development tasks.
+aliases:
+  - Trae
+  - TraeWork
+  - TRAE Work
+  - Trae Work
+official:
+  website: https://www.trae.ai/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.trae.ai/
+  - label:
+      zh-Hans: TraeWork 官方文档
+      en: Official TraeWork documentation
+    href: https://docs.trae.cn/work_trae-work-web-and-desktop-quickstart

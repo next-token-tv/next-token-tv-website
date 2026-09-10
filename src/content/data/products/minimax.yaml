@@ -1,0 +1,17 @@
+kind: model-family
+brand: minimax
+name:
+  zh-Hans: MiniMax
+  en: MiniMax
+summary:
+  zh-Hans: MiniMax 的多模态人工智能模型家族。
+  en: MiniMax's family of multimodal AI models.
+aliases:
+  - MiniMax H3
+  - H3
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: MiniMax H3 官方资料
+      en: MiniMax H3 official information
+    href: https://www.minimax.io/news/minimax-h3-open-source

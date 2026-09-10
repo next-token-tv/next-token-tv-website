@@ -1,0 +1,9 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import SitemapPage from "../../../components/SitemapPage.astro";
+import { getSiteContent } from "../../../data/site";
+const content = await getSiteContent("en");
+---
+<BaseLayout content={content} pageTitle="Sitemap | Next Token" description="Explore Next Token episodes, transcripts, co-hosts, partners, brands and products." canonicalPath="/en/sitemap/" alternatePath="/sitemap/">
+  <SitemapPage locale="en" />
+</BaseLayout>

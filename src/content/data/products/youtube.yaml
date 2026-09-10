@@ -1,0 +1,18 @@
+kind: platform
+brand: google
+name:
+  zh-Hans: "YouTube"
+  en: "YouTube"
+summary:
+  zh-Hans: "Google 旗下的视频观看、创作与分享平台。"
+  en: "Google's platform for watching, creating and sharing videos."
+aliases: ["Youtube"]
+status: available
+official:
+  website: https://about.youtube/
+lastVerifiedAt: "2026-09-10"
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://about.youtube/

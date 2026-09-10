@@ -1,0 +1,18 @@
+kind: agent
+brand: zhipu
+name:
+  zh-Hans: "ZCode"
+  en: "ZCode"
+summary:
+  zh-Hans: "智谱的 Agent 开发环境，支持规划、编码、调试与多 Agent 协作。"
+  en: "Z.ai's agentic development environment for planning, coding, debugging and multi-agent collaboration."
+aliases: []
+status: available
+official:
+  website: https://zcode.z.ai/en
+lastVerifiedAt: "2026-09-10"
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://zcode.z.ai/en

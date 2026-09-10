@@ -1,0 +1,24 @@
+kind: hardware
+name:
+  zh-Hans: 群晖 NAS
+  en: Synology NAS
+summary:
+  zh-Hans: 群晖的网络附加存储产品系列，覆盖家庭与企业的数据存储、文件共享、同步和备份需求。
+  en: Synology's network-attached storage product range for home and business data storage, file sharing, synchronization, and backups.
+aliases:
+  - 群晖NAS
+  - 群暉 NAS
+  - 群暉NAS
+official:
+  website: https://www.synology.cn/zh-cn/products
+  documentation: https://kb.synology.cn/zh-cn/UG/CN_Synology_Deployment_Guide_DSM_7_2/1
+lastVerifiedAt: "2026-09-10"
+sources:
+  - label:
+      zh-Hans: 群晖官方产品目录
+      en: Synology official product catalog
+    href: https://www.synology.cn/zh-cn/products
+  - label:
+      zh-Hans: 群晖 NAS 部署指南
+      en: Synology NAS deployment guide
+    href: https://kb.synology.cn/zh-cn/UG/CN_Synology_Deployment_Guide_DSM_7_2/1

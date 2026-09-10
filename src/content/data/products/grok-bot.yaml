@@ -5,8 +5,8 @@ name:
   zh-Hans: Grok Bot
   en: Grok Bot
 summary:
-  zh-Hans: xAI 面向企业工作流提供的自主 Agent，运行在持久化云端计算环境中。
-  en: xAI's autonomous enterprise agent running in a persistent cloud computing environment.
+  zh-Hans: SpaceXAI 面向企业工作流提供的自主 Agent，运行在持久化云端计算环境中。
+  en: SpaceXAI's autonomous enterprise agent running in a persistent cloud computing environment.
 aliases: []
 status: available
 official:

@@ -1,0 +1,25 @@
+---
+import EntityDetailPage from "../../../components/EntityDetailPage.astro";
+import { getProductDirectory, getProductProfile } from "../../../data/catalog";
+import { getSiteContent } from "../../../data/site";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const products = await getProductDirectory("zh-Hans");
+  return products.map(({ product }) => ({ params: { slug: product.id }, props: { productId: product.id } }));
+}
+
+interface Props { productId: string; }
+const { productId } = Astro.props;
+const [content, profile] = await Promise.all([getSiteContent("zh-Hans"), getProductProfile(productId)]);
+---
+
+<BaseLayout
+  content={content}
+  pageTitle={`${profile.product.data.name["zh-Hans"]}｜产品资料库｜Next Token`}
+  description={profile.product.data.summary["zh-Hans"]}
+  canonicalPath={`/wiki/products/${productId}/`}
+  alternatePath={`/en/wiki/products/${productId}/`}
+>
+  <EntityDetailPage entityType="product" entityId={productId} locale="zh-Hans" />
+</BaseLayout>

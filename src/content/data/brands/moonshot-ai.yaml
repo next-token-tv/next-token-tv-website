@@ -1,0 +1,16 @@
+kind: company-brand
+name:
+  zh-Hans: "月之暗面"
+  en: "Moonshot AI"
+summary:
+  zh-Hans: "研发 Kimi 模型与人工智能助手的技术公司。"
+  en: "The AI company developing Kimi models and assistants."
+aliases: []
+official:
+  website: https://www.moonshot.ai/
+lastVerifiedAt: "2026-09-10"
+sources:
+  - label:
+      zh-Hans: 官方介绍
+      en: Official information
+    href: https://www.moonshot.ai/

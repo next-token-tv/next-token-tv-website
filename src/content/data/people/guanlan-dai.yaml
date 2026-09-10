@@ -1,0 +1,29 @@
+relations:
+  - entityType: product
+    entity: runta
+    role:
+      zh-Hans: 创始人
+      en: Founder
+    lastVerifiedAt: "2026-09-09"
+    sources:
+      - label:
+          zh-Hans: 关系资料来源
+          en: Relationship source
+        href: https://runta.com/about/
+name:
+  zh-Hans: "戴冠兰"
+  en: "Guanlan Dai"
+bio:
+  zh-Hans: "Runta 创始人，关注 AI Agent 执行基础设施。"
+  en: "Founder of Runta, building execution infrastructure for AI agents."
+aliases: ["Guanlan", "Dai Guanlan"]
+lastVerifiedAt: "2026-09-10"
+sources:
+  - label:
+      zh-Hans: 十字路口本人访谈
+      en: Crossing interview with Guanlan Dai
+    href: https://www.xiaoyuzhoufm.com/episode/6a773808c4079d62c57f5802
+  - label:
+      zh-Hans: "Runta 团队介绍"
+      en: "Runta team"
+    href: https://runta.com/about/

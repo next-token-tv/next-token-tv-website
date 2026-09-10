@@ -1,0 +1,16 @@
+kind: platform
+name:
+  zh-Hans: YouWare
+  en: YouWare
+summary:
+  zh-Hans: 通过自然语言与 AI 协作创建、发布和分享网站与应用的开发平台。
+  en: An AI development platform for creating, publishing, and sharing websites and applications through natural language.
+aliases: []
+official:
+  website: https://www.youware.com/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.youware.com/

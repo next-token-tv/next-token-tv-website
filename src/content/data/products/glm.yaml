@@ -8,4 +8,12 @@ summary:
   en: Zhipu AI's language and multimodal model family, providing foundation capabilities for conversation, reasoning, coding, tool use, and agentic tasks.
 aliases:
   - General Language Model
-lastVerifiedAt: "2026-09-07"
+  - GLM-5.3 Flash
+  - GLM 5.3 Flash
+  - 牛来
+lastVerifiedAt: '2026-09-07'
+sources:
+  - label:
+      zh-Hans: GLM-5.3 Flash 官方资料
+      en: GLM-5.3 Flash official information
+    href: https://autoclaw.z.ai/blog/model/glm-5.3-flash/

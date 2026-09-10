@@ -2,6 +2,7 @@
 import { getBrandProfile, getProductProfile } from "../data/catalog";
 import type { Locale } from "../data/types";
 import RelatedEpisodes from "./RelatedEpisodes.astro";
+import EntityPeopleRelations from "./EntityPeopleRelations.astro";
 
 interface Props {
   entityType: "brand" | "product";
@@ -17,10 +18,12 @@ const brandKind = {
   "model-brand": { "zh-Hans": "模型品牌", en: "Model brand" },
   "product-brand": { "zh-Hans": "产品品牌", en: "Product brand" },
   "platform-brand": { "zh-Hans": "平台品牌", en: "Platform brand" },
+  "community-brand": { "zh-Hans": "社区品牌", en: "Community brand" },
   "open-source-brand": { "zh-Hans": "开源品牌", en: "Open-source brand" },
 } as const;
 const productKind = {
   "model-family": { "zh-Hans": "模型家族", en: "Model family" }, model: { "zh-Hans": "模型", en: "Model" },
+  "operating-system": { "zh-Hans": "操作系统", en: "Operating system" },
   application: { "zh-Hans": "应用", en: "Application" }, agent: { "zh-Hans": "Agent", en: "Agent" },
   "developer-tool": { "zh-Hans": "开发者工具", en: "Developer tool" }, platform: { "zh-Hans": "平台", en: "Platform" },
   "api-service": { "zh-Hans": "API 服务", en: "API service" }, hardware: { "zh-Hans": "硬件", en: "Hardware" },
@@ -70,7 +73,7 @@ if (entityType === "brand") {
     { label: copy.episodes, value: String(profile.episodes.length) },
   ];
   connections = profile.products.map((product) => ({
-    name: product.data.name[locale], kind: productKind[product.data.kind][locale], href: `${prefix}/products/${product.id}/`,
+    name: product.data.name[locale], kind: productKind[product.data.kind][locale], href: `${prefix}/wiki/products/${product.id}/`,
   }));
   schema = {
     "@context": "https://schema.org",
@@ -87,7 +90,7 @@ if (entityType === "brand") {
   episodes = profile.episodes;
   facts = [
     { label: copy.type, value: kind },
-    { label: copy.brand, value: profile.brand.data.name[locale], href: `${prefix}/brands/${profile.brand.id}/` },
+    ...(profile.brand ? [{ label: copy.brand, value: profile.brand.data.name[locale], href: `${prefix}/wiki/brands/${profile.brand.id}/` }] : []),
     ...(profile.product.data.status ? [{ label: copy.status, value: statusLabels[profile.product.data.status][locale] }] : []),
     ...(profile.product.data.releasedAt ? [{
       label: copy.released,
@@ -96,13 +99,13 @@ if (entityType === "brand") {
     }] : []),
   ];
   connections = [
-    ...(profile.parent ? [{ name: profile.parent.data.name[locale], kind: productKind[profile.parent.data.kind][locale], href: `${prefix}/products/${profile.parent.id}/` }] : []),
-    ...profile.children.map((product) => ({ name: product.data.name[locale], kind: productKind[product.data.kind][locale], href: `${prefix}/products/${product.id}/` })),
+    ...(profile.parent ? [{ name: profile.parent.data.name[locale], kind: productKind[profile.parent.data.kind][locale], href: `${prefix}/wiki/products/${profile.parent.id}/` }] : []),
+    ...profile.children.map((product) => ({ name: product.data.name[locale], kind: productKind[product.data.kind][locale], href: `${prefix}/wiki/products/${product.id}/` })),
   ];
   schema = {
     "@context": "https://schema.org", "@type": "Product", name: profile.product.data.name[locale],
     alternateName: profile.product.data.aliases, description: profile.product.data.summary[locale], url: official?.website,
-    brand: { "@type": "Brand", name: profile.brand.data.name[locale] },
+    ...(profile.brand ? { brand: { "@type": "Brand", name: profile.brand.data.name[locale] } } : {}),
     releaseDate: profile.product.data.releasedAt,
   };
 }
@@ -124,7 +127,7 @@ const posterWord = entityType === "brand" ? "BRAND" : "PRODUCT";
 
 <main id="main" class="entity-detail-page">
   <div class="entity-detail-back shell">
-    <a href={`${prefix}/${entityType === "brand" ? "brands" : "products"}/`}><span aria-hidden="true">←</span>{copy.back}</a>
+    <a href={`${prefix}/wiki/${entityType === "brand" ? "brands" : "products"}/`}><span aria-hidden="true">←</span>{copy.back}</a>
   </div>
 
   <section class="entity-detail-hero shell" aria-labelledby="entity-name">
@@ -166,11 +169,18 @@ const posterWord = entityType === "brand" ? "BRAND" : "PRODUCT";
             {officialLinks.map((item) => <a href={item.href} target="_blank" rel="noopener noreferrer"><span>{item.label}</span><b aria-hidden="true">↗</b></a>)}
           </div>
         </div>}
+        {entity.data.sources.length > 0 && <div class="entity-official-block">
+          <p>{locale === "en" ? "Sources" : "资料来源"}</p>
+          <div class="entity-official-links">
+            {entity.data.sources.map(source => <a href={source.href} target="_blank" rel="noopener noreferrer"><span>{source.label[locale]}</span><b aria-hidden="true">↗</b></a>)}
+          </div>
+        </div>}
         {verifiedValue && <p class="entity-verification">{copy.verification} {verifiedValue}</p>}
       </div>
     </section>
   )}
 
+  <EntityPeopleRelations entityType={entityType} entityId={entityId} locale={locale} />
   <RelatedEpisodes episodes={episodes} locale={locale} />
 </main>
 

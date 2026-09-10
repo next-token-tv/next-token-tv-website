@@ -1,0 +1,16 @@
+kind: application
+name:
+  zh-Hans: Linear
+  en: Linear
+summary:
+  zh-Hans: 面向产品与研发团队的工作管理应用，用于跟踪问题、规划项目和协调产品开发。
+  en: A work management app for product and engineering teams to track issues, plan projects, and coordinate development.
+aliases: []
+official:
+  website: https://linear.app/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://linear.app/

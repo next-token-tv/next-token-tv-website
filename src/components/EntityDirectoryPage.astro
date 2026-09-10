@@ -1,9 +1,9 @@
 ---
-import { getBrandDirectory, getProductDirectory } from "../data/catalog";
+import { getBrandDirectory, getProductDirectory, getPeopleDirectory } from "../data/catalog";
 import type { Locale } from "../data/types";
 
 interface Props {
-  entityType: "brands" | "products";
+  entityType: "brands" | "products" | "people";
   locale: Locale;
 }
 
@@ -15,11 +15,13 @@ const brandKind = {
   "model-brand": { "zh-Hans": "模型品牌", en: "Model brand" },
   "product-brand": { "zh-Hans": "产品品牌", en: "Product brand" },
   "platform-brand": { "zh-Hans": "平台品牌", en: "Platform brand" },
+  "community-brand": { "zh-Hans": "社区品牌", en: "Community brand" },
   "open-source-brand": { "zh-Hans": "开源品牌", en: "Open-source brand" },
 } as const;
 const productKind = {
   "model-family": { "zh-Hans": "模型家族", en: "Model family" },
   model: { "zh-Hans": "模型", en: "Model" },
+  "operating-system": { "zh-Hans": "操作系统", en: "Operating system" },
   application: { "zh-Hans": "应用", en: "Application" },
   agent: { "zh-Hans": "Agent", en: "Agent" },
   "developer-tool": { "zh-Hans": "开发者工具", en: "Developer tool" },
@@ -30,7 +32,19 @@ const productKind = {
   "open-source-project": { "zh-Hans": "开源项目", en: "Open-source project" },
 } as const;
 
-const entries = entityType === "brands"
+const peopleKind = {
+  "co-host": { "zh-Hans": "联合主理人", en: "Co-hosts" },
+  "mentioned": { "zh-Hans": "节目提及", en: "Mentioned people" },
+} as const;
+const entries = entityType === "people"
+  ? (await getPeopleDirectory()).map(({ person, isHost, episodesCount }) => ({
+      id: person.id, name: person.data.name[locale],
+      kindId: isHost ? "co-host" : "mentioned",
+      kind: peopleKind[isHost ? "co-host" : "mentioned"][locale],
+      summary: person.data.bio[locale], aliases: person.data.aliases,
+      relation: locale === "en" ? `${episodesCount} related episode${episodesCount === 1 ? "" : "s"}` : `${episodesCount} 期相关节目`,
+    }))
+  : entityType === "brands"
   ? (await getBrandDirectory(locale)).map(({ brand, productsCount, episodesCount }) => ({
       id: brand.id,
       name: brand.data.name[locale],
@@ -50,11 +64,21 @@ const entries = entityType === "brands"
       summary: product.data.summary[locale],
       aliases: product.data.aliases,
       relation: locale === "en"
-        ? `${brand.data.name.en} · ${episodesCount} episode${episodesCount === 1 ? "" : "s"}`
-        : `${brand.data.name["zh-Hans"]} · ${episodesCount} 期节目`,
+        ? `${brand ? `${brand.data.name.en} · ` : ""}${episodesCount} episode${episodesCount === 1 ? "" : "s"}`
+        : `${brand ? `${brand.data.name["zh-Hans"]} · ` : ""}${episodesCount} 期节目`,
     }));
 
-const copy = locale === "en"
+const copy = entityType === "people" ? (locale === "en" ? {
+  eyebrow: "Next Token / AI reference library", title: "People",
+  lede: "The co-hosts, builders and researchers in our conversations.",
+  count: `${entries.length} people`, brands: "Brands", products: "Products", aliases: "Also known as",
+  open: "Person profile", filterLabel: "People", all: "All",
+} : {
+  eyebrow: "Next Token / AI 资料库", title: "人物库",
+  lede: "认识节目中的主理人，以及对谈中提到的创业者、开发者与研究者。",
+  count: `${entries.length} 位人物`, brands: "品牌", products: "产品", aliases: "别名",
+  open: "人物详情", filterLabel: "人物分类", all: "全部",
+}) : locale === "en"
   ? {
       eyebrow: "Next Token / AI reference library",
       title: entityType === "brands" ? "Brands" : "Products",
@@ -84,7 +108,11 @@ const copy = locale === "en"
       all: "全部",
     };
 
-const filterOptions = entityType === "brands"
+const filterOptions = entityType === "people"
+  ? (Object.keys(peopleKind) as Array<keyof typeof peopleKind>)
+      .map(id => ({ id, label: peopleKind[id][locale], count: entries.filter(entry => entry.kindId === id).length }))
+      .filter(({ count }) => count > 0)
+  : entityType === "brands"
   ? (Object.keys(brandKind) as Array<keyof typeof brandKind>)
       .map((id) => ({ id, label: brandKind[id][locale], count: entries.filter((entry) => entry.kindId === id).length }))
       .filter(({ count }) => count > 0)
@@ -106,8 +134,9 @@ const filterOptions = entityType === "brands"
   </section>
 
   <nav class="entity-library-switch shell" aria-label={locale === "en" ? "AI reference library" : "AI 资料库"}>
-    <a href={`${prefix}/brands/`} aria-current={entityType === "brands" ? "page" : undefined}>{copy.brands}</a>
-    <a href={`${prefix}/products/`} aria-current={entityType === "products" ? "page" : undefined}>{copy.products}</a>
+    <a href={`${prefix}/wiki/brands/`} aria-current={entityType === "brands" ? "page" : undefined}>{copy.brands}</a>
+    <a href={`${prefix}/wiki/products/`} aria-current={entityType === "products" ? "page" : undefined}>{copy.products}</a>
+    <a href={`${prefix}/wiki/people/`} aria-current={entityType === "people" ? "page" : undefined}>{locale === "en" ? "People" : "人物"}</a>
   </nav>
 
   <div class="entity-secondary-filters shell" data-entity-filters>
@@ -126,7 +155,7 @@ const filterOptions = entityType === "brands"
 
   <section id="entity-directory-list" class="entity-directory shell" aria-label={copy.title} aria-live="polite">
     {entries.map((entry, index) => (
-      <a class="entity-directory-row" href={`${prefix}/${entityType}/${entry.id}/`} data-entity-kind={entry.kindId}>
+      <a class="entity-directory-row" href={`${prefix}/wiki/${entityType}/${entry.id}/`} data-entity-kind={entry.kindId}>
         <span class="entity-directory-index">{String(index + 1).padStart(2, "0")}</span>
         <div class="entity-directory-identity">
           <span>{entry.kind}</span>
@@ -175,8 +204,8 @@ const filterOptions = entityType === "brands"
   .entity-index-intro { padding-bottom: .75rem; }
   .entity-index-intro p { max-width: 36rem; margin: 0 0 2rem; color: var(--muted); font-size: clamp(1.05rem, 1.5vw, 1.35rem); line-height: 1.7; }
   .entity-index-intro strong { font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; }
-  .entity-library-switch { display: grid; grid-template-columns: repeat(2, 1fr); padding-block: 2rem; }
-  .entity-library-switch a { padding: 1rem 1.25rem; border: 1px solid var(--ink); font-family: var(--display); font-size: clamp(1.3rem, 2.4vw, 2rem); text-align: center; }
+  .entity-library-switch { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding-block: 2rem; }
+  .entity-library-switch a { min-width: 0; padding: 1rem .5rem; border: 0.0625rem solid var(--ink); font-family: var(--display); font-size: clamp(1.3rem, 2.4vw, 2rem); text-align: center; white-space: nowrap; }
   .entity-library-switch a + a { border-left: 0; }
   .entity-library-switch a[aria-current="page"] { color: var(--paper); background: var(--ink); }
   .entity-secondary-filters { display: grid; grid-template-columns: minmax(9rem, .25fr) minmax(0, 1.75fr); gap: 2rem; align-items: start; padding-block: 1rem 2.5rem; }

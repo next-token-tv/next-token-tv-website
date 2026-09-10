@@ -1,0 +1,17 @@
+kind: company-brand
+name:
+  zh-Hans: Y Combinator
+  en: Y Combinator
+summary:
+  zh-Hans: 为早期创业公司提供投资、创业辅导与创始人网络的创业加速器。
+  en: A startup accelerator providing early-stage funding, guidance, and a founder network.
+aliases:
+  - YC
+official:
+  website: https://www.ycombinator.com/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.ycombinator.com/about

@@ -1,0 +1,17 @@
+kind: model-family
+brand: moonshot-ai
+name:
+  zh-Hans: Kimi
+  en: Kimi
+summary:
+  zh-Hans: 月之暗面的 Kimi 人工智能模型家族。
+  en: Moonshot AI's Kimi model family.
+aliases:
+  - Kimi K3
+  - K3
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: Kimi K3 官方资料
+      en: Kimi K3 official information
+    href: https://forum.moonshot.ai/t/kimi-k3-is-here-our-most-capable-model/480

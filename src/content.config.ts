@@ -44,16 +44,26 @@ const people = defineCollection({
   schema: z.object({
     name: localizedText,
     bio: localizedText,
-    photo: assetPath,
-    width: z.number().int().positive(),
-    height: z.number().int().positive(),
-    alt: localizedText,
-    socialsLabel: localizedText,
+    aliases: z.array(z.string()).default([]),
+    sources: z.array(source).default([]),
+    relations: z.array(z.object({
+      entityType: z.enum(["brand", "product"]),
+      entity: z.string(),
+      role: localizedText,
+      sources: z.array(source).min(1),
+      lastVerifiedAt: z.iso.date(),
+    })).default([]),
+    lastVerifiedAt: z.iso.date().optional(),
+    photo: assetPath.optional(),
+    width: z.number().int().positive().optional(),
+    height: z.number().int().positive().optional(),
+    alt: localizedText.default({ "zh-Hans": "人物头像", en: "Portrait" }),
+    socialsLabel: localizedText.default({ "zh-Hans": "公开账号", en: "Public profiles" }),
     socials: z.array(z.object({
       platform: z.enum(["x", "github", "jike", "weibo", "wechat", "wechat-channels", "rednote", "linkedin", "blog", "podcast"]),
       handle: z.string(),
       href: z.url().optional(),
-    })),
+    })).default([]),
   }),
 });
 
@@ -62,11 +72,13 @@ const shows = defineCollection({
   schema: z.object({
     name: localizedText,
     ownerBrand: z.string(),
+    pagePath: z.string().regex(/^\/[a-z0-9-]+\/$/),
     type: z.enum(["weekly-roundtable", "interview", "special"]),
     status: z.enum(["active", "paused", "archived"]),
     flagship: z.boolean().default(false),
     cadence: z.enum(["weekly", "biweekly", "monthly", "irregular"]),
     defaultLocale: locale,
+    subscriptions: z.array(z.object({ platform: z.string(), label: localizedText, href: z.url() })).default([]),
     page: z.object({ "zh-Hans": showPage, en: showPage }),
   }),
 });
@@ -126,9 +138,10 @@ const venues = defineCollection({
 const brands = defineCollection({
   loader: yamlLoader("./src/content/data/brands"),
   schema: z.object({
-    kind: z.enum(["company-brand", "media-brand", "model-brand", "product-brand", "platform-brand", "open-source-brand"]),
+    kind: z.enum(["company-brand", "media-brand", "community-brand", "model-brand", "product-brand", "platform-brand", "open-source-brand"]),
     name: localizedText,
     summary: localizedText,
+    sources: z.array(source).default([]),
     aliases: z.array(z.string()).default([]),
     official: z.object({
       website: z.url().optional(),
@@ -142,11 +155,12 @@ const brands = defineCollection({
 const products = defineCollection({
   loader: yamlLoader("./src/content/data/products"),
   schema: z.object({
-    kind: z.enum(["model-family", "model", "application", "agent", "developer-tool", "platform", "api-service", "hardware", "framework", "open-source-project"]),
-    brand: z.string(),
+    kind: z.enum(["model-family", "model", "application", "operating-system", "agent", "developer-tool", "platform", "api-service", "hardware", "framework", "open-source-project"]),
+    brand: z.string().optional(),
     parent: z.string().optional(),
     name: localizedText,
     summary: localizedText,
+    sources: z.array(source).default([]),
     aliases: z.array(z.string()).default([]),
     status: z.enum(["announced", "preview", "available", "deprecated", "discontinued"]).optional(),
     releasedAt: z.iso.date().optional(),
@@ -278,7 +292,7 @@ const transcriptSegment = z.object({
   type: z.enum(["text", "entity-link", "external-link", "code"]),
   value: z.string(),
   href: z.string().optional(),
-  entityType: z.enum(["brand", "product"]).optional(),
+  entityType: z.enum(["brand", "product", "person", "show"]).optional(),
   entityId: z.string().optional(),
   marks: z.array(z.enum(["strong", "emphasis"])).optional(),
 });

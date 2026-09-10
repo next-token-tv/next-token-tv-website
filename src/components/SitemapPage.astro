@@ -1,0 +1,113 @@
+---
+import { getBrandDirectory, getProductDirectory, getEpisodesForShow, getTranscriptEpisodes } from "../data/catalog";
+import { getPartners } from "../data/partners";
+import type { Locale } from "../data/types";
+import { getCollection } from "astro:content";
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const en = locale === "en";
+const people = await getCollection("people");
+const prefix = en ? "/en" : "";
+const [brands, products, episodes, transcripts, partners] = await Promise.all([
+  getBrandDirectory(locale), getProductDirectory(locale),
+  getEpisodesForShow("next-token-weekly"), getTranscriptEpisodes(locale), getPartners(),
+]);
+const groups = [
+  { id: "explore", title: en ? "Explore" : "主要入口", links: [
+    { label: en ? "Home" : "首页", href: `${prefix}/` },
+    { label: en ? "About Next Token" : "关于品牌", href: `${prefix}/#about` },
+    { label: "Next Token Weekly", href: `${prefix}/weekly/` },
+    { label: en ? "Co-hosts" : "联合主理人", href: `${prefix}/#hosts` },
+    { label: en ? "Venue partners" : "合作伙伴", href: `${prefix}/partners/` },
+    { label: en ? "Follow the show" : "订阅节目", href: `${prefix}/#subscribe` },
+    { label: en ? "Brand library" : "品牌库", href: `${prefix}/wiki/brands/` },
+    { label: en ? "Product library" : "产品库", href: `${prefix}/wiki/products/` },
+    { label: en ? "People" : "人物库", href: `${prefix}/wiki/people/` },
+    { label: en ? "Brand Kit" : "品牌素材", href: `${prefix}/brand-kit/` },
+  ] },
+  { id: "episodes", title: en ? "Episodes & previews" : "节目与预告", links: episodes.slice().sort((a,b) => Number(b.data.number)-Number(a.data.number)).map(e => ({ label: e.data.title[locale], href: `${prefix}/weekly/${e.data.number}/` })) },
+  { id: "transcripts", title: en ? "Transcripts" : "文字稿", links: transcripts.map(e => ({ label: `Weekly #${e.data.number} · ${en ? "Transcript" : "完整文字稿"}`, href: `${prefix}/weekly/${e.data.number}/transcript/` })) },
+  { id: "people", title: en ? "People" : "人物资料", links: people.map(p => ({ label: p.data.name[locale], href: `${prefix}/wiki/people/${p.id}/` })) },
+  { id: "partners", title: en ? "Partner profiles" : "合作伙伴资料", links: partners.map(p => ({ label: en ? p.englishName : p.name, href: `${prefix}/partners/${p.slug}/` })) },
+  { id: "brands", title: en ? "Brands" : "品牌", links: brands.map(({brand}) => ({ label: brand.data.name[locale], href: `${prefix}/wiki/brands/${brand.id}/` })) },
+  { id: "products", title: en ? "Products" : "产品", links: products.map(({product}) => ({ label: product.data.name[locale], href: `${prefix}/wiki/products/${product.id}/` })) },
+].filter(group => group.links.length);
+const episodeRows = episodes.slice().sort((a, b) => Number(b.data.number) - Number(a.data.number));
+const transcriptNumbers = new Set(transcripts.map(e => e.data.number));
+const episodeGroup = groups.find(group => group.id === "episodes")!;
+const transcriptGroup = groups.find(group => group.id === "transcripts");
+---
+<main id="main" class="sitemap-page shell">
+  <header class="sitemap-intro">
+    <p class="section-kicker">NEXT TOKEN / {en ? "EXPLORE" : "全站导航"}</p>
+    <h1>{en ? "Sitemap" : "网站地图"}</h1>
+    <p>{en ? "Find episodes, transcripts, people and the brands behind our conversations." : "从这里找到节目、文字稿、主理人，以及对谈中提到的品牌与产品。"}</p>
+    <nav aria-label={en ? "Sitemap sections" : "网站地图分类"}>
+      {groups.map(group => <a href={`#${group.id}`}>{group.title}</a>)}
+    </nav>
+  </header>
+  {groups.filter(group => group.id !== "transcripts").map(group => group.id === "episodes" ? (
+    <div class:list={["sitemap-episodes", { "has-transcripts": !!transcriptGroup }]} style={`--episode-rows: ${episodeRows.length + 1}`}>
+      {[episodeGroup, ...(transcriptGroup ? [transcriptGroup] : [])].map(column => (
+        <section id={column.id} aria-labelledby={`${column.id}-title`}>
+          <div class="sitemap-section-heading">
+            <h2 id={`${column.id}-title`} class="heading-section-compact">{column.title}</h2>
+            <span>{column.links.length}</span>
+          </div>
+          <ul>
+            {episodeRows.map((episode, index) => {
+              const isTranscript = column.id === "transcripts";
+              const available = !isTranscript || transcriptNumbers.has(episode.data.number);
+              return <li class:list={{ "empty-episode": !available }} style={`grid-row: ${index + 2}`} aria-hidden={!available ? "true" : undefined}>
+                {available && <a href={`${prefix}/weekly/${episode.data.number}/${isTranscript ? "transcript/" : ""}`}>
+                  <span class="episode-label"><small>Weekly #{episode.data.number}</small>{isTranscript ? (en ? "Full transcript" : "完整文字稿") : episode.data.title[locale]}</span>
+                  <span aria-hidden="true">↗</span>
+                </a>}
+              </li>;
+            })}
+          </ul>
+        </section>
+      ))}
+    </div>
+  ) : (
+    <section id={group.id} aria-labelledby={`${group.id}-title`}>
+      <div class="sitemap-section-heading">
+        <h2 id={`${group.id}-title`} class="heading-section-compact">{group.title}</h2>
+        <span>{group.links.length}</span>
+      </div>
+      <ul>
+        {group.links.map(link => <li><a href={link.href}>{link.label}<span aria-hidden="true">↗</span></a></li>)}
+      </ul>
+    </section>
+  ))}
+</main>
+<style>
+  .sitemap-page { padding-block: 4rem 6rem; }
+  .sitemap-intro { margin-bottom: 3rem; }
+  h1 { font-family: var(--display); font-size: 3rem; line-height: 1.25; margin: 1rem 0; }
+  .sitemap-intro > p:last-of-type { max-width: 42rem; color: var(--muted); }
+  nav { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; margin-top: 1.5rem; }
+  nav a { text-decoration: underline; text-underline-offset: 0.25em; }
+  section { border-top: 0.0625rem solid var(--ink); padding-block: 2rem; scroll-margin-top: 7rem; }
+  .sitemap-section-heading { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem; }
+  .sitemap-section-heading > span { color: var(--muted); font-size: 0.85rem; }
+  ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem 2rem; list-style: none; padding: 0; margin: 0; }
+  li a { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.75rem; border-bottom: 0.0625rem solid #d3d0c8; overflow-wrap: anywhere; }
+  li a > span { color: var(--signal); flex-shrink: 0; }
+  a:hover { color: var(--signal); }
+  .sitemap-episodes { display: grid; grid-template-columns: minmax(0, 1fr); column-gap: 3rem; }
+  .sitemap-episodes.has-transcripts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sitemap-episodes section { display: grid; grid-template-rows: subgrid; grid-row: span var(--episode-rows); }
+  .sitemap-episodes ul { display: contents; }
+  .sitemap-episodes li a { height: 100%; align-items: center; }
+  li a > .episode-label { color: inherit; flex-shrink: 1; }
+  .episode-label small { display: block; color: var(--muted); font-size: 0.8rem; margin-bottom: 0.5rem; }
+  @media (max-width: 40rem) {
+    .sitemap-episodes.has-transcripts { grid-template-columns: minmax(0, 1fr); }
+    .sitemap-episodes section { display: block; grid-row: auto; }
+    .sitemap-episodes ul { display: flex; flex-direction: column; }
+    .empty-episode { display: none; }
+  }
+  @media (max-width: 60rem) { ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 40rem) { ul { grid-template-columns: 1fr; } .sitemap-page { padding-block: 2.5rem 4rem; } }
+</style>

@@ -1,0 +1,17 @@
+kind: company-brand
+name:
+  zh-Hans: 英伟达
+  en: NVIDIA
+summary:
+  zh-Hans: 研发 GPU、加速计算平台及 AI 软件与系统的科技公司。
+  en: A technology company developing GPUs, accelerated computing platforms, and AI software and systems.
+aliases:
+  - Nvidia
+official:
+  website: https://www.nvidia.com/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.nvidia.com/en-us/about-nvidia/

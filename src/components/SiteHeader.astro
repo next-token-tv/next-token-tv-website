@@ -11,12 +11,11 @@ const { content, currentPath, alternatePath } = Astro.props;
 const homePath = content.locale === "en" ? "/en/" : "/";
 const partnersPath = content.locale === "en" ? "/en/partners/" : "/partners/";
 const weeklyPath = content.locale === "en" ? "/en/weekly/" : "/weekly/";
-const libraryPath = content.locale === "en" ? "/en/brands/" : "/brands/";
+const libraryPath = content.locale === "en" ? "/en/wiki/brands/" : "/wiki/brands/";
 const homeSection = (id: string) => currentPath === homePath ? `#${id}` : `${homePath}#${id}`;
 const isPartners = currentPath.startsWith(partnersPath);
 const isWeekly = currentPath.startsWith(weeklyPath);
-const isLibrary = currentPath.startsWith(content.locale === "en" ? "/en/brands/" : "/brands/")
-  || currentPath.startsWith(content.locale === "en" ? "/en/products/" : "/products/");
+const isLibrary = currentPath.startsWith(content.locale === "en" ? "/en/wiki/" : "/wiki/");
 ---
 
 <header class="site-header">

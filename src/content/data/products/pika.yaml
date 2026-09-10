@@ -1,0 +1,17 @@
+kind: application
+name:
+  zh-Hans: Pika
+  en: Pika
+summary:
+  zh-Hans: 面向视频创作的 AI 产品，支持生成视频、将图片转为动态内容与应用创意特效。
+  en: An AI video creation product for generating videos, animating images, and applying creative effects.
+aliases: []
+status: available
+official:
+  website: https://pika.art/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://pika.art/

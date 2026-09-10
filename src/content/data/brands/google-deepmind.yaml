@@ -1,0 +1,17 @@
+kind: company-brand
+name:
+  zh-Hans: Google DeepMind
+  en: Google DeepMind
+summary:
+  zh-Hans: Google 旗下的人工智能研究机构，研发 Gemini、Gemma、Veo 与 AlphaFold 等模型和系统。
+  en: Google's AI research organization developing models and systems including Gemini, Gemma, Veo, and AlphaFold.
+aliases:
+  - DeepMind
+official:
+  website: https://deepmind.google/
+lastVerifiedAt: "2026-09-10"
+sources:
+  - label:
+      zh-Hans: Google DeepMind 官方介绍
+      en: About Google DeepMind
+    href: https://deepmind.google/about/

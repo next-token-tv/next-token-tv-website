@@ -1,5 +1,5 @@
 schemaVersion: 2
-number: "001"
+number: '001'
 show: next-token-weekly
 status: published
 productionImport: next-token-weekly--001.production
@@ -82,50 +82,103 @@ platforms:
       en: Watch now
 mentions:
   brands:
+    - plaud
+    - seeed-studio
+    - nubia
+    - zte
+    - nvidia
+    - microsoft
+    - tsmc
+    - samsung
+    - stripe
+    - aws
+    - vercel
+    - y-combinator
+    - doubao
+    - next-token
+    - xiaomi
     - anthropic
     - apple
     - deepseek
     - google
     - hugging-face
     - meta
-    - workbuddy
     - minimax
     - nous-research
     - openai
     - openclaw-foundation
-    - qwen
     - xai
     - zhipu
   products:
+    - trae
+    - wechat
+    - ios
+    - manus
+    - youware
+    - bloome
+    - feishu
+    - microduck
+    - esp32
+    - seedance
+    - cursor
+    - tiktok
+    - hongguo
+    - qclaw
+    - linear
+    - pika
+    - ruby-on-rails
+    - obsidian
+    - linux
+    - doubao-seed
+    - qoder
+    - doubao-work
+    - mimo
+    - xiaomi-smart-storage
+    - synology-nas
+    - ugreen-nas
+    - pi
+    - dia
+    - runta
+    - herdr
+    - youtube
+    - opencode
+    - gpt
+    - kimi
+    - threejs
+    - zcode
+    - autoglm
+    - gemini
+    - omarchy
+    - colaos
     - chatgpt
     - chatgpt-work
     - chrome
     - claude
-    - claude-3-5
     - claude-code
-    - claude-fable-5-1
-    - claude-mythos-5-1
-    - claude-opus-4-8
     - codex
     - deepseek-harness
-    - deepseek-v4-flash
-    - deepseek-v4-flash-vision-exp
-    - gemini
     - glm
-    - glm-5-3-flash
     - grok
     - grok-bot
     - hermes-agent
-    - mac
     - mac-mini
     - mac-studio
-    - minimax-h3
     - muse
-    - muse-spark-1-3
-    - muse-voice-transcribe
     - macos
-    - openai-api
     - openclaw
-    - qwen
     - workbuddy
-  people: []
+    - fal-ai
+    - openrouter
+    - hunyuan
+    - qwen
+  people:
+    - yangpan
+    - guizang
+    - orange
+    - xiangyang-qiaomu
+    - guanlan-dai
+    - dhh
+    - chen-mian
+    - luo-fuli
+    - wang-le
+    - aj

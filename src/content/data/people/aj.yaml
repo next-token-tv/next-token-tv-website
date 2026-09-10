@@ -1,0 +1,25 @@
+relations:
+  - entityType: brand
+    entity: waytoagi
+    role:
+      zh-Hans: 发起人
+      en: Initiator
+    lastVerifiedAt: "2026-09-09"
+    sources:
+      - label:
+          zh-Hans: 关系资料来源
+          en: Relationship source
+        href: https://about.waytoagi.com/
+name:
+  zh-Hans: "AJ"
+  en: "AJ"
+bio:
+  zh-Hans: "WaytoAGI（通往 AGI 之路）发起人，推动 AI 学习与社区共建。"
+  en: "Initiator of WaytoAGI, a community for learning and building with AI."
+aliases: []
+lastVerifiedAt: "2026-09-09"
+sources:
+  - label:
+      zh-Hans: "WaytoAGI 介绍"
+      en: "WaytoAGI introduction"
+    href: https://about.waytoagi.com/

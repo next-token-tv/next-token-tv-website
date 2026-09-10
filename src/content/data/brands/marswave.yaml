@@ -1,0 +1,16 @@
+kind: company-brand
+name:
+  zh-Hans: "MarsWave"
+  en: "MarsWave"
+summary:
+  zh-Hans: "开发 ListenHub 和 ColaOS 的 AI 应用公司，面向内容创作与个人智能助手场景。"
+  en: "AI application company behind ListenHub and ColaOS, serving content creation and personal assistance."
+aliases: ["MARSWAVE PTE. LTD."]
+official:
+  website: https://marswave.ai/
+lastVerifiedAt: "2026-09-09"
+sources:
+  - label:
+      zh-Hans: "品牌与产品资料"
+      en: "Brand and product information"
+    href: https://listenhub.ai/

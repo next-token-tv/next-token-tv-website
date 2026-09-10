@@ -1,0 +1,12 @@
+---
+import { getEpisodeTranscriptOrNull } from "../data/catalog";
+import type { Locale } from "../data/types";
+interface Props { episodeId: string; number: string; locale: Locale }
+const { episodeId, number, locale } = Astro.props;
+const transcript = await getEpisodeTranscriptOrNull(episodeId, locale);
+---
+{transcript && (
+  <a class="episode-transcript-cta" href={`${locale === "en" ? "/en" : ""}/weekly/${number}/transcript/`}>
+    {locale === "en" ? "Read the transcript" : "阅读文字稿"} <span aria-hidden="true">→</span>
+  </a>
+)}

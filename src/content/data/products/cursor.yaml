@@ -1,0 +1,17 @@
+kind: agent
+name:
+  zh-Hans: Cursor
+  en: Cursor
+summary:
+  zh-Hans: 面向软件开发的 AI 编程产品，结合代码编辑、代码库理解与 Agent 任务执行。
+  en: An AI coding product combining code editing, codebase understanding, and agentic task execution.
+aliases:
+  - Cursor Agent
+official:
+  website: https://cursor.com/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://cursor.com/

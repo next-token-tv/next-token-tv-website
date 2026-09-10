@@ -1,0 +1,25 @@
+relations:
+  - entityType: brand
+    entity: xiaomi
+    role:
+      zh-Hans: MiMo 大模型负责人
+      en: MiMo lead
+    lastVerifiedAt: "2026-09-09"
+    sources:
+      - label:
+          zh-Hans: 关系资料来源
+          en: Relationship source
+        href: https://www.ithome.com/0/913/169.htm
+name:
+  zh-Hans: "罗福莉"
+  en: "Fuli Luo"
+bio:
+  zh-Hans: "人工智能研究者，从事自然语言处理与大语言模型研究。"
+  en: "AI researcher working on natural language processing and large language models."
+aliases: ["Luo Fuli"]
+lastVerifiedAt: "2026-09-09"
+sources:
+  - label:
+      zh-Hans: "个人网站源码"
+      en: "Personal website source"
+    href: https://github.com/luofuli/luofuli.github.io/blob/master/_config.yml

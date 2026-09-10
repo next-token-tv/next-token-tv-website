@@ -1,0 +1,25 @@
+---
+import EntityDetailPage from "../../../../components/EntityDetailPage.astro";
+import { getBrandDirectory, getBrandProfile } from "../../../../data/catalog";
+import { getSiteContent } from "../../../../data/site";
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const brands = await getBrandDirectory("en");
+  return brands.map(({ brand }) => ({ params: { slug: brand.id }, props: { brandId: brand.id } }));
+}
+
+interface Props { brandId: string; }
+const { brandId } = Astro.props;
+const [content, profile] = await Promise.all([getSiteContent("en"), getBrandProfile(brandId)]);
+---
+
+<BaseLayout
+  content={content}
+  pageTitle={`${profile.brand.data.name.en} | Brand Library | Next Token`}
+  description={profile.brand.data.summary.en}
+  canonicalPath={`/en/wiki/brands/${brandId}/`}
+  alternatePath={`/wiki/brands/${brandId}/`}
+>
+  <EntityDetailPage entityType="brand" entityId={brandId} locale="en" />
+</BaseLayout>

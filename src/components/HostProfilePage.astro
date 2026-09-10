@@ -1,5 +1,6 @@
 ---
 import HostPortrait from "./HostPortrait.astro";
+import EntityPeopleRelations from "./EntityPeopleRelations.astro";
 import { getHostProfile } from "../data/catalog";
 import { render } from "astro:content";
 import type { Locale } from "../data/types";
@@ -38,6 +39,7 @@ const home = en ? "/en/" : "/";
       {shows.map(show => <div class="profile-show"><p>{show.active ? (en ? "Co-host" : "联合主理人") : (en ? "Former co-host" : "曾任联合主理人")}</p>{show.id === "next-token-weekly" ? <a href={`${home}weekly/`}>{show.data.name[locale]} →</a> : <strong>{show.data.name[locale]}</strong>}</div>)}
     </section>
   </div>
+  <EntityPeopleRelations entityType="person" entityId={personId} locale={locale} contained />
   <section class="profile-episodes" aria-labelledby="profile-episodes">
     <p class="section-index">NEXT TOKEN WEEKLY</p>
     <h2 class="heading-section-compact" id="profile-episodes">{en ? "At the table" : "参与的每一期"}</h2>

@@ -1,0 +1,24 @@
+kind: model-family
+brand: deepseek
+name:
+  zh-Hans: DeepSeek
+  en: DeepSeek
+summary:
+  zh-Hans: DeepSeek 的通用人工智能模型家族。
+  en: DeepSeek's family of general-purpose AI models.
+aliases:
+  - DeepSeek-V4-Flash-Vision-Exp
+  - DeepSeek V4 Flash Vision
+  - DeepSeek-V4-Flash
+  - DeepSeek V4 Flash
+  - DeepSeek Flash
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: DeepSeek-V4-Flash-Vision-Exp 官方资料
+      en: DeepSeek-V4-Flash-Vision-Exp official information
+    href: https://api-docs.deepseek.com/news/news260821/
+  - label:
+      zh-Hans: DeepSeek-V4-Flash 官方资料
+      en: DeepSeek-V4-Flash official information
+    href: https://api-docs.deepseek.com/updates/

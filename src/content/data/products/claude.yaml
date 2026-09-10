@@ -6,9 +6,34 @@ name:
 summary:
   zh-Hans: Anthropic 的通用人工智能模型与助手家族。
   en: Anthropic's family of general-purpose AI models and assistants.
-aliases: []
+aliases:
+  - Claude 3.5
+  - Claude Fable 5.1
+  - Fable 5.1
+  - Fable
+  - Claude Mythos 5.1
+  - Mythos 5.1
+  - Claude Opus 4.8
+  - Opus 4.8
 status: available
 official:
   website: https://www.anthropic.com/claude
   documentation: https://docs.anthropic.com/en/docs/about-claude/models/overview
-lastVerifiedAt: "2026-09-07"
+lastVerifiedAt: '2026-09-07'
+sources:
+  - label:
+      zh-Hans: Claude 3.5 官方资料
+      en: Claude 3.5 official information
+    href: https://www.anthropic.com/news/claude-3-5-sonnet
+  - label:
+      zh-Hans: Claude Fable 5.1 官方资料
+      en: Claude Fable 5.1 official information
+    href: https://www.anthropic.com/claude/fable
+  - label:
+      zh-Hans: Claude Mythos 5.1 官方资料
+      en: Claude Mythos 5.1 official information
+    href: https://www.anthropic.com/claude/mythos
+  - label:
+      zh-Hans: Claude Opus 4.8 官方资料
+      en: Claude Opus 4.8 official information
+    href: https://www.anthropic.com/system-cards

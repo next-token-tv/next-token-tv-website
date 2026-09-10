@@ -1,8 +1,8 @@
 schemaVersion: 2
-number: "002"
+number: '002'
 show: next-token-weekly
 status: announced
-scheduledAt: "2026-09-12T10:00:00+08:00"
+scheduledAt: '2026-09-12T10:00:00+08:00'
 timeZone: Asia/Shanghai
 recordingVenue: agi-bar--shanghai-beiyang
 participants:

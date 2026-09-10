@@ -1,0 +1,18 @@
+kind: company-brand
+name:
+  zh-Hans: 乐鑫
+  en: Espressif Systems
+summary:
+  zh-Hans: 研发无线通信芯片、模组与开发工具的半导体公司，产品包括 ESP32 系列。
+  en: A semiconductor company developing wireless chips, modules, and development tools, including the ESP32 family.
+aliases:
+  - 乐鑫科技
+  - Espressif
+official:
+  website: https://www.espressif.com/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.espressif.com/en/company/about-espressif

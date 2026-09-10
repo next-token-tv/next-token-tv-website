@@ -1,0 +1,16 @@
+kind: company-brand
+name:
+  zh-Hans: Stripe
+  en: Stripe
+summary:
+  zh-Hans: 为企业提供在线支付、计费及金融基础设施服务的科技公司。
+  en: A technology company providing online payments, billing, and financial infrastructure for businesses.
+aliases: []
+official:
+  website: https://stripe.com/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://stripe.com/about

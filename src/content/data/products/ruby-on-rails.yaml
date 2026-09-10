@@ -1,0 +1,19 @@
+kind: framework
+name:
+  zh-Hans: Ruby on Rails
+  en: Ruby on Rails
+summary:
+  zh-Hans: 基于 Ruby 的开源全栈 Web 应用框架，提供数据库、页面渲染、后台任务与实时交互等能力。
+  en: An open-source full-stack web application framework built with Ruby, with database integration, rendering, background jobs, and real-time interactions.
+aliases:
+  - Rails
+status: available
+official:
+  website: https://rubyonrails.org/
+  documentation: https://guides.rubyonrails.org/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://rubyonrails.org/

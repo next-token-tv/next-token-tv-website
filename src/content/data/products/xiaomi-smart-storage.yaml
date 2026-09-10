@@ -1,0 +1,26 @@
+kind: hardware
+brand: xiaomi
+name:
+  zh-Hans: Xiaomi 智能存储
+  en: Xiaomi Smart Storage
+summary:
+  zh-Hans: 小米的家庭网络存储设备，用于照片、视频与文件的集中存储、备份、家庭共享和远程访问。
+  en: Xiaomi's home network storage device for centralized photo, video, and file storage, backups, family sharing, and remote access.
+aliases:
+  - Xiaomi智能存储
+  - 小米智能存储
+  - 小米 NAS
+  - 小米的 NAS
+  - 小米NAS
+official:
+  website: https://www.mi.com/shop/buy/detail?product_id=21425
+lastVerifiedAt: "2026-09-10"
+sources:
+  - label:
+      zh-Hans: 小米商城产品页
+      en: Xiaomi official product listing
+    href: https://www.mi.com/shop/buy/detail?product_id=21425
+  - label:
+      zh-Hans: 小米官方客户端与设备功能介绍
+      en: Xiaomi official companion app and device features
+    href: https://apps.apple.com/cn/app/id6746838087

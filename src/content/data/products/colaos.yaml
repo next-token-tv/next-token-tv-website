@@ -1,0 +1,18 @@
+kind: agent
+brand: marswave
+name:
+  zh-Hans: "ColaOS"
+  en: "ColaOS"
+summary:
+  zh-Hans: "运行在个人电脑上的 AI 助手，通过记忆与上下文理解协助管理文件、推进项目和完成任务。"
+  en: "AI assistant for personal computers that uses memory and context to manage files, advance projects and complete tasks."
+aliases: ["Cola"]
+status: available
+official:
+  website: https://colaos.ai/
+lastVerifiedAt: "2026-09-09"
+sources:
+  - label:
+      zh-Hans: "产品官网"
+      en: "Product website"
+    href: https://colaos.ai/

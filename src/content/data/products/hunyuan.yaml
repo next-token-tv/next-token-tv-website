@@ -1,0 +1,25 @@
+kind: model-family
+name:
+  zh-Hans: Hunyuan
+  en: Hunyuan
+summary:
+  zh-Hans: 腾讯混元人工智能模型家族。
+  en: Tencent's Hunyuan AI model family.
+aliases:
+  - Hunyuan 4 Preview
+  - Hy4 preview
+  - 腾讯混元
+  - Tencent Hunyuan
+  - 混元
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: Hunyuan 4 Preview 官方资料
+      en: Hunyuan 4 Preview official information
+    href: https://cloud.tencent.com/document/product/1759/127342
+  - label:
+      zh-Hans: 官方介绍
+      en: Official information
+    href: https://hunyuan.tencent.com/
+official:
+  website: https://hunyuan.tencent.com/

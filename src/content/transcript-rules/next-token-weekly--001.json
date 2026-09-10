@@ -1,21 +1,25 @@
 {
   "locale": "zh-Hans",
+  "scopedAliases": [
+    {
+      "entityType": "product",
+      "id": "synology-nas",
+      "alias": "群晖"
+    },
+    {
+      "entityType": "product",
+      "id": "ugreen-nas",
+      "alias": "绿联"
+    }
+  ],
   "resolutions": {
-    "Qwen": {
+    "DeepSeek": {
       "entityType": "product",
-      "id": "qwen"
+      "id": "deepseek"
     },
-    "通义千问": {
+    "MiniMax": {
       "entityType": "product",
-      "id": "qwen"
-    },
-    "千问": {
-      "entityType": "product",
-      "id": "qwen"
-    },
-    "WorkBuddy": {
-      "entityType": "product",
-      "id": "workbuddy"
+      "id": "minimax"
     }
   }
 }

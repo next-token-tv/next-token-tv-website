@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import HostProfilePage from "../../../../components/HostProfilePage.astro";
+import PeopleLibraryPage from "../../../../components/PeopleLibraryPage.astro";
+import { getCollection } from "astro:content";
+import { getHostProfileIds, getPeopleByIds } from "../../../../data/catalog";
+import { getSiteContent } from "../../../../data/site";
+export async function getStaticPaths() {
+  return (await getCollection("people")).map(person => ({ params: { slug: person.id } }));
+}
+const personId = Astro.params.slug!;
+const isHost = (await getHostProfileIds()).includes(personId);
+const [person] = await getPeopleByIds([personId]);
+if (!person) throw new Error(`Unknown profile: ${personId}`);
+const content = await getSiteContent("en");
+---
+<BaseLayout content={content} pageTitle={`${person.data.name.en} | Next Token ${isHost ? "Co-host" : "People"}`} description={person.data.bio.en} canonicalPath={`/en/wiki/people/${personId}/`} alternatePath={`/wiki/people/${personId}/`}>
+  {isHost ? <HostProfilePage personId={personId} locale="en" /> : <PeopleLibraryPage personId={personId} locale="en" />}
+</BaseLayout>

@@ -1,0 +1,47 @@
+relations:
+  - entityType: product
+    entity: ruby-on-rails
+    role:
+      zh-Hans: 作者
+      en: Creator
+    lastVerifiedAt: "2026-09-10"
+    sources:
+      - label:
+          zh-Hans: 作者个人网站
+          en: Creator's website
+        href: https://dhh.dk/
+  - entityType: brand
+    entity: omacom
+    role:
+      zh-Hans: 创办人
+      en: Founder
+    lastVerifiedAt: "2026-09-09"
+    sources:
+      - label:
+          zh-Hans: 关系资料来源
+          en: Relationship source
+        href: https://dhh.dk/
+  - entityType: product
+    entity: omarchy
+    role:
+      zh-Hans: 作者
+      en: Creator
+    lastVerifiedAt: "2026-09-09"
+    sources:
+      - label:
+          zh-Hans: 关系资料来源
+          en: Relationship source
+        href: https://omarchy.org/
+name:
+  zh-Hans: "David Heinemeier Hansson"
+  en: "David Heinemeier Hansson"
+bio:
+  zh-Hans: "David Heinemeier Hansson，Ruby on Rails 与 Omarchy 作者、37signals 联合所有者。"
+  en: "David Heinemeier Hansson, creator of Ruby on Rails and Omarchy, and co-owner of 37signals."
+aliases: ["DHH"]
+lastVerifiedAt: "2026-09-09"
+sources:
+  - label:
+      zh-Hans: "个人网站"
+      en: "Personal website"
+    href: https://dhh.dk/

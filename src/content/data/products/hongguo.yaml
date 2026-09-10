@@ -1,0 +1,18 @@
+kind: application
+name:
+  zh-Hans: 红果短剧
+  en: Hongguo Short Drama
+summary:
+  zh-Hans: 以短剧观看为核心的内容应用，提供剧集发现、播放、追剧与评论等功能。
+  en: A content app centered on short dramas, with discovery, playback, following series, and comments.
+aliases:
+  - 红果
+  - 红果免费短剧
+official:
+  website: https://apps.apple.com/cn/app/id6451407032
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://apps.apple.com/cn/app/id6451407032

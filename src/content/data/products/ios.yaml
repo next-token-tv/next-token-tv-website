@@ -1,0 +1,17 @@
+kind: operating-system
+brand: apple
+name:
+  zh-Hans: iOS
+  en: iOS
+summary:
+  zh-Hans: Apple 为 iPhone 提供的操作系统，集成通信、应用运行、隐私保护与设备协同能力。
+  en: Apple's operating system for iPhone, with communication, apps, privacy controls, and device integration.
+aliases: []
+official:
+  website: https://www.apple.com/os/ios/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.apple.com/os/ios/

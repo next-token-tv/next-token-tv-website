@@ -1,6 +1,7 @@
 ---
+import TranscriptLink from "./TranscriptLink.astro";
 import UpcomingEpisodeLink from "./UpcomingEpisodeLink.astro";
-import PlatformList from "./PlatformList.astro";
+import ShowSubscriptions from "./ShowSubscriptions.astro";
 import HostCard from "./HostCard.astro";
 import ConditionalImagePan from "./ConditionalImagePan.astro";
 import { getPublishedEpisode } from "../data/catalog";
@@ -22,12 +23,7 @@ const episode001Recording = await resolveVenueId(episode001.data.recordingVenue)
 const episode001VenueLabel = content.locale === "en"
   ? `${episode001Recording.partner.englishName} · ${episode001Recording.venue.name.en}`
   : `${episode001Recording.partner.name} · ${episode001Recording.venue.name["zh-Hans"]}`;
-const localizedPlatforms = episode001.data.platforms.map((platform) => ({
-  platform: platform.platform,
-  label: platform.label[content.locale],
-  href: platform.href,
-  action: platform.action?.[content.locale],
-}));
+
 const episode001Path = content.locale === "en" ? "/en/weekly/001/" : "/weekly/001/";
 ---
 
@@ -149,6 +145,7 @@ const episode001Path = content.locale === "en" ? "/en/weekly/001/" : "/weekly/00
             <a class="episode-listen" href={episode001Path}>
               {content.locale === "en" ? "Explore episode · Listen / watch" : "查看本期 · 收听/收看"} <span aria-hidden="true">↗</span>
             </a>
+            <TranscriptLink episodeId={episode001.id} number={episode001.data.number} locale={content.locale} />
           </div>
         </div>
       </div>
@@ -176,7 +173,7 @@ const episode001Path = content.locale === "en" ? "/en/weekly/001/" : "/weekly/00
       <h2 class="heading-section-display">{content.subscribe.heading[0]}<br />{content.subscribe.heading[1]}</h2>
       <p>{content.subscribe.copy}</p>
     </div>
-    <PlatformList platforms={localizedPlatforms} label={content.subscribe.platformsLabel} available={content.subscribe.available} comingSoon={content.subscribe.comingSoon} reveal />
+    <ShowSubscriptions locale={content.locale} reveal />
   </section>
 </main>
 

@@ -1,0 +1,16 @@
+kind: company-brand
+name:
+  zh-Hans: 微软
+  en: Microsoft
+summary:
+  zh-Hans: 提供操作系统、生产力软件、云服务与人工智能产品的科技公司。
+  en: A technology company providing operating systems, productivity software, cloud services, and AI products.
+aliases: []
+official:
+  website: https://www.microsoft.com/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.microsoft.com/en-us/about

@@ -1,0 +1,27 @@
+---
+import { getEntityPeopleRelations } from "../data/catalog";
+import type { Locale } from "../data/types";
+interface Props { entityType: "person" | "brand" | "product"; entityId: string; locale: Locale; contained?: boolean }
+const { entityType, entityId, locale, contained = false } = Astro.props;
+const entries = await getEntityPeopleRelations(entityType, entityId, locale);
+const en = locale === "en";
+---
+{entries.length > 0 && <section class:list={["entity-people-relations", { shell: !contained }]} aria-label={entityType === "person" ? en ? "Organizations and products" : "关联品牌与产品" : en ? "Related people" : "关联人物"}>
+  <h2 class="heading-section-compact">{entityType === "person" ? en ? "Organizations and products" : "关联品牌与产品" : en ? "Related people" : "关联人物"}</h2>
+  <ul>{entries.map(entry => <li>
+    <a class="relation-target" href={entry.href}><strong>{entry.name}</strong><span>{entry.role} →</span></a>
+    <div class="relation-sources">{entry.sources.map((source, index) => <a href={source.href} target="_blank" rel="noopener noreferrer">{en ? "Source" : "来源"}{entry.sources.length > 1 ? ` ${index + 1}` : ""} ↗</a>)}</div>
+  </li>)}</ul>
+</section>}
+<style>
+  .entity-people-relations { padding-block: 2.5rem; }
+  h2 { margin-bottom: 1.5rem; }
+  ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2rem; list-style: none; margin: 0; padding: 0; }
+  li { border-top: 0.0625rem solid var(--ink); padding-block: 1rem; min-width: 0; }
+  .relation-target { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem 1rem; overflow-wrap: anywhere; }
+  strong { font-size: 1.2rem; }
+  span { color: var(--muted); font-size: .9rem; }
+  .relation-sources { display: flex; gap: 1rem; margin-top: .75rem; color: var(--muted); font-size: .75rem; }
+  a:hover { color: var(--signal); }
+  @media (max-width: 40rem) { ul { grid-template-columns: 1fr; } }
+</style>

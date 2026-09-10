@@ -1,0 +1,17 @@
+kind: platform-brand
+name:
+  zh-Hans: 亚马逊云科技
+  en: Amazon Web Services
+summary:
+  zh-Hans: 亚马逊的云计算服务品牌，提供计算、存储、数据库与人工智能等云服务。
+  en: Amazon's cloud computing brand providing compute, storage, databases, AI, and other cloud services.
+aliases:
+  - AWS
+official:
+  website: https://aws.amazon.com/cn/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://aws.amazon.com/cn/about-aws/

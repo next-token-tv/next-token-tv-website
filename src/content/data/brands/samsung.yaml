@@ -1,0 +1,18 @@
+kind: company-brand
+name:
+  zh-Hans: 三星
+  en: Samsung
+summary:
+  zh-Hans: 覆盖智能手机、消费电子与半导体业务的科技品牌。
+  en: A technology brand spanning smartphones, consumer electronics, and semiconductors.
+aliases:
+  - 三星电子
+  - Samsung Electronics
+official:
+  website: https://www.samsung.com.cn/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.samsung.com.cn/business/about-us/company-info/

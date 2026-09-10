@@ -1,0 +1,16 @@
+kind: open-source-brand
+name:
+  zh-Hans: "Omacom Foundation"
+  en: "Omacom Foundation"
+summary:
+  zh-Hans: "支持 Omarchy 开发、基础设施与相关开源项目的非营利基金会。"
+  en: "Nonprofit foundation supporting Omarchy development, infrastructure and related open-source projects."
+aliases: ["Omacom 基金会"]
+official:
+  website: https://omarchy.org/foundation/
+lastVerifiedAt: "2026-09-09"
+sources:
+  - label:
+      zh-Hans: "品牌与产品资料"
+      en: "Brand and product information"
+    href: https://omarchy.org/foundation/

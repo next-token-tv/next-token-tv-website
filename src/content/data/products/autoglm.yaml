@@ -1,0 +1,17 @@
+kind: agent
+brand: zhipu
+name:
+  zh-Hans: "AutoGLM"
+  en: "AutoGLM"
+summary:
+  zh-Hans: "智谱面向设备操作与任务执行的智能体产品。"
+  en: "Z.ai's agent product for device interaction and task execution."
+aliases: []
+official:
+  repository: https://github.com/zai-org/Open-AutoGLM
+lastVerifiedAt: "2026-09-10"
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://github.com/zai-org/Open-AutoGLM

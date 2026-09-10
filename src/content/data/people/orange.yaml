@@ -1,3 +1,38 @@
+aliases: ["橘子"]
+relations:
+  - entityType: brand
+    entity: marswave
+    role:
+      zh-Hans: 创始人
+      en: Founder
+    lastVerifiedAt: "2026-09-09"
+    sources:
+      - label:
+          zh-Hans: 关系资料来源
+          en: Relationship source
+        href: https://watcha.cn/reply/20834
+  - entityType: product
+    entity: listenhub
+    role:
+      zh-Hans: 创始人
+      en: Founder
+    lastVerifiedAt: "2026-09-09"
+    sources:
+      - label:
+          zh-Hans: 关系资料来源
+          en: Relationship source
+        href: https://podcasts.apple.com/kg/podcast/id544563053?i=1000722732485
+  - entityType: product
+    entity: colaos
+    role:
+      zh-Hans: 创始人
+      en: Founder
+    lastVerifiedAt: "2026-09-09"
+    sources:
+      - label:
+          zh-Hans: 关系资料来源
+          en: Relationship source
+        href: https://watcha.cn/reply/20834
 name:
   zh-Hans: 橘子 Orange
   en: 橘子 Orange

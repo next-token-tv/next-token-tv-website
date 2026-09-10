@@ -1,0 +1,25 @@
+relations:
+  - entityType: brand
+    entity: evoken
+    role:
+      zh-Hans: 创始人
+      en: Founder
+    lastVerifiedAt: "2026-09-09"
+    sources:
+      - label:
+          zh-Hans: 关系资料来源
+          en: Relationship source
+        href: https://www.chwang.com/article/208345738693
+name:
+  zh-Hans: "陈冕"
+  en: "Chen Mian"
+bio:
+  zh-Hans: "演语科技创始人，旗下产品包括 Liblib、Lovart 与 LibTV。"
+  en: "Founder of Evoken, whose products include Liblib, Lovart and LibTV."
+aliases: ["冕神"]
+lastVerifiedAt: "2026-09-09"
+sources:
+  - label:
+      zh-Hans: "晚点 LatePost 访谈（转载）"
+      en: "LatePost interview (republished)"
+    href: https://www.chwang.com/article/208345738693

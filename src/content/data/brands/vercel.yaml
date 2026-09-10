@@ -1,0 +1,16 @@
+kind: company-brand
+name:
+  zh-Hans: Vercel
+  en: Vercel
+summary:
+  zh-Hans: 提供 Web 应用部署、托管与开发者工具的技术公司。
+  en: A technology company providing web application deployment, hosting, and developer tools.
+aliases: []
+official:
+  website: https://vercel.com/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://vercel.com/about

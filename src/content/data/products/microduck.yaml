@@ -1,0 +1,20 @@
+kind: hardware
+brand: hugging-face
+status: announced
+official:
+  website: https://pollen-robotics.com/microduck/
+  repository: https://github.com/pollen-robotics/microduck
+name:
+  zh-Hans: Microduck
+  en: Microduck
+summary:
+  zh-Hans: Pollen Robotics 开发的小型双足机器人，提供仿真与强化学习工具，用于训练和运行机器人行为。
+  en: A small biped robot developed by Pollen Robotics, with simulation and reinforcement-learning tools for training and running robot behaviors.
+aliases:
+  - MicroDuck
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://pollen-robotics.com/microduck/blog/introducing-microduck/

@@ -1,0 +1,17 @@
+kind: framework
+name:
+  zh-Hans: "Three.js"
+  en: "Three.js"
+summary:
+  zh-Hans: "用于在浏览器中创建与显示 3D 图形的 JavaScript 库。"
+  en: "A JavaScript library for creating and displaying 3D graphics in the browser."
+aliases: ["three.js"]
+status: available
+official:
+  website: https://threejs.org/
+lastVerifiedAt: "2026-09-10"
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://threejs.org/

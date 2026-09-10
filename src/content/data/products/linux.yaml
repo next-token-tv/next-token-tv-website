@@ -1,0 +1,18 @@
+kind: operating-system
+name:
+  zh-Hans: Linux
+  en: Linux
+summary:
+  zh-Hans: 开源操作系统内核及围绕它构建的系统生态，是多种桌面、服务器与嵌入式发行版的基础。
+  en: An open-source operating system kernel and the system ecosystem built around it, forming the foundation of desktop, server, and embedded distributions.
+aliases: []
+status: available
+official:
+  website: https://www.kernel.org/
+  documentation: https://docs.kernel.org/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.kernel.org/

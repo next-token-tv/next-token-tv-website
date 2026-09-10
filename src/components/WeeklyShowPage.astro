@@ -1,6 +1,7 @@
 ---
+import TranscriptLink from "./TranscriptLink.astro";
 import UpcomingEpisodeLink from "./UpcomingEpisodeLink.astro";
-import PlatformList from "./PlatformList.astro";
+import ShowSubscriptions from "./ShowSubscriptions.astro";
 import ConditionalImagePan from "./ConditionalImagePan.astro";
 import PersonCard from "./PersonCard.astro";
 import {
@@ -54,8 +55,8 @@ const labels = locale === "en" ? {
   recorded: "Recorded",
   upcoming: "Next recording",
   previewAction: "View the recording preview",
-  followIndex: "05 / Listen & Watch",
-  followHeading: ["Choose your", "way in."],
+  followIndex: "05 / Follow",
+  followHeading: ["Follow the show,", "stay in the loop."],
   platformsLabel: "Next Token Weekly platforms",
   available: "Available now",
   comingSoon: "Coming soon",
@@ -72,8 +73,8 @@ const labels = locale === "en" ? {
   recorded: "录制于",
   upcoming: "下一次录制",
   previewAction: "查看录制预告",
-  followIndex: "05 / 收听与收看",
-  followHeading: ["选择你的", "收看方式。"],
+  followIndex: "05 / 订阅节目",
+  followHeading: ["订阅节目，", "不错过下一期。"],
   platformsLabel: "Next Token Weekly 发布平台",
   available: "现已上线",
   comingSoon: "即将开放",
@@ -192,6 +193,7 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
               <a class="episode-listen" href={`${weeklyPath}${episode001.data.number}/`}>
                 {labels.episodeDetail} <span aria-hidden="true">↗</span>
               </a>
+              <TranscriptLink episodeId={episode001.id} number={episode001.data.number} locale={locale} />
             </div>
           </div>
         </div>
@@ -220,7 +222,7 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
       <p class="section-index">{labels.followIndex}</p>
       <h2>{labels.followHeading[0]}<br />{labels.followHeading[1]}</h2>
     </div>
-    <PlatformList platforms={episode001.data.platforms.map((platform) => ({ ...platform, label: platform.label[locale], action: platform.action?.[locale] }))} label={labels.platformsLabel} available={labels.available} comingSoon={labels.comingSoon} />
+    <ShowSubscriptions locale={locale}  />
   </section>
 </main>
 

@@ -1,0 +1,23 @@
+kind: model-family
+brand: doubao
+name:
+  zh-Hans: Doubao Seed
+  en: Doubao Seed
+summary:
+  zh-Hans: 字节跳动 Seed 团队研发的通用人工智能模型家族，支持推理、编程、多模态理解与智能体任务。
+  en: A general-purpose AI model family developed by ByteDance's Seed team for reasoning, coding, multimodal understanding, and agentic tasks.
+aliases:
+  - 豆包 Seed
+  - Seed
+  - Seed2.1
+  - Seed 2.1
+  - Doubao Seed 2.1
+status: available
+official:
+  website: https://seed.bytedance.com/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://seed.bytedance.com/en/blog/seed2-1-officially-released-advancing-ai-productivity

@@ -1,0 +1,16 @@
+kind: community-brand
+name:
+  zh-Hans: "WaytoAGI"
+  en: "WaytoAGI"
+summary:
+  zh-Hans: "通往 AGI 之路，围绕 AI 学习、开源知识库和社区共建展开的社区品牌。"
+  en: "A community brand for AI learning, an open knowledge base and collaborative building."
+aliases: ["通往 AGI 之路","WayToAGI"]
+official:
+  website: https://www.waytoagi.com/
+lastVerifiedAt: "2026-09-09"
+sources:
+  - label:
+      zh-Hans: "品牌与产品资料"
+      en: "Brand and product information"
+    href: https://about.waytoagi.com/

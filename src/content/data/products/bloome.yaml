@@ -1,0 +1,16 @@
+kind: application
+name:
+  zh-Hans: Bloome
+  en: Bloome
+summary:
+  zh-Hans: 让人与多个 AI Agent 在同一对话中协作的应用，支持共享上下文、分配任务与交叉检查结果。
+  en: An application where people and multiple AI agents collaborate in shared conversations, with shared context, task delegation, and cross-checking.
+aliases: []
+official:
+  website: https://bloome.im/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://bloome.im/bloome-introduction

@@ -1,0 +1,16 @@
+kind: platform
+name:
+  zh-Hans: 飞书
+  en: Feishu
+summary:
+  zh-Hans: 整合即时消息、文档、多维表格、视频会议与 AI 能力的团队协作和工作平台。
+  en: A team collaboration and work platform combining messaging, documents, multidimensional tables, video meetings, and AI capabilities.
+aliases: []
+official:
+  website: https://www.feishu.cn/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.feishu.cn/?from_site=lark

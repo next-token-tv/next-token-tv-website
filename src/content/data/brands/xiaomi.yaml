@@ -1,0 +1,16 @@
+kind: company-brand
+name:
+  zh-Hans: "小米"
+  en: "Xiaomi"
+summary:
+  zh-Hans: "以智能手机、智能硬件和电动汽车为核心业务的科技公司，也研发 MiMo 大语言模型。"
+  en: "Technology company building smartphones, smart hardware and electric vehicles, as well as MiMo large language models."
+aliases: ["小米集团"]
+official:
+  website: https://www.mi.com/
+lastVerifiedAt: "2026-09-09"
+sources:
+  - label:
+      zh-Hans: "品牌与产品资料"
+      en: "Brand and product information"
+    href: https://www.mi.com/global/about/

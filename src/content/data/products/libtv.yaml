@@ -1,0 +1,18 @@
+kind: application
+brand: evoken
+name:
+  zh-Hans: "LibTV"
+  en: "LibTV"
+summary:
+  zh-Hans: "面向视频创作者的 AI 创作工具，提供画布工作流、视频生成与编辑，以及 Agent 能力。"
+  en: "AI video creation tool offering canvas workflows, video generation and editing, and agent capabilities."
+aliases: []
+status: available
+official:
+  website: https://www.liblib.tv/
+lastVerifiedAt: "2026-09-09"
+sources:
+  - label:
+      zh-Hans: "产品官网"
+      en: "Product website"
+    href: https://www.liblib.tv/

@@ -41,7 +41,7 @@ Astro 默认在构建时预渲染所有页面，当前不需要 Cloudflare adapt
 - `partners` 与 `venues`：场地合作伙伴和其名下的具体场地。
 - `episodes`：网站编辑的单集标题、平台链接、首页展示文案与提及实体。
 - `transcriptImports`：由已批准发布的 Markdown 阅读文字稿确定性生成的结构化快照。
-- `brands` 与 `products`：AI 行业品牌和产品知识库。产品必须引用所属品牌，也可以引用父产品。
+- `brands` 与 `products`：AI 行业品牌和产品知识库。产品可以引用所属品牌和父产品，也可以独立存在；模型版本名称归入模型家族的别名。分类规则见 [资料库实体分类](docs/entity-library.md)。
 
 品牌/产品库的 SSOT 在本仓库。Next Token 自身的 Logo 与 VI 源文件仍以相邻的 `next-token` 仓库为 SSOT，`public/assets/` 中仅保存网站发布副本。当前没有 SRT 工具集成；后续工具应读取这里的稳定实体 ID。
 
@@ -106,6 +106,12 @@ npm run test:visual
 npm run test:visual:update
 ```
 
+## Google Analytics
+
+公共布局通过 `gtag.js` 接入 GA4，默认使用 Next Token Website 数据流的公开衡量 ID `G-HFGVTS33FD`。构建前可在 `.env.local` 或构建环境中通过 `PUBLIC_GOOGLE_ANALYTICS_ID` 覆盖；显式设为空字符串可禁用统计，格式错误时构建失败。衡量 ID 是公开配置，不是 API 密钥。
+
+统计仅在生产构建且浏览器域名与 Astro `site`（`nexttoken.tv`）一致时加载，避免本地开发、预览和 Workers 临时域名产生统计数据。每次页面加载由 GA4 自动记录一次 `page_view`，来源参数保留在页面 URL 中。配置变更需要重新构建和部署。
+
 ## Sitemap 与搜索索引
 
 本地开发与预览接受有无末尾斜杠的页面地址，避免 `/en` 等手动输入地址返回 404。静态产物使用目录格式，canonical、站内链接与 sitemap 统一使用带末尾斜杠的页面 URL；生产环境由 Cloudflare 的默认目录索引规则将无斜杠地址跳转到带斜杠地址。
@@ -117,6 +123,8 @@ Sitemap 包含中英文首页、栏目、分期、人物、合作伙伴、品牌
 所有页面提供 canonical、双向 `hreflang`、Open Graph 与 Twitter 基础元数据。品牌和产品详情页另提供 JSON-LD 实体数据，名称、摘要、别名、品牌关系和发布日期均来自元数据 SSOT。
 
 分期从预告更新为正式内容时保留原 URL。当前未设置 `lastmod`：后续只能从可信的内容更新时间生成，不使用构建时间或录制日期代替。生产发布后可在 Google Search Console 中提交上述 sitemap 入口。
+
+Google Search Console 使用 `https://nexttoken.tv/` URL 前缀资源，通过公共布局中的 `google-site-verification` 标签验证所有权；该标签需要持续保留。
 
 ## 部署
 

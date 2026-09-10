@@ -10,6 +10,17 @@ const en = locale === "en";
     <input id="transcript-search" type="search" placeholder={en ? "Name, product or keyword" : "人物、产品或关键词"} autocomplete="off" />
     <button type="button" data-clear hidden>{en ? "Clear" : "清除"}</button>
   </div>
+  <div class="transcript-entity-controls">
+    <div class="transcript-entity-legend" aria-label={en ? "Entity legend" : "实体图例"}>
+      <span class="transcript-entity-key" data-entity-type="brand">{en ? "Brand" : "品牌"}</span>
+      <span class="transcript-entity-key" data-entity-type="product">{en ? "Product" : "产品"}</span>
+      <span class="transcript-entity-key" data-entity-type="person">{en ? "Person" : "人物"}</span>
+    </div>
+    <button class="transcript-highlight-toggle" type="button" role="switch" aria-checked="false" data-entity-highlight-toggle>
+      <span>{en ? "Highlight" : "高亮"}</span>
+      <span class="transcript-switch-track" aria-hidden="true"></span>
+    </button>
+  </div>
   <p role="status" aria-live="polite" data-search-status></p>
   <ol data-search-results></ol>
 </div>
@@ -17,6 +28,12 @@ const en = locale === "en";
   const tools = document.querySelector<HTMLElement>('[data-reader-tools]');
   if (tools) {
     tools.hidden = false;
+    const highlight = tools.querySelector<HTMLButtonElement>('[data-entity-highlight-toggle]')!;
+    highlight.addEventListener('click', () => {
+      const enabled = highlight.getAttribute('aria-checked') !== 'true';
+      highlight.setAttribute('aria-checked', String(enabled));
+      tools.closest<HTMLElement>('.transcript-page')!.dataset.entityHighlight = String(enabled);
+    });
     const en = tools.dataset.language === 'en';
     const input = tools.querySelector<HTMLInputElement>('input')!;
     const clear = tools.querySelector<HTMLButtonElement>('[data-clear]')!;
@@ -107,6 +124,13 @@ const en = locale === "en";
   .transcript-search-input button { margin-inline-end: 0.5rem; flex-shrink: 0; }
   .transcript-search-input button:focus-visible { outline: 0.125rem solid var(--signal); outline-offset: 0; }
   .transcript-search button, .transcript-copy-link { padding: 0.25rem; border: 0; background: transparent; color: var(--ink); font: inherit; cursor: pointer; white-space: nowrap; }
+  .transcript-entity-controls { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.875rem; font-size: 0.75rem; }
+  .transcript-entity-legend { display: flex; align-items: center; gap: 0.75rem; }
+  .transcript-highlight-toggle { display: inline-flex; align-items: center; gap: 0.375rem; }
+  .transcript-switch-track { display: inline-block; width: 1.75rem; height: 1rem; padding: 0.125rem; border-radius: 1rem; background: rgba(17, 17, 17, 0.18); }
+  .transcript-switch-track::before { content: ""; display: block; width: 0.75rem; height: 0.75rem; border-radius: 50%; background: var(--white); }
+  .transcript-highlight-toggle[aria-checked="true"] .transcript-switch-track { background: var(--signal); }
+  .transcript-highlight-toggle[aria-checked="true"] .transcript-switch-track::before { transform: translateX(0.75rem); }
   .transcript-search [role="status"] { margin: 0.5rem 0; color: var(--muted); }
   .transcript-search ol { max-height: 16rem; overflow: auto; padding: 0; list-style: none; }
   .transcript-search li { margin-bottom: 0.75rem; }

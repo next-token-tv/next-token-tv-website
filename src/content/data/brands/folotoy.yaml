@@ -1,0 +1,16 @@
+kind: company-brand
+name:
+  zh-Hans: "FoloToy"
+  en: "FoloToy"
+summary:
+  zh-Hans: "开发对话式 AI 玩具与配套软硬件的品牌，探索语音交互和智能陪伴。"
+  en: "Brand developing conversational AI toys and supporting hardware and software for voice interaction and companionship."
+aliases: ["FOLOTOY","Folotoy"]
+official:
+  website: https://folotoy.com/
+lastVerifiedAt: "2026-09-09"
+sources:
+  - label:
+      zh-Hans: "品牌与产品资料"
+      en: "Brand and product information"
+    href: https://folotoy.com/

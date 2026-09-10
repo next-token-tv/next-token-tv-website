@@ -1,0 +1,18 @@
+kind: operating-system
+brand: omacom
+name:
+  zh-Hans: "Omarchy"
+  en: "Omarchy"
+summary:
+  zh-Hans: "由 David Heinemeier Hansson 创建的 Linux 发行版，集成开发工具与 AI Agent，强调开箱即用和可定制体验。"
+  en: "Linux distribution created by David Heinemeier Hansson, integrating development tools and AI agents with curated defaults and customization."
+aliases: []
+status: available
+official:
+  website: https://omarchy.org/
+lastVerifiedAt: "2026-09-09"
+sources:
+  - label:
+      zh-Hans: "产品官网"
+      en: "Product website"
+    href: https://omarchy.org/

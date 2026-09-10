@@ -1,0 +1,16 @@
+kind: agent
+name:
+  zh-Hans: QClaw
+  en: QClaw
+summary:
+  zh-Hans: 腾讯的个人 AI 助手，支持通过微信远程整理文件、执行复杂任务，并通过技能扩展办公、创作和开发能力。
+  en: Tencent's personal AI assistant for remotely managing files and executing complex tasks through WeChat, with skills for office work, creation, and development.
+aliases: []
+official:
+  website: https://qclaw.qq.com/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://qclaw.qq.com/

@@ -1,0 +1,64 @@
+---
+import { getContentCatalog, getHostProfileIds } from "../data/catalog";
+import type { Locale } from "../data/types";
+import EntityPeopleRelations from "./EntityPeopleRelations.astro";
+interface Props { locale: Locale; personId?: string }
+const { locale, personId } = Astro.props;
+const en = locale === "en";
+const prefix = en ? "/en" : "";
+const catalog = await getContentCatalog();
+const hosts = new Set(await getHostProfileIds());
+const hostOrder = (id: string) => catalog.hostMemberships.find(m => m.data.person === id)?.data.displayOrder ?? Number.MAX_SAFE_INTEGER;
+const people = catalog.people.slice().sort((a,b) => hostOrder(a.id)-hostOrder(b.id) || a.id.localeCompare(b.id));
+const person = personId ? people.find(p => p.id === personId) : undefined;
+const mentions = person ? catalog.episodes.filter(e => e.data.mentions.people.includes(person.id)) : [];
+const chapterLinks = person ? catalog.transcriptImports.filter(t => t.data.locale === locale).flatMap(t => t.data.chapters.filter(c => c.turns.some(turn => turn.paragraphs.some(p => p.some(s => s.entityType === "person" && s.entityId === person.id)))).map(c => ({title:c.title, href:`${prefix}/weekly/${catalog.episodes.find(e => e.id === t.data.episodeId)!.data.number}/transcript/#${c.id}`}))) : [];
+---
+<main id="main" class="people-library shell">
+  <nav class="library-tabs" aria-label={en ? "Reference library" : "资料库"}>
+    <a href={`${prefix}/wiki/brands/`}>{en ? "Brands" : "品牌"}</a>
+    <a href={`${prefix}/wiki/products/`}>{en ? "Products" : "产品"}</a>
+    <a href={`${prefix}/wiki/people/`} aria-current={!person ? "page" : undefined}>{en ? "People" : "人物"}</a>
+  </nav>
+  <header>
+    <p class="section-kicker">NEXT TOKEN / {en ? "PEOPLE" : "人物库"}</p>
+    <h1>{person ? person.data.name[locale] : en ? "People" : "人物库"}</h1>
+    <p>{person ? person.data.bio[locale] : en ? "The co-hosts, builders and researchers in our conversations." : "认识节目中的主理人，以及对谈中提到的创业者、开发者与研究者。"}</p>
+  </header>
+  {person ? <>
+    <EntityPeopleRelations entityType="person" entityId={person.id} locale={locale} contained />
+    {person.data.aliases.length > 0 && <p>{en ? "Also known as" : "其他称呼"}：{person.data.aliases.join(" · ")}</p>}
+    <section>
+      <h2 class="heading-section-compact">{en ? "In our conversations" : "节目中的讨论"}</h2>
+      <ul>{mentions.map(e => <li><a href={`${prefix}/weekly/${e.data.number}/`}>{e.data.title[locale]} →</a></li>)}</ul>
+      <ul>{chapterLinks.map(c => <li><a href={c.href}>{c.title} →</a></li>)}</ul>
+    </section>
+    <section>
+      <h2 class="heading-section-compact">{en ? "Sources" : "资料来源"}</h2>
+      <ul>{person.data.sources.map(s => <li><a href={s.href} target="_blank" rel="noopener noreferrer">{s.label[locale]} ↗</a></li>)}</ul>
+      {person.data.lastVerifiedAt && <small>{en ? "Last verified" : "最近核验"} · {person.data.lastVerifiedAt}</small>}
+    </section>
+  </> : <div class="people-list">
+    {people.map(p => <article>
+      <p class="section-kicker">{hosts.has(p.id) ? en ? "CO-HOST" : "联合主理人" : en ? "MENTIONED" : "节目提及"}</p>
+      <h2 class="heading-section-compact"><a href={`${prefix}/wiki/people/${p.id}/`}>{p.data.name[locale]} →</a></h2>
+      <p>{p.data.bio[locale]}</p>
+    </article>)}
+  </div>}
+</main>
+<style>
+  .people-library { padding-block: 3rem 5rem; }
+  .library-tabs { display: flex; gap: 2rem; margin-bottom: 3rem; }
+  .library-tabs [aria-current] { color: var(--signal); text-decoration: underline; text-underline-offset: 0.4em; }
+  header { max-width: 55rem; margin-bottom: 3rem; }
+  h1 { font-size: 3rem; margin-block: 1rem; }
+  header > p:last-child, article > p:last-child { color: var(--muted); }
+  .people-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; }
+  article, section { border-top: 0.0625rem solid var(--ink); padding-block: 2rem; }
+  article h2 { margin-block: 1rem; }
+  ul { list-style: none; padding: 0; margin-block: 1rem; }
+  li { padding-block: 0.75rem; border-bottom: 0.0625rem solid var(--line); }
+  a:hover { color: var(--signal); }
+  small { color: var(--muted); }
+  @media (max-width: 40rem) { .people-list { grid-template-columns: 1fr; } }
+</style>

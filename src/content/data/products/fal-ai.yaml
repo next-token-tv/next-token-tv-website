@@ -1,0 +1,17 @@
+kind: platform
+name:
+  zh-Hans: fal.ai
+  en: fal.ai
+summary:
+  zh-Hans: 面向开发者的生成式媒体 AI 平台，提供图像、视频与音频模型推理服务。
+  en: A generative media AI platform providing image, video and audio model inference for developers.
+aliases:
+  - fal
+official:
+  website: https://fal.ai/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方介绍
+      en: Official information
+    href: https://fal.ai/

@@ -1,0 +1,19 @@
+kind: company-brand
+name:
+  zh-Hans: 台积电
+  en: TSMC
+summary:
+  zh-Hans: 提供集成电路晶圆制造与相关半导体制造服务的专业代工公司。
+  en: A dedicated semiconductor foundry providing integrated-circuit wafer manufacturing and related services.
+aliases:
+  - Taiwan Semiconductor Manufacturing Company
+  - 台灣積體電路製造
+  - 台积电公司
+official:
+  website: https://www.tsmc.com/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.tsmc.com/english/aboutTSMC

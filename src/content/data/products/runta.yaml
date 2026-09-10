@@ -1,0 +1,22 @@
+kind: platform
+name:
+  zh-Hans: Runta
+  en: Runta
+summary:
+  zh-Hans: 面向 AI Agent 的执行平台，提供运行环境、提示词压缩、凭据保护、网络访问控制及资源自动伸缩，支持通过 CLI、Python 与 TypeScript SDK 使用。
+  en: An execution platform for AI agents with runtimes, prompt compression, credential protection, network access controls, and automatic resource scaling, accessible through a CLI and Python and TypeScript SDKs.
+aliases: []
+status: available
+official:
+  website: https://runta.com/
+  documentation: https://runta.com/docs/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: Runta 官方产品介绍
+      en: Runta product overview
+    href: https://runta.com/
+  - label:
+      zh-Hans: Runta 使用文档
+      en: Runta documentation
+    href: https://runta.com/docs/

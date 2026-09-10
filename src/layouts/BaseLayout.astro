@@ -1,9 +1,11 @@
 ---
 import "../styles/global.css";
+import { readFileSync } from "node:fs";
 import type { SiteContent } from "../data/site";
 import SiteFooter from "../components/SiteFooter.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import LanguageSuggestion from "../components/LanguageSuggestion.astro";
+import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 
 interface Props {
   content: SiteContent;
@@ -28,12 +30,17 @@ const {
 } = Astro.props;
 const canonical = new URL(canonicalPath, Astro.site);
 const alternate = new URL(alternatePath, Astro.site);
+const socialCards = JSON.parse(readFileSync("public/assets/og/manifest.json", "utf8"));
+const socialCard = socialCards[canonicalPath] ?? socialCards[content.locale === "en" ? "/en/" : "/"];
+const socialImage = new URL(socialCard.image, Astro.site);
 ---
 
 <!doctype html>
 <html lang={content.locale}>
   <head>
     <meta charset="UTF-8" />
+    <meta name="google-site-verification" content="ujT02xL-OIcJsBswgK4QM-9-lHt33GCQeFFpxFJdJNs" />
+    <GoogleAnalytics />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f1eee5" />
     <meta name="description" content={description} />
@@ -44,7 +51,14 @@ const alternate = new URL(alternatePath, Astro.site);
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content={socialCard.alt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:image:alt" content={socialCard.alt} />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <link rel="canonical" href={canonical} />

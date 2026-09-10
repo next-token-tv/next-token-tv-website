@@ -144,8 +144,8 @@ const siteContentBase: Record<Locale, SiteContentBase> = {
       note: "节目不设长期固定主持人，也不为任何人预设观点或赛道。每一期，由当值主理人串起真实的讨论与分歧。",
     },
     subscribe: {
-      heading: ["首期已经", "和你见面。"],
-      copy: "第一期现已在小宇宙、Apple Podcasts、Spotify、哔哩哔哩和 YouTube 上线。选择你习惯的平台，收听或收看完整节目。",
+      heading: ["订阅节目，", "不错过下一期。"],
+      copy: "在你习惯的平台订阅 Next Token，持续收听或收看新的圆桌对谈。下方入口前往节目或频道主页；本期播放入口在单集页面。",
       platformsLabel: "收听与观看平台",
       available: "立即收听",
       comingSoon: "即将开放",
@@ -202,8 +202,8 @@ const siteContentBase: Record<Locale, SiteContentBase> = {
       note: "The show has no permanent host, assigned viewpoint, or fixed beat. Each episode's active co-hosts surface genuine debate and disagreement.",
     },
     subscribe: {
-      heading: ["Episode #001", "is now live."],
-      copy: "Episode #001 is now available on Xiaoyuzhou, Apple Podcasts, Spotify, Bilibili, and YouTube. Listen to or watch the full episode on your preferred platform.",
+      heading: ["Follow the show,", "stay in the loop."],
+      copy: "Follow Next Token on your preferred platform for new conversations. These links open the show or channel home; episode pages provide links to play each episode.",
       platformsLabel: "Listen and watch",
       available: "Listen now",
       comingSoon: "Coming soon",

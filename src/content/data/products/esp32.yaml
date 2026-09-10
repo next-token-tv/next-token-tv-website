@@ -1,0 +1,18 @@
+kind: hardware
+brand: espressif
+name:
+  zh-Hans: ESP32
+  en: ESP32
+summary:
+  zh-Hans: 乐鑫的无线微控制器芯片系列，配套模组、开发板与软件工具，用于物联网和嵌入式设备开发。
+  en: Espressif's wireless microcontroller family, with modules, development boards, and software tools for IoT and embedded devices.
+aliases:
+  - ESP32 开发板
+official:
+  website: https://www.espressif.com/en/products/socs/esp32
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.espressif.com/en/products/socs/esp32

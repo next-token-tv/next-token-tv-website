@@ -1,0 +1,20 @@
+kind: agent
+name:
+  zh-Hans: Pi
+  en: Pi
+summary:
+  zh-Hans: 运行在终端中的精简编程 Agent，支持通过 TypeScript 扩展、技能、提示词模板和主题定制工作流，也可通过 SDK 集成到其他应用。
+  en: A minimal terminal coding agent with customizable workflows through TypeScript extensions, skills, prompt templates, and themes, plus an SDK for embedding in other applications.
+aliases:
+  - Pi Coding Agent
+  - pi-coding-agent
+status: available
+official:
+  website: https://pi.dev/
+  documentation: https://pi.dev/docs/latest
+lastVerifiedAt: "2026-09-10"
+sources:
+  - label:
+      zh-Hans: Pi 官方文档
+      en: Pi documentation
+    href: https://pi.dev/docs/latest

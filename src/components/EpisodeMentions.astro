@@ -7,18 +7,23 @@ const { episodeId, locale } = Astro.props;
 const mentions = await getEpisodeMentionEntities(episodeId);
 const prefix = locale === "en" ? "/en" : "";
 const copy = locale === "en"
-  ? { kicker: "Referenced in this episode", title: "Brands and products", brand: "Brand", product: "Product" }
-  : { kicker: "本期提及", title: "品牌与产品", brand: "品牌", product: "产品" };
+  ? { kicker: "Referenced in this episode", title: "People, brands and products", brand: "Brand", product: "Product" }
+  : { kicker: "本期提及", title: "人物、品牌与产品", brand: "品牌", product: "产品" };
 const groups = [
+  {
+    kind: "person",
+    label: locale === "en" ? "People" : "人物",
+    items: mentions.people.map(person => ({ name: person.data.name[locale], href: `${prefix}/wiki/people/${person.id}/` })),
+  },
   {
     kind: "brand",
     label: copy.brand,
-    items: mentions.brands.map((brand) => ({ name: brand.data.name[locale], href: `${prefix}/brands/${brand.id}/` })),
+    items: mentions.brands.map((brand) => ({ name: brand.data.name[locale], href: `${prefix}/wiki/brands/${brand.id}/` })),
   },
   {
     kind: "product",
     label: copy.product,
-    items: mentions.products.map((product) => ({ name: product.data.name[locale], href: `${prefix}/products/${product.id}/` })),
+    items: mentions.products.map((product) => ({ name: product.data.name[locale], href: `${prefix}/wiki/products/${product.id}/` })),
   },
 ].filter((group) => group.items.length > 0);
 ---

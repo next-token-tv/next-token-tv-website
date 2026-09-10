@@ -8,8 +8,25 @@ summary:
   en: Google's family of multimodal AI models and assistants.
 aliases:
   - Google Gemini
+  - Gemini 3.5 Transcribe
+  - Gemini 3.8 Flash
+  - Gemini Omni 1.1 Flash
+  - Omni 1.1 Flash
 status: available
 official:
   website: https://gemini.google.com/
   documentation: https://ai.google.dev/gemini-api/docs/models
-lastVerifiedAt: "2026-09-07"
+lastVerifiedAt: '2026-09-07'
+sources:
+  - label:
+      zh-Hans: Gemini 3.5 Transcribe 官方资料
+      en: Gemini 3.5 Transcribe official information
+    href: https://deepmind.google/models/gemini-audio/ai-transcription/
+  - label:
+      zh-Hans: Gemini 3.8 Flash 官方资料
+      en: Gemini 3.8 Flash official information
+    href: https://deepmind.google/models/model-cards/gemini-3-8-flash/
+  - label:
+      zh-Hans: Gemini Omni 1.1 Flash 官方资料
+      en: Gemini Omni 1.1 Flash official information
+    href: https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/

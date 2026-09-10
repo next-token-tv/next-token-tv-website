@@ -1,0 +1,25 @@
+relations:
+  - entityType: brand
+    entity: folotoy
+    role:
+      zh-Hans: 创始人
+      en: Founder
+    lastVerifiedAt: "2026-09-09"
+    sources:
+      - label:
+          zh-Hans: 关系资料来源
+          en: Relationship source
+        href: https://www.yfchuhai.com/article/10225083.html
+name:
+  zh-Hans: "王乐"
+  en: "Wang Le"
+bio:
+  zh-Hans: "FoloToy 创始人，探索 AI 玩具与智能硬件。"
+  en: "Founder of FoloToy, working on AI toys and smart hardware."
+aliases: []
+lastVerifiedAt: "2026-09-09"
+sources:
+  - label:
+      zh-Hans: "PAGC 嘉宾介绍"
+      en: "PAGC speaker profile"
+    href: https://www.yfchuhai.com/article/10225083.html
