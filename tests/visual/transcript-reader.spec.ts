@@ -1,5 +1,21 @@
 import { expect, test } from '@playwright/test';
 
+test('transcript is directly discoverable and only links to available locales', async ({ page }) => {
+  for (const path of ['/', '/weekly/', '/weekly/001/']) {
+    await page.goto(path);
+    const link = page.locator('.episode-transcript-cta');
+    await expect(link).toHaveCount(1);
+    await expect(link).toHaveAttribute('href', '/weekly/001/transcript/');
+    if (path === '/weekly/001/') {
+      expect(await link.evaluate((node) => !!(node.compareDocumentPosition(document.querySelector('.episode-detail-hero .episode-actions')!) & Node.DOCUMENT_POSITION_FOLLOWING))).toBe(true);
+    }
+    await link.click();
+    await expect(page.locator('.transcript-body')).toBeVisible();
+    await page.goto(`/en${path}`);
+    await expect(page.locator('.episode-transcript-cta')).toHaveCount(0);
+  }
+});
+
 for (const width of [390, 1440]) {
   test(`reader tools fit at ${width}`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });

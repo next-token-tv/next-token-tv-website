@@ -21,14 +21,14 @@ const routes = [
   { path: "/en/weekly/002/", shell: ".episode-preview-hero-inner.shell", visual: ".episode-preview-hero" },
   { path: "/partners/", shell: ".partners-intro.shell", visual: ".partners-intro" },
   { path: "/en/partners/", shell: ".partners-intro.shell", visual: ".partners-intro" },
-  { path: "/brands/", shell: ".entity-index-hero.shell", visual: ".entity-index-hero" },
-  { path: "/en/brands/", shell: ".entity-index-hero.shell", visual: ".entity-index-hero" },
-  { path: "/brands/zhipu/", shell: ".entity-detail-hero.shell", visual: ".entity-detail-hero" },
-  { path: "/en/brands/zhipu/", shell: ".entity-detail-hero.shell", visual: ".entity-detail-hero" },
-  { path: "/products/", shell: ".entity-index-hero.shell", visual: ".entity-index-hero" },
-  { path: "/en/products/", shell: ".entity-index-hero.shell", visual: ".entity-index-hero" },
-  { path: "/products/glm-5-3-flash/", shell: ".entity-detail-hero.shell", visual: ".entity-detail-hero" },
-  { path: "/en/products/glm-5-3-flash/", shell: ".entity-detail-hero.shell", visual: ".entity-detail-hero" },
+  { path: "/wiki/brands/", shell: ".entity-index-hero.shell", visual: ".entity-index-hero" },
+  { path: "/en/wiki/brands/", shell: ".entity-index-hero.shell", visual: ".entity-index-hero" },
+  { path: "/wiki/brands/zhipu/", shell: ".entity-detail-hero.shell", visual: ".entity-detail-hero" },
+  { path: "/en/wiki/brands/zhipu/", shell: ".entity-detail-hero.shell", visual: ".entity-detail-hero" },
+  { path: "/wiki/products/", shell: ".entity-index-hero.shell", visual: ".entity-index-hero" },
+  { path: "/en/wiki/products/", shell: ".entity-index-hero.shell", visual: ".entity-index-hero" },
+  { path: "/wiki/products/glm/", shell: ".entity-detail-hero.shell", visual: ".entity-detail-hero" },
+  { path: "/en/wiki/products/glm/", shell: ".entity-detail-hero.shell", visual: ".entity-detail-hero" },
 ] as const;
 
 test("platform lists share localized labels, logos and destinations", async ({ page }) => {
@@ -45,9 +45,16 @@ test("platform lists share localized labels, logos and destinations", async ({ p
         target: row.getAttribute("target"),
         rel: row.getAttribute("rel"),
       })));
-      if (expected) expect(entries).toEqual(expected);
-      else expected = entries;
-      await expect(list.locator('a[href*="spotify.com"] .coming')).toContainText(prefix ? "Listen / watch" : "收听/收看");
+      if (path === '/weekly/001/') {
+        expect(entries.map(e => e.href)).not.toEqual(expected?.map(e => e.href));
+        await expect(list.locator('a[href*="spotify.com"]')).toHaveAttribute('href', /\/episode\//);
+        await expect(list.locator('a[href*="spotify.com"] .coming')).toContainText(prefix ? "Listen / watch" : "收听/收看");
+      } else {
+        if (expected) expect(entries).toEqual(expected);
+        else expected = entries;
+        await expect(list.locator('a[href*="spotify.com"]')).toHaveAttribute('href', /\/show\//);
+        await expect(list.locator('a[href*="spotify.com"] .coming')).toContainText(prefix ? "Follow show" : "订阅 / 关注");
+      }
     }
   }
 });
@@ -60,7 +67,7 @@ test("person cards link portraits and names to localized profiles", async ({ pag
       await expect(portraits).toHaveCount(4);
       for (const portrait of await portraits.all()) {
         const href = await portrait.getAttribute("href");
-        expect(href).toMatch(new RegExp(`^${prefix}/people/[^/]+/$`));
+        expect(href).toMatch(new RegExp(`^${prefix}/wiki/people/[^/]+/$`));
         await expect(portrait.locator("..").locator("h3 a")).toHaveAttribute("href", href!);
         expect((await page.request.get(href!)).status()).toBe(200);
       }
@@ -120,7 +127,7 @@ for (const viewport of viewports) {
 
         if (viewport.name === "mobile" || viewport.name === "wide") {
           await expect(page.locator(route.visual)).toHaveScreenshot(
-            `${route.path.replaceAll("/", "-").replace(/^-|-$/g, "") || "home"}-${viewport.name}.png`,
+            `${route.path.replace("/wiki/", "/").replaceAll("/", "-").replace(/^-|-$/g, "") || "home"}-${viewport.name}.png`,
           );
         }
       });
@@ -135,8 +142,8 @@ test.describe("entity metadata and links", () => {
 
   test("episode and entity pages link in both directions", async ({ page }) => {
     await page.goto("/weekly/001/");
-    await expect(page.locator('.episode-mention-list a[href="/brands/zhipu/"]')).toHaveCount(1);
-    await expect(page.locator('.episode-mention-list a[href="/products/glm-5-3-flash/"]')).toHaveCount(1);
+    await expect(page.locator('.episode-mention-list a[href="/wiki/brands/zhipu/"]')).toHaveCount(1);
+    await expect(page.locator('.episode-mention-list a[href="/wiki/products/glm/"]')).toHaveCount(1);
     const brandGroup = page.locator('[data-mention-kind="brand"]');
     const productGroup = page.locator('[data-mention-kind="product"]');
     await expect(brandGroup).toHaveCount(1);
@@ -144,33 +151,33 @@ test.describe("entity metadata and links", () => {
     await expect(brandGroup.locator(".episode-mention-list a")).toHaveCount(Number(await brandGroup.locator(".episode-mention-group-heading span").textContent()));
     await expect(productGroup.locator(".episode-mention-list a")).toHaveCount(Number(await productGroup.locator(".episode-mention-group-heading span").textContent()));
 
-    await page.goto("/brands/zhipu/");
+    await page.goto("/wiki/brands/zhipu/");
     await expect(page.locator('.entity-related-episode-list a[href="/weekly/001/"]')).toHaveCount(1);
-    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://nexttoken.tv/brands/zhipu/");
-    await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", "https://nexttoken.tv/en/brands/zhipu/");
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://nexttoken.tv/wiki/brands/zhipu/");
+    await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", "https://nexttoken.tv/en/wiki/brands/zhipu/");
   });
 
   test("entity pages expose structured data", async ({ page }) => {
-    await page.goto("/products/glm-5-3-flash/");
+    await page.goto("/wiki/products/glm/");
     const structuredData = JSON.parse(await page.locator('script[type="application/ld+json"]').textContent() ?? "{}");
     expect(structuredData["@type"]).toBe("Product");
-    expect(structuredData.name).toBe("GLM-5.3 Flash");
+    expect(structuredData.name).toBe("GLM");
     expect(structuredData.brand.name).toBe("智谱");
   });
 
   test("secondary filters restore from and update the URL", async ({ page }) => {
-    await page.goto("/brands/?type=company-brand");
+    await page.goto("/wiki/brands/?type=company-brand");
     const companyFilter = page.locator('[data-entity-filter="company-brand"]');
     await expect(companyFilter).toHaveAttribute("aria-pressed", "true");
     await expect(page.locator("[data-entity-kind]:visible")).toHaveCount(Number(await companyFilter.locator("strong").textContent()));
 
-    await page.locator('[data-entity-filter="model-brand"]').click();
-    await expect(page).toHaveURL(/\/brands\/\?type=model-brand$/);
-    await expect(page.locator('[data-entity-kind="model-brand"]')).toBeVisible();
+    await page.locator('[data-entity-filter="media-brand"]').click();
+    await expect(page).toHaveURL(/\/brands\/\?type=media-brand$/);
+    await expect(page.locator('[data-entity-kind="media-brand"]')).toBeVisible();
     await expect(page.locator('[data-entity-kind="company-brand"]:visible')).toHaveCount(0);
 
-    await page.goto("/en/products/?type=model");
-    const modelFilter = page.locator('[data-entity-filter="model"]');
+    await page.goto("/en/wiki/products/?type=model-family");
+    const modelFilter = page.locator('[data-entity-filter="model-family"]');
     await expect(modelFilter).toHaveAttribute("aria-pressed", "true");
     await expect(page.locator("[data-entity-kind]:visible")).toHaveCount(Number(await modelFilter.locator("strong").textContent()));
   });
@@ -181,8 +188,8 @@ test.describe("entity metadata and links", () => {
     const sitemap = await response.text();
     expect(sitemap).toContain("https://nexttoken.tv/weekly/002/");
     expect(sitemap).toContain("https://nexttoken.tv/weekly/001/transcript/");
-    expect(sitemap).toContain("https://nexttoken.tv/brands/zhipu/");
-    expect(sitemap).toContain("https://nexttoken.tv/en/products/glm-5-3-flash/");
+    expect(sitemap).toContain("https://nexttoken.tv/wiki/brands/zhipu/");
+    expect(sitemap).toContain("https://nexttoken.tv/en/wiki/products/glm/");
     expect(sitemap).not.toContain("/design-system/");
   });
 
@@ -192,9 +199,9 @@ test.describe("entity metadata and links", () => {
 
     await page.goto("/weekly/001/transcript/");
     await expect(page.locator(".transcript-chapter")).toHaveCount(37);
-    await expect(page.locator(".transcript-candidate")).toHaveCount(179);
+    await expect(page.locator(".transcript-candidate")).toHaveCount(180);
     await expect(page.locator('.transcript-turn[data-speaker="yangpan"] img').first()).toBeVisible();
-    await expect(page.locator('.transcript-entity-link[href="/products/glm-5-3-flash/"]').first()).toBeVisible();
+    await expect(page.locator('.transcript-entity-link[href="/wiki/products/glm/"]').first()).toBeVisible();
     await expect(page.locator("body")).not.toContainText("5.1 担心");
     await expect(page.locator('link[rel="alternate"]')).toHaveCount(0);
   });
