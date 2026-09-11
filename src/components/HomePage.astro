@@ -41,7 +41,8 @@ const episode001Path = content.locale === "en" ? "/en/weekly/001/" : "/weekly/00
         <p class="hero-intro">{content.hero.intro}</p>
         <div class="actions">
           <a class="button primary" href={episode001Path}>{content.hero.primaryAction} <span aria-hidden="true">↘</span></a>
-          <a class="button" href="#about">{content.hero.secondaryAction}</a>
+          <TranscriptLink episodeId={episode001.id} number={episode001.data.number} locale={content.locale} variant="light" />
+          <a class="hero-about-link" href="#about">{content.hero.secondaryAction} <span aria-hidden="true">→</span></a>
         </div>
         <UpcomingEpisodeLink locale={content.locale} />
       </div>

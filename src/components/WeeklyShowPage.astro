@@ -101,6 +101,11 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
         <p class="section-kicker">{page.eyebrow}</p>
         <h1>{page.heading.map((line) => <span>{line}</span>)}</h1>
         <p>{page.lede}</p>
+        <div class="weekly-latest-actions">
+          <strong>{locale === "en" ? "Latest episode" : "最新一期"} #{episode001.data.number}</strong>
+          <a href={`${weeklyPath}${episode001.data.number}/`}>{locale === "en" ? "Listen / watch" : "收听 / 收看"} ↗</a>
+          <TranscriptLink episodeId={episode001.id} number={episode001.data.number} locale={locale} variant="inline" />
+        </div>
         <UpcomingEpisodeLink locale={locale} />
       </div>
       <div class="weekly-show-poster" aria-hidden="true">

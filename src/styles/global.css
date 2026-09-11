@@ -771,6 +771,48 @@ h1 .accent {
   margin-top: 0;
 }
 
+.actions > .transcript-cta--light {
+  margin-top: 0;
+  color: var(--ink);
+  border-color: var(--ink);
+  min-height: 3rem;
+}
+
+.hero-about-link {
+  align-self: center;
+  font-size: 0.85rem;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.weekly-latest-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+}
+
+.weekly-latest-actions > strong { flex-basis: 100%; }
+
+.weekly-latest-actions > a { text-decoration: underline; text-underline-offset: 0.2em; }
+
+.weekly-latest-actions > .transcript-cta--inline {
+  color: var(--ink);
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-height: 0;
+  gap: 0.5rem;
+}
+
+.episode-detail-hero-copy > div > p.transcript-cta-description {
+  margin: 0.625rem 0 0;
+  font-size: 0.8rem;
+  color: rgba(255, 253, 246, 0.7);
+}
+
 .episode-platform {
   background: var(--white);
   border-color: var(--white);

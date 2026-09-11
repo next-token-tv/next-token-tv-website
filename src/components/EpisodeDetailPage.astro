@@ -104,7 +104,7 @@ const labels = locale === "en" ? {
         <p class="eyebrow">{homepage.eyebrow}</p>
         <h1 class="episode-hero-title">{homepage.heading[0]}<br />{homepage.heading[1]}</h1>
         <p>{homepage.lede}</p>
-        <TranscriptLink episodeId={episodeId} number={episode.data.number} locale={locale} />
+        <TranscriptLink episodeId={episodeId} number={episode.data.number} locale={locale} details />
         <div class="episode-actions">
           {episode.data.platforms.filter(({ href }) => href).map((platform) => (
             <a class="episode-listen episode-platform" href={platform.href} target="_blank" rel="noopener noreferrer" aria-label={`${platform.label[locale]} · ${platform.action?.[locale] ?? platform.label[locale]}`}>
