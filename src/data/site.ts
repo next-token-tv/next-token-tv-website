@@ -163,7 +163,7 @@ const siteContentBase: Record<Locale, SiteContentBase> = {
     navigation: {
       about: "About",
       weekly: "Next Token Weekly",
-      library: "Library",
+      library: "Wiki",
       hosts: "Co-hosts",
       partners: "Partners",
       subscribe: "Follow",

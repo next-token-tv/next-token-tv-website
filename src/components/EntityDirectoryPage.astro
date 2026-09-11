@@ -69,7 +69,7 @@ const entries = entityType === "people"
     }));
 
 const copy = entityType === "people" ? (locale === "en" ? {
-  eyebrow: "Next Token / AI reference library", title: "People",
+  eyebrow: "Next Token / Wiki", title: "People",
   lede: "The co-hosts, builders and researchers in our conversations.",
   count: `${entries.length} people`, brands: "Brands", products: "Products", aliases: "Also known as",
   open: "Person profile", filterLabel: "People", all: "All",
@@ -80,7 +80,7 @@ const copy = entityType === "people" ? (locale === "en" ? {
   open: "人物详情", filterLabel: "人物分类", all: "全部",
 }) : locale === "en"
   ? {
-      eyebrow: "Next Token / AI reference library",
+      eyebrow: "Next Token / Wiki",
       title: entityType === "brands" ? "Brands" : "Products",
       lede: entityType === "brands"
         ? "The organizations, model families, platforms, and product brands that appear in Next Token conversations."
@@ -133,7 +133,7 @@ const filterOptions = entityType === "people"
     </div>
   </section>
 
-  <nav class="entity-library-switch shell" aria-label={locale === "en" ? "AI reference library" : "AI 资料库"}>
+  <nav class="entity-library-switch shell" aria-label={locale === "en" ? "Wiki" : "AI 资料库"}>
     <a href={`${prefix}/wiki/brands/`} aria-current={entityType === "brands" ? "page" : undefined}>{copy.brands}</a>
     <a href={`${prefix}/wiki/products/`} aria-current={entityType === "products" ? "page" : undefined}>{copy.products}</a>
     <a href={`${prefix}/wiki/people/`} aria-current={entityType === "people" ? "page" : undefined}>{locale === "en" ? "People" : "人物"}</a>

@@ -16,7 +16,7 @@ const [content, profile] = await Promise.all([getSiteContent("en"), getBrandProf
 
 <BaseLayout
   content={content}
-  pageTitle={`${profile.brand.data.name.en} | Brand Library | Next Token`}
+  pageTitle={`${profile.brand.data.name.en} | Wiki | Next Token`}
   description={profile.brand.data.summary.en}
   canonicalPath={`/en/wiki/brands/${brandId}/`}
   alternatePath={`/wiki/brands/${brandId}/`}
