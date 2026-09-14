@@ -1,126 +1,202 @@
 {
   "/": {
-    "image": "/assets/og/home-25d43a80247a.png",
+    "image": "/assets/og/home-f8fe5d00143a.png",
     "alt": "NEXT TOKEN — 不只预测 下一个词元。"
   },
   "/weekly/": {
-    "image": "/assets/og/weekly-1f79eac038fe.png",
+    "image": "/assets/og/weekly-094299b99454.png",
     "alt": "NEXT TOKEN WEEKLY — 一周的 AI， 四个人， 一张开放的圆桌。"
   },
   "/wiki/people/aj/": {
-    "image": "/assets/og/wiki-people-aj-e839a7ab0f54.png",
+    "image": "/assets/og/wiki-people-aj-9bb107f9f8b8.png",
     "alt": "人物库 — AJ"
   },
   "/wiki/people/chen-mian/": {
-    "image": "/assets/og/wiki-people-chen-mian-584de9ec5ee3.png",
+    "image": "/assets/og/wiki-people-chen-mian-133211d32f4b.png",
     "alt": "人物库 — 陈冕"
   },
+  "/wiki/people/cyber-zen/": {
+    "image": "/assets/og/wiki-people-cyber-zen-891e800e297e.png",
+    "alt": "人物库 — 赛博禅心"
+  },
   "/wiki/people/dhh/": {
-    "image": "/assets/og/wiki-people-dhh-d9c9b2ab471f.png",
+    "image": "/assets/og/wiki-people-dhh-3ae3ca9aac99.png",
     "alt": "人物库 — David Heinemeier Hansson"
   },
   "/wiki/people/guanlan-dai/": {
-    "image": "/assets/og/wiki-people-guanlan-dai-9a496e43faf9.png",
+    "image": "/assets/og/wiki-people-guanlan-dai-27e324ac31b2.png",
     "alt": "人物库 — 戴冠兰"
   },
   "/wiki/people/guizang/": {
-    "image": "/assets/og/wiki-people-guizang-80bcb34d4ed8.png",
+    "image": "/assets/og/wiki-people-guizang-2139c55f4510.png",
     "alt": "联合主理人 — 歸藏"
   },
+  "/wiki/people/hanqing/": {
+    "image": "/assets/og/wiki-people-hanqing-ac2e3e6e7ac5.png",
+    "alt": "人物库 — 汗青"
+  },
+  "/wiki/people/he-tongxue/": {
+    "image": "/assets/og/wiki-people-he-tongxue-81ed34f4bdd9.png",
+    "alt": "人物库 — 何同学"
+  },
+  "/wiki/people/liu-fei/": {
+    "image": "/assets/og/wiki-people-liu-fei-8c5865363f22.png",
+    "alt": "人物库 — 刘飞"
+  },
   "/wiki/people/luo-fuli/": {
-    "image": "/assets/og/wiki-people-luo-fuli-ca75ffbe59d1.png",
+    "image": "/assets/og/wiki-people-luo-fuli-e2d74d9006e0.png",
     "alt": "人物库 — 罗福莉"
   },
+  "/wiki/people/nan-qiao/": {
+    "image": "/assets/og/wiki-people-nan-qiao-f5955ae37f07.png",
+    "alt": "人物库 — 南乔"
+  },
   "/wiki/people/orange/": {
-    "image": "/assets/og/wiki-people-orange-68e4d47206f3.png",
+    "image": "/assets/og/wiki-people-orange-c7f9d4bf399a.png",
     "alt": "联合主理人 — 橘子 Orange"
   },
+  "/wiki/people/tang-jie/": {
+    "image": "/assets/og/wiki-people-tang-jie-bf5348bbc1a0.png",
+    "alt": "人物库 — 唐杰"
+  },
+  "/wiki/people/tim-cook/": {
+    "image": "/assets/og/wiki-people-tim-cook-c40eac07911b.png",
+    "alt": "人物库 — Tim Cook"
+  },
+  "/wiki/people/wang-dengke/": {
+    "image": "/assets/og/wiki-people-wang-dengke-bc562b54234c.png",
+    "alt": "人物库 — 王登科"
+  },
   "/wiki/people/wang-le/": {
-    "image": "/assets/og/wiki-people-wang-le-5817b0083d14.png",
+    "image": "/assets/og/wiki-people-wang-le-e2c856f84a4d.png",
     "alt": "人物库 — 王乐"
   },
   "/wiki/people/xiangyang-qiaomu/": {
-    "image": "/assets/og/wiki-people-xiangyang-qiaomu-26ca3a6d69bb.png",
+    "image": "/assets/og/wiki-people-xiangyang-qiaomu-2da3cd63c9e5.png",
     "alt": "联合主理人 — 向阳乔木"
   },
+  "/wiki/people/xiaohu/": {
+    "image": "/assets/og/wiki-people-xiaohu-6b52e14bd1ec.png",
+    "alt": "人物库 — 小互"
+  },
   "/wiki/people/yangpan/": {
-    "image": "/assets/og/wiki-people-yangpan-cedd768b4188.png",
+    "image": "/assets/og/wiki-people-yangpan-8680761cec79.png",
     "alt": "联合主理人 — 杨攀"
   },
   "/weekly/001/": {
-    "image": "/assets/og/weekly-001-5c56b2b45c87.png",
+    "image": "/assets/og/weekly-001-f66c46fde564.png",
     "alt": "WEEKLY #001 · 本期节目 — 大模型进入“斩杀线”大战，Token 就是新货币"
   },
   "/weekly/002/": {
-    "image": "/assets/og/weekly-002-e3e638ffacea.png",
+    "image": "/assets/og/weekly-002-86d765c288d6.png",
     "alt": "WEEKLY #002 · 音频已上线 — iPhone Duo 发布，Astra 会用电脑就算 AGI 吗？"
   },
   "/weekly/003/": {
-    "image": "/assets/og/weekly-003-7fe44e14b96a.png",
+    "image": "/assets/og/weekly-003-ca89d4dfebd6.png",
     "alt": "WEEKLY #003 · 录制预告 — 下一次圆桌，线上见。"
   },
   "/en/": {
-    "image": "/assets/og/en-800a50260ced.png",
+    "image": "/assets/og/en-7f4fd6e4e0a2.png",
     "alt": "NEXT TOKEN — Beyond the next token."
   },
   "/en/weekly/": {
-    "image": "/assets/og/en-weekly-5b245e391843.png",
+    "image": "/assets/og/en-weekly-4acb3213e19d.png",
     "alt": "NEXT TOKEN WEEKLY — One week in AI. Four voices. One open table."
   },
   "/en/wiki/people/aj/": {
-    "image": "/assets/og/en-wiki-people-aj-cdeb56d36613.png",
+    "image": "/assets/og/en-wiki-people-aj-ba8243996b60.png",
     "alt": "PEOPLE — AJ"
   },
   "/en/wiki/people/chen-mian/": {
-    "image": "/assets/og/en-wiki-people-chen-mian-55ae0b2f587d.png",
+    "image": "/assets/og/en-wiki-people-chen-mian-9c05ab7caf33.png",
     "alt": "PEOPLE — Chen Mian"
   },
+  "/en/wiki/people/cyber-zen/": {
+    "image": "/assets/og/en-wiki-people-cyber-zen-1ce7c1ca726b.png",
+    "alt": "PEOPLE — Cyber Zen"
+  },
   "/en/wiki/people/dhh/": {
-    "image": "/assets/og/en-wiki-people-dhh-96db27bc08ab.png",
+    "image": "/assets/og/en-wiki-people-dhh-694f52caa746.png",
     "alt": "PEOPLE — David Heinemeier Hansson"
   },
   "/en/wiki/people/guanlan-dai/": {
-    "image": "/assets/og/en-wiki-people-guanlan-dai-a3b9e77632e7.png",
+    "image": "/assets/og/en-wiki-people-guanlan-dai-e7a2919ef24b.png",
     "alt": "PEOPLE — Guanlan Dai"
   },
   "/en/wiki/people/guizang/": {
-    "image": "/assets/og/en-wiki-people-guizang-83738864b122.png",
+    "image": "/assets/og/en-wiki-people-guizang-cbff4cfdbcfe.png",
     "alt": "CO-HOST — 歸藏 Guizang"
   },
+  "/en/wiki/people/hanqing/": {
+    "image": "/assets/og/en-wiki-people-hanqing-7d99e928c0a4.png",
+    "alt": "PEOPLE — Hanqing"
+  },
+  "/en/wiki/people/he-tongxue/": {
+    "image": "/assets/og/en-wiki-people-he-tongxue-557e4827dae5.png",
+    "alt": "PEOPLE — He Tongxue"
+  },
+  "/en/wiki/people/liu-fei/": {
+    "image": "/assets/og/en-wiki-people-liu-fei-391dcde59be6.png",
+    "alt": "PEOPLE — Liu Fei"
+  },
   "/en/wiki/people/luo-fuli/": {
-    "image": "/assets/og/en-wiki-people-luo-fuli-955187299f11.png",
+    "image": "/assets/og/en-wiki-people-luo-fuli-f924a3669985.png",
     "alt": "PEOPLE — Fuli Luo"
   },
+  "/en/wiki/people/nan-qiao/": {
+    "image": "/assets/og/en-wiki-people-nan-qiao-fee4d7f0f52e.png",
+    "alt": "PEOPLE — Nan Qiao"
+  },
   "/en/wiki/people/orange/": {
-    "image": "/assets/og/en-wiki-people-orange-fbfe0a3d47d6.png",
+    "image": "/assets/og/en-wiki-people-orange-93596a3035ce.png",
     "alt": "CO-HOST — 橘子 Orange"
   },
+  "/en/wiki/people/tang-jie/": {
+    "image": "/assets/og/en-wiki-people-tang-jie-3a78a6841e21.png",
+    "alt": "PEOPLE — Jie Tang"
+  },
+  "/en/wiki/people/tim-cook/": {
+    "image": "/assets/og/en-wiki-people-tim-cook-5481ae542765.png",
+    "alt": "PEOPLE — Tim Cook"
+  },
+  "/en/wiki/people/wang-dengke/": {
+    "image": "/assets/og/en-wiki-people-wang-dengke-783c75fe3063.png",
+    "alt": "PEOPLE — Wang Dengke"
+  },
   "/en/wiki/people/wang-le/": {
-    "image": "/assets/og/en-wiki-people-wang-le-e26abe02073f.png",
+    "image": "/assets/og/en-wiki-people-wang-le-e5bbae6f551c.png",
     "alt": "PEOPLE — Wang Le"
   },
   "/en/wiki/people/xiangyang-qiaomu/": {
-    "image": "/assets/og/en-wiki-people-xiangyang-qiaomu-7e8805cd85d1.png",
+    "image": "/assets/og/en-wiki-people-xiangyang-qiaomu-aa1640563927.png",
     "alt": "CO-HOST — 向阳乔木 Xiangyang Qiaomu"
   },
+  "/en/wiki/people/xiaohu/": {
+    "image": "/assets/og/en-wiki-people-xiaohu-181e604ec524.png",
+    "alt": "PEOPLE — Xiaohu"
+  },
   "/en/wiki/people/yangpan/": {
-    "image": "/assets/og/en-wiki-people-yangpan-437d98a8797c.png",
+    "image": "/assets/og/en-wiki-people-yangpan-19af68b6ba2e.png",
     "alt": "CO-HOST — 杨攀 Pan YANG"
   },
   "/en/weekly/001/": {
-    "image": "/assets/og/en-weekly-001-309313fbcfb3.png",
+    "image": "/assets/og/en-weekly-001-9fdefb09f4b2.png",
     "alt": "WEEKLY #001 · EPISODE — The LLM “Kill Line” Wars: Tokens Are the New Money"
   },
   "/en/weekly/002/": {
-    "image": "/assets/og/en-weekly-002-3865ad620a46.png",
+    "image": "/assets/og/en-weekly-002-4227dd7fe7b5.png",
     "alt": "WEEKLY #002 · AUDIO OUT NOW — iPhone Duo launches. Does Astra using a computer count as AGI?"
   },
   "/en/weekly/003/": {
-    "image": "/assets/og/en-weekly-003-a61f25fd3772.png",
+    "image": "/assets/og/en-weekly-003-54dc61c13a9c.png",
     "alt": "WEEKLY #003 · PREVIEW — The next open table, online."
   },
   "/weekly/001/transcript/": {
-    "image": "/assets/og/weekly-001-transcript-6451946379db.png",
+    "image": "/assets/og/weekly-001-transcript-c9cf57bf5cf9.png",
     "alt": "WEEKLY #001 · 文字稿 — 大模型进入“斩杀线”大战，Token 就是新货币"
+  },
+  "/weekly/002/transcript/": {
+    "image": "/assets/og/weekly-002-transcript-a87498efb370.png",
+    "alt": "WEEKLY #002 · 文字稿 — iPhone Duo 发布，Astra 会用电脑就算 AGI 吗？"
   }
 }
