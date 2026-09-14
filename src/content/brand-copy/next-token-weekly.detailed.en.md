@@ -6,7 +6,7 @@ format: detailed
 usage: For show features, press coverage, partnership proposals, and presenter introductions.
 ---
 
-Next Token Weekly is the flagship weekly show from Next Token | 词元之外, co-hosted by Pan YANG, Guizang, Orange, and Xiangyang Qiaomu. Each week, the four gather around consequential AI news to discuss technology, products, entrepreneurship, creativity, and real-world impact.
+Next Token Weekly is the flagship weekly show from Next Token｜词元之外, co-hosted by Pan YANG, Guizang, Orange, and Xiangyang Qiaomu. Each week, the four gather around consequential AI news to discuss technology, products, entrepreneurship, creativity, and real-world impact.
 
 Rather than reading every headline, the show starts with hands-on use, product practice, and industry observation. The co-hosts compare what actually changed, what was only noise, and which signals deserve to be followed. Different judgments about the same story are part of the conversation.
 

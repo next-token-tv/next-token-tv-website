@@ -1,4 +1,4 @@
-# Next Token | 词元之外
+# Next Token｜词元之外
 
 `nexttoken.tv` 的中英文品牌官网。Next Token 是关注 AI 技术、产品、创业与创作的视频播客品牌，Next Token Weekly 是当前的旗舰周播栏目。网站使用 Astro 纯静态生成，由 Cloudflare Workers Static Assets 托管。
 

@@ -97,8 +97,8 @@ const siteContentBase: Record<Locale, SiteContentBase> = {
   "zh-Hans": {
     locale: "zh-Hans",
     path: "/",
-    title: "Next Token | 词元之外",
-    description: "Next Token | 词元之外是一档关注 AI 技术、产品、创业与创作的视频播客。Next Token Weekly #001 从 24 条一周新闻出发，讨论模型、Agent、智能硬件、AI 应用与原生组织。",
+    title: "Next Token｜词元之外",
+    description: "Next Token｜词元之外是一档关注 AI 技术、产品、创业与创作的视频播客。Next Token Weekly #001 从 24 条一周新闻出发，讨论模型、Agent、智能硬件、AI 应用与原生组织。",
     ogDescription: "Next Token Weekly #001｜大模型进入“斩杀线”大战，Token 就是新货币",
     skipLink: "跳到主要内容",
     homeLabel: "Next Token 首页",
@@ -114,7 +114,7 @@ const siteContentBase: Record<Locale, SiteContentBase> = {
     languageLabel: "语言切换",
     status: "首期已上线",
     hero: {
-      eyebrow: "Next Token | 词元之外",
+      eyebrow: "Next Token｜词元之外",
       headingLead: "不只预测\n下一个",
       headingAccent: "词元。",
       intro: "一档关注 AI 技术、产品、创业与创作的视频播客。我们从中文世界的一手经验出发，讨论 AI 正在改变什么，以及接下来真正值得关注什么。",
@@ -130,7 +130,7 @@ const siteContentBase: Record<Locale, SiteContentBase> = {
       lede: "“Next token”是生成式模型不断做出的下一次预测。Next Token 关注预测动作之外的人、产业、产品、社会与文化。",
       cards: [
         {
-          title: "Next Token | 词元之外",
+          title: "Next Token｜词元之外",
           copy: "统一主品牌。以中英文连接中文世界的一手 AI 经验与全球对话，承载视频、音频和衍生内容。",
         },
         {
@@ -155,9 +155,9 @@ const siteContentBase: Record<Locale, SiteContentBase> = {
   en: {
     locale: "en",
     path: "/en/",
-    title: "Next Token | 词元之外",
+    title: "Next Token｜词元之外",
     description: "Next Token is a video podcast about AI technology, products, entrepreneurship, and creativity. Next Token Weekly #001 unpacks 24 stories across models, agents, AI hardware, applications, and AI-native organizations.",
-    ogDescription: "Weekly #001 | The LLM “Kill Line” Wars: Tokens Are the New Money - Next Token | 词元之外",
+    ogDescription: "Weekly #001 | The LLM “Kill Line” Wars: Tokens Are the New Money - Next Token｜词元之外",
     skipLink: "Skip to main content",
     homeLabel: "Next Token home",
     navigationLabel: "Main navigation",
@@ -172,7 +172,7 @@ const siteContentBase: Record<Locale, SiteContentBase> = {
     languageLabel: "Language switcher",
     status: "Episode #001 is live",
     hero: {
-      eyebrow: "Next Token | 词元之外",
+      eyebrow: "Next Token｜词元之外",
       headingLead: "Beyond the\nnext ",
       headingAccent: "token.",
       intro: "A video podcast about AI technology, products, entrepreneurship, and creativity. We start with first-hand experience from the Chinese-speaking world to ask what AI is changing—and what deserves our attention next.",
@@ -188,7 +188,7 @@ const siteContentBase: Record<Locale, SiteContentBase> = {
       lede: "A “next token” is the prediction a generative model makes over and over. Next Token looks beyond it—to the people, industries, products, societies, and cultures reshaped by AI.",
       cards: [
         {
-          title: "Next Token | 词元之外",
+          title: "Next Token｜词元之外",
           copy: "One brand in Chinese and English, bringing first-hand AI perspectives from the Chinese-speaking world into the global conversation across video, audio, and related formats.",
         },
         {
@@ -222,7 +222,7 @@ export async function getSiteContent(locale: Locale): Promise<SiteContent> {
   return {
     ...base,
     status: locale === "en" ? `#${episode.data.number} ${episode.data.media.video ? "out now" : "audio out now"}` : `#${episode.data.number} ${episode.data.media.video ? "已上线" : "音频已上线"}`,
-    description: locale === "en" ? "Next Token is a podcast about AI, products and real-world impact. " + episode.data.homepage[locale].lede : "Next Token | 词元之外，关注 AI 技术、产品与现实影响的播客。" + episode.data.homepage[locale].lede,
+    description: locale === "en" ? "Next Token is a podcast about AI, products and real-world impact. " + episode.data.homepage[locale].lede : "Next Token｜词元之外，关注 AI 技术、产品与现实影响的播客。" + episode.data.homepage[locale].lede,
     ogDescription: episode.data.title[locale],
     hero: { ...base.hero, primaryAction: locale === "en" ? `Explore latest episode #${episode.data.number}` : `收听最新一期 #${episode.data.number}` },
     latestEpisodePath: `${locale === "en" ? "/en" : ""}/weekly/${episode.data.number}/`,
