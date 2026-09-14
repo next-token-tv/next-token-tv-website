@@ -17,8 +17,8 @@ const routes = [
   { path: "/weekly/001/", shell: ".episode-detail-hero-inner.shell", visual: ".episode-detail-hero" },
   { path: "/weekly/001/transcript/", shell: ".transcript-hero.shell", visual: ".transcript-hero" },
   { path: "/en/weekly/001/", shell: ".episode-detail-hero-inner.shell", visual: ".episode-detail-hero" },
-  { path: "/weekly/002/", shell: ".episode-preview-hero-inner.shell", visual: ".episode-preview-hero" },
-  { path: "/en/weekly/002/", shell: ".episode-preview-hero-inner.shell", visual: ".episode-preview-hero" },
+  { path: "/weekly/002/", shell: ".episode-detail-hero-inner.shell", visual: ".episode-detail-hero" },
+  { path: "/en/weekly/002/", shell: ".episode-detail-hero-inner.shell", visual: ".episode-detail-hero" },
   { path: "/partners/", shell: ".partners-intro.shell", visual: ".partners-intro" },
   { path: "/en/partners/", shell: ".partners-intro.shell", visual: ".partners-intro" },
   { path: "/wiki/brands/", shell: ".entity-index-hero.shell", visual: ".entity-index-hero" },
@@ -107,23 +107,6 @@ for (const viewport of viewports) {
         expect(Math.abs(geometry.header!.left - geometry.main!.left)).toBeLessThanOrEqual(1);
         expect(Math.abs(geometry.header!.right - geometry.main!.right)).toBeLessThanOrEqual(1);
         for (const ratio of geometry.headingRatios) expect(ratio).toBeCloseTo(1.25, 2);
-
-        if (route.path.includes("/weekly/002/")) {
-          const venue = await page.evaluate(() => {
-            const rect = (selector: string) => document.querySelector(selector)?.getBoundingClientRect();
-            const details = rect(".episode-preview-details.shell");
-            const block = rect(".episode-preview-venue-inner.shell");
-            const copy = rect(".episode-preview-venue-copy");
-            const map = rect(".episode-preview-map");
-            return { details, block, copy, map };
-          });
-          expect(Math.abs(venue.details!.left - venue.block!.left)).toBeLessThanOrEqual(1);
-          expect(Math.abs(venue.details!.right - venue.block!.right)).toBeLessThanOrEqual(1);
-          if (venue.map) {
-            expect(venue.map.left).toBeGreaterThanOrEqual(venue.copy!.left);
-            expect(venue.map.right).toBeLessThanOrEqual(venue.copy!.right);
-          }
-        }
 
         if (viewport.name === "mobile" || viewport.name === "wide") {
           await expect(page.locator(route.visual)).toHaveScreenshot(

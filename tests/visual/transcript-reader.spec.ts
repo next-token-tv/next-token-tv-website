@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 test('transcript is directly discoverable and only links to available locales', async ({ page }) => {
   for (const path of ['/', '/weekly/', '/weekly/001/']) {
     await page.goto(path);
-    await expect(page.locator('.episode-transcript-cta')).toHaveCount(path === '/weekly/001/' ? 1 : 2);
+    await expect(page.locator('.episode-transcript-cta')).toHaveCount(path === '/weekly/' ? 2 : 1);
     const link = page.locator('main > section').first().locator('.episode-transcript-cta');
     await expect(link).toHaveCount(1);
     await expect(link).toHaveAttribute('href', '/weekly/001/transcript/');
