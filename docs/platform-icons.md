@@ -1,6 +1,6 @@
 # Platform icons
 
-The website uses local SVG delivery assets in `public/assets/platforms/`.
+The website uses local SVG delivery assets in `public/assets/platforms/`. Repository-level licensing and trademark boundaries are recorded in `ASSET-LICENSES.md`.
 
 | Platform | Source | Delivery treatment |
 | --- | --- | --- |
@@ -10,6 +10,6 @@ The website uses local SVG delivery assets in `public/assets/platforms/`.
 | Bilibili | https://github.com/simple-icons/simple-icons/blob/develop/icons/bilibili.svg | Brand-pink fill `#FB7299`. |
 | YouTube | https://github.com/pheralb/svgl/blob/main/static/library/youtube.svg | Original colored vector. |
 
-Platform trademarks belong to their respective owners. Apple Podcasts usage guidance: https://marketing.services.apple/apple-podcasts-identity-guidelines.
+The Simple Icons project is published under CC0, while its disclaimer notes that individual icon and trademark rights may differ. The SVGL project is published under MIT and likewise requires contributors to verify rights to submitted marks. Platform trademarks remain the property of their respective owners; no trademark rights are granted by this repository. Apple Podcasts usage guidance: https://marketing.services.apple/apple-podcasts-identity-guidelines.
 
 `PlatformBrand.astro` pairs each icon with a visible localized platform name. Icons are decorative for assistive technology because the adjacent name supplies their meaning. Episode platform buttons use a light background to preserve colored-icon contrast; other primary actions retain the site's orange treatment.

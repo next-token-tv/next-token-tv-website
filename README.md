@@ -5,8 +5,9 @@
 - 中文：<https://nexttoken.tv/>
 - English: <https://nexttoken.tv/en/>
 - 场地合作伙伴：<https://nexttoken.tv/partners/>
-- 品牌库：<https://nexttoken.tv/brands/>
-- 产品库：<https://nexttoken.tv/products/>
+- 品牌库：<https://nexttoken.tv/wiki/brands/>
+- 产品库：<https://nexttoken.tv/wiki/products/>
+- 人物库：<https://nexttoken.tv/wiki/people/>
 
 各语言 URL 始终直接展示对应内容，不按浏览器语言自动跳转。全站在语言偏好与当前页面不一致时提供双向切换提示：中文页显示 “Switch to English”，英文页显示“切换到中文”。手动选择优先于浏览器语言；继续浏览当前语言也会保存为偏好。切换保留对应页面路径、查询参数与锚点。存储不可用时，切换链接仍正常工作。
 
@@ -75,7 +76,7 @@ npm run import:episode -- ../next-token/shows/weekly/episodes/001
 npm run import:transcript -- next-token-weekly--001 ../next-token/shows/weekly/episodes/001/04-release/copy/transcript.zh-Hans.md
 ```
 
-生成结果写入 `src/content/imported/transcripts/`，并记录来源仓库、仓库内路径、源文件 SHA-256、源文件 Git 状态、已提交时的 revision，以及转换版本。正文只能在内容仓库修改；快照必须重新导入生成。`src/content/transcript-rules/` 只保存网站实体的显式消歧规则，不保存正文。
+生成结果写入 `src/content/imported/transcripts/`，并记录来源仓库、仓库内路径、源文件 SHA-256、已提交 revision、来源状态与转换版本。正式发布导入拒绝未提交或已修改的来源；审阅预览仍可使用工作区来源。正文只能在内容仓库修改，快照必须重新导入生成。实体匹配、未链接候选和人物识别等编辑 QA 报告只输出到导入命令，不写入网站快照。`src/content/transcript-rules/` 只保存网站实体的显式消歧规则，不保存正文。
 
 ## 本地预览
 
@@ -137,3 +138,9 @@ Google Search Console 使用 `https://nexttoken.tv/` URL 前缀资源，通过�
 ```bash
 npm run deploy
 ```
+
+## 许可证
+
+本仓库采用混合授权：网站程序代码使用 MIT License；文字稿、编辑文案、资料库内容、视觉回归快照以及 Next Token 的商标、Logo、肖像、节目图片和合作伙伴素材不随代码许可证授权。第三方字体与平台图标继续适用各自的上游许可证和商标规则。
+
+完整范围见 [LICENSE](LICENSE)，素材来源与授权说明见 [ASSET-LICENSES.md](ASSET-LICENSES.md)。

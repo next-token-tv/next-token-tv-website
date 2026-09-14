@@ -2,6 +2,7 @@
   "name": "next-token-tv-website",
   "private": true,
   "version": "1.0.0",
+  "license": "SEE LICENSE IN LICENSE",
   "type": "module",
   "engines": {
     "node": ">=22.12.0"

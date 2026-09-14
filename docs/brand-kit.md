@@ -11,5 +11,5 @@
 - Copy bodies contain public-facing introductions only. Naming instructions and usage guidance remain outside the copied text. Displayed program URLs in copy omit the trailing slash; route canonical URLs are unchanged.
 - The page presents logo downloads first, reusable copy second, then naming, colors, typography, and usage guidance. The introduction links directly to both downloads and copy. Logo delivery formats share one preview instead of repeating large previews.
 - Usage labels are suggestions, not platform-specific character limits. Character counts include spaces, punctuation, and paragraph breaks. Copy buttons copy only the introduction body, preserving paragraphs; if clipboard access fails, the text is selected for manual copying.
-- The page does not distribute historical logo candidates or font binaries.
+- The page does not distribute historical logo candidates. The website bundles League Spartan under the SIL Open Font License 1.1; its license is shipped with the font and recorded in `ASSET-LICENSES.md`.
 - When canonical exports or naming rules change, the delivery copies, YAML, and both language guides must remain consistent with those sources.
