@@ -1,4 +1,4 @@
-kind: application
+kind: agent
 name: {zh-Hans: Cherry Studio, en: Cherry Studio}
 summary: {zh-Hans: 支持多模型服务与本地知识库的开源 AI 桌面客户端。, en: An open-source AI desktop client supporting multiple model providers and local knowledge bases.}
 aliases: []

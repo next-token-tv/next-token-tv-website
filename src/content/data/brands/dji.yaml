@@ -1,0 +1,17 @@
+kind: company-brand
+name:
+  zh-Hans: 大疆
+  en: DJI
+summary:
+  zh-Hans: 研发无人机、手持影像设备与相关创作工具的科技公司。
+  en: A technology company developing drones, handheld imaging devices, and creative tools.
+aliases:
+  - 大疆创新
+official:
+  website: https://www.dji.com/
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label:
+      zh-Hans: 官方网站
+      en: Official website
+    href: https://www.dji.com/

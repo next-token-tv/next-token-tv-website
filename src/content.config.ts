@@ -138,7 +138,7 @@ const venues = defineCollection({
 const brands = defineCollection({
   loader: yamlLoader("./src/content/data/brands"),
   schema: z.object({
-    kind: z.enum(["company-brand", "media-brand", "community-brand", "model-brand", "product-brand", "platform-brand", "open-source-brand"]),
+    kind: z.enum(["company-brand", "media-brand", "community-brand", "model-brand", "product-brand", "business-brand", "open-source-brand"]),
     parentBrand: z.string().optional(),
     name: localizedText,
     summary: localizedText,
@@ -156,7 +156,7 @@ const brands = defineCollection({
 const products = defineCollection({
   loader: yamlLoader("./src/content/data/products"),
   schema: z.object({
-    kind: z.enum(["model-family", "model", "application", "operating-system", "agent", "developer-tool", "platform", "api-service", "hardware", "framework", "open-source-project"]),
+    kind: z.enum(["model-family", "model", "application", "game", "operating-system", "agent", "developer-tool", "platform", "api-service", "hardware", "framework"]),
     brand: z.string().optional(),
     parent: z.string().optional(),
     name: localizedText,

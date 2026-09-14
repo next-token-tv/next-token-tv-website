@@ -1,4 +1,5 @@
 kind: platform
+brand: xai
 name:
   zh-Hans: X
   en: X
@@ -18,3 +19,7 @@ sources:
       zh-Hans: X 官方介绍
       en: About X
     href: https://about.x.com/en
+  - label:
+      zh-Hans: xAI 收购 X 公告
+      en: xAI acquisition of X announcement
+    href: https://x.com/elonmusk/status/1905731750275510312

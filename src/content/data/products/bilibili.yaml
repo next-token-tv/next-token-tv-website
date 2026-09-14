@@ -1,6 +1,6 @@
-kind: platform-brand
+kind: platform
 name: {zh-Hans: 哔哩哔哩, en: Bilibili}
-summary: {zh-Hans: 围绕视频、创作、直播与社区互动运营的内容品牌。, en: A content brand built around video, creation, live streaming, and community interaction.}
+summary: {zh-Hans: 围绕视频、创作、直播与社区互动运营的内容平台。, en: A content platform built around video, creation, live streaming, and community interaction.}
 aliases: [B站, B 站]
 official: {website: https://www.bilibili.com/}
 lastVerifiedAt: '2026-09-14'

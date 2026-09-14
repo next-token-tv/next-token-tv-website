@@ -9,9 +9,17 @@ summary:
 aliases:
   - Kimi K3
   - K3
+  - Kimi K2.8 Preview
+  - Kimi 2.8
+  - Kimi 2.8 Preview
+  - K2.8
 lastVerifiedAt: '2026-09-10'
 sources:
   - label:
       zh-Hans: Kimi K3 官方资料
       en: Kimi K3 official information
     href: https://forum.moonshot.ai/t/kimi-k3-is-here-our-most-capable-model/480
+  - label:
+      zh-Hans: Kimi Code 官方模型文档
+      en: Official Kimi Code model documentation
+    href: https://www.kimi.com/code/docs/kimi-code/models.html

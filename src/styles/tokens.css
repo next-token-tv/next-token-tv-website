@@ -29,6 +29,7 @@
     --heading-section-display-size: 3.1rem;
     --heading-section-content-size: 2.25rem;
     --heading-section-compact-size: 1.8rem;
+    --heading-follow-display-size: 2.75rem;
   }
 
   @media (min-width: 48rem) {
@@ -36,6 +37,7 @@
       --heading-section-display-size: 4.25rem;
       --heading-section-content-size: 2.65rem;
       --heading-section-compact-size: 2.15rem;
+      --heading-follow-display-size: 3.5rem;
     }
   }
 
@@ -44,6 +46,7 @@
       --heading-section-display-size: 5.25rem;
       --heading-section-content-size: 3rem;
       --heading-section-compact-size: 2.5rem;
+      --heading-follow-display-size: 4.25rem;
     }
   }
 }

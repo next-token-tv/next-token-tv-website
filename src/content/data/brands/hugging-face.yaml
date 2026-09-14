@@ -1,10 +1,10 @@
-kind: platform-brand
+kind: company-brand
 name:
   zh-Hans: Hugging Face
   en: Hugging Face
 summary:
-  zh-Hans: 面向机器学习社区的协作平台，用于发现、共享和共同建设模型、数据集与 AI 应用，并维护广泛使用的开源工具生态。
-  en: A collaboration platform where the machine learning community discovers, shares, and builds models, datasets, and AI applications, alongside a widely used open-source tooling ecosystem.
+  zh-Hans: 开发机器学习协作平台与开源工具的人工智能公司，支持模型、数据集与 AI 应用的共享与协作。
+  en: An AI company developing a machine-learning collaboration platform and open-source tools for sharing and building models, datasets, and AI applications.
 aliases:
   - HuggingFace
   - HF

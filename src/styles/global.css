@@ -338,31 +338,6 @@ h1 .accent {
   transform: translateY(-2px);
 }
 
-.hero-footnote {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1rem 1.25rem;
-  align-items: center;
-  padding-top: clamp(2rem, 3.5vw, 3.25rem);
-}
-
-.hero-footnote strong {
-  font-family: var(--display);
-  font-size: 2.8rem;
-  line-height: 0.8;
-  letter-spacing: var(--display-tracking);
-  /* Center League Spartan's visible capitals, rather than its asymmetric line box. */
-  transform: translateY(0.09em);
-}
-
-.hero-footnote p {
-  max-width: 26rem;
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.84rem;
-  line-height: 1.55;
-}
-
 .hero-visual {
   position: relative;
   min-height: 0;
@@ -566,6 +541,14 @@ h1 .accent {
   font-size: clamp(1.15rem, 2.05vw, 1.75rem);
   line-height: 1.55;
   letter-spacing: -0.015em;
+}
+
+.about-brand-note {
+  max-width: 40rem;
+  margin: 1.5rem 0 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
 }
 
 .brand-manifesto {
@@ -1724,8 +1707,7 @@ h1 .accent {
 }
 
 .weekly-show-overview h2,
-.weekly-show-section-heading h2,
-.weekly-show-follow h2 {
+.weekly-show-section-heading h2 {
   margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
   font-family: var(--display);
   font-size: var(--weekly-display-heading-size);
@@ -2685,7 +2667,7 @@ html[lang="en"] .weekly-show-facts strong {
 
 .transcript-sidebar {
   position: sticky;
-  top: 108px;
+  top: 6.75rem;
 }
 
 .transcript-toc {
@@ -2703,7 +2685,7 @@ html[lang="en"] .weekly-show-facts strong {
 }
 
 .transcript-toc ol {
-  max-height: min(62vh, 650px);
+  max-height: min(62vh, 40.625rem);
   margin: 0;
   padding: 0 0 1rem;
   overflow: auto;
@@ -2737,11 +2719,11 @@ html[lang="en"] .weekly-show-facts strong {
 
 .transcript-body {
   width: 100%;
-  max-width: 940px;
+  max-width: 58.75rem;
 }
 
 .transcript-chapter {
-  scroll-margin-top: 110px;
+  scroll-margin-top: 6.875rem;
   padding: 0 0 clamp(3.5rem, 6vw, 6rem);
 }
 
@@ -2912,6 +2894,35 @@ html[lang="en"] .weekly-show-facts strong {
 .transcript-paragraphs > p > a:not(.transcript-entity-link):hover,
 .transcript-paragraphs > p > a:not(.transcript-entity-link):focus-visible {
   color: var(--signal);
+}
+
+@media (min-width: 62.5625rem) and (max-height: 47.5rem) {
+  .transcript-hero {
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .transcript-back {
+    margin-bottom: 1rem;
+  }
+
+  .transcript-hero h1 {
+    font-size: 3rem;
+    line-height: 1.05;
+  }
+
+  .transcript-hero h1 > span:first-child {
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+  }
+
+  .transcript-layout {
+    padding-top: 1.5rem;
+  }
+
+  .transcript-chapter > header {
+    margin-bottom: 1.25rem;
+  }
 }
 
 [data-reveal] {
@@ -3155,14 +3166,6 @@ html[lang="en"] .weekly-show-facts strong {
 
   h1 {
     font-size: clamp(3.75rem, 20vw, 6.7rem);
-  }
-
-  .hero-footnote {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-footnote strong {
-    transform: none;
   }
 
   .section-heading {

@@ -1,13 +1,11 @@
-kind: application
-brand: poncle
+kind: game
 name:
   zh-Hans: 吸血鬼幸存者
   en: Vampire Survivors
 summary:
   zh-Hans: poncle 开发的时间生存类 Roguelite 游戏，玩家在持续来袭的敌群中升级角色、武器与能力。
   en: A time-survival roguelite by poncle in which players upgrade characters, weapons, and abilities against continuous enemy waves.
-aliases:
-  - Vampire Survivors
+aliases: []
 status: available
 official:
   website: https://poncle.games/

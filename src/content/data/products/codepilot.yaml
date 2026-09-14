@@ -1,6 +1,6 @@
-kind: application
+kind: agent
 name: {zh-Hans: CodePilot, en: CodePilot}
-summary: {zh-Hans: 将 Claude Code、Codex 等编程智能体集中到桌面工作区的开源应用。, en: An open-source desktop workspace bringing coding agents such as Claude Code and Codex together.}
+summary: {zh-Hans: 将 Claude Code、Codex 等编程智能体集中到桌面工作区，支持文件操作、工具调用与个人助手任务。, en: A desktop agent workspace bringing Claude Code and Codex together for file operations, tool use, and personal assistant tasks.}
 aliases: []
 status: available
 official: {website: https://www.codepilot.sh/}

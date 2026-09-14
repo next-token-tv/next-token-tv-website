@@ -1,10 +1,10 @@
-kind: platform-brand
+kind: operating-system
 name:
   zh-Hans: Android
   en: Android
 summary:
-  zh-Hans: Google 主导的开放移动操作系统与设备生态品牌。
-  en: Google's open mobile operating-system and device ecosystem brand.
+  zh-Hans: Google 主导的开放移动操作系统。
+  en: Google's open mobile operating system.
 aliases:
   - 安卓
 official:

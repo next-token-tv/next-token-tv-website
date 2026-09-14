@@ -9,8 +9,8 @@ transcriptSeo:
     title: '大模型怎么选？Agent 体验与 AI 应用成本｜完整文字稿｜Next Token Weekly #001'
     description: '新模型太多怎么选？Agent 为什么要隐藏 MCP 配置？模型降价后，AI 应用为什么仍难赚钱？阅读杨攀、歸藏、橘子与向阳乔木的完整圆桌对谈，涵盖模型选择、Agent 体验和 Token 成本，支持章节跳转与全文搜索。本期录制于 2026 年 9 月 3 日。'
 title:
-  zh-Hans: 'Weekly #001｜大模型进入“斩杀线”大战，Token 就是新货币 - Next Token｜词元之外'
-  en: 'Weekly #001 | The LLM “Kill Line” Wars: Tokens Are the New Money - Next Token｜词元之外'
+  zh-Hans: 'Weekly #001｜大模型进入“斩杀线”大战，Token 就是新货币'
+  en: 'Weekly #001 | The LLM “Kill Line” Wars: Tokens Are the New Money'
 homepage:
   zh-Hans:
     lede: 第一期开箱 2026 年 8 月 27 日至 9 月 3 日的 24 条 AI 新闻。四位联合主理人从密集发布的模型聊到 Agent、智能硬件、商业变化与 AI 原生组织。
@@ -87,7 +87,6 @@ platforms:
       en: Watch now
 mentions:
   brands:
-    - bilibili
     - plaud
     - seeed-studio
     - nubia
@@ -100,16 +99,9 @@ mentions:
     - aws
     - vercel
     - y-combinator
-    - doubao
-    - fal-ai
-    - feishu
     - next-token
     - next-token-weekly
-    - openrouter
-    - runta
-    - wechat
     - xiaomi
-    - xiaohongshu
     - anthropic
     - apple
     - deepseek
@@ -122,8 +114,16 @@ mentions:
     - openclaw-foundation
     - xai
     - zhipu
-    - youtube
   products:
+    - bilibili
+    - fal-ai
+    - feishu
+    - openrouter
+    - wechat
+    - xiaohongshu
+    - youtube
+    - doubao
+    - runta
     - deepseek
     - trae
     - ios

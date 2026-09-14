@@ -45,8 +45,7 @@ for (const width of [390, 768, 1280, 1320, 1440, 1920, 2560]) {
       await expect(page.locator('.episode-detail-hero-copy')).toContainText(prefix ? 'Video not yet available' : '视频版尚未上线');
       await expect(page.locator('.episode-detail-meta')).toContainText('1:42:44');
       await expect(page.locator('.episode-detail-meta')).toContainText('2026-09-13');
-      await expect(page.locator('.episode-guest-names')).toContainText('南乔');
-      await expect(page.locator('.episode-guest-names')).toContainText('赛博禅心');
+      await expect(page.locator('.episode-guest-names')).toHaveCount(0);
       await expect(page.locator('.episode-preview-hero')).toHaveCount(0);
       await expect(page.locator('.episode-transcript-cta')).toHaveCount(prefix ? 0 : 1);
       expect(await page.locator('.episode-detail-image img').evaluate(n => getComputedStyle(n).objectFit)).toBe('contain');

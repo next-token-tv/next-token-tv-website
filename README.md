@@ -61,6 +61,10 @@ npm run import:episode -- ../next-token/shows/weekly/episodes/001
 
 单集的公开展示文案、平台链接和实体提及仍由 `src/content/data/episodes/` 下的 YAML 维护；制作日期、参与人、录制场地和发布产物来自上述 JSON 快照。两者通过 `productionImport` ID 关联，构建时会校验所有引用。
 
+单集 YAML 中的 `title` 是页面元数据标题，采用 `Weekly #<期号>｜<主题>` 的一致格式，不包含站点名称后缀。Weekly 单集卡片、HTML sitemap 与详情页 H1 使用本地化 `homepage.heading` 作为可见主题标题，期号由各组件独立显示一次；不要从 SEO 标题截取这些展示文案。
+
+已发布单集统一由 `EpisodeDetailPage.astro` 渲染，页面顺序固定为首屏、制作信息与 Show Notes、本期提及、参与者、收听与收看。中英文 Show Notes 依次包含开场说明、本期讨论、时间轴、相关资料、人物/产品/术语和制作致谢。时间轴由内容仓库的 `04-release/copy/chapters.json` 生成，网站在 `src/content/imported/chapters/` 保存来源哈希和双语章节快照；`npm run check:chapters` 拒绝缺失标记或已漂移的章节。
+
 ## 导入阅读文字稿
 
 已批准发布的阅读文字稿以 `next-token` 内容仓库中的 Markdown 为正文 SSOT。跨仓库职责、发布状态和转换验收以 [内容仓库的网页文字稿转换约定](https://github.com/next-token-tv/next-token/blob/main/docs/production/transcript-web-rendering.md) 为准。

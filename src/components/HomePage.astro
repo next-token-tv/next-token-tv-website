@@ -34,13 +34,8 @@ const latestEpisodePath = `${content.locale === "en" ? "/en" : ""}/weekly/${late
           <a class="button primary" href={latestEpisodePath}>{content.hero.primaryAction} <span aria-hidden="true">↘</span></a>
           <LatestTranscriptLink locale={content.locale} />
           <a class="hero-about-link" href={`${content.locale === "en" ? "/en" : ""}/weekly/`}>{content.locale === "en" ? "All episodes" : "全部节目"} →</a>
-          <a class="hero-about-link" href="#about">{content.hero.secondaryAction} <span aria-hidden="true">→</span></a>
         </div>
         <UpcomingEpisodeLink locale={content.locale} />
-      </div>
-      <div class="hero-footnote" data-reveal>
-        <strong>NT.</strong>
-        <p>{content.hero.footnote}</p>
       </div>
     </div>
 
@@ -64,6 +59,7 @@ const latestEpisodePath = `${content.locale === "en" ? "/en" : ""}/weekly/${late
       <div>
         <h2 class="heading-section-display">{content.about.heading[0]}<br />{content.about.heading[1]}</h2>
         <p class="section-lede">{content.about.lede}</p>
+        <p class="about-brand-note">{content.hero.footnote}</p>
       </div>
     </div>
 
@@ -109,7 +105,7 @@ const latestEpisodePath = `${content.locale === "en" ? "/en" : ""}/weekly/${late
   <section class="section shell subscribe" id="subscribe">
     <div class="subscribe-copy" data-reveal>
       <p class="section-index">04 / Follow the Signal</p>
-      <h2 class="heading-section-display">{content.subscribe.heading[0]}<br />{content.subscribe.heading[1]}</h2>
+      <h2 class="heading-follow-display">{content.subscribe.heading[0]}<br />{content.subscribe.heading[1]}</h2>
       <p>{content.subscribe.copy}</p>
     </div>
     <ShowSubscriptions locale={content.locale} reveal />

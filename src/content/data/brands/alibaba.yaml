@@ -1,0 +1,18 @@
+kind: company-brand
+name:
+  zh-Hans: 阿里巴巴
+  en: Alibaba Group
+summary:
+  zh-Hans: 业务涵盖电子商务、云计算与数字服务的科技集团。
+  en: A technology group spanning e-commerce, cloud computing, and digital services.
+aliases:
+  - 阿里巴巴集团
+  - Alibaba
+official:
+  website: https://www.alibabagroup.com/
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label:
+      zh-Hans: 官方网站
+      en: Official website
+    href: https://www.alibabagroup.com/

@@ -20,12 +20,12 @@ test('verified transcript entities link to working profiles, with hosts and Mac 
     'wiki/brands/aws',
     'wiki/brands/vercel',
     'wiki/products/trae',
-    'wiki/brands/wechat',
+    'wiki/products/wechat',
     'wiki/products/ios',
     'wiki/products/manus',
     'wiki/products/youware',
     'wiki/products/bloome',
-    'wiki/brands/feishu',
+    'wiki/products/feishu',
     'wiki/products/microduck',
     'wiki/products/esp32',
     'wiki/products/seedance',
@@ -34,16 +34,16 @@ test('verified transcript entities link to working profiles, with hosts and Mac 
     'wiki/products/hongguo',
     'wiki/products/qclaw',
     'wiki/products/linear',
-    'wiki/brands/y-combinator', 'wiki/brands/doubao', 'wiki/products/pika', 'wiki/products/ruby-on-rails',
+    'wiki/brands/y-combinator', 'wiki/products/doubao', 'wiki/products/pika', 'wiki/products/ruby-on-rails',
     'wiki/products/obsidian', 'wiki/products/linux', 'wiki/products/doubao-seed', 'wiki/products/qoder', 'wiki/products/doubao-work',
-    'weekly', 'wiki/brands/fal-ai', 'wiki/brands/openrouter',
+    'weekly', 'wiki/products/fal-ai', 'wiki/products/openrouter',
     'wiki/products/pi', 'wiki/products/dia',
     'wiki/products/mimo', 'wiki/products/xiaomi-smart-storage', 'wiki/products/synology-nas', 'wiki/products/ugreen-nas',
     'wiki/products/threejs', 'wiki/products/zcode', 'wiki/products/autoglm',
     'wiki/products/qwen', 'wiki/products/qwen', 'wiki/products/hunyuan',
     'wiki/products/gemini', 'wiki/products/gemini', 'wiki/products/gemini',
     'wiki/products/gpt', 'wiki/products/minimax',
-    'wiki/products/herdr', 'wiki/brands/youtube', 'wiki/products/opencode',
+    'wiki/products/herdr', 'wiki/products/youtube', 'wiki/products/opencode',
     'wiki/products/gpt', 'wiki/products/kimi', 'wiki/products/qwen',
   ];
   for (const target of targets) {
@@ -123,14 +123,14 @@ test('repeated keywords use pale type-colored backgrounds with visible focus', a
   }
 });
 
-test('Runta remains one platform brand with its founder relationship', async ({ page }) => {
-  await page.goto('/wiki/brands/runta/');
-  await expect(page.locator('.entity-detail-summary')).toContainText('执行基础设施品牌');
+test('Runta remains one platform product with its founder relationship', async ({ page }) => {
+  await page.goto('/wiki/products/runta/');
+  await expect(page.locator('.entity-detail-summary')).toContainText('执行基础设施平台');
   await expect(page.locator('main a[href="/wiki/people/guanlan-dai/"]')).toHaveCount(1);
   await page.goto('/wiki/people/guanlan-dai/');
-  await expect(page.locator('main a[href="/wiki/brands/runta/"]')).toHaveCount(1);
+  await expect(page.locator('main a[href="/wiki/products/runta/"]')).toHaveCount(1);
   await page.goto('/weekly/001/transcript/');
-  await expect(page.locator('.transcript-body a[href="/wiki/brands/runta/"]')).toHaveCount(1);
+  await expect(page.locator('.transcript-body a[href="/wiki/products/runta/"]')).toHaveCount(1);
 });
 
 test('Rails name links to the framework without swallowing the author phrase', async ({ page }) => {

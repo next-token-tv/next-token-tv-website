@@ -1,5 +1,6 @@
 kind: agent
-brand: wechat
+brand: tencent
+parent: wechat
 name:
   zh-Hans: 小微
   en: Xiaowei

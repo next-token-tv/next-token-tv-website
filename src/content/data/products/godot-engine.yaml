@@ -1,4 +1,4 @@
-kind: open-source-project
+kind: developer-tool
 name: {zh-Hans: Godot Engine, en: Godot Engine}
 summary: {zh-Hans: 用于制作二维与三维游戏的开源游戏引擎。, en: An open-source game engine for creating 2D and 3D games.}
 aliases: [Godot]

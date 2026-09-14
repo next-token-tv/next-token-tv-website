@@ -1,4 +1,4 @@
-kind: application
+kind: developer-tool
 brand: marswave
 name: {zh-Hans: ColaMD, en: ColaMD}
 summary: {zh-Hans: 面向人和 AI Agent 的开源 Markdown 编辑器，可实时同步外部文件修改。, en: An open-source Markdown editor for people and AI agents with live synchronization of external file changes.}

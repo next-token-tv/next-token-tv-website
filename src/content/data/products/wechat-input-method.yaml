@@ -1,5 +1,6 @@
 kind: application
-brand: wechat
+brand: tencent
+parent: wechat
 name: {zh-Hans: 微信输入法, en: WeChat Input}
 summary: {zh-Hans: 支持键盘输入与语音转写的中文输入工具。, en: A Chinese input tool supporting keyboard entry and speech transcription.}
 aliases: [微信键盘]

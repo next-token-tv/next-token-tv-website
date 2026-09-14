@@ -1,6 +1,7 @@
 ---
 import { getBrandDirectory, getProductDirectory, getPeopleDirectory } from "../data/catalog";
 import type { Locale } from "../data/types";
+import { displayAliases } from "../data/entity-aliases";
 
 interface Props {
   entityType: "brands" | "products" | "people";
@@ -14,13 +15,14 @@ const brandKind = {
   "media-brand": { "zh-Hans": "媒体品牌", en: "Media brand" },
   "model-brand": { "zh-Hans": "模型品牌", en: "Model brand" },
   "product-brand": { "zh-Hans": "产品品牌", en: "Product brand" },
-  "platform-brand": { "zh-Hans": "平台品牌", en: "Platform brand" },
+  "business-brand": { "zh-Hans": "业务品牌", en: "Business brand" },
   "community-brand": { "zh-Hans": "社区品牌", en: "Community brand" },
   "open-source-brand": { "zh-Hans": "开源品牌", en: "Open-source brand" },
 } as const;
 const productKind = {
   "model-family": { "zh-Hans": "模型家族", en: "Model family" },
   model: { "zh-Hans": "模型", en: "Model" },
+  game: { "zh-Hans": "游戏", en: "Game" },
   "operating-system": { "zh-Hans": "操作系统", en: "Operating system" },
   application: { "zh-Hans": "应用", en: "Application" },
   agent: { "zh-Hans": "Agent", en: "Agent" },
@@ -29,7 +31,6 @@ const productKind = {
   "api-service": { "zh-Hans": "API 服务", en: "API service" },
   hardware: { "zh-Hans": "硬件", en: "Hardware" },
   framework: { "zh-Hans": "框架", en: "Framework" },
-  "open-source-project": { "zh-Hans": "开源项目", en: "Open-source project" },
 } as const;
 
 const peopleKind = {
@@ -62,7 +63,7 @@ const entries = entityType === "people"
       kindId: product.data.kind,
       kind: productKind[product.data.kind][locale],
       summary: product.data.summary[locale],
-      aliases: product.data.aliases,
+      aliases: displayAliases(product.data.name, product.data.aliases),
       relation: locale === "en"
         ? `${brand ? `${brand.data.name.en} · ` : ""}${episodesCount} episode${episodesCount === 1 ? "" : "s"}`
         : `${brand ? `${brand.data.name["zh-Hans"]} · ` : ""}${episodesCount} 期节目`,

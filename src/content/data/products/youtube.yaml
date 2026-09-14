@@ -1,7 +1,7 @@
-kind: platform-brand
-parentBrand: google
+kind: platform
+brand: google
 name: {zh-Hans: YouTube, en: YouTube}
-summary: {zh-Hans: Google 旗下的视频观看、创作与分享品牌。, en: Google's brand for watching, creating, and sharing video.}
+summary: {zh-Hans: Google 旗下的视频观看、创作与分享平台。, en: Google's platform for watching, creating, and sharing video.}
 aliases: [Youtube]
 official: {website: https://about.youtube/}
 lastVerifiedAt: '2026-09-10'

@@ -32,48 +32,43 @@
       "role": "co-host"
     }
   ],
-  "guestNames": [
-    {
-      "zh-Hans": "南乔",
-      "en": "南乔"
-    },
-    {
-      "zh-Hans": "赛博禅心",
-      "en": "赛博禅心"
-    }
-  ],
+  "guestNames": [],
   "images": {
     "960": "/assets/weekly-002-cover-square.jpg",
     "1440": "/assets/weekly-002-cover-square.jpg",
     "1920": "/assets/weekly-002-cover-square.jpg"
   },
   "provenance": {
-    "productionCommit": "6c900fcb4f888fb9cad18abdaa0e3b73646b13ab",
-    "sourceGitStatus": "?? shows/weekly/episodes/002/04-release/artwork/cover-square-photo-v5.jpg\n?? shows/weekly/episodes/002/04-release/copy/show-notes.zh-Hans.md\n?? shows/weekly/episodes/002/04-release/platforms/apple-podcasts/publish.zh-Hans.md\n?? shows/weekly/episodes/002/04-release/platforms/bilibili/publish.zh-Hans.md\n?? shows/weekly/episodes/002/04-release/platforms/spotify/publish.zh-Hans.md\n?? shows/weekly/episodes/002/04-release/platforms/xiaoyuzhou/status.zh-Hans.md",
+    "productionCommit": "5ad301c016f2f86a8b3f6df8663e460d576d9063",
+    "sourceGitStatus": "?? shows/weekly/episodes/002/04-release/artwork/cover-square-photo-v5.jpg\n?? shows/weekly/episodes/002/04-release/copy/show-notes.zh-Hans.md\n?? shows/weekly/episodes/002/04-release/platforms/apple-podcasts/publish.zh-Hans.md\n?? shows/weekly/episodes/002/04-release/platforms/bilibili/publish.zh-Hans.md\n?? shows/weekly/episodes/002/04-release/platforms/spotify/publish.zh-Hans.md\n?? shows/weekly/episodes/002/04-release/platforms/xiaoyuzhou/status.zh-Hans.md\n?? shows/weekly/episodes/002/credits.json",
     "sources": [
+      {
+        "path": "shows/weekly/episodes/002/credits.json",
+        "sha256": "2f8f3e2ec3ef28f75dd8cd555001c998d6523b44cbb01c98c9512218c6da5bab"
+      },
       {
         "path": "shows/weekly/episodes/002/04-release/artwork/cover-square-photo-v5.jpg",
         "sha256": "fec8e4981ba281e19c47226cb6e670f890ecd8e7784fd9dc45cefb2da19096b7"
       },
       {
         "path": "shows/weekly/episodes/002/04-release/platforms/spotify/publish.zh-Hans.md",
-        "sha256": "1e58d410624a17c05f9fa27744873aa640df75b659f6e21731719c26963d101c"
+        "sha256": "47e5035d19b3e8f8c655c816455b6b67c842621574af28cf8b7fac11d4a7f56c"
       },
       {
         "path": "shows/weekly/episodes/002/04-release/platforms/apple-podcasts/publish.zh-Hans.md",
-        "sha256": "2b2ff45229dcaefc9c424b0e4fe065dc3ef7a5b3d31d9fe5bf2d56eb8dd2a1fc"
+        "sha256": "30c5539bbdc4962c10e340f382c0fd90cfe31a1410313bdfa16f1879c34f4020"
       },
       {
         "path": "shows/weekly/episodes/002/04-release/platforms/xiaoyuzhou/status.zh-Hans.md",
-        "sha256": "430987a6293aacaba4127f2c2c019ba7fbbc8c117ef0691058fa91dab38d2bab"
+        "sha256": "0b043538e3d789978438b9d864081b21201fdf89d9fa256133521dec0d3536dd"
       },
       {
         "path": "shows/weekly/episodes/002/04-release/platforms/bilibili/publish.zh-Hans.md",
-        "sha256": "4b817478787f7274e2d0bc6c862c55c902ecdd2c86efeee722a0ac468cc9b2c6"
+        "sha256": "68adca5166b3d7e3c2303f37a01e7e5bfedab0e0d5ed19ed32d0f5bf0e2e3c03"
       },
       {
         "path": "shows/weekly/episodes/002/04-release/copy/show-notes.zh-Hans.md",
-        "sha256": "2c68df7174cc4ce7c0fb63523aaee1fe922b56ce86c52247de3b7ea672dad2d4"
+        "sha256": "a4a32149f334c5a7e12e92bd4fc193f9f182308fdeeb495a259eab21208290c0"
       }
     ]
   }

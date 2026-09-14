@@ -31,6 +31,17 @@ test('transcript hero entrances fit desktop and mobile', async ({ page }) => {
   }
 });
 
+test('first transcript chapter clears the fold on a 14-inch laptop viewport', async ({ page }) => {
+  await page.setViewportSize({ width: 1512, height: 625 });
+  await page.goto('/weekly/002/transcript/');
+  await expect(page.locator('.transcript-review-banner')).toHaveCount(0);
+  await expect(page.locator('.transcript-notice')).toHaveCount(0);
+  const intro = await page.locator('#chapter-01 .transcript-turn').first().boundingBox();
+  expect(intro).not.toBeNull();
+  expect(intro!.y + intro!.height).toBeLessThanOrEqual(625);
+  await page.screenshot({ path: '/tmp/transcript-weekly-002-mbp14.png' });
+});
+
 for (const width of [390, 1440]) {
   test(`reader tools fit at ${width}`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });

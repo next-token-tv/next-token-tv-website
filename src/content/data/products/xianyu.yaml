@@ -1,4 +1,5 @@
-kind: platform-brand
+kind: platform
+brand: alibaba
 name:
   zh-Hans: 闲鱼
   en: Xianyu
@@ -7,7 +8,6 @@ summary:
   en: Alibaba Group's marketplace and lifestyle community for pre-owned goods and services.
 aliases:
   - 閒魚
-  - Xianyu
 official:
   website: https://www.goofish.com/
 lastVerifiedAt: "2026-09-14"

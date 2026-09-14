@@ -1,5 +1,5 @@
 kind: application
-brand: doubao
+brand: bytedance
 name: {zh-Hans: 豆包输入法, en: Doubao Input Method}
 summary: {zh-Hans: 豆包推出的智能输入与语音转写工具。, en: Doubao's intelligent typing and speech-transcription tool.}
 aliases: []

@@ -1,0 +1,17 @@
+kind: application
+brand: bytedance
+name:
+  zh-Hans: 豆包
+  en: Doubao
+summary:
+  zh-Hans: 字节跳动旗下的 AI 助手应用。
+  en: ByteDance's AI assistant application.
+aliases: []
+official:
+  website: https://www.doubao.com/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.doubao.com/legal/feature_intro

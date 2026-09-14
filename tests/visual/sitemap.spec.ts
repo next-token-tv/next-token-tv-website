@@ -11,6 +11,12 @@ for (const width of [390, 1440]) {
       await expect(page.locator('#products li')).not.toHaveCount(0);
       await expect(page.locator('#people li')).not.toHaveCount(0);
       await expect(page.locator('main a[href*="/transcript/"]')).toHaveCount(prefix ? 0 : 2);
+      await expect(page.locator(`#episodes a[href="${prefix}/weekly/002/"] .episode-title`)).toHaveText(prefix
+        ? 'iPhone Duo launches. Does Astra using a computer count as AGI?'
+        : 'iPhone Duo 发布，Astra 会用电脑就算 AGI 吗？');
+      await expect(page.locator(`#episodes a[href="${prefix}/weekly/001/"] .episode-title`)).toHaveText(prefix
+        ? 'The LLM “Kill Line” Wars: Tokens Are the New Money'
+        : '大模型进入“斩杀线”大战，Token 就是新货币');
       const hrefs = await page.locator('main section a').evaluateAll(links => links.map(a => a.getAttribute('href')!));
       for (const href of hrefs) expect((await request.get(href)).status()).toBe(200);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);

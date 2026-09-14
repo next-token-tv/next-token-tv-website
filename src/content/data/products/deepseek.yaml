@@ -1,8 +1,8 @@
 kind: model-family
 brand: deepseek
 name:
-  zh-Hans: DeepSeek 模型家族
-  en: DeepSeek model family
+  zh-Hans: DeepSeek
+  en: DeepSeek
 summary:
   zh-Hans: DeepSeek 的通用人工智能模型家族。
   en: DeepSeek's family of general-purpose AI models.

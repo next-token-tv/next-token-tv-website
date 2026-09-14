@@ -1,6 +1,6 @@
-kind: platform-brand
+kind: platform
 name: {zh-Hans: Spotify, en: Spotify}
-summary: {zh-Hans: 提供音乐、播客与视频播客内容的流媒体品牌。, en: A streaming brand for music, podcasts, and video podcasts.}
+summary: {zh-Hans: 提供音乐、播客与视频播客内容的流媒体平台。, en: A streaming platform for music, podcasts, and video podcasts.}
 aliases: []
 official: {website: https://www.spotify.com/}
 lastVerifiedAt: '2026-09-14'

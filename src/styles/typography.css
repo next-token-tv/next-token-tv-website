@@ -23,7 +23,8 @@
 @layer utilities {
   .heading-section-display,
   .heading-section-content,
-  .heading-section-compact {
+  .heading-section-compact,
+  .heading-follow-display {
     font-family: var(--display);
     line-height: var(--section-heading-leading);
     text-wrap: balance;
@@ -39,5 +40,9 @@
 
   .heading-section-compact {
     font-size: var(--heading-section-compact-size);
+  }
+
+  .heading-follow-display {
+    font-size: var(--heading-follow-display-size);
   }
 }

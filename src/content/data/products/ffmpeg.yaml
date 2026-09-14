@@ -1,4 +1,4 @@
-kind: open-source-project
+kind: developer-tool
 name: {zh-Hans: FFmpeg, en: FFmpeg}
 summary: {zh-Hans: 用于处理、转换、录制与传输音视频的开源多媒体工具集。, en: An open-source multimedia toolkit for processing, converting, recording and streaming audio and video.}
 aliases: []

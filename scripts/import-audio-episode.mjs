@@ -8,6 +8,13 @@ import { load } from 'js-yaml';
 const [mappingPath, sourceRoot] = process.argv.slice(2);
 if (!mappingPath || !sourceRoot) throw new Error('Usage: node scripts/import-audio-episode.mjs <mapping.yaml> <production-root>');
 const mapping = load(await readFile(mappingPath, 'utf8'));
+if (mapping.creditsSource) {
+  if (!mapping.sources.includes(mapping.creditsSource)) throw new Error('Credits must be among verified sources');
+  const credits = JSON.parse(await readFile(resolve(sourceRoot, mapping.creditsSource), 'utf8'));
+  if (credits.episode !== mapping.number) throw new Error('Credits episode does not match mapping');
+  mapping.participants = credits.participants.map(({ person, role }) => ({ person, role }));
+  mapping.guestNames = credits.guests.map(({ name }) => ({ 'zh-Hans': name, en: name }));
+}
 const sources = [];
 for (const path of mapping.sources) {
   const bytes = await readFile(resolve(sourceRoot, path));
@@ -17,7 +24,7 @@ if (!mapping.sources.includes(mapping.cover)) throw new Error('Cover must be amo
 const square = mapping.imageDimensions?.width === mapping.imageDimensions?.height && !!mapping.imageDimensions;
 const image = `/assets/weekly-${mapping.number}-cover${square ? "-square" : ""}.jpg`;
 await copyFile(resolve(sourceRoot, mapping.cover), resolve(`public${image}`));
-const { cover, sources: sourcePaths, ...data } = mapping;
+const { cover, creditsSource, sources: sourcePaths, ...data } = mapping;
 const snapshot = {
   ...data, images: { '960': image, '1440': image, '1920': image },
   provenance: {

@@ -1,6 +1,7 @@
 ---
 import { getBrandProfile, getProductProfile } from "../data/catalog";
 import type { Locale } from "../data/types";
+import { displayAliases } from "../data/entity-aliases";
 import RelatedEpisodes from "./RelatedEpisodes.astro";
 import EntityPeopleRelations from "./EntityPeopleRelations.astro";
 
@@ -17,17 +18,18 @@ const brandKind = {
   "media-brand": { "zh-Hans": "媒体品牌", en: "Media brand" },
   "model-brand": { "zh-Hans": "模型品牌", en: "Model brand" },
   "product-brand": { "zh-Hans": "产品品牌", en: "Product brand" },
-  "platform-brand": { "zh-Hans": "平台品牌", en: "Platform brand" },
+  "business-brand": { "zh-Hans": "业务品牌", en: "Business brand" },
   "community-brand": { "zh-Hans": "社区品牌", en: "Community brand" },
   "open-source-brand": { "zh-Hans": "开源品牌", en: "Open-source brand" },
 } as const;
 const productKind = {
   "model-family": { "zh-Hans": "模型家族", en: "Model family" }, model: { "zh-Hans": "模型", en: "Model" },
+  game: { "zh-Hans": "游戏", en: "Game" },
   "operating-system": { "zh-Hans": "操作系统", en: "Operating system" },
   application: { "zh-Hans": "应用", en: "Application" }, agent: { "zh-Hans": "Agent", en: "Agent" },
   "developer-tool": { "zh-Hans": "开发者工具", en: "Developer tool" }, platform: { "zh-Hans": "平台", en: "Platform" },
   "api-service": { "zh-Hans": "API 服务", en: "API service" }, hardware: { "zh-Hans": "硬件", en: "Hardware" },
-  framework: { "zh-Hans": "框架", en: "Framework" }, "open-source-project": { "zh-Hans": "开源项目", en: "Open-source project" },
+  framework: { "zh-Hans": "框架", en: "Framework" },
 } as const;
 const statusLabels = {
   announced: { "zh-Hans": "已公布", en: "Announced" }, preview: { "zh-Hans": "预览", en: "Preview" },
@@ -119,7 +121,7 @@ if (entityType === "brand") {
     about: {
       "@type": "Thing",
       name: profile.product.data.name[locale],
-      alternateName: profile.product.data.aliases,
+      alternateName: displayAliases(profile.product.data.name, profile.product.data.aliases),
       description: profile.product.data.summary[locale],
       sameAs: official?.website,
     },
@@ -137,6 +139,9 @@ const verifiedValue = verified
     }).format(new Date(`${verified}T12:00:00Z`))
   : undefined;
 const posterWord = entityType === "brand" ? "BRAND" : "PRODUCT";
+const visibleAliases = entityType === "product"
+  ? displayAliases(entity.data.name, entity.data.aliases)
+  : entity.data.aliases;
 const connectionsLabel = entityType === "brand" ? copy.brandConnections : copy.connections;
 ---
 
@@ -156,7 +161,7 @@ const connectionsLabel = entityType === "brand" ? copy.brandConnections : copy.c
     <div class="entity-detail-copy">
       <h1 id="entity-name">{entity.data.name[locale]}</h1>
       <p class="entity-detail-summary">{entity.data.summary[locale]}</p>
-      {entity.data.aliases.length > 0 && <p class="entity-detail-aliases"><span>{copy.aliases}</span>{entity.data.aliases.join(" · ")}</p>}
+      {visibleAliases.length > 0 && <p class="entity-detail-aliases"><span>{copy.aliases}</span>{visibleAliases.join(" · ")}</p>}
     </div>
   </section>
 

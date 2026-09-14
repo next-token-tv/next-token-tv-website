@@ -8,6 +8,8 @@ The built-site audit requires:
 
 - Internal destinations and fragment anchors exist, including entity links.
 - Each episode has Chinese and English detail routes.
+- Published episode metadata titles use `Weekly #<number> | <topic>` semantics without a site-name suffix. HTML sitemap rows show the number once and use the localized hero heading for the topic.
+- Published Chinese and English Show Notes include opening context, episode questions, the generated timeline, references, people/products/terms, and production credits. `npm run check:chapters` confirms both timeline blocks against their imported chapter snapshot.
 - Home and Weekly pages in both languages link to the latest published episode and the next announced recording. A preview must not remain when no announced recording exists.
 - Announced recording dates have not passed. After recording, editorial review must resolve the status before the next release; do not label an episode published solely to pass the gate.
 - Configured platform URLs use HTTPS and the expected platform hostname, with Chinese and English action labels.

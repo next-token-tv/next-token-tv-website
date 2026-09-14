@@ -1,4 +1,5 @@
 kind: application
+brand: bytedance
 name: {zh-Hans: 剪映, en: Jianying}
 summary: {zh-Hans: 面向视频剪辑、字幕与内容制作的应用。, en: An application for video editing, captions and content creation.}
 aliases: [剪映专业版]
@@ -8,3 +9,7 @@ lastVerifiedAt: '2026-09-14'
 sources:
   - label: {zh-Hans: 官方网站, en: Official website}
     href: https://www.capcut.cn/
+  - label:
+      zh-Hans: 字节跳动服务中心
+      en: ByteDance service center
+    href: https://kefu.bytedance.com/

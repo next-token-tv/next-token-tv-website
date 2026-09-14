@@ -1,4 +1,5 @@
 kind: application
+brand: bytedance
 name:
   zh-Hans: 红果短剧
   en: Hongguo Short Drama
@@ -16,3 +17,7 @@ sources:
       zh-Hans: 官方资料
       en: Official information
     href: https://apps.apple.com/cn/app/id6451407032
+  - label:
+      zh-Hans: 红果所属业务报道
+      en: Hongguo business coverage
+    href: https://www.ithome.com/0/936/217.htm

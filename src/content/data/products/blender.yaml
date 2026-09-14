@@ -1,4 +1,4 @@
-kind: open-source-project
+kind: application
 name: {zh-Hans: Blender, en: Blender}
 summary: {zh-Hans: 用于三维建模、动画、渲染与内容制作的开源软件套件。, en: An open-source suite for 3D modeling, animation, rendering and content creation.}
 aliases: []

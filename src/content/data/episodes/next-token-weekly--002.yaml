@@ -6,13 +6,13 @@ productionImport: next-token-weekly--002.production
 media: {audio: true, video: false}
 title:
   zh-Hans: 'Weekly #002｜iPhone Duo 发布，Astra 会用电脑就算 AGI 吗？'
-  en: 'Weekly #002 | iPhone Duo launches: does Astra using a computer count as AGI?'
+  en: 'Weekly #002 | iPhone Duo launches; does Astra using a computer count as AGI?'
 homepage:
   zh-Hans:
     eyebrow: '第 002 期 · 音频已上线'
     heading: ['iPhone Duo 发布，', 'Astra 会用电脑就算 AGI 吗？']
     lede: 从 iPhone Duo 的交互想象，到 Astra 使用电脑、3D 建模与播客制作的真实体验，本期在上海 AGI Bar 讨论新硬件与 AI 能力的变化，也聊 DeepSeek Flash、云端 Agent 和创作工具。
-    copy: 会用电脑、能完成任务，就算 AGI 吗？从真实工作流到折叠屏交互，六位参与者聊模型能力、人的判断与创作实践。
+    copy: 会用电脑、能完成任务，就算 AGI 吗？从真实工作流到折叠屏交互，四位主理人聊模型能力、人的判断与创作实践。
     imageAlt: 'Next Token Weekly 第二期封面：iPhone Duo 发布，Astra 算 AGI 吗？'
     topicsLabel: 本期议题
     topics: [Astra 与 AGI, iPhone Duo, 云端 Agent, 创作工具]
@@ -22,7 +22,7 @@ homepage:
     eyebrow: 'Episode #002 · Audio out now'
     heading: ['iPhone Duo launches.', 'Does Astra using a computer count as AGI?']
     lede: Recorded at AGI Bar in Shanghai, this episode explores iPhone Duo, Astra using a computer, hands-on 3D modeling and podcast production, alongside DeepSeek Flash, cloud agents and creative tools.
-    copy: Does using a computer and completing tasks count as AGI? Six participants discuss real workflows, foldable interfaces, model capabilities and human judgment.
+    copy: Does using a computer and completing tasks count as AGI? Four co-hosts discuss real workflows, foldable interfaces, model capabilities and human judgment.
     imageAlt: 'Next Token Weekly episode #002 cover: iPhone Duo and Astra'
     topicsLabel: Episode topics
     topics: [Astra & AGI, iPhone Duo, Cloud agents, Creative tools]
@@ -45,18 +45,13 @@ mentions:
   brands:
     - agi-bar
     - alibaba-cloud
-    - android
     - anthropic
     - apple
     - aws
     - bambu-lab
-    - bilibili
     - cyber-zen
     - deepseek
-    - devin
-    - doubao
     - elevenlabs
-    - feishu
     - garmin
     - google
     - huawei
@@ -67,22 +62,26 @@ mentions:
     - next-token-weekly
     - openai
     - oppo
-    - poncle
     - siliconflow
-    - spotify
     - tencent-cloud
     - tencent
     - the-verge
     - unitree
     - universal-music-group
     - volcengine
+    - xiaomi
+  products:
+    - bilibili
+    - feishu
+    - spotify
     - wechat
     - xianyu
-    - xiaomi
     - xiaohongshu
     - xiaoyuzhou
     - youtube
-  products:
+    - android
+    - devin
+    - doubao
     - apple-car
     - apple-podcasts
     - apple-vision-pro
@@ -121,7 +120,6 @@ mentions:
     - iphone
     - jianying
     - kimi
-    - kimi-k2-8-preview
     - linux
     - manus
     - midjourney

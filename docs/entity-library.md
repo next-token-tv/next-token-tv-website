@@ -16,16 +16,28 @@
 | SpaceXAI | 品牌；xAI、X.AI 为别名，与 X 平台分开 |
 | WaytoAGI | 社区品牌，分类为 `community-brand` |
 | Y Combinator | 品牌使用全称，YC 为别名 |
-| 豆包 / Doubao | 按品牌收录，关联 Doubao Seed 模型家族与豆包工作产品 |
+| 豆包 / Doubao | 应用产品；与 Doubao Seed、豆包工作等产品的所属品牌均为字节跳动 |
+| Android | 操作系统产品 |
+| Devin | Cognition 旗下 Agent 产品 |
 | Next Token Weekly | Next Token 旗下节目，链接 `/weekly/`，不重复收录为品牌 |
 
 独立基金会和其维护的开源产品可以分别收录。人物与产品可直接建立关系，不要求通过品牌中转。
 
+## 公司品牌、业务品牌与平台产品
+
+公司品牌介绍组织及其产品组合；业务品牌 `business-brand` 介绍覆盖多项服务的业务线，包括 AWS、阿里云、腾讯云与火山引擎。品牌库不使用“平台品牌”分类。
+
+用户直接使用的平台收录为 `platform` 产品，包括哔哩哔哩、Spotify、闲鱼、小红书、小宇宙、微信、飞书、YouTube、OpenRouter 与 fal.ai。Hugging Face 按公司品牌收录。同名组织与平台仅在各自有独立介绍内容时分别建条目。
+
 ## 产品分类
 
-产品按主要用途分类。Agent 产品即使开源，也归入 `agent`，包括 ZCode、DeepSeek Harness、OpenClaw 与 Hermes Agent。
+产品按主要用途分类，不设“开源项目”分类。开源是产品属性，保留在摘要和官方仓库资料中。Blender 归入应用，FFmpeg 与 Godot Engine 归入开发者工具，T3 Code 归入 Agent。Agent 产品即使开源，也归入 `agent`，包括 ZCode、DeepSeek Harness、OpenClaw 与 Hermes Agent。Cherry Studio、豆包工作、CodePilot 与 LibTV 按任务执行和 Agent 工作流归入 Agent；仅内置 AI 功能、面向问答或提供单项生成能力的应用不因此自动改类。
+
+开发者工具 `developer-tool` 包括主要用于构建、调试、测试软件或管理软件研发流程的产品。ColaMD 与 Linear 归入开发者工具。
 
 操作系统使用独立分类 `operating-system`，包括 iOS、macOS、Linux 与 Omarchy；Linux 的摘要明确其内核与系统生态范围。
+
+游戏作品使用独立分类 `game`，例如《吸血鬼幸存者》。游戏引擎与游戏开发工具按工具用途分类，不归入游戏。
 
 ## 模型、名称与别名
 
@@ -33,7 +45,7 @@
 
 Muse Voice Transcribe 归入 Muse 模型家族的别名，不单独生成产品页。
 
-主名称使用正式名称，不额外添加“项目”等分类后缀。Next Token 的完整名称、Next Token 和词元之外指向同一品牌。别名只收录确实指向该实体的名称；套餐价格或口头描述不作为别名，Codex 200 不属于 Codex 别名。
+主名称使用正式名称，不额外添加“项目”等分类后缀。Next Token 的完整名称、Next Token 和词元之外指向同一品牌。别名不重复登记中英文正式名称或已有的相同别名。产品页面与结构化数据不展示仅大小写不同的重复名称；逐字稿区分大小写匹配所需的变体可保留在原始别名中。别名只收录确实指向该实体的名称；套餐价格或口头描述不作为别名，Codex 200 不属于 Codex 别名。
 
 含有产品名称的作者描述不作为人物别名，例如“Ruby on Rails 那个连，作者”中仅产品名称建立链接。作者身份由人物与产品的资料关系表达。“豆包办公”属于逐字稿中讨论的误称，不登记为豆包工作的正式别名。
 

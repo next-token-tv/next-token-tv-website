@@ -36,6 +36,9 @@ const episodeRows = episodes.slice().sort((a, b) => Number(b.data.number) - Numb
 const transcriptNumbers = new Set(transcripts.map(e => e.data.number));
 const episodeGroup = groups.find(group => group.id === "episodes")!;
 const transcriptGroup = groups.find(group => group.id === "transcripts");
+const episodeDisplayTitle = (episode: (typeof episodeRows)[number]) => episode.data.status === "published"
+  ? episode.data.homepage[locale].heading.join(en ? " " : "")
+  : episode.data.preview.heading[locale].join(en ? " " : "");
 ---
 <main id="main" class="sitemap-page shell">
   <header class="sitemap-intro">
@@ -60,7 +63,10 @@ const transcriptGroup = groups.find(group => group.id === "transcripts");
               const available = !isTranscript || transcriptNumbers.has(episode.data.number);
               return <li class:list={{ "empty-episode": !available }} style={`grid-row: ${index + 2}`} aria-hidden={!available ? "true" : undefined}>
                 {available && <a href={`${prefix}/weekly/${episode.data.number}/${isTranscript ? "transcript/" : ""}`}>
-                  <span class="episode-label"><small>Weekly #{episode.data.number}</small>{isTranscript ? (en ? "Full transcript" : "完整文字稿") : episode.data.title[locale]}</span>
+                  <span class="episode-label">
+                    <small>Weekly #{episode.data.number}</small>
+                    <span class="episode-title">{isTranscript ? (en ? "Full transcript" : "完整文字稿") : episodeDisplayTitle(episode)}</span>
+                  </span>
                   <span aria-hidden="true">↗</span>
                 </a>}
               </li>;

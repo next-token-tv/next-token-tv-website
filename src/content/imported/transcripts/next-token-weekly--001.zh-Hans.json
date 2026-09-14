@@ -544,9 +544,9 @@
               {
                 "type": "entity-link",
                 "value": "fal.ai",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "fal-ai",
-                "href": "/wiki/brands/fal-ai/"
+                "href": "/wiki/products/fal-ai/"
               },
               {
                 "type": "text",
@@ -561,9 +561,9 @@
               {
                 "type": "entity-link",
                 "value": "fal.ai",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "fal-ai",
-                "href": "/wiki/brands/fal-ai/"
+                "href": "/wiki/products/fal-ai/"
               },
               {
                 "type": "text",
@@ -624,9 +624,9 @@
               {
                 "type": "entity-link",
                 "value": "fal.ai",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "fal-ai",
-                "href": "/wiki/brands/fal-ai/"
+                "href": "/wiki/products/fal-ai/"
               },
               {
                 "type": "text",
@@ -1565,9 +1565,9 @@
               {
                 "type": "entity-link",
                 "value": "飞书",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "feishu",
-                "href": "/wiki/brands/feishu/"
+                "href": "/wiki/products/feishu/"
               },
               {
                 "type": "text",
@@ -1877,9 +1877,9 @@
               {
                 "type": "entity-link",
                 "value": "OpenRouter",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "openrouter",
-                "href": "/wiki/brands/openrouter/"
+                "href": "/wiki/products/openrouter/"
               },
               {
                 "type": "text",
@@ -2431,9 +2431,9 @@
               {
                 "type": "entity-link",
                 "value": "Runta",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "runta",
-                "href": "/wiki/brands/runta/"
+                "href": "/wiki/products/runta/"
               },
               {
                 "type": "text",
@@ -3091,9 +3091,9 @@
               {
                 "type": "entity-link",
                 "value": "微信",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "wechat",
-                "href": "/wiki/brands/wechat/"
+                "href": "/wiki/products/wechat/"
               },
               {
                 "type": "text",
@@ -3316,9 +3316,9 @@
               {
                 "type": "entity-link",
                 "value": "微信",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "wechat",
-                "href": "/wiki/brands/wechat/"
+                "href": "/wiki/products/wechat/"
               },
               {
                 "type": "text",
@@ -4247,9 +4247,9 @@
               {
                 "type": "entity-link",
                 "value": "YouTube",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "youtube",
-                "href": "/wiki/brands/youtube/"
+                "href": "/wiki/products/youtube/"
               },
               {
                 "type": "text",
@@ -4673,9 +4673,9 @@
               {
                 "type": "entity-link",
                 "value": "OpenRouter",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "openrouter",
-                "href": "/wiki/brands/openrouter/"
+                "href": "/wiki/products/openrouter/"
               },
               {
                 "type": "text",
@@ -5795,9 +5795,9 @@
               {
                 "type": "entity-link",
                 "value": "豆包",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/brands/doubao/"
+                "href": "/wiki/products/doubao/"
               },
               {
                 "type": "text",
@@ -5852,9 +5852,9 @@
               {
                 "type": "entity-link",
                 "value": "豆包",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/brands/doubao/"
+                "href": "/wiki/products/doubao/"
               },
               {
                 "type": "text",
@@ -7777,9 +7777,9 @@
               {
                 "type": "entity-link",
                 "value": "微信",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "wechat",
-                "href": "/wiki/brands/wechat/"
+                "href": "/wiki/products/wechat/"
               },
               {
                 "type": "text",
@@ -9173,9 +9173,9 @@
               {
                 "type": "entity-link",
                 "value": "飞书",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "feishu",
-                "href": "/wiki/brands/feishu/"
+                "href": "/wiki/products/feishu/"
               },
               {
                 "type": "text",
@@ -9446,9 +9446,9 @@
               {
                 "type": "entity-link",
                 "value": "微信",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "wechat",
-                "href": "/wiki/brands/wechat/"
+                "href": "/wiki/products/wechat/"
               },
               {
                 "type": "text",
@@ -9457,9 +9457,9 @@
               {
                 "type": "entity-link",
                 "value": "微信",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "wechat",
-                "href": "/wiki/brands/wechat/"
+                "href": "/wiki/products/wechat/"
               },
               {
                 "type": "text",
@@ -9693,9 +9693,9 @@
               {
                 "type": "entity-link",
                 "value": "豆包",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/brands/doubao/"
+                "href": "/wiki/products/doubao/"
               },
               {
                 "type": "text",
@@ -9757,9 +9757,9 @@
               {
                 "type": "entity-link",
                 "value": "豆包",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/brands/doubao/"
+                "href": "/wiki/products/doubao/"
               },
               {
                 "type": "text",
@@ -9779,9 +9779,9 @@
               {
                 "type": "entity-link",
                 "value": "豆包",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/brands/doubao/"
+                "href": "/wiki/products/doubao/"
               },
               {
                 "type": "text",
@@ -9801,9 +9801,9 @@
               {
                 "type": "entity-link",
                 "value": "豆包",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/brands/doubao/"
+                "href": "/wiki/products/doubao/"
               },
               {
                 "type": "text",
@@ -10041,9 +10041,9 @@
               {
                 "type": "entity-link",
                 "value": "豆包",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/brands/doubao/"
+                "href": "/wiki/products/doubao/"
               },
               {
                 "type": "text",
@@ -10443,9 +10443,9 @@
               {
                 "type": "entity-link",
                 "value": "安卓",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "android",
-                "href": "/wiki/brands/android/"
+                "href": "/wiki/products/android/"
               },
               {
                 "type": "text",
@@ -10468,9 +10468,9 @@
               {
                 "type": "entity-link",
                 "value": "安卓",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "android",
-                "href": "/wiki/brands/android/"
+                "href": "/wiki/products/android/"
               },
               {
                 "type": "text",
@@ -10489,9 +10489,9 @@
               {
                 "type": "entity-link",
                 "value": "安卓",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "android",
-                "href": "/wiki/brands/android/"
+                "href": "/wiki/products/android/"
               },
               {
                 "type": "text",
@@ -11747,9 +11747,9 @@
               {
                 "type": "entity-link",
                 "value": "飞书",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "feishu",
-                "href": "/wiki/brands/feishu/"
+                "href": "/wiki/products/feishu/"
               },
               {
                 "type": "text",
@@ -11853,9 +11853,9 @@
               {
                 "type": "entity-link",
                 "value": "豆包",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/brands/doubao/"
+                "href": "/wiki/products/doubao/"
               },
               {
                 "type": "text",
@@ -11878,9 +11878,9 @@
               {
                 "type": "entity-link",
                 "value": "豆包",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/brands/doubao/"
+                "href": "/wiki/products/doubao/"
               },
               {
                 "type": "text",
@@ -12521,9 +12521,9 @@
               {
                 "type": "entity-link",
                 "value": "小红书",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "xiaohongshu",
-                "href": "/wiki/brands/xiaohongshu/"
+                "href": "/wiki/products/xiaohongshu/"
               },
               {
                 "type": "text",
@@ -14228,9 +14228,9 @@
               {
                 "type": "entity-link",
                 "value": "小红书",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "xiaohongshu",
-                "href": "/wiki/brands/xiaohongshu/"
+                "href": "/wiki/products/xiaohongshu/"
               },
               {
                 "type": "text",
@@ -14281,9 +14281,9 @@
               {
                 "type": "entity-link",
                 "value": "小红书",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "xiaohongshu",
-                "href": "/wiki/brands/xiaohongshu/"
+                "href": "/wiki/products/xiaohongshu/"
               },
               {
                 "type": "text",
@@ -14306,9 +14306,9 @@
               {
                 "type": "entity-link",
                 "value": "安卓",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "android",
-                "href": "/wiki/brands/android/"
+                "href": "/wiki/products/android/"
               },
               {
                 "type": "text",
@@ -14508,9 +14508,9 @@
               {
                 "type": "entity-link",
                 "value": "豆包",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/brands/doubao/"
+                "href": "/wiki/products/doubao/"
               },
               {
                 "type": "text",
@@ -14544,9 +14544,9 @@
               {
                 "type": "entity-link",
                 "value": "豆包",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/brands/doubao/"
+                "href": "/wiki/products/doubao/"
               },
               {
                 "type": "text",
@@ -14633,9 +14633,9 @@
               {
                 "type": "entity-link",
                 "value": "安卓",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "android",
-                "href": "/wiki/brands/android/"
+                "href": "/wiki/products/android/"
               },
               {
                 "type": "text",
@@ -14658,9 +14658,9 @@
               {
                 "type": "entity-link",
                 "value": "安卓",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "android",
-                "href": "/wiki/brands/android/"
+                "href": "/wiki/products/android/"
               },
               {
                 "type": "text",
@@ -15092,9 +15092,9 @@
               {
                 "type": "entity-link",
                 "value": "OpenRouter",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "openrouter",
-                "href": "/wiki/brands/openrouter/"
+                "href": "/wiki/products/openrouter/"
               },
               {
                 "type": "text",
@@ -15139,9 +15139,9 @@
               {
                 "type": "entity-link",
                 "value": "OpenRouter",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "openrouter",
-                "href": "/wiki/brands/openrouter/"
+                "href": "/wiki/products/openrouter/"
               },
               {
                 "type": "text",
@@ -15206,9 +15206,9 @@
               {
                 "type": "entity-link",
                 "value": "OpenRouter",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "openrouter",
-                "href": "/wiki/brands/openrouter/"
+                "href": "/wiki/products/openrouter/"
               },
               {
                 "type": "text",
@@ -15231,9 +15231,9 @@
               {
                 "type": "entity-link",
                 "value": "OpenRouter",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "openrouter",
-                "href": "/wiki/brands/openrouter/"
+                "href": "/wiki/products/openrouter/"
               },
               {
                 "type": "text",
@@ -15906,9 +15906,9 @@
               {
                 "type": "entity-link",
                 "value": "OpenRouter",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "openrouter",
-                "href": "/wiki/brands/openrouter/"
+                "href": "/wiki/products/openrouter/"
               },
               {
                 "type": "text",
@@ -16903,9 +16903,9 @@
               {
                 "type": "entity-link",
                 "value": "B 站",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "bilibili",
-                "href": "/wiki/brands/bilibili/"
+                "href": "/wiki/products/bilibili/"
               },
               {
                 "type": "text",
@@ -17989,9 +17989,9 @@
               {
                 "type": "entity-link",
                 "value": "豆包",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/brands/doubao/"
+                "href": "/wiki/products/doubao/"
               },
               {
                 "type": "text",
@@ -18010,9 +18010,9 @@
               {
                 "type": "entity-link",
                 "value": "豆包",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/brands/doubao/"
+                "href": "/wiki/products/doubao/"
               },
               {
                 "type": "text",
@@ -18021,9 +18021,9 @@
               {
                 "type": "entity-link",
                 "value": "豆包",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/brands/doubao/"
+                "href": "/wiki/products/doubao/"
               },
               {
                 "type": "text",
@@ -18056,9 +18056,9 @@
               {
                 "type": "entity-link",
                 "value": "豆包",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/brands/doubao/"
+                "href": "/wiki/products/doubao/"
               },
               {
                 "type": "text",
@@ -18112,9 +18112,9 @@
               {
                 "type": "entity-link",
                 "value": "豆包",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/brands/doubao/"
+                "href": "/wiki/products/doubao/"
               },
               {
                 "type": "text",
@@ -18932,8 +18932,8 @@
   ],
   "provenance": {
     "sourceRepository": "next-token",
-    "sourceRevision": null,
-    "sourceState": "modified",
+    "sourceRevision": "2ddba170f98d03e43808b54d126482b547587e0d",
+    "sourceState": "committed",
     "sourcePath": "shows/weekly/episodes/001/04-release/copy/transcript.zh-Hans.md",
     "sourceSha256": "607f0d74b9c2c3a8cd57e51e7285df0dd96378c3e8c8a0247bde880b19c16c97"
   },
@@ -18943,10 +18943,6 @@
     "paragraphs": 977,
     "candidateSpeakerMarkers": 180,
     "linkedEntities": [
-      {
-        "entity": "brand:android",
-        "chapterCount": 2
-      },
       {
         "entity": "brand:anthropic",
         "chapterCount": 2
@@ -18960,24 +18956,8 @@
         "chapterCount": 1
       },
       {
-        "entity": "brand:bilibili",
-        "chapterCount": 1
-      },
-      {
         "entity": "brand:deepseek",
         "chapterCount": 4
-      },
-      {
-        "entity": "brand:doubao",
-        "chapterCount": 5
-      },
-      {
-        "entity": "brand:fal-ai",
-        "chapterCount": 1
-      },
-      {
-        "entity": "brand:feishu",
-        "chapterCount": 3
       },
       {
         "entity": "brand:google",
@@ -19020,19 +19000,11 @@
         "chapterCount": 11
       },
       {
-        "entity": "brand:openrouter",
-        "chapterCount": 4
-      },
-      {
         "entity": "brand:oppo",
         "chapterCount": 1
       },
       {
         "entity": "brand:plaud",
-        "chapterCount": 1
-      },
-      {
-        "entity": "brand:runta",
         "chapterCount": 1
       },
       {
@@ -19056,23 +19028,11 @@
         "chapterCount": 1
       },
       {
-        "entity": "brand:wechat",
-        "chapterCount": 3
-      },
-      {
-        "entity": "brand:xiaohongshu",
-        "chapterCount": 2
-      },
-      {
         "entity": "brand:xiaomi",
         "chapterCount": 2
       },
       {
         "entity": "brand:y-combinator",
-        "chapterCount": 1
-      },
-      {
-        "entity": "brand:youtube",
         "chapterCount": 1
       },
       {
@@ -19108,7 +19068,15 @@
         "chapterCount": 1
       },
       {
+        "entity": "product:android",
+        "chapterCount": 2
+      },
+      {
         "entity": "product:autoglm",
+        "chapterCount": 1
+      },
+      {
+        "entity": "product:bilibili",
         "chapterCount": 1
       },
       {
@@ -19160,6 +19128,10 @@
         "chapterCount": 1
       },
       {
+        "entity": "product:doubao",
+        "chapterCount": 5
+      },
+      {
         "entity": "product:doubao-seed",
         "chapterCount": 1
       },
@@ -19170,6 +19142,14 @@
       {
         "entity": "product:esp32",
         "chapterCount": 1
+      },
+      {
+        "entity": "product:fal-ai",
+        "chapterCount": 1
+      },
+      {
+        "entity": "product:feishu",
+        "chapterCount": 3
       },
       {
         "entity": "product:gemini",
@@ -19272,6 +19252,10 @@
         "chapterCount": 1
       },
       {
+        "entity": "product:openrouter",
+        "chapterCount": 4
+      },
+      {
         "entity": "product:pi",
         "chapterCount": 1
       },
@@ -19293,6 +19277,10 @@
       },
       {
         "entity": "product:ruby-on-rails",
+        "chapterCount": 1
+      },
+      {
+        "entity": "product:runta",
         "chapterCount": 1
       },
       {
@@ -19320,6 +19308,10 @@
         "chapterCount": 1
       },
       {
+        "entity": "product:wechat",
+        "chapterCount": 3
+      },
+      {
         "entity": "product:windows",
         "chapterCount": 2
       },
@@ -19332,7 +19324,15 @@
         "chapterCount": 4
       },
       {
+        "entity": "product:xiaohongshu",
+        "chapterCount": 2
+      },
+      {
         "entity": "product:xiaomi-smart-storage",
+        "chapterCount": 1
+      },
+      {
+        "entity": "product:youtube",
         "chapterCount": 1
       },
       {

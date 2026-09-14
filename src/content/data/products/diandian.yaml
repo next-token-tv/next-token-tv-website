@@ -1,5 +1,5 @@
 kind: agent
-brand: xiaohongshu
+parent: xiaohongshu
 name:
   zh-Hans: 点点
   en: Diandian

@@ -75,6 +75,22 @@ test("person cards link portraits and names to localized profiles", async ({ pag
   }
 });
 
+test("follow sections share the same heading role across pages", async ({ page }) => {
+  for (const width of [390, 768, 1327, 1920]) {
+    await page.setViewportSize({ width, height: 900 });
+    for (const prefix of ["", "/en"]) {
+      const sizes: string[] = [];
+      for (const path of ["/", "/weekly/"]) {
+        await page.goto(`${prefix}${path}`);
+        const heading = page.locator(".heading-follow-display");
+        await expect(heading).toHaveCount(1);
+        sizes.push(await heading.evaluate((node) => getComputedStyle(node).fontSize));
+      }
+      expect(new Set(sizes).size).toBe(1);
+    }
+  }
+});
+
 for (const viewport of viewports) {
   test.describe(`${viewport.name} ${viewport.width}px`, () => {
     test.use({ viewport: { width: viewport.width, height: viewport.height } });
