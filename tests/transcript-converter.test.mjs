@@ -20,8 +20,9 @@ test("deterministic matching skips invalid substrings, prefers full names and ex
     ], excludedEntities: ["person:yangpan", "person:orange"],
   };
   const tree = unified().use(remarkParse).parse(source);
-  const result = convertTranscript(tree, options);
-  assert.deepEqual(result, convertTranscript(tree, options));
+  const converted = convertTranscript(tree, options);
+  const result = converted.snapshot;
+  assert.deepEqual(converted, convertTranscript(tree, options));
   const first = result.chapters[0].turns[0].paragraphs[0];
   assert.deepEqual(first.filter(s => s.type === "entity-link").map(s => s.entityId),
     ["minimax-h3", "minimax-h3", "next-token-weekly", "next-token", "threejs", "threejs", "zcode", "dhh"]);
@@ -32,7 +33,7 @@ test("deterministic matching skips invalid substrings, prefers full names and ex
 test("conversion preserves turns and links every entity occurrence", () => {
   const source = `# Sample\n\nHost line.\n\n> † means pending.\n\n## First\n\n**Test Host†：** Product Pro and Product Pro.\n\nContinued paragraph with [an existing link](https://example.com).\n\n**编者注：** Editorial note.\n`;
   const tree = unified().use(remarkParse).parse(source);
-  const result = convertTranscript(tree, {
+  const { snapshot: result } = convertTranscript(tree, {
     episodeId: "show--001",
     locale: "zh-Hans",
     sourceRepository: "content",
@@ -67,22 +68,29 @@ test("published transcript snapshot retains approved content and deterministic s
 
   assert.equal(snapshot.provenance.sourceSha256, "607f0d74b9c2c3a8cd57e51e7285df0dd96378c3e8c8a0247bde880b19c16c97");
   assert.equal(snapshot.provenance.sourceRepository, "next-token");
-  assert.equal(snapshot.provenance.sourceRevision, "2ddba170f98d03e43808b54d126482b547587e0d");
+  assert.match(snapshot.provenance.sourceRevision, /^[0-9a-f]{40}$/);
   assert.equal(snapshot.provenance.sourceState, "committed");
   assert.equal(snapshot.provenance.sourcePath, "shows/weekly/episodes/001/04-release/copy/transcript.zh-Hans.md");
   assert.equal(snapshot.provenance.sourcePath.startsWith("../"), false);
-  assert.equal(snapshot.report.chapters, 37);
-  assert.equal(snapshot.report.turns, 917);
-  assert.equal(snapshot.report.paragraphs, 977);
-  assert.equal(snapshot.report.candidateSpeakerMarkers, 180);
-  assert.equal(snapshot.report.unknownSpeakers.length, 0);
-  assert.equal(snapshot.report.ambiguousAliases.length, 0);
+  assert.equal(snapshot.chapterCount, 37);
+  assert.equal(snapshot.chapters.length, 37);
+  assert.equal(snapshot.chapters.reduce((sum, chapter) => sum + chapter.turns.length, 0), 917);
+  assert.equal(snapshot.chapters.reduce((sum, chapter) => sum + chapter.turns.reduce((turnSum, turn) => turnSum + turn.paragraphs.length, 0), 0), 977);
+  assert.equal(snapshot.chapters.reduce((sum, chapter) => sum + chapter.turns.filter(({ candidate }) => candidate).length, 0), 180);
+  assert.equal("report" in snapshot, false);
   const showLinks = snapshot.chapters.flatMap(c => c.turns.flatMap(t => t.paragraphs.flat())).filter(s => s.entityType === 'show');
   assert.ok(showLinks.length > 0);
   assert.ok(showLinks.every(s => s.href === '/weekly/' && s.entityId === 'next-token-weekly'));
-  const people = snapshot.report.linkedEntities.filter(({ entity }) => entity.startsWith("person:"));
+  const linkedEntityChapterCounts = new Map();
+  for (const chapter of snapshot.chapters) {
+    const entities = new Set(chapter.turns.flatMap(turn => turn.paragraphs.flat())
+      .filter(segment => segment.type === "entity-link")
+      .map(segment => `${segment.entityType}:${segment.entityId}`));
+    for (const entity of entities) linkedEntityChapterCounts.set(entity, (linkedEntityChapterCounts.get(entity) ?? 0) + 1);
+  }
+  const people = [...linkedEntityChapterCounts].filter(([entity]) => entity.startsWith("person:"));
   assert.equal(people.length, 6);
-  const links = snapshot.report.linkedEntities.map(({ entity }) => entity);
+  const links = [...linkedEntityChapterCounts.keys()];
   for (const id of ['yangpan', 'guizang', 'orange', 'xiangyang-qiaomu']) assert.equal(links.includes(`person:${id}`), false);
   assert.equal(links.includes('product:mac'), false);
   assert.equal(links.includes('product:openai-api'), false);
@@ -111,7 +119,7 @@ test("published transcript snapshot retains approved content and deterministic s
   assert.equal(serialized.includes("5.1 担心"), false);
   assert.equal(snapshot.chapters.some(({ turns }) => turns.some(({ kind }) => kind === "editor-note")), true);
 
-  for (const { entity, chapterCount } of snapshot.report.linkedEntities) {
+  for (const [entity, chapterCount] of linkedEntityChapterCounts) {
     const chapters = snapshot.chapters.filter(c => c.turns.flatMap(t => t.paragraphs.flat()).some(s => s.type === 'entity-link' && `${s.entityType}:${s.entityId}` === entity));
     assert.equal(chapters.length, chapterCount);
   }

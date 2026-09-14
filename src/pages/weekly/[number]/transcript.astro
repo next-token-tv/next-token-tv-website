@@ -27,7 +27,7 @@ const episodePath = `/weekly/${episode.data.number}/`;
 const seo = episode.data.transcriptSeo?.["zh-Hans"];
 const isReviewDraft = transcript.data.publicationStatus === "review-draft";
 const pageTitle = seo?.title ?? `阅读文字稿｜${transcript.data.title} - Next Token｜词元之外`;
-const description = seo?.description ?? `${transcript.data.byline} 共 ${transcript.data.report.chapters} 个章节，保留完整对谈顺序与人物标注。`;
+const description = seo?.description ?? `${transcript.data.byline} 共 ${transcript.data.chapterCount} 个章节，保留完整对谈顺序与人物标注。`;
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Article",

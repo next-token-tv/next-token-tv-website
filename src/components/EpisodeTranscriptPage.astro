@@ -54,7 +54,7 @@ const copy = locale === "en" ? {
       </div>
       <div class="transcript-hero-meta">
         <strong>{copy.read}</strong>
-        <span>{String(transcript.data.report.chapters).padStart(2, "0")} {copy.chapters}</span>
+        <span>{String(transcript.data.chapterCount).padStart(2, "0")} {copy.chapters}</span>
         <p>{transcript.data.byline}</p>
         {transcript.data.notices.map((notice) => <p class="transcript-notice">{notice}</p>)}
       </div>
@@ -65,7 +65,7 @@ const copy = locale === "en" ? {
     <aside class="transcript-sidebar">
       <TranscriptReaderTools locale={locale} />
       <details class="transcript-toc" open>
-        <summary>{copy.contents} · {transcript.data.report.chapters}</summary>
+        <summary>{copy.contents} · {transcript.data.chapterCount}</summary>
         <ol>
           {transcript.data.chapters.map((chapter, index) => (
             <li>

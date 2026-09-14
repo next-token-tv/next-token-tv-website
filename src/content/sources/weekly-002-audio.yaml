@@ -11,10 +11,10 @@ durationSeconds: 6164
 imageKind: artwork
 imageDimensions: {width: 3000, height: 3000}
 creditsSource: shows/weekly/episodes/002/credits.json
-cover: shows/weekly/episodes/002/04-release/artwork/cover-square-photo-v5.jpg
+cover: shows/weekly/episodes/002/04-release/artwork/cover-square.jpg
 sources:
   - shows/weekly/episodes/002/credits.json
-  - shows/weekly/episodes/002/04-release/artwork/cover-square-photo-v5.jpg
+  - shows/weekly/episodes/002/04-release/artwork/cover-square.jpg
   - shows/weekly/episodes/002/04-release/platforms/spotify/publish.zh-Hans.md
   - shows/weekly/episodes/002/04-release/platforms/apple-podcasts/publish.zh-Hans.md
   - shows/weekly/episodes/002/04-release/platforms/xiaoyuzhou/status.zh-Hans.md

@@ -39,36 +39,35 @@
     "1920": "/assets/weekly-002-cover-square.jpg"
   },
   "provenance": {
-    "productionCommit": "5ad301c016f2f86a8b3f6df8663e460d576d9063",
-    "sourceGitStatus": "?? shows/weekly/episodes/002/04-release/artwork/cover-square-photo-v5.jpg\n?? shows/weekly/episodes/002/04-release/copy/show-notes.zh-Hans.md\n?? shows/weekly/episodes/002/04-release/platforms/apple-podcasts/publish.zh-Hans.md\n?? shows/weekly/episodes/002/04-release/platforms/bilibili/publish.zh-Hans.md\n?? shows/weekly/episodes/002/04-release/platforms/spotify/publish.zh-Hans.md\n?? shows/weekly/episodes/002/04-release/platforms/xiaoyuzhou/status.zh-Hans.md\n?? shows/weekly/episodes/002/credits.json",
+    "productionCommit": "15d285b048b6c38fe2e099dc981cb23a8aed8775",
     "sources": [
       {
         "path": "shows/weekly/episodes/002/credits.json",
         "sha256": "2f8f3e2ec3ef28f75dd8cd555001c998d6523b44cbb01c98c9512218c6da5bab"
       },
       {
-        "path": "shows/weekly/episodes/002/04-release/artwork/cover-square-photo-v5.jpg",
+        "path": "shows/weekly/episodes/002/04-release/artwork/cover-square.jpg",
         "sha256": "fec8e4981ba281e19c47226cb6e670f890ecd8e7784fd9dc45cefb2da19096b7"
       },
       {
         "path": "shows/weekly/episodes/002/04-release/platforms/spotify/publish.zh-Hans.md",
-        "sha256": "47e5035d19b3e8f8c655c816455b6b67c842621574af28cf8b7fac11d4a7f56c"
+        "sha256": "927e35f990af56f5e322f0b93f0fa0c9fcac403a5a871521ee34c3ad2f0708ac"
       },
       {
         "path": "shows/weekly/episodes/002/04-release/platforms/apple-podcasts/publish.zh-Hans.md",
-        "sha256": "30c5539bbdc4962c10e340f382c0fd90cfe31a1410313bdfa16f1879c34f4020"
+        "sha256": "4584bb72f1b368aebf2e41d02664c5377495f8c7f6ecf342e2d7f30a34e5a0e8"
       },
       {
         "path": "shows/weekly/episodes/002/04-release/platforms/xiaoyuzhou/status.zh-Hans.md",
-        "sha256": "0b043538e3d789978438b9d864081b21201fdf89d9fa256133521dec0d3536dd"
+        "sha256": "73d6f0473585d3cc81b20db82ad5f111de1a2f400b017b5472ae635d0633a081"
       },
       {
         "path": "shows/weekly/episodes/002/04-release/platforms/bilibili/publish.zh-Hans.md",
-        "sha256": "68adca5166b3d7e3c2303f37a01e7e5bfedab0e0d5ed19ed32d0f5bf0e2e3c03"
+        "sha256": "cf03b24eb42c1aaf7add7745b80fa773fc84d040dd72b93dbdd2f557f7fb0e87"
       },
       {
         "path": "shows/weekly/episodes/002/04-release/copy/show-notes.zh-Hans.md",
-        "sha256": "a4a32149f334c5a7e12e92bd4fc193f9f182308fdeeb495a259eab21208290c0"
+        "sha256": "afd12e8cc09ec8611d1569bb6135dedb47a5fb89b5e868fa2ee3ae1f40cf076f"
       }
     ]
   }

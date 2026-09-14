@@ -25,11 +25,14 @@ const square = mapping.imageDimensions?.width === mapping.imageDimensions?.heigh
 const image = `/assets/weekly-${mapping.number}-cover${square ? "-square" : ""}.jpg`;
 await copyFile(resolve(sourceRoot, mapping.cover), resolve(`public${image}`));
 const { cover, creditsSource, sources: sourcePaths, ...data } = mapping;
+const sourceGitStatus = execFileSync('git', ['-C', sourceRoot, 'status', '--porcelain', '--', ...sourcePaths], { encoding: 'utf8' }).trim();
+if (sourceGitStatus) {
+  throw new Error('Published audio sources must be committed before import');
+}
 const snapshot = {
   ...data, images: { '960': image, '1440': image, '1920': image },
   provenance: {
     productionCommit: execFileSync('git', ['-C', sourceRoot, 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(),
-    sourceGitStatus: execFileSync('git', ['-C', sourceRoot, 'status', '--porcelain', '--', ...sourcePaths], { encoding: 'utf8' }).trim(),
     sources,
   },
 };

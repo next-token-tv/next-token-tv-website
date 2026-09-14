@@ -114,7 +114,7 @@ for (const { entityType, id, alias } of rules.scopedAliases ?? []) {
   if (!entity || !alias?.trim()) throw new Error(`Invalid scoped alias: ${id}`);
   entity.aliases.push(alias);
 }
-const imported = convertTranscript(tree, {
+const { snapshot, report } = convertTranscript(tree, {
   episodeId,
   locale: rules.locale,
   ...sourceProvenance,
@@ -123,13 +123,19 @@ const imported = convertTranscript(tree, {
   resolutions: rules.resolutions,
   excludedEntities,
 });
-imported.publicationStatus = reviewPreview ? "review-draft" : "published";
-
-if (imported.report.unknownSpeakers.length) {
-  throw new Error(`Unknown transcript speakers: ${imported.report.unknownSpeakers.join(", ")}`);
+if (!reviewPreview && snapshot.provenance.sourceState !== "committed") {
+  throw new Error(`Published transcript source must be committed, got ${snapshot.provenance.sourceState}: ${snapshot.provenance.sourcePath}`);
 }
-if (imported.report.ambiguousAliases.length) {
-  throw new Error(`Ambiguous transcript aliases require explicit resolutions: ${imported.report.ambiguousAliases.map(item => item.alias).join(", ")}`);
+const imported = {
+  ...snapshot,
+  publicationStatus: reviewPreview ? "review-draft" : "published",
+};
+
+if (report.unknownSpeakers.length) {
+  throw new Error(`Unknown transcript speakers: ${report.unknownSpeakers.join(", ")}`);
+}
+if (report.ambiguousAliases.length) {
+  throw new Error(`Ambiguous transcript aliases require explicit resolutions: ${report.ambiguousAliases.map(item => item.alias).join(", ")}`);
 }
 
 const outputPath = resolve(websiteRoot, `src/content/imported/transcripts/${episodeId}.${rules.locale}.json`);
@@ -142,5 +148,5 @@ console.log(JSON.stringify({
   output: relative(websiteRoot, outputPath),
   provenance: imported.provenance,
   conversionVersion: imported.conversionVersion,
-  report: imported.report,
+  report,
 }, null, 2));

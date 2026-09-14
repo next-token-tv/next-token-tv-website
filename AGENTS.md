@@ -7,7 +7,7 @@ This website is metadata-driven.
 - Human-authored structured metadata lives as YAML under `src/content/data/`.
 - Localized long-form content lives as Markdown under `src/content/prose/`.
 - Generated snapshots imported from production repositories live as JSON under `src/content/imported/` and must not be hand-edited.
-- Transcript snapshots must record their source repository, repository-relative path, source SHA-256, source Git state, and committed revision when one exists. Website builds never read editorial working files directly.
+- Transcript snapshots must record their source repository, repository-relative path, source SHA-256, source Git state, and committed revision when one exists. Published snapshots require committed sources. Conversion QA reports remain command output and are not stored in website snapshots. Website builds never read editorial working files directly.
 - Cross-entity references use stable lowercase ASCII IDs. IDs are filenames without their extension.
 - Industry brands and products are separate entities: a product may reference its owning brand and a parent product. Standalone products do not require a separate brand entry. Versioned model names are aliases of their model-family entry.
 - Brand entries describe companies, organizations, or independent media brands. Models, applications, platforms, and open-source tools belong in products; do not create a duplicate brand for the same product. A company and its same-name product may remain separate when each has distinct information. Shows use their show entry and pagePath, not a duplicate brand.

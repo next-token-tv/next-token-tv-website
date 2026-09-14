@@ -294,7 +294,7 @@ export function convertTranscript(tree, {
     0,
   );
 
-  const result = {
+  const snapshot = {
     schemaVersion: 1,
     conversionVersion: CONVERSION_VERSION,
     episodeId,
@@ -310,21 +310,22 @@ export function convertTranscript(tree, {
       sourcePath,
       sourceSha256,
     },
-    report: {
-      chapters: chapters.length,
-      turns,
-      paragraphs,
-      candidateSpeakerMarkers: candidates,
-      linkedEntities: [...linkCounts]
-        .map(([entity, chapterCount]) => ({ entity, chapterCount }))
-        .sort((a, b) => a.entity.localeCompare(b.entity)),
-      ambiguousAliases: matcher.ambiguousAliases,
-      unknownSpeakers: [...unknownSpeakers].sort(),
-      unlinkedCandidates: collectUnlinkedCandidates(
-        chapters,
-        new Set(matcher.candidates.map(({ alias }) => alias)),
-      ),
-    },
+    chapterCount: chapters.length,
+  };
+  const report = {
+    chapters: chapters.length,
+    turns,
+    paragraphs,
+    candidateSpeakerMarkers: candidates,
+    linkedEntities: [...linkCounts]
+      .map(([entity, chapterCount]) => ({ entity, chapterCount }))
+      .sort((a, b) => a.entity.localeCompare(b.entity)),
+    ambiguousAliases: matcher.ambiguousAliases,
+    unknownSpeakers: [...unknownSpeakers].sort(),
+    unlinkedCandidates: collectUnlinkedCandidates(
+      chapters,
+      new Set(matcher.candidates.map(({ alias }) => alias)),
+    ),
   };
 
   const visibleParagraphs = chapters.flatMap(({ turns: chapterTurns }) =>
@@ -335,5 +336,5 @@ export function convertTranscript(tree, {
     throw new Error("The approved omission is still present in the public transcript");
   }
 
-  return result;
+  return { snapshot, report };
 }

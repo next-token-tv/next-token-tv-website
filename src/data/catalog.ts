@@ -154,8 +154,8 @@ function validateCatalog(catalog: Catalog) {
     if (transcript.id !== expectedId) {
       throw new Error(`Transcript import ${transcript.id} must use ID ${expectedId}`);
     }
-    if (transcript.data.report.chapters !== transcript.data.chapters.length) {
-      throw new Error(`Transcript import ${transcript.id} chapter count does not match its report`);
+    if (transcript.data.chapterCount !== transcript.data.chapters.length) {
+      throw new Error(`Transcript import ${transcript.id} chapter count does not match its chapters`);
     }
     transcript.data.chapters.flatMap(({ turns }) => turns).forEach((turn) => {
       if (turn.speakerId) requireId(people, turn.speakerId, `speaker referenced by transcript ${transcript.id}`);

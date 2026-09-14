@@ -295,8 +295,7 @@ const episodeImports = defineCollection({
       productionCommit: z.string().regex(/^[0-9a-f]{40}$/),
       releaseManifestSha256: z.string().regex(/^[0-9a-f]{64}$/).optional(),
       sources: z.array(z.object({ path: z.string(), sha256: z.string().regex(/^[0-9a-f]{64}$/) })).optional(),
-      sourceGitStatus: z.string().optional(),
-    }),
+    }).strict(),
   }),
 });
 
@@ -320,6 +319,7 @@ const transcriptImports = defineCollection({
     title: z.string(),
     byline: z.string(),
     notices: z.array(z.string()),
+    chapterCount: z.number().int().positive(),
     chapters: z.array(z.object({
       id: z.string(),
       title: z.string(),
@@ -344,26 +344,10 @@ const transcriptImports = defineCollection({
       ({ sourceRevision, sourceState }) => sourceState === "committed" ? sourceRevision !== null : sourceRevision === null,
       "Transcript sourceRevision must exist only for committed source files",
     ),
-    report: z.object({
-      chapters: z.number().int().positive(),
-      turns: z.number().int().positive(),
-      paragraphs: z.number().int().positive(),
-      candidateSpeakerMarkers: z.number().int().nonnegative(),
-      linkedEntities: z.array(z.object({
-        entity: z.string(),
-        chapterCount: z.number().int().positive(),
-      })),
-      ambiguousAliases: z.array(z.object({
-        alias: z.string(),
-        matches: z.array(z.string()),
-      })),
-      unknownSpeakers: z.array(z.string()),
-      unlinkedCandidates: z.array(z.object({
-        value: z.string(),
-        count: z.number().int().positive(),
-      })),
-    }),
-  }),
+  }).strict().refine(
+    ({ publicationStatus, provenance }) => publicationStatus === "review-draft" || provenance.sourceState === "committed",
+    "Published transcript snapshots must come from committed source files",
+  ),
 });
 
 const prose = defineCollection({

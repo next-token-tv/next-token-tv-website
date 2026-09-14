@@ -6,6 +6,7 @@
 
 The built-site audit requires:
 
+- Published episode and transcript snapshots come from committed production sources. Importers reject dirty or untracked release inputs and do not serialize raw working-tree status into website data.
 - Internal destinations and fragment anchors exist, including entity links.
 - Each episode has Chinese and English detail routes.
 - Published episode metadata titles use `Weekly #<number> | <topic>` semantics without a site-name suffix. HTML sitemap rows show the number once and use the localized hero heading for the topic.
