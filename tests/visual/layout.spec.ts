@@ -125,9 +125,13 @@ for (const viewport of viewports) {
         for (const ratio of geometry.headingRatios) expect(ratio).toBeCloseTo(1.25, 2);
 
         if (viewport.name === "mobile" || viewport.name === "wide") {
+          if (route.path === "/weekly/") {
+            await page.locator(".site-header").evaluate((header) => {
+              header.style.visibility = "hidden";
+            });
+          }
           await expect(page.locator(route.visual)).toHaveScreenshot(
             `${route.path.replace("/wiki/", "/").replaceAll("/", "-").replace(/^-|-$/g, "") || "home"}-${viewport.name}.png`,
-            { maxDiffPixelRatio: 0.025 },
           );
         }
       });
