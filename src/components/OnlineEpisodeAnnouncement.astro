@@ -1,0 +1,39 @@
+---
+import { getAnnouncedEpisode } from "../data/catalog";
+import type { Locale } from "../data/types";
+interface Props { episodeId: string; locale: Locale }
+const { episodeId, locale } = Astro.props;
+const { data } = await getAnnouncedEpisode(episodeId);
+const en = locale === "en";
+const date = new Intl.DateTimeFormat(en ? "en-US" : "zh-Hans", {
+  year: "numeric", month: "long", day: "numeric", timeZone: data.timeZone,
+}).format(new Date(data.scheduledAt));
+---
+<main id="main">
+  <section class="episode-preview-hero">
+    <div class="episode-preview-hero-inner shell">
+      <div class="episode-preview-copy">
+        <p class="eyebrow">{data.preview.eyebrow[locale]}</p>
+        <h1>{data.preview.heading[locale][0]}<br />{data.preview.heading[locale][1]}</h1>
+        <p>{data.preview.summary[locale]}</p>
+        <p>{data.preview.note[locale]}</p>
+      </div>
+      <div class="episode-preview-poster">
+        <span>Next Token Weekly</span>
+        <strong>#{data.number}</strong>
+        <div><span>{date}</span><span>{en ? "Online" : "线上录制"}</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="episode-preview-details shell">
+    <p class="section-kicker">{en ? "Recording details" : "录制信息"}</p>
+    <div>
+      <h2 class="heading-section-content">{en ? "An online roundtable." : "一场线上圆桌。"}</h2>
+      <dl class="episode-preview-facts">
+        <div><dt>{en ? "Date" : "录制日期"}</dt><dd>{date}</dd></div>
+        <div><dt>{en ? "Format" : "录制形式"}</dt><dd>{en ? "Online" : "线上"}</dd></div>
+      </dl>
+      <a href={en ? "/en/weekly/" : "/weekly/"}>{en ? "All episodes" : "查看全部节目"} →</a>
+    </div>
+  </section>
+</main>

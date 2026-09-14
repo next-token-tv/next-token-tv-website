@@ -10,12 +10,12 @@ const episode = episodes.filter(({ data }) => data.show === showId)
   .sort((a, b) => a.data.status === "announced" && b.data.status === "announced"
     ? Date.parse(a.data.scheduledAt) - Date.parse(b.data.scheduledAt) : 0)[0];
 const data = episode?.data.status === "announced" ? episode.data : undefined;
-const recording = data ? await resolveVenueId(data.recordingVenue) : undefined;
+const recording = data?.recordingVenue ? await resolveVenueId(data.recordingVenue) : undefined;
 const date = data ? new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-Hans", {
-  month: "short", day: "numeric", hour: "numeric", minute: "2-digit",
+  month: "short", day: "numeric", ...(data.scheduledAt.length > 10 ? { hour: "numeric" as const, minute: "2-digit" as const } : {}),
   hour12: locale === "en", timeZone: data.timeZone,
 }).format(new Date(data.scheduledAt)) : "";
-const venue = recording ? `${locale === "en" ? recording.partner.englishName : recording.partner.name} · ${recording.venue.name[locale]}` : "";
+const venue = data?.recordingMode === "online" ? (locale === "en" ? "Online recording" : "线上录制") : recording ? `${locale === "en" ? recording.partner.englishName : recording.partner.name} · ${recording.venue.name[locale]}` : "";
 ---
 
 {data && (

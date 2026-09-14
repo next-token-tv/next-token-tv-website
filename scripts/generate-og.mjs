@@ -19,7 +19,7 @@ for (const locale of ['zh-Hans', 'en']) {
   cards.push({ route: `${prefix}/weekly/`, locale, label: 'NEXT TOKEN WEEKLY', title: show.page[locale].heading.join('\n'), subtitle: en ? 'Four co-hosts. Every week.' : '四位联合主理人 · 每周圆桌对谈' });
   for (const p of people) cards.push({ route: `${prefix}/wiki/people/${p.id}/`, locale, label: hostIds.has(p.id) ? (en ? 'CO-HOST' : '联合主理人') : (en ? 'PEOPLE' : '人物库'), title: p.name[locale], subtitle: p.bio[locale], photo: p.photo });
   for (const e of episodes) {
-    cards.push({ route: `${prefix}/weekly/${e.number}/`, locale, label: `WEEKLY #${e.number} · ${en ? (e.status === 'published' ? 'EPISODE' : 'PREVIEW') : (e.status === 'published' ? '本期节目' : '录制预告')}`, title: e.status === 'published' ? e.homepage[locale].heading.join(en ? ' ' : '') : e.preview.heading[locale].join(''), subtitle: en ? 'Next Token | 词元之外' : 'Next Token Weekly · 词元之外' });
+    cards.push({ route: `${prefix}/weekly/${e.number}/`, locale, label: `WEEKLY #${e.number} · ${e.status === 'published' && !e.media.video ? (en ? 'AUDIO OUT NOW' : '音频已上线') : en ? (e.status === 'published' ? 'EPISODE' : 'PREVIEW') : (e.status === 'published' ? '本期节目' : '录制预告')}`, title: e.status === 'published' ? e.homepage[locale].heading.join(en ? ' ' : '') : e.preview.heading[locale].join(en ? ' ' : ''), subtitle: en ? 'Next Token | 词元之外' : 'Next Token Weekly · 词元之外' });
   }
 }
 for (const name of await readdir(resolve(root, 'src/content/imported/transcripts'))) {

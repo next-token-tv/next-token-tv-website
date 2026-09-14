@@ -1,0 +1,9 @@
+---
+import { getTranscriptEpisodes } from "../data/catalog";
+import TranscriptLink from "./TranscriptLink.astro";
+import type { Locale } from "../data/types";
+interface Props { locale: Locale; variant?: "light" | "inline" }
+const { locale, variant = "light" } = Astro.props;
+const episode = (await getTranscriptEpisodes(locale)).sort((a, b) => Number(b.data.number) - Number(a.data.number))[0];
+---
+{episode && <TranscriptLink episodeId={episode.id} number={episode.data.number} locale={locale} variant={variant} showNumber />}

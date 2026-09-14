@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 2,
+  "episodeId": "next-token-weekly--002",
+  "number": "002",
+  "show": "next-token-weekly",
+  "status": "published",
+  "language": "zh-Hans",
+  "recordedAt": "2026-09-12",
+  "releaseDate": "2026-09-13",
+  "recordingVenue": "agi-bar--shanghai-beiyang",
+  "durationSeconds": 6164,
+  "imageKind": "artwork",
+  "imageDimensions": {
+    "width": 3000,
+    "height": 3000
+  },
+  "participants": [
+    {
+      "person": "xiangyang-qiaomu",
+      "role": "duty-host"
+    },
+    {
+      "person": "guizang",
+      "role": "co-host"
+    },
+    {
+      "person": "orange",
+      "role": "co-host"
+    },
+    {
+      "person": "yangpan",
+      "role": "co-host"
+    }
+  ],
+  "guestNames": [
+    {
+      "zh-Hans": "南乔",
+      "en": "南乔"
+    },
+    {
+      "zh-Hans": "赛博禅心",
+      "en": "赛博禅心"
+    }
+  ],
+  "images": {
+    "960": "/assets/weekly-002-cover-square.jpg",
+    "1440": "/assets/weekly-002-cover-square.jpg",
+    "1920": "/assets/weekly-002-cover-square.jpg"
+  },
+  "provenance": {
+    "productionCommit": "6c900fcb4f888fb9cad18abdaa0e3b73646b13ab",
+    "sourceGitStatus": "?? shows/weekly/episodes/002/04-release/artwork/cover-square-photo-v5.jpg\n?? shows/weekly/episodes/002/04-release/copy/show-notes.zh-Hans.md\n?? shows/weekly/episodes/002/04-release/platforms/apple-podcasts/publish.zh-Hans.md\n?? shows/weekly/episodes/002/04-release/platforms/bilibili/publish.zh-Hans.md\n?? shows/weekly/episodes/002/04-release/platforms/spotify/publish.zh-Hans.md\n?? shows/weekly/episodes/002/04-release/platforms/xiaoyuzhou/status.zh-Hans.md",
+    "sources": [
+      {
+        "path": "shows/weekly/episodes/002/04-release/artwork/cover-square-photo-v5.jpg",
+        "sha256": "fec8e4981ba281e19c47226cb6e670f890ecd8e7784fd9dc45cefb2da19096b7"
+      },
+      {
+        "path": "shows/weekly/episodes/002/04-release/platforms/spotify/publish.zh-Hans.md",
+        "sha256": "1e58d410624a17c05f9fa27744873aa640df75b659f6e21731719c26963d101c"
+      },
+      {
+        "path": "shows/weekly/episodes/002/04-release/platforms/apple-podcasts/publish.zh-Hans.md",
+        "sha256": "2b2ff45229dcaefc9c424b0e4fe065dc3ef7a5b3d31d9fe5bf2d56eb8dd2a1fc"
+      },
+      {
+        "path": "shows/weekly/episodes/002/04-release/platforms/xiaoyuzhou/status.zh-Hans.md",
+        "sha256": "430987a6293aacaba4127f2c2c019ba7fbbc8c117ef0691058fa91dab38d2bab"
+      },
+      {
+        "path": "shows/weekly/episodes/002/04-release/platforms/bilibili/publish.zh-Hans.md",
+        "sha256": "4b817478787f7274e2d0bc6c862c55c902ecdd2c86efeee722a0ac468cc9b2c6"
+      },
+      {
+        "path": "shows/weekly/episodes/002/04-release/copy/show-notes.zh-Hans.md",
+        "sha256": "2c68df7174cc4ce7c0fb63523aaee1fe922b56ce86c52247de3b7ea672dad2d4"
+      }
+    ]
+  }
+}

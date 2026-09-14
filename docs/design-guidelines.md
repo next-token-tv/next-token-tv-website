@@ -15,6 +15,7 @@
 - Navigation, homepage section headings, card grids, subscription content, and footer content share the same outer content edges in both languages. Internal columns and readable prose may be narrower.
 - Full-width backgrounds are independent of content width. The homepage Weekly section wraps its content in `.shell`; its background and the topic rail remain full bleed. Do not nest padded shells or add a second inline gutter to their parents.
 - The homepage hero uses the same shell: text aligns with its left content edge and the photograph ends at its right content edge. Neither column bleeds beyond the shared content area.
+- The homepage brand visual is owned by `BrandHeroVisual.astro` and deliberately retains the original Weekly #001 recording photograph, monochrome treatment, panning, stamp and “24 signals / one open table” caption. It is a long-term brand asset, not a latest-episode cover. Episode releases update the primary CTA and episode cards, never this visual; replacement requires explicit user approval.
 - The Weekly landing-page and episode-announcement heroes follow the same rule: their two-column blocks use `.shell`, and neither column extends beyond the shared desktop content area. At stacked breakpoints, a background panel may reach the shell edge while its text retains the shared gutter.
 - Published episode heroes use `.episode-detail-hero-inner.shell` for both image and copy; only the outer dark background spans the viewport.
 - On wide desktop screens, the Weekly landing hero stays within the first viewport below the header. Its vertical poster lettering scales with viewport height so it cannot force the hero taller; the copy H1 remains the dominant element in the left column.
@@ -46,6 +47,10 @@
 - H1, H3, body text, and compact labels retain their own typography rules; consistency means shared rules for equivalent roles, not one line height for every text element.
 
 ## Validation
+
+- Published audio-only and video episodes share the same detail and card components. Display audio/video availability independently; only link a transcript when that locale has an imported transcript. The latest available transcript may belong to an older episode and must display its episode number in homepage/channel hero links.
+- Weekly cards are ordered by descending episode number. Homepage primary actions and the global status link point to the latest published episode. Recording previews remain separate and disappear when no announced episode exists.
+- Designed cover artwork is displayed intact with `object-fit: contain`, without photo panning or grayscale effects. The approved episode H1 and number classes also apply to audio-only episodes.
 
 - Check every rendered H2 on Chinese and English pages at desktop, tablet, and mobile widths. Its computed line height divided by font size must equal 1.25 (allowing browser rounding).
 - At the same viewport width, headings within each shared role must resolve to the same computed font size.

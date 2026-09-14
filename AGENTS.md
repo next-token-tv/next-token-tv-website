@@ -14,5 +14,7 @@ This website is metadata-driven.
 - A team/about page, founder identity, or legal company alone does not justify splitting a same-name platform into company and product entries. Split only when the library independently covers the organization (for example, its product portfolio or organization-specific topics). Runta and OpenRouter are standalone platform products.
 - A recording venue belongs to one partner. Every episode production snapshot references one exact venue.
 - An announced episode may store a confirmed recording date and venue before a production snapshot exists. Published episodes require an imported production snapshot.
+- Announcement schedules may be date-only when the recording time is unconfirmed. Online recordings use `recordingMode: online` without a physical venue; do not infer meeting links, public attendance, or participants.
+- An episode becomes `published` when its first medium is released. Audio and video availability are independent `media` flags; transcript availability comes from the localized transcript collection. Published audio-only episodes use an imported audio snapshot with hashed release sources; they must not remain announcements. Latest published episodes are selected from metadata by descending episode number, never by a hardcoded ID.
 - Next Token logo and visual-identity source files remain authoritative in the sibling `next-token` repository. Files under `public/assets/` are website delivery copies.
 - Metadata refactors must preserve the existing rendered design unless a design change is explicitly requested.

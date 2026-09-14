@@ -123,7 +123,12 @@ function validateCatalog(catalog: Catalog) {
       }
       participantIds.forEach((person) => requireId(people, person, `person referenced by episode ${episode.id}`));
     } else {
-      requireId(venues, episode.data.recordingVenue, `venue referenced by announced episode ${episode.id}`);
+      if (episode.data.recordingMode === "in-person") {
+        if (!episode.data.recordingVenue) throw new Error(`In-person episode ${episode.id} requires a venue`);
+        requireId(venues, episode.data.recordingVenue, `venue referenced by announced episode ${episode.id}`);
+      } else if (episode.data.recordingVenue) {
+        throw new Error(`Online episode ${episode.id} must not reference a physical venue`);
+      }
       const participantIds = episode.data.participants.map(({ person }) => person);
       if (new Set(participantIds).size !== participantIds.length) {
         throw new Error(`Announced episode ${episode.id} contains duplicate participants`);
@@ -328,8 +333,11 @@ export async function getEpisodeShowNotes(episodeId: string, locale: Locale) {
   return showNotes;
 }
 
-export async function getPublishedEpisode(episodeId = "next-token-weekly--001") {
+export async function getPublishedEpisode(episodeId?: string) {
   const catalog = await getContentCatalog();
+  episodeId ??= catalog.episodes.filter(({ data }) => data.status === "published" && data.show === "next-token-weekly")
+    .sort((a, b) => Number(b.data.number) - Number(a.data.number))[0]?.id;
+  if (!episodeId) throw new Error("No published Weekly episode");
   const episode = requireId(indexById(catalog.episodes), episodeId, "episode");
   if (episode.data.status !== "published") {
     throw new Error(`Episode ${episodeId} is not published`);
@@ -347,6 +355,12 @@ export async function getPublishedEpisode(episodeId = "next-token-weekly--001") 
       ...episode.data,
     },
   };
+}
+
+export async function getPublishedEpisodes(showId = "next-token-weekly") {
+  const catalog = await getContentCatalog();
+  return Promise.all(catalog.episodes.filter(({ data }) => data.status === "published" && data.show === showId)
+    .sort((a, b) => Number(b.data.number) - Number(a.data.number)).map(({ id }) => getPublishedEpisode(id)));
 }
 
 export async function getEpisodeTranscript(episodeId: string, locale: Locale) {

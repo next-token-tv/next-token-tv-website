@@ -40,7 +40,7 @@ const isLibrary = currentPath.startsWith(content.locale === "en" ? "/en/wiki/" :
         <span aria-hidden="true">/</span>
         <a href={content.locale === "en" ? currentPath : alternatePath} lang="en" data-language="en" aria-current={content.locale === "en" ? "page" : undefined}>EN</a>
       </div>
-      <span class="status-pill">{content.status}</span>
+      <a class="status-pill" href={content.latestEpisodePath}>{content.status}</a>
     </nav>
   </div>
 </header>

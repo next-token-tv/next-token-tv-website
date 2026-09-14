@@ -1,0 +1,30 @@
+---
+import { getPublishedEpisode } from "../data/catalog";
+import { resolveVenueId } from "../data/partners";
+import type { Locale } from "../data/types";
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+// Deliberately pinned: this recording image is the long-term brand visual, not a latest-episode cover.
+const source = await getPublishedEpisode("next-token-weekly--001");
+const { partner, venue } = await resolveVenueId(source.data.recordingVenue);
+const venueLabel = `${locale === "en" ? partner.englishName : partner.name} · ${venue.name[locale]}`;
+---
+<div class="hero-visual" data-brand-visual="weekly-001" aria-label={locale === "en" ? "Next Token roundtable recording" : "Next Token 圆桌录制现场"}>
+  <img
+    class="pan-if-cropped"
+    data-pan-if-cropped
+    src={source.data.images["960"]}
+    srcset={`${source.data.images["960"]} 960w, ${source.data.images["1440"]} 1440w, ${source.data.images["1920"]} 1920w`}
+    sizes="(max-width: 1000px) 100vw, (min-width: 1600px) 700px, 48vw"
+    width="1920" height="1080" decoding="async" fetchpriority="high"
+    alt={source.data.homepage[locale].imageAlt}
+  />
+  <div class="episode-stamp">Weekly<br />#001</div>
+  <div class="visual-caption">
+    <strong>24 signals<br />one open table</strong>
+    <span class="recording-caption">
+      <span>Recorded · {source.data.recordedAt.replaceAll("-", ".")}</span>
+      <span>· {venueLabel}</span>
+    </span>
+  </div>
+</div>

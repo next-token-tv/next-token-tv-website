@@ -1,0 +1,23 @@
+schemaVersion: 2
+number: '003'
+show: next-token-weekly
+status: announced
+scheduledAt: '2026-09-19'
+timeZone: Asia/Shanghai
+recordingMode: online
+participants: []
+title:
+  zh-Hans: 'Weekly #003｜9 月 19 日线上录制预告'
+  en: 'Weekly #003 | Online recording on September 19'
+preview:
+  eyebrow: {zh-Hans: 'Weekly #003 · 录制预告', en: 'Weekly #003 · Recording preview'}
+  heading:
+    zh-Hans: ['下一次圆桌，', '线上见。']
+    en: ['The next open table,', 'online.']
+  summary:
+    zh-Hans: Next Token Weekly 第三期将于 2026 年 9 月 19 日以线上形式录制。
+    en: 'Next Token Weekly episode #003 will be recorded online on September 19, 2026.'
+  note:
+    zh-Hans: 具体时间、主题与发布信息将在确认后更新。
+    en: The recording time, topic and release details will be added once confirmed.
+mentions: {brands: [], products: [], people: []}

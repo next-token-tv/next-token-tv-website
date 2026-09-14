@@ -28,6 +28,7 @@ export type Host = {
 };
 
 export type SiteContent = {
+  latestEpisodePath?: string;
   locale: Locale;
   path: "/" | "/en/";
   title: string;
@@ -220,6 +221,11 @@ export async function getSiteContent(locale: Locale): Promise<SiteContent> {
 
   return {
     ...base,
+    status: locale === "en" ? `#${episode.data.number} ${episode.data.media.video ? "out now" : "audio out now"}` : `#${episode.data.number} ${episode.data.media.video ? "已上线" : "音频已上线"}`,
+    description: locale === "en" ? "Next Token is a podcast about AI, products and real-world impact. " + episode.data.homepage[locale].lede : "Next Token | 词元之外，关注 AI 技术、产品与现实影响的播客。" + episode.data.homepage[locale].lede,
+    ogDescription: episode.data.title[locale],
+    hero: { ...base.hero, primaryAction: locale === "en" ? `Explore latest episode #${episode.data.number}` : `收听最新一期 #${episode.data.number}` },
+    latestEpisodePath: `${locale === "en" ? "/en" : ""}/weekly/${episode.data.number}/`,
     weekly: episode.data.homepage[locale],
     hosts: {
       ...base.hosts,

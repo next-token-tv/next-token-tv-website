@@ -1,11 +1,12 @@
 ---
-import TranscriptLink from "./TranscriptLink.astro";
+import EpisodeCard from "./EpisodeCard.astro";
+import LatestTranscriptLink from "./LatestTranscriptLink.astro";
 import UpcomingEpisodeLink from "./UpcomingEpisodeLink.astro";
 import ShowSubscriptions from "./ShowSubscriptions.astro";
 import HostCard from "./HostCard.astro";
 import ConditionalImagePan from "./ConditionalImagePan.astro";
 import { getPublishedEpisode } from "../data/catalog";
-import { resolveVenueId } from "../data/partners";
+import BrandHeroVisual from "./BrandHeroVisual.astro";
 import type { SiteContent } from "../data/site";
 
 interface Props {
@@ -13,18 +14,8 @@ interface Props {
 }
 
 const { content } = Astro.props;
-const episode001 = await getPublishedEpisode();
-const episode001Assets = {
-  id: episode001.data.number,
-  recordedAt: episode001.data.recordedAt,
-  images: episode001.data.images,
-};
-const episode001Recording = await resolveVenueId(episode001.data.recordingVenue);
-const episode001VenueLabel = content.locale === "en"
-  ? `${episode001Recording.partner.englishName} · ${episode001Recording.venue.name.en}`
-  : `${episode001Recording.partner.name} · ${episode001Recording.venue.name["zh-Hans"]}`;
-
-const episode001Path = content.locale === "en" ? "/en/weekly/001/" : "/weekly/001/";
+const latestEpisode = await getPublishedEpisode();
+const latestEpisodePath = `${content.locale === "en" ? "/en" : ""}/weekly/${latestEpisode.data.number}/`;
 ---
 
 <main id="main">
@@ -40,8 +31,9 @@ const episode001Path = content.locale === "en" ? "/en/weekly/001/" : "/weekly/00
         </h1>
         <p class="hero-intro">{content.hero.intro}</p>
         <div class="actions">
-          <a class="button primary" href={episode001Path}>{content.hero.primaryAction} <span aria-hidden="true">↘</span></a>
-          <TranscriptLink episodeId={episode001.id} number={episode001.data.number} locale={content.locale} variant="light" />
+          <a class="button primary" href={latestEpisodePath}>{content.hero.primaryAction} <span aria-hidden="true">↘</span></a>
+          <LatestTranscriptLink locale={content.locale} />
+          <a class="hero-about-link" href={`${content.locale === "en" ? "/en" : ""}/weekly/`}>{content.locale === "en" ? "All episodes" : "全部节目"} →</a>
           <a class="hero-about-link" href="#about">{content.hero.secondaryAction} <span aria-hidden="true">→</span></a>
         </div>
         <UpcomingEpisodeLink locale={content.locale} />
@@ -52,28 +44,7 @@ const episode001Path = content.locale === "en" ? "/en/weekly/001/" : "/weekly/00
       </div>
     </div>
 
-    <div class="hero-visual" aria-label={content.hero.visualLabel}>
-      <img
-        class="pan-if-cropped"
-        data-pan-if-cropped
-        src={episode001Assets.images["960"]}
-        srcset={`${episode001Assets.images["960"]} 960w, ${episode001Assets.images["1440"]} 1440w, ${episode001Assets.images["1920"]} 1920w`}
-        sizes="(max-width: 1000px) 100vw, (min-width: 1600px) 700px, 48vw"
-        width="1920"
-        height="1080"
-        decoding="async"
-        fetchpriority="high"
-        alt={content.hero.visualAlt}
-      />
-      <div class="episode-stamp">Weekly<br />#{episode001Assets.id}</div>
-      <div class="visual-caption">
-        <strong>24 signals<br />one open table</strong>
-        <span class="recording-caption">
-          <span>Recorded · {episode001Assets.recordedAt.replaceAll("-", ".")}</span>
-          <span>· {episode001VenueLabel}</span>
-        </span>
-      </div>
-    </div>
+    <BrandHeroVisual locale={content.locale} />
     </div>
   </section>
 
@@ -117,40 +88,7 @@ const episode001Path = content.locale === "en" ? "/en/weekly/001/" : "/weekly/00
       </div>
     </div>
 
-    <article class="weekly-card" data-reveal>
-      <div class="weekly-image">
-        <img
-          class="pan-if-cropped"
-          data-pan-if-cropped
-          src={episode001Assets.images["960"]}
-          srcset={`${episode001Assets.images["960"]} 960w, ${episode001Assets.images["1440"]} 1440w, ${episode001Assets.images["1920"]} 1920w`}
-          sizes="(max-width: 1000px) 100vw, 50vw"
-          width="1920"
-          height="1080"
-          loading="lazy"
-          decoding="async"
-          alt={content.weekly.imageAlt}
-        />
-        <span class="label">Recorded 09.03 · {episode001VenueLabel}</span>
-      </div>
-      <div class="weekly-copy">
-        <div class="episode-number">#{episode001Assets.id}</div>
-        <div>
-          <p class="eyebrow">{content.weekly.eyebrow}</p>
-          <h3>{content.weekly.heading[0]}<br />{content.weekly.heading[1]}</h3>
-          <p>{content.weekly.copy}</p>
-          <div class="episode-meta" aria-label={content.weekly.topicsLabel}>
-            {content.weekly.topics.map((topic) => <span>{topic}</span>)}
-          </div>
-          <div class="episode-actions">
-            <a class="episode-listen" href={episode001Path}>
-              {content.locale === "en" ? "Explore episode · Listen / watch" : "查看本期 · 收听/收看"} <span aria-hidden="true">↗</span>
-            </a>
-            <TranscriptLink episodeId={episode001.id} number={episode001.data.number} locale={content.locale} />
-          </div>
-        </div>
-      </div>
-    </article>
+    <EpisodeCard episodeId={latestEpisode.id} locale={content.locale} />
     </div>
   </section>
 
@@ -179,6 +117,7 @@ const episode001Path = content.locale === "en" ? "/en/weekly/001/" : "/weekly/00
 </main>
 
 <ConditionalImagePan />
+
 
 <script>
   const revealItems = document.querySelectorAll<HTMLElement>("[data-reveal]");

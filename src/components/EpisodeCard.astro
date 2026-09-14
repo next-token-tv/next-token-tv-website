@@ -1,0 +1,46 @@
+---
+import { getPublishedEpisode } from "../data/catalog";
+import TranscriptLink from "./TranscriptLink.astro";
+import type { Locale } from "../data/types";
+interface Props { episodeId: string; locale: Locale }
+const { episodeId, locale } = Astro.props;
+const episode = await getPublishedEpisode(episodeId);
+const copy = episode.data.homepage[locale];
+const href = `${locale === "en" ? "/en" : ""}/weekly/${episode.data.number}/`;
+---
+<article class:list={["weekly-card", { "has-artwork": episode.data.imageKind === "artwork" }]} data-episode-number={episode.data.number}>
+  <a class:list={["weekly-image", { "is-artwork": episode.data.imageKind === "artwork" }]} href={href} aria-label={episode.data.title[locale]}>
+    <img src={episode.data.images["1920"]} width={episode.data.imageDimensions.width} height={episode.data.imageDimensions.height} loading="lazy" alt={copy.imageAlt} />
+    <span class="label">{episode.data.releaseDate} · {locale === "en" ? (episode.data.media.video ? "Audio & video" : "Audio") : (episode.data.media.video ? "音频 / 视频" : "音频")}</span>
+  </a>
+  <div class="weekly-copy">
+    <div class="episode-number">#{episode.data.number}</div>
+    <div>
+      <p class="eyebrow">{copy.eyebrow}</p>
+      <h3>{copy.heading.join(locale === "en" ? " " : "")}</h3>
+      <p>{copy.copy}</p>
+      <div class="episode-meta" aria-label={copy.topicsLabel}>{copy.topics.map(topic => <span>{topic}</span>)}</div>
+      <div class="episode-actions">
+        <a class="episode-listen" href={href}>{locale === "en" ? (episode.data.media.video ? "Listen / watch" : "Listen now") : (episode.data.media.video ? "收听 / 收看" : "立即收听")} ↗</a>
+        <TranscriptLink episodeId={episodeId} number={episode.data.number} locale={locale} />
+      </div>
+    </div>
+  </div>
+</article>
+<style>
+  .weekly-card + .weekly-card { margin-top: 2rem; }
+  .weekly-image { display: block; }
+  .weekly-image.is-artwork { display: block; align-self: start; width: 100%; min-height: 0; aspect-ratio: 1; padding: 0; border: 0; }
+  .weekly-image.is-artwork img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .has-artwork .weekly-copy { padding: 2rem; justify-content: center; }
+  .has-artwork .episode-number { margin-bottom: 1.5rem; }
+  @media (min-width: 80rem) and (max-width: 89.999rem) {
+    .has-artwork .weekly-copy { padding: 1.5rem; }
+    .has-artwork .episode-number { margin-bottom: 0.5rem; }
+    .has-artwork .weekly-copy h3 { margin-bottom: 0.5rem; }
+    .has-artwork .episode-meta, .has-artwork .episode-actions { margin-top: 1rem; }
+  }
+  @media (max-width: 79.999rem) {
+    .weekly-card.has-artwork { grid-template-columns: 1fr; }
+  }
+</style>

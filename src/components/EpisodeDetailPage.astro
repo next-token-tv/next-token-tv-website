@@ -36,10 +36,11 @@ const recordingDate = new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-Ha
 const windowFormatter = new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-Hans", {
   year: "numeric", month: "long", day: "numeric", timeZone: "Asia/Shanghai",
 });
-const windowValue = windowFormatter.formatRange(
+const windowValue = episode.data.editorialWindow ? windowFormatter.formatRange(
   new Date(`${episode.data.editorialWindow.start}T12:00:00+08:00`),
   new Date(`${episode.data.editorialWindow.end}T12:00:00+08:00`),
-);
+) : null;
+const duration = episode.data.durationSeconds;
 const labels = locale === "en" ? {
   back: "Next Token Weekly",
   published: `Episode #${episode.data.number} · Now live`,
@@ -82,15 +83,15 @@ const labels = locale === "en" ? {
 <main id="main" class="episode-detail-page">
   <section class="episode-detail-hero">
     <div class="episode-detail-hero-inner shell">
-    <div class="episode-detail-image">
+    <div class:list={["episode-detail-image", { "is-artwork": episode.data.imageKind === "artwork" }]}>
       <img
-        class="pan-if-cropped"
-        data-pan-if-cropped
+        class:list={{ "pan-if-cropped": episode.data.imageKind === "photo" }}
+        data-pan-if-cropped={episode.data.imageKind === "photo" || undefined}
         src={episode.data.images["960"]}
         srcset={`${episode.data.images["960"]} 960w, ${episode.data.images["1440"]} 1440w, ${episode.data.images["1920"]} 1920w`}
         sizes="(max-width: 1000px) 100vw, 52vw"
-        width="1920"
-        height="1080"
+        width={episode.data.imageDimensions.width}
+        height={episode.data.imageDimensions.height}
         decoding="async"
         fetchpriority="high"
         alt={homepage.imageAlt}
@@ -104,6 +105,7 @@ const labels = locale === "en" ? {
         <p class="eyebrow">{homepage.eyebrow}</p>
         <h1 class="episode-hero-title">{homepage.heading[0]}<br />{homepage.heading[1]}</h1>
         <p>{homepage.lede}</p>
+        {!episode.data.media.video && <p>{locale === "en" ? "Audio out now · Video not yet available" : "音频已上线 · 视频版尚未上线"}</p>}
         <TranscriptLink episodeId={episodeId} number={episode.data.number} locale={locale} details />
         <div class="episode-actions">
           {episode.data.platforms.filter(({ href }) => href).map((platform) => (
@@ -120,6 +122,8 @@ const labels = locale === "en" ? {
   <section class="episode-detail-content shell">
     <aside class="episode-detail-meta">
       <dl>
+        {episode.data.releaseDate && <div><dt>{locale === "en" ? "Published" : "发布日期"}</dt><dd>{episode.data.releaseDate}</dd></div>}
+        {duration && <div><dt>{locale === "en" ? "Duration" : "音频时长"}</dt><dd>{Math.floor(duration / 3600)}:{String(Math.floor(duration / 60) % 60).padStart(2, "0")}:{String(duration % 60).padStart(2, "0")}</dd></div>}
         <div>
           <dt>{labels.recorded}</dt>
           <dd>{recordingDate}</dd>
@@ -128,10 +132,7 @@ const labels = locale === "en" ? {
           <dt>{labels.venue}</dt>
           <dd>{locale === "en" ? `${partner.englishName} · ${venue.name.en}` : `${partner.name} · ${venue.name["zh-Hans"]}`}</dd>
         </div>
-        <div>
-          <dt>{labels.window}</dt>
-          <dd>{labels.windowValue}</dd>
-        </div>
+        {windowValue && <div><dt>{labels.window}</dt><dd>{labels.windowValue}</dd></div>}
       </dl>
       <a href={partnerPath(partner, locale)}>{labels.venueProfile} <span aria-hidden="true">→</span></a>
     </aside>
@@ -163,6 +164,7 @@ const labels = locale === "en" ? {
         );
       })}
     </div>
+    {episode.data.guestNames.length > 0 && <p class="episode-guest-names">{locale === "en" ? "Guests" : "本期嘉宾"}：{episode.data.guestNames.map(name => name[locale]).join(" · ")}</p>}
   </section>
 
   <section class="episode-detail-platforms shell">
@@ -175,3 +177,9 @@ const labels = locale === "en" ? {
 </main>
 
 <ConditionalImagePan />
+
+<style>
+  .episode-detail-image.is-artwork { display: block; align-self: start; width: 100%; min-height: 0; aspect-ratio: 1; padding: 0; border: 0; }
+  .episode-detail-image.is-artwork img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .episode-guest-names { margin-top: 1.5rem; }
+</style>

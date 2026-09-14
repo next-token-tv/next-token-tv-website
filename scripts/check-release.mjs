@@ -46,6 +46,11 @@ for (const name of await readdir(directory)) {
   const data = load(await readFile(resolve(directory, name), 'utf8'));
   episodes++;
   if (data.status === 'published') published.push(data);
+  if (data.status === 'published') {
+    if (!data.media?.audio && !data.media?.video) errors.push(`${name}: published episode has no released medium`);
+    const snapshot = JSON.parse(await readFile(resolve(root, `src/content/imported/episodes/${data.productionImport}.json`), 'utf8'));
+    if (!snapshot.releaseDate || Date.parse(snapshot.releaseDate) > Date.now()) errors.push(`${name}: missing or future release date`);
+  }
   if (data.status === 'announced') announced.push(data);
   for (const prefix of ['', '/en']) {
     const route = resolve(dist, `.${prefix}/weekly/${data.number}/index.html`);
@@ -59,6 +64,10 @@ for (const name of await readdir(directory)) {
     const url = new URL(platform.href);
     if (url.protocol !== 'https:' || !hosts[platform.platform]?.includes(url.hostname)) errors.push(`${name}: invalid ${platform.platform} destination`);
     if (!platform.action?.['zh-Hans'] || !platform.action?.en) errors.push(`${name}: missing bilingual platform action`);
+    for (const prefix of ['', '/en']) {
+      const html = pages.get(resolve(dist, `.${prefix}/weekly/${data.number}/index.html`)) ?? '';
+      if (!html.includes(platform.href.replaceAll('&', '&amp;'))) errors.push(`${name}: missing platform episode link in ${prefix || 'Chinese'} page`);
+    }
   }
 }
 const latest = published.filter((data) => data.show === 'next-token-weekly').sort((a, b) => Number(b.number) - Number(a.number))[0];

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import EpisodeAnnouncementPage from "../../../components/EpisodeAnnouncementPage.astro";
+import OnlineEpisodeAnnouncement from "../../../components/OnlineEpisodeAnnouncement.astro";
 import EpisodeDetailPage from "../../../components/EpisodeDetailPage.astro";
 import { getEpisode, getEpisodesForShow } from "../../../data/catalog";
 import { getSiteContent } from "../../../data/site";
@@ -37,5 +38,7 @@ const alternatePath = `/weekly/${episode.data.number}/`;
 >
   {episode.data.status === "published"
     ? <EpisodeDetailPage episodeId={episodeId} locale="en" />
-    : <EpisodeAnnouncementPage episodeId={episodeId} locale="en" />}
+    : episode.data.recordingMode === "online"
+      ? <OnlineEpisodeAnnouncement episodeId={episodeId} locale="en" />
+      : <EpisodeAnnouncementPage episodeId={episodeId} locale="en" />}
 </BaseLayout>

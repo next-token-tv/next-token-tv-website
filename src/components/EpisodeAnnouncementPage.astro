@@ -12,6 +12,7 @@ interface Props {
 
 const { episodeId, locale } = Astro.props;
 const episode = await getAnnouncedEpisode(episodeId);
+if (!episode.data.recordingVenue) throw new Error("In-person announcement requires a venue");
 const [{ partner, venue }, participants] = await Promise.all([
   resolveVenueId(episode.data.recordingVenue),
   getPeopleByIds(episode.data.participants.map(({ person }) => person)),

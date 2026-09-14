@@ -1,5 +1,6 @@
 ---
-import TranscriptLink from "./TranscriptLink.astro";
+import EpisodeCard from "./EpisodeCard.astro";
+import LatestTranscriptLink from "./LatestTranscriptLink.astro";
 import UpcomingEpisodeLink from "./UpcomingEpisodeLink.astro";
 import ShowSubscriptions from "./ShowSubscriptions.astro";
 import ConditionalImagePan from "./ConditionalImagePan.astro";
@@ -8,6 +9,7 @@ import {
   getAnnouncedEpisodes,
   getHostsForShow,
   getPublishedEpisode,
+  getPublishedEpisodes,
   getShowPageData,
 } from "../data/catalog";
 import { resolveVenueId } from "../data/partners";
@@ -20,24 +22,21 @@ interface Props {
 const { content } = Astro.props;
 const locale = content.locale;
 const showId = "next-token-weekly";
-const [show, hosts, episode001, announcedEpisodes] = await Promise.all([
+const [show, hosts, latestEpisode, announcedEpisodes] = await Promise.all([
   getShowPageData(showId, locale),
   getHostsForShow(showId, locale),
   getPublishedEpisode(),
   getAnnouncedEpisodes(),
 ]);
+const episodes = await getPublishedEpisodes(showId);
 const page = show.data.page[locale];
-const episodeCopy = episode001.data.homepage[locale];
-const episode001Recording = await resolveVenueId(episode001.data.recordingVenue);
-const episode001VenueLabel = locale === "en"
-  ? `${episode001Recording.partner.englishName} · ${episode001Recording.venue.name.en}`
-  : `${episode001Recording.partner.name} · ${episode001Recording.venue.name["zh-Hans"]}`;
+const episodeCopy = latestEpisode.data.homepage[locale];
 const upcoming = announcedEpisodes
   .filter(({ data }) => data.show === showId)
   .sort((a, b) => a.data.status === "announced" && b.data.status === "announced"
     ? Date.parse(a.data.scheduledAt) - Date.parse(b.data.scheduledAt)
     : 0)[0];
-const upcomingVenue = upcoming?.data.status === "announced"
+const upcomingVenue = upcoming?.data.status === "announced" && upcoming.data.recordingVenue
   ? await resolveVenueId(upcoming.data.recordingVenue)
   : undefined;
 const weeklyPath = locale === "en" ? "/en/weekly/" : "/weekly/";
@@ -50,7 +49,7 @@ const labels = locale === "en" ? {
   hostsNote: "No permanent host. The duty host rotates, and disagreement remains part of the show.",
   episodesIndex: "04 / Episodes",
   episodesHeading: ["One week at a time,", "the signal gets clearer."],
-  currentEpisode: "Latest episode",
+  currentEpisode: "Featured episode",
   episodeDetail: "Explore episode · Listen / watch",
   recorded: "Recorded",
   upcoming: "Next recording",
@@ -68,7 +67,7 @@ const labels = locale === "en" ? {
   hostsNote: "没有长期固定主持人。当值主理人轮换串场，真实的分歧留在节目里。",
   episodesIndex: "04 / Episodes",
   episodesHeading: ["从每一周，", "看见下一步。"],
-  currentEpisode: "最新一期",
+  currentEpisode: "精选节目",
   episodeDetail: "查看本期 · 收听/收看",
   recorded: "录制于",
   upcoming: "下一次录制",
@@ -102,9 +101,10 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
         <h1>{page.heading.map((line) => <span>{line}</span>)}</h1>
         <p>{page.lede}</p>
         <div class="weekly-latest-actions">
-          <strong>{locale === "en" ? "Latest episode" : "最新一期"} #{episode001.data.number}</strong>
-          <a href={`${weeklyPath}${episode001.data.number}/`}>{locale === "en" ? "Listen / watch" : "收听 / 收看"} ↗</a>
-          <TranscriptLink episodeId={episode001.id} number={episode001.data.number} locale={locale} variant="inline" />
+          <strong>{locale === "en" ? "Latest episode" : "最新一期"} #{latestEpisode.data.number}</strong>
+          <p class="latest-episode-title">{episodeCopy.heading.join(locale === "en" ? " " : "")}</p>
+          <a href={`${weeklyPath}${latestEpisode.data.number}/`}>{locale === "en" ? (latestEpisode.data.media.video ? "Listen / watch" : "Listen now · Audio") : (latestEpisode.data.media.video ? "收听 / 收看" : "立即收听 · 音频版")} ↗</a>
+          <LatestTranscriptLink locale={locale} variant="inline" />
         </div>
         <UpcomingEpisodeLink locale={locale} />
       </div>
@@ -169,51 +169,18 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
         <p>{episodeCopy.lede}</p>
       </div>
 
-      <article class="weekly-card">
-        <div class="weekly-image">
-          <img
-            class="pan-if-cropped"
-            data-pan-if-cropped
-            src={episode001.data.images["960"]}
-            srcset={`${episode001.data.images["960"]} 960w, ${episode001.data.images["1440"]} 1440w, ${episode001.data.images["1920"]} 1920w`}
-            sizes="(max-width: 1000px) 100vw, 50vw"
-            width="1920"
-            height="1080"
-            loading="lazy"
-            decoding="async"
-            alt={episodeCopy.imageAlt}
-          />
-          <span class="label">{labels.recorded} {episode001.data.recordedAt.replaceAll("-", ".")} · {episode001VenueLabel}</span>
-        </div>
-        <div class="weekly-copy">
-          <div class="episode-number">#{episode001.data.number}</div>
-          <div>
-            <p class="eyebrow">{labels.currentEpisode} · {episodeCopy.eyebrow}</p>
-            <h3>{episodeCopy.heading[0]}<br />{episodeCopy.heading[1]}</h3>
-            <p>{episodeCopy.copy}</p>
-            <div class="episode-meta" aria-label={episodeCopy.topicsLabel}>
-              {episodeCopy.topics.map((topic) => <span>{topic}</span>)}
-            </div>
-            <div class="episode-actions">
-              <a class="episode-listen" href={`${weeklyPath}${episode001.data.number}/`}>
-                {labels.episodeDetail} <span aria-hidden="true">↗</span>
-              </a>
-              <TranscriptLink episodeId={episode001.id} number={episode001.data.number} locale={locale} />
-            </div>
-          </div>
-        </div>
-      </article>
+      {episodes.map(episode => <EpisodeCard episodeId={episode.id} locale={locale} />)}
 
-      {upcoming?.data.status === "announced" && upcomingVenue && (
+      {upcoming?.data.status === "announced" && (
         <a class="weekly-show-upcoming" href={`${weeklyPath}${upcoming.data.number}/`}>
           <span>{labels.upcoming}</span>
           <strong>#{upcoming.data.number}</strong>
           <p>{upcoming.data.title[locale]}</p>
           <p>
-            {formatDate(upcoming.data.scheduledAt, upcoming.data.timeZone, true)} · {
-              locale === "en"
+            {formatDate(upcoming.data.scheduledAt, upcoming.data.timeZone, upcoming.data.scheduledAt.length > 10)} · {
+              upcoming.data.recordingMode === "online" ? (locale === "en" ? "Online recording" : "线上录制") : upcomingVenue ? locale === "en"
                 ? `${upcomingVenue.partner.englishName} · ${upcomingVenue.venue.name.en}`
-                : `${upcomingVenue.partner.name} · ${upcomingVenue.venue.name["zh-Hans"]}`
+                : `${upcomingVenue.partner.name} · ${upcomingVenue.venue.name["zh-Hans"]}` : ""
             }
           </p>
           <span>{labels.previewAction} ↗</span>
@@ -232,3 +199,7 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
 </main>
 
 <ConditionalImagePan />
+
+<style>
+  .latest-episode-title { flex-basis: 100%; margin: 0; font-size: 1rem; line-height: 1.5; }
+</style>

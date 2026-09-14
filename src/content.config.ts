@@ -231,6 +231,7 @@ const episodes = defineCollection({
       ...episodeCore,
       status: z.literal("published"),
       productionImport: z.string(),
+      media: z.object({ audio: z.boolean(), video: z.boolean() }),
       homepage: z.object({ "zh-Hans": episodeHomepage, en: episodeHomepage }),
       platforms: z.array(z.object({
         platform: z.enum(["xiaoyuzhou", "apple-podcasts", "spotify", "bilibili", "youtube"]),
@@ -242,9 +243,10 @@ const episodes = defineCollection({
     z.object({
       ...episodeCore,
       status: z.literal("announced"),
-      scheduledAt: z.iso.datetime({ offset: true }),
+      scheduledAt: z.union([z.iso.date(), z.iso.datetime({ offset: true })]),
       timeZone: z.string(),
-      recordingVenue: z.string(),
+      recordingMode: z.enum(["online", "in-person"]).default("in-person"),
+      recordingVenue: z.string().optional(),
       participants: z.array(z.object({
         person: z.string(),
         role: z.enum(["duty-host", "co-host", "guest"]),
@@ -271,7 +273,11 @@ const episodeImports = defineCollection({
     recordedAt: z.iso.date(),
     recordingVenue: z.string(),
     releaseDate: z.iso.date().optional(),
-    editorialWindow: z.object({ start: z.iso.date(), end: z.iso.date() }),
+    editorialWindow: z.object({ start: z.iso.date(), end: z.iso.date() }).optional(),
+    durationSeconds: z.number().positive().optional(),
+    imageKind: z.enum(["photo", "artwork"]).default("photo"),
+    imageDimensions: z.object({width: z.number().int().positive(), height: z.number().int().positive()}).default({width: 1920, height: 1080}),
+    guestNames: z.array(localizedText).default([]),
     participants: z.array(z.object({
       person: z.string(),
       role: z.enum(["duty-host", "co-host", "guest"]),
@@ -283,7 +289,9 @@ const episodeImports = defineCollection({
     }),
     provenance: z.object({
       productionCommit: z.string().regex(/^[0-9a-f]{40}$/),
-      releaseManifestSha256: z.string().regex(/^[0-9a-f]{64}$/),
+      releaseManifestSha256: z.string().regex(/^[0-9a-f]{64}$/).optional(),
+      sources: z.array(z.object({ path: z.string(), sha256: z.string().regex(/^[0-9a-f]{64}$/) })).optional(),
+      sourceGitStatus: z.string().optional(),
     }),
   }),
 });
