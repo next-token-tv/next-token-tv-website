@@ -16,6 +16,22 @@ async function walk(dir) {
 }
 await walk(dist);
 if (!pages.size) throw new Error('Build the website before running check:release');
+
+const redirectLines = (await readFile(resolve(root, 'public/_redirects'), 'utf8'))
+  .split(/\r?\n/)
+  .map((line) => line.trim())
+  .filter((line) => line && !line.startsWith('#'));
+for (const line of redirectLines) {
+  const [, target] = line.split(/\s+/);
+  if (!target?.startsWith('/') || target.includes(':')) continue;
+  const destination = resolve(dist, `.${target}`, target.endsWith('/') ? 'index.html' : '');
+  try {
+    await stat(destination);
+  } catch {
+    errors.push(`redirect has missing destination: ${line}`);
+  }
+}
+
 for (const [file, html] of pages) {
   const pagePath = file.slice(dist.length).replace(/index\.html$/, '');
   for (const [, raw] of html.matchAll(/\bhref="([^"]+)"/g)) {
@@ -82,5 +98,5 @@ for (const prefix of ['', '/en']) {
   }
 }
 if (errors.length) throw new Error(errors.join('\n'));
-console.log(`Release checks passed: ${pages.size} pages, ${episodes} episodes; internal links, anchors, localized episode routes, announcement dates and platform URL hosts.`);
+console.log(`Release checks passed: ${pages.size} pages, ${episodes} episodes; redirects, internal links, anchors, localized episode routes, announcement dates and platform URL hosts.`);
 console.log('External platform availability is not inferred from URL validation; confirm playback before publication.');
