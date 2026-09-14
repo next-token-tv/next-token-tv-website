@@ -29,9 +29,9 @@ for (const width of [390, 768, 1280, 1320, 1440, 1920, 2560]) {
           await expect(page.locator('.visual-caption strong')).toHaveText('24 signalsone open table');
         }
         expect(await cards.evaluateAll(nodes => nodes.map(n => n.getAttribute('data-episode-number')))).toEqual(path === '/' ? ['002'] : ['002', '001']);
-        await expect(page.locator('a[href*="/002/transcript/"]')).toHaveCount(0);
+        await expect(page.locator('a[href*="/002/transcript/"]')).toHaveCount(prefix ? 0 : 2);
         await expect(page.locator('.platform-list a[href*="spotify.com"]')).toHaveAttribute('href', /\/show\//);
-        if (!prefix) await expect(page.locator('main > section').first().locator('a[href="/weekly/001/transcript/"]')).toContainText('#001');
+        if (!prefix) await expect(page.locator('main > section').first().locator('a[href="/weekly/002/transcript/"]')).toContainText('#002');
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       }
       await page.goto(`${prefix}/weekly/002/`);
@@ -48,7 +48,7 @@ for (const width of [390, 768, 1280, 1320, 1440, 1920, 2560]) {
       await expect(page.locator('.episode-guest-names')).toContainText('南乔');
       await expect(page.locator('.episode-guest-names')).toContainText('赛博禅心');
       await expect(page.locator('.episode-preview-hero')).toHaveCount(0);
-      await expect(page.locator('.episode-transcript-cta')).toHaveCount(0);
+      await expect(page.locator('.episode-transcript-cta')).toHaveCount(prefix ? 0 : 1);
       expect(await page.locator('.episode-detail-image img').evaluate(n => getComputedStyle(n).objectFit)).toBe('contain');
       const detailCover = page.locator('.episode-detail-image img');
       await expect(detailCover).toHaveAttribute('width', '3000');

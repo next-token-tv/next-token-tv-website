@@ -143,9 +143,9 @@ test.describe("entity metadata and links", () => {
   test("entity pages expose structured data", async ({ page }) => {
     await page.goto("/wiki/products/glm/");
     const structuredData = JSON.parse(await page.locator('script[type="application/ld+json"]').textContent() ?? "{}");
-    expect(structuredData["@type"]).toBe("Product");
-    expect(structuredData.name).toBe("GLM");
-    expect(structuredData.brand.name).toBe("智谱");
+    expect(structuredData["@type"]).toBe("WebPage");
+    expect(structuredData.about.name).toBe("GLM");
+    expect(structuredData.about["@type"]).toBe("Thing");
   });
 
   test("secondary filters restore from and update the URL", async ({ page }) => {
@@ -155,8 +155,8 @@ test.describe("entity metadata and links", () => {
     await expect(page.locator("[data-entity-kind]:visible")).toHaveCount(Number(await companyFilter.locator("strong").textContent()));
 
     await page.locator('[data-entity-filter="media-brand"]').click();
-    await expect(page).toHaveURL(/\/brands\/\?type=media-brand$/);
-    await expect(page.locator('[data-entity-kind="media-brand"]')).toBeVisible();
+    await expect(page).toHaveURL(/\/wiki\/brands\/\?type=media-brand$/);
+    await expect(page.locator('[data-entity-kind="media-brand"]:visible').first()).toBeVisible();
     await expect(page.locator('[data-entity-kind="company-brand"]:visible')).toHaveCount(0);
 
     await page.goto("/en/wiki/products/?type=model-family");

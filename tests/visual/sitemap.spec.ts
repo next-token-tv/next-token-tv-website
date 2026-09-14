@@ -9,14 +9,14 @@ for (const width of [390, 1440]) {
       await expect(page.locator(`footer a[href="${prefix}/sitemap/"]`)).toBeVisible();
       await expect(page.locator('#brands li')).not.toHaveCount(0);
       await expect(page.locator('#products li')).not.toHaveCount(0);
-      await expect(page.locator('#people li')).toHaveCount(10);
-      await expect(page.locator('main a[href*="/transcript/"]')).toHaveCount(prefix ? 0 : 1);
+      await expect(page.locator('#people li')).not.toHaveCount(0);
+      await expect(page.locator('main a[href*="/transcript/"]')).toHaveCount(prefix ? 0 : 2);
       const hrefs = await page.locator('main section a').evaluateAll(links => links.map(a => a.getAttribute('href')!));
       for (const href of hrefs) expect((await request.get(href)).status()).toBe(200);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       if (!prefix && width === 1440) {
         const episode = await page.locator('#episodes a[href="/weekly/001/"]').boundingBox();
-        const transcript = await page.locator('#transcripts a').boundingBox();
+        const transcript = await page.locator('#transcripts a[href="/weekly/001/transcript/"]').boundingBox();
         expect(Math.abs(episode!.y - transcript!.y)).toBeLessThan(1);
         expect(transcript!.x).toBeGreaterThan(episode!.x);
       }

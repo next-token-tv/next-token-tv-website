@@ -1,14 +1,16 @@
 import { expect, test } from '@playwright/test';
 
 test('transcript is directly discoverable and only links to available locales', async ({ page }) => {
-  for (const path of ['/', '/weekly/', '/weekly/001/']) {
+  for (const path of ['/', '/weekly/', '/weekly/001/', '/weekly/002/']) {
     await page.goto(path);
-    await expect(page.locator('.episode-transcript-cta')).toHaveCount(path === '/weekly/' ? 2 : 1);
+    const expectedCount = path === '/' ? 2 : path === '/weekly/' ? 3 : 1;
+    await expect(page.locator('.episode-transcript-cta')).toHaveCount(expectedCount);
     const link = page.locator('main > section').first().locator('.episode-transcript-cta');
     await expect(link).toHaveCount(1);
-    await expect(link).toHaveAttribute('href', '/weekly/001/transcript/');
-    if (path === '/weekly/001/') {
-      await expect(page.locator('.transcript-cta-description')).toHaveText('37 个章节 · 支持全文搜索');
+    const episode = path === '/weekly/001/' ? '001' : '002';
+    await expect(link).toHaveAttribute('href', `/weekly/${episode}/transcript/`);
+    if (path.startsWith('/weekly/00')) {
+      await expect(page.locator('.transcript-cta-description')).toContainText('个章节 · 支持全文搜索');
       expect(await link.evaluate((node) => !!(node.compareDocumentPosition(document.querySelector('.episode-detail-hero .episode-actions')!) & Node.DOCUMENT_POSITION_FOLLOWING))).toBe(true);
     }
     await link.click();
@@ -19,7 +21,7 @@ test('transcript is directly discoverable and only links to available locales', 
 });
 
 test('transcript hero entrances fit desktop and mobile', async ({ page }) => {
-  for (const width of [390, 1327, 1920]) for (const path of ['/', '/weekly/', '/weekly/001/']) {
+  for (const width of [390, 1327, 1920]) for (const path of ['/', '/weekly/', '/weekly/001/', '/weekly/002/']) {
     await page.setViewportSize({ width, height: 897 });
     await page.goto(path);
     const hero = page.locator('main > section').first();

@@ -4,7 +4,7 @@ const pairs = [
   ['dhh', 'products', 'omarchy'], ['dhh', 'brands', 'omacom'],
   ['orange', 'brands', 'marswave'], ['orange', 'products', 'listenhub'],
   ['orange', 'products', 'colaos'], ['aj', 'brands', 'waytoagi'],
-  ['chen-mian', 'brands', 'evoken'], ['guanlan-dai', 'products', 'runta'],
+  ['chen-mian', 'brands', 'evoken'], ['guanlan-dai', 'brands', 'runta'],
   ['luo-fuli', 'brands', 'xiaomi'], ['wang-le', 'brands', 'folotoy'],
 ];
 for (const prefix of ['', '/en']) test(`entity relationships ${prefix || 'zh'}`, async ({ page }) => {
@@ -24,7 +24,7 @@ for (const prefix of ['', '/en']) test(`entity relationships ${prefix || 'zh'}`,
 });
 test('direct transcript links and no inferred mentions', async ({ page }) => {
   await page.goto('/weekly/001/transcript/');
-  for (const href of ['/wiki/products/omarchy/', '/wiki/products/colaos/', '/wiki/products/runta/', '/wiki/brands/xiaomi/'])
+  for (const href of ['/wiki/products/omarchy/', '/wiki/products/colaos/', '/wiki/brands/runta/', '/wiki/brands/xiaomi/'])
     expect(await page.locator(`.transcript-turn a[href="${href}"]`).count()).toBeGreaterThan(0);
   await page.goto('/weekly/001/');
   for (const id of ['waytoagi', 'evoken', 'folotoy', 'marswave', 'omacom'])
