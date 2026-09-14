@@ -1,0 +1,9 @@
+kind: company-brand
+name: {zh-Hans: 腾讯, en: Tencent}
+summary: {zh-Hans: 运营微信、腾讯云等产品与服务的科技公司。, en: A technology company operating products and services including WeChat and Tencent Cloud.}
+aliases: [Tencent]
+official: {website: https://www.tencent.com/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://www.tencent.com/

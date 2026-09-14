@@ -1,0 +1,14 @@
+kind: media-brand
+name:
+  zh-Hans: 赛博禅心
+  en: Cyber Zen
+summary:
+  zh-Hans: 关注人工智能产品、创业与行业观察的科技媒体品牌。
+  en: A technology media brand focused on AI products, entrepreneurship and industry commentary.
+aliases: []
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label:
+      zh-Hans: 赛博禅心与大聪明介绍
+      en: Introduction to Cyber Zen and Da Congming
+    href: https://www.huxiu.com/article/4093731.html

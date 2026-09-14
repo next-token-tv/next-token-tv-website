@@ -1,0 +1,23 @@
+kind: agent
+brand: wechat
+name:
+  zh-Hans: 小微
+  en: Xiaowei
+summary:
+  zh-Hans: 微信正在灰度测试的原生 AI 助手，可通过对话操作微信功能并调用小程序服务。
+  en: WeChat's native AI assistant in limited testing, designed to operate WeChat features and invoke Mini Program services through conversation.
+aliases:
+  - 微信小微
+  - 微信 AI
+  - 微信AI
+status: preview
+lastVerifiedAt: "2026-09-14"
+sources:
+  - label:
+      zh-Hans: 微信官方产品介绍
+      en: Official WeChat product profile
+    href: https://www.tencent.com/zh-cn/products/weixin-wechat/
+  - label:
+      zh-Hans: 微信团队回应与功能说明
+      en: WeChat team response and feature description
+    href: https://www.tmtpost.com/8036364.html

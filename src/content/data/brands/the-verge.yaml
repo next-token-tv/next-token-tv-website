@@ -1,0 +1,9 @@
+kind: media-brand
+name: {zh-Hans: The Verge, en: The Verge}
+summary: {zh-Hans: 报道科技、科学、文化与产品的媒体品牌。, en: A media brand covering technology, science, culture and products.}
+aliases: []
+official: {website: https://www.theverge.com/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://www.theverge.com/

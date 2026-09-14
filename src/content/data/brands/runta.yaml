@@ -1,0 +1,13 @@
+kind: platform-brand
+name: {zh-Hans: Runta, en: Runta}
+summary: {zh-Hans: 面向 AI Agent 提供运行环境、凭据保护、网络访问控制与资源伸缩能力的执行基础设施品牌。, en: An execution-infrastructure brand providing runtimes, credential protection, network controls, and resource scaling for AI agents.}
+aliases: []
+official:
+  website: https://runta.com/
+  documentation: https://runta.com/docs/
+lastVerifiedAt: '2026-09-10'
+sources:
+  - label: {zh-Hans: Runta 官方介绍, en: Runta overview}
+    href: https://runta.com/
+  - label: {zh-Hans: Runta 使用文档, en: Runta documentation}
+    href: https://runta.com/docs/

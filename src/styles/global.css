@@ -2588,6 +2588,16 @@ html[lang="en"] .weekly-show-facts strong {
   overflow: clip;
 }
 
+.transcript-review-banner {
+  padding: 0.7rem var(--shell-gutter);
+  background: var(--signal);
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
 .transcript-hero {
   padding-top: clamp(1.5rem, 3vw, 2.75rem);
   padding-bottom: clamp(2rem, 4vw, 3.5rem);

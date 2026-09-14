@@ -1,0 +1,10 @@
+kind: hardware
+name: {zh-Hans: Oura Ring, en: Oura Ring}
+summary: {zh-Hans: 用于睡眠、恢复与日常健康追踪的智能戒指。, en: A smart ring for tracking sleep, recovery and everyday health.}
+aliases: [Oura]
+status: available
+official: {website: https://ouraring.com/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://ouraring.com/

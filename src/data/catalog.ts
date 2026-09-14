@@ -70,6 +70,13 @@ function validateCatalog(catalog: Catalog) {
     requireId(brands, show.data.ownerBrand, `owner brand referenced by show ${show.id}`);
   }
 
+  for (const brand of catalog.brands) {
+    if (brand.data.parentBrand) {
+      const parentBrand = requireId(brands, brand.data.parentBrand, `parent brand referenced by brand ${brand.id}`);
+      if (parentBrand.id === brand.id) throw new Error(`Brand ${brand.id} cannot be its own parent`);
+    }
+  }
+
   for (const venue of catalog.venues) {
     requireId(partners, venue.data.partner, `partner referenced by venue ${venue.id}`);
     const expectedId = `${venue.data.partner}--${venue.data.slug}`;
@@ -506,7 +513,14 @@ export async function getProductDirectory(locale: Locale) {
 
 export async function getBrandProfile(brandId: string) {
   const catalog = await getContentCatalog();
+  const brands = indexById(catalog.brands);
   const brand = requireId(indexById(catalog.brands), brandId, "brand");
+  const parentBrand = brand.data.parentBrand
+    ? requireId(brands, brand.data.parentBrand, `parent brand referenced by ${brandId}`)
+    : undefined;
+  const childBrands = catalog.brands
+    .filter(({ data }) => data.parentBrand === brandId)
+    .sort((a, b) => a.data.name.en.localeCompare(b.data.name.en));
   const products = catalog.products
     .filter(({ data }) => data.brand === brandId)
     .sort((a, b) => a.data.name.en.localeCompare(b.data.name.en));
@@ -515,7 +529,7 @@ export async function getBrandProfile(brandId: string) {
     data.mentions.brands.includes(brandId)
     || data.mentions.products.some((product) => productIds.has(product)))
     .sort(newestEpisodeFirst);
-  return { brand, products, episodes };
+  return { brand, parentBrand, childBrands, products, episodes };
 }
 
 export async function getProductProfile(productId: string) {

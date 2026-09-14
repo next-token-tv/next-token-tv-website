@@ -1,0 +1,9 @@
+kind: application
+name: {zh-Hans: The One, en: The One}
+summary: {zh-Hans: 可接入微信 OpenClaw 的 AI 情感陪伴产品。, en: An AI companion product designed to connect through WeChat OpenClaw.}
+aliases: [The One 陪伴]
+status: available
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 产品介绍, en: Product introduction}
+    href: https://www.aitntnews.com/newDetail.html?newId=24564

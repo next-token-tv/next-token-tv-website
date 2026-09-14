@@ -26,7 +26,7 @@
               },
               {
                 "type": "entity-link",
-                "value": "Next Token | 词元之外",
+                "value": "Next Token｜词元之外",
                 "entityType": "brand",
                 "entityId": "next-token",
                 "href": "/wiki/brands/next-token/"
@@ -68,7 +68,7 @@
               },
               {
                 "type": "entity-link",
-                "value": "Next Token | 词元之外",
+                "value": "Next Token｜词元之外",
                 "entityType": "brand",
                 "entityId": "next-token",
                 "href": "/wiki/brands/next-token/"
@@ -544,9 +544,9 @@
               {
                 "type": "entity-link",
                 "value": "fal.ai",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "fal-ai",
-                "href": "/wiki/products/fal-ai/"
+                "href": "/wiki/brands/fal-ai/"
               },
               {
                 "type": "text",
@@ -561,9 +561,9 @@
               {
                 "type": "entity-link",
                 "value": "fal.ai",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "fal-ai",
-                "href": "/wiki/products/fal-ai/"
+                "href": "/wiki/brands/fal-ai/"
               },
               {
                 "type": "text",
@@ -624,9 +624,9 @@
               {
                 "type": "entity-link",
                 "value": "fal.ai",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "fal-ai",
-                "href": "/wiki/products/fal-ai/"
+                "href": "/wiki/brands/fal-ai/"
               },
               {
                 "type": "text",
@@ -1565,9 +1565,9 @@
               {
                 "type": "entity-link",
                 "value": "飞书",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "feishu",
-                "href": "/wiki/products/feishu/"
+                "href": "/wiki/brands/feishu/"
               },
               {
                 "type": "text",
@@ -1877,9 +1877,9 @@
               {
                 "type": "entity-link",
                 "value": "OpenRouter",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "openrouter",
-                "href": "/wiki/products/openrouter/"
+                "href": "/wiki/brands/openrouter/"
               },
               {
                 "type": "text",
@@ -2144,7 +2144,18 @@
               },
               {
                 "type": "text",
-                "value": " 那个推理成本是 Sol 的 4 倍，价格价格是 3 倍，还打给你打个折。"
+                "value": " 那个推理成本是 "
+              },
+              {
+                "type": "entity-link",
+                "value": "Sol",
+                "entityType": "product",
+                "entityId": "gpt",
+                "href": "/wiki/products/gpt/"
+              },
+              {
+                "type": "text",
+                "value": " 的 4 倍，价格价格是 3 倍，还打给你打个折。"
               }
             ]
           ]
@@ -2219,8 +2230,15 @@
           "paragraphs": [
             [
               {
+                "type": "entity-link",
+                "value": "有道",
+                "entityType": "brand",
+                "entityId": "netease-youdao",
+                "href": "/wiki/brands/netease-youdao/"
+              },
+              {
                 "type": "text",
-                "value": "有道理。"
+                "value": "理。"
               }
             ]
           ]
@@ -2413,9 +2431,9 @@
               {
                 "type": "entity-link",
                 "value": "Runta",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "runta",
-                "href": "/wiki/products/runta/"
+                "href": "/wiki/brands/runta/"
               },
               {
                 "type": "text",
@@ -2697,9 +2715,9 @@
               {
                 "type": "entity-link",
                 "value": "DeepSeek",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/brands/deepseek/"
               },
               {
                 "type": "text",
@@ -2708,9 +2726,9 @@
               {
                 "type": "entity-link",
                 "value": "DeepSeek",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/brands/deepseek/"
               },
               {
                 "type": "text",
@@ -2729,9 +2747,9 @@
               {
                 "type": "entity-link",
                 "value": "DeepSeek",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/brands/deepseek/"
               },
               {
                 "type": "text",
@@ -2922,9 +2940,9 @@
               {
                 "type": "entity-link",
                 "value": "DeepSeek",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/brands/deepseek/"
               },
               {
                 "type": "text",
@@ -3073,9 +3091,9 @@
               {
                 "type": "entity-link",
                 "value": "微信",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "wechat",
-                "href": "/wiki/products/wechat/"
+                "href": "/wiki/brands/wechat/"
               },
               {
                 "type": "text",
@@ -3298,9 +3316,9 @@
               {
                 "type": "entity-link",
                 "value": "微信",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "wechat",
-                "href": "/wiki/products/wechat/"
+                "href": "/wiki/brands/wechat/"
               },
               {
                 "type": "text",
@@ -3387,9 +3405,9 @@
               {
                 "type": "entity-link",
                 "value": "DeepSeek",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/brands/deepseek/"
               },
               {
                 "type": "text",
@@ -3412,9 +3430,9 @@
               {
                 "type": "entity-link",
                 "value": "DeepSeek",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/brands/deepseek/"
               },
               {
                 "type": "text",
@@ -3465,9 +3483,9 @@
               {
                 "type": "entity-link",
                 "value": "DeepSeek",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/brands/deepseek/"
               },
               {
                 "type": "text",
@@ -3490,9 +3508,9 @@
               {
                 "type": "entity-link",
                 "value": "DeepSeek",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/brands/deepseek/"
               },
               {
                 "type": "text",
@@ -4229,9 +4247,9 @@
               {
                 "type": "entity-link",
                 "value": "YouTube",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "youtube",
-                "href": "/wiki/products/youtube/"
+                "href": "/wiki/brands/youtube/"
               },
               {
                 "type": "text",
@@ -4655,9 +4673,9 @@
               {
                 "type": "entity-link",
                 "value": "OpenRouter",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "openrouter",
-                "href": "/wiki/products/openrouter/"
+                "href": "/wiki/brands/openrouter/"
               },
               {
                 "type": "text",
@@ -5191,9 +5209,9 @@
               {
                 "type": "entity-link",
                 "value": "DeepSeek",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/brands/deepseek/"
               },
               {
                 "type": "text",
@@ -5290,9 +5308,9 @@
               {
                 "type": "entity-link",
                 "value": "DeepSeek",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/brands/deepseek/"
               },
               {
                 "type": "text",
@@ -6559,9 +6577,9 @@
               {
                 "type": "entity-link",
                 "value": "DeepSeek",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/brands/deepseek/"
               },
               {
                 "type": "text",
@@ -7651,8 +7669,15 @@
           "paragraphs": [
             [
               {
+                "type": "entity-link",
+                "value": "Windows",
+                "entityType": "product",
+                "entityId": "windows",
+                "href": "/wiki/products/windows/"
+              },
+              {
                 "type": "text",
-                "value": "Windows 的配置确实性价比低点儿。"
+                "value": " 的配置确实性价比低点儿。"
               }
             ]
           ]
@@ -7752,9 +7777,9 @@
               {
                 "type": "entity-link",
                 "value": "微信",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "wechat",
-                "href": "/wiki/products/wechat/"
+                "href": "/wiki/brands/wechat/"
               },
               {
                 "type": "text",
@@ -8691,9 +8716,9 @@
               {
                 "type": "entity-link",
                 "value": "DeepSeek",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/brands/deepseek/"
               },
               {
                 "type": "text",
@@ -9148,9 +9173,9 @@
               {
                 "type": "entity-link",
                 "value": "飞书",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "feishu",
-                "href": "/wiki/products/feishu/"
+                "href": "/wiki/brands/feishu/"
               },
               {
                 "type": "text",
@@ -9421,9 +9446,9 @@
               {
                 "type": "entity-link",
                 "value": "微信",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "wechat",
-                "href": "/wiki/products/wechat/"
+                "href": "/wiki/brands/wechat/"
               },
               {
                 "type": "text",
@@ -9432,9 +9457,9 @@
               {
                 "type": "entity-link",
                 "value": "微信",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "wechat",
-                "href": "/wiki/products/wechat/"
+                "href": "/wiki/brands/wechat/"
               },
               {
                 "type": "text",
@@ -10413,7 +10438,18 @@
               },
               {
                 "type": "text",
-                "value": " 今天早上发了安卓版本。"
+                "value": " 今天早上发了"
+              },
+              {
+                "type": "entity-link",
+                "value": "安卓",
+                "entityType": "brand",
+                "entityId": "android",
+                "href": "/wiki/brands/android/"
+              },
+              {
+                "type": "text",
+                "value": "版本。"
               }
             ]
           ]
@@ -10427,7 +10463,18 @@
             [
               {
                 "type": "text",
-                "value": "它是安卓客户端是吗？"
+                "value": "它是"
+              },
+              {
+                "type": "entity-link",
+                "value": "安卓",
+                "entityType": "brand",
+                "entityId": "android",
+                "href": "/wiki/brands/android/"
+              },
+              {
+                "type": "text",
+                "value": "客户端是吗？"
               }
             ]
           ]
@@ -10440,8 +10487,15 @@
           "paragraphs": [
             [
               {
+                "type": "entity-link",
+                "value": "安卓",
+                "entityType": "brand",
+                "entityId": "android",
+                "href": "/wiki/brands/android/"
+              },
+              {
                 "type": "text",
-                "value": "安卓客户端。之前不是一直只有 "
+                "value": "客户端。之前不是一直只有 "
               },
               {
                 "type": "entity-link",
@@ -11693,9 +11747,9 @@
               {
                 "type": "entity-link",
                 "value": "飞书",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "feishu",
-                "href": "/wiki/products/feishu/"
+                "href": "/wiki/brands/feishu/"
               },
               {
                 "type": "text",
@@ -12462,7 +12516,18 @@
             [
               {
                 "type": "text",
-                "value": "但是这种小玩意儿以后会越来越多。你发现这个事儿本身，我就觉得，看看小红书，就觉得一种全民发明家时代。就是谁想弄个啥，今天都……"
+                "value": "但是这种小玩意儿以后会越来越多。你发现这个事儿本身，我就觉得，看看"
+              },
+              {
+                "type": "entity-link",
+                "value": "小红书",
+                "entityType": "brand",
+                "entityId": "xiaohongshu",
+                "href": "/wiki/brands/xiaohongshu/"
+              },
+              {
+                "type": "text",
+                "value": "，就觉得一种全民发明家时代。就是谁想弄个啥，今天都……"
               }
             ]
           ]
@@ -14158,7 +14223,18 @@
             [
               {
                 "type": "text",
-                "value": "澎湃 OS 4 的超级小爱，现在是有 Memory 的。那天我在群里提了一下，它的 Memory 是什么呢？就是能实现你在小红书和抖音点了收藏，那个收藏会自动收藏到小爱的 Memory 里。"
+                "value": "澎湃 OS 4 的超级小爱，现在是有 Memory 的。那天我在群里提了一下，它的 Memory 是什么呢？就是能实现你在"
+              },
+              {
+                "type": "entity-link",
+                "value": "小红书",
+                "entityType": "brand",
+                "entityId": "xiaohongshu",
+                "href": "/wiki/brands/xiaohongshu/"
+              },
+              {
+                "type": "text",
+                "value": "和抖音点了收藏，那个收藏会自动收藏到小爱的 Memory 里。"
               }
             ],
             [
@@ -14175,7 +14251,18 @@
               },
               {
                 "type": "text",
-                "value": "同步助手。它不是有 Mac 和 Windows 版本吗？你现在那个 Mac 版本的同步助手，里边内置超级小爱，它是个 AI，然后你手机上的超级小爱能操纵你的 Mac，通过这种东西。"
+                "value": "同步助手。它不是有 Mac 和 "
+              },
+              {
+                "type": "entity-link",
+                "value": "Windows",
+                "entityType": "product",
+                "entityId": "windows",
+                "href": "/wiki/products/windows/"
+              },
+              {
+                "type": "text",
+                "value": " 版本吗？你现在那个 Mac 版本的同步助手，里边内置超级小爱，它是个 AI，然后你手机上的超级小爱能操纵你的 Mac，通过这种东西。"
               }
             ]
           ]
@@ -14189,7 +14276,18 @@
             [
               {
                 "type": "text",
-                "value": "那你就相当于变相能获取到小红书的一些数据。"
+                "value": "那你就相当于变相能获取到"
+              },
+              {
+                "type": "entity-link",
+                "value": "小红书",
+                "entityType": "brand",
+                "entityId": "xiaohongshu",
+                "href": "/wiki/brands/xiaohongshu/"
+              },
+              {
+                "type": "text",
+                "value": "的一些数据。"
               }
             ]
           ]
@@ -14203,7 +14301,18 @@
             [
               {
                 "type": "text",
-                "value": "你说这都是安卓上实现的。"
+                "value": "你说这都是"
+              },
+              {
+                "type": "entity-link",
+                "value": "安卓",
+                "entityType": "brand",
+                "entityId": "android",
+                "href": "/wiki/brands/android/"
+              },
+              {
+                "type": "text",
+                "value": "上实现的。"
               }
             ]
           ]
@@ -14239,7 +14348,18 @@
               },
               {
                 "type": "text",
-                "value": " 跟 Windows 通过这种方式连接，你可以通过手机上的 AI 去操作你的电脑。哪怕这个电脑跟"
+                "value": " 跟 "
+              },
+              {
+                "type": "entity-link",
+                "value": "Windows",
+                "entityType": "product",
+                "entityId": "windows",
+                "href": "/wiki/products/windows/"
+              },
+              {
+                "type": "text",
+                "value": " 通过这种方式连接，你可以通过手机上的 AI 去操作你的电脑。哪怕这个电脑跟"
               },
               {
                 "type": "entity-link",
@@ -14264,7 +14384,18 @@
             [
               {
                 "type": "text",
-                "value": "呀，我这不是有个 OPPO 的设备，也是在 Mac 上可以装些什么东西。就我觉得这些厂商在这个 Mac 上做的软件的质量都太差，体验……那又……质量，就是先不说功能还是有用的。"
+                "value": "呀，我这不是有个 "
+              },
+              {
+                "type": "entity-link",
+                "value": "OPPO",
+                "entityType": "brand",
+                "entityId": "oppo",
+                "href": "/wiki/brands/oppo/"
+              },
+              {
+                "type": "text",
+                "value": " 的设备，也是在 Mac 上可以装些什么东西。就我觉得这些厂商在这个 Mac 上做的软件的质量都太差，体验……那又……质量，就是先不说功能还是有用的。"
               }
             ]
           ]
@@ -14347,7 +14478,18 @@
               },
               {
                 "type": "text",
-                "value": "去了之后，那个他们 AI 做的还行，OPPO 是其实不太行的，"
+                "value": "去了之后，那个他们 AI 做的还行，"
+              },
+              {
+                "type": "entity-link",
+                "value": "OPPO",
+                "entityType": "brand",
+                "entityId": "oppo",
+                "href": "/wiki/brands/oppo/"
+              },
+              {
+                "type": "text",
+                "value": " 是其实不太行的，"
               }
             ]
           ]
@@ -14486,7 +14628,18 @@
             [
               {
                 "type": "text",
-                "value": "我觉得对，手机安卓系统到 AI，真正我们到 AI 这个中后期的时候，我觉得这些东西都会被干掉。"
+                "value": "我觉得对，手机"
+              },
+              {
+                "type": "entity-link",
+                "value": "安卓",
+                "entityType": "brand",
+                "entityId": "android",
+                "href": "/wiki/brands/android/"
+              },
+              {
+                "type": "text",
+                "value": "系统到 AI，真正我们到 AI 这个中后期的时候，我觉得这些东西都会被干掉。"
               }
             ]
           ]
@@ -14500,7 +14653,18 @@
             [
               {
                 "type": "text",
-                "value": "因为安卓本身它就不是为这个东西做的，虚拟机太封闭了。"
+                "value": "因为"
+              },
+              {
+                "type": "entity-link",
+                "value": "安卓",
+                "entityType": "brand",
+                "entityId": "android",
+                "href": "/wiki/brands/android/"
+              },
+              {
+                "type": "text",
+                "value": "本身它就不是为这个东西做的，虚拟机太封闭了。"
               }
             ]
           ]
@@ -14928,9 +15092,9 @@
               {
                 "type": "entity-link",
                 "value": "OpenRouter",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "openrouter",
-                "href": "/wiki/products/openrouter/"
+                "href": "/wiki/brands/openrouter/"
               },
               {
                 "type": "text",
@@ -14975,9 +15139,9 @@
               {
                 "type": "entity-link",
                 "value": "OpenRouter",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "openrouter",
-                "href": "/wiki/products/openrouter/"
+                "href": "/wiki/brands/openrouter/"
               },
               {
                 "type": "text",
@@ -15042,9 +15206,9 @@
               {
                 "type": "entity-link",
                 "value": "OpenRouter",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "openrouter",
-                "href": "/wiki/products/openrouter/"
+                "href": "/wiki/brands/openrouter/"
               },
               {
                 "type": "text",
@@ -15067,9 +15231,9 @@
               {
                 "type": "entity-link",
                 "value": "OpenRouter",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "openrouter",
-                "href": "/wiki/products/openrouter/"
+                "href": "/wiki/brands/openrouter/"
               },
               {
                 "type": "text",
@@ -15742,9 +15906,9 @@
               {
                 "type": "entity-link",
                 "value": "OpenRouter",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "openrouter",
-                "href": "/wiki/products/openrouter/"
+                "href": "/wiki/brands/openrouter/"
               },
               {
                 "type": "text",
@@ -15854,7 +16018,18 @@
             [
               {
                 "type": "text",
-                "value": "你看那个大聪明那酒吧，你去之后，酒吧里边儿免费有各种模型。"
+                "value": "你看那个"
+              },
+              {
+                "type": "entity-link",
+                "value": "大聪明",
+                "entityType": "person",
+                "entityId": "cyber-zen",
+                "href": "/wiki/people/cyber-zen/"
+              },
+              {
+                "type": "text",
+                "value": "那酒吧，你去之后，酒吧里边儿免费有各种模型。"
               }
             ]
           ]
@@ -16723,7 +16898,18 @@
             [
               {
                 "type": "text",
-                "value": "它的播放量也很惊人，比如上周 B 站头部的 AI 短剧，每周都会超 1,000 万播放。而且质量很高，它会变成什么呢？那天跟那个什么聊，他们有那种短剧工厂。但短剧工厂是负责填那种低端的短剧量的，你不能把 AI 短剧，就是非常精美那种 AI 短剧，去以短剧的逻辑去看它。"
+                "value": "它的播放量也很惊人，比如上周 "
+              },
+              {
+                "type": "entity-link",
+                "value": "B 站",
+                "entityType": "brand",
+                "entityId": "bilibili",
+                "href": "/wiki/brands/bilibili/"
+              },
+              {
+                "type": "text",
+                "value": "头部的 AI 短剧，每周都会超 1,000 万播放。而且质量很高，它会变成什么呢？那天跟那个什么聊，他们有那种短剧工厂。但短剧工厂是负责填那种低端的短剧量的，你不能把 AI 短剧，就是非常精美那种 AI 短剧，去以短剧的逻辑去看它。"
               }
             ],
             [
@@ -18749,7 +18935,7 @@
     "sourceRevision": null,
     "sourceState": "modified",
     "sourcePath": "shows/weekly/episodes/001/04-release/copy/transcript.zh-Hans.md",
-    "sourceSha256": "d00e05645eaf2ebc7c467956b12328d84c94aac0e2a4259d631a0905f6dcbf77"
+    "sourceSha256": "607f0d74b9c2c3a8cd57e51e7285df0dd96378c3e8c8a0247bde880b19c16c97"
   },
   "report": {
     "chapters": 37,
@@ -18757,6 +18943,10 @@
     "paragraphs": 977,
     "candidateSpeakerMarkers": 180,
     "linkedEntities": [
+      {
+        "entity": "brand:android",
+        "chapterCount": 2
+      },
       {
         "entity": "brand:anthropic",
         "chapterCount": 2
@@ -18770,8 +18960,24 @@
         "chapterCount": 1
       },
       {
+        "entity": "brand:bilibili",
+        "chapterCount": 1
+      },
+      {
+        "entity": "brand:deepseek",
+        "chapterCount": 4
+      },
+      {
         "entity": "brand:doubao",
         "chapterCount": 5
+      },
+      {
+        "entity": "brand:fal-ai",
+        "chapterCount": 1
+      },
+      {
+        "entity": "brand:feishu",
+        "chapterCount": 3
       },
       {
         "entity": "brand:google",
@@ -18794,6 +19000,10 @@
         "chapterCount": 2
       },
       {
+        "entity": "brand:netease-youdao",
+        "chapterCount": 1
+      },
+      {
         "entity": "brand:next-token",
         "chapterCount": 2
       },
@@ -18810,7 +19020,19 @@
         "chapterCount": 11
       },
       {
+        "entity": "brand:openrouter",
+        "chapterCount": 4
+      },
+      {
+        "entity": "brand:oppo",
+        "chapterCount": 1
+      },
+      {
         "entity": "brand:plaud",
+        "chapterCount": 1
+      },
+      {
+        "entity": "brand:runta",
         "chapterCount": 1
       },
       {
@@ -18834,11 +19056,23 @@
         "chapterCount": 1
       },
       {
+        "entity": "brand:wechat",
+        "chapterCount": 3
+      },
+      {
+        "entity": "brand:xiaohongshu",
+        "chapterCount": 2
+      },
+      {
         "entity": "brand:xiaomi",
         "chapterCount": 2
       },
       {
         "entity": "brand:y-combinator",
+        "chapterCount": 1
+      },
+      {
+        "entity": "brand:youtube",
         "chapterCount": 1
       },
       {
@@ -18856,6 +19090,10 @@
       {
         "entity": "person:chen-mian",
         "chapterCount": 2
+      },
+      {
+        "entity": "person:cyber-zen",
+        "chapterCount": 1
       },
       {
         "entity": "person:guanlan-dai",
@@ -18911,7 +19149,7 @@
       },
       {
         "entity": "product:deepseek",
-        "chapterCount": 7
+        "chapterCount": 4
       },
       {
         "entity": "product:deepseek-harness",
@@ -18932,14 +19170,6 @@
       {
         "entity": "product:esp32",
         "chapterCount": 1
-      },
-      {
-        "entity": "product:fal-ai",
-        "chapterCount": 1
-      },
-      {
-        "entity": "product:feishu",
-        "chapterCount": 3
       },
       {
         "entity": "product:gemini",
@@ -19042,10 +19272,6 @@
         "chapterCount": 1
       },
       {
-        "entity": "product:openrouter",
-        "chapterCount": 4
-      },
-      {
         "entity": "product:pi",
         "chapterCount": 1
       },
@@ -19067,10 +19293,6 @@
       },
       {
         "entity": "product:ruby-on-rails",
-        "chapterCount": 1
-      },
-      {
-        "entity": "product:runta",
         "chapterCount": 1
       },
       {
@@ -19098,8 +19320,8 @@
         "chapterCount": 1
       },
       {
-        "entity": "product:wechat",
-        "chapterCount": 3
+        "entity": "product:windows",
+        "chapterCount": 2
       },
       {
         "entity": "product:workbuddy",
@@ -19111,10 +19333,6 @@
       },
       {
         "entity": "product:xiaomi-smart-storage",
-        "chapterCount": 1
-      },
-      {
-        "entity": "product:youtube",
         "chapterCount": 1
       },
       {
@@ -19150,16 +19368,16 @@
         "count": 7
       },
       {
-        "value": "B",
-        "count": 6
-      },
-      {
         "value": "DIY",
         "count": 6
       },
       {
         "value": "NAS",
         "count": 6
+      },
+      {
+        "value": "B",
+        "count": 5
       },
       {
         "value": "KOL",
@@ -19199,10 +19417,6 @@
       },
       {
         "value": "Studio",
-        "count": 3
-      },
-      {
-        "value": "Windows",
         "count": 3
       },
       {
@@ -19255,10 +19469,6 @@
       },
       {
         "value": "Office",
-        "count": 2
-      },
-      {
-        "value": "OPPO",
         "count": 2
       },
       {
@@ -19470,10 +19680,6 @@
         "count": 1
       },
       {
-        "value": "Sol",
-        "count": 1
-      },
-      {
         "value": "SpaceX",
         "count": 1
       },
@@ -19510,5 +19716,6 @@
         "count": 1
       }
     ]
-  }
+  },
+  "publicationStatus": "published"
 }

@@ -1,0 +1,10 @@
+kind: framework
+name: {zh-Hans: Electron, en: Electron}
+summary: {zh-Hans: 使用 JavaScript、HTML 与 CSS 构建跨平台桌面应用的开源框架。, en: An open-source framework for building cross-platform desktop apps with JavaScript, HTML and CSS.}
+aliases: []
+status: available
+official: {website: https://www.electronjs.org/, documentation: https://www.electronjs.org/docs/latest/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://www.electronjs.org/

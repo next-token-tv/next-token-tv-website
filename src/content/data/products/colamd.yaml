@@ -1,0 +1,11 @@
+kind: application
+brand: marswave
+name: {zh-Hans: ColaMD, en: ColaMD}
+summary: {zh-Hans: 面向人和 AI Agent 的开源 Markdown 编辑器，可实时同步外部文件修改。, en: An open-source Markdown editor for people and AI agents with live synchronization of external file changes.}
+aliases: []
+status: available
+official: {website: https://colamd.com/, repository: https://github.com/marswaveai/colamd}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方代码仓库, en: Official repository}
+    href: https://github.com/marswaveai/colamd

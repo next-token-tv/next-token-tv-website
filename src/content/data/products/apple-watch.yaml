@@ -1,0 +1,11 @@
+kind: hardware
+brand: apple
+name: {zh-Hans: Apple Watch, en: Apple Watch}
+summary: {zh-Hans: Apple 推出的智能手表产品家族。, en: Apple's family of smartwatches.}
+aliases: []
+status: available
+official: {website: https://www.apple.com/watch/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方产品页, en: Official product page}
+    href: https://www.apple.com/watch/

@@ -1,0 +1,18 @@
+kind: platform-brand
+name:
+  zh-Hans: 闲鱼
+  en: Xianyu
+summary:
+  zh-Hans: 阿里巴巴集团旗下的闲置物品交易与生活方式社区。
+  en: Alibaba Group's marketplace and lifestyle community for pre-owned goods and services.
+aliases:
+  - 閒魚
+  - Xianyu
+official:
+  website: https://www.goofish.com/
+lastVerifiedAt: "2026-09-14"
+sources:
+  - label:
+      zh-Hans: 阿里巴巴集团业务介绍
+      en: Alibaba Group business profile
+    href: https://www.alibabagroup.com/zh-HK/about-alibaba-businesses-1747081802473799680

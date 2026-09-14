@@ -1,0 +1,10 @@
+kind: application
+name: {zh-Hans: Suno, en: Suno}
+summary: {zh-Hans: 根据文字提示生成歌曲、演唱与配乐的人工智能音乐产品。, en: An AI music product for generating songs, vocals and instrumentals from prompts.}
+aliases: [Suno V6]
+status: available
+official: {website: https://suno.com/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://suno.com/

@@ -1,0 +1,22 @@
+kind: model
+brand: moonshot-ai
+parent: kimi
+name:
+  zh-Hans: Kimi K2.8 Preview
+  en: Kimi K2.8 Preview
+summary:
+  zh-Hans: 月之暗面面向 Kimi Code 提供的预览模型，支持多档思考强度与最长 100 万上下文。
+  en: A preview model available through Kimi Code with multiple thinking-effort levels and up to a 1M-token context window.
+aliases:
+  - Kimi 2.8
+  - Kimi 2.8 Preview
+  - K2.8
+status: preview
+official:
+  documentation: https://www.kimi.com/code/docs/kimi-code/models.html
+lastVerifiedAt: "2026-09-14"
+sources:
+  - label:
+      zh-Hans: Kimi Code 官方模型文档
+      en: Official Kimi Code model documentation
+    href: https://www.kimi.com/code/docs/kimi-code/models.html

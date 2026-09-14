@@ -13,13 +13,25 @@
     }
   ],
   "resolutions": {
+    "Next Token Weekly": {
+      "entityType": "show",
+      "id": "next-token-weekly"
+    },
     "DeepSeek": {
-      "entityType": "product",
+      "entityType": "brand",
       "id": "deepseek"
     },
     "MiniMax": {
       "entityType": "product",
       "id": "minimax"
+    },
+    "赛博禅心": {
+      "entityType": "person",
+      "id": "cyber-zen"
+    },
+    "Cyber Zen": {
+      "entityType": "person",
+      "id": "cyber-zen"
     }
   }
 }

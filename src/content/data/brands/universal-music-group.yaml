@@ -1,0 +1,9 @@
+kind: company-brand
+name: {zh-Hans: 环球音乐集团, en: Universal Music Group}
+summary: {zh-Hans: 从事音乐制作、发行与版权业务的全球音乐公司。, en: A global music company working across recording, distribution and rights.}
+aliases: [环球音乐, UMG]
+official: {website: https://www.universalmusic.com/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://www.universalmusic.com/

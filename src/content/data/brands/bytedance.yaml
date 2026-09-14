@@ -1,0 +1,9 @@
+kind: company-brand
+name: {zh-Hans: 字节跳动, en: ByteDance}
+summary: {zh-Hans: 运营飞书、火山引擎等产品与服务的全球科技公司。, en: A global technology company operating products and services including Feishu and Volcano Engine.}
+aliases: [ByteDance]
+official: {website: https://www.bytedance.com/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://www.bytedance.com/

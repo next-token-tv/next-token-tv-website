@@ -1,0 +1,10 @@
+kind: platform
+name: {zh-Hans: Terminal-Bench, en: Terminal-Bench}
+summary: {zh-Hans: 评估 AI Agent 在真实终端环境中完成任务能力的基准。, en: A benchmark evaluating AI agents on tasks in realistic terminal environments.}
+aliases: [Terminal Bench]
+status: available
+official: {website: https://www.tbench.ai/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://www.tbench.ai/

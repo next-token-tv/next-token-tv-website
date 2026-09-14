@@ -29,10 +29,25 @@ const en = locale === "en";
   if (tools) {
     tools.hidden = false;
     const highlight = tools.querySelector<HTMLButtonElement>('[data-entity-highlight-toggle]')!;
+    const transcriptPage = tools.closest<HTMLElement>('.transcript-page')!;
+    const highlightStorageKey = 'next-token-transcript-entity-highlight';
+    const setHighlight = (enabled: boolean) => {
+      highlight.setAttribute('aria-checked', String(enabled));
+      transcriptPage.dataset.entityHighlight = String(enabled);
+    };
+    try {
+      setHighlight(window.localStorage.getItem(highlightStorageKey) === 'true');
+    } catch {
+      setHighlight(false);
+    }
     highlight.addEventListener('click', () => {
       const enabled = highlight.getAttribute('aria-checked') !== 'true';
-      highlight.setAttribute('aria-checked', String(enabled));
-      tools.closest<HTMLElement>('.transcript-page')!.dataset.entityHighlight = String(enabled);
+      setHighlight(enabled);
+      try {
+        window.localStorage.setItem(highlightStorageKey, String(enabled));
+      } catch {
+        // The visual setting still applies for this page when storage is unavailable.
+      }
     });
     const en = tools.dataset.language === 'en';
     const input = tools.querySelector<HTMLInputElement>('input')!;

@@ -1,0 +1,11 @@
+kind: application
+brand: doubao
+name: {zh-Hans: 豆包输入法, en: Doubao Input Method}
+summary: {zh-Hans: 豆包推出的智能输入与语音转写工具。, en: Doubao's intelligent typing and speech-transcription tool.}
+aliases: []
+status: available
+official: {website: https://www.doubao.com/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 豆包官方网站, en: Doubao official website}
+    href: https://www.doubao.com/

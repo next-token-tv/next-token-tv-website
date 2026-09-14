@@ -1,0 +1,11 @@
+kind: hardware
+brand: apple
+name: {zh-Hans: iPhone, en: iPhone}
+summary: {zh-Hans: Apple 推出的智能手机产品家族。, en: Apple's family of smartphones.}
+aliases: [iPhone Duo, iPhone Air, iPhone 15, iPhone 18]
+status: available
+official: {website: https://www.apple.com/iphone/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方产品页, en: Official product page}
+    href: https://www.apple.com/iphone/

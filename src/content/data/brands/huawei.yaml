@@ -1,0 +1,9 @@
+kind: company-brand
+name: {zh-Hans: 华为, en: Huawei}
+summary: {zh-Hans: 提供通信基础设施、终端设备、云计算与数字化解决方案的科技公司。, en: A technology company providing communications infrastructure, devices, cloud computing and digital solutions.}
+aliases: [Huawei]
+official: {website: https://www.huawei.com/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://www.huawei.com/

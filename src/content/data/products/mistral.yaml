@@ -1,0 +1,11 @@
+kind: model-family
+brand: mistral-ai
+name: {zh-Hans: Mistral, en: Mistral}
+summary: {zh-Hans: Mistral AI 开发的人工智能模型家族。, en: A family of AI models developed by Mistral AI.}
+aliases: []
+status: available
+official: {website: https://mistral.ai/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://mistral.ai/

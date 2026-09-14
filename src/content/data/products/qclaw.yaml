@@ -1,4 +1,5 @@
 kind: agent
+brand: tencent
 name:
   zh-Hans: QClaw
   en: QClaw

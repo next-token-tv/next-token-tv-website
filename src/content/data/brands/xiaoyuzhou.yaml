@@ -1,0 +1,9 @@
+kind: platform-brand
+name: {zh-Hans: 小宇宙, en: Xiaoyuzhou}
+summary: {zh-Hans: 面向中文播客发现、订阅、收听与互动的平台品牌。, en: A platform brand for discovering, subscribing to, listening to, and discussing Chinese podcasts.}
+aliases: []
+official: {website: https://www.xiaoyuzhoufm.com/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://www.xiaoyuzhoufm.com/

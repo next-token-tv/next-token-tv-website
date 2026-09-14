@@ -1,0 +1,9 @@
+kind: company-brand
+name: {zh-Hans: 拓竹, en: Bambu Lab}
+summary: {zh-Hans: 开发桌面级 3D 打印机、材料与配套软件的科技品牌。, en: A technology brand developing desktop 3D printers, materials and supporting software.}
+aliases: [Bambu Lab]
+official: {website: https://bambulab.com/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://bambulab.com/

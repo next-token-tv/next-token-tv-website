@@ -1,0 +1,11 @@
+kind: operating-system
+brand: microsoft
+name: {zh-Hans: Windows, en: Windows}
+summary: {zh-Hans: Microsoft 开发的个人电脑操作系统家族。, en: Microsoft's family of operating systems for personal computers.}
+aliases: [Microsoft Windows]
+status: available
+official: {website: https://www.microsoft.com/windows/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方产品页, en: Official product page}
+    href: https://www.microsoft.com/windows/

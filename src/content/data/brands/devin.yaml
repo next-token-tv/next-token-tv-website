@@ -1,0 +1,10 @@
+kind: product-brand
+parentBrand: cognition
+name: {zh-Hans: Devin, en: Devin}
+summary: {zh-Hans: Cognition 推出的软件工程智能体品牌，可在独立计算环境中处理开发任务。, en: Cognition's software-engineering agent brand for handling development tasks in its own computing environment.}
+aliases: []
+official: {website: https://devin.ai/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://devin.ai/

@@ -1,0 +1,13 @@
+name:
+  zh-Hans: 小互
+  en: Xiaohu
+bio:
+  zh-Hans: 关注 AI 模型与内容生产实践的创作者，其 Gemini 3.8 Flash 使用体验在 Next Token Weekly #002 中被引用。
+  en: A creator focused on AI models and content workflows whose experience with Gemini 3.8 Flash was cited in Next Token Weekly #002.
+aliases: []
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label:
+      zh-Hans: Next Token Weekly #002 文字稿
+      en: Next Token Weekly #002 transcript
+    href: https://nexttoken.tv/weekly/002/transcript/

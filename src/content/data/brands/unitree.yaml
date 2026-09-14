@@ -1,0 +1,9 @@
+kind: company-brand
+name: {zh-Hans: 宇树科技, en: Unitree Robotics}
+summary: {zh-Hans: 研发四足机器人与人形机器人的机器人公司。, en: A robotics company developing quadruped and humanoid robots.}
+aliases: [宇树, Unitree]
+official: {website: https://www.unitree.com/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://www.unitree.com/

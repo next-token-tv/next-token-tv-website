@@ -9,9 +9,10 @@ interface Props {
   transcript: CollectionEntry<"transcriptImports">;
   episodeNumber: string;
   locale: Locale;
+  isReviewDraft?: boolean;
 }
 
-const { transcript, episodeNumber, locale } = Astro.props;
+const { transcript, episodeNumber, locale, isReviewDraft = false } = Astro.props;
 const speakerIds = [...new Set(
   transcript.data.chapters.flatMap(({ turns }) => turns.map(({ speakerId }) => speakerId).filter(Boolean)),
 )] as string[];
@@ -27,6 +28,7 @@ const copy = locale === "en" ? {
   chapters: "chapters",
   read: "Full transcript",
   candidate: "speaker attribution pending verification",
+  reviewDraft: "Review draft · Not published",
 } : {
   back: "返回本期节目",
   kicker: `Weekly #${episodeNumber} / 阅读文字稿`,
@@ -34,10 +36,12 @@ const copy = locale === "en" ? {
   chapters: "个章节",
   read: "完整文字稿",
   candidate: "人物署名仍待核对",
+  reviewDraft: "审阅版 · 尚未发布",
 };
 ---
 
-<main id="main" class="transcript-page">
+<main id="main" class="transcript-page" data-review-draft={isReviewDraft || undefined}>
+  {isReviewDraft && <div class="transcript-review-banner" role="status">{copy.reviewDraft}</div>}
   <header class="transcript-hero shell">
     <a class="transcript-back" href={episodePath}>← {copy.back}</a>
     <div class="transcript-hero-grid">

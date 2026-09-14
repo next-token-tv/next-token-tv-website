@@ -38,16 +38,16 @@ const statusLabels = {
 const copy = locale === "en"
   ? {
       back: entityType === "brand" ? "All brands" : "All products", library: "Wiki",
-      aliases: "Also known as", facts: "At a glance", type: "Type", products: "Products", episodes: "Episodes",
-      brand: "Brand", status: "Status", released: "Released", verified: "Last verified", official: "Official links",
-      website: "Website", documentation: "Documentation", repository: "Repository", connections: "Related products",
+      aliases: "Also known as", facts: "At a glance", type: "Type", childBrands: "Brands", products: "Products", episodes: "Episodes",
+      brand: "Brand", parentBrand: "Parent brand", status: "Status", released: "Released", verified: "Last verified", official: "Official links",
+      website: "Website", documentation: "Documentation", repository: "Repository", brandConnections: "Brands and products", connections: "Related products",
       verification: "Information last verified",
     }
   : {
       back: entityType === "brand" ? "全部品牌" : "全部产品", library: "AI 资料库",
-      aliases: "别名", facts: "基本信息", type: "类型", products: "旗下产品", episodes: "相关节目",
-      brand: "所属品牌", status: "状态", released: "发布日期", verified: "最近核验", official: "官方链接",
-      website: "官方网站", documentation: "开发文档", repository: "代码仓库", connections: "相关产品",
+      aliases: "别名", facts: "基本信息", type: "类型", childBrands: "旗下品牌", products: "旗下产品", episodes: "相关节目",
+      brand: "所属品牌", parentBrand: "所属品牌", status: "状态", released: "发布日期", verified: "最近核验", official: "官方链接",
+      website: "官方网站", documentation: "开发文档", repository: "代码仓库", brandConnections: "旗下品牌与产品", connections: "相关产品",
       verification: "资料最近核验于",
     };
 
@@ -69,12 +69,19 @@ if (entityType === "brand") {
   episodes = profile.episodes;
   facts = [
     { label: copy.type, value: kind },
+    ...(profile.parentBrand ? [{ label: copy.parentBrand, value: profile.parentBrand.data.name[locale], href: `${prefix}/wiki/brands/${profile.parentBrand.id}/` }] : []),
+    { label: copy.childBrands, value: String(profile.childBrands.length) },
     { label: copy.products, value: String(profile.products.length) },
     { label: copy.episodes, value: String(profile.episodes.length) },
   ];
-  connections = profile.products.map((product) => ({
-    name: product.data.name[locale], kind: productKind[product.data.kind][locale], href: `${prefix}/wiki/products/${product.id}/`,
-  }));
+  connections = [
+    ...profile.childBrands.map((brand) => ({
+      name: brand.data.name[locale], kind: brandKind[brand.data.kind][locale], href: `${prefix}/wiki/brands/${brand.id}/`,
+    })),
+    ...profile.products.map((product) => ({
+      name: product.data.name[locale], kind: productKind[product.data.kind][locale], href: `${prefix}/wiki/products/${product.id}/`,
+    })),
+  ];
   schema = {
     "@context": "https://schema.org",
     "@type": ["company-brand", "media-brand"].includes(profile.brand.data.kind) ? "Organization" : "Brand",
@@ -103,10 +110,19 @@ if (entityType === "brand") {
     ...profile.children.map((product) => ({ name: product.data.name[locale], kind: productKind[product.data.kind][locale], href: `${prefix}/wiki/products/${product.id}/` })),
   ];
   schema = {
-    "@context": "https://schema.org", "@type": "Product", name: profile.product.data.name[locale],
-    alternateName: profile.product.data.aliases, description: profile.product.data.summary[locale], url: official?.website,
-    ...(profile.brand ? { brand: { "@type": "Brand", name: profile.brand.data.name[locale] } } : {}),
-    releaseDate: profile.product.data.releasedAt,
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: `${profile.product.data.name[locale]}｜${locale === "en" ? "Product profile" : "产品资料"}｜Next Token`,
+    description: profile.product.data.summary[locale],
+    url: new URL(`${prefix}/wiki/products/${entityId}/`, Astro.site).toString(),
+    inLanguage: locale,
+    about: {
+      "@type": "Thing",
+      name: profile.product.data.name[locale],
+      alternateName: profile.product.data.aliases,
+      description: profile.product.data.summary[locale],
+      sameAs: official?.website,
+    },
   };
 }
 
@@ -121,6 +137,7 @@ const verifiedValue = verified
     }).format(new Date(`${verified}T12:00:00Z`))
   : undefined;
 const posterWord = entityType === "brand" ? "BRAND" : "PRODUCT";
+const connectionsLabel = entityType === "brand" ? copy.brandConnections : copy.connections;
 ---
 
 <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
@@ -156,8 +173,8 @@ const posterWord = entityType === "brand" ? "BRAND" : "PRODUCT";
   {(connections.length > 0 || officialLinks.length > 0 || verifiedValue) && (
     <section class="entity-detail-links shell" aria-labelledby="entity-links-title">
       <div>
-        <p class="section-kicker">02 / {connections.length > 0 ? copy.connections : copy.official}</p>
-        <h2 class="heading-section-content" id="entity-links-title">{connections.length > 0 ? copy.connections : copy.official}</h2>
+        <p class="section-kicker">02 / {connections.length > 0 ? connectionsLabel : copy.official}</p>
+        <h2 class="heading-section-content" id="entity-links-title">{connections.length > 0 ? connectionsLabel : copy.official}</h2>
       </div>
       <div class="entity-detail-links-content">
         {connections.length > 0 && <div class="entity-connection-list">

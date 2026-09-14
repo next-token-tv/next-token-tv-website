@@ -1,0 +1,17 @@
+kind: company-brand
+name:
+  zh-Hans: poncle
+  en: poncle
+summary:
+  zh-Hans: 开发并发行《吸血鬼幸存者》的独立游戏工作室。
+  en: The independent game studio behind Vampire Survivors.
+aliases:
+  - Poncle
+official:
+  website: https://poncle.games/
+lastVerifiedAt: "2026-09-14"
+sources:
+  - label:
+      zh-Hans: 官方网站
+      en: Official website
+    href: https://poncle.games/

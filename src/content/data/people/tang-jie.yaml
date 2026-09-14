@@ -1,0 +1,15 @@
+name: {zh-Hans: 唐杰, en: Jie Tang}
+bio: {zh-Hans: 清华大学计算机系教授、智谱 AI 创始人之一，长期从事人工智能与知识图谱研究。, en: A Tsinghua University computer science professor and a founder of Zhipu AI, working on AI and knowledge graphs.}
+aliases: []
+relations:
+  - entityType: brand
+    entity: zhipu
+    role: {zh-Hans: 创始人之一, en: Co-founder}
+    lastVerifiedAt: '2026-09-14'
+    sources:
+      - label: {zh-Hans: 清华大学资料, en: Tsinghua University profile}
+        href: https://keg.cs.tsinghua.edu.cn/jietang/
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 清华大学个人主页, en: Tsinghua University profile}
+    href: https://keg.cs.tsinghua.edu.cn/jietang/

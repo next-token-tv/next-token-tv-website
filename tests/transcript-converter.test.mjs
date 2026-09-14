@@ -65,7 +65,7 @@ test("published transcript snapshot retains approved content and deterministic s
   ));
   const serialized = JSON.stringify(snapshot);
 
-  assert.equal(snapshot.provenance.sourceSha256, "d00e05645eaf2ebc7c467956b12328d84c94aac0e2a4259d631a0905f6dcbf77");
+  assert.equal(snapshot.provenance.sourceSha256, "607f0d74b9c2c3a8cd57e51e7285df0dd96378c3e8c8a0247bde880b19c16c97");
   assert.equal(snapshot.provenance.sourceRepository, "next-token");
   assert.equal(snapshot.provenance.sourceRevision, null);
   assert.equal(snapshot.provenance.sourceState, "modified");
@@ -81,12 +81,13 @@ test("published transcript snapshot retains approved content and deterministic s
   assert.ok(showLinks.length > 0);
   assert.ok(showLinks.every(s => s.href === '/weekly/' && s.entityId === 'next-token-weekly'));
   const people = snapshot.report.linkedEntities.filter(({ entity }) => entity.startsWith("person:"));
-  assert.equal(people.length, 5);
+  assert.equal(people.length, 6);
   const links = snapshot.report.linkedEntities.map(({ entity }) => entity);
   for (const id of ['yangpan', 'guizang', 'orange', 'xiangyang-qiaomu']) assert.equal(links.includes(`person:${id}`), false);
   assert.equal(links.includes('product:mac'), false);
   assert.equal(links.includes('product:openai-api'), false);
-  for (const id of ['herdr', 'youtube', 'opencode', 'gpt', 'kimi', 'qwen', 'pi', 'dia', 'mimo', 'xiaomi-smart-storage', 'synology-nas', 'ugreen-nas']) assert.ok(links.includes(`product:${id}`), id);
+  for (const id of ['herdr', 'opencode', 'gpt', 'kimi', 'qwen', 'pi', 'dia', 'mimo', 'xiaomi-smart-storage', 'synology-nas', 'ugreen-nas']) assert.ok(links.includes(`product:${id}`), id);
+  for (const id of ['fal-ai', 'openrouter', 'youtube']) assert.ok(links.includes(`brand:${id}`), id);
   const paragraphs = snapshot.chapters.flatMap(c => c.turns.flatMap(t => t.paragraphs));
   const texts = paragraphs.map(p => p.map(s => s.value).join(''));
   assert.ok(texts.some(t => t.startsWith('Seedance 2.5 的供应也不够。')));
@@ -100,7 +101,7 @@ test("published transcript snapshot retains approved content and deterministic s
   assert.ok(!railsParagraph.some(s => s.entityId === 'dhh'));
   const versionLink = paragraphs.flat().find(s => s.type === 'entity-link' && s.value === 'Qwen 3.8 Max 0902');
   assert.equal(versionLink.entityId, 'qwen');
-  for (const key of ['show:next-token-weekly', 'product:fal-ai', 'product:openrouter', 'product:threejs', 'product:zcode', 'product:autoglm', 'product:qwen', 'product:hunyuan', 'product:gemini', 'product:gpt', 'product:minimax']) assert.ok(links.includes(key), key);
+  for (const key of ['show:next-token-weekly', 'brand:fal-ai', 'brand:openrouter', 'product:threejs', 'product:zcode', 'product:autoglm', 'product:qwen', 'product:hunyuan', 'product:gemini', 'product:gpt', 'product:minimax']) assert.ok(links.includes(key), key);
   assert.equal(serialized.includes('Gemini 3.5 的 Transcribe'), false);
   const personLinks = snapshot.chapters.flatMap(c => c.turns.flatMap(t => t.paragraphs.flat())).filter(s => s.entityType === "person");
   assert.equal(personLinks.every(s => s.href === `/wiki/people/${s.entityId}/`), true);

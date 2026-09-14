@@ -1,0 +1,10 @@
+kind: agent
+name: {zh-Hans: Happycapy, en: Happycapy}
+summary: {zh-Hans: 在专属云端计算机中运行、可使用浏览器与文件完成任务的 AI Agent 产品。, en: An AI agent product that works inside a dedicated cloud computer with access to browsers and files.}
+aliases: [HappyCapy]
+status: available
+official: {website: https://happycapy.ai/, documentation: https://docs.happycapy.ai/en}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://happycapy.ai/

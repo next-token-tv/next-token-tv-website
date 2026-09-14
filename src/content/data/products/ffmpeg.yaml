@@ -1,0 +1,10 @@
+kind: open-source-project
+name: {zh-Hans: FFmpeg, en: FFmpeg}
+summary: {zh-Hans: 用于处理、转换、录制与传输音视频的开源多媒体工具集。, en: An open-source multimedia toolkit for processing, converting, recording and streaming audio and video.}
+aliases: []
+status: available
+official: {website: https://ffmpeg.org/, documentation: https://ffmpeg.org/documentation.html}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://ffmpeg.org/

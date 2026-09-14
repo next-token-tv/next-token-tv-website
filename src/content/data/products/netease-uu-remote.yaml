@@ -1,0 +1,14 @@
+kind: application
+brand: netease
+name: {zh-Hans: 网易 UU 远程, en: NetEase UU Remote}
+summary: {zh-Hans: 网易推出的跨设备远程控制与远程桌面应用。, en: NetEase's cross-device remote-control and remote-desktop application.}
+aliases:
+  - UU
+  - UU 远程
+  - 网易UU远程
+status: available
+official: {website: https://uuyc.163.com/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://uuyc.163.com/

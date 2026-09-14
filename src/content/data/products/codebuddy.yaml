@@ -1,0 +1,10 @@
+kind: agent
+name: {zh-Hans: CodeBuddy, en: CodeBuddy}
+summary: {zh-Hans: 面向软件开发任务的 AI 编程助手与智能体工具。, en: An AI coding assistant and agent tool for software development tasks.}
+aliases: []
+status: available
+official: {website: https://www.codebuddy.ai/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://www.codebuddy.ai/

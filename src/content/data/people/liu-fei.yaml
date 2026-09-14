@@ -1,0 +1,23 @@
+name:
+  zh-Hans: 刘飞
+  en: Liu Fei
+bio:
+  zh-Hans: 内容创作者、产品经理，播客《三五环》主播，并参与播客《半拿铁》。
+  en: A content creator and product manager who hosts the podcast San Wu Huan and also contributes to Banchatie.
+aliases:
+  - 刘飞Lufy
+  - Lufy
+lastVerifiedAt: "2026-09-14"
+socials:
+  - platform: podcast
+    handle: 三五环
+    href: https://podcasts.apple.com/cn/podcast/id1475113228
+sources:
+  - label:
+      zh-Hans: 《三五环》Apple Podcasts 页面
+      en: San Wu Huan on Apple Podcasts
+    href: https://podcasts.apple.com/cn/podcast/id1475113228
+  - label:
+      zh-Hans: 小宇宙嘉宾介绍
+      en: Xiaoyuzhou guest profile
+    href: https://www.xiaoyuzhoufm.com/episode/68d4d74cb4befcf730d9502b

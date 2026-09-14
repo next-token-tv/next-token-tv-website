@@ -10,21 +10,30 @@ import { convertTranscript, sha256 } from "./lib/transcript-converter.mjs";
 
 const websiteRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const execFileAsync = promisify(execFile);
-const [episodeId, sourceArgument] = process.argv.slice(2);
+const [episodeId, sourceArgument, ...flags] = process.argv.slice(2);
+const reviewPreview = flags.includes("--review-preview");
 
 if (!episodeId || !sourceArgument) {
-  throw new Error("Usage: npm run import:transcript -- <episode-id> <source-markdown>");
+  throw new Error("Usage: npm run import:transcript -- <episode-id> <source-markdown> [--review-preview]");
+}
+if (flags.some((flag) => flag !== "--review-preview")) {
+  throw new Error(`Unknown import flag: ${flags.find((flag) => flag !== "--review-preview")}`);
 }
 
 const sourcePath = resolve(sourceArgument);
 const source = await readFile(sourcePath, "utf8");
 const sourceSha256 = sha256(source);
-const manifestPath = resolve(dirname(sourcePath), "transcript-manifest.json");
+const manifestPath = resolve(dirname(sourcePath), reviewPreview ? "manifest.json" : "transcript-manifest.json");
 const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
-if (manifest.output_sha256 !== sourceSha256) {
+const manifestSourceSha256 = reviewPreview ? manifest.reading_markdown_sha256 : manifest.output_sha256;
+if (manifestSourceSha256 !== sourceSha256) {
   throw new Error(`Source hash does not match ${manifestPath}`);
 }
-if (manifest.status !== "approved-for-publication") {
+if (reviewPreview) {
+  if (manifest.status !== "complete_review_draft" || manifest.transcript_approved || manifest.publication_approved) {
+    throw new Error(`Transcript is not an eligible review draft: ${manifest.status}`);
+  }
+} else if (manifest.status !== "approved-for-publication") {
   throw new Error(`Transcript is not approved for publication: ${manifest.status}`);
 }
 
@@ -114,6 +123,7 @@ const imported = convertTranscript(tree, {
   resolutions: rules.resolutions,
   excludedEntities,
 });
+imported.publicationStatus = reviewPreview ? "review-draft" : "published";
 
 if (imported.report.unknownSpeakers.length) {
   throw new Error(`Unknown transcript speakers: ${imported.report.unknownSpeakers.join(", ")}`);

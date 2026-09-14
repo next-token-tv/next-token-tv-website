@@ -1,0 +1,18 @@
+kind: company-brand
+name:
+  zh-Hans: 网易
+  en: NetEase
+summary:
+  zh-Hans: 提供在线游戏、音乐、智能学习、电子商务、媒体与企业服务的互联网科技公司。
+  en: An internet technology company spanning online games, music, intelligent learning, commerce, media, and enterprise services.
+aliases:
+  - NetEase
+  - 网易公司
+official:
+  website: https://www.netease.com/
+lastVerifiedAt: "2026-09-14"
+sources:
+  - label:
+      zh-Hans: 网易官方网站
+      en: NetEase official website
+    href: https://www.netease.com/

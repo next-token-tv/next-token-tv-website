@@ -1,0 +1,10 @@
+kind: platform-brand
+parentBrand: bytedance
+name: {zh-Hans: 火山引擎, en: Volcengine}
+summary: {zh-Hans: 字节跳动旗下的云服务与人工智能平台品牌。, en: ByteDance's cloud services and AI platform brand.}
+aliases: [火山]
+official: {website: https://www.volcengine.com/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://www.volcengine.com/

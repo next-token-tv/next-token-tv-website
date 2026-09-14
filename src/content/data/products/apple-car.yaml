@@ -1,0 +1,10 @@
+kind: hardware
+brand: apple
+name: {zh-Hans: Apple Car, en: Apple Car}
+summary: {zh-Hans: Apple 曾推进但未正式发布、后来终止的汽车研发项目。, en: Apple's former vehicle-development project, which was never released and was later discontinued.}
+aliases: []
+status: discontinued
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 项目报道, en: Project reporting}
+    href: https://www.reuters.com/technology/apple-cancels-electric-car-project-source-says-2024-02-27/

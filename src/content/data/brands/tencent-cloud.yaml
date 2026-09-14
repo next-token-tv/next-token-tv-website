@@ -1,0 +1,10 @@
+kind: platform-brand
+parentBrand: tencent
+name: {zh-Hans: 腾讯云, en: Tencent Cloud}
+summary: {zh-Hans: 腾讯旗下的云计算、数据与人工智能服务品牌。, en: Tencent's cloud computing, data and AI services brand.}
+aliases: []
+official: {website: https://cloud.tencent.com/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://cloud.tencent.com/

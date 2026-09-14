@@ -1,0 +1,9 @@
+kind: company-brand
+name: {zh-Hans: Mistral AI, en: Mistral AI}
+summary: {zh-Hans: 开发开放与商用人工智能模型及服务的法国人工智能公司。, en: A French AI company developing open and commercial models and services.}
+aliases: []
+official: {website: https://mistral.ai/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://mistral.ai/

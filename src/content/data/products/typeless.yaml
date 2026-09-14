@@ -1,0 +1,10 @@
+kind: application
+name: {zh-Hans: Typeless, en: Typeless}
+summary: {zh-Hans: 将语音转化为结构化文本并辅助整理长篇表达的 AI 输入工具。, en: An AI input tool that turns speech into structured text and helps refine long-form expression.}
+aliases: []
+status: available
+official: {website: https://www.typeless.com/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://www.typeless.com/

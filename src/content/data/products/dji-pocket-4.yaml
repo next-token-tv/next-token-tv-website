@@ -1,0 +1,10 @@
+kind: hardware
+name: {zh-Hans: 大疆 Pocket 4, en: DJI Pocket 4}
+summary: {zh-Hans: 大疆 Pocket 系列的手持影像设备。, en: A handheld imaging device in DJI's Pocket series.}
+aliases: [Pocket 4]
+status: available
+official: {website: https://www.dji.com/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 大疆官方网站, en: DJI official website}
+    href: https://www.dji.com/

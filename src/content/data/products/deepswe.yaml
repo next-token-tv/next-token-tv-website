@@ -1,0 +1,10 @@
+kind: platform
+name: {zh-Hans: DeepSWE, en: DeepSWE}
+summary: {zh-Hans: 评估编程智能体完成原创长周期软件工程任务能力的基准。, en: A benchmark evaluating coding agents on original, long-horizon software-engineering tasks.}
+aliases: [Deep SWE]
+status: available
+official: {website: https://deepswe.datacurve.ai/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: Datacurve 研究介绍, en: Datacurve research introduction}
+    href: https://datacurve.ai/research

@@ -1,0 +1,26 @@
+name:
+  zh-Hans: 赛博禅心
+  en: Cyber Zen
+bio:
+  zh-Hans: AI 科技内容创作者，以赛博禅心为公开身份，大聪明为人物别称。
+  en: An AI technology creator publicly known as Cyber Zen, with Da Congming as a personal alias.
+aliases:
+  - 大聪明
+relations:
+  - entityType: brand
+    entity: cyber-zen
+    role:
+      zh-Hans: 主理人
+      en: Principal
+    lastVerifiedAt: '2026-09-14'
+    sources:
+      - label:
+          zh-Hans: 赛博禅心与大聪明介绍
+          en: Introduction to Cyber Zen and Da Congming
+        href: https://www.huxiu.com/article/4093731.html
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label:
+      zh-Hans: 赛博禅心与大聪明介绍
+      en: Introduction to Cyber Zen and Da Congming
+    href: https://www.huxiu.com/article/4093731.html

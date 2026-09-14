@@ -1,4 +1,5 @@
 kind: product-brand
+parentBrand: bytedance
 name:
   zh-Hans: 豆包
   en: Doubao

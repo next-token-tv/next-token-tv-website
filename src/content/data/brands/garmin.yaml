@@ -1,0 +1,17 @@
+kind: company-brand
+name:
+  zh-Hans: 佳明
+  en: Garmin
+summary:
+  zh-Hans: 面向运动、户外、航空、航海与汽车市场提供 GPS 导航、可穿戴设备及相关技术的品牌。
+  en: A brand providing GPS navigation, wearables, and related technology for fitness, outdoor, aviation, marine, and automotive markets.
+aliases:
+  - Garmin
+official:
+  website: https://www.garmin.com.cn/
+lastVerifiedAt: "2026-09-14"
+sources:
+  - label:
+      zh-Hans: Garmin 佳明官方介绍
+      en: About Garmin
+    href: https://www.garmin.com.cn/company/about/

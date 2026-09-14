@@ -1,0 +1,15 @@
+name: {zh-Hans: 王登科, en: Wang Dengke}
+bio: {zh-Hans: 独响创始人，AI 陪伴产品 The One 的创始人。, en: Founder of Duxiang and the AI companion product The One.}
+aliases: []
+relations:
+  - entityType: product
+    entity: the-one
+    role: {zh-Hans: 创始人, en: Founder}
+    lastVerifiedAt: '2026-09-14'
+    sources:
+      - label: {zh-Hans: The One 团队资料, en: The One team profile}
+        href: https://bonjour.bio/jobs-mapping/team/theone
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: The One 团队资料, en: The One team profile}
+    href: https://bonjour.bio/jobs-mapping/team/theone

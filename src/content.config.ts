@@ -139,6 +139,7 @@ const brands = defineCollection({
   loader: yamlLoader("./src/content/data/brands"),
   schema: z.object({
     kind: z.enum(["company-brand", "media-brand", "community-brand", "model-brand", "product-brand", "platform-brand", "open-source-brand"]),
+    parentBrand: z.string().optional(),
     name: localizedText,
     summary: localizedText,
     sources: z.array(source).default([]),
@@ -232,6 +233,9 @@ const episodes = defineCollection({
       status: z.literal("published"),
       productionImport: z.string(),
       media: z.object({ audio: z.boolean(), video: z.boolean() }),
+      transcriptSeo: z.object({
+        "zh-Hans": z.object({ title: z.string().min(1), description: z.string().min(1) }),
+      }).optional(),
       homepage: z.object({ "zh-Hans": episodeHomepage, en: episodeHomepage }),
       platforms: z.array(z.object({
         platform: z.enum(["xiaoyuzhou", "apple-podcasts", "spotify", "bilibili", "youtube"]),
@@ -312,6 +316,7 @@ const transcriptImports = defineCollection({
     conversionVersion: z.string(),
     episodeId: z.string(),
     locale,
+    publicationStatus: z.enum(["published", "review-draft"]).default("published"),
     title: z.string(),
     byline: z.string(),
     notices: z.array(z.string()),

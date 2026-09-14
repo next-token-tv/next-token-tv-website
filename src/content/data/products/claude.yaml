@@ -7,6 +7,8 @@ summary:
   zh-Hans: Anthropic 的通用人工智能模型与助手家族。
   en: Anthropic's family of general-purpose AI models and assistants.
 aliases:
+  - Opus
+  - Opus 4.6
   - Claude 3.5
   - Claude Fable 5.1
   - Fable 5.1

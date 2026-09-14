@@ -1,0 +1,21 @@
+kind: platform-brand
+name:
+  zh-Hans: Android
+  en: Android
+summary:
+  zh-Hans: Google 主导的开放移动操作系统与设备生态品牌。
+  en: Google's open mobile operating-system and device ecosystem brand.
+aliases:
+  - 安卓
+official:
+  website: https://www.android.com/
+lastVerifiedAt: "2026-09-14"
+sources:
+  - label:
+      zh-Hans: Android 官方网站
+      en: Android official website
+    href: https://www.android.com/
+  - label:
+      zh-Hans: Google Android 品牌介绍
+      en: Google Android brand introduction
+    href: https://blog.google/products-and-platforms/platforms/android/modern-look/

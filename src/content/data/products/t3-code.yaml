@@ -1,0 +1,10 @@
+kind: open-source-project
+name: {zh-Hans: T3 Code, en: T3 Code}
+summary: {zh-Hans: 用于管理 Codex、Claude Code 等编程智能体会话的开源图形界面。, en: An open-source graphical interface for managing coding-agent sessions including Codex and Claude Code.}
+aliases: []
+status: available
+official: {website: https://t3.codes/, repository: https://github.com/pingdotgg/t3code}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方代码仓库, en: Official repository}
+    href: https://github.com/pingdotgg/t3code

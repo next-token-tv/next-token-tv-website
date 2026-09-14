@@ -1,0 +1,20 @@
+kind: agent
+brand: xiaohongshu
+name:
+  zh-Hans: 点点
+  en: Diandian
+summary:
+  zh-Hans: 小红书推出的 AI 生活问答助手，基于社区内容辅助旅行、购物、美食与兴趣探索等决策。
+  en: Xiaohongshu's AI lifestyle assistant for travel, shopping, dining, and interest-related questions using community knowledge.
+aliases:
+  - 点点 App
+  - Dots
+status: available
+official:
+  website: https://studio.dots.ai/
+lastVerifiedAt: "2026-09-14"
+sources:
+  - label:
+      zh-Hans: 点点官方介绍
+      en: Official Diandian introduction
+    href: https://studio.dots.ai/

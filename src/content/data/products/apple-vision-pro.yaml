@@ -1,0 +1,11 @@
+kind: hardware
+brand: apple
+name: {zh-Hans: Apple Vision Pro, en: Apple Vision Pro}
+summary: {zh-Hans: Apple 推出的空间计算设备。, en: Apple's spatial computing device.}
+aliases: [Apple Vision]
+status: available
+official: {website: https://www.apple.com/apple-vision-pro/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方产品页, en: Official product page}
+    href: https://www.apple.com/apple-vision-pro/

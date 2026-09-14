@@ -1,5 +1,5 @@
 relations:
-  - entityType: product
+  - entityType: brand
     entity: runta
     role:
       zh-Hans: 创始人

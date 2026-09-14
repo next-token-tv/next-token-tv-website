@@ -1,0 +1,10 @@
+kind: application
+name: {zh-Hans: Midjourney, en: Midjourney}
+summary: {zh-Hans: 根据文本提示生成与编辑图像的人工智能创作产品。, en: An AI creation product for generating and editing images from text prompts.}
+aliases: [Midjourney 2.5]
+status: available
+official: {website: https://www.midjourney.com/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://www.midjourney.com/

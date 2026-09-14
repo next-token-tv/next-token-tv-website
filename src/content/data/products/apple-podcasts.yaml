@@ -1,0 +1,11 @@
+kind: platform
+brand: apple
+name: {zh-Hans: Apple Podcasts, en: Apple Podcasts}
+summary: {zh-Hans: Apple 提供的播客发现、订阅与收听平台。, en: Apple's platform for discovering, following and listening to podcasts.}
+aliases: [Apple Podcast]
+status: available
+official: {website: https://podcasts.apple.com/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://podcasts.apple.com/

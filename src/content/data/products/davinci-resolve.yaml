@@ -1,0 +1,10 @@
+kind: application
+name: {zh-Hans: DaVinci Resolve, en: DaVinci Resolve}
+summary: {zh-Hans: Blackmagic Design 推出的视频剪辑、调色、视觉特效与音频后期软件。, en: Blackmagic Design's software for video editing, color grading, visual effects and audio post-production.}
+aliases: [DaVinci]
+status: available
+official: {website: https://www.blackmagicdesign.com/products/davinciresolve}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方产品页, en: Official product page}
+    href: https://www.blackmagicdesign.com/products/davinciresolve

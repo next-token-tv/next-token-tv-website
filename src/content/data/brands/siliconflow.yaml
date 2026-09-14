@@ -1,0 +1,9 @@
+kind: company-brand
+name: {zh-Hans: 硅基流动, en: SiliconFlow}
+summary: {zh-Hans: 提供生成式人工智能计算平台与模型服务的科技公司。, en: A technology company providing generative-AI computing infrastructure and model services.}
+aliases: [SiliconFlow]
+official: {website: https://siliconflow.cn/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://siliconflow.cn/

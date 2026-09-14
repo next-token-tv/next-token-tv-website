@@ -1,0 +1,17 @@
+name: {zh-Hans: Tim Cook, en: Tim Cook}
+bio: {zh-Hans: Apple 执行董事长、前首席执行官，1998 年加入 Apple，并于 2011 至 2026 年担任 CEO。, en: Apple's executive chair and former CEO, who joined Apple in 1998 and served as CEO from 2011 to 2026.}
+aliases:
+  - 库克
+  - 蒂姆·库克
+relations:
+  - entityType: brand
+    entity: apple
+    role: {zh-Hans: 执行董事长、前首席执行官, en: Executive Chair and former CEO}
+    lastVerifiedAt: '2026-09-14'
+    sources:
+      - label: {zh-Hans: Apple 管理层介绍, en: Apple leadership profile}
+        href: https://www.apple.com/leadership/tim-cook/
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: Apple 管理层介绍, en: Apple leadership profile}
+    href: https://www.apple.com/leadership/tim-cook/

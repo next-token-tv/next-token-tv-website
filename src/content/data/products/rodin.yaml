@@ -1,0 +1,10 @@
+kind: application
+name: {zh-Hans: Rodin, en: Rodin}
+summary: {zh-Hans: Hyper3D 推出的图像与文本生成三维模型产品。, en: Hyper3D's product for generating 3D models from images and text.}
+aliases: [Hyper3D Rodin]
+status: available
+official: {website: https://www.rodin3ds.com/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://www.rodin3ds.com/

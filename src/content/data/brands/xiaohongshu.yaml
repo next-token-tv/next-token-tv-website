@@ -1,0 +1,9 @@
+kind: platform-brand
+name: {zh-Hans: 小红书, en: Xiaohongshu}
+summary: {zh-Hans: 以生活方式内容分享与社区互动为核心的内容品牌。, en: A content brand centered on lifestyle sharing and community interaction.}
+aliases: [RED]
+official: {website: https://www.xiaohongshu.com/}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 官方网站, en: Official website}
+    href: https://www.xiaohongshu.com/
