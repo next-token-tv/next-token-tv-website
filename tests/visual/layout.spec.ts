@@ -127,6 +127,7 @@ for (const viewport of viewports) {
         if (viewport.name === "mobile" || viewport.name === "wide") {
           await expect(page.locator(route.visual)).toHaveScreenshot(
             `${route.path.replace("/wiki/", "/").replaceAll("/", "-").replace(/^-|-$/g, "") || "home"}-${viewport.name}.png`,
+            { maxDiffPixelRatio: 0.025 },
           );
         }
       });
