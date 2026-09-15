@@ -207,7 +207,10 @@ test.describe("entity metadata and links", () => {
     await expect(page.locator('.transcript-turn[data-speaker="yangpan"] img').first()).toBeVisible();
     await expect(page.locator('.transcript-entity-link[href="/wiki/products/glm/"]').first()).toBeVisible();
     await expect(page.locator("body")).not.toContainText("5.1 担心");
-    await expect(page.locator('link[rel="alternate"]')).toHaveCount(0);
+    await expect(page.locator('head link[rel="alternate"][type="text/markdown"]')).toHaveAttribute(
+      "href",
+      "https://nexttoken.tv/weekly/001/transcript.md",
+    );
   });
 });
 
