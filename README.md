@@ -82,7 +82,7 @@ npm run import:transcript -- next-token-weekly--001 ../next-token/shows/weekly/e
 
 生成结果写入 `src/content/imported/transcripts/`，并记录来源仓库、仓库内路径、源文件 SHA-256、已提交 revision、来源状态与转换版本。正式发布导入拒绝未提交或已修改的来源；审阅预览仍可使用工作区来源。正文只能在内容仓库修改，快照必须重新导入生成。实体匹配、未链接候选和人物识别等编辑 QA 报告只输出到导入命令，不写入网站快照。`src/content/transcript-rules/` 只保存网站实体的显式消歧规则，不保存正文。
 
-每篇中文文字稿同时提供 `/weekly/<期号>/transcript.md`，由同一份已导入快照在构建时生成，并在网页版正文页显示入口。Markdown 中的站内实体链接使用绝对 URL；HTML 页面通过 `rel="alternate"` 声明该格式。
+每篇中文文字稿同时提供 `/weekly/<期号>/transcript.md`，由同一份已导入快照在构建时生成，并在网页版正文页显示入口。Markdown 正文中的实体名称保持纯文本，已核实的品牌、产品和人物在文末按类型去重汇总并使用绝对站内 URL；HTML 页面通过 `rel="alternate"` 声明该格式。
 
 ## 本地预览
 

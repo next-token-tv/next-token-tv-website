@@ -32,7 +32,25 @@ test('published transcripts provide a canonical Markdown format', async ({ page,
   const markdown = await response.text();
   expect(markdown).toContain('# Weekly #001｜大模型进入“斩杀线”大战，Token 就是新货币');
   expect(markdown).toContain('## 01 / 节目片头');
-  expect(markdown).toContain('[Claude Code](https://nexttoken.tv/wiki/products/claude-code/)');
+  const [body = '', relatedResources = ''] = markdown.split('## 相关资料');
+  expect(body).toContain('Claude Code 的架构其实很重');
+  expect(body).not.toContain('](https://nexttoken.tv/wiki/');
+  expect(relatedResources).toContain('### 品牌');
+  expect(relatedResources).toContain('### 产品');
+  expect(relatedResources).toContain('### 人物');
+  expect(relatedResources).toContain('- [Claude Code](https://nexttoken.tv/wiki/products/claude-code/)');
+  expect(relatedResources.match(/\/wiki\/products\/claude-code\//g)).toHaveLength(1);
+
+  const secondResponse = await request.get('/weekly/002/transcript.md');
+  expect(secondResponse.ok()).toBe(true);
+  const secondMarkdown = await secondResponse.text();
+  const [secondBody = '', secondRelatedResources = ''] = secondMarkdown.split('## 相关资料');
+  expect(secondBody).toContain('iPhone Duo 发布，Astra 会用电脑就算 AGI 吗？');
+  expect(secondBody).not.toContain('](https://nexttoken.tv/wiki/');
+  expect(secondRelatedResources).toContain('### 品牌');
+  expect(secondRelatedResources).toContain('### 产品');
+  expect(secondRelatedResources).toContain('### 人物');
+  expect(secondRelatedResources).toContain('- [AGI Bar](https://nexttoken.tv/wiki/brands/agi-bar/)');
 
   await page.goto('/weekly/002/transcript.md');
   await expect(page.locator('body')).toContainText('iPhone Duo 发布，Astra 会用电脑就算 AGI 吗？');

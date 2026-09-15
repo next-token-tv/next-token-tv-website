@@ -21,7 +21,7 @@ export const GET: APIRoute = async ({ site }) => {
       const lines = [`- [${title}](${absolute(`/weekly/${number}/`, site!)}): ${status}页面`];
       if (transcriptNumbers.has(number)) {
         lines.push(
-          `- [Weekly #${number} Markdown 文字稿](${absolute(`/weekly/${number}/transcript.md`, site!)}): 完整中文文字稿，保留章节、发言顺序与已核实的站内实体链接`,
+          `- [Weekly #${number} Markdown 文字稿](${absolute(`/weekly/${number}/transcript.md`, site!)}): 完整中文文字稿，保留章节与发言顺序，并在文末汇总已核实的站内实体链接`,
         );
       }
       return lines;
