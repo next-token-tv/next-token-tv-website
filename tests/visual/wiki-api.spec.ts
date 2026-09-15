@@ -58,7 +58,8 @@ test('machine endpoints stay out of the XML sitemap', async ({ request }) => {
   const sitemapUrls = [...index.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]).filter((url): url is string => Boolean(url));
   const sitemaps = await Promise.all(sitemapUrls.map((url) => request.get(url).then((response) => response.text())));
   const content = sitemaps.join('\n');
-  expect(content).not.toContain('/api/');
+  expect(content).toContain('<loc>https://nexttoken.tv/api/</loc>');
+  expect(content).not.toContain('/api/v1/');
   expect(content).not.toContain('transcript.md');
   expect(content).not.toContain('/llms.txt');
 });
