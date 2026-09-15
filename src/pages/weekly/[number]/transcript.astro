@@ -54,6 +54,7 @@ const structuredData = {
   noIndex={isReviewDraft}
   hasLocaleAlternate={false}
   ogType="article"
+  markdownPath={isReviewDraft ? undefined : `/weekly/${episode.data.number}/transcript.md`}
 >
   <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   <EpisodeTranscriptPage transcript={transcript} episodeNumber={episode.data.number} locale="zh-Hans" isReviewDraft={isReviewDraft} />

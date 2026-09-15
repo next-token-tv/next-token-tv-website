@@ -16,6 +16,7 @@ interface Props {
   noIndex?: boolean;
   hasLocaleAlternate?: boolean;
   ogType?: "website" | "article";
+  markdownPath?: string;
 }
 
 const {
@@ -27,6 +28,7 @@ const {
   noIndex = false,
   hasLocaleAlternate = true,
   ogType = "website",
+  markdownPath,
 } = Astro.props;
 const canonical = new URL(canonicalPath, Astro.site);
 const alternate = new URL(alternatePath, Astro.site);
@@ -63,6 +65,8 @@ const socialImage = new URL(socialCard.image, Astro.site);
     <meta name="twitter:description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+    <link rel="describedby" href="/llms.txt" />
+    {markdownPath && <link rel="alternate" type="text/markdown" title="Markdown" href={new URL(markdownPath, Astro.site)} />}
     {hasLocaleAlternate && <link rel="alternate" hreflang={content.locale} href={canonical} />}
     {hasLocaleAlternate && <link rel="alternate" hreflang={content.locale === "en" ? "zh-Hans" : "en"} href={alternate} />}
     {hasLocaleAlternate && <link rel="alternate" hreflang="x-default" href={content.locale === "zh-Hans" ? canonical : alternate} />}

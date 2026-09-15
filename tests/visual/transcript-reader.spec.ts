@@ -20,6 +20,35 @@ test('transcript is directly discoverable and only links to available locales', 
   }
 });
 
+test('published transcripts provide a canonical Markdown format', async ({ page, request }) => {
+  await page.goto('/weekly/001/transcript/');
+  const link = page.getByRole('link', { name: 'Markdown 格式' });
+  await expect(link).toHaveAttribute('href', '/weekly/001/transcript.md');
+  await expect(page.locator('head link[rel="alternate"][type="text/markdown"]')).toHaveAttribute('href', 'https://nexttoken.tv/weekly/001/transcript.md');
+
+  const response = await request.get('/weekly/001/transcript.md');
+  expect(response.ok()).toBe(true);
+  expect(response.headers()['content-type']).toContain('text/markdown');
+  const markdown = await response.text();
+  expect(markdown).toContain('# Weekly #001｜大模型进入“斩杀线”大战，Token 就是新货币');
+  expect(markdown).toContain('## 01 / 节目片头');
+  expect(markdown).toContain('[Claude Code](https://nexttoken.tv/wiki/products/claude-code/)');
+
+  await page.goto('/weekly/002/transcript.md');
+  await expect(page.locator('body')).toContainText('iPhone Duo 发布，Astra 会用电脑就算 AGI 吗？');
+  await expect(page.locator('body')).toContainText('节目片头');
+  expect((await page.locator('body').textContent())?.includes('ï½œ')).toBe(false);
+});
+
+test('machine-readable transcript discovery only includes published transcripts', async ({ request }) => {
+  const llms = await (await request.get('/llms.txt')).text();
+  for (const number of ['001', '002']) {
+    const markdown = await request.get(`/weekly/${number}/transcript.md`);
+    expect(markdown.ok()).toBe(true);
+    expect(llms).toContain(`https://nexttoken.tv/weekly/${number}/transcript.md`);
+  }
+});
+
 test('transcript hero entrances fit desktop and mobile', async ({ page }) => {
   for (const width of [390, 1327, 1920]) for (const path of ['/', '/weekly/', '/weekly/001/', '/weekly/002/']) {
     await page.setViewportSize({ width, height: 897 });

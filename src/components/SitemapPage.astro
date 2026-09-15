@@ -1,5 +1,5 @@
 ---
-import { getBrandDirectory, getProductDirectory, getEpisodesForShow, getTranscriptEpisodes } from "../data/catalog";
+import { getBrandDirectory, getProductDirectory, getEpisodesForShow, getPublishedTranscriptEpisodes } from "../data/catalog";
 import { getPartners } from "../data/partners";
 import type { Locale } from "../data/types";
 import { getCollection } from "astro:content";
@@ -10,7 +10,7 @@ const people = await getCollection("people");
 const prefix = en ? "/en" : "";
 const [brands, products, episodes, transcripts, partners] = await Promise.all([
   getBrandDirectory(locale), getProductDirectory(locale),
-  getEpisodesForShow("next-token-weekly"), getTranscriptEpisodes(locale), getPartners(),
+  getEpisodesForShow("next-token-weekly"), getPublishedTranscriptEpisodes(locale), getPartners(),
 ]);
 const groups = [
   { id: "explore", title: en ? "Explore" : "主要入口", links: [
@@ -23,6 +23,7 @@ const groups = [
     { label: en ? "Brands" : "品牌库", href: `${prefix}/wiki/brands/` },
     { label: en ? "Products" : "产品库", href: `${prefix}/wiki/products/` },
     { label: en ? "People" : "人物库", href: `${prefix}/wiki/people/` },
+    ...(!en ? [{ label: "资料库 API", href: "/api/" }] : []),
     { label: en ? "Brand Kit" : "品牌素材", href: `${prefix}/brand-kit/` },
   ] },
   { id: "episodes", title: en ? "Episodes & previews" : "节目与预告", links: episodes.slice().sort((a,b) => Number(b.data.number)-Number(a.data.number)).map(e => ({ label: e.data.title[locale], href: `${prefix}/weekly/${e.data.number}/` })) },

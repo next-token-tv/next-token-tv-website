@@ -17,6 +17,102 @@ async function walk(dir) {
 await walk(dist);
 if (!pages.size) throw new Error('Build the website before running check:release');
 
+let llms = '';
+try {
+  llms = (await readFile(resolve(dist, 'llms.txt'), 'utf8')).replace(/^\uFEFF/, '');
+} catch {
+  errors.push('missing /llms.txt');
+}
+if (llms) {
+  if (!llms.startsWith('# Next Token｜词元之外\n\n> ')) errors.push('/llms.txt: invalid title or summary');
+  for (const [, raw] of llms.matchAll(/\]\((https:\/\/nexttoken\.tv\/[^)]+)\)/g)) {
+    const url = new URL(raw);
+    const target = resolve(dist, `.${decodeURIComponent(url.pathname)}`);
+    let destination = target;
+    try {
+      if ((await stat(target)).isDirectory()) destination = resolve(target, 'index.html');
+      await stat(destination);
+    } catch { errors.push(`/llms.txt: missing destination ${raw}`); }
+  }
+}
+
+const transcriptDirectory = resolve(root, 'src/content/imported/transcripts');
+for (const name of await readdir(transcriptDirectory)) {
+  if (!name.endsWith('.json')) continue;
+  const transcript = JSON.parse(await readFile(resolve(transcriptDirectory, name), 'utf8'));
+  const number = transcript.episodeId?.match(/--(\d{3})$/)?.[1];
+  if (!number) {
+    errors.push(`${name}: invalid transcript episode ID`);
+    continue;
+  }
+  const markdownPath = resolve(dist, `weekly/${number}/transcript.md`);
+  const markdownUrl = `https://nexttoken.tv/weekly/${number}/transcript.md`;
+  let markdownExists = true;
+  try { await stat(markdownPath); } catch { markdownExists = false; }
+  if (transcript.publicationStatus === 'published' && !markdownExists) {
+    errors.push(`${name}: published transcript is missing Markdown output`);
+  }
+  if (transcript.publicationStatus === 'review-draft' && (markdownExists || llms.includes(markdownUrl))) {
+    errors.push(`${name}: review draft is exposed through a public machine-readable route`);
+  }
+}
+
+const apiPayloads = new Map();
+for (const collection of ['brands', 'products', 'people']) {
+  const collectionPath = resolve(dist, `api/v1/wiki/${collection}.json`);
+  let payload;
+  try {
+    payload = JSON.parse(await readFile(collectionPath, 'utf8'));
+  } catch {
+    errors.push(`missing or invalid /api/v1/wiki/${collection}.json`);
+    continue;
+  }
+  apiPayloads.set(collection, payload);
+  if (payload.schemaVersion !== 1 || payload.collection !== collection || payload.count !== payload.data?.length) {
+    errors.push(`/api/v1/wiki/${collection}.json: invalid collection envelope`);
+    continue;
+  }
+  for (const record of payload.data) {
+    if (!record.id || !record.name?.['zh-Hans'] || !record.name?.en || !record.relationships) {
+      errors.push(`/api/v1/wiki/${collection}.json: incomplete record ${record.id ?? '(missing id)'}`);
+      continue;
+    }
+    const detailPath = resolve(dist, `api/v1/wiki/${collection}/${record.id}.json`);
+    try {
+      const detail = JSON.parse(await readFile(detailPath, 'utf8'));
+      if (detail.id !== record.id || detail.apiUrl !== `https://nexttoken.tv/api/v1/wiki/${collection}/${record.id}.json`) {
+        errors.push(`/api/v1/wiki/${collection}/${record.id}.json: invalid detail record`);
+      }
+    } catch {
+      errors.push(`missing or invalid /api/v1/wiki/${collection}/${record.id}.json`);
+    }
+  }
+  const serialized = JSON.stringify(payload);
+  for (const forbidden of ['productionImport', 'transcriptImports', 'episodeImports', 'unlinkedCandidates']) {
+    if (serialized.includes(forbidden)) errors.push(`/api/v1/wiki/${collection}.json: exposes internal field ${forbidden}`);
+  }
+}
+try {
+  const index = JSON.parse(await readFile(resolve(dist, 'api/v1/wiki.json'), 'utf8'));
+  if (index.schemaVersion !== 1 || index.collections?.map((entry) => entry.id).join(',') !== 'brands,products,people') {
+    errors.push('/api/v1/wiki.json: invalid API index');
+  }
+  if (index.documentation !== 'https://nexttoken.tv/api/') errors.push('/api/v1/wiki.json: invalid documentation URL');
+} catch {
+  errors.push('missing or invalid /api/v1/wiki.json');
+}
+const apiBrands = apiPayloads.get('brands')?.data ?? [];
+const apiProducts = apiPayloads.get('products')?.data ?? [];
+for (const brand of apiBrands) {
+  const expectedEpisodes = new Set([
+    ...brand.relationships.episodes,
+    ...apiProducts.filter((product) => product.brand === brand.id).flatMap((product) => product.relationships.episodes),
+  ]);
+  if (expectedEpisodes.size !== brand.relationships.episodes.length) {
+    errors.push(`/api/v1/wiki/brands/${brand.id}.json: missing episodes related through products`);
+  }
+}
+
 const redirectLines = (await readFile(resolve(root, 'public/_redirects'), 'utf8'))
   .split(/\r?\n/)
   .map((line) => line.trim())
@@ -98,5 +194,5 @@ for (const prefix of ['', '/en']) {
   }
 }
 if (errors.length) throw new Error(errors.join('\n'));
-console.log(`Release checks passed: ${pages.size} pages, ${episodes} episodes; redirects, internal links, anchors, localized episode routes, announcement dates and platform URL hosts.`);
+console.log(`Release checks passed: ${pages.size} pages, ${episodes} episodes; redirects, internal links, anchors, localized episode routes, public Wiki API, announcement dates and platform URL hosts.`);
 console.log('External platform availability is not inferred from URL validation; confirm playback before publication.');

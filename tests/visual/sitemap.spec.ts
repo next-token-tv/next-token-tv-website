@@ -10,6 +10,7 @@ for (const width of [390, 1440]) {
       await expect(page.locator('#brands li')).not.toHaveCount(0);
       await expect(page.locator('#products li')).not.toHaveCount(0);
       await expect(page.locator('#people li')).not.toHaveCount(0);
+      await expect(page.locator(`main a[href="/api/"]`)).toHaveCount(prefix ? 0 : 1);
       await expect(page.locator('main a[href*="/transcript/"]')).toHaveCount(prefix ? 0 : 2);
       await expect(page.locator(`#episodes a[href="${prefix}/weekly/002/"] .episode-title`)).toHaveText(prefix
         ? 'iPhone Duo launches. Does Astra using a computer count as AGI?'
@@ -35,3 +36,19 @@ for (const width of [390, 1440]) {
     });
   }
 }
+
+test('llms.txt provides a UTF-8 site guide and Markdown transcripts', async ({ page, request }) => {
+  const response = await request.get('/llms.txt');
+  expect(response.ok()).toBe(true);
+  expect(response.headers()['content-type']).toContain('text/plain');
+  const content = await response.text();
+  expect(content).toContain('# Next Token｜词元之外');
+  expect(content).toContain('https://nexttoken.tv/weekly/002/transcript.md');
+  expect(content).toContain('https://nexttoken.tv/wiki/brands/');
+
+  await page.goto('/');
+  await expect(page.locator('head link[rel="describedby"]')).toHaveAttribute('href', '/llms.txt');
+  await page.goto('/llms.txt');
+  await expect(page.locator('body')).toContainText('节目与文字稿');
+  expect((await page.locator('body').textContent())?.includes('ï½œ')).toBe(false);
+});

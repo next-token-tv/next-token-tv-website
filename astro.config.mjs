@@ -8,7 +8,10 @@ export default defineConfig({
   trailingSlash: "ignore",
   integrations: [
     sitemap({
-      filter: (page) => !/\/(?:404|(?:en\/)?design-system)(?:\.html|\/)?$/.test(new URL(page).pathname),
+      filter: (page) => {
+        const path = new URL(page).pathname;
+        return !path.endsWith(".md") && !path.endsWith(".txt") && !path.endsWith(".json") && !/\/(?:404|(?:en\/)?design-system)(?:\.html|\/)?$/.test(path);
+      },
       i18n: {
         defaultLocale: "zh-Hans",
         locales: { "zh-Hans": "zh-Hans", en: "en" },

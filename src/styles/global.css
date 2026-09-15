@@ -2643,6 +2643,25 @@ html[lang="en"] .weekly-show-facts strong {
   color: var(--signal);
 }
 
+.transcript-format-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.transcript-format-link {
+  margin-inline-start: auto;
+  color: var(--signal);
+  font: inherit;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+.transcript-format-link:hover {
+  text-decoration: underline;
+}
+
 .transcript-hero-meta > p {
   grid-column: 1 / -1;
   margin: 0.45rem 0 0;

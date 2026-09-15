@@ -4,8 +4,9 @@ import type { Locale } from "../data/types";
 interface Props { episodeId: string; number: string; locale: Locale; variant?: "default" | "light" | "inline"; details?: boolean; showNumber?: boolean }
 const { episodeId, number, locale, variant = "default", details = false, showNumber = false } = Astro.props;
 const transcript = await getEpisodeTranscriptOrNull(episodeId, locale);
+const isPublished = transcript?.data.publicationStatus === "published";
 ---
-{transcript && (
+{transcript && isPublished && (
   <>
     <a class:list={["episode-transcript-cta", `transcript-cta--${variant}`]} href={`${locale === "en" ? "/en" : ""}/weekly/${number}/transcript/`}>
       {showNumber && <>#{number} · </>}{locale === "en" ? (details ? "Read the full transcript" : "Read the transcript") : (details ? "阅读完整文字稿" : "阅读文字稿")} <span aria-hidden="true">→</span>

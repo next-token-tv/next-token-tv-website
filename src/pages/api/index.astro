@@ -1,0 +1,131 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getSiteContent } from "../../data/site";
+import { createWikiApi } from "../../data/wiki-api";
+
+const content = await getSiteContent("zh-Hans");
+const collections = await createWikiApi(Astro.site!);
+const endpoints = [
+  { label: "品牌", id: "brands", count: collections.brands.length },
+  { label: "产品", id: "products", count: collections.products.length },
+  { label: "人物", id: "people", count: collections.people.length },
+];
+---
+
+<BaseLayout
+  content={content}
+  pageTitle="资料库 API｜Next Token"
+  description="通过公开、只读、版本化的 JSON API 获取 Next Token 资料库中的品牌、产品、人物及其关系。"
+  canonicalPath="/api/"
+  hasLocaleAlternate={false}
+>
+  <main id="main" class="api-docs shell">
+    <header class="api-hero">
+      <div>
+        <p class="section-kicker">NEXT TOKEN / DATA API</p>
+        <h1>获取资料库<br /><span>结构化数据。</span></h1>
+      </div>
+      <div class="api-intro">
+        <strong>API v1</strong>
+        <p>公开、只读、无须鉴权。数据来自网站人工维护的品牌、产品与人物 YAML，不包含文字稿导入快照或制作流程中间数据。</p>
+        <a class="button button-dark" href="/api/v1/wiki.json">打开 API 入口 <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+
+    <section class="api-section" aria-labelledby="collections-title">
+      <div class="api-section-heading">
+        <p class="section-kicker">01 / COLLECTIONS</p>
+        <h2 id="collections-title" class="heading-section-compact">三个集合，统一契约。</h2>
+      </div>
+      <div class="api-collections">
+        {endpoints.map((endpoint, index) => (
+          <a href={`/api/v1/wiki/${endpoint.id}.json`}>
+            <span>{String(index + 1).padStart(2, "0")} / {endpoint.count}</span>
+            <strong>{endpoint.label}</strong>
+            <code>/api/v1/wiki/{endpoint.id}.json</code>
+            <span aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="api-section api-contract" aria-labelledby="contract-title">
+      <div class="api-section-heading">
+        <p class="section-kicker">02 / CONTRACT</p>
+        <h2 id="contract-title" class="heading-section-compact">列表，也有单实体详情。</h2>
+      </div>
+      <div class="api-contract-grid">
+        <div>
+          <h3>集合响应</h3>
+          <code>{`{
+  "schemaVersion": 1,
+  "collection": "brands",
+  "count": ${collections.brands.length},
+  "data": [...]
+}`}</code>
+        </div>
+        <div>
+          <h3>公共实体字段</h3>
+          <p><code>id</code> 是稳定引用键；<code>url</code> 指向资料页；<code>apiUrl</code> 指向单实体 JSON。记录同时提供双语名称与简介、类别、别名、来源、核验日期和 <code>relationships</code>。</p>
+        </div>
+        <div>
+          <h3>单实体路径</h3>
+          <code>/api/v1/wiki/brands/&lt;id&gt;.json</code>
+          <code>/api/v1/wiki/products/&lt;id&gt;.json</code>
+          <code>/api/v1/wiki/people/&lt;id&gt;.json</code>
+        </div>
+        <div>
+          <h3>筛选与跨域</h3>
+          <p>品牌与产品可按 <code>kind</code> 在客户端筛选。所有响应使用 UTF-8 JSON，并允许浏览器跨域读取。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="api-section api-version" aria-labelledby="version-title">
+      <p class="section-kicker">03 / VERSIONING</p>
+      <h2 id="version-title" class="heading-section-compact">v1 可增加兼容字段；破坏性变更进入新版本。</h2>
+      <p>资料库更新并重新构建、发布网站后，静态 API 随之更新。完整开发约定保存在网站开源仓库的 <a href="https://github.com/next-token-tv/next-token-tv-website/blob/main/docs/wiki-api.md">API 契约文档 ↗</a>。</p>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .api-docs { padding-bottom: 7rem; }
+  .api-hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr); gap: 4rem; align-items: end; min-height: 34rem; padding-block: 5rem 4rem; border-bottom: 0.0625rem solid var(--ink); }
+  .api-hero h1 { margin: 1rem 0 0; font-family: var(--display); font-size: 4.25rem; line-height: 1.05; }
+  .api-hero h1 span { color: var(--signal); }
+  .api-intro { max-width: 31rem; }
+  .api-intro > strong { display: block; padding-bottom: 1rem; border-bottom: 0.0625rem solid var(--ink); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .api-intro p { margin: 1.5rem 0; color: var(--muted); line-height: 1.8; }
+  .api-section { padding-block: 4rem; border-bottom: 0.0625rem solid var(--ink); }
+  .api-section-heading { display: grid; grid-template-columns: minmax(11rem, 0.45fr) minmax(0, 1.55fr); gap: 3rem; margin-bottom: 2rem; }
+  .api-section-heading h2 { margin: 0; }
+  .api-collections { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 0.0625rem solid var(--ink); border-left: 0.0625rem solid var(--ink); }
+  .api-collections a { position: relative; display: flex; min-width: 0; min-height: 14rem; flex-direction: column; gap: 1.25rem; padding: 1.5rem; border-right: 0.0625rem solid var(--ink); border-bottom: 0.0625rem solid var(--ink); }
+  .api-collections a > span:first-child { color: var(--signal); font-size: 0.75rem; font-weight: 800; }
+  .api-collections a > span:last-child { position: absolute; top: 1.5rem; right: 1.5rem; color: var(--signal); }
+  .api-collections strong { margin-top: auto; font-family: var(--display); font-size: 2rem; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+  .api-collections code { overflow-wrap: anywhere; color: var(--muted); font-size: 0.78rem; }
+  .api-contract-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 0.0625rem solid var(--ink); border-left: 0.0625rem solid var(--ink); }
+  .api-contract-grid > div { min-width: 0; padding: 2rem; border-right: 0.0625rem solid var(--ink); border-bottom: 0.0625rem solid var(--ink); }
+  .api-contract-grid h3 { margin: 0 0 1.25rem; font-size: 1rem; }
+  .api-contract-grid p { max-width: 40rem; margin: 0; color: var(--muted); line-height: 1.8; }
+  .api-contract-grid > div > code { display: block; overflow-x: auto; white-space: pre; font-size: 0.8rem; line-height: 1.7; }
+  .api-version { display: grid; grid-template-columns: minmax(11rem, 0.45fr) minmax(0, 1.05fr) minmax(16rem, 0.5fr); gap: 3rem; align-items: start; }
+  .api-version h2, .api-version p { margin: 0; }
+  .api-version p { color: var(--muted); line-height: 1.8; }
+  .api-version a { color: var(--signal); }
+  @media (max-width: 60rem) {
+    .api-hero { grid-template-columns: 1fr; min-height: 0; gap: 2.5rem; }
+    .api-section-heading, .api-version { grid-template-columns: 1fr; gap: 1.5rem; }
+  }
+  @media (max-width: 40rem) {
+    .api-docs { padding-bottom: 4rem; }
+    .api-hero { padding-block: 3rem; }
+    .api-hero h1 { font-size: 2.75rem; }
+    .api-section { padding-block: 3rem; }
+    .api-collections, .api-contract-grid { grid-template-columns: 1fr; }
+    .api-collections a { min-height: 10rem; }
+  }
+</style>

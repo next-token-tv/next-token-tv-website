@@ -393,6 +393,16 @@ export async function getTranscriptEpisodes(locale: Locale) {
   return catalog.episodes.filter(({ id }) => episodeIds.has(id));
 }
 
+export async function getPublishedTranscriptEpisodes(locale: Locale) {
+  const catalog = await getContentCatalog();
+  const episodeIds = new Set(
+    catalog.transcriptImports
+      .filter(({ data }) => data.locale === locale && data.publicationStatus === "published")
+      .map(({ data }) => data.episodeId),
+  );
+  return catalog.episodes.filter(({ id, data }) => data.status === "published" && episodeIds.has(id));
+}
+
 export async function getAnnouncedEpisodes() {
   const catalog = await getContentCatalog();
   return catalog.episodes.filter((episode) => episode.data.status === "announced");

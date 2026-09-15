@@ -8,6 +8,8 @@
 - 品牌库：<https://nexttoken.tv/wiki/brands/>
 - 产品库：<https://nexttoken.tv/wiki/products/>
 - 人物库：<https://nexttoken.tv/wiki/people/>
+- 资料库 API：<https://nexttoken.tv/api/v1/wiki.json>
+- API 文档：<https://nexttoken.tv/api/>
 
 各语言 URL 始终直接展示对应内容，不按浏览器语言自动跳转。全站在语言偏好与当前页面不一致时提供双向切换提示：中文页显示 “Switch to English”，英文页显示“切换到中文”。手动选择优先于浏览器语言；继续浏览当前语言也会保存为偏好。切换保留对应页面路径、查询参数与锚点。存储不可用时，切换链接仍正常工作。
 
@@ -46,7 +48,9 @@ Astro 默认在构建时预渲染所有页面，当前不需要 Cloudflare adapt
 
 品牌/产品库的 SSOT 在本仓库。Next Token 自身的 Logo 与 VI 源文件仍以相邻的 `next-token` 仓库为 SSOT，`public/assets/` 中仅保存网站发布副本。当前没有 SRT 工具集成；后续工具应读取这里的稳定实体 ID。
 
-品牌库使用 `/brands/<brand-id>/`，产品库使用 `/products/<product-id>/`；英文版统一增加 `/en/` 前缀。品牌与产品列表以各自的 `kind` 元数据提供二级筛选，并用 `type` 查询参数保留筛选状态。详情页展示双语摘要、别名、官方链接、上下级产品关系和相关节目。节目详情页反向列出本期提到的品牌与产品。所有关系均直接来自分期 YAML 中的 `mentions`，不在模板中重复维护。
+品牌库使用 `/wiki/brands/<brand-id>/`，产品库使用 `/wiki/products/<product-id>/`；英文版统一增加 `/en/` 前缀。品牌与产品列表以各自的 `kind` 元数据提供二级筛选，并用 `type` 查询参数保留筛选状态。详情页展示双语摘要、别名、官方链接、上下级产品关系和相关节目。节目详情页反向列出本期提到的品牌与产品。所有关系均直接来自分期 YAML 中的 `mentions`，不在模板中重复维护。
+
+公开资料库同时提供版本化的静态 JSON API，入口为 `/api/v1/wiki.json`。它包含品牌、产品和人物的全量列表、单实体详情及实体间关系；接口契约、端点和更新策略见 [资料库 API](docs/wiki-api.md)。API 只读取人工维护的 YAML SSOT，不公开文字稿导入快照、导入报告或制作流程中间数据。
 
 单集支持 `announced` 与 `published` 两个网站生命周期。预告状态保存已经确认的录制日期、具体场地与预告文案，不要求制作快照；发布状态必须通过 `productionImport` 关联制作仓快照。预告页面按元数据生成在 `/weekly/<期号>/` 与 `/en/weekly/<期号>/`。
 
@@ -77,6 +81,8 @@ npm run import:transcript -- next-token-weekly--001 ../next-token/shows/weekly/e
 ```
 
 生成结果写入 `src/content/imported/transcripts/`，并记录来源仓库、仓库内路径、源文件 SHA-256、已提交 revision、来源状态与转换版本。正式发布导入拒绝未提交或已修改的来源；审阅预览仍可使用工作区来源。正文只能在内容仓库修改，快照必须重新导入生成。实体匹配、未链接候选和人物识别等编辑 QA 报告只输出到导入命令，不写入网站快照。`src/content/transcript-rules/` 只保存网站实体的显式消歧规则，不保存正文。
+
+每篇中文文字稿同时提供 `/weekly/<期号>/transcript.md`，由同一份已导入快照在构建时生成，并在网页版正文页显示入口。Markdown 中的站内实体链接使用绝对 URL；HTML 页面通过 `rel="alternate"` 声明该格式。
 
 ## 本地预览
 
@@ -123,7 +129,9 @@ npm run test:visual:update
 
 `@astrojs/sitemap` 在每次生产构建时根据实际生成的页面自动创建 `dist/sitemap-index.xml` 和分片 sitemap。入口为 <https://nexttoken.tv/sitemap-index.xml>，`/robots.txt` 和公共页面的 HTML head 都声明该入口。
 
-Sitemap 包含中英文首页、栏目、分期、人物、合作伙伴、品牌、产品和品牌素材页面，包括公开的录制预告；404 页面不进入 sitemap。语言对应关系使用 `zh-Hans` 和 `en`，中文保留无语言前缀的路径。新增静态页面或由元数据生成的新分期、品牌或产品会自动纳入。
+`/llms.txt` 按 llms.txt v2 格式提供精简的站点说明与优先链接，节目列表和可用的 Markdown 文字稿由内容元数据自动生成。公共 HTML 页面通过 `rel="describedby"` 声明该文件，Markdown 文字稿通过静态资源响应头声明它。
+
+Sitemap 包含中英文首页、栏目、分期、人物、合作伙伴、品牌、产品和品牌素材页面，包括公开的录制预告；404、Markdown、纯文本和 JSON API 页面不进入 sitemap。语言对应关系使用 `zh-Hans` 和 `en`，中文保留无语言前缀的路径。新增静态页面或由元数据生成的新分期、品牌或产品会自动纳入。
 
 所有页面提供 canonical、双向 `hreflang`、Open Graph 与 Twitter 基础元数据。品牌和产品详情页另提供 JSON-LD 实体数据，名称、摘要、别名、品牌关系和发布日期均来自元数据 SSOT。
 

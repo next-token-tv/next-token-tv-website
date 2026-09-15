@@ -15,3 +15,5 @@
 - Published transcript corrections belong in the approved content-repository Markdown and its release manifest. Website imported JSON is regenerated with `npm run import:transcript`, never edited by hand. A publication import requires the source Markdown to be tracked, clean, and committed; only an explicit review preview may use modified or untracked source.
 
 Show links use the show entry’s `pagePath`; Next Token Weekly links to `/weekly/`.
+
+Published Chinese transcripts also expose `/weekly/<number>/transcript.md`. The Markdown response is generated from the same imported snapshot as the HTML reader, retains verified links and speaker order, uses absolute URLs for site entities, and links back to the HTML reader. Files include a UTF-8 BOM for standalone browser compatibility, while `public/_headers` explicitly serves the route as `text/markdown; charset=utf-8` on Cloudflare. The HTML reader declares Markdown as an alternate representation; Markdown routes stay out of the XML sitemap to avoid duplicate indexing.
