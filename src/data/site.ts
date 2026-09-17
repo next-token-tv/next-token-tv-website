@@ -30,7 +30,7 @@ export type Host = {
 export type SiteContent = {
   latestEpisodePath?: string;
   locale: Locale;
-  path: "/" | "/en/";
+  path: "/" | "/en";
   title: string;
   description: string;
   ogDescription: string;
@@ -154,7 +154,7 @@ const siteContentBase: Record<Locale, SiteContentBase> = {
   },
   en: {
     locale: "en",
-    path: "/en/",
+    path: "/en",
     title: "Next Token｜词元之外",
     description: "Next Token is a video podcast about AI technology, products, entrepreneurship, and creativity. Next Token Weekly #001 unpacks 24 stories across models, agents, AI hardware, applications, and AI-native organizations.",
     ogDescription: "Weekly #001 | The LLM “Kill Line” Wars: Tokens Are the New Money - Next Token｜词元之外",
@@ -225,7 +225,7 @@ export async function getSiteContent(locale: Locale): Promise<SiteContent> {
     description: locale === "en" ? "Next Token is a podcast about AI, products and real-world impact. " + episode.data.homepage[locale].lede : "Next Token｜词元之外，关注 AI 技术、产品与现实影响的播客。" + episode.data.homepage[locale].lede,
     ogDescription: episode.data.title[locale],
     hero: { ...base.hero, primaryAction: locale === "en" ? `Explore latest episode #${episode.data.number}` : `收听最新一期 #${episode.data.number}` },
-    latestEpisodePath: `${locale === "en" ? "/en" : ""}/weekly/${episode.data.number}/`,
+    latestEpisodePath: `${locale === "en" ? "/en" : ""}/weekly/${episode.data.number}`,
     weekly: episode.data.homepage[locale],
     hosts: {
       ...base.hosts,

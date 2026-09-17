@@ -108,11 +108,11 @@ export async function getPartners(): Promise<Partner[]> {
 }
 
 export function partnerPath(partner: Partner, locale: Locale) {
-  return locale === "en" ? `/en/partners/${partner.slug}/` : `/partners/${partner.slug}/`;
+  return locale === "en" ? `/en/partners/${partner.slug}` : `/partners/${partner.slug}`;
 }
 
 export function partnersPath(locale: Locale) {
-  return locale === "en" ? "/en/partners/" : "/partners/";
+  return locale === "en" ? "/en/partners" : "/partners";
 }
 
 export function featuredVenue(partner: Partner) {

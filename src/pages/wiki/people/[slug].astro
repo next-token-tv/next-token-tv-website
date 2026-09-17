@@ -14,6 +14,6 @@ const [person] = await getPeopleByIds([personId]);
 if (!person) throw new Error(`Unknown profile: ${personId}`);
 const content = await getSiteContent("zh-Hans");
 ---
-<BaseLayout content={content} pageTitle={`${person.data.name["zh-Hans"]} | Next Token ${isHost ? "联合主理人" : "人物库"}`} description={person.data.bio["zh-Hans"]} canonicalPath={`/wiki/people/${personId}/`} alternatePath={`/en/wiki/people/${personId}/`}>
+<BaseLayout content={content} pageTitle={`${person.data.name["zh-Hans"]} | Next Token ${isHost ? "联合主理人" : "人物库"}`} description={person.data.bio["zh-Hans"]} canonicalPath={`/wiki/people/${personId}`} alternatePath={`/en/wiki/people/${personId}`}>
   {isHost ? <HostProfilePage personId={personId} locale="zh-Hans" /> : <PeopleLibraryPage personId={personId} locale="zh-Hans" />}
 </BaseLayout>

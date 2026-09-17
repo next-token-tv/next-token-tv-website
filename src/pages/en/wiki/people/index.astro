@@ -4,6 +4,6 @@ import EntityDirectoryPage from "../../../../components/EntityDirectoryPage.astr
 import { getSiteContent } from "../../../../data/site";
 const content = await getSiteContent("en");
 ---
-<BaseLayout content={content} pageTitle="People | Next Token" description="People in Next Token conversations." canonicalPath="/en/wiki/people/" alternatePath="/wiki/people/">
+<BaseLayout content={content} pageTitle="People | Next Token" description="People in Next Token conversations." canonicalPath="/en/wiki/people" alternatePath="/wiki/people">
   <EntityDirectoryPage entityType="people" locale="en" />
 </BaseLayout>

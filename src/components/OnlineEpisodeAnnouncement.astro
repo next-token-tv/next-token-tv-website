@@ -33,7 +33,7 @@ const date = new Intl.DateTimeFormat(en ? "en-US" : "zh-Hans", {
         <div><dt>{en ? "Date" : "录制日期"}</dt><dd>{date}</dd></div>
         <div><dt>{en ? "Format" : "录制形式"}</dt><dd>{en ? "Online" : "线上"}</dd></div>
       </dl>
-      <a href={en ? "/en/weekly/" : "/weekly/"}>{en ? "All episodes" : "查看全部节目"} →</a>
+      <a href={en ? "/en/weekly" : "/weekly"}>{en ? "All episodes" : "查看全部节目"} →</a>
     </div>
   </section>
 </main>

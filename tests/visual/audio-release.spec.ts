@@ -4,13 +4,13 @@ for (const width of [390, 768, 1280, 1320, 1440, 1920, 2560]) {
   for (const prefix of ['', '/en']) {
     test(`published audio ${prefix || 'zh'} at ${width}`, async ({ page }) => {
       await page.setViewportSize({ width, height: 1000 });
-      for (const path of ['/', '/weekly/']) {
-        await page.goto(`${prefix}${path}`);
-        await expect(page.locator('.status-pill')).toHaveAttribute('href', `${prefix}/weekly/002/`);
+      for (const path of ['/', '/weekly']) {
+        await page.goto(path === '/' ? (prefix || '/') : `${prefix}${path}`);
+        await expect(page.locator('.status-pill')).toHaveAttribute('href', `${prefix}/weekly/002`);
         await expect(page.locator('.status-pill')).toContainText('#002');
-        await expect(page.locator('.upcoming-episode-link')).toHaveAttribute('href', `${prefix}/weekly/003/`);
+        await expect(page.locator('.upcoming-episode-link')).toHaveAttribute('href', `${prefix}/weekly/003`);
         const primary = page.locator(path === '/' ? '.hero-copy .button.primary' : '.weekly-latest-actions > a').first();
-        await expect(primary).toHaveAttribute('href', `${prefix}/weekly/002/`);
+        await expect(primary).toHaveAttribute('href', `${prefix}/weekly/002`);
         const cards = page.locator('[data-episode-number]');
         const cover = page.locator('[data-episode-number="002"] .weekly-image img');
         await expect(cover).toHaveAttribute('src', '/assets/weekly-002-cover-square.jpg');
@@ -29,12 +29,12 @@ for (const width of [390, 768, 1280, 1320, 1440, 1920, 2560]) {
           await expect(page.locator('.visual-caption strong')).toHaveText('24 signalsone open table');
         }
         expect(await cards.evaluateAll(nodes => nodes.map(n => n.getAttribute('data-episode-number')))).toEqual(path === '/' ? ['002'] : ['002', '001']);
-        await expect(page.locator('a[href*="/002/transcript/"]')).toHaveCount(prefix ? 0 : 2);
+        await expect(page.locator('a[href*="/002/transcript"]')).toHaveCount(prefix ? 0 : 2);
         await expect(page.locator('.platform-list a[href*="spotify.com"]')).toHaveAttribute('href', /\/show\//);
-        if (!prefix) await expect(page.locator('main > section').first().locator('a[href="/weekly/002/transcript/"]')).toContainText('#002');
+        if (!prefix) await expect(page.locator('main > section').first().locator('a[href="/weekly/002/transcript"]')).toContainText('#002');
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       }
-      await page.goto(`${prefix}/weekly/002/`);
+      await page.goto(`${prefix}/weekly/002`);
       const links = page.locator('.episode-detail-platforms .platform-list a');
       await expect(links).toHaveCount(3);
       for (const url of [

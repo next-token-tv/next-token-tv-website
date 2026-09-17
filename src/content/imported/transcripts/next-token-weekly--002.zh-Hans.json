@@ -27,7 +27,7 @@
                 "value": "Next Token｜词元之外",
                 "entityType": "brand",
                 "entityId": "next-token",
-                "href": "/wiki/brands/next-token/"
+                "href": "/wiki/brands/next-token"
               },
               {
                 "type": "text",
@@ -38,7 +38,7 @@
                 "value": "Next Token｜词元之外",
                 "entityType": "brand",
                 "entityId": "next-token",
-                "href": "/wiki/brands/next-token/"
+                "href": "/wiki/brands/next-token"
               },
               {
                 "type": "text",
@@ -49,7 +49,7 @@
                 "value": "Next Token Weekly",
                 "entityType": "show",
                 "entityId": "next-token-weekly",
-                "href": "/weekly/"
+                "href": "/weekly"
               },
               {
                 "type": "text",
@@ -80,7 +80,7 @@
                 "value": "Next Token｜词元之外",
                 "entityType": "brand",
                 "entityId": "next-token",
-                "href": "/wiki/brands/next-token/"
+                "href": "/wiki/brands/next-token"
               },
               {
                 "type": "text",
@@ -147,7 +147,7 @@
                 "value": "大聪明",
                 "entityType": "person",
                 "entityId": "cyber-zen",
-                "href": "/wiki/people/cyber-zen/"
+                "href": "/wiki/people/cyber-zen"
               },
               {
                 "type": "text",
@@ -158,7 +158,7 @@
                 "value": "南乔",
                 "entityType": "person",
                 "entityId": "nan-qiao",
-                "href": "/wiki/people/nan-qiao/"
+                "href": "/wiki/people/nan-qiao"
               },
               {
                 "type": "text",
@@ -169,7 +169,7 @@
                 "value": "AGI Bar",
                 "entityType": "brand",
                 "entityId": "agi-bar",
-                "href": "/wiki/brands/agi-bar/"
+                "href": "/wiki/brands/agi-bar"
               },
               {
                 "type": "text",
@@ -180,7 +180,7 @@
                 "value": "小宇宙",
                 "entityType": "product",
                 "entityId": "xiaoyuzhou",
-                "href": "/wiki/products/xiaoyuzhou/"
+                "href": "/wiki/products/xiaoyuzhou"
               },
               {
                 "type": "text",
@@ -191,7 +191,7 @@
                 "value": "B 站",
                 "entityType": "product",
                 "entityId": "bilibili",
-                "href": "/wiki/products/bilibili/"
+                "href": "/wiki/products/bilibili"
               },
               {
                 "type": "text",
@@ -202,7 +202,7 @@
                 "value": "小宇宙",
                 "entityType": "product",
                 "entityId": "xiaoyuzhou",
-                "href": "/wiki/products/xiaoyuzhou/"
+                "href": "/wiki/products/xiaoyuzhou"
               },
               {
                 "type": "text",
@@ -213,7 +213,7 @@
                 "value": "B 站",
                 "entityType": "product",
                 "entityId": "bilibili",
-                "href": "/wiki/products/bilibili/"
+                "href": "/wiki/products/bilibili"
               },
               {
                 "type": "text",
@@ -244,7 +244,7 @@
                 "value": "GPT-6 Astra",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -283,7 +283,7 @@
                 "value": "Astra",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -294,7 +294,7 @@
                 "value": "GPT-6",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -305,7 +305,7 @@
                 "value": "Blender",
                 "entityType": "product",
                 "entityId": "blender",
-                "href": "/wiki/products/blender/"
+                "href": "/wiki/products/blender"
               },
               {
                 "type": "text",
@@ -344,7 +344,7 @@
                 "value": "小红书",
                 "entityType": "product",
                 "entityId": "xiaohongshu",
-                "href": "/wiki/products/xiaohongshu/"
+                "href": "/wiki/products/xiaohongshu"
               },
               {
                 "type": "text",
@@ -355,7 +355,7 @@
                 "value": "吸血鬼幸存者",
                 "entityType": "product",
                 "entityId": "vampire-survivors",
-                "href": "/wiki/products/vampire-survivors/"
+                "href": "/wiki/products/vampire-survivors"
               },
               {
                 "type": "text",
@@ -366,7 +366,7 @@
                 "value": "微信",
                 "entityType": "product",
                 "entityId": "wechat",
-                "href": "/wiki/products/wechat/"
+                "href": "/wiki/products/wechat"
               },
               {
                 "type": "text",
@@ -433,7 +433,7 @@
                 "value": "GPT-6",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -464,7 +464,7 @@
                 "value": "Blender",
                 "entityType": "product",
                 "entityId": "blender",
-                "href": "/wiki/products/blender/"
+                "href": "/wiki/products/blender"
               },
               {
                 "type": "text",
@@ -475,7 +475,7 @@
                 "value": "Blender",
                 "entityType": "product",
                 "entityId": "blender",
-                "href": "/wiki/products/blender/"
+                "href": "/wiki/products/blender"
               },
               {
                 "type": "text",
@@ -486,7 +486,7 @@
                 "value": "Blender",
                 "entityType": "product",
                 "entityId": "blender",
-                "href": "/wiki/products/blender/"
+                "href": "/wiki/products/blender"
               },
               {
                 "type": "text",
@@ -525,7 +525,7 @@
                 "value": "Godot Engine",
                 "entityType": "product",
                 "entityId": "godot-engine",
-                "href": "/wiki/products/godot-engine/"
+                "href": "/wiki/products/godot-engine"
               },
               {
                 "type": "text",
@@ -564,7 +564,7 @@
                 "value": "DaVinci",
                 "entityType": "product",
                 "entityId": "davinci-resolve",
-                "href": "/wiki/products/davinci-resolve/"
+                "href": "/wiki/products/davinci-resolve"
               },
               {
                 "type": "text",
@@ -617,7 +617,7 @@
                 "value": "GPT-6",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -642,7 +642,7 @@
                 "value": "GPT-6",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -653,7 +653,7 @@
                 "value": "Fable",
                 "entityType": "product",
                 "entityId": "claude",
-                "href": "/wiki/products/claude/"
+                "href": "/wiki/products/claude"
               },
               {
                 "type": "text",
@@ -678,7 +678,7 @@
                 "value": "Cola",
                 "entityType": "product",
                 "entityId": "colaos",
-                "href": "/wiki/products/colaos/"
+                "href": "/wiki/products/colaos"
               },
               {
                 "type": "text",
@@ -745,7 +745,7 @@
                 "value": "Fable",
                 "entityType": "product",
                 "entityId": "claude",
-                "href": "/wiki/products/claude/"
+                "href": "/wiki/products/claude"
               },
               {
                 "type": "text",
@@ -784,7 +784,7 @@
                 "value": "Astra",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -795,7 +795,7 @@
                 "value": "Fable",
                 "entityType": "product",
                 "entityId": "claude",
-                "href": "/wiki/products/claude/"
+                "href": "/wiki/products/claude"
               },
               {
                 "type": "text",
@@ -806,7 +806,7 @@
                 "value": "Astra",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -817,7 +817,7 @@
                 "value": "GPT",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -856,7 +856,7 @@
                 "value": "DeepSeek Flash",
                 "entityType": "product",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/products/deepseek"
               },
               {
                 "type": "text",
@@ -867,7 +867,7 @@
                 "value": "ColaMD",
                 "entityType": "product",
                 "entityId": "colamd",
-                "href": "/wiki/products/colamd/"
+                "href": "/wiki/products/colamd"
               },
               {
                 "type": "text",
@@ -878,7 +878,7 @@
                 "value": "Electron",
                 "entityType": "product",
                 "entityId": "electron",
-                "href": "/wiki/products/electron/"
+                "href": "/wiki/products/electron"
               },
               {
                 "type": "text",
@@ -889,7 +889,7 @@
                 "value": "DeepSeek Flash",
                 "entityType": "product",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/products/deepseek"
               },
               {
                 "type": "text",
@@ -920,7 +920,7 @@
                 "value": "Astra",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -945,7 +945,7 @@
                 "value": "Astra",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -956,7 +956,7 @@
                 "value": "Astra",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -967,7 +967,7 @@
                 "value": "5.6 Sol",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -978,7 +978,7 @@
                 "value": "Astra",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -989,7 +989,7 @@
                 "value": "Codex",
                 "entityType": "product",
                 "entityId": "codex",
-                "href": "/wiki/products/codex/"
+                "href": "/wiki/products/codex"
               },
               {
                 "type": "text",
@@ -1000,7 +1000,7 @@
                 "value": "Sol",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -1011,7 +1011,7 @@
                 "value": "Sol",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -1022,7 +1022,7 @@
                 "value": "Sol",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -1033,7 +1033,7 @@
                 "value": "Astra",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -1072,7 +1072,7 @@
                 "value": "Sol",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -1083,7 +1083,7 @@
                 "value": "Sol",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -1094,7 +1094,7 @@
                 "value": "Astra",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -1105,7 +1105,7 @@
                 "value": "Sol",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -1116,7 +1116,7 @@
                 "value": "Astra",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -1127,7 +1127,7 @@
                 "value": "Terra",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -1138,7 +1138,7 @@
                 "value": "Luna",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -1149,7 +1149,7 @@
                 "value": "Astra",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -1160,7 +1160,7 @@
                 "value": "Astra",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -1171,7 +1171,7 @@
                 "value": "Sol",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -1182,7 +1182,7 @@
                 "value": "Sol",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -1193,7 +1193,7 @@
                 "value": "Codex",
                 "entityType": "product",
                 "entityId": "codex",
-                "href": "/wiki/products/codex/"
+                "href": "/wiki/products/codex"
               },
               {
                 "type": "text",
@@ -1204,7 +1204,7 @@
                 "value": "Codex",
                 "entityType": "product",
                 "entityId": "codex",
-                "href": "/wiki/products/codex/"
+                "href": "/wiki/products/codex"
               },
               {
                 "type": "text",
@@ -1257,7 +1257,7 @@
                 "value": "Astra",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -1296,7 +1296,7 @@
                 "value": "iOS",
                 "entityType": "product",
                 "entityId": "ios",
-                "href": "/wiki/products/ios/"
+                "href": "/wiki/products/ios"
               },
               {
                 "type": "text",
@@ -1307,7 +1307,7 @@
                 "value": "iOS",
                 "entityType": "product",
                 "entityId": "ios",
-                "href": "/wiki/products/ios/"
+                "href": "/wiki/products/ios"
               },
               {
                 "type": "text",
@@ -1318,7 +1318,7 @@
                 "value": "Obsidian",
                 "entityType": "product",
                 "entityId": "obsidian",
-                "href": "/wiki/products/obsidian/"
+                "href": "/wiki/products/obsidian"
               },
               {
                 "type": "text",
@@ -1357,7 +1357,7 @@
                 "value": "小宇宙",
                 "entityType": "product",
                 "entityId": "xiaoyuzhou",
-                "href": "/wiki/products/xiaoyuzhou/"
+                "href": "/wiki/products/xiaoyuzhou"
               },
               {
                 "type": "text",
@@ -1368,7 +1368,7 @@
                 "value": "B 站",
                 "entityType": "product",
                 "entityId": "bilibili",
-                "href": "/wiki/products/bilibili/"
+                "href": "/wiki/products/bilibili"
               },
               {
                 "type": "text",
@@ -1379,7 +1379,7 @@
                 "value": "Spotify",
                 "entityType": "product",
                 "entityId": "spotify",
-                "href": "/wiki/products/spotify/"
+                "href": "/wiki/products/spotify"
               },
               {
                 "type": "text",
@@ -1390,7 +1390,7 @@
                 "value": "Apple Podcast",
                 "entityType": "product",
                 "entityId": "apple-podcasts",
-                "href": "/wiki/products/apple-podcasts/"
+                "href": "/wiki/products/apple-podcasts"
               },
               {
                 "type": "text",
@@ -1401,7 +1401,7 @@
                 "value": "YouTube",
                 "entityType": "product",
                 "entityId": "youtube",
-                "href": "/wiki/products/youtube/"
+                "href": "/wiki/products/youtube"
               },
               {
                 "type": "text",
@@ -1412,7 +1412,7 @@
                 "value": "Codex",
                 "entityType": "product",
                 "entityId": "codex",
-                "href": "/wiki/products/codex/"
+                "href": "/wiki/products/codex"
               },
               {
                 "type": "text",
@@ -1423,7 +1423,7 @@
                 "value": "Codex",
                 "entityType": "product",
                 "entityId": "codex",
-                "href": "/wiki/products/codex/"
+                "href": "/wiki/products/codex"
               },
               {
                 "type": "text",
@@ -1462,7 +1462,7 @@
                 "value": "nexttoken.tv",
                 "entityType": "brand",
                 "entityId": "next-token",
-                "href": "/wiki/brands/next-token/"
+                "href": "/wiki/brands/next-token"
               },
               {
                 "type": "text",
@@ -1553,7 +1553,7 @@
                 "value": "小宇宙",
                 "entityType": "product",
                 "entityId": "xiaoyuzhou",
-                "href": "/wiki/products/xiaoyuzhou/"
+                "href": "/wiki/products/xiaoyuzhou"
               },
               {
                 "type": "text",
@@ -1574,7 +1574,7 @@
                 "value": "小宇宙",
                 "entityType": "product",
                 "entityId": "xiaoyuzhou",
-                "href": "/wiki/products/xiaoyuzhou/"
+                "href": "/wiki/products/xiaoyuzhou"
               },
               {
                 "type": "text",
@@ -1585,7 +1585,7 @@
                 "value": "小宇宙",
                 "entityType": "product",
                 "entityId": "xiaoyuzhou",
-                "href": "/wiki/products/xiaoyuzhou/"
+                "href": "/wiki/products/xiaoyuzhou"
               },
               {
                 "type": "text",
@@ -1624,7 +1624,7 @@
                 "value": "火山",
                 "entityType": "brand",
                 "entityId": "volcengine",
-                "href": "/wiki/brands/volcengine/"
+                "href": "/wiki/brands/volcengine"
               },
               {
                 "type": "text",
@@ -1635,7 +1635,7 @@
                 "value": "阿里云",
                 "entityType": "brand",
                 "entityId": "alibaba-cloud",
-                "href": "/wiki/brands/alibaba-cloud/"
+                "href": "/wiki/brands/alibaba-cloud"
               },
               {
                 "type": "text",
@@ -1688,7 +1688,7 @@
                 "value": "GPT",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -1699,7 +1699,7 @@
                 "value": "OpenAI",
                 "entityType": "brand",
                 "entityId": "openai",
-                "href": "/wiki/brands/openai/"
+                "href": "/wiki/brands/openai"
               },
               {
                 "type": "text",
@@ -1734,7 +1734,7 @@
                 "value": "OpenAI",
                 "entityType": "brand",
                 "entityId": "openai",
-                "href": "/wiki/brands/openai/"
+                "href": "/wiki/brands/openai"
               },
               {
                 "type": "text",
@@ -1773,7 +1773,7 @@
                 "value": "苹果",
                 "entityType": "brand",
                 "entityId": "apple",
-                "href": "/wiki/brands/apple/"
+                "href": "/wiki/brands/apple"
               },
               {
                 "type": "text",
@@ -1812,7 +1812,7 @@
                 "value": "OpenAI",
                 "entityType": "brand",
                 "entityId": "openai",
-                "href": "/wiki/brands/openai/"
+                "href": "/wiki/brands/openai"
               },
               {
                 "type": "text",
@@ -1893,7 +1893,7 @@
                 "value": "剪映",
                 "entityType": "product",
                 "entityId": "jianying",
-                "href": "/wiki/products/jianying/"
+                "href": "/wiki/products/jianying"
               },
               {
                 "type": "text",
@@ -1904,7 +1904,7 @@
                 "value": "剪映",
                 "entityType": "product",
                 "entityId": "jianying",
-                "href": "/wiki/products/jianying/"
+                "href": "/wiki/products/jianying"
               },
               {
                 "type": "text",
@@ -1915,7 +1915,7 @@
                 "value": "FFmpeg",
                 "entityType": "product",
                 "entityId": "ffmpeg",
-                "href": "/wiki/products/ffmpeg/"
+                "href": "/wiki/products/ffmpeg"
               },
               {
                 "type": "text",
@@ -1940,7 +1940,7 @@
                 "value": "剪映",
                 "entityType": "product",
                 "entityId": "jianying",
-                "href": "/wiki/products/jianying/"
+                "href": "/wiki/products/jianying"
               },
               {
                 "type": "text",
@@ -1979,7 +1979,7 @@
                 "value": "Codex",
                 "entityType": "product",
                 "entityId": "codex",
-                "href": "/wiki/products/codex/"
+                "href": "/wiki/products/codex"
               },
               {
                 "type": "text",
@@ -1990,7 +1990,7 @@
                 "value": "Codex",
                 "entityType": "product",
                 "entityId": "codex",
-                "href": "/wiki/products/codex/"
+                "href": "/wiki/products/codex"
               },
               {
                 "type": "text",
@@ -2001,7 +2001,7 @@
                 "value": "FFmpeg",
                 "entityType": "product",
                 "entityId": "ffmpeg",
-                "href": "/wiki/products/ffmpeg/"
+                "href": "/wiki/products/ffmpeg"
               },
               {
                 "type": "text",
@@ -2012,7 +2012,7 @@
                 "value": "Codex",
                 "entityType": "product",
                 "entityId": "codex",
-                "href": "/wiki/products/codex/"
+                "href": "/wiki/products/codex"
               },
               {
                 "type": "text",
@@ -2023,7 +2023,7 @@
                 "value": "Codex",
                 "entityType": "product",
                 "entityId": "codex",
-                "href": "/wiki/products/codex/"
+                "href": "/wiki/products/codex"
               },
               {
                 "type": "text",
@@ -2048,7 +2048,7 @@
                 "value": "剪映",
                 "entityType": "product",
                 "entityId": "jianying",
-                "href": "/wiki/products/jianying/"
+                "href": "/wiki/products/jianying"
               },
               {
                 "type": "text",
@@ -2107,7 +2107,7 @@
                 "value": "GPT-6",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -2174,7 +2174,7 @@
                 "value": "Codex",
                 "entityType": "product",
                 "entityId": "codex",
-                "href": "/wiki/products/codex/"
+                "href": "/wiki/products/codex"
               },
               {
                 "type": "text",
@@ -2241,7 +2241,7 @@
                 "value": "Astra",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -2252,7 +2252,7 @@
                 "value": "Fable 5.1",
                 "entityType": "product",
                 "entityId": "claude",
-                "href": "/wiki/products/claude/"
+                "href": "/wiki/products/claude"
               },
               {
                 "type": "text",
@@ -2333,7 +2333,7 @@
                 "value": "Fable",
                 "entityType": "product",
                 "entityId": "claude",
-                "href": "/wiki/products/claude/"
+                "href": "/wiki/products/claude"
               },
               {
                 "type": "text",
@@ -2344,7 +2344,7 @@
                 "value": "Cursor",
                 "entityType": "product",
                 "entityId": "cursor",
-                "href": "/wiki/products/cursor/"
+                "href": "/wiki/products/cursor"
               },
               {
                 "type": "text",
@@ -2369,7 +2369,7 @@
                 "value": "Gemini 3.8 Flash",
                 "entityType": "product",
                 "entityId": "gemini",
-                "href": "/wiki/products/gemini/"
+                "href": "/wiki/products/gemini"
               },
               {
                 "type": "text",
@@ -2380,7 +2380,7 @@
                 "value": "Fable 5.1",
                 "entityType": "product",
                 "entityId": "claude",
-                "href": "/wiki/products/claude/"
+                "href": "/wiki/products/claude"
               },
               {
                 "type": "text",
@@ -2391,7 +2391,7 @@
                 "value": "Claude",
                 "entityType": "product",
                 "entityId": "claude",
-                "href": "/wiki/products/claude/"
+                "href": "/wiki/products/claude"
               },
               {
                 "type": "text",
@@ -2440,7 +2440,7 @@
                 "value": "DeepSWE",
                 "entityType": "product",
                 "entityId": "deepswe",
-                "href": "/wiki/products/deepswe/"
+                "href": "/wiki/products/deepswe"
               },
               {
                 "type": "text",
@@ -2465,7 +2465,7 @@
                 "value": "Anthropic",
                 "entityType": "brand",
                 "entityId": "anthropic",
-                "href": "/wiki/brands/anthropic/"
+                "href": "/wiki/brands/anthropic"
               },
               {
                 "type": "text",
@@ -2518,7 +2518,7 @@
                 "value": "Terminal-Bench",
                 "entityType": "product",
                 "entityId": "terminal-bench",
-                "href": "/wiki/products/terminal-bench/"
+                "href": "/wiki/products/terminal-bench"
               },
               {
                 "type": "text",
@@ -2543,7 +2543,7 @@
                 "value": "Fable",
                 "entityType": "product",
                 "entityId": "claude",
-                "href": "/wiki/products/claude/"
+                "href": "/wiki/products/claude"
               },
               {
                 "type": "text",
@@ -2568,7 +2568,7 @@
                 "value": "Fable",
                 "entityType": "product",
                 "entityId": "claude",
-                "href": "/wiki/products/claude/"
+                "href": "/wiki/products/claude"
               },
               {
                 "type": "text",
@@ -2579,7 +2579,7 @@
                 "value": "Astra",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -2610,7 +2610,7 @@
                 "value": "Opus 4.6",
                 "entityType": "product",
                 "entityId": "claude",
-                "href": "/wiki/products/claude/"
+                "href": "/wiki/products/claude"
               },
               {
                 "type": "text",
@@ -2631,7 +2631,7 @@
                 "value": "Opus 4.6",
                 "entityType": "product",
                 "entityId": "claude",
-                "href": "/wiki/products/claude/"
+                "href": "/wiki/products/claude"
               },
               {
                 "type": "text",
@@ -2656,7 +2656,7 @@
                 "value": "Gemini 3.8 Flash",
                 "entityType": "product",
                 "entityId": "gemini",
-                "href": "/wiki/products/gemini/"
+                "href": "/wiki/products/gemini"
               },
               {
                 "type": "text",
@@ -2667,7 +2667,7 @@
                 "value": "小互",
                 "entityType": "person",
                 "entityId": "xiaohu",
-                "href": "/wiki/people/xiaohu/"
+                "href": "/wiki/people/xiaohu"
               },
               {
                 "type": "text",
@@ -2678,7 +2678,7 @@
                 "value": "Fable 5.1",
                 "entityType": "product",
                 "entityId": "claude",
-                "href": "/wiki/products/claude/"
+                "href": "/wiki/products/claude"
               },
               {
                 "type": "text",
@@ -2703,7 +2703,7 @@
                 "value": "K3",
                 "entityType": "product",
                 "entityId": "kimi",
-                "href": "/wiki/products/kimi/"
+                "href": "/wiki/products/kimi"
               },
               {
                 "type": "text",
@@ -2728,7 +2728,7 @@
                 "value": "K3",
                 "entityType": "product",
                 "entityId": "kimi",
-                "href": "/wiki/products/kimi/"
+                "href": "/wiki/products/kimi"
               },
               {
                 "type": "text",
@@ -2753,7 +2753,7 @@
                 "value": "K3",
                 "entityType": "product",
                 "entityId": "kimi",
-                "href": "/wiki/products/kimi/"
+                "href": "/wiki/products/kimi"
               },
               {
                 "type": "text",
@@ -2778,7 +2778,7 @@
                 "value": "K3",
                 "entityType": "product",
                 "entityId": "kimi",
-                "href": "/wiki/products/kimi/"
+                "href": "/wiki/products/kimi"
               },
               {
                 "type": "text",
@@ -2799,7 +2799,7 @@
                 "value": "K3",
                 "entityType": "product",
                 "entityId": "kimi",
-                "href": "/wiki/products/kimi/"
+                "href": "/wiki/products/kimi"
               },
               {
                 "type": "text",
@@ -2848,7 +2848,7 @@
                 "value": "GPT",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -2873,7 +2873,7 @@
                 "value": "GPT 5.5",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -2926,7 +2926,7 @@
                 "value": "Opus",
                 "entityType": "product",
                 "entityId": "claude",
-                "href": "/wiki/products/claude/"
+                "href": "/wiki/products/claude"
               },
               {
                 "type": "text",
@@ -2937,7 +2937,7 @@
                 "value": "GPT",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -2968,7 +2968,7 @@
                 "value": "DeepSeek Flash",
                 "entityType": "product",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/products/deepseek"
               },
               {
                 "type": "text",
@@ -2979,7 +2979,7 @@
                 "value": "DeepSeek Harness",
                 "entityType": "product",
                 "entityId": "deepseek-harness",
-                "href": "/wiki/products/deepseek-harness/"
+                "href": "/wiki/products/deepseek-harness"
               },
               {
                 "type": "text",
@@ -3004,7 +3004,7 @@
                 "value": "DeepSeek Harness",
                 "entityType": "product",
                 "entityId": "deepseek-harness",
-                "href": "/wiki/products/deepseek-harness/"
+                "href": "/wiki/products/deepseek-harness"
               },
               {
                 "type": "text",
@@ -3029,7 +3029,7 @@
                 "value": "DeepSeek Flash",
                 "entityType": "product",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/products/deepseek"
               },
               {
                 "type": "text",
@@ -3040,7 +3040,7 @@
                 "value": "DeepSeek Harness",
                 "entityType": "product",
                 "entityId": "deepseek-harness",
-                "href": "/wiki/products/deepseek-harness/"
+                "href": "/wiki/products/deepseek-harness"
               },
               {
                 "type": "text",
@@ -3065,7 +3065,7 @@
                 "value": "微信",
                 "entityType": "product",
                 "entityId": "wechat",
-                "href": "/wiki/products/wechat/"
+                "href": "/wiki/products/wechat"
               },
               {
                 "type": "text",
@@ -3146,7 +3146,7 @@
                 "value": "Qwen",
                 "entityType": "product",
                 "entityId": "qwen",
-                "href": "/wiki/products/qwen/"
+                "href": "/wiki/products/qwen"
               },
               {
                 "type": "text",
@@ -3157,7 +3157,7 @@
                 "value": "微信",
                 "entityType": "product",
                 "entityId": "wechat",
-                "href": "/wiki/products/wechat/"
+                "href": "/wiki/products/wechat"
               },
               {
                 "type": "text",
@@ -3182,7 +3182,7 @@
                 "value": "DeepSeek",
                 "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/brands/deepseek/"
+                "href": "/wiki/brands/deepseek"
               },
               {
                 "type": "text",
@@ -3193,7 +3193,7 @@
                 "value": "DeepSeek V4.1 Flash",
                 "entityType": "product",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/products/deepseek"
               },
               {
                 "type": "text",
@@ -3224,7 +3224,7 @@
                 "value": "Astra",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -3263,7 +3263,7 @@
                 "value": "Fable 5.1",
                 "entityType": "product",
                 "entityId": "claude",
-                "href": "/wiki/products/claude/"
+                "href": "/wiki/products/claude"
               },
               {
                 "type": "text",
@@ -3274,7 +3274,7 @@
                 "value": "DeepSeek Flash",
                 "entityType": "product",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/products/deepseek"
               },
               {
                 "type": "text",
@@ -3285,7 +3285,7 @@
                 "value": "Astra",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -3296,7 +3296,7 @@
                 "value": "Fable 5.1",
                 "entityType": "product",
                 "entityId": "claude",
-                "href": "/wiki/products/claude/"
+                "href": "/wiki/products/claude"
               },
               {
                 "type": "text",
@@ -3317,7 +3317,7 @@
                 "value": "DeepSeek Flash",
                 "entityType": "product",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/products/deepseek"
               },
               {
                 "type": "text",
@@ -3558,7 +3558,7 @@
                 "value": "Linux",
                 "entityType": "product",
                 "entityId": "linux",
-                "href": "/wiki/products/linux/"
+                "href": "/wiki/products/linux"
               },
               {
                 "type": "text",
@@ -3625,7 +3625,7 @@
                 "value": "Codex",
                 "entityType": "product",
                 "entityId": "codex",
-                "href": "/wiki/products/codex/"
+                "href": "/wiki/products/codex"
               },
               {
                 "type": "text",
@@ -3664,7 +3664,7 @@
                 "value": "ZCode",
                 "entityType": "product",
                 "entityId": "zcode",
-                "href": "/wiki/products/zcode/"
+                "href": "/wiki/products/zcode"
               },
               {
                 "type": "text",
@@ -3863,7 +3863,7 @@
                 "value": "牛来",
                 "entityType": "product",
                 "entityId": "glm",
-                "href": "/wiki/products/glm/"
+                "href": "/wiki/products/glm"
               },
               {
                 "type": "text",
@@ -3898,7 +3898,7 @@
                 "value": "牛来",
                 "entityType": "product",
                 "entityId": "glm",
-                "href": "/wiki/products/glm/"
+                "href": "/wiki/products/glm"
               },
               {
                 "type": "text",
@@ -3909,7 +3909,7 @@
                 "value": "牛来",
                 "entityType": "product",
                 "entityId": "glm",
-                "href": "/wiki/products/glm/"
+                "href": "/wiki/products/glm"
               },
               {
                 "type": "text",
@@ -3948,7 +3948,7 @@
                 "value": "DeepSeek",
                 "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/brands/deepseek/"
+                "href": "/wiki/brands/deepseek"
               },
               {
                 "type": "text",
@@ -3987,7 +3987,7 @@
                 "value": "V4 Flash",
                 "entityType": "product",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/products/deepseek"
               },
               {
                 "type": "text",
@@ -4040,7 +4040,7 @@
                 "value": "谷歌",
                 "entityType": "brand",
                 "entityId": "google",
-                "href": "/wiki/brands/google/"
+                "href": "/wiki/brands/google"
               },
               {
                 "type": "text",
@@ -4065,7 +4065,7 @@
                 "value": "DeepSeek V4.1",
                 "entityType": "product",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/products/deepseek"
               },
               {
                 "type": "text",
@@ -4076,7 +4076,7 @@
                 "value": "DeepSeek V4",
                 "entityType": "product",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/products/deepseek"
               },
               {
                 "type": "text",
@@ -4129,7 +4129,7 @@
                 "value": "苹果",
                 "entityType": "brand",
                 "entityId": "apple",
-                "href": "/wiki/brands/apple/"
+                "href": "/wiki/brands/apple"
               },
               {
                 "type": "text",
@@ -4150,7 +4150,7 @@
                 "value": "苹果",
                 "entityType": "brand",
                 "entityId": "apple",
-                "href": "/wiki/brands/apple/"
+                "href": "/wiki/brands/apple"
               },
               {
                 "type": "text",
@@ -4161,7 +4161,7 @@
                 "value": "苹果",
                 "entityType": "brand",
                 "entityId": "apple",
-                "href": "/wiki/brands/apple/"
+                "href": "/wiki/brands/apple"
               },
               {
                 "type": "text",
@@ -4186,7 +4186,7 @@
                 "value": "苹果",
                 "entityType": "brand",
                 "entityId": "apple",
-                "href": "/wiki/brands/apple/"
+                "href": "/wiki/brands/apple"
               },
               {
                 "type": "text",
@@ -4197,7 +4197,7 @@
                 "value": "苹果",
                 "entityType": "brand",
                 "entityId": "apple",
-                "href": "/wiki/brands/apple/"
+                "href": "/wiki/brands/apple"
               },
               {
                 "type": "text",
@@ -4278,7 +4278,7 @@
                 "value": "iOS",
                 "entityType": "product",
                 "entityId": "ios",
-                "href": "/wiki/products/ios/"
+                "href": "/wiki/products/ios"
               },
               {
                 "type": "text",
@@ -4289,7 +4289,7 @@
                 "value": "ColaMD",
                 "entityType": "product",
                 "entityId": "colamd",
-                "href": "/wiki/products/colamd/"
+                "href": "/wiki/products/colamd"
               },
               {
                 "type": "text",
@@ -4334,7 +4334,7 @@
                 "value": "V4 Pro",
                 "entityType": "product",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/products/deepseek"
               },
               {
                 "type": "text",
@@ -4345,7 +4345,7 @@
                 "value": "V4.1 Flash",
                 "entityType": "product",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/products/deepseek"
               },
               {
                 "type": "text",
@@ -4370,7 +4370,7 @@
                 "value": "DeepSeek",
                 "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/brands/deepseek/"
+                "href": "/wiki/brands/deepseek"
               },
               {
                 "type": "text",
@@ -4437,7 +4437,7 @@
                 "value": "DeepSeek",
                 "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/brands/deepseek/"
+                "href": "/wiki/brands/deepseek"
               },
               {
                 "type": "text",
@@ -4448,7 +4448,7 @@
                 "value": "DeepSeek",
                 "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/brands/deepseek/"
+                "href": "/wiki/brands/deepseek"
               },
               {
                 "type": "text",
@@ -4459,7 +4459,7 @@
                 "value": "DeepSeek",
                 "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/brands/deepseek/"
+                "href": "/wiki/brands/deepseek"
               },
               {
                 "type": "text",
@@ -4498,7 +4498,7 @@
                 "value": "DeepSeek",
                 "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/brands/deepseek/"
+                "href": "/wiki/brands/deepseek"
               },
               {
                 "type": "text",
@@ -4509,7 +4509,7 @@
                 "value": "DeepSeek V4 Flash",
                 "entityType": "product",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/products/deepseek"
               },
               {
                 "type": "text",
@@ -4520,7 +4520,7 @@
                 "value": "DeepSeek Flash",
                 "entityType": "product",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/products/deepseek"
               },
               {
                 "type": "text",
@@ -4559,7 +4559,7 @@
                 "value": "DeepSeek",
                 "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/brands/deepseek/"
+                "href": "/wiki/brands/deepseek"
               },
               {
                 "type": "text",
@@ -4570,7 +4570,7 @@
                 "value": "DeepSeek Flash",
                 "entityType": "product",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/products/deepseek"
               },
               {
                 "type": "text",
@@ -4581,7 +4581,7 @@
                 "value": "DeepSeek Pro",
                 "entityType": "product",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/products/deepseek"
               },
               {
                 "type": "text",
@@ -4592,7 +4592,7 @@
                 "value": "Qwen",
                 "entityType": "product",
                 "entityId": "qwen",
-                "href": "/wiki/products/qwen/"
+                "href": "/wiki/products/qwen"
               },
               {
                 "type": "text",
@@ -4603,7 +4603,7 @@
                 "value": "Doubao Seed",
                 "entityType": "product",
                 "entityId": "doubao-seed",
-                "href": "/wiki/products/doubao-seed/"
+                "href": "/wiki/products/doubao-seed"
               },
               {
                 "type": "text",
@@ -4628,7 +4628,7 @@
                 "value": "Qwen",
                 "entityType": "product",
                 "entityId": "qwen",
-                "href": "/wiki/products/qwen/"
+                "href": "/wiki/products/qwen"
               },
               {
                 "type": "text",
@@ -4653,7 +4653,7 @@
                 "value": "DeepSeek",
                 "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/brands/deepseek/"
+                "href": "/wiki/brands/deepseek"
               },
               {
                 "type": "text",
@@ -4692,7 +4692,7 @@
                 "value": "DeepSeek",
                 "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/brands/deepseek/"
+                "href": "/wiki/brands/deepseek"
               },
               {
                 "type": "text",
@@ -4731,7 +4731,7 @@
                 "value": "DeepSeek",
                 "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/brands/deepseek/"
+                "href": "/wiki/brands/deepseek"
               },
               {
                 "type": "text",
@@ -4756,7 +4756,7 @@
                 "value": "阿里云",
                 "entityType": "brand",
                 "entityId": "alibaba-cloud",
-                "href": "/wiki/brands/alibaba-cloud/"
+                "href": "/wiki/brands/alibaba-cloud"
               },
               {
                 "type": "text",
@@ -4767,7 +4767,7 @@
                 "value": "火山",
                 "entityType": "brand",
                 "entityId": "volcengine",
-                "href": "/wiki/brands/volcengine/"
+                "href": "/wiki/brands/volcengine"
               },
               {
                 "type": "text",
@@ -4792,7 +4792,7 @@
                 "value": "DeepSeek",
                 "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/brands/deepseek/"
+                "href": "/wiki/brands/deepseek"
               },
               {
                 "type": "text",
@@ -4817,7 +4817,7 @@
                 "value": "硅基流动",
                 "entityType": "brand",
                 "entityId": "siliconflow",
-                "href": "/wiki/brands/siliconflow/"
+                "href": "/wiki/brands/siliconflow"
               },
               {
                 "type": "text",
@@ -4842,7 +4842,7 @@
                 "value": "WorkBuddy",
                 "entityType": "product",
                 "entityId": "workbuddy",
-                "href": "/wiki/products/workbuddy/"
+                "href": "/wiki/products/workbuddy"
               },
               {
                 "type": "text",
@@ -4853,7 +4853,7 @@
                 "value": "DeepSeek",
                 "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/brands/deepseek/"
+                "href": "/wiki/brands/deepseek"
               },
               {
                 "type": "text",
@@ -4864,7 +4864,7 @@
                 "value": "WorkBuddy",
                 "entityType": "product",
                 "entityId": "workbuddy",
-                "href": "/wiki/products/workbuddy/"
+                "href": "/wiki/products/workbuddy"
               },
               {
                 "type": "text",
@@ -4889,7 +4889,7 @@
                 "value": "DeepSeek Flash",
                 "entityType": "product",
                 "entityId": "deepseek",
-                "href": "/wiki/products/deepseek/"
+                "href": "/wiki/products/deepseek"
               },
               {
                 "type": "text",
@@ -4900,7 +4900,7 @@
                 "value": "WorkBuddy",
                 "entityType": "product",
                 "entityId": "workbuddy",
-                "href": "/wiki/products/workbuddy/"
+                "href": "/wiki/products/workbuddy"
               },
               {
                 "type": "text",
@@ -4911,7 +4911,7 @@
                 "value": "腾讯云",
                 "entityType": "brand",
                 "entityId": "tencent-cloud",
-                "href": "/wiki/brands/tencent-cloud/"
+                "href": "/wiki/brands/tencent-cloud"
               },
               {
                 "type": "text",
@@ -4922,7 +4922,7 @@
                 "value": "腾讯",
                 "entityType": "brand",
                 "entityId": "tencent",
-                "href": "/wiki/brands/tencent/"
+                "href": "/wiki/brands/tencent"
               },
               {
                 "type": "text",
@@ -4933,7 +4933,7 @@
                 "value": "腾讯",
                 "entityType": "brand",
                 "entityId": "tencent",
-                "href": "/wiki/brands/tencent/"
+                "href": "/wiki/brands/tencent"
               },
               {
                 "type": "text",
@@ -4992,7 +4992,7 @@
                 "value": "Grok Bot",
                 "entityType": "product",
                 "entityId": "grok-bot",
-                "href": "/wiki/products/grok-bot/"
+                "href": "/wiki/products/grok-bot"
               },
               {
                 "type": "text",
@@ -5003,7 +5003,7 @@
                 "value": "Meta",
                 "entityType": "brand",
                 "entityId": "meta",
-                "href": "/wiki/brands/meta/"
+                "href": "/wiki/brands/meta"
               },
               {
                 "type": "text",
@@ -5014,7 +5014,7 @@
                 "value": "Muse",
                 "entityType": "product",
                 "entityId": "muse",
-                "href": "/wiki/products/muse/"
+                "href": "/wiki/products/muse"
               },
               {
                 "type": "text",
@@ -5067,7 +5067,7 @@
                 "value": "Grok Bot",
                 "entityType": "product",
                 "entityId": "grok-bot",
-                "href": "/wiki/products/grok-bot/"
+                "href": "/wiki/products/grok-bot"
               },
               {
                 "type": "text",
@@ -5078,7 +5078,7 @@
                 "value": "ChatGPT",
                 "entityType": "product",
                 "entityId": "chatgpt",
-                "href": "/wiki/products/chatgpt/"
+                "href": "/wiki/products/chatgpt"
               },
               {
                 "type": "text",
@@ -5089,7 +5089,7 @@
                 "value": "Manus",
                 "entityType": "product",
                 "entityId": "manus",
-                "href": "/wiki/products/manus/"
+                "href": "/wiki/products/manus"
               },
               {
                 "type": "text",
@@ -5100,7 +5100,7 @@
                 "value": "Meta",
                 "entityType": "brand",
                 "entityId": "meta",
-                "href": "/wiki/brands/meta/"
+                "href": "/wiki/brands/meta"
               },
               {
                 "type": "text",
@@ -5111,7 +5111,7 @@
                 "value": "Muse",
                 "entityType": "product",
                 "entityId": "muse",
-                "href": "/wiki/products/muse/"
+                "href": "/wiki/products/muse"
               },
               {
                 "type": "text",
@@ -5122,7 +5122,7 @@
                 "value": "豆包工作",
                 "entityType": "product",
                 "entityId": "doubao-work",
-                "href": "/wiki/products/doubao-work/"
+                "href": "/wiki/products/doubao-work"
               },
               {
                 "type": "text",
@@ -5133,7 +5133,7 @@
                 "value": "Astra",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -5172,7 +5172,7 @@
                 "value": "Grok Bot",
                 "entityType": "product",
                 "entityId": "grok-bot",
-                "href": "/wiki/products/grok-bot/"
+                "href": "/wiki/products/grok-bot"
               },
               {
                 "type": "text",
@@ -5197,7 +5197,7 @@
                 "value": "Muse",
                 "entityType": "product",
                 "entityId": "muse",
-                "href": "/wiki/products/muse/"
+                "href": "/wiki/products/muse"
               },
               {
                 "type": "text",
@@ -5208,7 +5208,7 @@
                 "value": "Grok Bot",
                 "entityType": "product",
                 "entityId": "grok-bot",
-                "href": "/wiki/products/grok-bot/"
+                "href": "/wiki/products/grok-bot"
               },
               {
                 "type": "text",
@@ -5219,7 +5219,7 @@
                 "value": "豆包",
                 "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/products/doubao/"
+                "href": "/wiki/products/doubao"
               },
               {
                 "type": "text",
@@ -5272,7 +5272,7 @@
                 "value": "豆包",
                 "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/products/doubao/"
+                "href": "/wiki/products/doubao"
               },
               {
                 "type": "text",
@@ -5297,7 +5297,7 @@
                 "value": "豆包",
                 "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/products/doubao/"
+                "href": "/wiki/products/doubao"
               },
               {
                 "type": "text",
@@ -5308,7 +5308,7 @@
                 "value": "谷歌",
                 "entityType": "brand",
                 "entityId": "google",
-                "href": "/wiki/brands/google/"
+                "href": "/wiki/brands/google"
               },
               {
                 "type": "text",
@@ -5319,7 +5319,7 @@
                 "value": "Gemini",
                 "entityType": "product",
                 "entityId": "gemini",
-                "href": "/wiki/products/gemini/"
+                "href": "/wiki/products/gemini"
               },
               {
                 "type": "text",
@@ -5344,7 +5344,7 @@
                 "value": "Gemini",
                 "entityType": "product",
                 "entityId": "gemini",
-                "href": "/wiki/products/gemini/"
+                "href": "/wiki/products/gemini"
               },
               {
                 "type": "text",
@@ -5355,7 +5355,7 @@
                 "value": "豆包",
                 "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/products/doubao/"
+                "href": "/wiki/products/doubao"
               },
               {
                 "type": "text",
@@ -5380,7 +5380,7 @@
                 "value": "豆包",
                 "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/products/doubao/"
+                "href": "/wiki/products/doubao"
               },
               {
                 "type": "text",
@@ -5391,7 +5391,7 @@
                 "value": "Cola",
                 "entityType": "product",
                 "entityId": "colaos",
-                "href": "/wiki/products/colaos/"
+                "href": "/wiki/products/colaos"
               },
               {
                 "type": "text",
@@ -5416,7 +5416,7 @@
                 "value": "Cursor",
                 "entityType": "product",
                 "entityId": "cursor",
-                "href": "/wiki/products/cursor/"
+                "href": "/wiki/products/cursor"
               },
               {
                 "type": "text",
@@ -5427,7 +5427,7 @@
                 "value": "Grok Bot",
                 "entityType": "product",
                 "entityId": "grok-bot",
-                "href": "/wiki/products/grok-bot/"
+                "href": "/wiki/products/grok-bot"
               },
               {
                 "type": "text",
@@ -5438,7 +5438,7 @@
                 "value": "Claude Code",
                 "entityType": "product",
                 "entityId": "claude-code",
-                "href": "/wiki/products/claude-code/"
+                "href": "/wiki/products/claude-code"
               },
               {
                 "type": "text",
@@ -5449,7 +5449,7 @@
                 "value": "Codex",
                 "entityType": "product",
                 "entityId": "codex",
-                "href": "/wiki/products/codex/"
+                "href": "/wiki/products/codex"
               },
               {
                 "type": "text",
@@ -5470,7 +5470,7 @@
                 "value": "Devin",
                 "entityType": "product",
                 "entityId": "devin",
-                "href": "/wiki/products/devin/"
+                "href": "/wiki/products/devin"
               },
               {
                 "type": "text",
@@ -5523,7 +5523,7 @@
                 "value": "Manus",
                 "entityType": "product",
                 "entityId": "manus",
-                "href": "/wiki/products/manus/"
+                "href": "/wiki/products/manus"
               },
               {
                 "type": "text",
@@ -5534,7 +5534,7 @@
                 "value": "Manus",
                 "entityType": "product",
                 "entityId": "manus",
-                "href": "/wiki/products/manus/"
+                "href": "/wiki/products/manus"
               },
               {
                 "type": "text",
@@ -5573,7 +5573,7 @@
                 "value": "Manus",
                 "entityType": "product",
                 "entityId": "manus",
-                "href": "/wiki/products/manus/"
+                "href": "/wiki/products/manus"
               },
               {
                 "type": "text",
@@ -5598,7 +5598,7 @@
                 "value": "Manus",
                 "entityType": "product",
                 "entityId": "manus",
-                "href": "/wiki/products/manus/"
+                "href": "/wiki/products/manus"
               },
               {
                 "type": "text",
@@ -5619,7 +5619,7 @@
                 "value": "Manus",
                 "entityType": "product",
                 "entityId": "manus",
-                "href": "/wiki/products/manus/"
+                "href": "/wiki/products/manus"
               },
               {
                 "type": "text",
@@ -5630,7 +5630,7 @@
                 "value": "Manus",
                 "entityType": "product",
                 "entityId": "manus",
-                "href": "/wiki/products/manus/"
+                "href": "/wiki/products/manus"
               },
               {
                 "type": "text",
@@ -5669,7 +5669,7 @@
                 "value": "冕神",
                 "entityType": "person",
                 "entityId": "chen-mian",
-                "href": "/wiki/people/chen-mian/"
+                "href": "/wiki/people/chen-mian"
               },
               {
                 "type": "text",
@@ -5680,7 +5680,7 @@
                 "value": "Manus",
                 "entityType": "product",
                 "entityId": "manus",
-                "href": "/wiki/products/manus/"
+                "href": "/wiki/products/manus"
               },
               {
                 "type": "text",
@@ -5711,7 +5711,7 @@
                 "value": "OpenAI",
                 "entityType": "brand",
                 "entityId": "openai",
-                "href": "/wiki/brands/openai/"
+                "href": "/wiki/brands/openai"
               },
               {
                 "type": "text",
@@ -5778,7 +5778,7 @@
                 "value": "Claude Code",
                 "entityType": "product",
                 "entityId": "claude-code",
-                "href": "/wiki/products/claude-code/"
+                "href": "/wiki/products/claude-code"
               },
               {
                 "type": "text",
@@ -5789,7 +5789,7 @@
                 "value": "Claude Code",
                 "entityType": "product",
                 "entityId": "claude-code",
-                "href": "/wiki/products/claude-code/"
+                "href": "/wiki/products/claude-code"
               },
               {
                 "type": "text",
@@ -5800,7 +5800,7 @@
                 "value": "Claude Code",
                 "entityType": "product",
                 "entityId": "claude-code",
-                "href": "/wiki/products/claude-code/"
+                "href": "/wiki/products/claude-code"
               },
               {
                 "type": "text",
@@ -5811,7 +5811,7 @@
                 "value": "Claude",
                 "entityType": "product",
                 "entityId": "claude",
-                "href": "/wiki/products/claude/"
+                "href": "/wiki/products/claude"
               },
               {
                 "type": "text",
@@ -5822,7 +5822,7 @@
                 "value": "Codex",
                 "entityType": "product",
                 "entityId": "codex",
-                "href": "/wiki/products/codex/"
+                "href": "/wiki/products/codex"
               },
               {
                 "type": "text",
@@ -5833,7 +5833,7 @@
                 "value": "Codex",
                 "entityType": "product",
                 "entityId": "codex",
-                "href": "/wiki/products/codex/"
+                "href": "/wiki/products/codex"
               },
               {
                 "type": "text",
@@ -5844,7 +5844,7 @@
                 "value": "OpenAI",
                 "entityType": "brand",
                 "entityId": "openai",
-                "href": "/wiki/brands/openai/"
+                "href": "/wiki/brands/openai"
               },
               {
                 "type": "text",
@@ -5855,7 +5855,7 @@
                 "value": "OpenAI",
                 "entityType": "brand",
                 "entityId": "openai",
-                "href": "/wiki/brands/openai/"
+                "href": "/wiki/brands/openai"
               },
               {
                 "type": "text",
@@ -5866,7 +5866,7 @@
                 "value": "DeepSeek Harness",
                 "entityType": "product",
                 "entityId": "deepseek-harness",
-                "href": "/wiki/products/deepseek-harness/"
+                "href": "/wiki/products/deepseek-harness"
               },
               {
                 "type": "text",
@@ -5877,7 +5877,7 @@
                 "value": "DeepSeek Harness",
                 "entityType": "product",
                 "entityId": "deepseek-harness",
-                "href": "/wiki/products/deepseek-harness/"
+                "href": "/wiki/products/deepseek-harness"
               },
               {
                 "type": "text",
@@ -5902,7 +5902,7 @@
                 "value": "CodePilot",
                 "entityType": "product",
                 "entityId": "codepilot",
-                "href": "/wiki/products/codepilot/"
+                "href": "/wiki/products/codepilot"
               },
               {
                 "type": "text",
@@ -5927,7 +5927,7 @@
                 "value": "Claude Code",
                 "entityType": "product",
                 "entityId": "claude-code",
-                "href": "/wiki/products/claude-code/"
+                "href": "/wiki/products/claude-code"
               },
               {
                 "type": "text",
@@ -5938,7 +5938,7 @@
                 "value": "Claude Code",
                 "entityType": "product",
                 "entityId": "claude-code",
-                "href": "/wiki/products/claude-code/"
+                "href": "/wiki/products/claude-code"
               },
               {
                 "type": "text",
@@ -5949,7 +5949,7 @@
                 "value": "Cursor",
                 "entityType": "product",
                 "entityId": "cursor",
-                "href": "/wiki/products/cursor/"
+                "href": "/wiki/products/cursor"
               },
               {
                 "type": "text",
@@ -5960,7 +5960,7 @@
                 "value": "Grok",
                 "entityType": "product",
                 "entityId": "grok",
-                "href": "/wiki/products/grok/"
+                "href": "/wiki/products/grok"
               },
               {
                 "type": "text",
@@ -5971,7 +5971,7 @@
                 "value": "Claude Code",
                 "entityType": "product",
                 "entityId": "claude-code",
-                "href": "/wiki/products/claude-code/"
+                "href": "/wiki/products/claude-code"
               },
               {
                 "type": "text",
@@ -5982,7 +5982,7 @@
                 "value": "Claude Code",
                 "entityType": "product",
                 "entityId": "claude-code",
-                "href": "/wiki/products/claude-code/"
+                "href": "/wiki/products/claude-code"
               },
               {
                 "type": "text",
@@ -5993,7 +5993,7 @@
                 "value": "Codex",
                 "entityType": "product",
                 "entityId": "codex",
-                "href": "/wiki/products/codex/"
+                "href": "/wiki/products/codex"
               },
               {
                 "type": "text",
@@ -6004,7 +6004,7 @@
                 "value": "OpenAI",
                 "entityType": "brand",
                 "entityId": "openai",
-                "href": "/wiki/brands/openai/"
+                "href": "/wiki/brands/openai"
               },
               {
                 "type": "text",
@@ -6015,7 +6015,7 @@
                 "value": "Anthropic",
                 "entityType": "brand",
                 "entityId": "anthropic",
-                "href": "/wiki/brands/anthropic/"
+                "href": "/wiki/brands/anthropic"
               },
               {
                 "type": "text",
@@ -6026,7 +6026,7 @@
                 "value": "Cursor",
                 "entityType": "product",
                 "entityId": "cursor",
-                "href": "/wiki/products/cursor/"
+                "href": "/wiki/products/cursor"
               },
               {
                 "type": "text",
@@ -6061,7 +6061,7 @@
                 "value": "Cherry Studio",
                 "entityType": "product",
                 "entityId": "cherry-studio",
-                "href": "/wiki/products/cherry-studio/"
+                "href": "/wiki/products/cherry-studio"
               },
               {
                 "type": "text",
@@ -6086,7 +6086,7 @@
                 "value": "T3 Code",
                 "entityType": "product",
                 "entityId": "t3-code",
-                "href": "/wiki/products/t3-code/"
+                "href": "/wiki/products/t3-code"
               },
               {
                 "type": "text",
@@ -6097,7 +6097,7 @@
                 "value": "T3 Code",
                 "entityType": "product",
                 "entityId": "t3-code",
-                "href": "/wiki/products/t3-code/"
+                "href": "/wiki/products/t3-code"
               },
               {
                 "type": "text",
@@ -6122,7 +6122,7 @@
                 "value": "T3 Code",
                 "entityType": "product",
                 "entityId": "t3-code",
-                "href": "/wiki/products/t3-code/"
+                "href": "/wiki/products/t3-code"
               },
               {
                 "type": "text",
@@ -6147,7 +6147,7 @@
                 "value": "Claude Code",
                 "entityType": "product",
                 "entityId": "claude-code",
-                "href": "/wiki/products/claude-code/"
+                "href": "/wiki/products/claude-code"
               },
               {
                 "type": "text",
@@ -6172,7 +6172,7 @@
                 "value": "OpenCode",
                 "entityType": "product",
                 "entityId": "opencode",
-                "href": "/wiki/products/opencode/"
+                "href": "/wiki/products/opencode"
               },
               {
                 "type": "text",
@@ -6197,7 +6197,7 @@
                 "value": "Codex",
                 "entityType": "product",
                 "entityId": "codex",
-                "href": "/wiki/products/codex/"
+                "href": "/wiki/products/codex"
               },
               {
                 "type": "text",
@@ -6208,7 +6208,7 @@
                 "value": "Claude Code",
                 "entityType": "product",
                 "entityId": "claude-code",
-                "href": "/wiki/products/claude-code/"
+                "href": "/wiki/products/claude-code"
               },
               {
                 "type": "text",
@@ -6219,7 +6219,7 @@
                 "value": "Codex",
                 "entityType": "product",
                 "entityId": "codex",
-                "href": "/wiki/products/codex/"
+                "href": "/wiki/products/codex"
               },
               {
                 "type": "text",
@@ -6230,7 +6230,7 @@
                 "value": "Codex",
                 "entityType": "product",
                 "entityId": "codex",
-                "href": "/wiki/products/codex/"
+                "href": "/wiki/products/codex"
               },
               {
                 "type": "text",
@@ -6241,7 +6241,7 @@
                 "value": "Codex",
                 "entityType": "product",
                 "entityId": "codex",
-                "href": "/wiki/products/codex/"
+                "href": "/wiki/products/codex"
               },
               {
                 "type": "text",
@@ -6276,7 +6276,7 @@
                 "value": "Pi",
                 "entityType": "product",
                 "entityId": "pi",
-                "href": "/wiki/products/pi/"
+                "href": "/wiki/products/pi"
               },
               {
                 "type": "text",
@@ -6363,7 +6363,7 @@
                 "value": "OpenAI",
                 "entityType": "brand",
                 "entityId": "openai",
-                "href": "/wiki/brands/openai/"
+                "href": "/wiki/brands/openai"
               },
               {
                 "type": "text",
@@ -6374,7 +6374,7 @@
                 "value": "Anthropic",
                 "entityType": "brand",
                 "entityId": "anthropic",
-                "href": "/wiki/brands/anthropic/"
+                "href": "/wiki/brands/anthropic"
               },
               {
                 "type": "text",
@@ -6385,7 +6385,7 @@
                 "value": "阿里云",
                 "entityType": "brand",
                 "entityId": "alibaba-cloud",
-                "href": "/wiki/brands/alibaba-cloud/"
+                "href": "/wiki/brands/alibaba-cloud"
               },
               {
                 "type": "text",
@@ -6396,7 +6396,7 @@
                 "value": "火山",
                 "entityType": "brand",
                 "entityId": "volcengine",
-                "href": "/wiki/brands/volcengine/"
+                "href": "/wiki/brands/volcengine"
               },
               {
                 "type": "text",
@@ -6449,7 +6449,7 @@
                 "value": "AWS",
                 "entityType": "brand",
                 "entityId": "aws",
-                "href": "/wiki/brands/aws/"
+                "href": "/wiki/brands/aws"
               },
               {
                 "type": "text",
@@ -6460,7 +6460,7 @@
                 "value": "阿里云",
                 "entityType": "brand",
                 "entityId": "alibaba-cloud",
-                "href": "/wiki/brands/alibaba-cloud/"
+                "href": "/wiki/brands/alibaba-cloud"
               },
               {
                 "type": "text",
@@ -6541,7 +6541,7 @@
                 "value": "DeepSeek",
                 "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/brands/deepseek/"
+                "href": "/wiki/brands/deepseek"
               },
               {
                 "type": "text",
@@ -6622,7 +6622,7 @@
                 "value": "DeepSeek Harness",
                 "entityType": "product",
                 "entityId": "deepseek-harness",
-                "href": "/wiki/products/deepseek-harness/"
+                "href": "/wiki/products/deepseek-harness"
               },
               {
                 "type": "text",
@@ -6647,7 +6647,7 @@
                 "value": "Qoder",
                 "entityType": "product",
                 "entityId": "qoder",
-                "href": "/wiki/products/qoder/"
+                "href": "/wiki/products/qoder"
               },
               {
                 "type": "text",
@@ -6658,7 +6658,7 @@
                 "value": "Qoder",
                 "entityType": "product",
                 "entityId": "qoder",
-                "href": "/wiki/products/qoder/"
+                "href": "/wiki/products/qoder"
               },
               {
                 "type": "text",
@@ -6669,7 +6669,7 @@
                 "value": "Qwen",
                 "entityType": "product",
                 "entityId": "qwen",
-                "href": "/wiki/products/qwen/"
+                "href": "/wiki/products/qwen"
               },
               {
                 "type": "text",
@@ -6680,7 +6680,7 @@
                 "value": "Qoder",
                 "entityType": "product",
                 "entityId": "qoder",
-                "href": "/wiki/products/qoder/"
+                "href": "/wiki/products/qoder"
               },
               {
                 "type": "text",
@@ -6691,7 +6691,7 @@
                 "value": "Qwen",
                 "entityType": "product",
                 "entityId": "qwen",
-                "href": "/wiki/products/qwen/"
+                "href": "/wiki/products/qwen"
               },
               {
                 "type": "text",
@@ -6702,7 +6702,7 @@
                 "value": "Qwen",
                 "entityType": "product",
                 "entityId": "qwen",
-                "href": "/wiki/products/qwen/"
+                "href": "/wiki/products/qwen"
               },
               {
                 "type": "text",
@@ -6713,7 +6713,7 @@
                 "value": "Qoder",
                 "entityType": "product",
                 "entityId": "qoder",
-                "href": "/wiki/products/qoder/"
+                "href": "/wiki/products/qoder"
               },
               {
                 "type": "text",
@@ -6724,7 +6724,7 @@
                 "value": "Qwen",
                 "entityType": "product",
                 "entityId": "qwen",
-                "href": "/wiki/products/qwen/"
+                "href": "/wiki/products/qwen"
               },
               {
                 "type": "text",
@@ -6749,7 +6749,7 @@
                 "value": "DeepSeek Harness",
                 "entityType": "product",
                 "entityId": "deepseek-harness",
-                "href": "/wiki/products/deepseek-harness/"
+                "href": "/wiki/products/deepseek-harness"
               },
               {
                 "type": "text",
@@ -6802,7 +6802,7 @@
                 "value": "Muse",
                 "entityType": "product",
                 "entityId": "muse",
-                "href": "/wiki/products/muse/"
+                "href": "/wiki/products/muse"
               },
               {
                 "type": "text",
@@ -6823,7 +6823,7 @@
                 "value": "Muse",
                 "entityType": "product",
                 "entityId": "muse",
-                "href": "/wiki/products/muse/"
+                "href": "/wiki/products/muse"
               },
               {
                 "type": "text",
@@ -6862,7 +6862,7 @@
                 "value": "Muse",
                 "entityType": "product",
                 "entityId": "muse",
-                "href": "/wiki/products/muse/"
+                "href": "/wiki/products/muse"
               },
               {
                 "type": "text",
@@ -6873,7 +6873,7 @@
                 "value": "WorkBuddy",
                 "entityType": "product",
                 "entityId": "workbuddy",
-                "href": "/wiki/products/workbuddy/"
+                "href": "/wiki/products/workbuddy"
               },
               {
                 "type": "text",
@@ -6898,7 +6898,7 @@
                 "value": "WorkBuddy",
                 "entityType": "product",
                 "entityId": "workbuddy",
-                "href": "/wiki/products/workbuddy/"
+                "href": "/wiki/products/workbuddy"
               },
               {
                 "type": "text",
@@ -6919,7 +6919,7 @@
                 "value": "WorkBuddy",
                 "entityType": "product",
                 "entityId": "workbuddy",
-                "href": "/wiki/products/workbuddy/"
+                "href": "/wiki/products/workbuddy"
               },
               {
                 "type": "text",
@@ -6992,7 +6992,7 @@
                 "value": "WorkBuddy",
                 "entityType": "product",
                 "entityId": "workbuddy",
-                "href": "/wiki/products/workbuddy/"
+                "href": "/wiki/products/workbuddy"
               },
               {
                 "type": "text",
@@ -7031,7 +7031,7 @@
                 "value": "WorkBuddy",
                 "entityType": "product",
                 "entityId": "workbuddy",
-                "href": "/wiki/products/workbuddy/"
+                "href": "/wiki/products/workbuddy"
               },
               {
                 "type": "text",
@@ -7056,7 +7056,7 @@
                 "value": "千问",
                 "entityType": "product",
                 "entityId": "qwen",
-                "href": "/wiki/products/qwen/"
+                "href": "/wiki/products/qwen"
               },
               {
                 "type": "text",
@@ -7067,7 +7067,7 @@
                 "value": "千问",
                 "entityType": "product",
                 "entityId": "qwen",
-                "href": "/wiki/products/qwen/"
+                "href": "/wiki/products/qwen"
               },
               {
                 "type": "text",
@@ -7102,7 +7102,7 @@
                 "value": "千问",
                 "entityType": "product",
                 "entityId": "qwen",
-                "href": "/wiki/products/qwen/"
+                "href": "/wiki/products/qwen"
               },
               {
                 "type": "text",
@@ -7113,7 +7113,7 @@
                 "value": "千问",
                 "entityType": "product",
                 "entityId": "qwen",
-                "href": "/wiki/products/qwen/"
+                "href": "/wiki/products/qwen"
               },
               {
                 "type": "text",
@@ -7166,7 +7166,7 @@
                 "value": "Qwen",
                 "entityType": "product",
                 "entityId": "qwen",
-                "href": "/wiki/products/qwen/"
+                "href": "/wiki/products/qwen"
               },
               {
                 "type": "text",
@@ -7177,7 +7177,7 @@
                 "value": "Manus",
                 "entityType": "product",
                 "entityId": "manus",
-                "href": "/wiki/products/manus/"
+                "href": "/wiki/products/manus"
               },
               {
                 "type": "text",
@@ -7188,7 +7188,7 @@
                 "value": "Manus",
                 "entityType": "product",
                 "entityId": "manus",
-                "href": "/wiki/products/manus/"
+                "href": "/wiki/products/manus"
               },
               {
                 "type": "text",
@@ -7241,7 +7241,7 @@
                 "value": "微信小微",
                 "entityType": "product",
                 "entityId": "xiaowei",
-                "href": "/wiki/products/xiaowei/"
+                "href": "/wiki/products/xiaowei"
               },
               {
                 "type": "text",
@@ -7252,7 +7252,7 @@
                 "value": "微信",
                 "entityType": "product",
                 "entityId": "wechat",
-                "href": "/wiki/products/wechat/"
+                "href": "/wiki/products/wechat"
               },
               {
                 "type": "text",
@@ -7283,7 +7283,7 @@
                 "value": "小微",
                 "entityType": "product",
                 "entityId": "xiaowei",
-                "href": "/wiki/products/xiaowei/"
+                "href": "/wiki/products/xiaowei"
               },
               {
                 "type": "text",
@@ -7294,7 +7294,7 @@
                 "value": "小微",
                 "entityType": "product",
                 "entityId": "xiaowei",
-                "href": "/wiki/products/xiaowei/"
+                "href": "/wiki/products/xiaowei"
               },
               {
                 "type": "text",
@@ -7319,7 +7319,7 @@
                 "value": "小微",
                 "entityType": "product",
                 "entityId": "xiaowei",
-                "href": "/wiki/products/xiaowei/"
+                "href": "/wiki/products/xiaowei"
               },
               {
                 "type": "text",
@@ -7344,7 +7344,7 @@
                 "value": "小微",
                 "entityType": "product",
                 "entityId": "xiaowei",
-                "href": "/wiki/products/xiaowei/"
+                "href": "/wiki/products/xiaowei"
               },
               {
                 "type": "text",
@@ -7355,7 +7355,7 @@
                 "value": "AJ",
                 "entityType": "person",
                 "entityId": "aj",
-                "href": "/wiki/people/aj/"
+                "href": "/wiki/people/aj"
               },
               {
                 "type": "text",
@@ -7366,7 +7366,7 @@
                 "value": "小微",
                 "entityType": "product",
                 "entityId": "xiaowei",
-                "href": "/wiki/products/xiaowei/"
+                "href": "/wiki/products/xiaowei"
               },
               {
                 "type": "text",
@@ -7377,7 +7377,7 @@
                 "value": "小微",
                 "entityType": "product",
                 "entityId": "xiaowei",
-                "href": "/wiki/products/xiaowei/"
+                "href": "/wiki/products/xiaowei"
               },
               {
                 "type": "text",
@@ -7388,7 +7388,7 @@
                 "value": "微信",
                 "entityType": "product",
                 "entityId": "wechat",
-                "href": "/wiki/products/wechat/"
+                "href": "/wiki/products/wechat"
               },
               {
                 "type": "text",
@@ -7399,7 +7399,7 @@
                 "value": "微信",
                 "entityType": "product",
                 "entityId": "wechat",
-                "href": "/wiki/products/wechat/"
+                "href": "/wiki/products/wechat"
               },
               {
                 "type": "text",
@@ -7466,7 +7466,7 @@
                 "value": "小微",
                 "entityType": "product",
                 "entityId": "xiaowei",
-                "href": "/wiki/products/xiaowei/"
+                "href": "/wiki/products/xiaowei"
               },
               {
                 "type": "text",
@@ -7477,7 +7477,7 @@
                 "value": "小微",
                 "entityType": "product",
                 "entityId": "xiaowei",
-                "href": "/wiki/products/xiaowei/"
+                "href": "/wiki/products/xiaowei"
               },
               {
                 "type": "text",
@@ -7488,7 +7488,7 @@
                 "value": "小微",
                 "entityType": "product",
                 "entityId": "xiaowei",
-                "href": "/wiki/products/xiaowei/"
+                "href": "/wiki/products/xiaowei"
               },
               {
                 "type": "text",
@@ -7513,7 +7513,7 @@
                 "value": "王登科",
                 "entityType": "person",
                 "entityId": "wang-dengke",
-                "href": "/wiki/people/wang-dengke/"
+                "href": "/wiki/people/wang-dengke"
               },
               {
                 "type": "text",
@@ -7524,7 +7524,7 @@
                 "value": "The One",
                 "entityType": "product",
                 "entityId": "the-one",
-                "href": "/wiki/products/the-one/"
+                "href": "/wiki/products/the-one"
               },
               {
                 "type": "text",
@@ -7535,7 +7535,7 @@
                 "value": "微信",
                 "entityType": "product",
                 "entityId": "wechat",
-                "href": "/wiki/products/wechat/"
+                "href": "/wiki/products/wechat"
               },
               {
                 "type": "text",
@@ -7546,7 +7546,7 @@
                 "value": "OpenClaw",
                 "entityType": "product",
                 "entityId": "openclaw",
-                "href": "/wiki/products/openclaw/"
+                "href": "/wiki/products/openclaw"
               },
               {
                 "type": "text",
@@ -7599,7 +7599,7 @@
                 "value": "微信",
                 "entityType": "product",
                 "entityId": "wechat",
-                "href": "/wiki/products/wechat/"
+                "href": "/wiki/products/wechat"
               },
               {
                 "type": "text",
@@ -7624,7 +7624,7 @@
                 "value": "王登科",
                 "entityType": "person",
                 "entityId": "wang-dengke",
-                "href": "/wiki/people/wang-dengke/"
+                "href": "/wiki/people/wang-dengke"
               },
               {
                 "type": "text",
@@ -7645,7 +7645,7 @@
                 "value": "The One",
                 "entityType": "product",
                 "entityId": "the-one",
-                "href": "/wiki/products/the-one/"
+                "href": "/wiki/products/the-one"
               },
               {
                 "type": "text",
@@ -7666,7 +7666,7 @@
                 "value": "The One",
                 "entityType": "product",
                 "entityId": "the-one",
-                "href": "/wiki/products/the-one/"
+                "href": "/wiki/products/the-one"
               },
               {
                 "type": "text",
@@ -7691,7 +7691,7 @@
                 "value": "微信",
                 "entityType": "product",
                 "entityId": "wechat",
-                "href": "/wiki/products/wechat/"
+                "href": "/wiki/products/wechat"
               },
               {
                 "type": "text",
@@ -7716,7 +7716,7 @@
                 "value": "微信",
                 "entityType": "product",
                 "entityId": "wechat",
-                "href": "/wiki/products/wechat/"
+                "href": "/wiki/products/wechat"
               },
               {
                 "type": "text",
@@ -7741,7 +7741,7 @@
                 "value": "微信",
                 "entityType": "product",
                 "entityId": "wechat",
-                "href": "/wiki/products/wechat/"
+                "href": "/wiki/products/wechat"
               },
               {
                 "type": "text",
@@ -7752,7 +7752,7 @@
                 "value": "WorkBuddy",
                 "entityType": "product",
                 "entityId": "workbuddy",
-                "href": "/wiki/products/workbuddy/"
+                "href": "/wiki/products/workbuddy"
               },
               {
                 "type": "text",
@@ -7763,7 +7763,7 @@
                 "value": "WorkBuddy",
                 "entityType": "product",
                 "entityId": "workbuddy",
-                "href": "/wiki/products/workbuddy/"
+                "href": "/wiki/products/workbuddy"
               },
               {
                 "type": "text",
@@ -7774,7 +7774,7 @@
                 "value": "豆包",
                 "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/products/doubao/"
+                "href": "/wiki/products/doubao"
               },
               {
                 "type": "text",
@@ -7785,7 +7785,7 @@
                 "value": "千问",
                 "entityType": "product",
                 "entityId": "qwen",
-                "href": "/wiki/products/qwen/"
+                "href": "/wiki/products/qwen"
               },
               {
                 "type": "text",
@@ -7810,7 +7810,7 @@
                 "value": "微信",
                 "entityType": "product",
                 "entityId": "wechat",
-                "href": "/wiki/products/wechat/"
+                "href": "/wiki/products/wechat"
               },
               {
                 "type": "text",
@@ -7821,7 +7821,7 @@
                 "value": "DeepSeek",
                 "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/brands/deepseek/"
+                "href": "/wiki/brands/deepseek"
               },
               {
                 "type": "text",
@@ -7832,7 +7832,7 @@
                 "value": "ChatGPT",
                 "entityType": "product",
                 "entityId": "chatgpt",
-                "href": "/wiki/products/chatgpt/"
+                "href": "/wiki/products/chatgpt"
               },
               {
                 "type": "text",
@@ -7843,7 +7843,7 @@
                 "value": "微信小微",
                 "entityType": "product",
                 "entityId": "xiaowei",
-                "href": "/wiki/products/xiaowei/"
+                "href": "/wiki/products/xiaowei"
               },
               {
                 "type": "text",
@@ -7854,7 +7854,7 @@
                 "value": "微信",
                 "entityType": "product",
                 "entityId": "wechat",
-                "href": "/wiki/products/wechat/"
+                "href": "/wiki/products/wechat"
               },
               {
                 "type": "text",
@@ -7865,7 +7865,7 @@
                 "value": "小微",
                 "entityType": "product",
                 "entityId": "xiaowei",
-                "href": "/wiki/products/xiaowei/"
+                "href": "/wiki/products/xiaowei"
               },
               {
                 "type": "text",
@@ -7876,7 +7876,7 @@
                 "value": "小微",
                 "entityType": "product",
                 "entityId": "xiaowei",
-                "href": "/wiki/products/xiaowei/"
+                "href": "/wiki/products/xiaowei"
               },
               {
                 "type": "text",
@@ -7887,7 +7887,7 @@
                 "value": "Pocket 4",
                 "entityType": "product",
                 "entityId": "dji-pocket-4",
-                "href": "/wiki/products/dji-pocket-4/"
+                "href": "/wiki/products/dji-pocket-4"
               },
               {
                 "type": "text",
@@ -7954,14 +7954,14 @@
                 "value": "小红书",
                 "entityType": "product",
                 "entityId": "xiaohongshu",
-                "href": "/wiki/products/xiaohongshu/"
+                "href": "/wiki/products/xiaohongshu"
               },
               {
                 "type": "entity-link",
                 "value": "点点",
                 "entityType": "product",
                 "entityId": "diandian",
-                "href": "/wiki/products/diandian/"
+                "href": "/wiki/products/diandian"
               },
               {
                 "type": "text",
@@ -8000,7 +8000,7 @@
                 "value": "小红书",
                 "entityType": "product",
                 "entityId": "xiaohongshu",
-                "href": "/wiki/products/xiaohongshu/"
+                "href": "/wiki/products/xiaohongshu"
               },
               {
                 "type": "text",
@@ -8025,7 +8025,7 @@
                 "value": "小红书",
                 "entityType": "product",
                 "entityId": "xiaohongshu",
-                "href": "/wiki/products/xiaohongshu/"
+                "href": "/wiki/products/xiaohongshu"
               },
               {
                 "type": "text",
@@ -8036,7 +8036,7 @@
                 "value": "点点",
                 "entityType": "product",
                 "entityId": "diandian",
-                "href": "/wiki/products/diandian/"
+                "href": "/wiki/products/diandian"
               },
               {
                 "type": "text",
@@ -8047,7 +8047,7 @@
                 "value": "微信",
                 "entityType": "product",
                 "entityId": "wechat",
-                "href": "/wiki/products/wechat/"
+                "href": "/wiki/products/wechat"
               },
               {
                 "type": "text",
@@ -8058,7 +8058,7 @@
                 "value": "小微",
                 "entityType": "product",
                 "entityId": "xiaowei",
-                "href": "/wiki/products/xiaowei/"
+                "href": "/wiki/products/xiaowei"
               },
               {
                 "type": "text",
@@ -8111,7 +8111,7 @@
                 "value": "小红书",
                 "entityType": "product",
                 "entityId": "xiaohongshu",
-                "href": "/wiki/products/xiaohongshu/"
+                "href": "/wiki/products/xiaohongshu"
               },
               {
                 "type": "text",
@@ -8122,7 +8122,7 @@
                 "value": "微信",
                 "entityType": "product",
                 "entityId": "wechat",
-                "href": "/wiki/products/wechat/"
+                "href": "/wiki/products/wechat"
               },
               {
                 "type": "text",
@@ -8161,7 +8161,7 @@
                 "value": "小红书",
                 "entityType": "product",
                 "entityId": "xiaohongshu",
-                "href": "/wiki/products/xiaohongshu/"
+                "href": "/wiki/products/xiaohongshu"
               },
               {
                 "type": "text",
@@ -8186,7 +8186,7 @@
                 "value": "小红书",
                 "entityType": "product",
                 "entityId": "xiaohongshu",
-                "href": "/wiki/products/xiaohongshu/"
+                "href": "/wiki/products/xiaohongshu"
               },
               {
                 "type": "text",
@@ -8239,7 +8239,7 @@
                 "value": "小红书",
                 "entityType": "product",
                 "entityId": "xiaohongshu",
-                "href": "/wiki/products/xiaohongshu/"
+                "href": "/wiki/products/xiaohongshu"
               },
               {
                 "type": "text",
@@ -8250,7 +8250,7 @@
                 "value": "点点",
                 "entityType": "product",
                 "entityId": "diandian",
-                "href": "/wiki/products/diandian/"
+                "href": "/wiki/products/diandian"
               },
               {
                 "type": "text",
@@ -8275,7 +8275,7 @@
                 "value": "iPhone",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -8286,7 +8286,7 @@
                 "value": "iPhone Duo",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -8311,7 +8311,7 @@
                 "value": "iPhone",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -8364,7 +8364,7 @@
                 "value": "The Verge",
                 "entityType": "brand",
                 "entityId": "the-verge",
-                "href": "/wiki/brands/the-verge/"
+                "href": "/wiki/brands/the-verge"
               },
               {
                 "type": "text",
@@ -8395,7 +8395,7 @@
                 "value": "刘飞",
                 "entityType": "person",
                 "entityId": "liu-fei",
-                "href": "/wiki/people/liu-fei/"
+                "href": "/wiki/people/liu-fei"
               },
               {
                 "type": "text",
@@ -8406,7 +8406,7 @@
                 "value": "苹果",
                 "entityType": "brand",
                 "entityId": "apple",
-                "href": "/wiki/brands/apple/"
+                "href": "/wiki/brands/apple"
               },
               {
                 "type": "text",
@@ -8417,7 +8417,7 @@
                 "value": "X",
                 "entityType": "product",
                 "entityId": "x",
-                "href": "/wiki/products/x/"
+                "href": "/wiki/products/x"
               },
               {
                 "type": "text",
@@ -8470,7 +8470,7 @@
                 "value": "苹果",
                 "entityType": "brand",
                 "entityId": "apple",
-                "href": "/wiki/brands/apple/"
+                "href": "/wiki/brands/apple"
               },
               {
                 "type": "text",
@@ -8509,7 +8509,7 @@
                 "value": "iOS",
                 "entityType": "product",
                 "entityId": "ios",
-                "href": "/wiki/products/ios/"
+                "href": "/wiki/products/ios"
               },
               {
                 "type": "text",
@@ -8520,7 +8520,7 @@
                 "value": "iPhone Duo",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -8559,7 +8559,7 @@
                 "value": "iPhone",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -8598,7 +8598,7 @@
                 "value": "iPhone",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -8637,7 +8637,7 @@
                 "value": "iPhone",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -8718,7 +8718,7 @@
                 "value": "iPhone",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -8729,7 +8729,7 @@
                 "value": "iPhone 18",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -8802,7 +8802,7 @@
                 "value": "iPhone Duo",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -8813,7 +8813,7 @@
                 "value": "苹果",
                 "entityType": "brand",
                 "entityId": "apple",
-                "href": "/wiki/brands/apple/"
+                "href": "/wiki/brands/apple"
               },
               {
                 "type": "text",
@@ -8824,7 +8824,7 @@
                 "value": "苹果",
                 "entityType": "brand",
                 "entityId": "apple",
-                "href": "/wiki/brands/apple/"
+                "href": "/wiki/brands/apple"
               },
               {
                 "type": "text",
@@ -8835,7 +8835,7 @@
                 "value": "小米",
                 "entityType": "brand",
                 "entityId": "xiaomi",
-                "href": "/wiki/brands/xiaomi/"
+                "href": "/wiki/brands/xiaomi"
               },
               {
                 "type": "text",
@@ -8846,7 +8846,7 @@
                 "value": "OPPO",
                 "entityType": "brand",
                 "entityId": "oppo",
-                "href": "/wiki/brands/oppo/"
+                "href": "/wiki/brands/oppo"
               },
               {
                 "type": "text",
@@ -8857,7 +8857,7 @@
                 "value": "华为",
                 "entityType": "brand",
                 "entityId": "huawei",
-                "href": "/wiki/brands/huawei/"
+                "href": "/wiki/brands/huawei"
               },
               {
                 "type": "text",
@@ -8896,7 +8896,7 @@
                 "value": "苹果",
                 "entityType": "brand",
                 "entityId": "apple",
-                "href": "/wiki/brands/apple/"
+                "href": "/wiki/brands/apple"
               },
               {
                 "type": "text",
@@ -8907,7 +8907,7 @@
                 "value": "小米",
                 "entityType": "brand",
                 "entityId": "xiaomi",
-                "href": "/wiki/brands/xiaomi/"
+                "href": "/wiki/brands/xiaomi"
               },
               {
                 "type": "text",
@@ -8918,7 +8918,7 @@
                 "value": "iPhone",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -8929,7 +8929,7 @@
                 "value": "小米",
                 "entityType": "brand",
                 "entityId": "xiaomi",
-                "href": "/wiki/brands/xiaomi/"
+                "href": "/wiki/brands/xiaomi"
               },
               {
                 "type": "text",
@@ -8940,7 +8940,7 @@
                 "value": "苹果",
                 "entityType": "brand",
                 "entityId": "apple",
-                "href": "/wiki/brands/apple/"
+                "href": "/wiki/brands/apple"
               },
               {
                 "type": "text",
@@ -8951,7 +8951,7 @@
                 "value": "小米",
                 "entityType": "brand",
                 "entityId": "xiaomi",
-                "href": "/wiki/brands/xiaomi/"
+                "href": "/wiki/brands/xiaomi"
               },
               {
                 "type": "text",
@@ -8990,7 +8990,7 @@
                 "value": "苹果",
                 "entityType": "brand",
                 "entityId": "apple",
-                "href": "/wiki/brands/apple/"
+                "href": "/wiki/brands/apple"
               },
               {
                 "type": "text",
@@ -9001,7 +9001,7 @@
                 "value": "安卓",
                 "entityType": "product",
                 "entityId": "android",
-                "href": "/wiki/products/android/"
+                "href": "/wiki/products/android"
               },
               {
                 "type": "text",
@@ -9068,7 +9068,7 @@
                 "value": "何同学",
                 "entityType": "person",
                 "entityId": "he-tongxue",
-                "href": "/wiki/people/he-tongxue/"
+                "href": "/wiki/people/he-tongxue"
               },
               {
                 "type": "text",
@@ -9079,7 +9079,7 @@
                 "value": "库克",
                 "entityType": "person",
                 "entityId": "tim-cook",
-                "href": "/wiki/people/tim-cook/"
+                "href": "/wiki/people/tim-cook"
               },
               {
                 "type": "text",
@@ -9090,7 +9090,7 @@
                 "value": "库克",
                 "entityType": "person",
                 "entityId": "tim-cook",
-                "href": "/wiki/people/tim-cook/"
+                "href": "/wiki/people/tim-cook"
               },
               {
                 "type": "text",
@@ -9101,7 +9101,7 @@
                 "value": "Siri",
                 "entityType": "product",
                 "entityId": "siri",
-                "href": "/wiki/products/siri/"
+                "href": "/wiki/products/siri"
               },
               {
                 "type": "text",
@@ -9140,7 +9140,7 @@
                 "value": "Siri",
                 "entityType": "product",
                 "entityId": "siri",
-                "href": "/wiki/products/siri/"
+                "href": "/wiki/products/siri"
               },
               {
                 "type": "text",
@@ -9151,7 +9151,7 @@
                 "value": "Apple Car",
                 "entityType": "product",
                 "entityId": "apple-car",
-                "href": "/wiki/products/apple-car/"
+                "href": "/wiki/products/apple-car"
               },
               {
                 "type": "text",
@@ -9162,7 +9162,7 @@
                 "value": "Apple Vision",
                 "entityType": "product",
                 "entityId": "apple-vision-pro",
-                "href": "/wiki/products/apple-vision-pro/"
+                "href": "/wiki/products/apple-vision-pro"
               },
               {
                 "type": "text",
@@ -9173,7 +9173,7 @@
                 "value": "苹果",
                 "entityType": "brand",
                 "entityId": "apple",
-                "href": "/wiki/brands/apple/"
+                "href": "/wiki/brands/apple"
               },
               {
                 "type": "text",
@@ -9184,7 +9184,7 @@
                 "value": "苹果",
                 "entityType": "brand",
                 "entityId": "apple",
-                "href": "/wiki/brands/apple/"
+                "href": "/wiki/brands/apple"
               },
               {
                 "type": "text",
@@ -9237,7 +9237,7 @@
                 "value": "iPhone Air",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -9248,7 +9248,7 @@
                 "value": "iPhone",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -9287,7 +9287,7 @@
                 "value": "iPhone Air",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -9326,7 +9326,7 @@
                 "value": "iPhone",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -9351,7 +9351,7 @@
                 "value": "苹果",
                 "entityType": "brand",
                 "entityId": "apple",
-                "href": "/wiki/brands/apple/"
+                "href": "/wiki/brands/apple"
               },
               {
                 "type": "text",
@@ -9390,7 +9390,7 @@
                 "value": "Siri",
                 "entityType": "product",
                 "entityId": "siri",
-                "href": "/wiki/products/siri/"
+                "href": "/wiki/products/siri"
               },
               {
                 "type": "text",
@@ -9401,7 +9401,7 @@
                 "value": "Siri",
                 "entityType": "product",
                 "entityId": "siri",
-                "href": "/wiki/products/siri/"
+                "href": "/wiki/products/siri"
               },
               {
                 "type": "text",
@@ -9468,7 +9468,7 @@
                 "value": "Siri",
                 "entityType": "product",
                 "entityId": "siri",
-                "href": "/wiki/products/siri/"
+                "href": "/wiki/products/siri"
               },
               {
                 "type": "text",
@@ -9479,7 +9479,7 @@
                 "value": "库克",
                 "entityType": "person",
                 "entityId": "tim-cook",
-                "href": "/wiki/people/tim-cook/"
+                "href": "/wiki/people/tim-cook"
               },
               {
                 "type": "text",
@@ -9504,7 +9504,7 @@
                 "value": "苹果",
                 "entityType": "brand",
                 "entityId": "apple",
-                "href": "/wiki/brands/apple/"
+                "href": "/wiki/brands/apple"
               },
               {
                 "type": "text",
@@ -9557,7 +9557,7 @@
                 "value": "小米",
                 "entityType": "brand",
                 "entityId": "xiaomi",
-                "href": "/wiki/brands/xiaomi/"
+                "href": "/wiki/brands/xiaomi"
               },
               {
                 "type": "text",
@@ -9582,7 +9582,7 @@
                 "value": "安卓",
                 "entityType": "product",
                 "entityId": "android",
-                "href": "/wiki/products/android/"
+                "href": "/wiki/products/android"
               },
               {
                 "type": "text",
@@ -9593,7 +9593,7 @@
                 "value": "安卓",
                 "entityType": "product",
                 "entityId": "android",
-                "href": "/wiki/products/android/"
+                "href": "/wiki/products/android"
               },
               {
                 "type": "text",
@@ -9604,7 +9604,7 @@
                 "value": "安卓",
                 "entityType": "product",
                 "entityId": "android",
-                "href": "/wiki/products/android/"
+                "href": "/wiki/products/android"
               },
               {
                 "type": "text",
@@ -9615,7 +9615,7 @@
                 "value": "苹果",
                 "entityType": "brand",
                 "entityId": "apple",
-                "href": "/wiki/brands/apple/"
+                "href": "/wiki/brands/apple"
               },
               {
                 "type": "text",
@@ -9730,7 +9730,7 @@
                 "value": "iPhone",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -9825,7 +9825,7 @@
                 "value": "苹果",
                 "entityType": "brand",
                 "entityId": "apple",
-                "href": "/wiki/brands/apple/"
+                "href": "/wiki/brands/apple"
               },
               {
                 "type": "text",
@@ -9864,7 +9864,7 @@
                 "value": "iPhone",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -9875,7 +9875,7 @@
                 "value": "iPhone",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -9942,7 +9942,7 @@
                 "value": "Apple Watch",
                 "entityType": "product",
                 "entityId": "apple-watch",
-                "href": "/wiki/products/apple-watch/"
+                "href": "/wiki/products/apple-watch"
               },
               {
                 "type": "text",
@@ -9967,7 +9967,7 @@
                 "value": "Apple",
                 "entityType": "brand",
                 "entityId": "apple",
-                "href": "/wiki/brands/apple/"
+                "href": "/wiki/brands/apple"
               },
               {
                 "type": "text",
@@ -10048,7 +10048,7 @@
                 "value": "Google",
                 "entityType": "brand",
                 "entityId": "google",
-                "href": "/wiki/brands/google/"
+                "href": "/wiki/brands/google"
               },
               {
                 "type": "text",
@@ -10069,7 +10069,7 @@
                 "value": "Google",
                 "entityType": "brand",
                 "entityId": "google",
-                "href": "/wiki/brands/google/"
+                "href": "/wiki/brands/google"
               },
               {
                 "type": "text",
@@ -10090,7 +10090,7 @@
                 "value": "佳明",
                 "entityType": "brand",
                 "entityId": "garmin",
-                "href": "/wiki/brands/garmin/"
+                "href": "/wiki/brands/garmin"
               },
               {
                 "type": "text",
@@ -10125,7 +10125,7 @@
                 "value": "Oura",
                 "entityType": "product",
                 "entityId": "oura-ring",
-                "href": "/wiki/products/oura-ring/"
+                "href": "/wiki/products/oura-ring"
               },
               {
                 "type": "text",
@@ -10156,7 +10156,7 @@
                 "value": "ChatGPT Work",
                 "entityType": "product",
                 "entityId": "chatgpt-work",
-                "href": "/wiki/products/chatgpt-work/"
+                "href": "/wiki/products/chatgpt-work"
               },
               {
                 "type": "text",
@@ -10167,7 +10167,7 @@
                 "value": "Apple Watch",
                 "entityType": "product",
                 "entityId": "apple-watch",
-                "href": "/wiki/products/apple-watch/"
+                "href": "/wiki/products/apple-watch"
               },
               {
                 "type": "text",
@@ -10248,7 +10248,7 @@
                 "value": "Cola",
                 "entityType": "product",
                 "entityId": "colaos",
-                "href": "/wiki/products/colaos/"
+                "href": "/wiki/products/colaos"
               },
               {
                 "type": "text",
@@ -10259,7 +10259,7 @@
                 "value": "Cola",
                 "entityType": "product",
                 "entityId": "colaos",
-                "href": "/wiki/products/colaos/"
+                "href": "/wiki/products/colaos"
               },
               {
                 "type": "text",
@@ -10284,7 +10284,7 @@
                 "value": "Codex",
                 "entityType": "product",
                 "entityId": "codex",
-                "href": "/wiki/products/codex/"
+                "href": "/wiki/products/codex"
               },
               {
                 "type": "text",
@@ -10295,7 +10295,7 @@
                 "value": "Codex",
                 "entityType": "product",
                 "entityId": "codex",
-                "href": "/wiki/products/codex/"
+                "href": "/wiki/products/codex"
               },
               {
                 "type": "text",
@@ -10376,7 +10376,7 @@
                 "value": "飞书",
                 "entityType": "product",
                 "entityId": "feishu",
-                "href": "/wiki/products/feishu/"
+                "href": "/wiki/products/feishu"
               },
               {
                 "type": "text",
@@ -10397,7 +10397,7 @@
                 "value": "AJ",
                 "entityType": "person",
                 "entityId": "aj",
-                "href": "/wiki/people/aj/"
+                "href": "/wiki/people/aj"
               },
               {
                 "type": "text",
@@ -10408,7 +10408,7 @@
                 "value": "AJ",
                 "entityType": "person",
                 "entityId": "aj",
-                "href": "/wiki/people/aj/"
+                "href": "/wiki/people/aj"
               },
               {
                 "type": "text",
@@ -10433,7 +10433,7 @@
                 "value": "闲鱼",
                 "entityType": "product",
                 "entityId": "xianyu",
-                "href": "/wiki/products/xianyu/"
+                "href": "/wiki/products/xianyu"
               },
               {
                 "type": "text",
@@ -10444,7 +10444,7 @@
                 "value": "飞书",
                 "entityType": "product",
                 "entityId": "feishu",
-                "href": "/wiki/products/feishu/"
+                "href": "/wiki/products/feishu"
               },
               {
                 "type": "text",
@@ -10497,7 +10497,7 @@
                 "value": "Grok Bot",
                 "entityType": "product",
                 "entityId": "grok-bot",
-                "href": "/wiki/products/grok-bot/"
+                "href": "/wiki/products/grok-bot"
               },
               {
                 "type": "text",
@@ -10508,7 +10508,7 @@
                 "value": "Grok Bot",
                 "entityType": "product",
                 "entityId": "grok-bot",
-                "href": "/wiki/products/grok-bot/"
+                "href": "/wiki/products/grok-bot"
               },
               {
                 "type": "text",
@@ -10519,7 +10519,7 @@
                 "value": "小红书",
                 "entityType": "product",
                 "entityId": "xiaohongshu",
-                "href": "/wiki/products/xiaohongshu/"
+                "href": "/wiki/products/xiaohongshu"
               },
               {
                 "type": "text",
@@ -10530,7 +10530,7 @@
                 "value": "点点",
                 "entityType": "product",
                 "entityId": "diandian",
-                "href": "/wiki/products/diandian/"
+                "href": "/wiki/products/diandian"
               },
               {
                 "type": "text",
@@ -10541,7 +10541,7 @@
                 "value": "微信",
                 "entityType": "product",
                 "entityId": "wechat",
-                "href": "/wiki/products/wechat/"
+                "href": "/wiki/products/wechat"
               },
               {
                 "type": "text",
@@ -10552,7 +10552,7 @@
                 "value": "小微",
                 "entityType": "product",
                 "entityId": "xiaowei",
-                "href": "/wiki/products/xiaowei/"
+                "href": "/wiki/products/xiaowei"
               },
               {
                 "type": "text",
@@ -10605,7 +10605,7 @@
                 "value": "豆包输入法",
                 "entityType": "product",
                 "entityId": "doubao-input-method",
-                "href": "/wiki/products/doubao-input-method/"
+                "href": "/wiki/products/doubao-input-method"
               },
               {
                 "type": "text",
@@ -10616,7 +10616,7 @@
                 "value": "Windows",
                 "entityType": "product",
                 "entityId": "windows",
-                "href": "/wiki/products/windows/"
+                "href": "/wiki/products/windows"
               },
               {
                 "type": "text",
@@ -10627,7 +10627,7 @@
                 "value": "TRAE",
                 "entityType": "product",
                 "entityId": "trae",
-                "href": "/wiki/products/trae/"
+                "href": "/wiki/products/trae"
               },
               {
                 "type": "text",
@@ -10638,7 +10638,7 @@
                 "value": "Suno V6",
                 "entityType": "product",
                 "entityId": "suno",
-                "href": "/wiki/products/suno/"
+                "href": "/wiki/products/suno"
               },
               {
                 "type": "text",
@@ -10649,7 +10649,7 @@
                 "value": "ElevenLabs",
                 "entityType": "brand",
                 "entityId": "elevenlabs",
-                "href": "/wiki/brands/elevenlabs/"
+                "href": "/wiki/brands/elevenlabs"
               },
               {
                 "type": "text",
@@ -10660,7 +10660,7 @@
                 "value": "环球音乐",
                 "entityType": "brand",
                 "entityId": "universal-music-group",
-                "href": "/wiki/brands/universal-music-group/"
+                "href": "/wiki/brands/universal-music-group"
               },
               {
                 "type": "text",
@@ -10681,7 +10681,7 @@
                 "value": "TRAE",
                 "entityType": "product",
                 "entityId": "trae",
-                "href": "/wiki/products/trae/"
+                "href": "/wiki/products/trae"
               },
               {
                 "type": "text",
@@ -10706,7 +10706,7 @@
                 "value": "TraeWork",
                 "entityType": "product",
                 "entityId": "trae",
-                "href": "/wiki/products/trae/"
+                "href": "/wiki/products/trae"
               },
               {
                 "type": "text",
@@ -10745,7 +10745,7 @@
                 "value": "Qoder",
                 "entityType": "product",
                 "entityId": "qoder",
-                "href": "/wiki/products/qoder/"
+                "href": "/wiki/products/qoder"
               },
               {
                 "type": "text",
@@ -10756,7 +10756,7 @@
                 "value": "TRAE",
                 "entityType": "product",
                 "entityId": "trae",
-                "href": "/wiki/products/trae/"
+                "href": "/wiki/products/trae"
               },
               {
                 "type": "text",
@@ -10767,7 +10767,7 @@
                 "value": "豆包工作",
                 "entityType": "product",
                 "entityId": "doubao-work",
-                "href": "/wiki/products/doubao-work/"
+                "href": "/wiki/products/doubao-work"
               },
               {
                 "type": "text",
@@ -10778,7 +10778,7 @@
                 "value": "千问",
                 "entityType": "product",
                 "entityId": "qwen",
-                "href": "/wiki/products/qwen/"
+                "href": "/wiki/products/qwen"
               },
               {
                 "type": "text",
@@ -10789,7 +10789,7 @@
                 "value": "WorkBuddy",
                 "entityType": "product",
                 "entityId": "workbuddy",
-                "href": "/wiki/products/workbuddy/"
+                "href": "/wiki/products/workbuddy"
               },
               {
                 "type": "text",
@@ -10800,7 +10800,7 @@
                 "value": "CodeBuddy",
                 "entityType": "product",
                 "entityId": "codebuddy",
-                "href": "/wiki/products/codebuddy/"
+                "href": "/wiki/products/codebuddy"
               },
               {
                 "type": "text",
@@ -10853,7 +10853,7 @@
                 "value": "Qoder",
                 "entityType": "product",
                 "entityId": "qoder",
-                "href": "/wiki/products/qoder/"
+                "href": "/wiki/products/qoder"
               },
               {
                 "type": "text",
@@ -11024,7 +11024,7 @@
                 "value": "冕神",
                 "entityType": "person",
                 "entityId": "chen-mian",
-                "href": "/wiki/people/chen-mian/"
+                "href": "/wiki/people/chen-mian"
               },
               {
                 "type": "text",
@@ -11049,7 +11049,7 @@
                 "value": "Midjourney",
                 "entityType": "product",
                 "entityId": "midjourney",
-                "href": "/wiki/products/midjourney/"
+                "href": "/wiki/products/midjourney"
               },
               {
                 "type": "text",
@@ -11116,7 +11116,7 @@
                 "value": "GPT Image 2.5",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -11137,7 +11137,7 @@
                 "value": "Midjourney 2.5",
                 "entityType": "product",
                 "entityId": "midjourney",
-                "href": "/wiki/products/midjourney/"
+                "href": "/wiki/products/midjourney"
               },
               {
                 "type": "text",
@@ -11200,7 +11200,7 @@
                 "value": "GPT Image 2.5",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -11267,7 +11267,7 @@
                 "value": "Astra",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -11278,7 +11278,7 @@
                 "value": "Astra",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -11317,7 +11317,7 @@
                 "value": "Codex",
                 "entityType": "product",
                 "entityId": "codex",
-                "href": "/wiki/products/codex/"
+                "href": "/wiki/products/codex"
               },
               {
                 "type": "text",
@@ -11482,7 +11482,7 @@
                 "value": "Codex",
                 "entityType": "product",
                 "entityId": "codex",
-                "href": "/wiki/products/codex/"
+                "href": "/wiki/products/codex"
               },
               {
                 "type": "text",
@@ -11593,7 +11593,7 @@
                 "value": "WorkBuddy",
                 "entityType": "product",
                 "entityId": "workbuddy",
-                "href": "/wiki/products/workbuddy/"
+                "href": "/wiki/products/workbuddy"
               },
               {
                 "type": "text",
@@ -11660,7 +11660,7 @@
                 "value": "Grok Bot",
                 "entityType": "product",
                 "entityId": "grok-bot",
-                "href": "/wiki/products/grok-bot/"
+                "href": "/wiki/products/grok-bot"
               },
               {
                 "type": "text",
@@ -11755,7 +11755,7 @@
                 "value": "Claude Code",
                 "entityType": "product",
                 "entityId": "claude-code",
-                "href": "/wiki/products/claude-code/"
+                "href": "/wiki/products/claude-code"
               },
               {
                 "type": "text",
@@ -11766,7 +11766,7 @@
                 "value": "Codex",
                 "entityType": "product",
                 "entityId": "codex",
-                "href": "/wiki/products/codex/"
+                "href": "/wiki/products/codex"
               },
               {
                 "type": "text",
@@ -11791,7 +11791,7 @@
                 "value": "GPT-6",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -11802,7 +11802,7 @@
                 "value": "Blender",
                 "entityType": "product",
                 "entityId": "blender",
-                "href": "/wiki/products/blender/"
+                "href": "/wiki/products/blender"
               },
               {
                 "type": "text",
@@ -11813,7 +11813,7 @@
                 "value": "豆包工作",
                 "entityType": "product",
                 "entityId": "doubao-work",
-                "href": "/wiki/products/doubao-work/"
+                "href": "/wiki/products/doubao-work"
               },
               {
                 "type": "text",
@@ -11824,7 +11824,7 @@
                 "value": "Manus",
                 "entityType": "product",
                 "entityId": "manus",
-                "href": "/wiki/products/manus/"
+                "href": "/wiki/products/manus"
               },
               {
                 "type": "text",
@@ -11859,7 +11859,7 @@
                 "value": "Manus",
                 "entityType": "product",
                 "entityId": "manus",
-                "href": "/wiki/products/manus/"
+                "href": "/wiki/products/manus"
               },
               {
                 "type": "text",
@@ -11928,7 +11928,7 @@
                 "value": "Kimi",
                 "entityType": "product",
                 "entityId": "kimi",
-                "href": "/wiki/products/kimi/"
+                "href": "/wiki/products/kimi"
               },
               {
                 "type": "text",
@@ -12019,7 +12019,7 @@
                 "value": "Grok",
                 "entityType": "product",
                 "entityId": "grok",
-                "href": "/wiki/products/grok/"
+                "href": "/wiki/products/grok"
               },
               {
                 "type": "text",
@@ -12030,7 +12030,7 @@
                 "value": "Grok Bot",
                 "entityType": "product",
                 "entityId": "grok-bot",
-                "href": "/wiki/products/grok-bot/"
+                "href": "/wiki/products/grok-bot"
               },
               {
                 "type": "text",
@@ -12111,7 +12111,7 @@
                 "value": "Grok Bot",
                 "entityType": "product",
                 "entityId": "grok-bot",
-                "href": "/wiki/products/grok-bot/"
+                "href": "/wiki/products/grok-bot"
               },
               {
                 "type": "text",
@@ -12146,7 +12146,7 @@
                 "value": "豆包",
                 "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/products/doubao/"
+                "href": "/wiki/products/doubao"
               },
               {
                 "type": "text",
@@ -12181,7 +12181,7 @@
                 "value": "Happycapy",
                 "entityType": "product",
                 "entityId": "happycapy",
-                "href": "/wiki/products/happycapy/"
+                "href": "/wiki/products/happycapy"
               },
               {
                 "type": "text",
@@ -12192,7 +12192,7 @@
                 "value": "Happycapy",
                 "entityType": "product",
                 "entityId": "happycapy",
-                "href": "/wiki/products/happycapy/"
+                "href": "/wiki/products/happycapy"
               },
               {
                 "type": "text",
@@ -12227,7 +12227,7 @@
                 "value": "豆包",
                 "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/products/doubao/"
+                "href": "/wiki/products/doubao"
               },
               {
                 "type": "text",
@@ -12238,7 +12238,7 @@
                 "value": "豆包",
                 "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/products/doubao/"
+                "href": "/wiki/products/doubao"
               },
               {
                 "type": "text",
@@ -12353,7 +12353,7 @@
                 "value": "网易有道",
                 "entityType": "brand",
                 "entityId": "netease-youdao",
-                "href": "/wiki/brands/netease-youdao/"
+                "href": "/wiki/brands/netease-youdao"
               },
               {
                 "type": "text",
@@ -12364,7 +12364,7 @@
                 "value": "Typeless",
                 "entityType": "product",
                 "entityId": "typeless",
-                "href": "/wiki/products/typeless/"
+                "href": "/wiki/products/typeless"
               },
               {
                 "type": "text",
@@ -12375,7 +12375,7 @@
                 "value": "网易",
                 "entityType": "brand",
                 "entityId": "netease",
-                "href": "/wiki/brands/netease/"
+                "href": "/wiki/brands/netease"
               },
               {
                 "type": "text",
@@ -12386,7 +12386,7 @@
                 "value": "UU",
                 "entityType": "product",
                 "entityId": "netease-uu-remote",
-                "href": "/wiki/products/netease-uu-remote/"
+                "href": "/wiki/products/netease-uu-remote"
               },
               {
                 "type": "text",
@@ -12397,7 +12397,7 @@
                 "value": "UU",
                 "entityType": "product",
                 "entityId": "netease-uu-remote",
-                "href": "/wiki/products/netease-uu-remote/"
+                "href": "/wiki/products/netease-uu-remote"
               },
               {
                 "type": "text",
@@ -12408,7 +12408,7 @@
                 "value": "网易",
                 "entityType": "brand",
                 "entityId": "netease",
-                "href": "/wiki/brands/netease/"
+                "href": "/wiki/brands/netease"
               },
               {
                 "type": "text",
@@ -12419,7 +12419,7 @@
                 "value": "网易有道",
                 "entityType": "brand",
                 "entityId": "netease-youdao",
-                "href": "/wiki/brands/netease-youdao/"
+                "href": "/wiki/brands/netease-youdao"
               },
               {
                 "type": "text",
@@ -12430,7 +12430,7 @@
                 "value": "UU",
                 "entityType": "product",
                 "entityId": "netease-uu-remote",
-                "href": "/wiki/products/netease-uu-remote/"
+                "href": "/wiki/products/netease-uu-remote"
               },
               {
                 "type": "text",
@@ -12441,7 +12441,7 @@
                 "value": "网易",
                 "entityType": "brand",
                 "entityId": "netease",
-                "href": "/wiki/brands/netease/"
+                "href": "/wiki/brands/netease"
               },
               {
                 "type": "text",
@@ -12452,7 +12452,7 @@
                 "value": "Typeless",
                 "entityType": "product",
                 "entityId": "typeless",
-                "href": "/wiki/products/typeless/"
+                "href": "/wiki/products/typeless"
               },
               {
                 "type": "text",
@@ -12463,7 +12463,7 @@
                 "value": "Typeless",
                 "entityType": "product",
                 "entityId": "typeless",
-                "href": "/wiki/products/typeless/"
+                "href": "/wiki/products/typeless"
               },
               {
                 "type": "text",
@@ -12474,7 +12474,7 @@
                 "value": "微信输入法",
                 "entityType": "product",
                 "entityId": "wechat-input-method",
-                "href": "/wiki/products/wechat-input-method/"
+                "href": "/wiki/products/wechat-input-method"
               },
               {
                 "type": "text",
@@ -12499,7 +12499,7 @@
                 "value": "豆包",
                 "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/products/doubao/"
+                "href": "/wiki/products/doubao"
               },
               {
                 "type": "text",
@@ -12510,7 +12510,7 @@
                 "value": "豆包",
                 "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/products/doubao/"
+                "href": "/wiki/products/doubao"
               },
               {
                 "type": "text",
@@ -12559,7 +12559,7 @@
                 "value": "Typeless",
                 "entityType": "product",
                 "entityId": "typeless",
-                "href": "/wiki/products/typeless/"
+                "href": "/wiki/products/typeless"
               },
               {
                 "type": "text",
@@ -12570,7 +12570,7 @@
                 "value": "Typeless",
                 "entityType": "product",
                 "entityId": "typeless",
-                "href": "/wiki/products/typeless/"
+                "href": "/wiki/products/typeless"
               },
               {
                 "type": "text",
@@ -12623,7 +12623,7 @@
                 "value": "微信输入法",
                 "entityType": "product",
                 "entityId": "wechat-input-method",
-                "href": "/wiki/products/wechat-input-method/"
+                "href": "/wiki/products/wechat-input-method"
               },
               {
                 "type": "text",
@@ -12662,7 +12662,7 @@
                 "value": "豆包",
                 "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/products/doubao/"
+                "href": "/wiki/products/doubao"
               },
               {
                 "type": "text",
@@ -12743,7 +12743,7 @@
                 "value": "iPhone",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -12768,7 +12768,7 @@
                 "value": "iPhone",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -12789,7 +12789,7 @@
                 "value": "iPhone",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -12810,7 +12810,7 @@
                 "value": "iPhone",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -12821,7 +12821,7 @@
                 "value": "豆包",
                 "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/products/doubao/"
+                "href": "/wiki/products/doubao"
               },
               {
                 "type": "text",
@@ -12832,7 +12832,7 @@
                 "value": "iPhone",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -12843,7 +12843,7 @@
                 "value": "豆包",
                 "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/products/doubao/"
+                "href": "/wiki/products/doubao"
               },
               {
                 "type": "text",
@@ -12868,7 +12868,7 @@
                 "value": "iOS",
                 "entityType": "product",
                 "entityId": "ios",
-                "href": "/wiki/products/ios/"
+                "href": "/wiki/products/ios"
               },
               {
                 "type": "text",
@@ -12879,7 +12879,7 @@
                 "value": "iPhone",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -12904,7 +12904,7 @@
                 "value": "iPhone",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -12929,7 +12929,7 @@
                 "value": "iPhone",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -12940,7 +12940,7 @@
                 "value": "iPhone",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -12951,7 +12951,7 @@
                 "value": "iPhone",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -12990,7 +12990,7 @@
                 "value": "微信",
                 "entityType": "product",
                 "entityId": "wechat",
-                "href": "/wiki/products/wechat/"
+                "href": "/wiki/products/wechat"
               },
               {
                 "type": "text",
@@ -13015,7 +13015,7 @@
                 "value": "微信",
                 "entityType": "product",
                 "entityId": "wechat",
-                "href": "/wiki/products/wechat/"
+                "href": "/wiki/products/wechat"
               },
               {
                 "type": "text",
@@ -13026,7 +13026,7 @@
                 "value": "微信",
                 "entityType": "product",
                 "entityId": "wechat",
-                "href": "/wiki/products/wechat/"
+                "href": "/wiki/products/wechat"
               },
               {
                 "type": "text",
@@ -13107,7 +13107,7 @@
                 "value": "Typeless",
                 "entityType": "product",
                 "entityId": "typeless",
-                "href": "/wiki/products/typeless/"
+                "href": "/wiki/products/typeless"
               },
               {
                 "type": "text",
@@ -13118,7 +13118,7 @@
                 "value": "豆包",
                 "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/products/doubao/"
+                "href": "/wiki/products/doubao"
               },
               {
                 "type": "text",
@@ -13129,7 +13129,7 @@
                 "value": "豆包",
                 "entityType": "product",
                 "entityId": "doubao",
-                "href": "/wiki/products/doubao/"
+                "href": "/wiki/products/doubao"
               },
               {
                 "type": "text",
@@ -13140,7 +13140,7 @@
                 "value": "Typeless",
                 "entityType": "product",
                 "entityId": "typeless",
-                "href": "/wiki/products/typeless/"
+                "href": "/wiki/products/typeless"
               },
               {
                 "type": "text",
@@ -13161,7 +13161,7 @@
                 "value": "微信输入法",
                 "entityType": "product",
                 "entityId": "wechat-input-method",
-                "href": "/wiki/products/wechat-input-method/"
+                "href": "/wiki/products/wechat-input-method"
               },
               {
                 "type": "text",
@@ -13248,7 +13248,7 @@
                 "value": "X",
                 "entityType": "product",
                 "entityId": "x",
-                "href": "/wiki/products/x/"
+                "href": "/wiki/products/x"
               },
               {
                 "type": "text",
@@ -13259,7 +13259,7 @@
                 "value": "GPT",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -13312,7 +13312,7 @@
                 "value": "Claude",
                 "entityType": "product",
                 "entityId": "claude",
-                "href": "/wiki/products/claude/"
+                "href": "/wiki/products/claude"
               },
               {
                 "type": "text",
@@ -13323,7 +13323,7 @@
                 "value": "GPT",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -13376,7 +13376,7 @@
                 "value": "Claude",
                 "entityType": "product",
                 "entityId": "claude",
-                "href": "/wiki/products/claude/"
+                "href": "/wiki/products/claude"
               },
               {
                 "type": "text",
@@ -13387,7 +13387,7 @@
                 "value": "Opus",
                 "entityType": "product",
                 "entityId": "claude",
-                "href": "/wiki/products/claude/"
+                "href": "/wiki/products/claude"
               },
               {
                 "type": "text",
@@ -13412,7 +13412,7 @@
                 "value": "Opus 4.6",
                 "entityType": "product",
                 "entityId": "claude",
-                "href": "/wiki/products/claude/"
+                "href": "/wiki/products/claude"
               },
               {
                 "type": "text",
@@ -13423,7 +13423,7 @@
                 "value": "AWS",
                 "entityType": "brand",
                 "entityId": "aws",
-                "href": "/wiki/brands/aws/"
+                "href": "/wiki/brands/aws"
               },
               {
                 "type": "text",
@@ -13434,7 +13434,7 @@
                 "value": "Claude Code",
                 "entityType": "product",
                 "entityId": "claude-code",
-                "href": "/wiki/products/claude-code/"
+                "href": "/wiki/products/claude-code"
               },
               {
                 "type": "text",
@@ -13487,7 +13487,7 @@
                 "value": "硅基流动",
                 "entityType": "brand",
                 "entityId": "siliconflow",
-                "href": "/wiki/brands/siliconflow/"
+                "href": "/wiki/brands/siliconflow"
               },
               {
                 "type": "text",
@@ -13540,7 +13540,7 @@
                 "value": "Claude",
                 "entityType": "product",
                 "entityId": "claude",
-                "href": "/wiki/products/claude/"
+                "href": "/wiki/products/claude"
               },
               {
                 "type": "text",
@@ -13607,7 +13607,7 @@
                 "value": "Astra",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -13666,7 +13666,7 @@
                 "value": "Mistral",
                 "entityType": "product",
                 "entityId": "mistral",
-                "href": "/wiki/products/mistral/"
+                "href": "/wiki/products/mistral"
               },
               {
                 "type": "text",
@@ -13733,7 +13733,7 @@
                 "value": "Gemini",
                 "entityType": "product",
                 "entityId": "gemini",
-                "href": "/wiki/products/gemini/"
+                "href": "/wiki/products/gemini"
               },
               {
                 "type": "text",
@@ -13772,7 +13772,7 @@
                 "value": "Kimi",
                 "entityType": "product",
                 "entityId": "kimi",
-                "href": "/wiki/products/kimi/"
+                "href": "/wiki/products/kimi"
               },
               {
                 "type": "text",
@@ -13797,7 +13797,7 @@
                 "value": "Kimi",
                 "entityType": "product",
                 "entityId": "kimi",
-                "href": "/wiki/products/kimi/"
+                "href": "/wiki/products/kimi"
               },
               {
                 "type": "text",
@@ -13836,7 +13836,7 @@
                 "value": "K3",
                 "entityType": "product",
                 "entityId": "kimi",
-                "href": "/wiki/products/kimi/"
+                "href": "/wiki/products/kimi"
               },
               {
                 "type": "text",
@@ -13847,7 +13847,7 @@
                 "value": "Kimi",
                 "entityType": "product",
                 "entityId": "kimi",
-                "href": "/wiki/products/kimi/"
+                "href": "/wiki/products/kimi"
               },
               {
                 "type": "text",
@@ -13872,7 +13872,7 @@
                 "value": "Kimi",
                 "entityType": "product",
                 "entityId": "kimi",
-                "href": "/wiki/products/kimi/"
+                "href": "/wiki/products/kimi"
               },
               {
                 "type": "text",
@@ -13893,7 +13893,7 @@
                 "value": "Kimi",
                 "entityType": "product",
                 "entityId": "kimi",
-                "href": "/wiki/products/kimi/"
+                "href": "/wiki/products/kimi"
               },
               {
                 "type": "text",
@@ -13904,7 +13904,7 @@
                 "value": "Kimi 2.8",
                 "entityType": "product",
                 "entityId": "kimi",
-                "href": "/wiki/products/kimi/"
+                "href": "/wiki/products/kimi"
               },
               {
                 "type": "text",
@@ -13915,7 +13915,7 @@
                 "value": "K3",
                 "entityType": "product",
                 "entityId": "kimi",
-                "href": "/wiki/products/kimi/"
+                "href": "/wiki/products/kimi"
               },
               {
                 "type": "text",
@@ -13950,7 +13950,7 @@
                 "value": "K3",
                 "entityType": "product",
                 "entityId": "kimi",
-                "href": "/wiki/products/kimi/"
+                "href": "/wiki/products/kimi"
               },
               {
                 "type": "text",
@@ -13961,7 +13961,7 @@
                 "value": "Kimi",
                 "entityType": "product",
                 "entityId": "kimi",
-                "href": "/wiki/products/kimi/"
+                "href": "/wiki/products/kimi"
               },
               {
                 "type": "text",
@@ -14000,7 +14000,7 @@
                 "value": "K3",
                 "entityType": "product",
                 "entityId": "kimi",
-                "href": "/wiki/products/kimi/"
+                "href": "/wiki/products/kimi"
               },
               {
                 "type": "text",
@@ -14039,7 +14039,7 @@
                 "value": "K3",
                 "entityType": "product",
                 "entityId": "kimi",
-                "href": "/wiki/products/kimi/"
+                "href": "/wiki/products/kimi"
               },
               {
                 "type": "text",
@@ -14134,7 +14134,7 @@
                 "value": "Gemini",
                 "entityType": "product",
                 "entityId": "gemini",
-                "href": "/wiki/products/gemini/"
+                "href": "/wiki/products/gemini"
               },
               {
                 "type": "text",
@@ -14183,7 +14183,7 @@
                 "value": "Gemini",
                 "entityType": "product",
                 "entityId": "gemini",
-                "href": "/wiki/products/gemini/"
+                "href": "/wiki/products/gemini"
               },
               {
                 "type": "text",
@@ -14236,7 +14236,7 @@
                 "value": "Gemini",
                 "entityType": "product",
                 "entityId": "gemini",
-                "href": "/wiki/products/gemini/"
+                "href": "/wiki/products/gemini"
               },
               {
                 "type": "text",
@@ -14247,7 +14247,7 @@
                 "value": "DeepSeek",
                 "entityType": "brand",
                 "entityId": "deepseek",
-                "href": "/wiki/brands/deepseek/"
+                "href": "/wiki/brands/deepseek"
               },
               {
                 "type": "text",
@@ -14412,7 +14412,7 @@
                 "value": "OpenAI",
                 "entityType": "brand",
                 "entityId": "openai",
-                "href": "/wiki/brands/openai/"
+                "href": "/wiki/brands/openai"
               },
               {
                 "type": "text",
@@ -14423,7 +14423,7 @@
                 "value": "Anthropic",
                 "entityType": "brand",
                 "entityId": "anthropic",
-                "href": "/wiki/brands/anthropic/"
+                "href": "/wiki/brands/anthropic"
               },
               {
                 "type": "text",
@@ -14444,7 +14444,7 @@
                 "value": "Anthropic",
                 "entityType": "brand",
                 "entityId": "anthropic",
-                "href": "/wiki/brands/anthropic/"
+                "href": "/wiki/brands/anthropic"
               },
               {
                 "type": "text",
@@ -14511,7 +14511,7 @@
                 "value": "唐杰",
                 "entityType": "person",
                 "entityId": "tang-jie",
-                "href": "/wiki/people/tang-jie/"
+                "href": "/wiki/people/tang-jie"
               },
               {
                 "type": "text",
@@ -14522,7 +14522,7 @@
                 "value": "GLM",
                 "entityType": "product",
                 "entityId": "glm",
-                "href": "/wiki/products/glm/"
+                "href": "/wiki/products/glm"
               },
               {
                 "type": "text",
@@ -14561,7 +14561,7 @@
                 "value": "GLM",
                 "entityType": "product",
                 "entityId": "glm",
-                "href": "/wiki/products/glm/"
+                "href": "/wiki/products/glm"
               },
               {
                 "type": "text",
@@ -14600,7 +14600,7 @@
                 "value": "OpenAI",
                 "entityType": "brand",
                 "entityId": "openai",
-                "href": "/wiki/brands/openai/"
+                "href": "/wiki/brands/openai"
               },
               {
                 "type": "text",
@@ -14681,7 +14681,7 @@
                 "value": "Anthropic",
                 "entityType": "brand",
                 "entityId": "anthropic",
-                "href": "/wiki/brands/anthropic/"
+                "href": "/wiki/brands/anthropic"
               },
               {
                 "type": "text",
@@ -14734,7 +14734,7 @@
                 "value": "OpenAI",
                 "entityType": "brand",
                 "entityId": "openai",
-                "href": "/wiki/brands/openai/"
+                "href": "/wiki/brands/openai"
               },
               {
                 "type": "text",
@@ -14745,7 +14745,7 @@
                 "value": "Anthropic",
                 "entityType": "brand",
                 "entityId": "anthropic",
-                "href": "/wiki/brands/anthropic/"
+                "href": "/wiki/brands/anthropic"
               },
               {
                 "type": "text",
@@ -14826,7 +14826,7 @@
                 "value": "Anthropic",
                 "entityType": "brand",
                 "entityId": "anthropic",
-                "href": "/wiki/brands/anthropic/"
+                "href": "/wiki/brands/anthropic"
               },
               {
                 "type": "text",
@@ -14937,7 +14937,7 @@
                 "value": "Astra",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -14948,7 +14948,7 @@
                 "value": "Astra",
                 "entityType": "product",
                 "entityId": "gpt",
-                "href": "/wiki/products/gpt/"
+                "href": "/wiki/products/gpt"
               },
               {
                 "type": "text",
@@ -14987,7 +14987,7 @@
                 "value": "iPhone",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -14998,7 +14998,7 @@
                 "value": "iPhone 18",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -15009,7 +15009,7 @@
                 "value": "iPhone 15",
                 "entityType": "product",
                 "entityId": "iphone",
-                "href": "/wiki/products/iphone/"
+                "href": "/wiki/products/iphone"
               },
               {
                 "type": "text",
@@ -15020,7 +15020,7 @@
                 "value": "拓竹",
                 "entityType": "brand",
                 "entityId": "bambu-lab",
-                "href": "/wiki/brands/bambu-lab/"
+                "href": "/wiki/brands/bambu-lab"
               },
               {
                 "type": "text",
@@ -15059,7 +15059,7 @@
                 "value": "Rodin",
                 "entityType": "product",
                 "entityId": "rodin",
-                "href": "/wiki/products/rodin/"
+                "href": "/wiki/products/rodin"
               },
               {
                 "type": "text",
@@ -15168,7 +15168,7 @@
                 "value": "汗青",
                 "entityType": "person",
                 "entityId": "hanqing",
-                "href": "/wiki/people/hanqing/"
+                "href": "/wiki/people/hanqing"
               },
               {
                 "type": "text",
@@ -15235,7 +15235,7 @@
                 "value": "宇树",
                 "entityType": "brand",
                 "entityId": "unitree",
-                "href": "/wiki/brands/unitree/"
+                "href": "/wiki/brands/unitree"
               },
               {
                 "type": "text",
@@ -15392,7 +15392,7 @@
                 "value": "上海 AGI Bar",
                 "entityType": "brand",
                 "entityId": "agi-bar",
-                "href": "/wiki/brands/agi-bar/"
+                "href": "/wiki/brands/agi-bar"
               },
               {
                 "type": "text",
@@ -15403,7 +15403,7 @@
                 "value": "上海 AGI Bar",
                 "entityType": "brand",
                 "entityId": "agi-bar",
-                "href": "/wiki/brands/agi-bar/"
+                "href": "/wiki/brands/agi-bar"
               },
               {
                 "type": "text",
@@ -15414,7 +15414,7 @@
                 "value": "AGI Bar",
                 "entityType": "brand",
                 "entityId": "agi-bar",
-                "href": "/wiki/brands/agi-bar/"
+                "href": "/wiki/brands/agi-bar"
               },
               {
                 "type": "text",
@@ -15425,7 +15425,7 @@
                 "value": "Next Token｜词元之外",
                 "entityType": "brand",
                 "entityId": "next-token",
-                "href": "/wiki/brands/next-token/"
+                "href": "/wiki/brands/next-token"
               },
               {
                 "type": "text",
@@ -15436,7 +15436,7 @@
                 "value": "Next Token｜词元之外",
                 "entityType": "brand",
                 "entityId": "next-token",
-                "href": "/wiki/brands/next-token/"
+                "href": "/wiki/brands/next-token"
               },
               {
                 "type": "text",
@@ -15450,7 +15450,7 @@
   ],
   "provenance": {
     "sourceRepository": "next-token",
-    "sourceRevision": "15d285b048b6c38fe2e099dc981cb23a8aed8775",
+    "sourceRevision": "85c07ee0a6909e605b5fe9dd02923b452550ba4a",
     "sourceState": "committed",
     "sourcePath": "shows/weekly/episodes/002/04-release/copy/transcript.zh-Hans.md",
     "sourceSha256": "91195d749e1eb7dcdea604433759942f5630abec50bfef0bfe9e8062b12657ce"

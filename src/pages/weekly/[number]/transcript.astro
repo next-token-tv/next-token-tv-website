@@ -22,8 +22,8 @@ const [content, episode, transcript] = await Promise.all([
   getPublishedEpisode(episodeId),
   getEpisodeTranscript(episodeId, "zh-Hans"),
 ]);
-const canonicalPath = `/weekly/${episode.data.number}/transcript/`;
-const episodePath = `/weekly/${episode.data.number}/`;
+const canonicalPath = `/weekly/${episode.data.number}/transcript`;
+const episodePath = `/weekly/${episode.data.number}`;
 const seo = episode.data.transcriptSeo?.["zh-Hans"];
 const isReviewDraft = transcript.data.publicationStatus === "review-draft";
 const pageTitle = seo?.title ?? `阅读文字稿｜${transcript.data.title} - Next Token｜词元之外`;
@@ -50,7 +50,7 @@ const structuredData = {
   pageTitle={pageTitle}
   description={description}
   canonicalPath={canonicalPath}
-  alternatePath={`/en/weekly/${episode.data.number}/`}
+  alternatePath={`/en/weekly/${episode.data.number}`}
   noIndex={isReviewDraft}
   hasLocaleAlternate={false}
   ogType="article"

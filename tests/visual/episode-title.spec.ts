@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 for (const prefix of ['', '/en']) test(`published episode title scale ${prefix || 'zh'}`, async ({ page }) => {
   for (const width of [390, 768, 1280, 1440, 1920, 2560]) {
     await page.setViewportSize({ width, height: 900 });
-    await page.goto(`${prefix}/weekly/001/`);
+    await page.goto(`${prefix}/weekly/001`);
     const title = page.locator('h1.episode-hero-title');
     const size = await title.evaluate(el => parseFloat(getComputedStyle(el).fontSize) / parseFloat(getComputedStyle(document.documentElement).fontSize));
     expect(size).toBeCloseTo(width < 768 ? 2.65 : width < 1280 ? 3.25 : 3.75, 2);

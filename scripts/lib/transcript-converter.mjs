@@ -109,7 +109,7 @@ function linkifyText(text, matcher, linkedInChapter, linkCounts) {
       value: alias,
       entityType: entity.entityType,
       entityId: entity.id,
-      href: entity.href ?? `/wiki/${{ brand: "brands", product: "products", person: "people" }[entity.entityType]}/${entity.id}/`,
+      href: entity.href ?? `/wiki/${{ brand: "brands", product: "products", person: "people" }[entity.entityType]}/${entity.id}`,
     });
     // Report chapter coverage, not occurrence count, while linking every occurrence.
     if (!linkedInChapter.has(entityKey)) {

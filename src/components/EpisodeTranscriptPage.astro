@@ -20,7 +20,7 @@ const people = await getPeopleByIds(speakerIds);
 const peopleById = new Map(people.map((person) => [person.id, person]));
 const [seriesTitle, ...topicParts] = transcript.data.title.split("｜");
 const topicTitle = topicParts.join("｜");
-const episodePath = `${locale === "en" ? "/en" : ""}/weekly/${episodeNumber}/`;
+const episodePath = `${locale === "en" ? "/en" : ""}/weekly/${episodeNumber}`;
 const copy = locale === "en" ? {
   back: "Back to episode",
   kicker: `Weekly #${episodeNumber} / Transcript`,
@@ -57,7 +57,7 @@ const copy = locale === "en" ? {
       <div class="transcript-hero-meta">
         <strong class="transcript-format-row">
           <span>{copy.read}</span>
-          {!isReviewDraft && <a class="transcript-format-link" href={`${episodePath}transcript.md`} type="text/markdown">{copy.markdown} <span aria-hidden="true">↗</span></a>}
+          {!isReviewDraft && <a class="transcript-format-link" href={`${episodePath}/transcript.md`} type="text/markdown">{copy.markdown} <span aria-hidden="true">↗</span></a>}
         </strong>
         <span>{String(transcript.data.chapterCount).padStart(2, "0")} {copy.chapters}</span>
         <p>{transcript.data.byline}</p>
@@ -99,7 +99,7 @@ const copy = locale === "en" ? {
                 <div class:list={["transcript-turn", `is-${turn.kind}`]} data-speaker={turn.speakerId ?? undefined}>
                   <div class="transcript-speaker">
                     {person ? (
-                      <a href={`/wiki/people/${person.id}/`} aria-label={`查看${turn.speaker}的个人页面`}>
+                      <a href={`/wiki/people/${person.id}`} aria-label={`查看${turn.speaker}的个人页面`}>
                         <img
                           src={person.data.photo}
                           width="28"

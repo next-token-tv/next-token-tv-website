@@ -280,7 +280,7 @@ export async function getHostsForShow(showId: string, locale: Locale): Promise<H
 
       return {
         id: person.id,
-        profilePath: `${locale === "en" ? "/en" : ""}/wiki/people/${person.id}/`,
+        profilePath: `${locale === "en" ? "/en" : ""}/wiki/people/${person.id}`,
         name: displayName,
         bio: person.data.bio[locale],
         photo: person.data.photo!,
@@ -432,12 +432,12 @@ export async function getEntityPeopleRelations(entityType: "person" | "brand" | 
       const entity = relation.entityType === "brand"
         ? requireId(indexById(catalog.brands), relation.entity, "related brand")
         : requireId(indexById(catalog.products), relation.entity, "related product");
-      return { name: entity.data.name[locale], role: relation.role[locale], href: `${prefix}/wiki/${relation.entityType === "brand" ? "brands" : "products"}/${entity.id}/`, sources: relation.sources };
+      return { name: entity.data.name[locale], role: relation.role[locale], href: `${prefix}/wiki/${relation.entityType === "brand" ? "brands" : "products"}/${entity.id}`, sources: relation.sources };
     });
   }
   return catalog.people.flatMap(person => person.data.relations
     .filter(relation => relation.entityType === entityType && relation.entity === entityId)
-    .map(relation => ({ name: person.data.name[locale], role: relation.role[locale], href: `${prefix}/wiki/people/${person.id}/`, sources: relation.sources })));
+    .map(relation => ({ name: person.data.name[locale], role: relation.role[locale], href: `${prefix}/wiki/people/${person.id}`, sources: relation.sources })));
 }
 
 export async function getPeopleDirectory() {
@@ -467,7 +467,7 @@ export async function getHostProfile(personId: string, locale: Locale) {
   const person = requireId(indexById(catalog.people), personId, "profile person");
   const host: Host = {
     id: personId,
-    profilePath: `${locale === "en" ? "/en" : ""}/wiki/people/${personId}/`,
+    profilePath: `${locale === "en" ? "/en" : ""}/wiki/people/${personId}`,
     name: person.data.name[locale], bio: person.data.bio[locale],
     photo: person.data.photo!, width: person.data.width!, height: person.data.height!,
     alt: person.data.alt[locale], socialsLabel: person.data.socialsLabel[locale],

@@ -8,7 +8,7 @@ const isPublished = transcript?.data.publicationStatus === "published";
 ---
 {transcript && isPublished && (
   <>
-    <a class:list={["episode-transcript-cta", `transcript-cta--${variant}`]} href={`${locale === "en" ? "/en" : ""}/weekly/${number}/transcript/`}>
+    <a class:list={["episode-transcript-cta", `transcript-cta--${variant}`]} href={`${locale === "en" ? "/en" : ""}/weekly/${number}/transcript`}>
       {showNumber && <>#{number} · </>}{locale === "en" ? (details ? "Read the full transcript" : "Read the transcript") : (details ? "阅读完整文字稿" : "阅读文字稿")} <span aria-hidden="true">→</span>
     </a>
     {details && <p class="transcript-cta-description">{transcript.data.chapters.length} {locale === "en" ? "chapters · Full-text search" : "个章节 · 支持全文搜索"}</p>}

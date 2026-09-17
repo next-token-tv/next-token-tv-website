@@ -1,202 +1,202 @@
 {
   "/": {
-    "image": "/assets/og/home-f8fe5d00143a.png",
+    "image": "/assets/og/home-b16a72a892e8.png",
     "alt": "NEXT TOKEN — 不只预测 下一个词元。"
   },
-  "/weekly/": {
-    "image": "/assets/og/weekly-094299b99454.png",
+  "/weekly": {
+    "image": "/assets/og/weekly-e717b8e4b497.png",
     "alt": "NEXT TOKEN WEEKLY — 一周的 AI， 四个人， 一张开放的圆桌。"
   },
-  "/wiki/people/aj/": {
-    "image": "/assets/og/wiki-people-aj-9bb107f9f8b8.png",
+  "/wiki/people/aj": {
+    "image": "/assets/og/wiki-people-aj-62c8884a6a50.png",
     "alt": "人物库 — AJ"
   },
-  "/wiki/people/chen-mian/": {
-    "image": "/assets/og/wiki-people-chen-mian-133211d32f4b.png",
+  "/wiki/people/chen-mian": {
+    "image": "/assets/og/wiki-people-chen-mian-408d2aedda94.png",
     "alt": "人物库 — 陈冕"
   },
-  "/wiki/people/cyber-zen/": {
-    "image": "/assets/og/wiki-people-cyber-zen-891e800e297e.png",
+  "/wiki/people/cyber-zen": {
+    "image": "/assets/og/wiki-people-cyber-zen-d65488979de2.png",
     "alt": "人物库 — 赛博禅心"
   },
-  "/wiki/people/dhh/": {
-    "image": "/assets/og/wiki-people-dhh-3ae3ca9aac99.png",
+  "/wiki/people/dhh": {
+    "image": "/assets/og/wiki-people-dhh-b0747c0c5ffe.png",
     "alt": "人物库 — David Heinemeier Hansson"
   },
-  "/wiki/people/guanlan-dai/": {
-    "image": "/assets/og/wiki-people-guanlan-dai-27e324ac31b2.png",
+  "/wiki/people/guanlan-dai": {
+    "image": "/assets/og/wiki-people-guanlan-dai-24d812f3d621.png",
     "alt": "人物库 — 戴冠兰"
   },
-  "/wiki/people/guizang/": {
-    "image": "/assets/og/wiki-people-guizang-2139c55f4510.png",
+  "/wiki/people/guizang": {
+    "image": "/assets/og/wiki-people-guizang-738526f81a6e.png",
     "alt": "联合主理人 — 歸藏"
   },
-  "/wiki/people/hanqing/": {
-    "image": "/assets/og/wiki-people-hanqing-ac2e3e6e7ac5.png",
+  "/wiki/people/hanqing": {
+    "image": "/assets/og/wiki-people-hanqing-4534c1ce26dc.png",
     "alt": "人物库 — 汗青"
   },
-  "/wiki/people/he-tongxue/": {
-    "image": "/assets/og/wiki-people-he-tongxue-81ed34f4bdd9.png",
+  "/wiki/people/he-tongxue": {
+    "image": "/assets/og/wiki-people-he-tongxue-26c52dd8234d.png",
     "alt": "人物库 — 何同学"
   },
-  "/wiki/people/liu-fei/": {
-    "image": "/assets/og/wiki-people-liu-fei-8c5865363f22.png",
+  "/wiki/people/liu-fei": {
+    "image": "/assets/og/wiki-people-liu-fei-af9d0ea40676.png",
     "alt": "人物库 — 刘飞"
   },
-  "/wiki/people/luo-fuli/": {
-    "image": "/assets/og/wiki-people-luo-fuli-e2d74d9006e0.png",
+  "/wiki/people/luo-fuli": {
+    "image": "/assets/og/wiki-people-luo-fuli-c01ca3d5f092.png",
     "alt": "人物库 — 罗福莉"
   },
-  "/wiki/people/nan-qiao/": {
-    "image": "/assets/og/wiki-people-nan-qiao-f5955ae37f07.png",
+  "/wiki/people/nan-qiao": {
+    "image": "/assets/og/wiki-people-nan-qiao-db51ee4a831c.png",
     "alt": "人物库 — 南乔"
   },
-  "/wiki/people/orange/": {
-    "image": "/assets/og/wiki-people-orange-c7f9d4bf399a.png",
+  "/wiki/people/orange": {
+    "image": "/assets/og/wiki-people-orange-b575ef36e906.png",
     "alt": "联合主理人 — 橘子 Orange"
   },
-  "/wiki/people/tang-jie/": {
-    "image": "/assets/og/wiki-people-tang-jie-bf5348bbc1a0.png",
+  "/wiki/people/tang-jie": {
+    "image": "/assets/og/wiki-people-tang-jie-402bf7caa207.png",
     "alt": "人物库 — 唐杰"
   },
-  "/wiki/people/tim-cook/": {
-    "image": "/assets/og/wiki-people-tim-cook-c40eac07911b.png",
+  "/wiki/people/tim-cook": {
+    "image": "/assets/og/wiki-people-tim-cook-cbac7aaf3f8e.png",
     "alt": "人物库 — Tim Cook"
   },
-  "/wiki/people/wang-dengke/": {
-    "image": "/assets/og/wiki-people-wang-dengke-bc562b54234c.png",
+  "/wiki/people/wang-dengke": {
+    "image": "/assets/og/wiki-people-wang-dengke-fbe306995df9.png",
     "alt": "人物库 — 王登科"
   },
-  "/wiki/people/wang-le/": {
-    "image": "/assets/og/wiki-people-wang-le-e2c856f84a4d.png",
+  "/wiki/people/wang-le": {
+    "image": "/assets/og/wiki-people-wang-le-1ffc26875b63.png",
     "alt": "人物库 — 王乐"
   },
-  "/wiki/people/xiangyang-qiaomu/": {
-    "image": "/assets/og/wiki-people-xiangyang-qiaomu-2da3cd63c9e5.png",
+  "/wiki/people/xiangyang-qiaomu": {
+    "image": "/assets/og/wiki-people-xiangyang-qiaomu-c81ff6bf402e.png",
     "alt": "联合主理人 — 向阳乔木"
   },
-  "/wiki/people/xiaohu/": {
-    "image": "/assets/og/wiki-people-xiaohu-6b52e14bd1ec.png",
+  "/wiki/people/xiaohu": {
+    "image": "/assets/og/wiki-people-xiaohu-0a84adfda222.png",
     "alt": "人物库 — 小互"
   },
-  "/wiki/people/yangpan/": {
-    "image": "/assets/og/wiki-people-yangpan-8680761cec79.png",
+  "/wiki/people/yangpan": {
+    "image": "/assets/og/wiki-people-yangpan-1197468f46e0.png",
     "alt": "联合主理人 — 杨攀"
   },
-  "/weekly/001/": {
-    "image": "/assets/og/weekly-001-f66c46fde564.png",
+  "/weekly/001": {
+    "image": "/assets/og/weekly-001-2e696415dfe7.png",
     "alt": "WEEKLY #001 · 本期节目 — 大模型进入“斩杀线”大战，Token 就是新货币"
   },
-  "/weekly/002/": {
-    "image": "/assets/og/weekly-002-86d765c288d6.png",
+  "/weekly/002": {
+    "image": "/assets/og/weekly-002-005354a1b83f.png",
     "alt": "WEEKLY #002 · 音频已上线 — iPhone Duo 发布，Astra 会用电脑就算 AGI 吗？"
   },
-  "/weekly/003/": {
-    "image": "/assets/og/weekly-003-ca89d4dfebd6.png",
+  "/weekly/003": {
+    "image": "/assets/og/weekly-003-3e5d4468979c.png",
     "alt": "WEEKLY #003 · 录制预告 — 下一次圆桌，线上见。"
   },
-  "/en/": {
-    "image": "/assets/og/en-7f4fd6e4e0a2.png",
+  "/en": {
+    "image": "/assets/og/en-08bb9e481d06.png",
     "alt": "NEXT TOKEN — Beyond the next token."
   },
-  "/en/weekly/": {
-    "image": "/assets/og/en-weekly-4acb3213e19d.png",
+  "/en/weekly": {
+    "image": "/assets/og/en-weekly-b670984b69ac.png",
     "alt": "NEXT TOKEN WEEKLY — One week in AI. Four voices. One open table."
   },
-  "/en/wiki/people/aj/": {
-    "image": "/assets/og/en-wiki-people-aj-ba8243996b60.png",
+  "/en/wiki/people/aj": {
+    "image": "/assets/og/en-wiki-people-aj-ccb49f97c5f0.png",
     "alt": "PEOPLE — AJ"
   },
-  "/en/wiki/people/chen-mian/": {
-    "image": "/assets/og/en-wiki-people-chen-mian-9c05ab7caf33.png",
+  "/en/wiki/people/chen-mian": {
+    "image": "/assets/og/en-wiki-people-chen-mian-ca5597ec0832.png",
     "alt": "PEOPLE — Chen Mian"
   },
-  "/en/wiki/people/cyber-zen/": {
-    "image": "/assets/og/en-wiki-people-cyber-zen-1ce7c1ca726b.png",
+  "/en/wiki/people/cyber-zen": {
+    "image": "/assets/og/en-wiki-people-cyber-zen-4bd93b0808db.png",
     "alt": "PEOPLE — Cyber Zen"
   },
-  "/en/wiki/people/dhh/": {
-    "image": "/assets/og/en-wiki-people-dhh-694f52caa746.png",
+  "/en/wiki/people/dhh": {
+    "image": "/assets/og/en-wiki-people-dhh-abe8524bc030.png",
     "alt": "PEOPLE — David Heinemeier Hansson"
   },
-  "/en/wiki/people/guanlan-dai/": {
-    "image": "/assets/og/en-wiki-people-guanlan-dai-e7a2919ef24b.png",
+  "/en/wiki/people/guanlan-dai": {
+    "image": "/assets/og/en-wiki-people-guanlan-dai-0a69e3e589b4.png",
     "alt": "PEOPLE — Guanlan Dai"
   },
-  "/en/wiki/people/guizang/": {
-    "image": "/assets/og/en-wiki-people-guizang-cbff4cfdbcfe.png",
+  "/en/wiki/people/guizang": {
+    "image": "/assets/og/en-wiki-people-guizang-aeccb4b3a69d.png",
     "alt": "CO-HOST — 歸藏 Guizang"
   },
-  "/en/wiki/people/hanqing/": {
-    "image": "/assets/og/en-wiki-people-hanqing-7d99e928c0a4.png",
+  "/en/wiki/people/hanqing": {
+    "image": "/assets/og/en-wiki-people-hanqing-a034b9cfc8d0.png",
     "alt": "PEOPLE — Hanqing"
   },
-  "/en/wiki/people/he-tongxue/": {
-    "image": "/assets/og/en-wiki-people-he-tongxue-557e4827dae5.png",
+  "/en/wiki/people/he-tongxue": {
+    "image": "/assets/og/en-wiki-people-he-tongxue-b4a0a085a688.png",
     "alt": "PEOPLE — He Tongxue"
   },
-  "/en/wiki/people/liu-fei/": {
-    "image": "/assets/og/en-wiki-people-liu-fei-391dcde59be6.png",
+  "/en/wiki/people/liu-fei": {
+    "image": "/assets/og/en-wiki-people-liu-fei-33fcc7a62f3b.png",
     "alt": "PEOPLE — Liu Fei"
   },
-  "/en/wiki/people/luo-fuli/": {
-    "image": "/assets/og/en-wiki-people-luo-fuli-f924a3669985.png",
+  "/en/wiki/people/luo-fuli": {
+    "image": "/assets/og/en-wiki-people-luo-fuli-cf40ed947620.png",
     "alt": "PEOPLE — Fuli Luo"
   },
-  "/en/wiki/people/nan-qiao/": {
-    "image": "/assets/og/en-wiki-people-nan-qiao-fee4d7f0f52e.png",
+  "/en/wiki/people/nan-qiao": {
+    "image": "/assets/og/en-wiki-people-nan-qiao-1534cb88c786.png",
     "alt": "PEOPLE — Nan Qiao"
   },
-  "/en/wiki/people/orange/": {
-    "image": "/assets/og/en-wiki-people-orange-93596a3035ce.png",
+  "/en/wiki/people/orange": {
+    "image": "/assets/og/en-wiki-people-orange-431bd11143b3.png",
     "alt": "CO-HOST — 橘子 Orange"
   },
-  "/en/wiki/people/tang-jie/": {
-    "image": "/assets/og/en-wiki-people-tang-jie-3a78a6841e21.png",
+  "/en/wiki/people/tang-jie": {
+    "image": "/assets/og/en-wiki-people-tang-jie-4e5666a07af3.png",
     "alt": "PEOPLE — Jie Tang"
   },
-  "/en/wiki/people/tim-cook/": {
-    "image": "/assets/og/en-wiki-people-tim-cook-5481ae542765.png",
+  "/en/wiki/people/tim-cook": {
+    "image": "/assets/og/en-wiki-people-tim-cook-b8e1a2ef8771.png",
     "alt": "PEOPLE — Tim Cook"
   },
-  "/en/wiki/people/wang-dengke/": {
-    "image": "/assets/og/en-wiki-people-wang-dengke-783c75fe3063.png",
+  "/en/wiki/people/wang-dengke": {
+    "image": "/assets/og/en-wiki-people-wang-dengke-7a9d96012841.png",
     "alt": "PEOPLE — Wang Dengke"
   },
-  "/en/wiki/people/wang-le/": {
-    "image": "/assets/og/en-wiki-people-wang-le-e5bbae6f551c.png",
+  "/en/wiki/people/wang-le": {
+    "image": "/assets/og/en-wiki-people-wang-le-51180613b719.png",
     "alt": "PEOPLE — Wang Le"
   },
-  "/en/wiki/people/xiangyang-qiaomu/": {
-    "image": "/assets/og/en-wiki-people-xiangyang-qiaomu-aa1640563927.png",
+  "/en/wiki/people/xiangyang-qiaomu": {
+    "image": "/assets/og/en-wiki-people-xiangyang-qiaomu-af44d5f32782.png",
     "alt": "CO-HOST — 向阳乔木 Xiangyang Qiaomu"
   },
-  "/en/wiki/people/xiaohu/": {
-    "image": "/assets/og/en-wiki-people-xiaohu-181e604ec524.png",
+  "/en/wiki/people/xiaohu": {
+    "image": "/assets/og/en-wiki-people-xiaohu-a617d6302387.png",
     "alt": "PEOPLE — Xiaohu"
   },
-  "/en/wiki/people/yangpan/": {
-    "image": "/assets/og/en-wiki-people-yangpan-19af68b6ba2e.png",
+  "/en/wiki/people/yangpan": {
+    "image": "/assets/og/en-wiki-people-yangpan-55f7d921287c.png",
     "alt": "CO-HOST — 杨攀 Pan YANG"
   },
-  "/en/weekly/001/": {
-    "image": "/assets/og/en-weekly-001-9fdefb09f4b2.png",
+  "/en/weekly/001": {
+    "image": "/assets/og/en-weekly-001-264a1bb61edb.png",
     "alt": "WEEKLY #001 · EPISODE — The LLM “Kill Line” Wars: Tokens Are the New Money"
   },
-  "/en/weekly/002/": {
-    "image": "/assets/og/en-weekly-002-4227dd7fe7b5.png",
+  "/en/weekly/002": {
+    "image": "/assets/og/en-weekly-002-99787fd285c2.png",
     "alt": "WEEKLY #002 · AUDIO OUT NOW — iPhone Duo launches. Does Astra using a computer count as AGI?"
   },
-  "/en/weekly/003/": {
-    "image": "/assets/og/en-weekly-003-54dc61c13a9c.png",
+  "/en/weekly/003": {
+    "image": "/assets/og/en-weekly-003-2b731129d94f.png",
     "alt": "WEEKLY #003 · PREVIEW — The next open table, online."
   },
-  "/weekly/001/transcript/": {
-    "image": "/assets/og/weekly-001-transcript-c9cf57bf5cf9.png",
+  "/weekly/001/transcript": {
+    "image": "/assets/og/weekly-001-transcript-57cc5806682f.png",
     "alt": "WEEKLY #001 · 文字稿 — 大模型进入“斩杀线”大战，Token 就是新货币"
   },
-  "/weekly/002/transcript/": {
-    "image": "/assets/og/weekly-002-transcript-a87498efb370.png",
+  "/weekly/002/transcript": {
+    "image": "/assets/og/weekly-002-transcript-f4839258996e.png",
     "alt": "WEEKLY #002 · 文字稿 — iPhone Duo 发布，Astra 会用电脑就算 AGI 吗？"
   }
 }

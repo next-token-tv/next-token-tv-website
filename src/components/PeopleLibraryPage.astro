@@ -12,13 +12,13 @@ const hostOrder = (id: string) => catalog.hostMemberships.find(m => m.data.perso
 const people = catalog.people.slice().sort((a,b) => hostOrder(a.id)-hostOrder(b.id) || a.id.localeCompare(b.id));
 const person = personId ? people.find(p => p.id === personId) : undefined;
 const mentions = person ? catalog.episodes.filter(e => e.data.mentions.people.includes(person.id)) : [];
-const chapterLinks = person ? catalog.transcriptImports.filter(t => t.data.locale === locale).flatMap(t => t.data.chapters.filter(c => c.turns.some(turn => turn.paragraphs.some(p => p.some(s => s.entityType === "person" && s.entityId === person.id)))).map(c => ({title:c.title, href:`${prefix}/weekly/${catalog.episodes.find(e => e.id === t.data.episodeId)!.data.number}/transcript/#${c.id}`}))) : [];
+const chapterLinks = person ? catalog.transcriptImports.filter(t => t.data.locale === locale).flatMap(t => t.data.chapters.filter(c => c.turns.some(turn => turn.paragraphs.some(p => p.some(s => s.entityType === "person" && s.entityId === person.id)))).map(c => ({title:c.title, href:`${prefix}/weekly/${catalog.episodes.find(e => e.id === t.data.episodeId)!.data.number}/transcript#${c.id}`}))) : [];
 ---
 <main id="main" class="people-library shell">
   <nav class="library-tabs" aria-label={en ? "Wiki" : "资料库"}>
-    <a href={`${prefix}/wiki/brands/`}>{en ? "Brands" : "品牌"}</a>
-    <a href={`${prefix}/wiki/products/`}>{en ? "Products" : "产品"}</a>
-    <a href={`${prefix}/wiki/people/`} aria-current={!person ? "page" : undefined}>{en ? "People" : "人物"}</a>
+    <a href={`${prefix}/wiki/brands`}>{en ? "Brands" : "品牌"}</a>
+    <a href={`${prefix}/wiki/products`}>{en ? "Products" : "产品"}</a>
+    <a href={`${prefix}/wiki/people`} aria-current={!person ? "page" : undefined}>{en ? "People" : "人物"}</a>
   </nav>
   <header>
     <p class="section-kicker">NEXT TOKEN / {en ? "PEOPLE" : "人物库"}</p>
@@ -30,7 +30,7 @@ const chapterLinks = person ? catalog.transcriptImports.filter(t => t.data.local
     {person.data.aliases.length > 0 && <p>{en ? "Also known as" : "其他称呼"}：{person.data.aliases.join(" · ")}</p>}
     <section>
       <h2 class="heading-section-compact">{en ? "In our conversations" : "节目中的讨论"}</h2>
-      <ul>{mentions.map(e => <li><a href={`${prefix}/weekly/${e.data.number}/`}>{e.data.title[locale]} →</a></li>)}</ul>
+      <ul>{mentions.map(e => <li><a href={`${prefix}/weekly/${e.data.number}`}>{e.data.title[locale]} →</a></li>)}</ul>
       <ul>{chapterLinks.map(c => <li><a href={c.href}>{c.title} →</a></li>)}</ul>
     </section>
     <section>
@@ -41,7 +41,7 @@ const chapterLinks = person ? catalog.transcriptImports.filter(t => t.data.local
   </> : <div class="people-list">
     {people.map(p => <article>
       <p class="section-kicker">{hosts.has(p.id) ? en ? "CO-HOST" : "联合主理人" : en ? "MENTIONED" : "节目提及"}</p>
-      <h2 class="heading-section-compact"><a href={`${prefix}/wiki/people/${p.id}/`}>{p.data.name[locale]} →</a></h2>
+      <h2 class="heading-section-compact"><a href={`${prefix}/wiki/people/${p.id}`}>{p.data.name[locale]} →</a></h2>
       <p>{p.data.bio[locale]}</p>
     </article>)}
   </div>}

@@ -15,7 +15,7 @@ interface Props {
 
 const { content } = Astro.props;
 const latestEpisode = await getPublishedEpisode();
-const latestEpisodePath = `${content.locale === "en" ? "/en" : ""}/weekly/${latestEpisode.data.number}/`;
+const latestEpisodePath = `${content.locale === "en" ? "/en" : ""}/weekly/${latestEpisode.data.number}`;
 ---
 
 <main id="main">
@@ -33,7 +33,7 @@ const latestEpisodePath = `${content.locale === "en" ? "/en" : ""}/weekly/${late
         <div class="actions">
           <a class="button primary" href={latestEpisodePath}>{content.hero.primaryAction} <span aria-hidden="true">↘</span></a>
           <LatestTranscriptLink locale={content.locale} />
-          <a class="hero-about-link" href={`${content.locale === "en" ? "/en" : ""}/weekly/`}>{content.locale === "en" ? "All episodes" : "全部节目"} →</a>
+          <a class="hero-about-link" href={`${content.locale === "en" ? "/en" : ""}/weekly`}>{content.locale === "en" ? "All episodes" : "全部节目"} →</a>
         </div>
         <UpcomingEpisodeLink locale={content.locale} />
       </div>

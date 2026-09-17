@@ -23,8 +23,8 @@ const [content, episode] = await Promise.all([
   getSiteContent("zh-Hans"),
   getEpisode(episodeId),
 ]);
-const canonicalPath = `/weekly/${episode.data.number}/`;
-const alternatePath = `/en/weekly/${episode.data.number}/`;
+const canonicalPath = `/weekly/${episode.data.number}`;
+const alternatePath = `/en/weekly/${episode.data.number}`;
 ---
 
 <BaseLayout

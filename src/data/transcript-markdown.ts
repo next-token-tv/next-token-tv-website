@@ -1,4 +1,5 @@
 import type { CollectionEntry } from "astro:content";
+import { absoluteSiteUrl } from "./internal-url";
 
 type Transcript = CollectionEntry<"transcriptImports">["data"];
 type Segment = Transcript["chapters"][number]["turns"][number]["paragraphs"][number][number];
@@ -29,7 +30,7 @@ function markdownCode(value: string) {
 }
 
 function markdownHref(href: string, site: URL) {
-  return href.startsWith("/") ? new URL(href, site).toString() : href;
+  return href.startsWith("/") ? absoluteSiteUrl(href, site) : href;
 }
 
 function renderSegment(segment: Segment, site: URL) {
@@ -90,7 +91,7 @@ export function renderTranscriptMarkdown(transcript: Transcript, episodeNumber: 
     transcript.byline,
     "",
     ...transcript.notices.flatMap((notice) => [`> ${escapeMarkdown(notice)}`, ""]),
-    `[${transcript.locale === "en" ? "Read on the website" : "阅读网页版"}](${new URL(`/weekly/${episodeNumber}/transcript/`, site)})`,
+    `[${transcript.locale === "en" ? "Read on the website" : "阅读网页版"}](${absoluteSiteUrl(`/weekly/${episodeNumber}/transcript`, site)})`,
     "",
   ];
 

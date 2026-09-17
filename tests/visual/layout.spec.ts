@@ -11,31 +11,31 @@ const viewports = [
 
 const routes = [
   { path: "/", shell: ".hero-grid.shell", visual: ".hero-grid" },
-  { path: "/en/", shell: ".hero-grid.shell", visual: ".hero-grid" },
-  { path: "/weekly/", shell: ".weekly-show-hero-inner.shell", visual: ".weekly-show-hero" },
-  { path: "/en/weekly/", shell: ".weekly-show-hero-inner.shell", visual: ".weekly-show-hero" },
-  { path: "/weekly/001/", shell: ".episode-detail-hero-inner.shell", visual: ".episode-detail-hero" },
-  { path: "/weekly/001/transcript/", shell: ".transcript-hero.shell", visual: ".transcript-hero" },
-  { path: "/en/weekly/001/", shell: ".episode-detail-hero-inner.shell", visual: ".episode-detail-hero" },
-  { path: "/weekly/002/", shell: ".episode-detail-hero-inner.shell", visual: ".episode-detail-hero" },
-  { path: "/en/weekly/002/", shell: ".episode-detail-hero-inner.shell", visual: ".episode-detail-hero" },
-  { path: "/partners/", shell: ".partners-intro.shell", visual: ".partners-intro" },
-  { path: "/en/partners/", shell: ".partners-intro.shell", visual: ".partners-intro" },
-  { path: "/wiki/brands/", shell: ".entity-index-hero.shell", visual: ".entity-index-hero" },
-  { path: "/en/wiki/brands/", shell: ".entity-index-hero.shell", visual: ".entity-index-hero" },
-  { path: "/wiki/brands/zhipu/", shell: ".entity-detail-hero.shell", visual: ".entity-detail-hero" },
-  { path: "/en/wiki/brands/zhipu/", shell: ".entity-detail-hero.shell", visual: ".entity-detail-hero" },
-  { path: "/wiki/products/", shell: ".entity-index-hero.shell", visual: ".entity-index-hero" },
-  { path: "/en/wiki/products/", shell: ".entity-index-hero.shell", visual: ".entity-index-hero" },
-  { path: "/wiki/products/glm/", shell: ".entity-detail-hero.shell", visual: ".entity-detail-hero" },
-  { path: "/en/wiki/products/glm/", shell: ".entity-detail-hero.shell", visual: ".entity-detail-hero" },
+  { path: "/en", shell: ".hero-grid.shell", visual: ".hero-grid" },
+  { path: "/weekly", shell: ".weekly-show-hero-inner.shell", visual: ".weekly-show-hero" },
+  { path: "/en/weekly", shell: ".weekly-show-hero-inner.shell", visual: ".weekly-show-hero" },
+  { path: "/weekly/001", shell: ".episode-detail-hero-inner.shell", visual: ".episode-detail-hero" },
+  { path: "/weekly/001/transcript", shell: ".transcript-hero.shell", visual: ".transcript-hero" },
+  { path: "/en/weekly/001", shell: ".episode-detail-hero-inner.shell", visual: ".episode-detail-hero" },
+  { path: "/weekly/002", shell: ".episode-detail-hero-inner.shell", visual: ".episode-detail-hero" },
+  { path: "/en/weekly/002", shell: ".episode-detail-hero-inner.shell", visual: ".episode-detail-hero" },
+  { path: "/partners", shell: ".partners-intro.shell", visual: ".partners-intro" },
+  { path: "/en/partners", shell: ".partners-intro.shell", visual: ".partners-intro" },
+  { path: "/wiki/brands", shell: ".entity-index-hero.shell", visual: ".entity-index-hero" },
+  { path: "/en/wiki/brands", shell: ".entity-index-hero.shell", visual: ".entity-index-hero" },
+  { path: "/wiki/brands/zhipu", shell: ".entity-detail-hero.shell", visual: ".entity-detail-hero" },
+  { path: "/en/wiki/brands/zhipu", shell: ".entity-detail-hero.shell", visual: ".entity-detail-hero" },
+  { path: "/wiki/products", shell: ".entity-index-hero.shell", visual: ".entity-index-hero" },
+  { path: "/en/wiki/products", shell: ".entity-index-hero.shell", visual: ".entity-index-hero" },
+  { path: "/wiki/products/glm", shell: ".entity-detail-hero.shell", visual: ".entity-detail-hero" },
+  { path: "/en/wiki/products/glm", shell: ".entity-detail-hero.shell", visual: ".entity-detail-hero" },
 ] as const;
 
 test("platform lists share localized labels, logos and destinations", async ({ page }) => {
   for (const prefix of ["", "/en"]) {
     let expected;
-    for (const path of ["/", "/weekly/", "/weekly/001/"]) {
-      await page.goto(`${prefix}${path}`);
+    for (const path of ["/", "/weekly", "/weekly/001"]) {
+      await page.goto(path === "/" ? (prefix || "/") : `${prefix}${path}`);
       const list = page.locator(".platform-list");
       await expect(list.locator("a.platform.is-live")).toHaveCount(5);
       await expect(list.locator("img.platform-logo")).toHaveCount(5);
@@ -45,7 +45,7 @@ test("platform lists share localized labels, logos and destinations", async ({ p
         target: row.getAttribute("target"),
         rel: row.getAttribute("rel"),
       })));
-      if (path === '/weekly/001/') {
+      if (path === '/weekly/001') {
         expect(entries.map(e => e.href)).not.toEqual(expected?.map(e => e.href));
         await expect(list.locator('a[href*="spotify.com"]')).toHaveAttribute('href', /\/episode\//);
         await expect(list.locator('a[href*="spotify.com"] .coming')).toContainText(prefix ? "Listen / watch" : "收听/收看");
@@ -61,13 +61,13 @@ test("platform lists share localized labels, logos and destinations", async ({ p
 
 test("person cards link portraits and names to localized profiles", async ({ page }) => {
   for (const prefix of ["", "/en"]) {
-    for (const path of ["/", "/weekly/", "/weekly/001/", "/weekly/002/"]) {
-      await page.goto(`${prefix}${path}`);
+    for (const path of ["/", "/weekly", "/weekly/001", "/weekly/002"]) {
+      await page.goto(path === "/" ? (prefix || "/") : `${prefix}${path}`);
       const portraits = page.locator("article > a.host-photo");
       await expect(portraits).toHaveCount(4);
       for (const portrait of await portraits.all()) {
         const href = await portrait.getAttribute("href");
-        expect(href).toMatch(new RegExp(`^${prefix}/wiki/people/[^/]+/$`));
+        expect(href).toMatch(new RegExp(`^${prefix}/wiki/people/[^/]+$`));
         await expect(portrait.locator("..").locator("h3 a")).toHaveAttribute("href", href!);
         expect((await page.request.get(href!)).status()).toBe(200);
       }
@@ -80,8 +80,8 @@ test("follow sections share the same heading role across pages", async ({ page }
     await page.setViewportSize({ width, height: 900 });
     for (const prefix of ["", "/en"]) {
       const sizes: string[] = [];
-      for (const path of ["/", "/weekly/"]) {
-        await page.goto(`${prefix}${path}`);
+      for (const path of ["/", "/weekly"]) {
+        await page.goto(path === "/" ? (prefix || "/") : `${prefix}${path}`);
         const heading = page.locator(".heading-follow-display");
         await expect(heading).toHaveCount(1);
         sizes.push(await heading.evaluate((node) => getComputedStyle(node).fontSize));
@@ -125,7 +125,7 @@ for (const viewport of viewports) {
         for (const ratio of geometry.headingRatios) expect(ratio).toBeCloseTo(1.25, 2);
 
         if (viewport.name === "mobile" || viewport.name === "wide") {
-          if (route.path === "/weekly/") {
+          if (route.path === "/weekly") {
             await page.locator(".site-header").evaluate((header) => {
               header.style.visibility = "hidden";
             });
@@ -145,9 +145,9 @@ test.describe("entity metadata and links", () => {
   });
 
   test("episode and entity pages link in both directions", async ({ page }) => {
-    await page.goto("/weekly/001/");
-    await expect(page.locator('.episode-mention-list a[href="/wiki/brands/zhipu/"]')).toHaveCount(1);
-    await expect(page.locator('.episode-mention-list a[href="/wiki/products/glm/"]')).toHaveCount(1);
+    await page.goto("/weekly/001");
+    await expect(page.locator('.episode-mention-list a[href="/wiki/brands/zhipu"]')).toHaveCount(1);
+    await expect(page.locator('.episode-mention-list a[href="/wiki/products/glm"]')).toHaveCount(1);
     const brandGroup = page.locator('[data-mention-kind="brand"]');
     const productGroup = page.locator('[data-mention-kind="product"]');
     await expect(brandGroup).toHaveCount(1);
@@ -155,14 +155,14 @@ test.describe("entity metadata and links", () => {
     await expect(brandGroup.locator(".episode-mention-list a")).toHaveCount(Number(await brandGroup.locator(".episode-mention-group-heading span").textContent()));
     await expect(productGroup.locator(".episode-mention-list a")).toHaveCount(Number(await productGroup.locator(".episode-mention-group-heading span").textContent()));
 
-    await page.goto("/wiki/brands/zhipu/");
-    await expect(page.locator('.entity-related-episode-list a[href="/weekly/001/"]')).toHaveCount(1);
-    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://nexttoken.tv/wiki/brands/zhipu/");
-    await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", "https://nexttoken.tv/en/wiki/brands/zhipu/");
+    await page.goto("/wiki/brands/zhipu");
+    await expect(page.locator('.entity-related-episode-list a[href="/weekly/001"]')).toHaveCount(1);
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://nexttoken.tv/wiki/brands/zhipu");
+    await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", "https://nexttoken.tv/en/wiki/brands/zhipu");
   });
 
   test("entity pages expose structured data", async ({ page }) => {
-    await page.goto("/wiki/products/glm/");
+    await page.goto("/wiki/products/glm");
     const structuredData = JSON.parse(await page.locator('script[type="application/ld+json"]').textContent() ?? "{}");
     expect(structuredData["@type"]).toBe("WebPage");
     expect(structuredData.about.name).toBe("GLM");
@@ -170,17 +170,17 @@ test.describe("entity metadata and links", () => {
   });
 
   test("secondary filters restore from and update the URL", async ({ page }) => {
-    await page.goto("/wiki/brands/?type=company-brand");
-    const companyFilter = page.locator('[data-entity-filter="company-brand"]');
+    await page.goto("/wiki/brands?type=ai-brand");
+    const companyFilter = page.locator('[data-entity-filter="ai-brand"]');
     await expect(companyFilter).toHaveAttribute("aria-pressed", "true");
     await expect(page.locator("[data-entity-kind]:visible")).toHaveCount(Number(await companyFilter.locator("strong").textContent()));
 
-    await page.locator('[data-entity-filter="media-brand"]').click();
-    await expect(page).toHaveURL(/\/wiki\/brands\/\?type=media-brand$/);
-    await expect(page.locator('[data-entity-kind="media-brand"]:visible').first()).toBeVisible();
-    await expect(page.locator('[data-entity-kind="company-brand"]:visible')).toHaveCount(0);
+    await page.locator('[data-entity-filter="media-community-brand"]').click();
+    await expect(page).toHaveURL(/\/wiki\/brands\?type=media-community-brand$/);
+    await expect(page.locator('[data-entity-kind="media-community-brand"]:visible').first()).toBeVisible();
+    await expect(page.locator('[data-entity-kind="ai-brand"]:visible')).toHaveCount(0);
 
-    await page.goto("/en/wiki/products/?type=model-family");
+    await page.goto("/en/wiki/products?type=model-family");
     const modelFilter = page.locator('[data-entity-filter="model-family"]');
     await expect(modelFilter).toHaveAttribute("aria-pressed", "true");
     await expect(page.locator("[data-entity-kind]:visible")).toHaveCount(Number(await modelFilter.locator("strong").textContent()));
@@ -190,22 +190,22 @@ test.describe("entity metadata and links", () => {
     const response = await request.get("/sitemap-0.xml");
     expect(response.ok()).toBeTruthy();
     const sitemap = await response.text();
-    expect(sitemap).toContain("https://nexttoken.tv/weekly/002/");
-    expect(sitemap).toContain("https://nexttoken.tv/weekly/001/transcript/");
-    expect(sitemap).toContain("https://nexttoken.tv/wiki/brands/zhipu/");
-    expect(sitemap).toContain("https://nexttoken.tv/en/wiki/products/glm/");
-    expect(sitemap).not.toContain("/design-system/");
+    expect(sitemap).toContain("https://nexttoken.tv/weekly/002");
+    expect(sitemap).toContain("https://nexttoken.tv/weekly/001/transcript");
+    expect(sitemap).toContain("https://nexttoken.tv/wiki/brands/zhipu");
+    expect(sitemap).toContain("https://nexttoken.tv/en/wiki/products/glm");
+    expect(sitemap).not.toContain("/design-system");
   });
 
   test("published episode links to its structured transcript", async ({ page }) => {
-    await page.goto("/weekly/001/");
-    await expect(page.locator('a.episode-transcript-cta[href="/weekly/001/transcript/"]')).toBeVisible();
+    await page.goto("/weekly/001");
+    await expect(page.locator('a.episode-transcript-cta[href="/weekly/001/transcript"]')).toBeVisible();
 
-    await page.goto("/weekly/001/transcript/");
+    await page.goto("/weekly/001/transcript");
     await expect(page.locator(".transcript-chapter")).toHaveCount(37);
     await expect(page.locator(".transcript-candidate")).toHaveCount(180);
     await expect(page.locator('.transcript-turn[data-speaker="yangpan"] img').first()).toBeVisible();
-    await expect(page.locator('.transcript-entity-link[href="/wiki/products/glm/"]').first()).toBeVisible();
+    await expect(page.locator('.transcript-entity-link[href="/wiki/products/glm"]').first()).toBeVisible();
     await expect(page.locator("body")).not.toContainText("5.1 担心");
     await expect(page.locator('head link[rel="alternate"][type="text/markdown"]')).toHaveAttribute(
       "href",
@@ -231,7 +231,7 @@ test("shared heading roles keep their documented scales", async ({ page }) => {
 
   for (const step of roleSteps) {
     await page.setViewportSize({ width: step.width, height: 900 });
-    await page.goto("/design-system/");
+    await page.goto("/design-system");
     await expect.poll(async () => (await sizesInRem(".type-specimens .heading-section-display"))[0]).toBeCloseTo(step.display, 2);
     await expect.poll(async () => (await sizesInRem(".type-specimens .heading-section-content"))[0]).toBeCloseTo(step.content, 2);
     await expect.poll(async () => (await sizesInRem(".type-specimens .heading-section-compact"))[0]).toBeCloseTo(step.compact, 2);
@@ -244,26 +244,26 @@ test("shared heading roles keep their documented scales", async ({ page }) => {
   expect(displaySizes.length).toBeGreaterThan(1);
   expect(new Set(displaySizes).size).toBe(1);
 
-  await page.goto("/weekly/001/");
+  await page.goto("/weekly/001");
   const episodeSizesInRem = await sizesInRem(".heading-section-content");
   expect(new Set(episodeSizesInRem).size).toBe(1);
   expect(episodeSizesInRem[0]).toBeGreaterThanOrEqual(2.25);
   expect(episodeSizesInRem[0]).toBeLessThanOrEqual(3.75);
   expect(displaySizes[0]!).toBeGreaterThan(episodeSizesInRem[0]!);
 
-  await page.goto("/brand-kit/");
+  await page.goto("/brand-kit");
   const compactSizes = await sizesInRem(".heading-section-compact");
   expect(compactSizes.length).toBeGreaterThan(1);
   expect(new Set(compactSizes).size).toBe(1);
   expect(episodeSizesInRem[0]!).toBeGreaterThan(compactSizes[0]!);
 
-  await page.goto("/design-system/");
+  await page.goto("/design-system");
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex");
   await expect(page.locator(".type-specimens .heading-section-display")).toBeVisible();
   await expect(page.locator(".type-specimens .heading-section-content")).toBeVisible();
   await expect(page.locator(".type-specimens .heading-section-compact")).toBeVisible();
 
-  await page.goto("/en/design-system/");
+  await page.goto("/en/design-system");
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex");
   await expect(page.getByRole("heading", { level: 1, name: "Interface standards" })).toBeVisible();
 });
@@ -271,9 +271,9 @@ test("shared heading roles keep their documented scales", async ({ page }) => {
 test("featured episode identity never exceeds its section heading", async ({ page }) => {
   const cases = [
     { path: "/", heading: ".weekly .section-heading h2" },
-    { path: "/weekly/", heading: ".weekly-show-episodes .weekly-show-section-heading h2" },
-    { path: "/en/", heading: ".weekly .section-heading h2" },
-    { path: "/en/weekly/", heading: ".weekly-show-episodes .weekly-show-section-heading h2" },
+    { path: "/weekly", heading: ".weekly-show-episodes .weekly-show-section-heading h2" },
+    { path: "/en", heading: ".weekly .section-heading h2" },
+    { path: "/en/weekly", heading: ".weekly-show-episodes .weekly-show-section-heading h2" },
   ];
 
   for (const width of [390, 768, 1440, 1920]) {

@@ -7,7 +7,7 @@
 - Promote a value to a global token only when the same semantic role occurs across page templates. Keep genuinely page-specific display treatments scoped to their owning page.
 - Homepage, show, and episode viewing-platform lists share `PlatformList.astro`, including numbered rows, colored logos, localized actions, and unavailable states. Platform metadata remains the source of names, destinations, and actions; pages control the surrounding section layout.
 - Homepage, show, and episode participant cards share `PersonCard.astro`. Portrait and name link to the same localized person profile; page composition controls spacing and supplies either the biography or episode role. `HostCard.astro` adds homepage social accounts through the shared card slot.
-- `/design-system/` and `/en/design-system/` are non-indexed reference pages for inspecting shared typography, color, and spacing tokens. They are not part of public navigation or the sitemap.
+- `/design-system` and `/en/design-system` are non-indexed reference pages for inspecting shared typography, color, and spacing tokens. They are not part of public navigation or the sitemap.
 
 ## Content width and alignment
 

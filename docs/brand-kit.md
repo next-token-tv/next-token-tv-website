@@ -1,6 +1,6 @@
 # Brand Kit
 
-- Public routes: `/brand-kit/` and `/en/brand-kit/`, linked from the shared footer.
+- Public routes: `/brand-kit` and `/en/brand-kit`, linked from the shared footer.
 - Logo and visual-identity source authority: `../next-token/assets/brand/README.md` and its `exports/` directory.
 - Naming authority: `../next-token/docs/brand/naming.zh-Hans.md`.
 - `public/assets/brand-kit/` contains byte-for-byte delivery copies of the six official logo exports, not editable sources.

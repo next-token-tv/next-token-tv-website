@@ -18,8 +18,8 @@ const [content, profile] = await Promise.all([getSiteContent("en"), getBrandProf
   content={content}
   pageTitle={`${profile.brand.data.name.en} | Wiki | Next Token`}
   description={profile.brand.data.summary.en}
-  canonicalPath={`/en/wiki/brands/${brandId}/`}
-  alternatePath={`/wiki/brands/${brandId}/`}
+  canonicalPath={`/en/wiki/brands/${brandId}`}
+  alternatePath={`/wiki/brands/${brandId}`}
 >
   <EntityDetailPage entityType="brand" entityId={brandId} locale="en" />
 </BaseLayout>

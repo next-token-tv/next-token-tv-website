@@ -7,15 +7,54 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = resolve(root, 'dist');
 const errors = [];
 const pages = new Map();
+const publishedText = new Map();
+const sourceExtensions = /\.(?:astro|ts|mjs|yaml)$/;
+const sourceUrlPattern = /https?:\/\/[^\s"'`<>]+|\/[^\s"'`<>]+/g;
+const internalPathPattern = /^\/(?:en\/)?(?:weekly|wiki|partners|brand-kit|design-system|sitemap|api|people|brands|products)(?:\/|[?#]|$)|^\/en(?:\/|[?#]|$)/;
 async function walk(dir) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {
     const path = resolve(dir, entry.name);
     if (entry.isDirectory()) await walk(path);
-    else if (entry.name.endsWith('.html')) pages.set(path, await readFile(path, 'utf8'));
+    else if (/\.(?:html|json|md|txt|xml)$/.test(entry.name)) {
+      const content = await readFile(path, 'utf8');
+      publishedText.set(path, content);
+      if (entry.name.endsWith('.html')) pages.set(path, content);
+    }
   }
 }
 await walk(dist);
 if (!pages.size) throw new Error('Build the website before running check:release');
+
+async function checkSourceUrls(dir) {
+  for (const entry of await readdir(dir, { withFileTypes: true })) {
+    const file = resolve(dir, entry.name);
+    if (entry.isDirectory()) {
+      await checkSourceUrls(file);
+      continue;
+    }
+    if (!sourceExtensions.test(entry.name)) continue;
+    const content = await readFile(file, 'utf8');
+    for (const [raw] of content.matchAll(sourceUrlPattern)) {
+      if (!raw.startsWith('https://nexttoken.tv/') && !internalPathPattern.test(raw)) continue;
+      const path = raw.startsWith('https://') ? new URL(raw).pathname : raw.split(/[?#]/, 1)[0].replace(/[),}\]]+$/, '');
+      if (path !== '/' && path.endsWith('/')) errors.push(`${file.slice(root.length + 1)}: trailing slash in source URL ${raw}`);
+    }
+  }
+}
+for (const directory of ['src/components', 'src/data', 'src/pages', 'src/layouts', 'src/content/data', 'scripts/lib']) {
+  await checkSourceUrls(resolve(root, directory));
+}
+const docs = (await readdir(resolve(root, 'docs'))).filter((name) => name.endsWith('.md')).map((name) => `docs/${name}`);
+for (const file of ['README.md', ...docs]) {
+  const content = await readFile(resolve(root, file), 'utf8');
+  for (const [raw] of content.matchAll(/https:\/\/nexttoken\.tv\/[^\s"'`<>()[\]{}]*/g)) {
+    if (new URL(raw).pathname !== '/' && new URL(raw).pathname.endsWith('/')) errors.push(`${file}: trailing slash in documented URL ${raw}`);
+  }
+  for (const [, raw] of content.matchAll(/`(\/(?:en(?:\/|$)|(?:en\/)?(?:weekly|wiki|partners|brand-kit|design-system|sitemap|api|people|brands|products))[^`]*)`/g)) {
+    if (raw.includes('<')) continue;
+    if (raw.split(/[?#]/, 1)[0].endsWith('/')) errors.push(`${file}: trailing slash in documented path ${raw}`);
+  }
+}
 
 let llms = '';
 try {
@@ -97,7 +136,7 @@ try {
   if (index.schemaVersion !== 1 || index.collections?.map((entry) => entry.id).join(',') !== 'brands,products,people') {
     errors.push('/api/v1/wiki.json: invalid API index');
   }
-  if (index.documentation !== 'https://nexttoken.tv/api/') errors.push('/api/v1/wiki.json: invalid documentation URL');
+  if (index.documentation !== 'https://nexttoken.tv/api') errors.push('/api/v1/wiki.json: invalid documentation URL');
 } catch {
   errors.push('missing or invalid /api/v1/wiki.json');
 }
@@ -117,14 +156,43 @@ const redirectLines = (await readFile(resolve(root, 'public/_redirects'), 'utf8'
   .split(/\r?\n/)
   .map((line) => line.trim())
   .filter((line) => line && !line.startsWith('#'));
+const redirectsBySource = new Map(redirectLines.map((line) => {
+  const [source, target, status] = line.split(/\s+/);
+  return [source, `${target} ${status}`];
+}));
 for (const line of redirectLines) {
-  const [, target] = line.split(/\s+/);
-  if (!target?.startsWith('/') || target.includes(':')) continue;
-  const destination = resolve(dist, `.${target}`, target.endsWith('/') ? 'index.html' : '');
+  const [source, target, status] = line.split(/\s+/);
+  if (source !== '/' && source.endsWith('/') && !source.includes('*')) {
+    const slashlessSource = source.slice(0, -1);
+    if (redirectsBySource.get(slashlessSource) !== `${target} ${status}`) {
+      errors.push(`redirect is missing matching slashless source: ${line}`);
+    }
+  }
+  if (!target?.startsWith('/')) {
+    errors.push(`redirect has invalid destination: ${line}`);
+    continue;
+  }
+  if (target !== '/' && target.endsWith('/')) errors.push(`redirect destination has trailing slash: ${line}`);
+  if (target.includes(':')) continue;
+  const targetPath = resolve(dist, `.${target}`);
+  let destination = targetPath;
   try {
+    if ((await stat(targetPath)).isDirectory()) destination = resolve(targetPath, 'index.html');
     await stat(destination);
   } catch {
     errors.push(`redirect has missing destination: ${line}`);
+  }
+}
+
+for (const [file, content] of publishedText) {
+  for (const [, raw] of content.matchAll(/\b(?:href|action)="([^"]+)"/g)) {
+    if (!raw.startsWith('/')) continue;
+    const url = new URL(raw, 'https://nexttoken.tv');
+    if (url.pathname !== '/' && url.pathname.endsWith('/')) errors.push(`${file.slice(dist.length)}: trailing slash in ${raw}`);
+  }
+  for (const [raw] of content.matchAll(/https:\/\/nexttoken\.tv[^\s"<>()[\]{}]*/g)) {
+    const url = new URL(raw);
+    if (url.pathname !== '/' && url.pathname.endsWith('/')) errors.push(`${file.slice(dist.length)}: trailing slash in ${raw}`);
   }
 }
 
@@ -187,12 +255,12 @@ const next = announced.filter((data) => data.show === 'next-token-weekly').sort(
 for (const prefix of ['', '/en']) {
   for (const suffix of ['/', '/weekly/']) {
     const html = pages.get(resolve(dist, `.${prefix}${suffix}index.html`)) ?? '';
-    if (latest && !html.includes(`href="${prefix}/weekly/${latest.number}/"`)) errors.push(`${prefix}${suffix}: latest published episode is not linked`);
+    if (latest && !html.includes(`href="${prefix}/weekly/${latest.number}"`)) errors.push(`${prefix}${suffix}: latest published episode is not linked`);
     const preview = html.match(/<a\b[^>]*class="upcoming-episode-link[^>]*>/)?.[0];
-    if (next && !preview?.includes(`href="${prefix}/weekly/${next.number}/"`)) errors.push(`${prefix}${suffix}: missing or stale next-episode preview`);
+    if (next && !preview?.includes(`href="${prefix}/weekly/${next.number}"`)) errors.push(`${prefix}${suffix}: missing or stale next-episode preview`);
     if (!next && preview) errors.push(`${prefix}${suffix}: preview remains without an announced episode`);
   }
 }
 if (errors.length) throw new Error(errors.join('\n'));
-console.log(`Release checks passed: ${pages.size} pages, ${episodes} episodes; redirects, internal links, anchors, localized episode routes, public Wiki API, announcement dates and platform URL hosts.`);
+console.log(`Release checks passed: ${pages.size} pages, ${episodes} episodes; redirects, slashless internal URLs, links, anchors, localized episode routes, public Wiki API, announcement dates and platform URL hosts.`);
 console.log('External platform availability is not inferred from URL validation; confirm playback before publication.');

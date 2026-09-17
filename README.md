@@ -3,13 +3,13 @@
 `nexttoken.tv` 的中英文品牌官网。Next Token 是关注 AI 技术、产品、创业与创作的视频播客品牌，Next Token Weekly 是当前的旗舰周播栏目。网站使用 Astro 纯静态生成，由 Cloudflare Workers Static Assets 托管。
 
 - 中文：<https://nexttoken.tv/>
-- English: <https://nexttoken.tv/en/>
-- 场地合作伙伴：<https://nexttoken.tv/partners/>
-- 品牌库：<https://nexttoken.tv/wiki/brands/>
-- 产品库：<https://nexttoken.tv/wiki/products/>
-- 人物库：<https://nexttoken.tv/wiki/people/>
+- English: <https://nexttoken.tv/en>
+- 场地合作伙伴：<https://nexttoken.tv/partners>
+- 品牌库：<https://nexttoken.tv/wiki/brands>
+- 产品库：<https://nexttoken.tv/wiki/products>
+- 人物库：<https://nexttoken.tv/wiki/people>
 - 资料库 API：<https://nexttoken.tv/api/v1/wiki.json>
-- API 文档：<https://nexttoken.tv/api/>
+- API 文档：<https://nexttoken.tv/api>
 
 各语言 URL 始终直接展示对应内容，不按浏览器语言自动跳转。全站在语言偏好与当前页面不一致时提供双向切换提示：中文页显示 “Switch to English”，英文页显示“切换到中文”。手动选择优先于浏览器语言；继续浏览当前语言也会保存为偏好。切换保留对应页面路径、查询参数与锚点。存储不可用时，切换链接仍正常工作。
 
@@ -32,7 +32,7 @@ Astro 默认在构建时预渲染所有页面，当前不需要 Cloudflare adapt
 
 ## 元数据约定
 
-联合主理人的唯一人物页使用 `/people/<person-id>/`，英文版使用 `/en/people/<person-id>/`。同一人物参与多个栏目时复用同一资料页。页面从人物、主理人关系与分期元数据生成简介、账号、参与栏目和节目记录；首页头像与姓名链接到对应人物页。
+联合主理人的唯一人物页使用 `/wiki/people/<person-id>`，英文版使用 `/en/wiki/people/<person-id>`。同一人物参与多个栏目时复用同一资料页。页面从人物、主理人关系与分期元数据生成简介、账号、参与栏目和节目记录；首页头像与姓名链接到对应人物页。
 
 结构化元数据使用 YAML，较长的本地化正文使用 Markdown，来自制作流程的不可手工编辑快照使用 JSON。实体之间以稳定的英文小写 ID 引用；ID 即文件名去掉扩展名。
 
@@ -48,11 +48,11 @@ Astro 默认在构建时预渲染所有页面，当前不需要 Cloudflare adapt
 
 品牌/产品库的 SSOT 在本仓库。Next Token 自身的 Logo 与 VI 源文件仍以相邻的 `next-token` 仓库为 SSOT，`public/assets/` 中仅保存网站发布副本。当前没有 SRT 工具集成；后续工具应读取这里的稳定实体 ID。
 
-品牌库使用 `/wiki/brands/<brand-id>/`，产品库使用 `/wiki/products/<product-id>/`；英文版统一增加 `/en/` 前缀。品牌与产品列表以各自的 `kind` 元数据提供二级筛选，并用 `type` 查询参数保留筛选状态。详情页展示双语摘要、别名、官方链接、上下级产品关系和相关节目。节目详情页反向列出本期提到的品牌与产品。所有关系均直接来自分期 YAML 中的 `mentions`，不在模板中重复维护。
+品牌库使用 `/wiki/brands/<brand-id>`，产品库使用 `/wiki/products/<product-id>`；英文版统一增加 `/en` 前缀。品牌与产品列表以各自的 `kind` 元数据提供二级筛选，并用 `type` 查询参数保留筛选状态。详情页展示双语摘要、别名、官方链接、上下级产品关系和相关节目。节目详情页反向列出本期提到的品牌与产品。所有关系均直接来自分期 YAML 中的 `mentions`，不在模板中重复维护。
 
 公开资料库同时提供版本化的静态 JSON API，入口为 `/api/v1/wiki.json`。它包含品牌、产品和人物的全量列表、单实体详情及实体间关系；接口契约、端点和更新策略见 [资料库 API](docs/wiki-api.md)。API 只读取人工维护的 YAML SSOT，不公开文字稿导入快照、导入报告或制作流程中间数据。
 
-单集支持 `announced` 与 `published` 两个网站生命周期。预告状态保存已经确认的录制日期、具体场地与预告文案，不要求制作快照；发布状态必须通过 `productionImport` 关联制作仓快照。预告页面按元数据生成在 `/weekly/<期号>/` 与 `/en/weekly/<期号>/`。
+单集支持 `announced` 与 `published` 两个网站生命周期。预告状态保存已经确认的录制日期、具体场地与预告文案，不要求制作快照；发布状态必须通过 `productionImport` 关联制作仓快照。预告页面按元数据生成在 `/weekly/<期号>` 与 `/en/weekly/<期号>`。
 
 ## 导入单集发布包
 
@@ -91,7 +91,7 @@ npm install
 npm run dev
 ```
 
-打开 <http://127.0.0.1:4174/> 查看中文页面，或打开 <http://127.0.0.1:4174/en/> 查看英文页面。
+打开 <http://127.0.0.1:4174/> 查看中文页面，或打开 <http://127.0.0.1:4174/en> 查看英文页面。
 
 ## 构建
 
@@ -132,6 +132,8 @@ npm run test:visual:update
 `/llms.txt` 按 llms.txt v2 格式提供精简的站点说明与优先链接，节目列表和可用的 Markdown 文字稿由内容元数据自动生成。公共 HTML 页面通过 `rel="describedby"` 声明该文件，Markdown 文字稿通过静态资源响应头声明它。
 
 Sitemap 包含中英文首页、栏目、分期、人物、合作伙伴、品牌、产品和品牌素材页面，包括公开的录制预告；404、Markdown、纯文本和 JSON API 页面不进入 sitemap。语言对应关系使用 `zh-Hans` 和 `en`，中文保留无语言前缀的路径。新增静态页面或由元数据生成的新分期、品牌或产品会自动纳入。
+
+公开页面与站内引用统一使用无尾斜杠 URL，根路径 `/` 除外。Canonical、语言替代、结构化数据、sitemap、Markdown、`llms.txt` 和 API 遵循同一规则，详见 [URL 规范](docs/url-conventions.md)。
 
 所有页面提供 canonical、双向 `hreflang`、Open Graph 与 Twitter 基础元数据。品牌和产品详情页另提供 JSON-LD 实体数据，名称、摘要、别名、品牌关系和发布日期均来自元数据 SSOT。
 

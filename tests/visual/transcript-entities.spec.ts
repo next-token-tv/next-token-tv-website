@@ -1,11 +1,11 @@
 import { test, expect } from '@playwright/test';
 
 test('verified transcript entities link to working profiles, with hosts and Mac excluded', async ({ page, request }) => {
-  await page.goto('/weekly/001/transcript/');
+  await page.goto('/weekly/001/transcript');
   const body = page.locator('.transcript-body');
   for (const host of ['yangpan', 'guizang', 'orange', 'xiangyang-qiaomu'])
-    await expect(body.locator(`.transcript-entity-link[href="/wiki/people/${host}/"]`)).toHaveCount(0);
-  await expect(body.locator('a[href="/wiki/products/mac/"]')).toHaveCount(0);
+    await expect(body.locator(`.transcript-entity-link[href="/wiki/people/${host}"]`)).toHaveCount(0);
+  await expect(body.locator('a[href="/wiki/products/mac"]')).toHaveCount(0);
   await expect(body).not.toContainText('Gemini 3.5 的 Transcribe');
   const targets = [
     'wiki/brands/plaud',
@@ -47,37 +47,37 @@ test('verified transcript entities link to working profiles, with hosts and Mac 
     'wiki/products/gpt', 'wiki/products/kimi', 'wiki/products/qwen',
   ];
   for (const target of targets) {
-    expect(await body.locator(`a[href="/${target}/"]`).count(), target).toBeGreaterThan(0);
-    for (const prefix of ['', '/en']) expect((await request.get(`${prefix}/${target}/`)).status()).toBe(200);
+    expect(await body.locator(`a[href="/${target}"]`).count(), target).toBeGreaterThan(0);
+    for (const prefix of ['', '/en']) expect((await request.get(`${prefix}/${target}`)).status()).toBe(200);
   }
-  await expect(body.locator('a[href="/wiki/products/openai-api/"]')).toHaveCount(0);
+  await expect(body.locator('a[href="/wiki/products/openai-api"]')).toHaveCount(0);
   const apiParagraph = body.locator('p').filter({ hasText: '8 折的 OpenAI API' });
-  await expect(apiParagraph.locator('a[href="/wiki/brands/openai/"]')).toHaveText('OpenAI');
-  await body.locator('a[href="/wiki/products/gemini/"]').first().click();
+  await expect(apiParagraph.locator('a[href="/wiki/brands/openai"]')).toHaveText('OpenAI');
+  await body.locator('a[href="/wiki/products/gemini"]').first().click();
   await expect(page.locator('h1')).toHaveText('Gemini');
-  await page.goto('/weekly/001/transcript/#chapter-03');
+  await page.goto('/weekly/001/transcript#chapter-03');
   await page.locator('#chapter-03').scrollIntoViewIfNeeded();
   await page.screenshot({ path: '/tmp/transcript-entities-chapter-03.png' });
 });
 
 test('localized name, model-family aliases and standalone product', async ({ page }) => {
-  await page.goto('/wiki/people/guanlan-dai/');
+  await page.goto('/wiki/people/guanlan-dai');
   await expect(page.locator('h1')).toHaveText('戴冠兰');
-  await page.goto('/en/wiki/people/guanlan-dai/');
+  await page.goto('/en/wiki/people/guanlan-dai');
   await expect(page.locator('h1')).toHaveText('Guanlan Dai');
-  await page.goto('/wiki/products/qwen/');
+  await page.goto('/wiki/products/qwen');
   await expect(page.locator('h1')).toHaveText('Qwen');
   await expect(page.locator('.entity-detail-aliases')).toContainText('Qwen 3.8 Max 0902');
   await expect(page.locator('.entity-detail-aliases')).toContainText('Qwen 3.8 Flash Next');
-  await page.goto('/wiki/products/herdr/');
+  await page.goto('/wiki/products/herdr');
   await expect(page.locator('h1')).toHaveText('Herdr');
   await expect(page.locator('.entity-detail-facts')).not.toContainText('所属品牌');
-  await page.goto('/wiki/products/codex/');
+  await page.goto('/wiki/products/codex');
   await expect(page.locator('main')).not.toContainText('Codex 200');
 });
 
 test('repeated keywords use pale type-colored backgrounds with visible focus', async ({ page }) => {
-  await page.goto('/weekly/001/transcript/');
+  await page.goto('/weekly/001/transcript');
   const paragraph = page.locator('.transcript-paragraphs p').filter({ hasText: 'Codex 那时候已经比较轻松了' });
   await expect(paragraph.locator('.transcript-entity-link')).toHaveCount(3);
   const link = paragraph.locator('.transcript-entity-link').first();
@@ -124,22 +124,22 @@ test('repeated keywords use pale type-colored backgrounds with visible focus', a
 });
 
 test('Runta remains one platform product with its founder relationship', async ({ page }) => {
-  await page.goto('/wiki/products/runta/');
+  await page.goto('/wiki/products/runta');
   await expect(page.locator('.entity-detail-summary')).toContainText('执行基础设施平台');
-  await expect(page.locator('main a[href="/wiki/people/guanlan-dai/"]')).toHaveCount(1);
-  await page.goto('/wiki/people/guanlan-dai/');
-  await expect(page.locator('main a[href="/wiki/products/runta/"]')).toHaveCount(1);
-  await page.goto('/weekly/001/transcript/');
-  await expect(page.locator('.transcript-body a[href="/wiki/products/runta/"]')).toHaveCount(1);
+  await expect(page.locator('main a[href="/wiki/people/guanlan-dai"]')).toHaveCount(1);
+  await page.goto('/wiki/people/guanlan-dai');
+  await expect(page.locator('main a[href="/wiki/products/runta"]')).toHaveCount(1);
+  await page.goto('/weekly/001/transcript');
+  await expect(page.locator('.transcript-body a[href="/wiki/products/runta"]')).toHaveCount(1);
 });
 
 test('Rails name links to the framework without swallowing the author phrase', async ({ page }) => {
-  await page.goto('/weekly/001/transcript/');
+  await page.goto('/weekly/001/transcript');
   const paragraph = page.locator('.transcript-paragraphs p').filter({ hasText: 'Ruby on Rails 那个连，作者' });
-  await expect(paragraph.locator('a[href="/wiki/products/ruby-on-rails/"]')).toHaveText('Ruby on Rails');
-  await expect(paragraph.locator('a[href="/wiki/people/dhh/"]')).toHaveCount(0);
+  await expect(paragraph.locator('a[href="/wiki/products/ruby-on-rails"]')).toHaveText('Ruby on Rails');
+  await expect(paragraph.locator('a[href="/wiki/people/dhh"]')).toHaveCount(0);
   await expect(paragraph).toContainText('Ruby on Rails 那个连，作者');
-  await paragraph.locator('a[href="/wiki/products/ruby-on-rails/"]').click();
+  await paragraph.locator('a[href="/wiki/products/ruby-on-rails"]').click();
   await expect(page.locator('h1')).toHaveText('Ruby on Rails');
-  await expect(page.locator('main a[href="/wiki/people/dhh/"]')).toHaveCount(1);
+  await expect(page.locator('main a[href="/wiki/people/dhh"]')).toHaveCount(1);
 });

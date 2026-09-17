@@ -1,14 +1,14 @@
 import { expect, test } from '@playwright/test';
 
 test('transcript is directly discoverable and only links to available locales', async ({ page }) => {
-  for (const path of ['/', '/weekly/', '/weekly/001/', '/weekly/002/']) {
+  for (const path of ['/', '/weekly', '/weekly/001', '/weekly/002']) {
     await page.goto(path);
-    const expectedCount = path === '/' ? 2 : path === '/weekly/' ? 3 : 1;
+    const expectedCount = path === '/' ? 2 : path === '/weekly' ? 3 : 1;
     await expect(page.locator('.episode-transcript-cta')).toHaveCount(expectedCount);
     const link = page.locator('main > section').first().locator('.episode-transcript-cta');
     await expect(link).toHaveCount(1);
-    const episode = path === '/weekly/001/' ? '001' : '002';
-    await expect(link).toHaveAttribute('href', `/weekly/${episode}/transcript/`);
+    const episode = path === '/weekly/001' ? '001' : '002';
+    await expect(link).toHaveAttribute('href', `/weekly/${episode}/transcript`);
     if (path.startsWith('/weekly/00')) {
       await expect(page.locator('.transcript-cta-description')).toContainText('个章节 · 支持全文搜索');
       expect(await link.evaluate((node) => !!(node.compareDocumentPosition(document.querySelector('.episode-detail-hero .episode-actions')!) & Node.DOCUMENT_POSITION_FOLLOWING))).toBe(true);
@@ -21,7 +21,7 @@ test('transcript is directly discoverable and only links to available locales', 
 });
 
 test('published transcripts provide a canonical Markdown format', async ({ page, request }) => {
-  await page.goto('/weekly/001/transcript/');
+  await page.goto('/weekly/001/transcript');
   const link = page.getByRole('link', { name: 'Markdown 格式' });
   await expect(link).toHaveAttribute('href', '/weekly/001/transcript.md');
   await expect(page.locator('head link[rel="alternate"][type="text/markdown"]')).toHaveAttribute('href', 'https://nexttoken.tv/weekly/001/transcript.md');
@@ -38,8 +38,8 @@ test('published transcripts provide a canonical Markdown format', async ({ page,
   expect(relatedResources).toContain('### 品牌');
   expect(relatedResources).toContain('### 产品');
   expect(relatedResources).toContain('### 人物');
-  expect(relatedResources).toContain('- [Claude Code](https://nexttoken.tv/wiki/products/claude-code/)');
-  expect(relatedResources.match(/\/wiki\/products\/claude-code\//g)).toHaveLength(1);
+  expect(relatedResources).toContain('- [Claude Code](https://nexttoken.tv/wiki/products/claude-code)');
+  expect(relatedResources.match(/\/wiki\/products\/claude-code(?:\s|\))/g)).toHaveLength(1);
 
   const secondResponse = await request.get('/weekly/002/transcript.md');
   expect(secondResponse.ok()).toBe(true);
@@ -50,7 +50,7 @@ test('published transcripts provide a canonical Markdown format', async ({ page,
   expect(secondRelatedResources).toContain('### 品牌');
   expect(secondRelatedResources).toContain('### 产品');
   expect(secondRelatedResources).toContain('### 人物');
-  expect(secondRelatedResources).toContain('- [AGI Bar](https://nexttoken.tv/wiki/brands/agi-bar/)');
+  expect(secondRelatedResources).toContain('- [AGI Bar](https://nexttoken.tv/wiki/brands/agi-bar)');
 
   await page.goto('/weekly/002/transcript.md');
   await expect(page.locator('body')).toContainText('iPhone Duo 发布，Astra 会用电脑就算 AGI 吗？');
@@ -68,7 +68,7 @@ test('machine-readable transcript discovery only includes published transcripts'
 });
 
 test('transcript hero entrances fit desktop and mobile', async ({ page }) => {
-  for (const width of [390, 1327, 1920]) for (const path of ['/', '/weekly/', '/weekly/001/', '/weekly/002/']) {
+  for (const width of [390, 1327, 1920]) for (const path of ['/', '/weekly', '/weekly/001', '/weekly/002']) {
     await page.setViewportSize({ width, height: 897 });
     await page.goto(path);
     const hero = page.locator('main > section').first();
@@ -80,7 +80,7 @@ test('transcript hero entrances fit desktop and mobile', async ({ page }) => {
 
 test('first transcript chapter clears the fold on a 14-inch laptop viewport', async ({ page }) => {
   await page.setViewportSize({ width: 1512, height: 625 });
-  await page.goto('/weekly/002/transcript/');
+  await page.goto('/weekly/002/transcript');
   await expect(page.locator('.transcript-review-banner')).toHaveCount(0);
   await expect(page.locator('.transcript-notice')).toHaveCount(0);
   const intro = await page.locator('#chapter-01 .transcript-turn').first().boundingBox();
@@ -92,7 +92,7 @@ test('first transcript chapter clears the fold on a 14-inch laptop viewport', as
 for (const width of [390, 1440]) {
   test(`reader tools fit at ${width}`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
-    await page.goto('/weekly/001/transcript/');
+    await page.goto('/weekly/001/transcript');
     await expect(page.locator('[data-reader-tools]')).toBeVisible();
     await expect(page.getByRole('button', { name: '清除', exact: true })).toBeHidden();
     await page.getByRole('searchbox').focus();
@@ -103,7 +103,7 @@ for (const width of [390, 1440]) {
 }
 
 test('search finds dialogue without altering transcript and clear restores empty results', async ({ page }) => {
-  await page.goto('/weekly/001/transcript/');
+  await page.goto('/weekly/001/transcript');
   const body = await page.locator('.transcript-turns').allTextContents();
   const input = page.getByRole('searchbox', { name: '搜索文字稿' });
   await input.fill('Token');
@@ -128,10 +128,10 @@ test('search finds dialogue without altering transcript and clear restores empty
 
 test('chapter sharing uses canonical URL and handles clipboard denial', async ({ page, context }) => {
   await context.grantPermissions(['clipboard-read', 'clipboard-write']);
-  await page.goto('/weekly/001/transcript/');
+  await page.goto('/weekly/001/transcript');
   await page.getByRole('button', { name: '复制章节链接' }).first().click();
-  expect(await page.evaluate(() => navigator.clipboard.readText())).toBe('https://nexttoken.tv/weekly/001/transcript/#chapter-01');
+  expect(await page.evaluate(() => navigator.clipboard.readText())).toBe('https://nexttoken.tv/weekly/001/transcript#chapter-01');
   await page.evaluate(() => { navigator.clipboard.writeText = async () => { throw new Error('denied'); }; });
   await page.getByRole('button', { name: '复制章节链接' }).first().click();
-  await expect(page.getByRole('textbox', { name: '章节链接' })).toHaveValue('https://nexttoken.tv/weekly/001/transcript/#chapter-01');
+  await expect(page.getByRole('textbox', { name: '章节链接' })).toHaveValue('https://nexttoken.tv/weekly/001/transcript#chapter-01');
 });

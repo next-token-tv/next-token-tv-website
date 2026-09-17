@@ -14,6 +14,6 @@
 - Model entries are products with `kind: model`; model families and publisher brands remain separate records. `H3` maps to MiniMax H3; `Astra` maps to GPT-6 Astra in Weekly #001's catalog.
 - Published transcript corrections belong in the approved content-repository Markdown and its release manifest. Website imported JSON is regenerated with `npm run import:transcript`, never edited by hand. A publication import requires the source Markdown to be tracked, clean, and committed; only an explicit review preview may use modified or untracked source.
 
-Show links use the show entry’s `pagePath`; Next Token Weekly links to `/weekly/`.
+Show links use the show entry’s `pagePath`; Next Token Weekly links to `/weekly`.
 
 Published Chinese transcripts also expose `/weekly/<number>/transcript.md`. The Markdown response is generated from the same imported snapshot as the HTML reader and retains the chapter and speaker order. Entity names remain plain text in the transcript body; verified brands, products, and people are deduplicated by entity and listed in first-appearance order under grouped references at the end, using absolute site URLs. Show links and host speaker identities are not included in that entity reference list. The file links back to the HTML reader and includes a UTF-8 BOM for standalone browser compatibility, while `public/_headers` explicitly serves the route as `text/markdown; charset=utf-8` on Cloudflare. The HTML reader declares Markdown as an alternate representation; Markdown routes stay out of the XML sitemap to avoid duplicate indexing.

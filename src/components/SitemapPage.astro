@@ -14,24 +14,24 @@ const [brands, products, episodes, transcripts, partners] = await Promise.all([
 ]);
 const groups = [
   { id: "explore", title: en ? "Explore" : "主要入口", links: [
-    { label: en ? "Home" : "首页", href: `${prefix}/` },
-    { label: en ? "About Next Token" : "关于品牌", href: `${prefix}/#about` },
-    { label: "Next Token Weekly", href: `${prefix}/weekly/` },
-    { label: en ? "Co-hosts" : "联合主理人", href: `${prefix}/#hosts` },
-    { label: en ? "Venue partners" : "合作伙伴", href: `${prefix}/partners/` },
-    { label: en ? "Follow the show" : "订阅节目", href: `${prefix}/#subscribe` },
-    { label: en ? "Brands" : "品牌库", href: `${prefix}/wiki/brands/` },
-    { label: en ? "Products" : "产品库", href: `${prefix}/wiki/products/` },
-    { label: en ? "People" : "人物库", href: `${prefix}/wiki/people/` },
-    ...(!en ? [{ label: "资料库 API", href: "/api/" }] : []),
-    { label: en ? "Brand Kit" : "品牌素材", href: `${prefix}/brand-kit/` },
+    { label: en ? "Home" : "首页", href: prefix || "/" },
+    { label: en ? "About Next Token" : "关于品牌", href: `${prefix || "/"}#about` },
+    { label: "Next Token Weekly", href: `${prefix}/weekly` },
+    { label: en ? "Co-hosts" : "联合主理人", href: `${prefix || "/"}#hosts` },
+    { label: en ? "Venue partners" : "合作伙伴", href: `${prefix}/partners` },
+    { label: en ? "Follow the show" : "订阅节目", href: `${prefix || "/"}#subscribe` },
+    { label: en ? "Brands" : "品牌库", href: `${prefix}/wiki/brands` },
+    { label: en ? "Products" : "产品库", href: `${prefix}/wiki/products` },
+    { label: en ? "People" : "人物库", href: `${prefix}/wiki/people` },
+    ...(!en ? [{ label: "资料库 API", href: "/api" }] : []),
+    { label: en ? "Brand Kit" : "品牌素材", href: `${prefix}/brand-kit` },
   ] },
-  { id: "episodes", title: en ? "Episodes & previews" : "节目与预告", links: episodes.slice().sort((a,b) => Number(b.data.number)-Number(a.data.number)).map(e => ({ label: e.data.title[locale], href: `${prefix}/weekly/${e.data.number}/` })) },
-  { id: "transcripts", title: en ? "Transcripts" : "文字稿", links: transcripts.map(e => ({ label: `Weekly #${e.data.number} · ${en ? "Transcript" : "完整文字稿"}`, href: `${prefix}/weekly/${e.data.number}/transcript/` })) },
-  { id: "people", title: en ? "People" : "人物资料", links: people.map(p => ({ label: p.data.name[locale], href: `${prefix}/wiki/people/${p.id}/` })) },
-  { id: "partners", title: en ? "Partner profiles" : "合作伙伴资料", links: partners.map(p => ({ label: en ? p.englishName : p.name, href: `${prefix}/partners/${p.slug}/` })) },
-  { id: "brands", title: en ? "Brands" : "品牌", links: brands.map(({brand}) => ({ label: brand.data.name[locale], href: `${prefix}/wiki/brands/${brand.id}/` })) },
-  { id: "products", title: en ? "Products" : "产品", links: products.map(({product}) => ({ label: product.data.name[locale], href: `${prefix}/wiki/products/${product.id}/` })) },
+  { id: "episodes", title: en ? "Episodes & previews" : "节目与预告", links: episodes.slice().sort((a,b) => Number(b.data.number)-Number(a.data.number)).map(e => ({ label: e.data.title[locale], href: `${prefix}/weekly/${e.data.number}` })) },
+  { id: "transcripts", title: en ? "Transcripts" : "文字稿", links: transcripts.map(e => ({ label: `Weekly #${e.data.number} · ${en ? "Transcript" : "完整文字稿"}`, href: `${prefix}/weekly/${e.data.number}/transcript` })) },
+  { id: "people", title: en ? "People" : "人物资料", links: people.map(p => ({ label: p.data.name[locale], href: `${prefix}/wiki/people/${p.id}` })) },
+  { id: "partners", title: en ? "Partner profiles" : "合作伙伴资料", links: partners.map(p => ({ label: en ? p.englishName : p.name, href: `${prefix}/partners/${p.slug}` })) },
+  { id: "brands", title: en ? "Brands" : "品牌", links: brands.map(({brand}) => ({ label: brand.data.name[locale], href: `${prefix}/wiki/brands/${brand.id}` })) },
+  { id: "products", title: en ? "Products" : "产品", links: products.map(({product}) => ({ label: product.data.name[locale], href: `${prefix}/wiki/products/${product.id}` })) },
 ].filter(group => group.links.length);
 const episodeRows = episodes.slice().sort((a, b) => Number(b.data.number) - Number(a.data.number));
 const transcriptNumbers = new Set(transcripts.map(e => e.data.number));
@@ -63,7 +63,7 @@ const episodeDisplayTitle = (episode: (typeof episodeRows)[number]) => episode.d
               const isTranscript = column.id === "transcripts";
               const available = !isTranscript || transcriptNumbers.has(episode.data.number);
               return <li class:list={{ "empty-episode": !available }} style={`grid-row: ${index + 2}`} aria-hidden={!available ? "true" : undefined}>
-                {available && <a href={`${prefix}/weekly/${episode.data.number}/${isTranscript ? "transcript/" : ""}`}>
+                {available && <a href={`${prefix}/weekly/${episode.data.number}${isTranscript ? "/transcript" : ""}`}>
                   <span class="episode-label">
                     <small>Weekly #{episode.data.number}</small>
                     <span class="episode-title">{isTranscript ? (en ? "Full transcript" : "完整文字稿") : episodeDisplayTitle(episode)}</span>

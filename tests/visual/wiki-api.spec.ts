@@ -6,10 +6,10 @@ test('Wiki API publishes collections and stable entity details', async ({ reques
   expect(indexResponse.headers()['content-type']).toContain('application/json');
   const index = await indexResponse.json();
   expect(index.schemaVersion).toBe(1);
-  expect(index.documentation).toBe('https://nexttoken.tv/api/');
+  expect(index.documentation).toBe('https://nexttoken.tv/api');
   expect(index.collections.map((entry: { id: string }) => entry.id)).toEqual(['brands', 'products', 'people']);
 
-  const documentation = await request.get('/api/');
+  const documentation = await request.get('/api');
   expect(documentation.ok()).toBe(true);
 
   const brandsResponse = await request.get('/api/v1/wiki/brands.json');
@@ -17,7 +17,7 @@ test('Wiki API publishes collections and stable entity details', async ({ reques
   expect(brands.count).toBe(brands.data.length);
   expect(brands.data.find((entry: { id: string }) => entry.id === 'openai')).toMatchObject({
     entityType: 'brand',
-    kind: 'company-brand',
+    kind: 'ai-brand',
     apiUrl: 'https://nexttoken.tv/api/v1/wiki/brands/openai.json',
   });
 
@@ -33,7 +33,7 @@ test('Wiki API publishes collections and stable entity details', async ({ reques
 
   const chatgpt = await (await request.get('/api/v1/wiki/products/chatgpt.json')).json();
   expect(chatgpt.relationships.brand).toBe('openai');
-  expect(chatgpt.url).toBe('https://nexttoken.tv/wiki/products/chatgpt/');
+  expect(chatgpt.url).toBe('https://nexttoken.tv/wiki/products/chatgpt');
 
   const yangpan = await (await request.get('/api/v1/wiki/people/yangpan.json')).json();
   expect(yangpan.entityType).toBe('person');
@@ -45,7 +45,7 @@ test('Wiki API publishes collections and stable entity details', async ({ reques
 });
 
 test('Wiki API documentation exposes the contract and collection links', async ({ page }) => {
-  await page.goto('/api/');
+  await page.goto('/api');
   await expect(page.locator('h1')).toContainText('获取资料库');
   await expect(page.getByRole('link', { name: /打开 API 入口/ })).toHaveAttribute('href', '/api/v1/wiki.json');
   await expect(page.locator('.api-collections a')).toHaveCount(3);
@@ -56,9 +56,9 @@ test('Wiki API documentation exposes the contract and collection links', async (
 test('machine endpoints stay out of the XML sitemap', async ({ request }) => {
   const index = await (await request.get('/sitemap-index.xml')).text();
   const sitemapUrls = [...index.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]).filter((url): url is string => Boolean(url));
-  const sitemaps = await Promise.all(sitemapUrls.map((url) => request.get(url).then((response) => response.text())));
+  const sitemaps = await Promise.all(sitemapUrls.map((url) => request.get(new URL(url).pathname).then((response) => response.text())));
   const content = sitemaps.join('\n');
-  expect(content).toContain('<loc>https://nexttoken.tv/api/</loc>');
+  expect(content).toContain('<loc>https://nexttoken.tv/api</loc>');
   expect(content).not.toContain('/api/v1/');
   expect(content).not.toContain('transcript.md');
   expect(content).not.toContain('/llms.txt');

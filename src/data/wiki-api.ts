@@ -1,9 +1,10 @@
 import { getContentCatalog } from "./catalog";
+import { absoluteSiteUrl } from "./internal-url";
 
 const schemaVersion = 1;
 
 function absolute(path: string, site: URL) {
-  return new URL(path, site).toString();
+  return absoluteSiteUrl(path, site);
 }
 
 function byId<T extends { id: string }>(entries: T[]) {
@@ -20,7 +21,7 @@ export async function createWikiApi(site: URL) {
       schemaVersion,
       entityType: "brand" as const,
       id: brand.id,
-      url: absolute(`/wiki/brands/${brand.id}/`, site),
+      url: absolute(`/wiki/brands/${brand.id}`, site),
       apiUrl: absolute(`/api/v1/wiki/brands/${brand.id}.json`, site),
       kind: brand.data.kind,
       parentBrand: brand.data.parentBrand ?? null,
@@ -47,7 +48,7 @@ export async function createWikiApi(site: URL) {
     schemaVersion,
     entityType: "product" as const,
     id: product.id,
-    url: absolute(`/wiki/products/${product.id}/`, site),
+    url: absolute(`/wiki/products/${product.id}`, site),
     apiUrl: absolute(`/api/v1/wiki/products/${product.id}.json`, site),
     kind: product.data.kind,
     brand: product.data.brand ?? null,
@@ -73,7 +74,7 @@ export async function createWikiApi(site: URL) {
     schemaVersion,
     entityType: "person" as const,
     id: person.id,
-    url: absolute(`/wiki/people/${person.id}/`, site),
+    url: absolute(`/wiki/people/${person.id}`, site),
     apiUrl: absolute(`/api/v1/wiki/people/${person.id}.json`, site),
     name: person.data.name,
     bio: person.data.bio,
@@ -126,7 +127,7 @@ export function wikiIndex(site: URL, collections: Awaited<ReturnType<typeof crea
     schemaVersion,
     name: "Next Token Wiki API",
     description: "Public, read-only brand, product and person data from Next Token｜词元之外.",
-    documentation: absolute("/api/", site),
+    documentation: absolute("/api", site),
     collections: (["brands", "products", "people"] as const).map((id) => ({
       id,
       count: collections[id].length,

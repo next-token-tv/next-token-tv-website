@@ -22,7 +22,7 @@ const copy = locale === "en"
     </div>
     <div class="entity-related-episode-list">
       {episodes.map((episode) => (
-        <a href={`${prefix}/weekly/${episode.data.number}/`}>
+        <a href={`${prefix}/weekly/${episode.data.number}`}>
           <strong>#{episode.data.number}</strong>
           <span>{episode.data.status === "published" ? copy.published : copy.announced}</span>
           <p>{episode.data.title[locale]}</p>

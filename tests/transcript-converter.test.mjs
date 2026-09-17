@@ -11,7 +11,7 @@ test("deterministic matching skips invalid substrings, prefers full names and ex
     episodeId: "show--001", locale: "zh-Hans", entities: [
       { entityType: "product", id: "minimax-h3", aliases: ["MiniMax H3", "H3"] },
       { entityType: "brand", id: "next-token", aliases: ["Next Token"] },
-      { entityType: "show", id: "next-token-weekly", href: "/weekly/", aliases: ["Next Token Weekly"] },
+      { entityType: "show", id: "next-token-weekly", href: "/weekly", aliases: ["Next Token Weekly"] },
       { entityType: "product", id: "threejs", aliases: ["Three.js", "three.js"] },
       { entityType: "product", id: "zcode", aliases: ["ZCode"] },
       { entityType: "person", id: "yangpan", aliases: ["杨攀"] },
@@ -80,7 +80,7 @@ test("published transcript snapshot retains approved content and deterministic s
   assert.equal("report" in snapshot, false);
   const showLinks = snapshot.chapters.flatMap(c => c.turns.flatMap(t => t.paragraphs.flat())).filter(s => s.entityType === 'show');
   assert.ok(showLinks.length > 0);
-  assert.ok(showLinks.every(s => s.href === '/weekly/' && s.entityId === 'next-token-weekly'));
+  assert.ok(showLinks.every(s => s.href === '/weekly' && s.entityId === 'next-token-weekly'));
   const linkedEntityChapterCounts = new Map();
   for (const chapter of snapshot.chapters) {
     const entities = new Set(chapter.turns.flatMap(turn => turn.paragraphs.flat())
@@ -112,7 +112,7 @@ test("published transcript snapshot retains approved content and deterministic s
   for (const key of ['show:next-token-weekly', 'product:fal-ai', 'product:openrouter', 'product:threejs', 'product:zcode', 'product:autoglm', 'product:qwen', 'product:hunyuan', 'product:gemini', 'product:gpt', 'product:minimax']) assert.ok(links.includes(key), key);
   assert.equal(serialized.includes('Gemini 3.5 的 Transcribe'), false);
   const personLinks = snapshot.chapters.flatMap(c => c.turns.flatMap(t => t.paragraphs.flat())).filter(s => s.entityType === "person");
-  assert.equal(personLinks.every(s => s.href === `/wiki/people/${s.entityId}/`), true);
+  assert.equal(personLinks.every(s => s.href === `/wiki/people/${s.entityId}`), true);
   assert.equal(personLinks.some(s => s.value === "冕神" && s.entityId === "chen-mian"), true);
   assert.equal(personLinks.some(s => s.value === "Ruby on Rails 那个连，作者" && s.entityId === "dhh"), false);
   assert.equal(personLinks.some(s => s.value === "栋哥" || s.value === "Runta"), false);

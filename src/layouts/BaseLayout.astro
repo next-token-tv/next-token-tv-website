@@ -6,6 +6,7 @@ import SiteFooter from "../components/SiteFooter.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import LanguageSuggestion from "../components/LanguageSuggestion.astro";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
+import { absoluteSiteUrl, withoutTrailingSlash } from "../data/internal-url";
 
 interface Props {
   content: SiteContent;
@@ -24,16 +25,22 @@ const {
   pageTitle = content.title,
   description = content.description,
   canonicalPath = content.path,
-  alternatePath = content.locale === "en" ? "/" : "/en/",
+  alternatePath = content.locale === "en" ? "/" : "/en",
   noIndex = false,
   hasLocaleAlternate = true,
   ogType = "website",
   markdownPath,
 } = Astro.props;
-const canonical = new URL(canonicalPath, Astro.site);
-const alternate = new URL(alternatePath, Astro.site);
+const normalizedCanonicalPath = withoutTrailingSlash(canonicalPath);
+const normalizedAlternatePath = withoutTrailingSlash(alternatePath);
+const canonical = absoluteSiteUrl(normalizedCanonicalPath, Astro.site!);
+const alternate = absoluteSiteUrl(normalizedAlternatePath, Astro.site!);
 const socialCards = JSON.parse(readFileSync("public/assets/og/manifest.json", "utf8"));
-const socialCard = socialCards[canonicalPath] ?? socialCards[content.locale === "en" ? "/en/" : "/"];
+const socialCard =
+  socialCards[normalizedCanonicalPath] ??
+  socialCards[canonicalPath] ??
+  socialCards[`${normalizedCanonicalPath}/`] ??
+  socialCards[content.locale === "en" ? "/en" : "/"];
 const socialImage = new URL(socialCard.image, Astro.site);
 ---
 
@@ -66,7 +73,7 @@ const socialImage = new URL(socialCard.image, Astro.site);
     <link rel="canonical" href={canonical} />
     <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
     <link rel="describedby" href="/llms.txt" />
-    {markdownPath && <link rel="alternate" type="text/markdown" title="Markdown" href={new URL(markdownPath, Astro.site)} />}
+    {markdownPath && <link rel="alternate" type="text/markdown" title="Markdown" href={absoluteSiteUrl(markdownPath, Astro.site!)} />}
     {hasLocaleAlternate && <link rel="alternate" hreflang={content.locale} href={canonical} />}
     {hasLocaleAlternate && <link rel="alternate" hreflang={content.locale === "en" ? "zh-Hans" : "en"} href={alternate} />}
     {hasLocaleAlternate && <link rel="alternate" hreflang="x-default" href={content.locale === "zh-Hans" ? canonical : alternate} />}
@@ -75,8 +82,8 @@ const socialImage = new URL(socialCard.image, Astro.site);
   </head>
   <body>
     <a class="skip-link" href="#main">{content.skipLink}</a>
-    <SiteHeader content={content} currentPath={canonicalPath} alternatePath={alternatePath} />
-    {!noIndex && hasLocaleAlternate && <LanguageSuggestion locale={content.locale} alternatePath={alternatePath} />}
+    <SiteHeader content={content} currentPath={normalizedCanonicalPath} alternatePath={normalizedAlternatePath} />
+    {!noIndex && hasLocaleAlternate && <LanguageSuggestion locale={content.locale} alternatePath={normalizedAlternatePath} />}
     <slot />
     <SiteFooter locale={content.locale} />
   </body>

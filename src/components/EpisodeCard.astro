@@ -6,7 +6,7 @@ interface Props { episodeId: string; locale: Locale }
 const { episodeId, locale } = Astro.props;
 const episode = await getPublishedEpisode(episodeId);
 const copy = episode.data.homepage[locale];
-const href = `${locale === "en" ? "/en" : ""}/weekly/${episode.data.number}/`;
+const href = `${locale === "en" ? "/en" : ""}/weekly/${episode.data.number}`;
 ---
 <article class:list={["weekly-card", { "has-artwork": episode.data.imageKind === "artwork" }]} data-episode-number={episode.data.number}>
   <a class:list={["weekly-image", { "is-artwork": episode.data.imageKind === "artwork" }]} href={href} aria-label={episode.data.title[locale]}>

@@ -4,8 +4,7 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://nexttoken.tv",
   output: "static",
-  // Accept both spellings locally; directory output and canonical links use trailing slashes.
-  trailingSlash: "ignore",
+  trailingSlash: "never",
   integrations: [
     sitemap({
       filter: (page) => {

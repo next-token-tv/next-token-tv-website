@@ -1,6 +1,6 @@
 # 资料库 API
 
-Next Token 资料库在 `https://nexttoken.tv/api/v1/` 提供公开、只读、无须鉴权的静态 JSON API，公开文档位于 `https://nexttoken.tv/api/`。版本 `v1` 的数据来自 `src/content/data/brands/*.yaml`、`src/content/data/products/*.yaml` 与 `src/content/data/people/*.yaml`，这些 YAML 文件仍是唯一事实源。更新资料库并重新构建、发布网站后，API 随之更新。
+Next Token 资料库在 `https://nexttoken.tv/api/v1` 提供公开、只读、无须鉴权的静态 JSON API，公开文档位于 `https://nexttoken.tv/api`。版本 `v1` 的数据来自 `src/content/data/brands/*.yaml`、`src/content/data/products/*.yaml` 与 `src/content/data/people/*.yaml`，这些 YAML 文件仍是唯一事实源。更新资料库并重新构建、发布网站后，API 随之更新。
 
 ## 端点
 
@@ -31,5 +31,5 @@ API 只发布网站资料库的公开实体数据。`src/content/imported/` 中�
 
 ```bash
 curl https://nexttoken.tv/api/v1/wiki/products/chatgpt.json
-curl https://nexttoken.tv/api/v1/wiki/brands.json | jq '.data[] | select(.kind == "company-brand")'
+curl https://nexttoken.tv/api/v1/wiki/brands.json | jq '.data[] | select(.kind == "ai-brand")'
 ```

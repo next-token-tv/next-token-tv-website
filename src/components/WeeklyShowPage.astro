@@ -39,7 +39,7 @@ const upcoming = announcedEpisodes
 const upcomingVenue = upcoming?.data.status === "announced" && upcoming.data.recordingVenue
   ? await resolveVenueId(upcoming.data.recordingVenue)
   : undefined;
-const weeklyPath = locale === "en" ? "/en/weekly/" : "/weekly/";
+const weeklyPath = locale === "en" ? "/en/weekly" : "/weekly";
 
 const labels = locale === "en" ? {
   overviewIndex: "01 / The Show",
@@ -103,7 +103,7 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
         <div class="weekly-latest-actions">
           <strong>{locale === "en" ? "Latest episode" : "最新一期"} #{latestEpisode.data.number}</strong>
           <p class="latest-episode-title">{episodeCopy.heading.join(locale === "en" ? " " : "")}</p>
-          <a href={`${weeklyPath}${latestEpisode.data.number}/`}>{locale === "en" ? (latestEpisode.data.media.video ? "Listen / watch" : "Listen now · Audio") : (latestEpisode.data.media.video ? "收听 / 收看" : "立即收听 · 音频版")} ↗</a>
+          <a href={`${weeklyPath}/${latestEpisode.data.number}`}>{locale === "en" ? (latestEpisode.data.media.video ? "Listen / watch" : "Listen now · Audio") : (latestEpisode.data.media.video ? "收听 / 收看" : "立即收听 · 音频版")} ↗</a>
           <LatestTranscriptLink locale={locale} variant="inline" />
         </div>
         <UpcomingEpisodeLink locale={locale} />
@@ -172,7 +172,7 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
       {episodes.map(episode => <EpisodeCard episodeId={episode.id} locale={locale} />)}
 
       {upcoming?.data.status === "announced" && (
-        <a class="weekly-show-upcoming" href={`${weeklyPath}${upcoming.data.number}/`}>
+        <a class="weekly-show-upcoming" href={`${weeklyPath}/${upcoming.data.number}`}>
           <span>{labels.upcoming}</span>
           <strong>#{upcoming.data.number}</strong>
           <p>{upcoming.data.title[locale]}</p>

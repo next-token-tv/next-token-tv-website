@@ -9,7 +9,7 @@ const { personId, locale } = Astro.props;
 const { host, shows, episodes, profile } = await getHostProfile(personId, locale);
 const { Content } = await render(profile);
 const en = locale === "en";
-const home = en ? "/en/" : "/";
+const home = en ? "/en" : "/";
 ---
 
 <main id="main" class="host-profile shell">
@@ -36,14 +36,14 @@ const home = en ? "/en/" : "/";
     </section>
     <section aria-labelledby="profile-shows">
       <h2 class="heading-section-compact" id="profile-shows">{en ? "Shows" : "参与栏目"}</h2>
-      {shows.map(show => <div class="profile-show"><p>{show.active ? (en ? "Co-host" : "联合主理人") : (en ? "Former co-host" : "曾任联合主理人")}</p>{show.id === "next-token-weekly" ? <a href={`${home}weekly/`}>{show.data.name[locale]} →</a> : <strong>{show.data.name[locale]}</strong>}</div>)}
+      {shows.map(show => <div class="profile-show"><p>{show.active ? (en ? "Co-host" : "联合主理人") : (en ? "Former co-host" : "曾任联合主理人")}</p>{show.id === "next-token-weekly" ? <a href={en ? "/en/weekly" : "/weekly"}>{show.data.name[locale]} →</a> : <strong>{show.data.name[locale]}</strong>}</div>)}
     </section>
   </div>
   <EntityPeopleRelations entityType="person" entityId={personId} locale={locale} contained />
   <section class="profile-episodes" aria-labelledby="profile-episodes">
     <p class="section-index">NEXT TOKEN WEEKLY</p>
     <h2 class="heading-section-compact" id="profile-episodes">{en ? "At the table" : "参与的每一期"}</h2>
-    {episodes.length ? <div class="profile-episode-list">{episodes.map(episode => <a href={`${home}weekly/${episode.data.number}/`}>
+    {episodes.length ? <div class="profile-episode-list">{episodes.map(episode => <a href={`${en ? "/en" : ""}/weekly/${episode.data.number}`}>
       <span class="profile-episode-number">#{episode.data.number}</span>
       <div class="profile-episode-copy"><small>{episode.data.status === "published" ? (en ? "Now live" : "现已上线") : (en ? "Recording preview" : "录制预告")}</small><h3>{episode.data.title[locale]}</h3></div>
       <span aria-hidden="true">↗</span>

@@ -13,17 +13,17 @@ const groups = [
   {
     kind: "person",
     label: locale === "en" ? "People" : "人物",
-    items: mentions.people.map(person => ({ name: person.data.name[locale], href: `${prefix}/wiki/people/${person.id}/` })),
+    items: mentions.people.map(person => ({ name: person.data.name[locale], href: `${prefix}/wiki/people/${person.id}` })),
   },
   {
     kind: "brand",
     label: copy.brand,
-    items: mentions.brands.map((brand) => ({ name: brand.data.name[locale], href: `${prefix}/wiki/brands/${brand.id}/` })),
+    items: mentions.brands.map((brand) => ({ name: brand.data.name[locale], href: `${prefix}/wiki/brands/${brand.id}` })),
   },
   {
     kind: "product",
     label: copy.product,
-    items: mentions.products.map((product) => ({ name: product.data.name[locale], href: `${prefix}/wiki/products/${product.id}/` })),
+    items: mentions.products.map((product) => ({ name: product.data.name[locale], href: `${prefix}/wiki/products/${product.id}` })),
   },
 ].filter((group) => group.items.length > 0);
 ---

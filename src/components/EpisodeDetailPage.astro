@@ -26,7 +26,7 @@ const [{ partner, venue }, participants] = await Promise.all([
 ]);
 const { Content } = await render(showNotes);
 const homepage = episode.data.homepage[locale];
-const weeklyPath = locale === "en" ? "/en/weekly/" : "/weekly/";
+const weeklyPath = locale === "en" ? "/en/weekly" : "/weekly";
 const recordingDate = new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-Hans", {
   year: "numeric",
   month: "long",
@@ -159,7 +159,7 @@ const labels = locale === "en" ? {
             name={person.data.name[locale]} bio={role}
             photo={person.data.photo} alt={person.data.alt[locale]}
             width={person.data.width} height={person.data.height} index={index}
-            profilePath={`${locale === "en" ? "/en" : ""}/wiki/people/${person.id}/`}
+            profilePath={`${locale === "en" ? "/en" : ""}/wiki/people/${person.id}`}
           />
         );
       })}

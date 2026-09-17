@@ -15,11 +15,11 @@ const cards = [];
 const hostIds = new Set((await collection('host-memberships')).map(m => m.person));
 for (const locale of ['zh-Hans', 'en']) {
   const en = locale === 'en'; const prefix = en ? '/en' : '';
-  cards.push({ route: `${prefix}/`, locale, label: 'NEXT TOKEN', title: en ? 'Beyond the next token.' : '不只预测\n下一个词元。', subtitle: en ? 'AI · Products · People' : 'AI 技术 · 产品 · 现实影响' });
-  cards.push({ route: `${prefix}/weekly/`, locale, label: 'NEXT TOKEN WEEKLY', title: show.page[locale].heading.join('\n'), subtitle: en ? 'Four co-hosts. Every week.' : '四位联合主理人 · 每周圆桌对谈' });
-  for (const p of people) cards.push({ route: `${prefix}/wiki/people/${p.id}/`, locale, label: hostIds.has(p.id) ? (en ? 'CO-HOST' : '联合主理人') : (en ? 'PEOPLE' : '人物库'), title: p.name[locale], subtitle: p.bio[locale], photo: p.photo });
+  cards.push({ route: prefix || '/', locale, label: 'NEXT TOKEN', title: en ? 'Beyond the next token.' : '不只预测\n下一个词元。', subtitle: en ? 'AI · Products · People' : 'AI 技术 · 产品 · 现实影响' });
+  cards.push({ route: `${prefix}/weekly`, locale, label: 'NEXT TOKEN WEEKLY', title: show.page[locale].heading.join('\n'), subtitle: en ? 'Four co-hosts. Every week.' : '四位联合主理人 · 每周圆桌对谈' });
+  for (const p of people) cards.push({ route: `${prefix}/wiki/people/${p.id}`, locale, label: hostIds.has(p.id) ? (en ? 'CO-HOST' : '联合主理人') : (en ? 'PEOPLE' : '人物库'), title: p.name[locale], subtitle: p.bio[locale], photo: p.photo });
   for (const e of episodes) {
-    cards.push({ route: `${prefix}/weekly/${e.number}/`, locale, label: `WEEKLY #${e.number} · ${e.status === 'published' && !e.media.video ? (en ? 'AUDIO OUT NOW' : '音频已上线') : en ? (e.status === 'published' ? 'EPISODE' : 'PREVIEW') : (e.status === 'published' ? '本期节目' : '录制预告')}`, title: e.status === 'published' ? e.homepage[locale].heading.join(en ? ' ' : '') : e.preview.heading[locale].join(en ? ' ' : ''), subtitle: en ? 'Next Token｜词元之外' : 'Next Token Weekly · 词元之外' });
+    cards.push({ route: `${prefix}/weekly/${e.number}`, locale, label: `WEEKLY #${e.number} · ${e.status === 'published' && !e.media.video ? (en ? 'AUDIO OUT NOW' : '音频已上线') : en ? (e.status === 'published' ? 'EPISODE' : 'PREVIEW') : (e.status === 'published' ? '本期节目' : '录制预告')}`, title: e.status === 'published' ? e.homepage[locale].heading.join(en ? ' ' : '') : e.preview.heading[locale].join(en ? ' ' : ''), subtitle: en ? 'Next Token｜词元之外' : 'Next Token Weekly · 词元之外' });
   }
 }
 for (const name of await readdir(resolve(root, 'src/content/imported/transcripts'))) {
@@ -27,7 +27,7 @@ for (const name of await readdir(resolve(root, 'src/content/imported/transcripts
   const t = JSON.parse(await readFile(resolve(root, 'src/content/imported/transcripts', name), 'utf8'));
   const episode = episodes.find(e => e.id === t.episodeId);
   if (!episode) throw new Error(`Unknown transcript episode ${t.episodeId}`);
-  cards.push({ route: `${t.locale === 'en' ? '/en' : ''}/weekly/${episode.number}/transcript/`, locale: t.locale, label: `WEEKLY #${episode.number} · ${t.locale === 'en' ? 'TRANSCRIPT' : '文字稿'}`, title: t.title.replace(/^.*?[｜|]/, '').trim(), subtitle: t.locale === 'en' ? `${t.chapters.length} chapters · Read & search` : `${t.chapters.length} 个章节 · 完整对谈 · 全文搜索` });
+  cards.push({ route: `${t.locale === 'en' ? '/en' : ''}/weekly/${episode.number}/transcript`, locale: t.locale, label: `WEEKLY #${episode.number} · ${t.locale === 'en' ? 'TRANSCRIPT' : '文字稿'}`, title: t.title.replace(/^.*?[｜|]/, '').trim(), subtitle: t.locale === 'en' ? `${t.chapters.length} chapters · Read & search` : `${t.chapters.length} 个章节 · 完整对谈 · 全文搜索` });
 }
 const escape = s => String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
 const font = (await readFile(resolve(root, 'public/assets/league-spartan-black.ttf'))).toString('base64');
