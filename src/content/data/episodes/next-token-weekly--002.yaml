@@ -59,7 +59,6 @@ mentions:
     - netease
     - netease-youdao
     - next-token
-    - next-token-weekly
     - openai
     - oppo
     - siliconflow
@@ -71,6 +70,7 @@ mentions:
     - volcengine
     - xiaomi
   products:
+    - next-token-weekly
     - bilibili
     - feishu
     - spotify

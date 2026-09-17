@@ -1,4 +1,4 @@
-kind: community-brand
+kind: media-community-brand
 name: {zh-Hans: AGI Bar, en: AGI Bar}
 summary:
   zh-Hans: 面向人工智能从业者与创业者的线下交流空间，在北京和上海设有场地。
@@ -6,8 +6,8 @@ summary:
 aliases:
   - 上海 AGI Bar
 official:
-  website: https://nexttoken.tv/partners/agi-bar/
+  website: https://nexttoken.tv/partners/agi-bar
 lastVerifiedAt: '2026-09-14'
 sources:
   - label: {zh-Hans: Next Token 场地伙伴资料, en: Next Token venue partner profile}
-    href: https://nexttoken.tv/partners/agi-bar/
+    href: https://nexttoken.tv/partners/agi-bar

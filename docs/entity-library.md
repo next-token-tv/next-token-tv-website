@@ -14,20 +14,20 @@
 | Runta、OpenRouter、fal.ai、X | 只收录平台产品 |
 | Qwen、混元、WorkBuddy | 只收录对应模型或应用产品 |
 | SpaceXAI | 品牌；xAI、X.AI 为别名，与 X 平台分开 |
-| WaytoAGI | 社区品牌，分类为 `community-brand` |
+| WaytoAGI | 媒体与社区，分类为 `media-community-brand` |
 | Y Combinator | 品牌使用全称，YC 为别名 |
 | 豆包 / Doubao | 应用产品；与 Doubao Seed、豆包工作等产品的所属品牌均为字节跳动 |
 | Android | 操作系统产品 |
 | Devin | Cognition 旗下 Agent 产品 |
-| Next Token Weekly | Next Token 旗下节目，链接 `/weekly/`，不重复收录为品牌 |
+| Next Token Weekly | Next Token 旗下的节目产品，归入 `show` 分类；节目运营数据保留在 `shows`，逐字稿名称链接 `/weekly`，不收录为品牌 |
 
 独立基金会和其维护的开源产品可以分别收录。人物与产品可直接建立关系，不要求通过品牌中转。
 
-## 公司品牌、业务品牌与平台产品
+## 品牌分类与平台产品
 
-公司品牌介绍组织及其产品组合；业务品牌 `business-brand` 介绍覆盖多项服务的业务线，包括 AWS、阿里云、腾讯云与火山引擎。品牌库不使用“平台品牌”分类。
+公司与组织按资料库主要介绍的业务分为人工智能、硬件与半导体、互联网与软件服务和其他。媒体与社区统一归入 `media-community-brand`，基金会、加速器与音乐公司目前归入其他。跨领域组织按主要介绍的业务归类，其他业务保留在摘要中；不再使用公司品牌或开源品牌作为分类。AWS、阿里云、腾讯云与火山引擎统一归入互联网与软件服务 `internet-software-brand`，不单设云服务分类。品牌库不使用“平台品牌”分类。
 
-用户直接使用的平台收录为 `platform` 产品，包括哔哩哔哩、Spotify、闲鱼、小红书、小宇宙、微信、飞书、YouTube、OpenRouter 与 fal.ai。Hugging Face 按公司品牌收录。同名组织与平台仅在各自有独立介绍内容时分别建条目。
+用户直接使用的平台收录为 `platform` 产品，包括哔哩哔哩、Spotify、闲鱼、小红书、小宇宙、微信、飞书、YouTube、OpenRouter 与 fal.ai。Hugging Face 按人工智能品牌收录。同名组织与平台仅在各自有独立介绍内容时分别建条目。
 
 ## 产品分类
 

@@ -11,17 +11,16 @@ interface Props {
 const { entityType, locale } = Astro.props;
 const prefix = locale === "en" ? "/en" : "";
 const brandKind = {
-  "company-brand": { "zh-Hans": "公司品牌", en: "Company brand" },
-  "media-brand": { "zh-Hans": "媒体品牌", en: "Media brand" },
-  "model-brand": { "zh-Hans": "模型品牌", en: "Model brand" },
-  "product-brand": { "zh-Hans": "产品品牌", en: "Product brand" },
-  "business-brand": { "zh-Hans": "业务品牌", en: "Business brand" },
-  "community-brand": { "zh-Hans": "社区品牌", en: "Community brand" },
-  "open-source-brand": { "zh-Hans": "开源品牌", en: "Open-source brand" },
+  "ai-brand": { "zh-Hans": "人工智能", en: "Artificial intelligence" },
+  "hardware-brand": { "zh-Hans": "硬件与半导体", en: "Hardware & semiconductors" },
+  "internet-software-brand": { "zh-Hans": "互联网与软件服务", en: "Internet & software services" },
+  "media-community-brand": { "zh-Hans": "媒体与社区", en: "Media & communities" },
+  "other-brand": { "zh-Hans": "其他", en: "Other" },
 } as const;
 const productKind = {
   "model-family": { "zh-Hans": "模型家族", en: "Model family" },
   model: { "zh-Hans": "模型", en: "Model" },
+  show: { "zh-Hans": "节目", en: "Show" },
   game: { "zh-Hans": "游戏", en: "Game" },
   "operating-system": { "zh-Hans": "操作系统", en: "Operating system" },
   application: { "zh-Hans": "应用", en: "Application" },
@@ -135,9 +134,9 @@ const filterOptions = entityType === "people"
   </section>
 
   <nav class="entity-library-switch shell" aria-label={locale === "en" ? "Wiki" : "AI 资料库"}>
-    <a href={`${prefix}/wiki/brands/`} aria-current={entityType === "brands" ? "page" : undefined}>{copy.brands}</a>
-    <a href={`${prefix}/wiki/products/`} aria-current={entityType === "products" ? "page" : undefined}>{copy.products}</a>
-    <a href={`${prefix}/wiki/people/`} aria-current={entityType === "people" ? "page" : undefined}>{locale === "en" ? "People" : "人物"}</a>
+    <a href={`${prefix}/wiki/brands`} aria-current={entityType === "brands" ? "page" : undefined}>{copy.brands}</a>
+    <a href={`${prefix}/wiki/products`} aria-current={entityType === "products" ? "page" : undefined}>{copy.products}</a>
+    <a href={`${prefix}/wiki/people`} aria-current={entityType === "people" ? "page" : undefined}>{locale === "en" ? "People" : "人物"}</a>
   </nav>
 
   <div class="entity-secondary-filters shell" data-entity-filters>
@@ -156,7 +155,7 @@ const filterOptions = entityType === "people"
 
   <section id="entity-directory-list" class="entity-directory shell" aria-label={copy.title} aria-live="polite">
     {entries.map((entry, index) => (
-      <a class="entity-directory-row" href={`${prefix}/wiki/${entityType}/${entry.id}/`} data-entity-kind={entry.kindId}>
+      <a class="entity-directory-row" href={`${prefix}/wiki/${entityType}/${entry.id}`} data-entity-kind={entry.kindId}>
         <span class="entity-directory-index">{String(index + 1).padStart(2, "0")}</span>
         <div class="entity-directory-identity">
           <span>{entry.kind}</span>

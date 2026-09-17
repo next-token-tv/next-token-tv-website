@@ -2,7 +2,7 @@ name:
   zh-Hans: Next Token Weekly
   en: Next Token Weekly
 ownerBrand: next-token
-pagePath: /weekly/
+pagePath: /weekly
 type: weekly-roundtable
 status: active
 flagship: true

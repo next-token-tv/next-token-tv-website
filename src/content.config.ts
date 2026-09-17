@@ -72,7 +72,7 @@ const shows = defineCollection({
   schema: z.object({
     name: localizedText,
     ownerBrand: z.string(),
-    pagePath: z.string().regex(/^\/[a-z0-9-]+\/$/),
+    pagePath: z.string().regex(/^\/[a-z0-9-]+$/),
     type: z.enum(["weekly-roundtable", "interview", "special"]),
     status: z.enum(["active", "paused", "archived"]),
     flagship: z.boolean().default(false),
@@ -138,7 +138,7 @@ const venues = defineCollection({
 const brands = defineCollection({
   loader: yamlLoader("./src/content/data/brands"),
   schema: z.object({
-    kind: z.enum(["company-brand", "media-brand", "community-brand", "model-brand", "product-brand", "business-brand", "open-source-brand"]),
+    kind: z.enum(["ai-brand", "hardware-brand", "internet-software-brand", "media-community-brand", "other-brand"]),
     parentBrand: z.string().optional(),
     name: localizedText,
     summary: localizedText,
@@ -156,7 +156,7 @@ const brands = defineCollection({
 const products = defineCollection({
   loader: yamlLoader("./src/content/data/products"),
   schema: z.object({
-    kind: z.enum(["model-family", "model", "application", "game", "operating-system", "agent", "developer-tool", "platform", "api-service", "hardware", "framework"]),
+    kind: z.enum(["model-family", "model", "application", "show", "game", "operating-system", "agent", "developer-tool", "platform", "api-service", "hardware", "framework"]),
     brand: z.string().optional(),
     parent: z.string().optional(),
     name: localizedText,

@@ -1,0 +1,10 @@
+kind: show
+brand: next-token
+name: {zh-Hans: Next Token Weekly, en: Next Token Weekly}
+summary: {zh-Hans: Next Token｜词元之外的旗舰圆桌节目，由四位联合主理人每周分享 AI 领域的一手观察与实践。, en: Next Token's flagship weekly roundtable show, where four co-hosts share first-hand observations and practice from the AI field.}
+aliases: [Weekly]
+official: {website: https://nexttoken.tv/weekly}
+lastVerifiedAt: '2026-09-14'
+sources:
+  - label: {zh-Hans: 节目主页, en: Show homepage}
+    href: https://nexttoken.tv/weekly

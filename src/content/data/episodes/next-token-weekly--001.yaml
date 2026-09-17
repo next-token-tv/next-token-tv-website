@@ -100,7 +100,6 @@ mentions:
     - vercel
     - y-combinator
     - next-token
-    - next-token-weekly
     - xiaomi
     - anthropic
     - apple
@@ -115,6 +114,7 @@ mentions:
     - xai
     - zhipu
   products:
+    - next-token-weekly
     - bilibili
     - fal-ai
     - feishu

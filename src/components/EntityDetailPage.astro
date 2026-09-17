@@ -14,16 +14,15 @@ interface Props {
 const { entityType, entityId, locale } = Astro.props;
 const prefix = locale === "en" ? "/en" : "";
 const brandKind = {
-  "company-brand": { "zh-Hans": "公司品牌", en: "Company brand" },
-  "media-brand": { "zh-Hans": "媒体品牌", en: "Media brand" },
-  "model-brand": { "zh-Hans": "模型品牌", en: "Model brand" },
-  "product-brand": { "zh-Hans": "产品品牌", en: "Product brand" },
-  "business-brand": { "zh-Hans": "业务品牌", en: "Business brand" },
-  "community-brand": { "zh-Hans": "社区品牌", en: "Community brand" },
-  "open-source-brand": { "zh-Hans": "开源品牌", en: "Open-source brand" },
+  "ai-brand": { "zh-Hans": "人工智能", en: "Artificial intelligence" },
+  "hardware-brand": { "zh-Hans": "硬件与半导体", en: "Hardware & semiconductors" },
+  "internet-software-brand": { "zh-Hans": "互联网与软件服务", en: "Internet & software services" },
+  "media-community-brand": { "zh-Hans": "媒体与社区", en: "Media & communities" },
+  "other-brand": { "zh-Hans": "其他", en: "Other" },
 } as const;
 const productKind = {
   "model-family": { "zh-Hans": "模型家族", en: "Model family" }, model: { "zh-Hans": "模型", en: "Model" },
+  show: { "zh-Hans": "节目", en: "Show" },
   game: { "zh-Hans": "游戏", en: "Game" },
   "operating-system": { "zh-Hans": "操作系统", en: "Operating system" },
   application: { "zh-Hans": "应用", en: "Application" }, agent: { "zh-Hans": "Agent", en: "Agent" },
@@ -71,22 +70,22 @@ if (entityType === "brand") {
   episodes = profile.episodes;
   facts = [
     { label: copy.type, value: kind },
-    ...(profile.parentBrand ? [{ label: copy.parentBrand, value: profile.parentBrand.data.name[locale], href: `${prefix}/wiki/brands/${profile.parentBrand.id}/` }] : []),
+    ...(profile.parentBrand ? [{ label: copy.parentBrand, value: profile.parentBrand.data.name[locale], href: `${prefix}/wiki/brands/${profile.parentBrand.id}` }] : []),
     { label: copy.childBrands, value: String(profile.childBrands.length) },
     { label: copy.products, value: String(profile.products.length) },
     { label: copy.episodes, value: String(profile.episodes.length) },
   ];
   connections = [
     ...profile.childBrands.map((brand) => ({
-      name: brand.data.name[locale], kind: brandKind[brand.data.kind][locale], href: `${prefix}/wiki/brands/${brand.id}/`,
+      name: brand.data.name[locale], kind: brandKind[brand.data.kind][locale], href: `${prefix}/wiki/brands/${brand.id}`,
     })),
     ...profile.products.map((product) => ({
-      name: product.data.name[locale], kind: productKind[product.data.kind][locale], href: `${prefix}/wiki/products/${product.id}/`,
+      name: product.data.name[locale], kind: productKind[product.data.kind][locale], href: `${prefix}/wiki/products/${product.id}`,
     })),
   ];
   schema = {
     "@context": "https://schema.org",
-    "@type": ["company-brand", "media-brand"].includes(profile.brand.data.kind) ? "Organization" : "Brand",
+    "@type": ["ai-brand", "hardware-brand", "internet-software-brand", "media-community-brand", "other-brand"].includes(profile.brand.data.kind) ? "Organization" : "Brand",
     name: profile.brand.data.name[locale], alternateName: profile.brand.data.aliases,
     description: profile.brand.data.summary[locale], url: official?.website,
   };
@@ -99,7 +98,7 @@ if (entityType === "brand") {
   episodes = profile.episodes;
   facts = [
     { label: copy.type, value: kind },
-    ...(profile.brand ? [{ label: copy.brand, value: profile.brand.data.name[locale], href: `${prefix}/wiki/brands/${profile.brand.id}/` }] : []),
+    ...(profile.brand ? [{ label: copy.brand, value: profile.brand.data.name[locale], href: `${prefix}/wiki/brands/${profile.brand.id}` }] : []),
     ...(profile.product.data.status ? [{ label: copy.status, value: statusLabels[profile.product.data.status][locale] }] : []),
     ...(profile.product.data.releasedAt ? [{
       label: copy.released,
@@ -108,15 +107,15 @@ if (entityType === "brand") {
     }] : []),
   ];
   connections = [
-    ...(profile.parent ? [{ name: profile.parent.data.name[locale], kind: productKind[profile.parent.data.kind][locale], href: `${prefix}/wiki/products/${profile.parent.id}/` }] : []),
-    ...profile.children.map((product) => ({ name: product.data.name[locale], kind: productKind[product.data.kind][locale], href: `${prefix}/wiki/products/${product.id}/` })),
+    ...(profile.parent ? [{ name: profile.parent.data.name[locale], kind: productKind[profile.parent.data.kind][locale], href: `${prefix}/wiki/products/${profile.parent.id}` }] : []),
+    ...profile.children.map((product) => ({ name: product.data.name[locale], kind: productKind[product.data.kind][locale], href: `${prefix}/wiki/products/${product.id}` })),
   ];
   schema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: `${profile.product.data.name[locale]}｜${locale === "en" ? "Product profile" : "产品资料"}｜Next Token`,
     description: profile.product.data.summary[locale],
-    url: new URL(`${prefix}/wiki/products/${entityId}/`, Astro.site).toString(),
+    url: new URL(`${prefix}/wiki/products/${entityId}`, Astro.site).toString(),
     inLanguage: locale,
     about: {
       "@type": "Thing",
@@ -149,7 +148,7 @@ const connectionsLabel = entityType === "brand" ? copy.brandConnections : copy.c
 
 <main id="main" class="entity-detail-page">
   <div class="entity-detail-back shell">
-    <a href={`${prefix}/wiki/${entityType === "brand" ? "brands" : "products"}/`}><span aria-hidden="true">←</span>{copy.back}</a>
+    <a href={`${prefix}/wiki/${entityType === "brand" ? "brands" : "products"}`}><span aria-hidden="true">←</span>{copy.back}</a>
   </div>
 
   <section class="entity-detail-hero shell" aria-labelledby="entity-name">
