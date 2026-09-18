@@ -53,8 +53,12 @@ test("Wiki samples publish readable bilingual articles and working citations wit
       }
     }
   }
+  // As of 2026-09-18 every product, brand and non-host person has an article, so no
+  // live no-article sample exists for EntityDetailPage. Keep a positive assertion on
+  // the former fallback sample; if a future entity ships without an article, point a
+  // fallback case (`.wiki-prose` count 0 with a visible h1) at that entity here.
   await page.goto("/wiki/products/glm");
-  await expect(page.locator(".wiki-prose")).toHaveCount(0);
+  await expect(page.locator(".wiki-prose")).toHaveCount(1);
   await expect(page.locator("h1")).toBeVisible();
   await context.close();
 });

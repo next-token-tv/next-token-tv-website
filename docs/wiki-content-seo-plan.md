@@ -17,17 +17,13 @@
 
 | 类型 | 现有实体 | 已有中英文 Wiki 正文 | 尚无 Wiki 正文 |
 | --- | ---: | ---: | ---: |
-| 产品 | 112 | 111 | 1 |
+| 产品 | 112 | 112 | 0 |
 | 品牌 | 56 | 56 | 0 |
-| 人物 | 19 | 13 | 6 |
+| 人物 | 19 | 15 | 4 |
 
-已有正文共 180 个实体、360 篇 Markdown：
+已有正文共 183 个实体、366 篇 Markdown：产品与品牌全部覆盖；人物覆盖除 4 位主理人外的全部（`dhh`、`tim-cook`、`tang-jie`、`he-tongxue`、`wang-le`、`chen-mian`、`wang-dengke`、`guanlan-dai`、`aj`、`cyber-zen`、`xiaohu`、`luo-fuli`、`liu-fei`、`hanqing`、`nan-qiao`）。
 
-- 产品：除 `glm` 外全部 111 个。`glm` 刻意保持无正文，作为视觉回归测试的无正文回退样例（见技术规范）。
-- 品牌：全部 56 个。
-- 人物：13 个（`dhh`、`tim-cook`、`tang-jie`、`he-tongxue`、`wang-le`、`chen-mian`、`wang-dengke`、`guanlan-dai`、`aj`、`cyber-zen`、`xiaohu`、`luo-fuli`、`liu-fei`）。
-
-尚无正文的 6 个人物及原因：主理人 `yangpan`、`guizang`、`orange`、`xiangyang-qiaomu` 暂不扩写（主理人详情模板尚未接入 Wiki 正文渲染）；`hanqing`、`nan-qiao` 仅有节目提及、无可靠公开资料，按规范保留摘要页，日后有可靠来源可再扩写。
+尚无正文的 4 位均为主理人（`yangpan`、`guizang`、`orange`、`xiangyang-qiaomu`）：主理人详情模板尚未接入 Wiki 正文渲染，新增文件不会显示；接入属独立技术任务。
 
 已实现：Wiki 正文契约、静态渲染、H2 目录、面包屑、SEO 标题与描述、Article/BreadcrumbList 标记、分开的正文更新与资料核验日期、共享页头和辅助资料布局、FAQ、统一相关节目模块，以及逐字稿段落引用和复制链接。
 
