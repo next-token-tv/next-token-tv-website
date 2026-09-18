@@ -18,7 +18,7 @@ In Weekly #002's opening chapter "上海开场：本周模型、Agent 与硬件"
 
 ## AGI Bar's operations and team roles
 
-Public reporting credits the founding of AGI Bar to Song De: according to "海淀AI人群图鉴" (a profile of Haidian's AI community by Jiazi Lightyear), Song De is better known by the nickname "Da Congming" and as the person behind the WeChat account "赛博禅心" (Cyber Zen); in early 2025 he began planning a bar and named it AGI Bar, which opened on Zhongguancun Startup Street in Beijing on June 1, 2025 ([republished on Tencent News](https://news.qq.com/rain/a/20260205A066B000)). Several event reports likewise refer to him as AGI Bar's principal ("主理人"). According to Next Token's editorial information, Nan Qiao runs AGI Bar's operations. Founder and operations lead are complementary roles, so this does not contradict the public reporting above. "Nan Qiao" and "Da Congming" appear as two different names in the episode 002 thanks.
+Public reporting credits the founding of AGI Bar to Song De: according to "海淀AI人群图鉴" (a profile of Haidian's AI community by Jiazi Lightyear), Song De is better known by the nickname "Da Congming" and as the person behind the WeChat account "赛博禅心" (Cyber Zen); in early 2025 he began planning a bar and named it AGI Bar, which opened on Zhongguancun Startup Street in Beijing on June 1, 2025 ([republished on Tencent News](https://news.qq.com/rain/a/20260205A066B000)). Several event reports likewise refer to him as AGI Bar's principal ("主理人"). Nan Qiao runs AGI Bar's operations. "Nan Qiao" and "Da Congming" appear as two different names in the episode 002 thanks.
 
 ## Frequently asked questions
 
