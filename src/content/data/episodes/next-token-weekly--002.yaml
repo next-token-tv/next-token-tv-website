@@ -3,13 +3,13 @@ number: '002'
 show: next-token-weekly
 status: published
 productionImport: next-token-weekly--002.production
-media: {audio: true, video: false}
+media: {audio: true, video: true}
 title:
   zh-Hans: 'Weekly #002｜iPhone Duo 发布，Astra 会用电脑就算 AGI 吗？'
   en: 'Weekly #002 | iPhone Duo launches; does Astra using a computer count as AGI?'
 homepage:
   zh-Hans:
-    eyebrow: '第 002 期 · 音频已上线'
+    eyebrow: '第 002 期 · 音视频已上线'
     heading: ['iPhone Duo 发布，', 'Astra 会用电脑就算 AGI 吗？']
     lede: 从 iPhone Duo 的交互想象，到 Astra 使用电脑、3D 建模与播客制作的真实体验，本期在上海 AGI Bar 讨论新硬件与 AI 能力的变化，也聊 DeepSeek Flash、云端 Agent 和创作工具。
     copy: 会用电脑、能完成任务，就算 AGI 吗？从真实工作流到折叠屏交互，四位主理人聊模型能力、人的判断与创作实践。
@@ -17,9 +17,9 @@ homepage:
     topicsLabel: 本期议题
     topics: [Astra 与 AGI, iPhone Duo, 云端 Agent, 创作工具]
     listenAction: 立即收听
-    watchAction: 视频尚未上线
+    watchAction: 在哔哩哔哩观看
   en:
-    eyebrow: 'Episode #002 · Audio out now'
+    eyebrow: 'Episode #002 · Audio & video out now'
     heading: ['iPhone Duo launches.', 'Does Astra using a computer count as AGI?']
     lede: Recorded at AGI Bar in Shanghai, this episode explores iPhone Duo, Astra using a computer, hands-on 3D modeling and podcast production, alongside DeepSeek Flash, cloud agents and creative tools.
     copy: Does using a computer and completing tasks count as AGI? Four co-hosts discuss real workflows, foldable interfaces, model capabilities and human judgment.
@@ -27,7 +27,7 @@ homepage:
     topicsLabel: Episode topics
     topics: [Astra & AGI, iPhone Duo, Cloud agents, Creative tools]
     listenAction: Listen now
-    watchAction: Video not yet available
+    watchAction: Watch on Bilibili
 platforms:
   - platform: xiaoyuzhou
     label: {zh-Hans: 小宇宙, en: Xiaoyuzhou}
@@ -41,6 +41,14 @@ platforms:
     label: {zh-Hans: Spotify, en: Spotify}
     href: https://open.spotify.com/episode/0TgZM7cjwGXlNyTH1rbJK0
     action: {zh-Hans: 立即收听, en: Listen now}
+  - platform: bilibili
+    label: {zh-Hans: 哔哩哔哩, en: Bilibili}
+    href: https://www.bilibili.com/video/BV1tWYC6HEqM/
+    action: {zh-Hans: 立即观看, en: Watch now}
+  - platform: youtube
+    label: {zh-Hans: YouTube, en: YouTube}
+    href: https://youtu.be/hsppRLQF3wc
+    action: {zh-Hans: 立即观看, en: Watch now}
 mentions:
   brands:
     - agi-bar
