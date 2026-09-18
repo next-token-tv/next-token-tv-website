@@ -18,7 +18,7 @@ const { backHref, backLabel, name, summary, aliases = [], aliasesLabel, person =
   <div class="wiki-detail-copy">
     <h1>{name}</h1>
     <p>{summary}</p>
-    {aliases.length > 0 && <div class="wiki-aliases"><span class="wiki-aliases-label">{aliasesLabel} <span>{aliases.length}</span></span><ul>{aliases.map(alias => <li>{alias}</li>)}</ul></div>}
+    {aliases.length > 0 && <div class="wiki-aliases"><span class="wiki-aliases-label">{aliasesLabel}</span><p>{aliases.join(" · ")}</p></div>}
   </div>
 </header>
 <style>
@@ -31,9 +31,7 @@ const { backHref, backLabel, name, summary, aliases = [], aliasesLabel, person =
   .wiki-detail-copy { min-width: 0; }
   h1 { max-width: 62rem; font-size: clamp(2.5rem, 4.5vw, 3.5rem); line-height: 1.1; margin: 0 0 .75rem; overflow-wrap: anywhere; }
   .wiki-detail-copy > p { font-size: 1.1rem; max-width: 48rem; color: var(--muted); margin: 0; }
-  .wiki-aliases { margin-top: 1rem; display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem; }
-  .wiki-aliases-label { flex: 0 0 auto; color: var(--muted); font-size: .85rem; font-weight: 700; }
-  .wiki-aliases-label span { margin-left: .35rem; font-size: .75rem; }
-  .wiki-aliases ul { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; margin: 0; padding: 0; }
-  .wiki-aliases li { border: 1px solid color-mix(in srgb, var(--ink) 30%, transparent); border-radius: .125rem; padding: .1rem .55rem; font-size: .8rem; line-height: 1.6; color: var(--muted); overflow-wrap: anywhere; }
+  .wiki-aliases { margin-top: 1.25rem; padding-top: .9rem; border-top: 1px solid color-mix(in srgb, var(--ink) 25%, transparent); display: grid; gap: .35rem; }
+  .wiki-aliases-label { font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .wiki-aliases p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.8; overflow-wrap: anywhere; }
 </style>
