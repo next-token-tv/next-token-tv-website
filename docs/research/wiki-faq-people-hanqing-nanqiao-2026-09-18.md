@@ -98,3 +98,7 @@
 **FAQ 处理**：nan-qiao 新增 2 个 FAQ（南乔是谁 / AGI Bar 是什么），均为编辑补充："南乔是谁"的答案只能在致谢事实与"据 Next Token 提供的资料"层级内回答；检索需求证据仍为空（同首轮）。
 
 **本轮改动文件**：`src/content/data/people/nan-qiao.yaml`、`src/content/prose/people/nan-qiao.wiki.zh-Hans.md`、`nan-qiao.wiki.en.md`、本记录（追记）。修正首轮正文中的链路笔误：赛博禅心人物链接由 `/wiki/brands/cyber-zen` 改为 `/wiki/people/cyber-zen`（en 同）。
+
+## 2026-09-18 第三轮：站点方直接确认
+
+站点负责人确认南乔的身份是 **AGI Bar 运营负责人**（编辑方提供的事实，非公开来源）。该确认同时化解了第二轮记录中的表面冲突：公开报道（甲子光年等）记载宋德为 AGI Bar 创办人与主理人，南乔负责运营，两个角色互补、并不矛盾。处理方式：正文（中英）直接按"运营负责人"表述，原"据 Next Token 提供的资料/无独立公开来源印证"的对冲措辞删除，"公开报道中的 AGI Bar 经营者"一节改写为"AGI Bar 的经营与团队分工"以呈现互补分工；YAML 的 bio 改写，并新增 relations（nan-qiao → 品牌 agi-bar，角色"运营负责人"，来源为小宇宙 EP002 制作与致谢页——该页记录了她与 AGI Bar 录制的工作关系；角色本身无公开 URL 可引，属站点编辑资料）。此轮无新增检索。

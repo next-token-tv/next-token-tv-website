@@ -2,9 +2,21 @@ name:
   zh-Hans: 南乔
   en: Nan Qiao
 bio:
-  zh-Hans: 在 Next Token Weekly #002 中因邀请节目到上海 AGI Bar 录制而被致谢；据 Next Token 提供的资料，其为 AGI Bar 负责人。
-  en: Thanked in Next Token Weekly #002 for inviting the show to record at AGI Bar in Shanghai; per information provided by Next Token, a person in charge of AGI Bar.
+  zh-Hans: AGI Bar 运营负责人，在 Next Token Weekly #002 中因邀请节目到上海 AGI Bar 录制而被致谢。
+  en: Operations lead of AGI Bar, thanked in Next Token Weekly #002 for inviting the show to record at AGI Bar in Shanghai.
 aliases: []
+relations:
+  - entityType: brand
+    entity: agi-bar
+    role:
+      zh-Hans: 运营负责人
+      en: Operations lead
+    lastVerifiedAt: '2026-09-18'
+    sources:
+      - label:
+          zh-Hans: Next Token Weekly #002 小宇宙页面（制作与致谢）
+          en: Next Token Weekly #002 on Xiaoyuzhou (production and thanks)
+        href: https://www.xiaoyuzhoufm.com/episode/6aa68040492687f6aad92b15
 lastVerifiedAt: '2026-09-18'
 sources:
   - label:
