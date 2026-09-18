@@ -1,6 +1,6 @@
 ---
 import EntityDetailPage from "../../../../components/EntityDetailPage.astro";
-import { getProductDirectory, getProductProfile } from "../../../../data/catalog";
+import { getProductDirectory, getProductProfile, getWikiArticle } from "../../../../data/catalog";
 import { getSiteContent } from "../../../../data/site";
 import BaseLayout from "../../../../layouts/BaseLayout.astro";
 
@@ -12,12 +12,13 @@ export async function getStaticPaths() {
 interface Props { productId: string; }
 const { productId } = Astro.props;
 const [content, profile] = await Promise.all([getSiteContent("en"), getProductProfile(productId)]);
+const article = await getWikiArticle("product", productId, "en");
 ---
 
 <BaseLayout
   content={content}
-  pageTitle={`${profile.product.data.name.en} | Wiki | Next Token`}
-  description={profile.product.data.summary.en}
+  pageTitle={article?.data.seoTitle ?? `${profile.product.data.name.en} | Wiki | Next Token`}
+  description={article?.data.seoDescription ?? profile.product.data.summary.en}
   canonicalPath={`/en/wiki/products/${productId}`}
   alternatePath={`/wiki/products/${productId}`}
 >

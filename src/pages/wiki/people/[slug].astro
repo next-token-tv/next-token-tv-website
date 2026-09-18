@@ -3,7 +3,7 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import HostProfilePage from "../../../components/HostProfilePage.astro";
 import PeopleLibraryPage from "../../../components/PeopleLibraryPage.astro";
 import { getCollection } from "astro:content";
-import { getHostProfileIds, getPeopleByIds } from "../../../data/catalog";
+import { getHostProfileIds, getPeopleByIds, getWikiArticle } from "../../../data/catalog";
 import { getSiteContent } from "../../../data/site";
 export async function getStaticPaths() {
   return (await getCollection("people")).map(person => ({ params: { slug: person.id } }));
@@ -13,7 +13,8 @@ const isHost = (await getHostProfileIds()).includes(personId);
 const [person] = await getPeopleByIds([personId]);
 if (!person) throw new Error(`Unknown profile: ${personId}`);
 const content = await getSiteContent("zh-Hans");
+const article = await getWikiArticle("person", personId, "zh-Hans");
 ---
-<BaseLayout content={content} pageTitle={`${person.data.name["zh-Hans"]} | Next Token ${isHost ? "联合主理人" : "人物库"}`} description={person.data.bio["zh-Hans"]} canonicalPath={`/wiki/people/${personId}`} alternatePath={`/en/wiki/people/${personId}`}>
+<BaseLayout content={content} pageTitle={article?.data.seoTitle ?? `${person.data.name["zh-Hans"]} | Next Token ${isHost ? "联合主理人" : "人物库"}`} description={article?.data.seoDescription ?? person.data.bio["zh-Hans"]} canonicalPath={`/wiki/people/${personId}`} alternatePath={`/en/wiki/people/${personId}`}>
   {isHost ? <HostProfilePage personId={personId} locale="zh-Hans" /> : <PeopleLibraryPage personId={personId} locale="zh-Hans" />}
 </BaseLayout>

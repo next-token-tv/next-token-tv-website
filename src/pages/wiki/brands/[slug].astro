@@ -1,6 +1,6 @@
 ---
 import EntityDetailPage from "../../../components/EntityDetailPage.astro";
-import { getBrandDirectory, getBrandProfile } from "../../../data/catalog";
+import { getBrandDirectory, getBrandProfile, getWikiArticle } from "../../../data/catalog";
 import { getSiteContent } from "../../../data/site";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 
@@ -12,12 +12,13 @@ export async function getStaticPaths() {
 interface Props { brandId: string; }
 const { brandId } = Astro.props;
 const [content, profile] = await Promise.all([getSiteContent("zh-Hans"), getBrandProfile(brandId)]);
+const article = await getWikiArticle("brand", brandId, "zh-Hans");
 ---
 
 <BaseLayout
   content={content}
-  pageTitle={`${profile.brand.data.name["zh-Hans"]}｜品牌资料库｜Next Token`}
-  description={profile.brand.data.summary["zh-Hans"]}
+  pageTitle={article?.data.seoTitle ?? `${profile.brand.data.name["zh-Hans"]}｜品牌资料库｜Next Token`}
+  description={article?.data.seoDescription ?? profile.brand.data.summary["zh-Hans"]}
   canonicalPath={`/wiki/brands/${brandId}`}
   alternatePath={`/en/wiki/brands/${brandId}`}
 >
