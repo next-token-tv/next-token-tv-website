@@ -1,0 +1,9 @@
+---
+import WikiLandingPage from "../../components/WikiLandingPage.astro";
+import { getSiteContent } from "../../data/site";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const content = await getSiteContent("zh-Hans");
+---
+<BaseLayout content={content} pageTitle="AI 资料库｜Next Token" description="浏览 Next Token 节目中的品牌、产品与人物资料，并沿着条目关系继续探索。" canonicalPath="/wiki" alternatePath="/en/wiki">
+  <WikiLandingPage locale="zh-Hans" />
+</BaseLayout>

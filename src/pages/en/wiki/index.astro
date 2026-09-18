@@ -1,0 +1,9 @@
+---
+import WikiLandingPage from "../../../components/WikiLandingPage.astro";
+import { getSiteContent } from "../../../data/site";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+const content = await getSiteContent("en");
+---
+<BaseLayout content={content} pageTitle="AI Wiki | Next Token" description="Explore the brands, products and people in Next Token conversations." canonicalPath="/en/wiki" alternatePath="/wiki">
+  <WikiLandingPage locale="en" />
+</BaseLayout>

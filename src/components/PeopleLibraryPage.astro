@@ -2,21 +2,19 @@
 import "../styles/wiki-detail.css";
 import WikiDetailHeader from "./WikiDetailHeader.astro";
 import WikiIdentityCard from "./WikiIdentityCard.astro";
-import { getContentCatalog, getHostProfileIds } from "../data/catalog";
+import { getContentCatalog } from "../data/catalog";
 import type { Locale } from "../data/types";
 import WikiArticle from "./WikiArticle.astro";
 import RelatedEpisodes from "./RelatedEpisodes.astro";
 import EntityPeopleRelations from "./EntityPeopleRelations.astro";
-interface Props { locale: Locale; personId?: string }
+interface Props { locale: Locale; personId: string }
 const { locale, personId } = Astro.props;
 const en = locale === "en";
 const prefix = en ? "/en" : "";
 const catalog = await getContentCatalog();
-const hosts = new Set(await getHostProfileIds());
-const hostOrder = (id: string) => catalog.hostMemberships.find(m => m.data.person === id)?.data.displayOrder ?? Number.MAX_SAFE_INTEGER;
-const people = catalog.people.slice().sort((a,b) => hostOrder(a.id)-hostOrder(b.id) || a.id.localeCompare(b.id));
-const person = personId ? people.find(p => p.id === personId) : undefined;
-const hasArticle = !!person && catalog.prose.some(({ data }) => data.slot === "wiki" && data.entityType === "person" && data.entity === person.id && data.locale === locale);
+const person = catalog.people.find(p => p.id === personId);
+if (!person) throw new Error(`Unknown person: ${personId}`);
+const hasArticle = catalog.prose.some(({ data }) => data.slot === "wiki" && data.entityType === "person" && data.entity === person.id && data.locale === locale);
 const hasCJK = (value: string) => /\p{Script=Han}/u.test(value);
 const cardTitle = (aliases: string[], name: string) => {
   const short = aliases.filter(alias => alias.length > 0 && alias.length <= 8);
@@ -25,65 +23,47 @@ const cardTitle = (aliases: string[], name: string) => {
   if (cjkAlias) return cjkAlias;
   return hasCJK(name) ? name : short[0] ?? name;
 };
-const chapterLinks = person ? catalog.transcriptImports.filter(t => t.data.locale === locale).flatMap(t => t.data.chapters.filter(c => c.turns.some(turn => turn.paragraphs.some(p => p.some(s => s.entityType === "person" && s.entityId === person.id)))).map(c => ({episodeId:t.data.episodeId, title:c.title, href:`${prefix}/weekly/${catalog.episodes.find(e => e.id === t.data.episodeId)!.data.number}/transcript#${c.id}`}))) : [];
-const mentions = person ? catalog.episodes.filter(episode => episode.data.mentions.people.includes(person.id) || chapterLinks.some(chapter => chapter.episodeId === episode.id)).sort((a, b) => Number(b.data.number) - Number(a.data.number)) : [];
+const chapterLinks = catalog.transcriptImports.filter(t => t.data.locale === locale).flatMap(t => t.data.chapters.filter(c => c.turns.some(turn => turn.paragraphs.some(p => p.some(s => s.entityType === "person" && s.entityId === person.id)))).map(c => ({episodeId:t.data.episodeId, title:c.title, href:`${prefix}/weekly/${catalog.episodes.find(e => e.id === t.data.episodeId)!.data.number}/transcript#${c.id}`})));
+const mentions = catalog.episodes.filter(episode => episode.data.mentions.people.includes(person.id) || chapterLinks.some(chapter => chapter.episodeId === episode.id)).sort((a, b) => Number(b.data.number) - Number(a.data.number));
 
 ---
 <main id="main" class:list={["people-library", { shell: !hasArticle, "has-wiki-article": hasArticle }]}>
-  {person && hasArticle ? <WikiDetailHeader person backHref={`${prefix}/wiki/people`} backLabel={en ? "All people" : "全部人物"}
+  {hasArticle ? <WikiDetailHeader person backHref={`${prefix}/wiki/people`} backLabel={en ? "All people" : "全部人物"}
     name={person.data.name[locale]} summary={person.data.bio[locale]} aliases={person.data.aliases} aliasesLabel={en ? "Also known as" : "别名"}>
     <WikiIdentityCard square class={person.data.photo ? "person-article-portrait" : "person-article-placeholder"}
       label={en ? "Person" : "人物"} photo={person.data.photo} name={person.data.name[locale]}
       title={cardTitle(person.data.aliases, person.data.name[locale])} />
   </WikiDetailHeader> : <>
-  {person ? <div class="person-detail-back"><a href={`${prefix}/wiki/people`}><span aria-hidden="true">←</span>{en ? "All people" : "全部人物"}</a></div> : <nav class="library-tabs" aria-label={en ? "Wiki" : "资料库"}>
-    <a href={`${prefix}/wiki/brands`}>{en ? "Brands" : "品牌"}</a>
-    <a href={`${prefix}/wiki/products`}>{en ? "Products" : "产品"}</a>
-    <a href={`${prefix}/wiki/people`} aria-current={!person ? "page" : undefined}>{en ? "People" : "人物"}</a>
-  </nav>}
+  <div class="person-detail-back"><a href={`${prefix}/wiki/people`}><span aria-hidden="true">←</span>{en ? "All people" : "全部人物"}</a></div>
   <header>
     <p class="section-kicker">NEXT TOKEN / {en ? "PEOPLE" : "人物库"}</p>
-    <h1>{person ? person.data.name[locale] : en ? "People" : "人物库"}</h1>
-    <p>{person ? person.data.bio[locale] : en ? "The co-hosts, builders and researchers in our conversations." : "认识节目中的主理人，以及对谈中提到的创业者、开发者与研究者。"}</p>
+    <h1>{person.data.name[locale]}</h1>
+    <p>{person.data.bio[locale]}</p>
   </header>
   </>}
-  {person ? <>
-    <WikiArticle entityType="person" entityId={person.id} name={person.data.name[locale]} locale={locale} contained={!hasArticle} lastVerifiedAt={person.data.lastVerifiedAt} />
-    <EntityPeopleRelations entityType="person" entityId={person.id} locale={locale} contained={!hasArticle} compact={hasArticle} />
-    {!hasArticle && person.data.aliases.length > 0 && <p>{en ? "Also known as" : "其他称呼"}：{person.data.aliases.join(" · ")}</p>}
-    <section class:list={[{ shell: hasArticle, "wiki-support-section": hasArticle }]} >
-      <h2 class={hasArticle ? "wiki-support-heading" : "heading-section-compact"}>{en ? "Sources" : "资料来源"}</h2>
-      <div><ul>{person.data.sources.map(s => <li><a href={s.href} target="_blank" rel="noopener noreferrer">{s.label[locale]} ↗</a></li>)}</ul>
-      {person.data.lastVerifiedAt && !hasArticle && <small>{en ? "Last verified" : "最近核验"} · {person.data.lastVerifiedAt}</small>}
-      </div>
-    </section>
-    <RelatedEpisodes episodes={mentions} locale={locale} compact contained={!hasArticle} chapterLinks={chapterLinks} />
-  </> : <div class="people-list">
-    {people.map(p => <article>
-      <p class="section-kicker">{hosts.has(p.id) ? en ? "CO-HOST" : "联合主理人" : en ? "MENTIONED" : "节目提及"}</p>
-      <h2 class="heading-section-compact"><a href={`${prefix}/wiki/people/${p.id}`}>{p.data.name[locale]} →</a></h2>
-      <p>{p.data.bio[locale]}</p>
-    </article>)}
-  </div>}
+  <WikiArticle entityType="person" entityId={person.id} name={person.data.name[locale]} locale={locale} contained={!hasArticle} lastVerifiedAt={person.data.lastVerifiedAt} />
+  <EntityPeopleRelations entityType="person" entityId={person.id} locale={locale} contained={!hasArticle} compact={hasArticle} />
+  {!hasArticle && person.data.aliases.length > 0 && <p>{en ? "Also known as" : "其他称呼"}：{person.data.aliases.join(" · ")}</p>}
+  <section class:list={[{ shell: hasArticle, "wiki-support-section": hasArticle }]} >
+    <h2 class={hasArticle ? "wiki-support-heading" : "heading-section-compact"}>{en ? "Sources" : "资料来源"}</h2>
+    <div><ul class="person-source-list">{person.data.sources.map(s => <li class="person-source-item wiki-support-item"><a class="wiki-support-link" href={s.href} target="_blank" rel="noopener noreferrer">{s.label[locale]} ↗</a></li>)}</ul>
+    {person.data.lastVerifiedAt && !hasArticle && <small>{en ? "Last verified" : "最近核验"} · {person.data.lastVerifiedAt}</small>}
+    </div>
+  </section>
+  <RelatedEpisodes episodes={mentions} locale={locale} compact contained={!hasArticle} chapterLinks={chapterLinks} />
 </main>
 <style>
   .people-library:not(.has-wiki-article) { padding-block: 3rem 5rem; }
   .people-library:has(.person-detail-back) { padding-top: 0; }
   .person-detail-back { padding-block: 1.5rem; border-bottom: 1px solid var(--ink); }
   .person-detail-back a { display: inline-flex; align-items: center; gap: .75rem; font-weight: 750; }
-  .library-tabs { display: flex; gap: 2rem; margin-bottom: 3rem; }
-  .library-tabs [aria-current] { color: var(--signal); text-decoration: underline; text-underline-offset: 0.4em; }
   .people-library:not(.has-wiki-article) > header { max-width: 55rem; margin-bottom: 3rem; }
   .people-library:not(.has-wiki-article) h1 { font-size: 3rem; margin-block: 1rem; }
-  header > p:last-child, article > p:last-child { color: var(--muted); }
-  .people-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; }
-  .people-library:not(.has-wiki-article) article, .people-library:not(.has-wiki-article) section { border-top: 0.0625rem solid var(--ink); padding-block: 2rem; }
-  article h2 { margin-block: 1rem; }
-  ul { list-style: none; padding: 0; margin-block: 1rem; }
-  li { padding-block: 0.75rem; border-bottom: 0.0625rem solid var(--line); }
+  .people-library:not(.has-wiki-article) > header > p:last-child { color: var(--muted); }
+  .people-library:not(.has-wiki-article) > section { border-top: 0.0625rem solid var(--ink); padding-block: 2rem; }
+  .person-source-list { list-style: none; padding: 0; margin-block: 1rem; }
+  .person-source-item { padding-block: 0.75rem; border-bottom: 0.0625rem solid var(--line); }
   a:hover { color: var(--signal); }
   small { color: var(--muted); }
-  .wiki-support-heading { font-size: 1.25rem; margin: 0 0 .75rem; }
-  .has-wiki-article > section li { padding-block: .5rem; }
-  @media (max-width: 40rem) { .people-list { grid-template-columns: 1fr; } }
+  .has-wiki-article .person-source-item { padding-block: .5rem; }
 </style>

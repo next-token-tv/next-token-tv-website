@@ -1,0 +1,154 @@
+---
+import { getBrandDirectory, getProductDirectory, getPeopleDirectory } from "../data/catalog";
+import type { Locale } from "../data/types";
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const en = locale === "en";
+const prefix = en ? "/en" : "";
+const [brands, products, people] = await Promise.all([
+  getBrandDirectory(locale), getProductDirectory(locale), getPeopleDirectory(),
+]);
+function pickFeatured<T extends { id: string }>(items: T[], ids: string[]) {
+  return ids.map(id => {
+    const item = items.find(entry => entry.id === id);
+    if (!item) throw new Error(`Unknown featured Wiki entry: ${id}`);
+    return item;
+  });
+}
+const sections = [
+  {
+    id: "brands", number: "01", title: en ? "Brands" : "品牌库", count: brands.length,
+    unit: en ? "brands" : "个品牌",
+    description: en ? "The organizations and brands behind the products and conversations." : "从公司、组织与媒体品牌出发，找到产品和节目中的讨论。",
+    entries: pickFeatured(brands.map(({ brand }) => brand), ["openai", "apple", "zhipu", "bytedance"])
+      .map(brand => ({ id: brand.id, name: brand.data.name[locale], meta: brand.data.summary[locale] })),
+  },
+  {
+    id: "products", number: "02", title: en ? "Products" : "产品库", count: products.length,
+    unit: en ? "products" : "个产品",
+    description: en ? "Models, applications, agents and tools discussed on the show." : "按模型、应用、Agent 与工具浏览节目中提到的具体产品。",
+    entries: pickFeatured(products.map(({ product }) => product), ["zcode", "iphone", "blender", "omarchy"])
+      .map(product => ({ id: product.id, name: product.data.name[locale], meta: product.data.summary[locale] })),
+  },
+  {
+    id: "people", number: "03", title: en ? "People" : "人物库", count: people.length,
+    unit: en ? "people" : "位人物",
+    description: en ? "Meet the co-hosts and the people mentioned in our conversations." : "认识联合主理人，以及节目中提及的创业者、开发者与研究者。",
+    entries: people.slice(0, 4).map(({ person }) => ({ id: person.id, name: person.data.name[locale], meta: person.data.bio[locale] })),
+  },
+];
+const brandTypes = [
+  ["ai-brand", en ? "Artificial intelligence" : "人工智能"],
+  ["hardware-brand", en ? "Hardware & semiconductors" : "硬件与半导体"],
+  ["internet-software-brand", en ? "Internet & software" : "互联网与软件服务"],
+  ["media-community-brand", en ? "Media & communities" : "媒体与社区"],
+] as const;
+const productTypes = [
+  ["model-family", en ? "Model families" : "模型家族"],
+  ["model", en ? "Models" : "模型"],
+  ["application", en ? "Applications" : "应用"],
+  ["agent", "Agent"],
+  ["developer-tool", en ? "Developer tools" : "开发者工具"],
+] as const;
+---
+
+<main id="main" class="wiki-home">
+  <section class="wiki-home-hero shell" aria-labelledby="wiki-home-title">
+    <div class="wiki-home-heading">
+      <p class="eyebrow">NEXT TOKEN / {en ? "WIKI" : "AI 资料库"}</p>
+      <h1 id="wiki-home-title">{en ? "AI brands, products and people." : <>AI 世界的品牌、<br />产品与人物。</>}</h1>
+      <p>{en ? "A connected index of the brands, products and people in Next Token conversations. Start with a name, then follow its relationships to other entries and episodes." : "从节目中的一个名字出发，找到背后的品牌、具体的产品和相关的人。这里把分散在对话中的线索，整理成可以继续探索的资料。"}</p>
+    </div>
+    <div class="wiki-home-overview" aria-label={en ? "Wiki collections" : "资料库分类与条目数量"}>
+      {sections.map(section => <a href={`${prefix}/wiki/${section.id}`}>
+        <span class="wiki-home-overview-top"><span>{section.number} / {section.title}</span><span aria-hidden="true">↗</span></span>
+        <strong>{section.count}</strong>
+        <span class="wiki-home-overview-bottom">{section.unit}<span>{en ? "Explore collection" : "进入资料库"}</span></span>
+      </a>)}
+    </div>
+  </section>
+
+  <section class="wiki-home-discover shell" aria-labelledby="wiki-home-discover-title">
+    <div class="wiki-home-section-head">
+      <p class="eyebrow">01 / {en ? "EXPLORE" : "开始探索"}</p>
+      <h2 id="wiki-home-discover-title">{en ? "Three ways in." : "从三个入口开始。"}</h2>
+      <p>{en ? "A few entries from each collection. Every name leads to its own profile." : "从每类资料中选几个名字，进入条目后可继续查看相关资料与节目。"}</p>
+    </div>
+    <div class="wiki-home-columns">
+      {sections.map(section => <section aria-labelledby={`wiki-home-${section.id}`}>
+        <a class="wiki-home-column-heading" href={`${prefix}/wiki/${section.id}`} aria-labelledby={`wiki-home-${section.id}`}>
+          <span>{section.number} / {section.count}</span>
+          <h3 id={`wiki-home-${section.id}`}>{section.title}</h3>
+          <p>{section.description}</p>
+        </a>
+        <div class="wiki-home-entry-list">
+          {section.entries.map(entry => <a href={`${prefix}/wiki/${section.id}/${entry.id}`}><strong>{entry.name}</strong><span>{entry.meta}</span><b aria-hidden="true">↗</b></a>)}
+        </div>
+        <a class="wiki-home-all" href={`${prefix}/wiki/${section.id}`}>{en ? `All ${section.title.toLowerCase()}` : `查看全部${section.title}`} <span aria-hidden="true">→</span></a>
+      </section>)}
+    </div>
+  </section>
+
+  <section class="wiki-home-index shell" aria-labelledby="wiki-home-index-title">
+    <div class="wiki-home-section-head">
+      <p class="eyebrow">02 / {en ? "FIND A THREAD" : "按类别查找"}</p>
+      <h2 id="wiki-home-index-title">{en ? "Follow a subject." : "顺着领域，继续查找。"}</h2>
+    </div>
+    <div class="wiki-home-index-grid">
+      <div><h3>{en ? "Browse brands" : "浏览品牌"}</h3>{brandTypes.map(([id, label]) => <a href={`${prefix}/wiki/brands?type=${id}`}><span>{label}</span><span aria-hidden="true">↗</span></a>)}</div>
+      <div><h3>{en ? "Browse products" : "浏览产品"}</h3>{productTypes.map(([id, label]) => <a href={`${prefix}/wiki/products?type=${id}`}><span>{label}</span><span aria-hidden="true">↗</span></a>)}</div>
+      <div><h3>{en ? "Browse people" : "浏览人物"}</h3><a href={`${prefix}/wiki/people?type=co-host`}><span>{en ? "Co-hosts" : "联合主理人"}</span><span aria-hidden="true">↗</span></a><a href={`${prefix}/wiki/people?type=mentioned`}><span>{en ? "Mentioned people" : "节目提及的人物"}</span><span aria-hidden="true">↗</span></a><a href={`${prefix}/wiki/people`}><span>{en ? "All people" : "全部人物"}</span><span aria-hidden="true">↗</span></a></div>
+    </div>
+  </section>
+</main>
+
+<style>
+  .wiki-home-hero { display: grid; grid-template-columns: minmax(0, 1.06fr) minmax(26rem, .94fr); gap: 3rem; padding-block: 4rem 4.5rem; border-bottom: .0625rem solid var(--ink); }
+  .wiki-home-heading { display: flex; flex-direction: column; align-items: start; }
+  .wiki-home-heading .eyebrow { margin: 0 0 2.25rem; }
+  .wiki-home-heading h1 { max-width: 13ch; margin: 0; font-size: 3.9rem; line-height: 1.12; }
+  .wiki-home-heading > p:last-child { max-width: 37rem; margin: 1.75rem 0 0; color: var(--muted); font-size: 1.08rem; line-height: 1.8; }
+  .wiki-home-overview { display: grid; align-content: start; border-top: .0625rem solid var(--ink); }
+  .wiki-home-overview a { display: grid; gap: .35rem; padding: 1rem 1.25rem; border-bottom: .0625rem solid var(--ink); transition: background .18s ease, color .18s ease; }
+  .wiki-home-overview a:hover { background: var(--ink); color: var(--paper); }
+  .wiki-home-overview-top, .wiki-home-overview-bottom { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .wiki-home-overview-top { font-size: .82rem; font-weight: 800; }
+  .wiki-home-overview-top span:last-child { color: var(--signal); font-size: 1.25rem; }
+  .wiki-home-overview strong { font-family: var(--display); font-size: 3.2rem; line-height: 1; }
+  .wiki-home-overview-bottom { font-size: .82rem; }
+  .wiki-home-overview-bottom span { font-weight: 750; }
+  .wiki-home-discover, .wiki-home-index { padding-block: 5rem 6rem; }
+  .wiki-home-section-head { display: grid; grid-template-columns: minmax(9rem, .28fr) minmax(0, 1fr) minmax(15rem, .6fr); gap: 2rem; align-items: end; margin-bottom: 2.25rem; }
+  .wiki-home-section-head .eyebrow { margin: 0 0 .5rem; }
+  .wiki-home-section-head h2 { margin: 0; font-size: var(--heading-section-content-size); line-height: var(--section-heading-leading); }
+  .wiki-home-section-head > p:last-child { margin: 0 0 .15rem; color: var(--muted); font-size: .9rem; line-height: 1.6; }
+  .wiki-home-columns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: .0625rem solid var(--ink); }
+  .wiki-home-columns > section { min-width: 0; display: flex; flex-direction: column; }
+  .wiki-home-columns > section + section { border-left: .0625rem solid var(--ink); }
+  .wiki-home-column-heading { position: relative; display: block; min-height: 13rem; padding: 1.5rem; border-bottom: .0625rem solid var(--ink); transition: background .18s ease; }
+  .wiki-home-column-heading::after { position: absolute; top: 1.2rem; right: 1.5rem; color: var(--signal); content: "↗"; font-size: 1.35rem; }
+  .wiki-home-column-heading:hover { background: var(--white); }
+  .wiki-home-column-heading:hover h3 { text-decoration: underline; text-decoration-thickness: .08rem; text-underline-offset: .3rem; }
+  .wiki-home-column-heading > span { font-size: .75rem; font-weight: 800; color: var(--signal); }
+  .wiki-home-column-heading h3 { margin: .8rem 0 .4rem; font-size: 2rem; line-height: 1.2; }
+  .wiki-home-column-heading p { max-width: 25rem; margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.6; }
+  .wiki-home-entry-list { flex: 1; }
+  .wiki-home-entry-list a { position: relative; display: grid; gap: .15rem; min-height: 5.8rem; padding: .9rem 2.1rem .9rem 1.5rem; border-bottom: .0625rem solid var(--line); }
+  .wiki-home-entry-list a:hover { background: var(--white); }
+  .wiki-home-entry-list strong { font-size: 1.1rem; line-height: 1.35; }
+  .wiki-home-entry-list span { overflow: hidden; color: var(--muted); font-size: .8rem; text-overflow: ellipsis; white-space: nowrap; }
+  .wiki-home-entry-list b { position: absolute; top: 1rem; right: 1rem; color: var(--signal); }
+  .wiki-home-all { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 1.5rem; font-weight: 800; }
+  .wiki-home-all:hover { background: var(--signal); }
+  .wiki-home-index { border-top: .0625rem solid var(--ink); }
+  .wiki-home-index-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+  .wiki-home-index-grid > div { border-top: .0625rem solid var(--ink); }
+  .wiki-home-index-grid h3 { margin: 1rem 0 1.5rem; font-size: 1.35rem; }
+  .wiki-home-index-grid a { display: flex; justify-content: space-between; gap: 1rem; padding: .75rem 0; border-top: .0625rem solid var(--line); }
+  .wiki-home-index-grid a span:last-child { color: var(--signal); }
+  .wiki-home-index-grid a:hover span:first-child { text-decoration: underline; text-underline-offset: .25rem; }
+  @media (min-width: 80rem) { .wiki-home-heading h1 { font-size: 4.35rem; } }
+  @media (max-width: 60rem) { .wiki-home-hero { grid-template-columns: 1fr; gap: 2.5rem; } .wiki-home-section-head { grid-template-columns: 1fr 2fr; } .wiki-home-section-head > p:last-child { grid-column: 2; } }
+  @media (max-width: 45rem) { .wiki-home-hero { padding-block: 2.5rem; } .wiki-home-heading h1 { font-size: 2.8rem; } .wiki-home-overview strong { font-size: 2.8rem; } .wiki-home-discover, .wiki-home-index { padding-block: 3.5rem; } .wiki-home-section-head { grid-template-columns: 1fr; gap: .6rem; } .wiki-home-section-head > p:last-child { grid-column: auto; } .wiki-home-columns, .wiki-home-index-grid { grid-template-columns: 1fr; } .wiki-home-columns > section + section { border-left: 0; border-top: .0625rem solid var(--ink); } .wiki-home-column-heading { min-height: 0; } .wiki-home-index-grid { gap: 2rem; } }
+</style>

@@ -47,6 +47,7 @@ export const GET: APIRoute = async ({ site }) => {
     "",
     "## Wiki",
     "",
+    `- [AI 资料库](${absolute("/wiki", site!)}): 品牌、产品与人物资料的汇总入口`,
     `- [品牌](${absolute("/wiki/brands", site!)}): 对谈涉及的公司、组织与媒体品牌`,
     `- [产品](${absolute("/wiki/products", site!)}): 对谈涉及的产品、平台、模型与项目`,
     `- [人物](${absolute("/wiki/people", site!)}): 联合主理人与对谈涉及的人物`,

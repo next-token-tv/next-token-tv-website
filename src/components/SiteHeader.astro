@@ -11,7 +11,7 @@ const { content, currentPath, alternatePath } = Astro.props;
 const homePath = content.locale === "en" ? "/en" : "/";
 const partnersPath = content.locale === "en" ? "/en/partners" : "/partners";
 const weeklyPath = content.locale === "en" ? "/en/weekly" : "/weekly";
-const libraryPath = content.locale === "en" ? "/en/wiki/brands" : "/wiki/brands";
+const libraryPath = content.locale === "en" ? "/en/wiki" : "/wiki";
 const homeSection = (id: string) => currentPath === homePath ? `#${id}` : `${homePath}#${id}`;
 const isPartners = currentPath.startsWith(partnersPath);
 const isWeekly = currentPath.startsWith(weeklyPath);

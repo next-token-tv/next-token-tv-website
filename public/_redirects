@@ -14,10 +14,6 @@
 /en/products/* /en/wiki/products/:splat 301
 /en/people /en/wiki/people 301
 /en/people/* /en/wiki/people/:splat 301
-/wiki /wiki/brands 301
-/wiki/ /wiki/brands 301
-/en/wiki /en/wiki/brands 301
-/en/wiki/ /en/wiki/brands 301
 /wiki/brands/android /wiki/products/android 301
 /wiki/brands/android/ /wiki/products/android 301
 /wiki/brands/bilibili /wiki/products/bilibili 301
