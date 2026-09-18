@@ -20,7 +20,7 @@ for (const prefix of ['', '/en']) test(`entity relationships ${prefix || 'zh'}`,
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.screenshot({ path: `/tmp/dhh-relations-${prefix ? 'en' : 'zh'}.png`, fullPage: true });
   await page.goto(`${prefix}/wiki/brands/evoken`);
-  for (const id of ['liblib', 'libtv', 'lovart']) await expect(page.locator(`a[href="${prefix}/wiki/products/${id}"]`)).toHaveCount(1);
+  for (const id of ['liblib', 'libtv', 'lovart']) await expect(page.locator(`.entity-connection-list a[href="${prefix}/wiki/products/${id}"]`)).toHaveCount(1);
 });
 test('direct transcript links and no inferred mentions', async ({ page }) => {
   await page.goto('/weekly/001/transcript');

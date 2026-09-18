@@ -67,8 +67,8 @@ test('localized name, model-family aliases and standalone product', async ({ pag
   await expect(page.locator('h1')).toHaveText('Guanlan Dai');
   await page.goto('/wiki/products/qwen');
   await expect(page.locator('h1')).toHaveText('Qwen');
-  await expect(page.locator('.entity-detail-aliases')).toContainText('Qwen 3.8 Max 0902');
-  await expect(page.locator('.entity-detail-aliases')).toContainText('Qwen 3.8 Flash Next');
+  await expect(page.locator('.wiki-detail-copy details')).toContainText('Qwen 3.8 Max 0902');
+  await expect(page.locator('.wiki-detail-copy details')).toContainText('Qwen 3.8 Flash Next');
   await page.goto('/wiki/products/herdr');
   await expect(page.locator('h1')).toHaveText('Herdr');
   await expect(page.locator('.entity-detail-facts')).not.toContainText('所属品牌');
@@ -125,10 +125,10 @@ test('repeated keywords use pale type-colored backgrounds with visible focus', a
 
 test('Runta remains one platform product with its founder relationship', async ({ page }) => {
   await page.goto('/wiki/products/runta');
-  await expect(page.locator('.entity-detail-summary')).toContainText('执行基础设施平台');
-  await expect(page.locator('main a[href="/wiki/people/guanlan-dai"]')).toHaveCount(1);
+  await expect(page.locator('.wiki-detail-copy > p')).toContainText('执行基础设施平台');
+  await expect(page.locator('.entity-people-relations a[href="/wiki/people/guanlan-dai"]')).toHaveCount(1);
   await page.goto('/wiki/people/guanlan-dai');
-  await expect(page.locator('main a[href="/wiki/products/runta"]')).toHaveCount(1);
+  await expect(page.locator('.entity-people-relations a[href="/wiki/products/runta"]')).toHaveCount(1);
   await page.goto('/weekly/001/transcript');
   await expect(page.locator('.transcript-body a[href="/wiki/products/runta"]')).toHaveCount(1);
 });
@@ -141,5 +141,5 @@ test('Rails name links to the framework without swallowing the author phrase', a
   await expect(paragraph).toContainText('Ruby on Rails 那个连，作者');
   await paragraph.locator('a[href="/wiki/products/ruby-on-rails"]').click();
   await expect(page.locator('h1')).toHaveText('Ruby on Rails');
-  await expect(page.locator('main a[href="/wiki/people/dhh"]')).toHaveCount(1);
+  await expect(page.locator('.entity-people-relations a[href="/wiki/people/dhh"]')).toHaveCount(1);
 });

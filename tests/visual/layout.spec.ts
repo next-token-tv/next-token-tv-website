@@ -23,12 +23,12 @@ const routes = [
   { path: "/en/partners", shell: ".partners-intro.shell", visual: ".partners-intro" },
   { path: "/wiki/brands", shell: ".entity-index-hero.shell", visual: ".entity-index-hero" },
   { path: "/en/wiki/brands", shell: ".entity-index-hero.shell", visual: ".entity-index-hero" },
-  { path: "/wiki/brands/zhipu", shell: ".entity-detail-hero.shell", visual: ".entity-detail-hero" },
-  { path: "/en/wiki/brands/zhipu", shell: ".entity-detail-hero.shell", visual: ".entity-detail-hero" },
+  { path: "/wiki/brands/zhipu", shell: ".wiki-detail-hero.shell", visual: ".wiki-detail-hero" },
+  { path: "/en/wiki/brands/zhipu", shell: ".wiki-detail-hero.shell", visual: ".wiki-detail-hero" },
   { path: "/wiki/products", shell: ".entity-index-hero.shell", visual: ".entity-index-hero" },
   { path: "/en/wiki/products", shell: ".entity-index-hero.shell", visual: ".entity-index-hero" },
-  { path: "/wiki/products/glm", shell: ".entity-detail-hero.shell", visual: ".entity-detail-hero" },
-  { path: "/en/wiki/products/glm", shell: ".entity-detail-hero.shell", visual: ".entity-detail-hero" },
+  { path: "/wiki/products/glm", shell: ".wiki-detail-hero.shell", visual: ".wiki-detail-hero" },
+  { path: "/en/wiki/products/glm", shell: ".wiki-detail-hero.shell", visual: ".wiki-detail-hero" },
 ] as const;
 
 test("platform lists share localized labels, logos and destinations", async ({ page }) => {
@@ -163,7 +163,7 @@ test.describe("entity metadata and links", () => {
 
   test("entity pages expose structured data", async ({ page }) => {
     await page.goto("/wiki/products/glm");
-    const structuredData = JSON.parse(await page.locator('script[type="application/ld+json"]').textContent() ?? "{}");
+    const structuredData = JSON.parse(await page.locator('script[type="application/ld+json"]').first().textContent() ?? "{}");
     expect(structuredData["@type"]).toBe("WebPage");
     expect(structuredData.about.name).toBe("GLM");
     expect(structuredData.about["@type"]).toBe("Thing");
