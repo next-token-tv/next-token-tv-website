@@ -1,0 +1,244 @@
+{
+  "date": "2026-09-17",
+  "method": "Google public autocomplete, Firefox client; language hint only, no controlled location or volume data",
+  "samples": [
+    {
+      "query": "chatgpt ",
+      "language": "zh-CN",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=zh-CN&q=chatgpt+&ie=utf-8&oe=utf-8",
+      "suggestions": [
+        "chatgpt官网",
+        "chatgpt下载",
+        "chatgpt 官网 下载",
+        "chatgpt api",
+        "chatgpt 网页 版",
+        "chatgpt app",
+        "chatgpt download",
+        "chatgpt充值",
+        "chatgpt codex",
+        "chatgpt image 2"
+      ]
+    },
+    {
+      "query": "chatgpt ",
+      "language": "en",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&q=chatgpt+",
+      "suggestions": [
+        "chatgpt login",
+        "chatgpt images",
+        "chatgpt astra",
+        "chatgpt app",
+        "chatgpt free",
+        "chatgpt 80s trend",
+        "chatgpt download",
+        "chatgpt 6",
+        "chatgpt student offer",
+        "chatgpt desktop"
+      ]
+    },
+    {
+      "query": "codex ",
+      "language": "zh-CN",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=zh-CN&q=codex+&ie=utf-8&oe=utf-8",
+      "suggestions": [
+        "codex下载",
+        "codex cli",
+        "codex 官网",
+        "codex app",
+        "codex download",
+        "codex 安装",
+        "codex是什么",
+        "codex重置",
+        "codex宠物",
+        "codex skills"
+      ]
+    },
+    {
+      "query": "codex ",
+      "language": "en",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&q=codex+",
+      "suggestions": [
+        "codex download",
+        "codex cli",
+        "codex ai",
+        "codex vs claude code",
+        "codex app",
+        "codex reset",
+        "codex usage",
+        "codex gigas",
+        "codex sinaiticus",
+        "codex install"
+      ]
+    },
+    {
+      "query": "claude ",
+      "language": "zh-CN",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=zh-CN&q=claude+&ie=utf-8&oe=utf-8",
+      "suggestions": [
+        "claude code",
+        "claude ai",
+        "claude desktop",
+        "claude design",
+        "claude 官网",
+        "claude code 安装",
+        "claude science",
+        "claude 下载",
+        "claude api",
+        "claude code desktop"
+      ]
+    },
+    {
+      "query": "claude ",
+      "language": "en",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&q=claude+",
+      "suggestions": [
+        "claude ai",
+        "claude code",
+        "claude login",
+        "claude mythos",
+        "claude design",
+        "claude cowork",
+        "claude desktop",
+        "claude status",
+        "claude download",
+        "claude vs chatgpt"
+      ]
+    },
+    {
+      "query": "claude code ",
+      "language": "zh-CN",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=zh-CN&q=claude+code+&ie=utf-8&oe=utf-8",
+      "suggestions": [
+        "claude code 安装",
+        "claude code desktop",
+        "claude code cli",
+        "claude code 下载",
+        "claude code install",
+        "claude code download",
+        "claude code skills",
+        "claude code docs",
+        "claude code github",
+        "claude code 桌面版"
+      ]
+    },
+    {
+      "query": "claude code ",
+      "language": "en",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&q=claude+code+",
+      "suggestions": [
+        "claude code pricing",
+        "claude code install",
+        "claude code download",
+        "claude code cli",
+        "claude code docs",
+        "claude code ai",
+        "claude code desktop",
+        "claude code vs codex",
+        "claude code skills",
+        "claude code subscription"
+      ]
+    },
+    {
+      "query": "cursor ",
+      "language": "zh-CN",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=zh-CN&q=cursor+",
+      "suggestions": [
+        "cursor下载",
+        "cursor 官网",
+        "cursor cli",
+        "cursor download",
+        "cursor是什么",
+        "cursor ai",
+        "cursor使用教程",
+        "cursor pro",
+        "cursor 中文",
+        "cursor设置中文"
+      ]
+    },
+    {
+      "query": "cursor ",
+      "language": "en",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&q=cursor+",
+      "suggestions": [
+        "cursor ai",
+        "cursor download",
+        "cursor vs claude code",
+        "cursor careers",
+        "cursor ide",
+        "cursor pricing",
+        "cursor cli",
+        "cursor library",
+        "cursor pro",
+        "cursor stock"
+      ]
+    },
+    {
+      "query": "gemini ",
+      "language": "zh-CN",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=zh-CN&q=gemini+&ie=utf-8&oe=utf-8",
+      "suggestions": [
+        "gemini ai",
+        "gemini 官网",
+        "gemini api",
+        "gemini 下载",
+        "gemini cli",
+        "gemini 3",
+        "gemini pro",
+        "gemini omni",
+        "gemini ai studio",
+        "gemini spark"
+      ]
+    },
+    {
+      "query": "gemini ",
+      "language": "en",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&q=gemini+",
+      "suggestions": [
+        "gemini ai",
+        "gemini google",
+        "gemini notebook",
+        "gemini dates",
+        "gemini horoscope",
+        "gemini sign",
+        "gemini zodiac sign",
+        "gemini zodiac",
+        "gemini man",
+        "gemini pro"
+      ]
+    },
+    {
+      "query": "google gemini ",
+      "language": "en",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&q=google+gemini+&ie=utf-8&oe=utf-8",
+      "suggestions": [
+        "google gemini ai",
+        "google gemini student",
+        "google gemini app",
+        "google gemini image generation",
+        "google gemini api",
+        "google gemini pro",
+        "google gemini api key",
+        "google gemini 3",
+        "google gemini notebook",
+        "google gemini logo"
+      ]
+    },
+    {
+      "query": "gemini api ",
+      "language": "en",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&q=gemini+api+&ie=utf-8&oe=utf-8",
+      "suggestions": [
+        "gemini api key",
+        "gemini api pricing",
+        "gemini api key free",
+        "gemini api cost",
+        "gemini api models",
+        "gemini api usage",
+        "gemini api free tier",
+        "gemini api free",
+        "gemini api billing",
+        "gemini api free tier limits"
+      ]
+    }
+  ]
+}

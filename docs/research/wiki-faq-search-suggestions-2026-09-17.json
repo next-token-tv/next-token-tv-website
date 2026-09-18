@@ -1,0 +1,176 @@
+{
+  "capturedAt": "2026-09-17",
+  "provider": "Google public autocomplete",
+  "note": "Suggestions are discovery signals, not search volume, ranking, or site performance. Language is requested via hl; geographic location is not controlled.",
+  "samples": [
+    {
+      "language": "zh-CN",
+      "seed": "deepseek",
+      "suggestions": [
+        "deepseek",
+        "deepseek api",
+        "deepseek v4",
+        "deepseek 开放平台",
+        "deepseek v4 pro",
+        "deepseek v4 flash",
+        "deepseek网页版",
+        "deepseek官网",
+        "deepseek - 探索未至之境",
+        "deepseek tui"
+      ],
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&hl=zh-CN&q=deepseek"
+    },
+    {
+      "language": "en",
+      "seed": "deepseek",
+      "suggestions": [
+        "deepseek",
+        "deepseek v4.1 flash",
+        "deepseek v4.1",
+        "deepseek api",
+        "deepseek ai",
+        "deepseek 4.1",
+        "deepseek v4 flash",
+        "deepseek v4",
+        "deepseek harness desktop",
+        "deepseek v4 pro"
+      ],
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&q=deepseek"
+    },
+    {
+      "language": "en",
+      "seed": "deepseek company",
+      "suggestions": [
+        "deepseek company",
+        "deepseek company name",
+        "deepseek company stock",
+        "deepseek company owner",
+        "deepseek company valuation",
+        "deepseek company net worth",
+        "deepseek company value",
+        "deepseek company country",
+        "deepseek company location",
+        "deepseek company size"
+      ],
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&q=deepseek+company"
+    },
+    {
+      "language": "en",
+      "seed": "David Heinemeier Hansson",
+      "suggestions": [
+        "david heinemeier hansson",
+        "david heinemeier hansson net worth",
+        "david heinemeier hansson office",
+        "david heinemeier hansson wife",
+        "david heinemeier hansson controversy",
+        "david heinemeier hansson desk",
+        "david heinemeier hansson books",
+        "david heinemeier hansson cars",
+        "david heinemeier hansson le mans",
+        "david heinemeier hansson instagram"
+      ],
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&q=David+Heinemeier+Hansson"
+    },
+    {
+      "language": "en",
+      "seed": "dhh",
+      "suggestions": [
+        "dhhs",
+        "dhhr",
+        "dhhs nebraska",
+        "dhhs login",
+        "dhhs license lookup",
+        "dhhs program",
+        "dhhs phone number",
+        "dhhs nc",
+        "dhhl",
+        "dhhr near me"
+      ],
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&q=dhh"
+    },
+    {
+      "language": "zh-CN",
+      "seed": "deepseek 怎么",
+      "suggestions": [
+        "deepseek怎么接入codex",
+        "deepseek怎么样",
+        "deepseek怎么破甲",
+        "deepseek怎么解除限制",
+        "deepseek怎么收费",
+        "deepseek怎么付费",
+        "deepseek怎么使用",
+        "deepseek 怎么买",
+        "deepseek怎么读",
+        "deepseek怎么买api"
+      ],
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&hl=zh-CN&q=deepseek+%E6%80%8E%E4%B9%88&oe=utf-8"
+    },
+    {
+      "language": "zh-CN",
+      "seed": "deepseek 公司",
+      "suggestions": [
+        "deepseek 公司",
+        "deepseek 公司 上市 了 吗",
+        "deepseek公司官网",
+        "deepseek公司介绍",
+        "deepseek公司在哪",
+        "deepseek公司地址",
+        "deepseek公司在哪里",
+        "deepseek公司人数",
+        "deepseek公司规模",
+        "deepseek 公司 背景"
+      ],
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&hl=zh-CN&q=deepseek+%E5%85%AC%E5%8F%B8&oe=utf-8"
+    },
+    {
+      "language": "zh-CN",
+      "seed": "DHH",
+      "suggestions": [
+        "大韩航空",
+        "大韩航空官网",
+        "大韩航空中文官网",
+        "大航海时代",
+        "大航海",
+        "大航海时代4",
+        "电话号码查询",
+        "电话号码",
+        "东海海鲜酒家",
+        "大和号"
+      ],
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&hl=zh-CN&q=DHH&oe=utf-8"
+    },
+    {
+      "language": "zh-CN",
+      "seed": "DHH 程序员",
+      "suggestions": [],
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&hl=zh-CN&q=DHH+%E7%A8%8B%E5%BA%8F%E5%91%98&oe=utf-8"
+    },
+    {
+      "language": "en",
+      "seed": "deepseek api",
+      "suggestions": [
+        "deepseek api",
+        "deepseek api pricing",
+        "deepseek api key",
+        "deepseek api platform",
+        "deepseek api login",
+        "deepseek api free",
+        "deepseek api url",
+        "deepseek api docs",
+        "deepseek api status",
+        "deepseek api models"
+      ],
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&q=deepseek+api&oe=utf-8"
+    },
+    {
+      "language": "en",
+      "seed": "David Heinemeier Hansson books",
+      "suggestions": [
+        "david heinemeier hansson books",
+        "david heinemeier hansson book recommendations",
+        "jason fried and david heinemeier hansson books"
+      ],
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&q=David+Heinemeier+Hansson+books&oe=utf-8"
+    }
+  ]
+}

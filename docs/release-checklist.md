@@ -21,6 +21,7 @@ External playback, regional restrictions, and account permissions require manual
 
 - Search matches chapter titles and dialogue case-insensitively, showing up to 50 result links and the total match count. Selecting a result locates the corresponding chapter or turn without hiding or rewriting the transcript.
 - Chapter sharing copies the canonical production URL with the existing chapter anchor. If clipboard permission is unavailable, a selectable URL is shown.
-- Without JavaScript, the full transcript and expanded table of contents remain available; interactive tools are not displayed.
-- Turn anchors are generated from chapter IDs and turn order. They are local search targets, not editorially stable share identifiers. Chapter links are the sharing interface.
+- Without JavaScript, the full transcript, expanded table of contents, and per-paragraph permalink remain available; interactive tools are not displayed.
+- Each published paragraph has a `quote-` anchor based on its speaker identity and normalized plain text. The paragraph link copies its canonical URL when JavaScript and clipboard access are available; otherwise it remains a native link. Opening the fragment highlights that paragraph. Inserting unrelated paragraphs or chapters does not change its anchor. Text edits and inserting an identical speaker/text paragraph before an existing duplicate can change an anchor, so editorial references must be checked when transcript text changes.
+- Turn anchors are generated from chapter IDs and turn order. They remain local search targets, not editorially stable share identifiers. Chapter anchors remain the stable chapter sharing interface.
 - The current transcript snapshot has no verified turn timestamps. Timed video links are not generated.
