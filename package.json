@@ -13,7 +13,7 @@
     "import:transcript": "node scripts/import-transcript.mjs",
     "generate:og": "node scripts/generate-og.mjs",
     "build": "npm run generate:og && npm run check:chapters && npm run test:transcript && astro check && astro build",
-    "preview": "wrangler dev --local --ip 127.0.0.1 --port 4174",
+    "preview": "astro preview --host 127.0.0.1 --port 4174",
     "check": "npm run check:chapters && npm run test:transcript && npm run lint:styles && astro check",
     "test:transcript": "node --experimental-strip-types --test tests/transcript-converter.test.mjs tests/transcript-paragraph-anchors.test.mjs",
     "lint:styles": "stylelint \"src/**/*.{css,astro}\" --allow-empty-input",
