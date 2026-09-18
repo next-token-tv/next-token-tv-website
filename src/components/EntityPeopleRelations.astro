@@ -15,10 +15,10 @@ const en = locale === "en";
       <th scope="col">{en ? "References" : "参考来源"}</th>
     </tr></thead>
     <tbody>{entries.map(entry => <tr>
-      <th scope="row"><a href={entry.href}>{entry.name} <span aria-hidden="true">→</span></a></th>
+      <th scope="row"><a class="wiki-support-link" href={entry.href}>{entry.name} <span aria-hidden="true">→</span></a></th>
       <td class="relation-role" data-label={en ? "Role" : "人物关系"}>{entry.role}</td>
       <td class="relation-references" data-label={en ? "References" : "参考来源"}>
-        {entry.sources.map(source => <a href={source.href} target="_blank" rel="noopener noreferrer">{["关系资料来源", "Relationship source"].includes(source.label[locale]) ? new URL(source.href).hostname.replace(/^www\./, "") : source.label[locale]} <span aria-hidden="true">↗</span></a>)}
+        {entry.sources.map(source => <a class="wiki-support-link" href={source.href} target="_blank" rel="noopener noreferrer">{["关系资料来源", "Relationship source"].includes(source.label[locale]) ? new URL(source.href).hostname.replace(/^www\./, "") : source.label[locale]} <span aria-hidden="true">↗</span></a>)}
       </td>
     </tr>)}</tbody>
   </table> : <>
@@ -38,11 +38,6 @@ const en = locale === "en";
   span { color: var(--muted); font-size: .9rem; }
   .relation-sources { display: flex; gap: 1rem; margin-top: .75rem; color: var(--muted); font-size: .75rem; }
   a:hover { color: var(--signal); }
-  .is-compact { padding-block: 1.5rem; }
-  .is-compact h2 { font-size: 1.25rem; margin-bottom: 1rem; }
-  .is-compact li { padding-block: .75rem; }
-  .is-compact strong { font-size: 1rem; }
-  .is-compact .relation-sources { margin-top: .35rem; }
   .relations-table { width: 100%; table-layout: fixed; border-collapse: collapse; text-align: left; }
   .relations-table th, .relations-table td { padding: .6rem 1.25rem .6rem 0; vertical-align: top; overflow-wrap: anywhere; border: 0; }
   .relations-table th:last-child, .relations-table td:last-child { padding-right: 0; }

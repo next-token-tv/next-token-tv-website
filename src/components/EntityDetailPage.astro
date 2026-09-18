@@ -187,7 +187,7 @@ const connectionsLabel = entityType === "brand" ? copy.brandConnections : copy.c
       <h2 class={article ? "wiki-support-heading" : "heading-section-content"} id="entity-facts-title">{copy.facts}</h2>
     </div>
     <dl>
-      {facts.map((fact) => <div><dt>{fact.label}</dt><dd>{fact.href ? <a href={fact.href}>{fact.value} →</a> : fact.value}</dd></div>)}
+      {facts.map((fact) => <div><dt>{fact.label}</dt><dd>{fact.href ? <a class="wiki-support-link" href={fact.href}>{fact.value} →</a> : fact.value}</dd></div>)}
     </dl>
   </section>
 
@@ -199,18 +199,18 @@ const connectionsLabel = entityType === "brand" ? copy.brandConnections : copy.c
       </div>
       <div class="entity-detail-links-content">
         {connections.length > 0 && <div class="entity-connection-list">
-          {connections.map((item) => <a class="entity-connection" href={item.href}><span>{item.kind}</span><strong>{item.name}</strong><b aria-hidden="true">→</b></a>)}
+          {connections.map((item) => <a class="entity-connection wiki-support-link" href={item.href}><span>{item.kind}</span><strong>{item.name}</strong><b aria-hidden="true">→</b></a>)}
         </div>}
         {officialLinks.length > 0 && <div class="entity-official-block">
           <p>{copy.official}</p>
           <div class="entity-official-links" aria-label={copy.official}>
-            {officialLinks.map((item) => <a href={item.href} target="_blank" rel="noopener noreferrer"><span>{item.label}</span><b aria-hidden="true">↗</b></a>)}
+            {officialLinks.map((item) => <a class="wiki-support-link" href={item.href} target="_blank" rel="noopener noreferrer"><span>{item.label}</span><b aria-hidden="true">↗</b></a>)}
           </div>
         </div>}
         {entity.data.sources.length > 0 && <div class="entity-official-block">
           <p>{locale === "en" ? "Sources" : "资料来源"}</p>
           <div class="entity-official-links">
-            {entity.data.sources.map(source => <a href={source.href} target="_blank" rel="noopener noreferrer"><span>{source.label[locale]}</span><b aria-hidden="true">↗</b></a>)}
+            {entity.data.sources.map(source => <a class="wiki-support-link" href={source.href} target="_blank" rel="noopener noreferrer"><span>{source.label[locale]}</span><b aria-hidden="true">↗</b></a>)}
           </div>
         </div>}
         {verifiedValue && !article && <p class="entity-verification">{copy.verification} {verifiedValue}</p>}
@@ -261,8 +261,6 @@ const connectionsLabel = entityType === "brand" ? copy.brandConnections : copy.c
   .entity-article-aliases summary { width: fit-content; cursor: pointer; }
   .entity-article-aliases summary span { margin-left: .35rem; font-size: .75rem; }
   .entity-article-aliases p { margin: .5rem 0 0; }
-  .wiki-support-heading { font-size: 1.25rem; }
-  .has-wiki-article .entity-detail-facts h2, .has-wiki-article .entity-detail-links h2 { margin: 0; }
   .has-wiki-article .entity-detail-facts dl { border: 0; gap: .5rem 2rem; }
   .has-wiki-article .entity-detail-facts dl > div { min-height: 0; padding: 0; border: 0; }
   .has-wiki-article .entity-detail-facts dt { margin-bottom: .35rem; }

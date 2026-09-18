@@ -6,16 +6,16 @@
   padding-block: var(--wiki-section-padding);
   border-top: 1px solid var(--line);
 }
-.has-wiki-article > .wiki-support-section.shell h2 {
+.has-wiki-article > .wiki-support-section.shell .wiki-support-heading {
   font-size: 1.25rem;
   margin: 0;
 }
 .has-wiki-article > .wiki-support-section.shell > :last-child { min-width: 0; }
 
-/* Keep separators between sections, not between links inside them. */
-.has-wiki-article > .wiki-support-section.shell :is(a, li, .entity-related-episode-list),
-.has-wiki-article > .wiki-support-section.shell .entity-related-episode-list .episode-link {
+/* Supporting content has explicitly marked links and items, not blanket descendant resets. */
+.has-wiki-article > .wiki-support-section.shell .wiki-support-link,
+.has-wiki-article > .wiki-support-section.shell .wiki-support-item {
   border: 0;
   text-decoration: none;
 }
-.has-wiki-article > .wiki-support-section.shell a:hover { color: var(--signal); }
+.has-wiki-article > .wiki-support-section.shell .wiki-support-link:hover { color: var(--signal); }
