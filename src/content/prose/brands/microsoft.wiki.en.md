@@ -23,7 +23,7 @@ Microsoft is an American technology company founded on April 4, 1975, by Bill Ga
 
 ## Discussion in the show
 
-In Weekly #001's chapter “Hugging Face 的价值，以及英伟达为何要为产业托底” (The value of Hugging Face, and why NVIDIA underwrites the industry), while discussing companies building their own models, [Yang Pan says in the Chinese transcript: "It seems every vendor is building its own. In the future everyone will. Claude is doing it, and Microsoft, Meta, Zhipu — reportedly too."](/weekly/001/transcript#quote-58588dc08c390dab77b7) — the "reportedly" marks it as secondhand.
+In Weekly #001's chapter “Hugging Face 的价值，以及英伟达为何要为产业托底” (The value of Hugging Face, and why NVIDIA underwrites the industry), while discussing companies building their own models, [Yang Pan says in the Chinese transcript: "It seems every vendor is building its own. In the future everyone will. Claude is doing it, and Microsoft, Meta, Z.ai — reportedly too."](/weekly/001/transcript#quote-58588dc08c390dab77b7) — the "reportedly" marks it as secondhand.
 
 In the same episode's chapter on whether the AI app market is recovering, [Orange lists GPT, AWS, and Microsoft as parties that can offer 20–25 percent API discounts, leaving no margin for resellers, in the Chinese transcript](/weekly/001/transcript#quote-862f4999453c7e58e3a7). These are host opinions. See the [episode 001 chapter](/weekly/001/transcript#chapter-26) and [another episode 001 chapter](/weekly/001/transcript#chapter-31); English transcript chapters are not available.
 

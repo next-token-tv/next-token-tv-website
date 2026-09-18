@@ -4,13 +4,13 @@ entity: tang-jie
 locale: en
 slot: wiki
 updatedAt: '2026-09-18'
-seoTitle: 'Jie Tang: Tsinghua Professor and Zhipu (Z.ai) Co-founder | Next Token Wiki'
-seoDescription: 'Jie Tang’s research, AMiner and the GLM model line, his role at Zhipu AI (Z.ai), and how the show mentions him.'
+seoTitle: 'Jie Tang: Tsinghua Professor and Z.ai Co-founder | Next Token Wiki'
+seoDescription: 'Jie Tang’s research, AMiner and the GLM model line, his role at Z.ai, and how the show mentions him.'
 ---
 
 ## Jie Tang (唐杰)
 
-Jie Tang is a professor of computer science at Tsinghua University, long affiliated with the department's Knowledge Engineering Group (KEG). His research interests include artificial general intelligence (AGI), data mining, social networks, machine learning, and knowledge graphs. He is a Fellow of the ACM, AAAI, and IEEE, and a co-founder of Zhipu AI (Z.ai). See the [Zhipu](/en/wiki/brands/zhipu) entry for the company.
+Jie Tang is a professor of computer science at Tsinghua University, long affiliated with the department's Knowledge Engineering Group (KEG). His research interests include artificial general intelligence (AGI), data mining, social networks, machine learning, and knowledge graphs. He is a Fellow of the ACM, AAAI, and IEEE, and a co-founder of Z.ai (the company was founded as Zhipu AI). See the [Z.ai](/en/wiki/brands/zhipu) entry for the company.
 
 ## Career and representative work
 
@@ -32,9 +32,9 @@ Jie Tang is not a participant in the episode; the following is a host's paraphra
 
 Yes. He is a professor in the Department of Computer Science and Technology at Tsinghua University, affiliated with the Knowledge Engineering Group (KEG); see his [Tsinghua profile](https://keg.cs.tsinghua.edu.cn/jietang/).
 
-### What is Jie Tang's relationship to Zhipu AI (Z.ai)?
+### What is Jie Tang's relationship to Z.ai?
 
-Zhipu is a large-model company spun out of Tsinghua University in 2019; the English Wikipedia [Z.ai article](https://en.wikipedia.org/wiki/Z.ai) says the company was founded by Jie Tang and calls him a co-founder of Z.ai. This site records his relationship to Zhipu as a co-founder, and the GLM line of research originated in his group at Tsinghua KEG.
+Z.ai is a large-model company spun out of Tsinghua University in 2019 (founded as Zhipu AI); the English Wikipedia [Z.ai article](https://en.wikipedia.org/wiki/Z.ai) says the company was founded by Jie Tang and calls him a co-founder. This site records his relationship to Z.ai as a co-founder, and the GLM line of research originated in his group at Tsinghua KEG.
 
 ### What are Jie Tang's most notable research contributions?
 
@@ -42,12 +42,12 @@ AMiner, the GLM-130B and ChatGLM large-model research, and projects such as CogV
 
 ### Has GLM 6 been released?
 
-For GLM 6 release status, check the official channels: [Zhipu's official site](https://www.zhipuai.cn/) and the [GLM entry](/en/wiki/products/glm). The comment in [episode 002](/weekly/002/transcript#chapter-27) that Tang Jie said GLM 6 was coming is a host's paraphrase, not a release fact.
+For GLM 6 release status, check the official channels: [Z.ai's official site](https://www.zhipuai.cn/) and the [GLM entry](/en/wiki/products/glm). The comment in [episode 002](/weekly/002/transcript#chapter-27) that Tang Jie said GLM 6 was coming is a host's paraphrase, not a release fact.
 
 ## Sources
 
 - [Jie Tang's Tsinghua homepage](https://keg.cs.tsinghua.edu.cn/jietang/)
 - [English Wikipedia: Z.ai](https://en.wikipedia.org/wiki/Z.ai)
 - [Chinese Wikipedia: Zhipu (智谱)](https://zh.wikipedia.org/wiki/%E6%99%BA%E8%B0%B1AI)
-- [Zhipu official website](https://www.zhipuai.cn/)
-- [Zhipu brand page](/en/wiki/brands/zhipu)
+- [Z.ai official website](https://www.zhipuai.cn/)
+- [Z.ai brand page](/en/wiki/brands/zhipu)

@@ -4,17 +4,17 @@ entity: zhipu
 locale: en
 slot: wiki
 updatedAt: '2026-09-18'
-seoTitle: 'Zhipu AI: GLM models, open platform, and agent products | Next Token Wiki'
-seoDescription: 'Learn what Zhipu AI (Z.ai) does and how the GLM model family, BigModel and Z.ai developer platforms, ZCode, and AutoGLM relate. Includes discussion from the show.'
+seoTitle: 'Z.ai: GLM models, open platform, and agent products | Next Token Wiki'
+seoDescription: 'Learn what Z.ai does and how the GLM model family, BigModel and Z.ai developer platforms, ZCode, and AutoGLM relate. Includes discussion from the show.'
 ---
 
-## Zhipu AI
+## Z.ai
 
-Zhipu is an AI company centered on the GLM large model family. The operating entity is Beijing Zhipu Huazhang Technology Co., Ltd., which describes itself on its [official site](https://www.zhipuai.cn/) as "a leading independent LLM provider in China." The site states that Zhipu is listed on the Hong Kong Stock Exchange under stock code 02513. According to [public references](https://en.wikipedia.org/wiki/Zhipu_AI), the company was founded in Beijing in 2019 as a spin-out from Tsinghua University research groups, with [Jie Tang](/en/wiki/people/tang-jie) among its founders. Internationally, the company also goes by Z.ai.
+Z.ai is an AI company centered on the GLM large model family. The operating entity is Beijing Zhipu Huazhang Technology Co., Ltd., which describes itself on its [official site](https://www.zhipuai.cn/) as "a leading independent LLM provider in China." The site states that Z.ai is listed on the Hong Kong Stock Exchange under stock code 02513. According to [public references](https://en.wikipedia.org/wiki/Zhipu_AI), the company was founded in Beijing in 2019 as a spin-out from Tsinghua University research groups, with [Jie Tang](/en/wiki/people/tang-jie) among its founders. The company was founded as Zhipu AI and now operates internationally as Z.ai.
 
 ## Business and main product lines
 
-Zhipu's business follows a single model thread: it trains the GLM model family and builds consumer products, developer platforms, and agent products on top of it.
+Z.ai's business follows a single model thread: it trains the GLM model family and builds consumer products, developer platforms, and agent products on top of it.
 
 - Models: as of September 2026, the official site lists GLM-5.3 (long context and coding), GLM-5V-Turbo (multimodal), and GLM-5-Turbo, among others. See the [GLM entry](/en/wiki/products/glm) for the model family.
 - Chat assistant: the consumer chat product is Zhipu Qingyan (ChatGLM), with the international entry point at [z.ai](https://z.ai/).
@@ -26,27 +26,27 @@ Model versions, capabilities, and prices change; read the current official pages
 
 ## Discussion in the show
 
-Weekly #001 touches on Zhipu in several chapters. In the model roundup, [Yang Pan lists Zhipu's GLM 5.3 Flash (nicknamed "Niu Lai") among the week's releases and notes that Zhipu 5.3 was open-sourced the following week in the Chinese transcript](/weekly/001/transcript#chapter-02). In the chapter on cheap models, Guizang argues that capable, low-cost models are the ones that reach real usage, and Yang Pan mentions having tried 5.3 Flash locally ([episode 001 chapter](/weekly/001/transcript#chapter-03)).
+Weekly #001 touches on Z.ai in several chapters. In the model roundup, [Yang Pan lists Z.ai's GLM 5.3 Flash (nicknamed "Niu Lai") among the week's releases and notes that Z.ai 5.3 was open-sourced the following week in the Chinese transcript](/weekly/001/transcript#chapter-02). In the chapter on cheap models, Guizang argues that capable, low-cost models are the ones that reach real usage, and Yang Pan mentions having tried 5.3 Flash locally ([episode 001 chapter](/weekly/001/transcript#chapter-03)).
 
-In the [Computer Use chapter](/weekly/001/transcript#chapter-04), [Yang Pan says he has been using Zhipu ZCode and considers it "a complete Codex Alternative," with a nearly seamless switch from Codex](/weekly/001/transcript#quote-400de0647fad0667ff00); [Orange calls Zhipu a long-time leader in China and recalls earlier Computer Use features such as one-click Feishu installation](/weekly/001/transcript#quote-3c03b4241bddc51332b5), adding that limited compute used to be Zhipu's bottleneck and that Flash mattered a lot for that reason. The hosts also contrast Niu Lai's supply-oriented approach with Gemini's speed-focused one. In the [model choice chapter](/weekly/001/transcript#chapter-08), [Guizang calls GLM 5.3 being free to try "a really good choice"](/weekly/001/transcript#quote-e51e5d1462803b9739c6), and Orange adds that direct user feedback on Zhipu's Flash in his own product was more telling than benchmarks.
+In the [Computer Use chapter](/weekly/001/transcript#chapter-04), [Yang Pan says he has been using Z.ai ZCode and considers it "a complete Codex Alternative," with a nearly seamless switch from Codex](/weekly/001/transcript#quote-400de0647fad0667ff00); [Orange calls Z.ai a long-time leader in China and recalls earlier Computer Use features such as one-click Feishu installation](/weekly/001/transcript#quote-3c03b4241bddc51332b5), adding that limited compute used to be Z.ai's bottleneck and that Flash mattered a lot for that reason. The hosts also contrast Niu Lai's supply-oriented approach with Gemini's speed-focused one. In the [model choice chapter](/weekly/001/transcript#chapter-08), [Guizang calls GLM 5.3 being free to try "a really good choice"](/weekly/001/transcript#quote-e51e5d1462803b9739c6), and Orange adds that direct user feedback on Z.ai's Flash in his own product was more telling than benchmarks.
 
-The business-news segment ([chapter-25](/weekly/001/transcript#chapter-25)) mentions ARR figures from Zhipu's financial report, and a later chapter passes along a claim that Zhipu is also developing its own chips. Both are secondhand show discussions; official disclosures take precedence. Show content reflects the hosts' experiences and opinions and does not replace official documentation.
+The business-news segment ([chapter-25](/weekly/001/transcript#chapter-25)) mentions ARR figures from Z.ai's financial report, and a later chapter passes along a claim that Z.ai is also developing its own chips. Both are secondhand show discussions; official disclosures take precedence. Show content reflects the hosts' experiences and opinions and does not replace official documentation.
 
 ## Frequently asked questions
 
-### What company is Zhipu?
+### What company is Z.ai?
 
-Zhipu is an AI company centered on the GLM model family. The operating entity is Beijing Zhipu Huazhang Technology Co., Ltd., officially positioned as "a leading independent LLM provider in China"; see the [official site](https://www.zhipuai.cn/).
+Z.ai is an AI company centered on the GLM model family. The operating entity is Beijing Zhipu Huazhang Technology Co., Ltd., officially positioned as "a leading independent LLM provider in China"; see the [official site](https://www.zhipuai.cn/).
 
-### Is Zhipu a publicly listed company?
+### Is Z.ai a publicly listed company?
 
 Yes. The company's site states it is listed on the Hong Kong Stock Exchange under code 02513; according to [public references](https://en.wikipedia.org/wiki/Zhipu_AI), the IPO took place in January 2026.
 
-### Where are Zhipu's official websites and open platform?
+### Where are Z.ai's official websites and open platform?
 
 The corporate site is [zhipuai.cn](https://www.zhipuai.cn/), the consumer chat entry is [z.ai](https://z.ai/), developers use the [BigModel platform](https://bigmodel.cn/) in China, and international API documentation is at [docs.z.ai](https://docs.z.ai/).
 
-### Where can I get a Zhipu API key?
+### Where can I get a Z.ai API key?
 
 Register on the [BigModel platform](https://bigmodel.cn/) (China) or follow the [Z.AI API Docs](https://docs.z.ai/) (international) to create an API key, then pick a model and follow the quick start. Billing details live on each platform's pricing pages.
 
@@ -56,7 +56,7 @@ The GLM Coding Plan is a monthly subscription for coding use cases. The [officia
 
 ## Sources
 
-- [Zhipu official website](https://www.zhipuai.cn/)
+- [Z.ai official website](https://www.zhipuai.cn/)
 - [Z.ai product entry](https://z.ai/)
 - [BigModel open platform](https://bigmodel.cn/)
 - [Z.AI API documentation](https://docs.z.ai/)

@@ -40,7 +40,7 @@ In the chapter “国内模型为什么突然加速发布” (“Why Chinese mod
 
 In the chapter “滚动发版之后，Benchmark 还有没有意义” (“After rolling releases, do benchmarks still matter”), [Xiangyang Qiaomu judged that "Hunyuan is decent", while noting his queuing experience — "their own cards aren't enough for their own use; I queued at 8 a.m. and got position 4,000-something" — and observed the release cadence: "last month they released Hunyuan 3, this month it's already Hunyuan 4, one version a month"](/weekly/001/transcript#quote-fa747b45b646c6a5e68d). These are experiences and observations from the recording date. See [the episode 001 chapter](/weekly/001/transcript#chapter-13).
 
-On talent movement, [Yang Pan relayed that "Hunyuan hired another person from Zhipu, one of the 5.3 people"](/weekly/001/transcript#quote-e75c0dc96674911d8b71) — an unverified industry rumor relayed on the show.
+On talent movement, [Yang Pan relayed that "Hunyuan hired another person from Z.ai, one of the 5.3 people"](/weekly/001/transcript#quote-e75c0dc96674911d8b71) — an unverified industry rumor relayed on the show.
 
 ## FAQ
 
