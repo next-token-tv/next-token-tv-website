@@ -68,3 +68,33 @@
 - `src/content/prose/people/hanqing.wiki.zh-Hans.md`、`hanqing.wiki.en.md`
 - `src/content/prose/people/nan-qiao.wiki.zh-Hans.md`、`nan-qiao.wiki.en.md`
 - 本记录。
+
+## 追记（2026-09-18 第二轮）：nan-qiao 的"AGI Bar 负责人"线索核验
+
+**输入线索**：站点负责人明确提供"南乔是 AGI Bar 的负责人"。首轮结论（上文 nan-qiao 一节）维持不变：公开来源无法核验南乔的公开身份；本轮针对新线索重开检索，目的为核验或排除该说法。
+
+**核验步骤与结果**：
+
+1. `https://agi.bar/`（官方单页站）：全文无团队/负责人信息，无"南乔"，仅宣传语中泛指"创始人"。
+2. `https://nexttoken.tv/partners/agi-bar`（Next Token 场地伙伴页）：无接洽人、无"南乔"；页面出现"联合主理人"仅为站点导航项。
+3. Google 联想：`南乔 agi bar`、`AGI Bar 负责人`、`AGI Bar 主理人`、`agi bar 南乔`、`南乔 agibar`、`AGI Bar 创始人` 全部空返回；`agi bar` 联想仅含地名类候选。
+4. YouTube 站内搜索 `AGI Bar 南乔`：结果全部为 GPT-6/AGI 话题噪音；唯一 AGI Bar 视频（Nodupon，`JgkPku8hkq4`）基于 Reuters 报道，页面无"南乔"。
+5. Baidu（返回 511 字节反爬页）、Yandex（空响应）、Bing/WebFetch（ECONNRESET）：不可用；Google News RSS 可用但文章 ID 为加密格式，batchexecute 解码返回空。
+6. 搜狗微信搜索（`weixin.sogou.com/weixin?type=2`，curl 可用；结果页 `/link` 跳转有 antispider，无法取全文，仅摘要可用）：
+   - `AGI Bar`/`宋德 AGI Bar`/`赛博禅心 宋德`/`AGI Bar 上海 主理人`：多篇独立公众号文章一致把 AGI Bar 的主理人/创始人写作**宋德**，包括：
+     - 《海淀AI人群图鉴｜甲子光年》（甲子光年，亦见中关村杂志转载《特别报道 | 海淀AI人群图鉴》《媒体报道丨海淀AI人群图鉴》）："更为人熟知的身份是'赛博禅心'微信公众号的主理人。2025年初，宋德开始计划开一家酒吧，他起了一个名字——AGI Bar。"
+     - 《〈中关村对话·AI迎春夜〉：此时春光正好，未来以此破题》（影视前哨）等迎春夜系列："AGI Bar主理人、知名科技自媒体人宋德"。
+     - 《原点Party Nights：在海淀，看见AI的未来》："赛博禅心主理人宋德自我介绍三重身份……开了一间酒吧，就是中关村创业大街的AGI Bar。"
+     - 《酒吧送token：AI算力如何变成了酒水》："老板是科技自媒体'赛博禅心'的主理人。"
+   - `AGI Bar 南乔`、`南乔 主理人`、`AGI Bar 上海 负责人`、`AGI Bar 上海 开业`、`宋德 南乔`：均无"南乔"与 AGI Bar 关联的结果（多为同名歧义，如《南方有乔木》角色）。
+7. 360 搜索（`www.so.com/s`，curl 可用）定位到《海淀AI人群图鉴｜甲子光年》腾讯新闻转载全文：`https://news.qq.com/rain/a/20260205A066B000`（2026-02-05）。全文核读（864KB 页面，正文可读）："宋德是一位工程师，但他更为人熟知的称号是'大聪明'，更为人熟知的身份是'赛博禅心'微信公众号的主理人。2025年年初，宋德开始计划开一家酒吧，他起了一个名字——AGI Bar。……2025年6月1日，AGI Bar 正式在中关村创业大街开业。"全文"南乔"出现 0 次，"宋德"22 次。
+8. 活动行搜索 AGI Bar：0 结果。小红书搜索页需登录，结果不可读。
+9. 小宇宙 EP002 官方页 `https://www.xiaoyuzhoufm.com/episode/6aa68040492687f6aad92b15`："制作与致谢"部分为"感谢上海 AGI Bar 提供录制场地，感谢赛博禅心与南乔邀请。"无身份/职务信息；"本期人物"仅列向阳乔木、歸藏、杨攀等参与者，无南乔。
+
+**结论**："南乔是 AGI Bar 的负责人"无法以独立公开来源核验；且公开报道一致把 AGI Bar 的创办与主理归于宋德（更常见的称号是"大聪明"，即"赛博禅心"公众号主理人——这与本站 cyber-zen 条目的公开身份吻合，本轮未改动 cyber-zen 的任何文件）。按处理原则，正文把"负责人"写在"据 Next Token 提供的资料"来源层级，不写入 YAML `relations`；`lastVerifiedAt` 更新为 2026-09-18，理由是本轮对"EP002 致谢"这一唯一可核验事实新增了小宇宙官方页来源并复核了段落锚点（`quote-beaa798a9959760c2231`，经 `node /tmp/nt-quote-anchors.mjs` 复核不变）。
+
+**证据边界**：宋德=AGI Bar 创始人/主理人有公开来源（腾讯新闻转载全文 + 多篇公众号摘要，后者因 antispider 未能取到可引用全文 URL，只在研究记录留档）；南乔与 AGI Bar 的关系只有站点负责人一句话，且与公开记载的"主理人=宋德"不能直接对应——若站点线索为真，更可能指某个门店/运营层面的负责人（如上海店），此为推测，不写入任何交付文件。
+
+**FAQ 处理**：nan-qiao 新增 2 个 FAQ（南乔是谁 / AGI Bar 是什么），均为编辑补充："南乔是谁"的答案只能在致谢事实与"据 Next Token 提供的资料"层级内回答；检索需求证据仍为空（同首轮）。
+
+**本轮改动文件**：`src/content/data/people/nan-qiao.yaml`、`src/content/prose/people/nan-qiao.wiki.zh-Hans.md`、`nan-qiao.wiki.en.md`、本记录（追记）。修正首轮正文中的链路笔误：赛博禅心人物链接由 `/wiki/brands/cyber-zen` 改为 `/wiki/people/cyber-zen`（en 同）。
