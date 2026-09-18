@@ -43,7 +43,7 @@ seoDescription: '准确概括该语言正文的内容。'
 
 | 文件 | 负责内容 |
 | --- | --- |
-| `src/components/WikiDetailHeader.astro` | 三类正文页的返回导航、标题区网格、名称、摘要、可展开别名、卡片槽位 |
+| `src/components/WikiDetailHeader.astro` | 三类正文页的返回导航、标题区网格、名称、摘要、直接展开的别名、卡片槽位 |
 | `src/components/WikiIdentityCard.astro` | 黑色卡片、分类标签、橙色标记、主文字、署名、人物正方形头像／占位卡 |
 | `src/components/WikiArticle.astro` | 正文、H2 目录、面包屑、两类日期、Article 与 BreadcrumbList JSON-LD |
 | `src/styles/tokens.css` | Wiki 视觉区高度、栏位比例、列间距及区块留白变量 |

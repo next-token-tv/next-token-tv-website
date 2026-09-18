@@ -67,8 +67,8 @@ test('localized name, model-family aliases and standalone product', async ({ pag
   await expect(page.locator('h1')).toHaveText('Guanlan Dai');
   await page.goto('/wiki/products/qwen');
   await expect(page.locator('h1')).toHaveText('Qwen');
-  await expect(page.locator('.wiki-detail-copy details')).toContainText('Qwen 3.8 Max 0902');
-  await expect(page.locator('.wiki-detail-copy details')).toContainText('Qwen 3.8 Flash Next');
+  await expect(page.locator('.wiki-detail-copy .wiki-aliases')).toContainText('Qwen 3.8 Max 0902');
+  await expect(page.locator('.wiki-detail-copy .wiki-aliases')).toContainText('Qwen 3.8 Flash Next');
   await page.goto('/wiki/products/herdr');
   await expect(page.locator('h1')).toHaveText('Herdr');
   await expect(page.locator('.entity-detail-facts')).not.toContainText('所属品牌');

@@ -18,7 +18,7 @@ const { backHref, backLabel, name, summary, aliases = [], aliasesLabel, person =
   <div class="wiki-detail-copy">
     <h1>{name}</h1>
     <p>{summary}</p>
-    {aliases.length > 0 && <details><summary>{aliasesLabel} <span>{aliases.length}</span></summary><p>{aliases.join(" · ")}</p></details>}
+    {aliases.length > 0 && <p class="wiki-aliases"><span class="wiki-aliases-label">{aliasesLabel} <span>{aliases.length}</span></span>{aliases.join(" · ")}</p>}
   </div>
 </header>
 <style>
@@ -31,8 +31,7 @@ const { backHref, backLabel, name, summary, aliases = [], aliasesLabel, person =
   .wiki-detail-copy { min-width: 0; }
   h1 { max-width: 62rem; font-size: clamp(2.5rem, 4.5vw, 3.5rem); line-height: 1.1; margin: 0 0 .75rem; overflow-wrap: anywhere; }
   .wiki-detail-copy > p { font-size: 1.1rem; max-width: 48rem; color: var(--muted); margin: 0; }
-  details { margin-top: 1rem; color: var(--muted); font-size: .85rem; line-height: 1.7; }
-  summary { width: fit-content; cursor: pointer; }
-  summary span { margin-left: .35rem; font-size: .75rem; }
-  details p { margin: .5rem 0 0; }
+  .wiki-aliases { margin-top: 1rem; color: var(--muted); font-size: .85rem; line-height: 1.7; margin-bottom: 0; }
+  .wiki-aliases-label { margin-right: .5rem; }
+  .wiki-aliases-label span { margin-left: .35rem; font-size: .75rem; }
 </style>
