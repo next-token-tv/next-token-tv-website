@@ -162,7 +162,16 @@ function validateCatalog(catalog: Catalog) {
     });
   }
 
+  const wikiKeys = new Set<string>();
   for (const entry of catalog.prose) {
+    if (entry.data.slot === "wiki") {
+      const key = `${entry.data.entityType}:${entry.data.entity}:${entry.data.locale}`;
+      if (wikiKeys.has(key)) throw new Error(`Duplicate Wiki prose: ${key}`);
+      wikiKeys.add(key);
+      if (!["brand", "product", "person"].includes(entry.data.entityType) || !entry.data.updatedAt) {
+        throw new Error(`Wiki prose ${entry.id} requires an entity and updatedAt`);
+      }
+    }
     const relation = `${entry.data.entityType} referenced by prose ${entry.id}`;
     switch (entry.data.entityType) {
       case "brand": requireId(brands, entry.data.entity, relation); break;
@@ -570,4 +579,10 @@ export async function getEpisodeMentionEntities(episodeId: string) {
     brands: episode.data.mentions.brands.map((id) => requireId(brands, id, `brand mentioned by ${episodeId}`)),
     products: episode.data.mentions.products.map((id) => requireId(products, id, `product mentioned by ${episodeId}`)),
   };
+}
+
+export async function getWikiArticle(entityType: "brand" | "product" | "person", entityId: string, locale: Locale) {
+  const catalog = await getContentCatalog();
+  return catalog.prose.find(({ data }) => data.slot === "wiki"
+    && data.entityType === entityType && data.entity === entityId && data.locale === locale) ?? null;
 }

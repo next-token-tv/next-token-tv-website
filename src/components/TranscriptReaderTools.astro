@@ -61,7 +61,7 @@ const en = locale === "en";
       const turns = [...chapter.querySelectorAll<HTMLElement>('.transcript-turn')];
       return [{ id: chapter.id, title, text: title }, ...turns.map((turn, i) => {
         turn.id = `${chapter.id}-turn-${i + 1}`;
-        return { id: turn.id, title, text: turn.textContent?.replace(/\s+/g, ' ').trim() ?? '' };
+        return { id: turn.id, title, text: (() => { const copy = turn.cloneNode(true) as HTMLElement; copy.querySelectorAll('[data-paragraph-copy], .transcript-paragraph-feedback').forEach(node => node.remove()); return copy.textContent?.replace(/\s+/g, ' ').trim() ?? ''; })() };
       })];
     });
     const search = () => {
@@ -122,6 +122,34 @@ const en = locale === "en";
       row.className = 'transcript-share'; row.append(button, feedback);
       chapter.querySelector('header')!.append(row);
     }
+    for (const link of document.querySelectorAll<HTMLAnchorElement>('[data-paragraph-copy]')) {
+      link.addEventListener('click', async (event) => {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+        event.preventDefault();
+        const url = new URL(document.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.href ?? link.href);
+        url.hash = new URL(link.href).hash;
+        location.hash = url.hash;
+        let feedback = link.nextElementSibling;
+        if (!feedback?.matches('.transcript-paragraph-feedback')) {
+          feedback = document.createElement('span');
+          feedback.className = 'transcript-paragraph-feedback';
+          feedback.setAttribute('role', 'status');
+          link.after(feedback);
+        }
+        try {
+          await navigator.clipboard.writeText(url.href);
+          feedback.textContent = en ? ' Copied' : ' 已复制';
+        } catch {
+          feedback.textContent = en ? ' Copy this link: ' : ' 请复制此链接：';
+          const fallback = document.createElement('input');
+          fallback.value = url.href;
+          fallback.readOnly = true;
+          fallback.setAttribute('aria-label', en ? 'Paragraph link' : '段落链接');
+          feedback.append(fallback);
+          fallback.select();
+        }
+      });
+    }
     if (location.hash) document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView();
   }
 </script>
@@ -155,4 +183,17 @@ const en = locale === "en";
   .transcript-share input { max-width: 100%; font: inherit; }
   .transcript-turn { scroll-margin-top: 7rem; }
   .transcript-turn:target { outline: 0.0625rem solid var(--signal); outline-offset: 0.5rem; }
+  .transcript-quote-paragraph { scroll-margin-top: 7rem; }
+  .transcript-quote-paragraph:target { background: #fff1dd; outline: 0.125rem solid var(--signal); outline-offset: 0.3rem; }
+  .transcript-paragraphs > p > .transcript-paragraph-link {
+    display: inline-block; margin-inline-start: 0.45em; color: var(--muted);
+    font-size: 0.8em; font-weight: 700; opacity: 0; text-decoration: none;
+  }
+  .transcript-quote-paragraph:hover .transcript-paragraph-link,
+  .transcript-quote-paragraph:target .transcript-paragraph-link,
+  .transcript-paragraph-link:focus-visible { opacity: 1; }
+  .transcript-paragraph-link:focus-visible { outline: 0.125rem solid var(--signal); }
+  .transcript-paragraph-feedback { margin-inline-start: 0.4em; color: var(--muted); font-size: 0.75em; }
+  .transcript-paragraph-feedback input { max-width: min(100%, 28rem); font: inherit; }
+  @media (hover: none) { .transcript-paragraphs > p > .transcript-paragraph-link { opacity: 0.55; } }
 </style>

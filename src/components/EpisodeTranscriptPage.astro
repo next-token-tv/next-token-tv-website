@@ -4,6 +4,7 @@ import { getPeopleByIds } from "../data/catalog";
 import type { Locale } from "../data/types";
 import TranscriptSegments from "./TranscriptSegments.astro";
 import TranscriptReaderTools from "./TranscriptReaderTools.astro";
+import { getParagraphAnchorIds } from "../data/transcript-paragraph-anchors";
 
 interface Props {
   transcript: CollectionEntry<"transcriptImports">;
@@ -21,6 +22,7 @@ const peopleById = new Map(people.map((person) => [person.id, person]));
 const [seriesTitle, ...topicParts] = transcript.data.title.split("｜");
 const topicTitle = topicParts.join("｜");
 const episodePath = `${locale === "en" ? "/en" : ""}/weekly/${episodeNumber}`;
+const paragraphAnchorIds = getParagraphAnchorIds(transcript.data.chapters);
 const copy = locale === "en" ? {
   back: "Back to episode",
   kicker: `Weekly #${episodeNumber} / Transcript`,
@@ -30,6 +32,7 @@ const copy = locale === "en" ? {
   markdown: "Markdown format",
   candidate: "speaker attribution pending verification",
   reviewDraft: "Review draft · Not published",
+  paragraphLink: "Link to this paragraph",
 } : {
   back: "返回本期节目",
   kicker: `Weekly #${episodeNumber} / 阅读文字稿`,
@@ -39,6 +42,7 @@ const copy = locale === "en" ? {
   markdown: "Markdown 格式",
   candidate: "人物署名仍待核对",
   reviewDraft: "审阅版 · 尚未发布",
+  paragraphLink: "引用此段",
 };
 ---
 
@@ -93,7 +97,7 @@ const copy = locale === "en" ? {
           </header>
 
           <div class="transcript-turns">
-            {chapter.turns.map((turn) => {
+            {chapter.turns.map((turn, turnIndex) => {
               const person = turn.speakerId ? peopleById.get(turn.speakerId) : undefined;
               return (
                 <div class:list={["transcript-turn", `is-${turn.kind}`]} data-speaker={turn.speakerId ?? undefined}>
@@ -116,9 +120,15 @@ const copy = locale === "en" ? {
                     )}
                   </div>
                   <div class="transcript-paragraphs">
-                    {turn.paragraphs.map((paragraph) => (
-                      <p><TranscriptSegments segments={paragraph} /></p>
-                    ))}
+                    {turn.paragraphs.map((paragraph, paragraphIndex) => {
+                      const paragraphId = paragraphAnchorIds[chapterIndex]?.[turnIndex]?.[paragraphIndex];
+                      return (
+                        <p id={paragraphId} class="transcript-quote-paragraph">
+                          <TranscriptSegments segments={paragraph} />
+                          {!isReviewDraft && <a class="transcript-paragraph-link" href={`${episodePath}/transcript#${paragraphId}`} data-paragraph-copy aria-label={copy.paragraphLink} title={copy.paragraphLink}>¶</a>}
+                        </p>
+                      );
+                    })}
                   </div>
                 </div>
               );

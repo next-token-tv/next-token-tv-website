@@ -1,0 +1,21 @@
+/* Shared section geometry for brand, product and person articles. */
+.has-wiki-article > .wiki-support-section.shell {
+  display: grid;
+  grid-template-columns: var(--wiki-hero-columns);
+  gap: 1.5rem var(--wiki-column-gap);
+  padding-block: var(--wiki-section-padding);
+  border-top: 1px solid var(--line);
+}
+.has-wiki-article > .wiki-support-section.shell h2 {
+  font-size: 1.25rem;
+  margin: 0;
+}
+.has-wiki-article > .wiki-support-section.shell > :last-child { min-width: 0; }
+
+/* Keep separators between sections, not between links inside them. */
+.has-wiki-article > .wiki-support-section.shell :is(a, li, .entity-related-episode-list),
+.has-wiki-article > .wiki-support-section.shell .entity-related-episode-list .episode-link {
+  border: 0;
+  text-decoration: none;
+}
+.has-wiki-article > .wiki-support-section.shell a:hover { color: var(--signal); }

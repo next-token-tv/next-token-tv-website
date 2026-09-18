@@ -1,17 +1,32 @@
 ---
 import { getEntityPeopleRelations } from "../data/catalog";
 import type { Locale } from "../data/types";
-interface Props { entityType: "person" | "brand" | "product"; entityId: string; locale: Locale; contained?: boolean }
-const { entityType, entityId, locale, contained = false } = Astro.props;
+interface Props { entityType: "person" | "brand" | "product"; entityId: string; locale: Locale; contained?: boolean; compact?: boolean }
+const { entityType, entityId, locale, contained = false, compact = false } = Astro.props;
 const entries = await getEntityPeopleRelations(entityType, entityId, locale);
 const en = locale === "en";
 ---
-{entries.length > 0 && <section class:list={["entity-people-relations", { shell: !contained }]} aria-label={entityType === "person" ? en ? "Organizations and products" : "关联品牌与产品" : en ? "Related people" : "关联人物"}>
-  <h2 class="heading-section-compact">{entityType === "person" ? en ? "Organizations and products" : "关联品牌与产品" : en ? "Related people" : "关联人物"}</h2>
+{entries.length > 0 && <section class:list={["entity-people-relations", { shell: !contained, "is-compact": compact, "wiki-support-section": compact }]} aria-label={entityType === "person" ? en ? "Organizations and products" : "关联品牌与产品" : en ? "Related people" : "关联人物"}>
+  <h2 class={compact ? "wiki-support-heading" : "heading-section-compact"}>{entityType === "person" ? en ? "Organizations and products" : "关联品牌与产品" : en ? "Related people" : "关联人物"}</h2>
+  {compact ? <table class="relations-table">
+    <thead><tr>
+      <th scope="col">{en ? "Entry" : "条目"}</th>
+      <th scope="col">{en ? "Role" : "人物关系"}</th>
+      <th scope="col">{en ? "References" : "参考来源"}</th>
+    </tr></thead>
+    <tbody>{entries.map(entry => <tr>
+      <th scope="row"><a href={entry.href}>{entry.name} <span aria-hidden="true">→</span></a></th>
+      <td class="relation-role" data-label={en ? "Role" : "人物关系"}>{entry.role}</td>
+      <td class="relation-references" data-label={en ? "References" : "参考来源"}>
+        {entry.sources.map(source => <a href={source.href} target="_blank" rel="noopener noreferrer">{["关系资料来源", "Relationship source"].includes(source.label[locale]) ? new URL(source.href).hostname.replace(/^www\./, "") : source.label[locale]} <span aria-hidden="true">↗</span></a>)}
+      </td>
+    </tr>)}</tbody>
+  </table> : <>
   <ul>{entries.map(entry => <li>
     <a class="relation-target" href={entry.href}><strong>{entry.name}</strong><span>{entry.role} →</span></a>
     <div class="relation-sources">{entry.sources.map((source, index) => <a href={source.href} target="_blank" rel="noopener noreferrer">{en ? "Source" : "来源"}{entry.sources.length > 1 ? ` ${index + 1}` : ""} ↗</a>)}</div>
   </li>)}</ul>
+  </>}
 </section>}
 <style>
   .entity-people-relations { padding-block: 2.5rem; }
@@ -23,5 +38,29 @@ const en = locale === "en";
   span { color: var(--muted); font-size: .9rem; }
   .relation-sources { display: flex; gap: 1rem; margin-top: .75rem; color: var(--muted); font-size: .75rem; }
   a:hover { color: var(--signal); }
+  .is-compact { padding-block: 1.5rem; }
+  .is-compact h2 { font-size: 1.25rem; margin-bottom: 1rem; }
+  .is-compact li { padding-block: .75rem; }
+  .is-compact strong { font-size: 1rem; }
+  .is-compact .relation-sources { margin-top: .35rem; }
+  .relations-table { width: 100%; table-layout: fixed; border-collapse: collapse; text-align: left; }
+  .relations-table th, .relations-table td { padding: .6rem 1.25rem .6rem 0; vertical-align: top; overflow-wrap: anywhere; border: 0; }
+  .relations-table th:last-child, .relations-table td:last-child { padding-right: 0; }
+  .relations-table thead th { padding-top: 0; padding-bottom: .75rem; font-size: .75rem; font-weight: 500; color: var(--muted); }
+  .relations-table thead th:first-child { width: 40%; }
+  .relations-table thead th:nth-child(2) { width: 22%; }
+  .relations-table tbody th { font-size: 1rem; font-weight: 700; }
+  .relation-role { font-size: .9rem; }
+  .relation-references a { display: block; font-size: .85rem; color: var(--muted); }
+  .relation-references a + a { margin-top: .5rem; }
+  @media (max-width: 760px) {
+    .relations-table, .relations-table tbody { display: block; }
+    .relations-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    .relations-table tr { display: grid; grid-template-columns: 1fr; gap: .35rem; }
+    .relations-table tr + tr { margin-top: 1.5rem; }
+    .relations-table th, .relations-table td { padding: 0; }
+    .relations-table td { display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem .75rem; }
+    .relations-table td::before { content: attr(data-label); color: var(--muted); font-size: .75rem; }
+  }
   @media (max-width: 40rem) { ul { grid-template-columns: 1fr; } }
 </style>

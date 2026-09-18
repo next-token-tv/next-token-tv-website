@@ -11,6 +11,11 @@
 
     --gutter: clamp(1.25rem, 4vw, 4.5rem);
     --site-max-width: 100rem;
+    --wiki-visual-height: 12rem;
+    --wiki-column-gap: 3rem;
+    --wiki-hero-padding: 2rem;
+    --wiki-section-padding: 1.5rem;
+    --wiki-hero-columns: minmax(10rem, .55fr) minmax(0, 1.45fr);
     --space-1: 0.25rem;
     --space-2: 0.5rem;
     --space-3: 0.75rem;
@@ -30,6 +35,10 @@
     --heading-section-content-size: 2.25rem;
     --heading-section-compact-size: 1.8rem;
     --heading-follow-display-size: 2.75rem;
+  }
+
+  @media (max-width: 760px) {
+    :root { --wiki-visual-height: 9rem; --wiki-column-gap: 1.5rem; --wiki-hero-padding: 1.5rem; --wiki-hero-columns: 1fr; }
   }
 
   @media (min-width: 48rem) {

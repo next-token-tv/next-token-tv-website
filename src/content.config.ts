@@ -356,7 +356,10 @@ const prose = defineCollection({
     entityType: z.enum(["brand", "product", "person", "partner", "venue", "show", "episode"]),
     entity: z.string(),
     locale,
-    slot: z.enum(["introduction", "profile", "overview", "show-notes", "brand-kit", "partner-invitation"]),
+    slot: z.enum(["introduction", "profile", "overview", "show-notes", "brand-kit", "partner-invitation", "wiki"]),
+    updatedAt: z.iso.date().optional(),
+    seoTitle: z.string().optional(),
+    seoDescription: z.string().optional(),
   }),
 });
 

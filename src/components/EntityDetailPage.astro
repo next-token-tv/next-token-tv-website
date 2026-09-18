@@ -1,7 +1,11 @@
 ---
-import { getBrandProfile, getProductProfile } from "../data/catalog";
+import "../styles/wiki-detail.css";
+import WikiDetailHeader from "./WikiDetailHeader.astro";
+import WikiIdentityCard from "./WikiIdentityCard.astro";
+import { getBrandProfile, getProductProfile, getWikiArticle } from "../data/catalog";
 import type { Locale } from "../data/types";
 import { displayAliases } from "../data/entity-aliases";
+import WikiArticle from "./WikiArticle.astro";
 import RelatedEpisodes from "./RelatedEpisodes.astro";
 import EntityPeopleRelations from "./EntityPeopleRelations.astro";
 
@@ -12,6 +16,7 @@ interface Props {
 }
 
 const { entityType, entityId, locale } = Astro.props;
+const article = await getWikiArticle(entityType, entityId, locale);
 const prefix = locale === "en" ? "/en" : "";
 const brandKind = {
   "ai-brand": { "zh-Hans": "人工智能", en: "Artificial intelligence" },
@@ -141,33 +146,45 @@ const posterWord = entityType === "brand" ? "BRAND" : "PRODUCT";
 const visibleAliases = entityType === "product"
   ? displayAliases(entity.data.name, entity.data.aliases)
   : entity.data.aliases;
+const articleEntityLabel = entityType === "product"
+  ? (locale === "en" ? "Product" : "产品")
+  : (locale === "en" ? "Brand" : "品牌");
 const connectionsLabel = entityType === "brand" ? copy.brandConnections : copy.connections;
 ---
 
 <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
 
-<main id="main" class="entity-detail-page">
+<main id="main" class:list={["entity-detail-page", { "has-wiki-article": !!article }]}>
+  {article ? <WikiDetailHeader backHref={`${prefix}/wiki/${entityType === "brand" ? "brands" : "products"}`} backLabel={copy.back}
+    name={entity.data.name[locale]} summary={entity.data.summary[locale]} aliases={visibleAliases} aliasesLabel={copy.aliases}>
+    <WikiIdentityCard class="entity-article-poster" label={articleEntityLabel} title={kind} />
+  </WikiDetailHeader> : <>
   <div class="entity-detail-back shell">
     <a href={`${prefix}/wiki/${entityType === "brand" ? "brands" : "products"}`}><span aria-hidden="true">←</span>{copy.back}</a>
   </div>
 
   <section class="entity-detail-hero shell" aria-labelledby="entity-name">
-    <div class="entity-detail-poster">
+    {!article && <div class="entity-detail-poster">
       <p class="eyebrow">Next Token / {copy.library}</p>
       <strong aria-hidden="true">{posterWord}</strong>
       <span><small>{copy.type}</small>{kind}</span>
-    </div>
+    </div>}
     <div class="entity-detail-copy">
       <h1 id="entity-name">{entity.data.name[locale]}</h1>
       <p class="entity-detail-summary">{entity.data.summary[locale]}</p>
-      {visibleAliases.length > 0 && <p class="entity-detail-aliases"><span>{copy.aliases}</span>{visibleAliases.join(" · ")}</p>}
+      {visibleAliases.length > 0 && (article
+        ? <details class="entity-article-aliases"><summary>{copy.aliases} <span>{visibleAliases.length}</span></summary><p>{visibleAliases.join(" · ")}</p></details>
+        : <p class="entity-detail-aliases"><span>{copy.aliases}</span>{visibleAliases.join(" · ")}</p>)}
     </div>
   </section>
+  </>}
 
-  <section class="entity-detail-facts shell" aria-labelledby="entity-facts-title">
+  <WikiArticle entityType={entityType} entityId={entityId} name={entity.data.name[locale]} locale={locale} lastVerifiedAt={verified} />
+
+  <section class:list={["entity-detail-facts shell", { "wiki-support-section": !!article }]} aria-labelledby="entity-facts-title">
     <div>
-      <p class="section-kicker">01 / {copy.facts}</p>
-      <h2 class="heading-section-content" id="entity-facts-title">{copy.facts}</h2>
+      {!article && <p class="section-kicker">01 / {copy.facts}</p>}
+      <h2 class={article ? "wiki-support-heading" : "heading-section-content"} id="entity-facts-title">{copy.facts}</h2>
     </div>
     <dl>
       {facts.map((fact) => <div><dt>{fact.label}</dt><dd>{fact.href ? <a href={fact.href}>{fact.value} →</a> : fact.value}</dd></div>)}
@@ -175,10 +192,10 @@ const connectionsLabel = entityType === "brand" ? copy.brandConnections : copy.c
   </section>
 
   {(connections.length > 0 || officialLinks.length > 0 || verifiedValue) && (
-    <section class="entity-detail-links shell" aria-labelledby="entity-links-title">
+    <section class:list={["entity-detail-links shell", { "wiki-support-section": !!article }]} aria-labelledby="entity-links-title">
       <div>
-        <p class="section-kicker">02 / {connections.length > 0 ? connectionsLabel : copy.official}</p>
-        <h2 class="heading-section-content" id="entity-links-title">{connections.length > 0 ? connectionsLabel : copy.official}</h2>
+        {!article && <p class="section-kicker">02 / {connections.length > 0 ? connectionsLabel : copy.official}</p>}
+        <h2 class={article ? "wiki-support-heading" : "heading-section-content"} id="entity-links-title">{connections.length > 0 ? connectionsLabel : copy.official}</h2>
       </div>
       <div class="entity-detail-links-content">
         {connections.length > 0 && <div class="entity-connection-list">
@@ -196,13 +213,13 @@ const connectionsLabel = entityType === "brand" ? copy.brandConnections : copy.c
             {entity.data.sources.map(source => <a href={source.href} target="_blank" rel="noopener noreferrer"><span>{source.label[locale]}</span><b aria-hidden="true">↗</b></a>)}
           </div>
         </div>}
-        {verifiedValue && <p class="entity-verification">{copy.verification} {verifiedValue}</p>}
+        {verifiedValue && !article && <p class="entity-verification">{copy.verification} {verifiedValue}</p>}
       </div>
     </section>
   )}
 
-  <EntityPeopleRelations entityType={entityType} entityId={entityId} locale={locale} />
-  <RelatedEpisodes episodes={episodes} locale={locale} />
+  <EntityPeopleRelations entityType={entityType} entityId={entityId} locale={locale} compact={!!article} />
+  <RelatedEpisodes episodes={episodes} locale={locale} compact={!!article} />
 </main>
 
 <style>
@@ -240,7 +257,26 @@ const connectionsLabel = entityType === "brand" ? copy.brandConnections : copy.c
   .entity-official-links a { display: inline-flex; gap: 1.5rem; padding: .9rem 1.15rem; border: 1px solid var(--ink); font-weight: 750; }
   .entity-official-links a:hover { color: var(--paper); background: var(--ink); }
   .entity-verification { margin: 2rem 0 0; padding-top: 1rem; border-top: 1px solid rgba(17,17,17,.25); color: var(--muted); font-size: .75rem; line-height: 1.5; }
+  .entity-article-aliases { margin-top: 1rem; color: var(--muted); font-size: .85rem; line-height: 1.7; }
+  .entity-article-aliases summary { width: fit-content; cursor: pointer; }
+  .entity-article-aliases summary span { margin-left: .35rem; font-size: .75rem; }
+  .entity-article-aliases p { margin: .5rem 0 0; }
+  .wiki-support-heading { font-size: 1.25rem; }
+  .has-wiki-article .entity-detail-facts h2, .has-wiki-article .entity-detail-links h2 { margin: 0; }
+  .has-wiki-article .entity-detail-facts dl { border: 0; gap: .5rem 2rem; }
+  .has-wiki-article .entity-detail-facts dl > div { min-height: 0; padding: 0; border: 0; }
+  .has-wiki-article .entity-detail-facts dt { margin-bottom: .35rem; }
+  .has-wiki-article .entity-detail-facts dd { font-family: var(--sans); font-size: 1rem; line-height: 1.5; }
+  .has-wiki-article .entity-connection-list { border: 0; gap: .5rem 1.5rem; }
+  .has-wiki-article .entity-connection { min-height: 0; padding: .75rem 0; gap: .35rem; border: 0; }
+  .has-wiki-article .entity-connection strong { font-size: 1.1rem; }
+  .has-wiki-article .entity-official-block { margin-top: 1rem; }
+  .has-wiki-article .entity-official-block:first-child { margin-top: 0; }
+  .has-wiki-article .entity-official-links { gap: .5rem 1.25rem; }
+  .has-wiki-article .entity-official-links a { padding: .25rem 0; border: 0; font-size: .9rem; gap: .5rem; }
+  .has-wiki-article .entity-verification { margin-top: 1rem; padding-top: .75rem; }
   @media (max-width: 760px) {
+    .has-wiki-article .entity-detail-facts dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .entity-detail-hero { grid-template-columns: 1fr; min-height: 0; gap: 3rem; }
     .entity-detail-poster { min-height: 220px; }
     .entity-detail-poster .eyebrow { white-space: normal; }

@@ -1,0 +1,38 @@
+---
+interface Props {
+  backHref: string;
+  backLabel: string;
+  name: string;
+  summary: string;
+  aliases?: string[];
+  aliasesLabel?: string;
+  person?: boolean;
+}
+const { backHref, backLabel, name, summary, aliases = [], aliasesLabel, person = false } = Astro.props;
+---
+<nav class="wiki-detail-back shell" aria-label={backLabel}>
+  <a href={backHref}><span aria-hidden="true">←</span>{backLabel}</a>
+</nav>
+<header class="wiki-detail-hero shell">
+  <div class:list={["wiki-detail-visual", { "person-article-visual": person }]}><slot /></div>
+  <div class="wiki-detail-copy">
+    <h1>{name}</h1>
+    <p>{summary}</p>
+    {aliases.length > 0 && <details><summary>{aliasesLabel} <span>{aliases.length}</span></summary><p>{aliases.join(" · ")}</p></details>}
+  </div>
+</header>
+<style>
+  .wiki-detail-back { padding-block: 1.5rem; border-bottom: 1px solid var(--ink); }
+  .wiki-detail-back a { display: inline-flex; align-items: center; gap: .75rem; font-weight: 750; }
+  .wiki-detail-back a:hover { color: var(--signal); }
+  .wiki-detail-hero { display: grid; grid-template-columns: var(--wiki-hero-columns); gap: var(--wiki-column-gap); align-items: center; padding-block: var(--wiki-hero-padding); }
+  .wiki-detail-visual { display: grid; grid-template-columns: minmax(0, 1fr); align-items: center; height: var(--wiki-visual-height); min-width: 0; }
+  .person-article-visual { justify-items: center; }
+  .wiki-detail-copy { min-width: 0; }
+  h1 { max-width: 62rem; font-size: clamp(2.5rem, 4.5vw, 3.5rem); line-height: 1.1; margin: 0 0 .75rem; overflow-wrap: anywhere; }
+  .wiki-detail-copy > p { font-size: 1.1rem; max-width: 48rem; color: var(--muted); margin: 0; }
+  details { margin-top: 1rem; color: var(--muted); font-size: .85rem; line-height: 1.7; }
+  summary { width: fit-content; cursor: pointer; }
+  summary span { margin-left: .35rem; font-size: .75rem; }
+  details p { margin: .5rem 0 0; }
+</style>

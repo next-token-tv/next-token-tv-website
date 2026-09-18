@@ -1,0 +1,113 @@
+---
+import { render } from "astro:content";
+import { getWikiArticle } from "../data/catalog";
+import type { Locale } from "../data/types";
+
+interface Props {
+  entityType: "brand" | "product" | "person";
+  entityId: string;
+  name: string;
+  locale: Locale;
+  contained?: boolean;
+  lastVerifiedAt?: string;
+}
+const { entityType, entityId, name, locale, contained = false, lastVerifiedAt } = Astro.props;
+const article = await getWikiArticle(entityType, entityId, locale);
+const rendered = article ? await render(article) : null;
+if (rendered?.headings.some(({ depth }) => depth === 1)) throw new Error(`Wiki prose ${article!.id} must not add a second H1`);
+const headings = rendered?.headings.filter(({ depth }) => depth === 2) ?? [];
+const Content = rendered?.Content;
+const en = locale === "en";
+const prefix = en ? "/en" : "";
+const directory = { brand: "brands", product: "products", person: "people" }[entityType];
+const label = { brand: en ? "Brands" : "品牌库", product: en ? "Products" : "产品库", person: en ? "People" : "人物库" }[entityType];
+const url = new URL(`${prefix}/wiki/${directory}/${entityId}`, Astro.site).href;
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "BreadcrumbList", itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Next Token", item: new URL(prefix || "/", Astro.site).href },
+      { "@type": "ListItem", position: 2, name: label, item: new URL(`${prefix}/wiki/${directory}`, Astro.site).href },
+      { "@type": "ListItem", position: 3, name, item: url },
+    ] },
+    { "@type": "Article", "@id": `${url}#wiki-article`, headline: article?.data.seoTitle ?? name,
+      inLanguage: locale, dateModified: article?.data.updatedAt, mainEntityOfPage: url,
+      about: { "@type": entityType === "person" ? "Person" : entityType === "brand" ? "Organization" : "Thing", name },
+      publisher: { "@type": "Organization", name: "Next Token", url: new URL("/", Astro.site).href },
+    },
+  ],
+};
+---
+{article && Content && <>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, "\\u003c")} />
+  <div class:list={["wiki-reading", { shell: !contained }]}>
+    <nav class="wiki-breadcrumbs" aria-label={en ? "Breadcrumb" : "面包屑"}>
+      <a href={prefix || "/"}>Next Token</a><span aria-hidden="true">/</span>
+      <a href={`${prefix}/wiki/${directory}`}>{label}</a><span aria-hidden="true">/</span>
+      <span aria-current="page">{name}</span>
+    </nav>
+    <div class="wiki-reading-grid">
+      <aside class="wiki-outline">
+        <nav aria-label={en ? "On this page" : "本页目录"}>
+          <p>{en ? "On this page" : "本页目录"}</p>
+          <ol>{headings.map(({ slug, text }) => <li><a href={`#${slug}`}>{text}</a></li>)}</ol>
+        </nav>
+        <dl class="wiki-updated">
+          <div><dt>{en ? "Article updated" : "正文更新"}</dt><dd><time datetime={article.data.updatedAt}>{article.data.updatedAt}</time></dd></div>
+          {lastVerifiedAt && <div><dt>{en ? "Facts verified" : "资料核验"}</dt><dd><time datetime={lastVerifiedAt}>{lastVerifiedAt}</time></dd></div>}
+        </dl>
+      </aside>
+      <article id="wiki-article" class="wiki-prose" aria-label={en ? `${name} overview` : `${name}详细介绍`}>
+        <Content />
+      </article>
+    </div>
+  </div>
+</>}
+<style>
+  .wiki-reading { padding-block: 1.5rem 2rem; border-top: 1px solid var(--line); }
+  .wiki-breadcrumbs { display: flex; flex-wrap: wrap; gap: .65rem; color: var(--muted); font-size: .85rem; margin-bottom: 1.5rem; }
+  .wiki-reading-grid { display: grid; grid-template-columns: var(--wiki-hero-columns); gap: 1.5rem var(--wiki-column-gap); }
+  .wiki-outline { min-width: 0; }
+  .wiki-outline nav > p { margin: 0 0 1rem; font-weight: 750; }
+  .wiki-outline ol { margin: 0; padding-left: 1.25rem; }
+  .wiki-outline li { padding-block: .4rem; line-height: 1.6; }
+  .wiki-updated { margin-top: 2rem; font-size: .8rem; line-height: 1.8; color: var(--muted); }
+  .wiki-updated > div + div { margin-top: .75rem; }
+  .wiki-updated dd { margin: 0; }
+  .wiki-prose { min-width: 0; max-width: 48rem; font-size: 1.05rem; line-height: 1.85; overflow-wrap: anywhere; }
+  .wiki-prose :global(h2) { font-size: clamp(1.6rem, 2.5vw, 2rem); margin: 2.5rem 0 1rem; scroll-margin-top: 6rem; }
+  .wiki-prose :global(h2:first-child) { margin-top: 0; }
+  .wiki-prose :global(h3) { margin: 1.75rem 0 .75rem; font-size: 1.25rem; }
+  .wiki-prose :global(p), .wiki-prose :global(ul), .wiki-prose :global(ol) { margin: 0 0 1.25rem; }
+  .wiki-prose :global(ul), .wiki-prose :global(ol) { padding-left: 1.5rem; }
+  .wiki-prose :global(li) { margin-bottom: .5rem; }
+  .wiki-prose :global(a) {
+    padding: .03em .12em;
+    border-radius: .2rem;
+    color: inherit;
+    background: transparent;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    text-decoration-line: underline;
+    text-decoration-style: dashed;
+    text-decoration-color: color-mix(in srgb, var(--ink) 42%, transparent);
+    text-decoration-thickness: .07rem;
+    text-underline-offset: .34em;
+    transition: background-color .15s ease, box-shadow .15s ease;
+  }
+  .wiki-prose :global(a:hover), .wiki-prose :global(a:focus-visible) {
+    color: inherit;
+    background: color-mix(in srgb, var(--ink) 13%, transparent);
+    box-shadow: 0 0 0 .08em color-mix(in srgb, var(--ink) 13%, transparent);
+    text-decoration-color: color-mix(in srgb, var(--ink) 70%, transparent);
+  }
+  .wiki-prose :global(blockquote) { margin: 1.5rem 0; padding: 1rem 1.5rem; border-left: .2rem solid var(--signal); background: var(--paper); }
+  .wiki-prose :global(table) { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; margin-block: 1.5rem; font-size: .95rem; }
+  .wiki-prose :global(th), .wiki-prose :global(td) { padding: .7rem; border: 1px solid var(--line); text-align: left; }
+  a:hover { color: var(--signal); }
+  @media (max-width: 760px) {
+    .wiki-reading-grid { grid-template-columns: 1fr; }
+    .wiki-outline { padding-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
+    .wiki-updated { margin-top: 1rem; }
+  }
+</style>
