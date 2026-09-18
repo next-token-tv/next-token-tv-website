@@ -2,8 +2,8 @@ kind: ai-brand
 name: {zh-Hans: Cognition, en: Cognition}
 summary: {zh-Hans: 开发 Devin 软件工程智能体的人工智能公司。, en: The AI company developing the Devin software-engineering agent.}
 aliases: [Cognition AI]
-official: {website: https://cognition.ai/}
-lastVerifiedAt: '2026-09-14'
+official: {website: https://cognition.com/}
+lastVerifiedAt: '2026-09-18'
 sources:
   - label: {zh-Hans: 官方网站, en: Official website}
-    href: https://cognition.ai/
+    href: https://cognition.com/

@@ -13,14 +13,10 @@ aliases:
   - 小米的 NAS
   - 小米NAS
 official:
-  website: https://www.mi.com/shop/buy/detail?product_id=21425
-lastVerifiedAt: "2026-09-10"
+  website: https://apps.apple.com/cn/app/id6746838087
+lastVerifiedAt: "2026-09-18"
 sources:
   - label:
-      zh-Hans: 小米商城产品页
-      en: Xiaomi official product listing
-    href: https://www.mi.com/shop/buy/detail?product_id=21425
-  - label:
-      zh-Hans: 小米官方客户端与设备功能介绍
-      en: Xiaomi official companion app and device features
+      zh-Hans: 小米智能存储 App Store 官方页面
+      en: Xiaomi Smart Storage official App Store page
     href: https://apps.apple.com/cn/app/id6746838087
