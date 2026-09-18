@@ -10,7 +10,7 @@ seoDescription: 'Learn about Liu Fei, host of the San Wu Huan podcast and produc
 
 ## Liu Fei
 
-Liu Fei is a content creator and product manager who hosts the Chinese technology podcast [San Wu Huan](https://podcasts.apple.com/cn/podcast/id1475113228) (三五环), publishing under the name 刘飞Lufy. He also co-hosts the business podcast Banchatie (半拿铁) with Xiao Lei.
+Liu Fei is a content creator and product manager who hosts the Chinese technology podcast [San Wu Huan](https://podcasts.apple.com/cn/podcast/id1475113228) (三五环), publishing under the name 刘飞 Lufy. He also co-hosts the business podcast Banchatie (半拿铁) with Xiao Lei.
 
 ## Background and representative work
 

@@ -17,6 +17,14 @@ const hostOrder = (id: string) => catalog.hostMemberships.find(m => m.data.perso
 const people = catalog.people.slice().sort((a,b) => hostOrder(a.id)-hostOrder(b.id) || a.id.localeCompare(b.id));
 const person = personId ? people.find(p => p.id === personId) : undefined;
 const hasArticle = !!person && catalog.prose.some(({ data }) => data.slot === "wiki" && data.entityType === "person" && data.entity === person.id && data.locale === locale);
+const hasCJK = (value: string) => /\p{Script=Han}/u.test(value);
+const cardTitle = (aliases: string[], name: string) => {
+  const short = aliases.filter(alias => alias.length > 0 && alias.length <= 8);
+  if (locale === "en") return aliases.some(hasCJK) ? name : short[0] ?? name;
+  const cjkAlias = short.find(hasCJK);
+  if (cjkAlias) return cjkAlias;
+  return hasCJK(name) ? name : short[0] ?? name;
+};
 const chapterLinks = person ? catalog.transcriptImports.filter(t => t.data.locale === locale).flatMap(t => t.data.chapters.filter(c => c.turns.some(turn => turn.paragraphs.some(p => p.some(s => s.entityType === "person" && s.entityId === person.id)))).map(c => ({episodeId:t.data.episodeId, title:c.title, href:`${prefix}/weekly/${catalog.episodes.find(e => e.id === t.data.episodeId)!.data.number}/transcript#${c.id}`}))) : [];
 const mentions = person ? catalog.episodes.filter(episode => episode.data.mentions.people.includes(person.id) || chapterLinks.some(chapter => chapter.episodeId === episode.id)).sort((a, b) => Number(b.data.number) - Number(a.data.number)) : [];
 
@@ -26,7 +34,7 @@ const mentions = person ? catalog.episodes.filter(episode => episode.data.mentio
     name={person.data.name[locale]} summary={person.data.bio[locale]} aliases={person.data.aliases} aliasesLabel={en ? "Also known as" : "别名"}>
     <WikiIdentityCard square class={person.data.photo ? "person-article-portrait" : "person-article-placeholder"}
       label={en ? "Person" : "人物"} photo={person.data.photo} name={person.data.name[locale]}
-      title={person.data.aliases.find(alias => alias.length <= 8) ?? person.data.name[locale].split(/\s+/).map(word => Array.from(word)[0]).join("").slice(0, 4)} />
+      title={cardTitle(person.data.aliases, person.data.name[locale])} />
   </WikiDetailHeader> : <>
   {person ? <div class="person-detail-back"><a href={`${prefix}/wiki/people`}><span aria-hidden="true">←</span>{en ? "All people" : "全部人物"}</a></div> : <nav class="library-tabs" aria-label={en ? "Wiki" : "资料库"}>
     <a href={`${prefix}/wiki/brands`}>{en ? "Brands" : "品牌"}</a>

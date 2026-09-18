@@ -10,11 +10,11 @@ seoDescription: '了解播客《三五环》主播刘飞的产品经理经历、
 
 ## 刘飞（Liu Fei）
 
-刘飞是内容创作者、产品经理，科技播客[《三五环》](https://podcasts.apple.com/cn/podcast/id1475113228)主播，并以"刘飞Lufy"为创作署名。他与潇磊共同主持商业播客《半拿铁》。
+刘飞是内容创作者、产品经理，科技播客[《三五环》](https://podcasts.apple.com/cn/podcast/id1475113228)主播，并以"刘飞 Lufy"为创作署名。他与潇磊共同主持商业播客《半拿铁》。
 
 ## 经历与代表作品
 
-- **《三五环》**：[Apple Podcasts 页面](https://podcasts.apple.com/cn/podcast/id1475113228)显示这是一档科技类对谈播客，主播署名刘飞Lufy。播客介绍中他自述"产品经理生涯完整经历了 Web2.0，半截经历在中小公司和创业，半截经历在滴滴和阿里"，并运营公众号「刘言飞语」，现居杭州。
+- **《三五环》**：[Apple Podcasts 页面](https://podcasts.apple.com/cn/podcast/id1475113228)显示这是一档科技类对谈播客，主播署名刘飞 Lufy。播客介绍中他自述"产品经理生涯完整经历了 Web2.0，半截经历在中小公司和创业，半截经历在滴滴和阿里"，并运营公众号「刘言飞语」，现居杭州。
 - **《半拿铁》**：[Apple Podcasts 页面](https://podcasts.apple.com/cn/podcast/id1615939013)显示这档商业类播客由潇磊和刘飞共同主持。
 
 ## 节目中的提及
