@@ -20,8 +20,8 @@ export default defineConfig({
     locale: "zh-CN",
     reducedMotion: "reduce",
   },
-  webServer: {
-    command: `npm run build && ASTRO_PREVIEW_BACKGROUND=0 npx astro preview --ignore-lock --host 127.0.0.1 --port ${port}`,
+  webServer: process.env.PLAYWRIGHT_USE_EXISTING_SERVER === "1" ? undefined : {
+    command: `npm run build && npx wrangler dev --local --ip 127.0.0.1 --port ${port}`,
     url: baseURL,
     reuseExistingServer: false,
     timeout: 120_000,
