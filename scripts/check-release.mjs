@@ -2,6 +2,7 @@ import { readdir, readFile, stat } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { load } from 'js-yaml';
+import { hasRecordingDatePassed } from './lib/announcement-schedule.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = resolve(root, 'dist');
@@ -236,7 +237,7 @@ for (const name of await readdir(directory)) {
     const route = resolve(dist, `.${prefix}/weekly/${data.number}/index.html`);
     if (!pages.has(route)) errors.push(`${name}: missing ${prefix || 'Chinese'} episode route`);
   }
-  if (data.status === 'announced' && Date.parse(data.scheduledAt) < Date.now()) {
+  if (data.status === 'announced' && hasRecordingDatePassed(data.scheduledAt, data.timeZone)) {
     errors.push(`${name}: recording date has passed; review the announcement status before release`);
   }
   for (const platform of data.platforms ?? []) {
