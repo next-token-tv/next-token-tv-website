@@ -287,6 +287,8 @@ const episodeImports = defineCollection({
       role: z.enum(["duty-host", "co-host", "guest"]),
     })),
     images: z.object({
+      "480": assetPath.optional(),
+      "720": assetPath.optional(),
       "960": assetPath,
       "1440": assetPath,
       "1920": assetPath,

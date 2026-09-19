@@ -34,6 +34,8 @@
   ],
   "guestNames": [],
   "images": {
+    "480": "/assets/weekly-002-cover-square-480.webp",
+    "720": "/assets/weekly-002-cover-square-720.webp",
     "960": "/assets/weekly-002-cover-square-960.webp",
     "1440": "/assets/weekly-002-cover-square-1440.webp",
     "1920": "/assets/weekly-002-cover-square-1920.webp"

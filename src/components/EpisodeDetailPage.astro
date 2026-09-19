@@ -9,6 +9,7 @@ import PlatformBrand from "./PlatformBrand.astro";
 import { getEpisodeShowNotes, getPeopleByIds, getPublishedEpisode } from "../data/catalog";
 import { partnerPath, resolveVenueId } from "../data/partners";
 import type { Locale } from "../data/types";
+import { episodeImageSrcset } from "../data/episode-images";
 
 interface Props {
   episodeId: string;
@@ -88,8 +89,8 @@ const labels = locale === "en" ? {
         class:list={{ "pan-if-cropped": episode.data.imageKind === "photo" }}
         data-pan-if-cropped={episode.data.imageKind === "photo" || undefined}
         src={episode.data.images["960"]}
-        srcset={`${episode.data.images["960"]} 960w, ${episode.data.images["1440"]} 1440w, ${episode.data.images["1920"]} 1920w`}
-        sizes="(max-width: 1000px) 100vw, 52vw"
+        srcset={episodeImageSrcset(episode.data.images)}
+        sizes="(max-width: 31.25rem) calc(100vw - 2.5rem), (max-width: 62.5rem) 92vw, (min-width: 100rem) 48.3rem, 48.3vw"
         width={episode.data.imageDimensions.width}
         height={episode.data.imageDimensions.height}
         decoding="async"

@@ -57,6 +57,7 @@
 - Weekly cards are ordered by descending episode number. Homepage primary actions and the global status link point to the latest published episode. Recording previews remain separate and disappear when no announced episode exists.
 - The HTML sitemap displays the episode number once as metadata and uses the localized hero heading as the visible episode title. It never exposes SEO/site-name suffixes in the episode list. Published and announced episodes share this row structure, and episode and transcript rows remain vertically paired on wide layouts.
 - Designed cover artwork is displayed intact with `object-fit: contain`, without photo panning or grayscale effects. The approved episode H1 and number classes also apply to audio-only episodes.
+- Episode artwork imports generate 480, 720, 960, 1440 and 1920-width WebP delivery assets while retaining the original image. Episode cards and detail heroes share `episodeImageSrcset`; `sizes` follows the shell gutters, stacking breakpoint and desktop column width. Legacy snapshots without small variants remain supported. Mobile regression tests verify the selected asset at both 1× and 2× pixel density; hero images retain high fetch priority and below-the-fold cards remain lazy-loaded.
 
 - Check every rendered H2 on Chinese and English pages at desktop, tablet, and mobile widths. Its computed line height divided by font size must equal 1.25 (allowing browser rounding).
 - At the same viewport width, headings within each shared role must resolve to the same computed font size.

@@ -116,6 +116,27 @@ test("episode artwork uses distinct responsive delivery images", async ({ page }
   }
 });
 
+for (const deviceScaleFactor of [1, 2]) {
+  test(`mobile episode artwork selects a smaller asset at DPR ${deviceScaleFactor}`, async ({ browser, baseURL }) => {
+    const context = await browser.newContext({ baseURL, viewport: { width: 390, height: 844 }, deviceScaleFactor });
+    const page = await context.newPage();
+    try {
+      for (const path of ["/", "/weekly", "/weekly/002", "/en/weekly/002"]) {
+        await page.goto(path);
+        const image = page.locator(path.endsWith("/002")
+          ? ".episode-detail-image.is-artwork img"
+          : '.weekly-card[data-episode-number="002"] .weekly-image.is-artwork img');
+        await image.scrollIntoViewIfNeeded();
+        await expect.poll(() => image.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBe(true);
+        expect(await image.evaluate((el: HTMLImageElement) => el.currentSrc))
+          .toContain(`-square-${deviceScaleFactor === 1 ? 480 : 720}.webp`);
+      }
+    } finally {
+      await context.close();
+    }
+  });
+}
+
 test("language suggestion does not shift page content", async ({ page }) => {
   await page.goto("/wiki/brands");
   await page.evaluate(() => window.localStorage.setItem("next-token-language", "en"));

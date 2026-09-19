@@ -30,7 +30,7 @@ const sourceGitStatus = execFileSync('git', ['-C', sourceRoot, 'status', '--porc
 if (sourceGitStatus) {
   throw new Error('Published audio sources must be committed before import');
 }
-const images = Object.fromEntries(await Promise.all([960, 1440, 1920].map(async (width) => {
+const images = Object.fromEntries(await Promise.all([480, 720, 960, 1440, 1920].map(async (width) => {
   const output = `/assets/weekly-${mapping.number}-cover${square ? "-square" : ""}-${width}.webp`;
   await sharp(resolve(`public${image}`))
     .resize({ width, withoutEnlargement: true })

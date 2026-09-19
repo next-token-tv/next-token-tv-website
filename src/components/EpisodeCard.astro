@@ -2,6 +2,7 @@
 import { getPublishedEpisode } from "../data/catalog";
 import TranscriptLink from "./TranscriptLink.astro";
 import type { Locale } from "../data/types";
+import { episodeImageSrcset } from "../data/episode-images";
 interface Props { episodeId: string; locale: Locale }
 const { episodeId, locale } = Astro.props;
 const episode = await getPublishedEpisode(episodeId);
@@ -12,8 +13,8 @@ const href = `${locale === "en" ? "/en" : ""}/weekly/${episode.data.number}`;
   <a class:list={["weekly-image", { "is-artwork": episode.data.imageKind === "artwork" }]} href={href} aria-label={episode.data.title[locale]}>
     <img
       src={episode.data.images["960"]}
-      srcset={`${episode.data.images["960"]} 960w, ${episode.data.images["1440"]} 1440w, ${episode.data.images["1920"]} 1920w`}
-      sizes="(max-width: 1280px) 100vw, 50vw"
+      srcset={episodeImageSrcset(episode.data.images)}
+      sizes="(max-width: 31.25rem) calc(100vw - 2.5rem), (max-width: 79.999rem) 92vw, (min-width: 100rem) 49.68rem, 49.68vw"
       width={episode.data.imageDimensions.width}
       height={episode.data.imageDimensions.height}
       loading="lazy"
