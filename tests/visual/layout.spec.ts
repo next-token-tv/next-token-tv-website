@@ -95,6 +95,46 @@ test("follow sections share the same heading role across pages", async ({ page }
   }
 });
 
+test("episode artwork uses distinct responsive delivery images", async ({ page }) => {
+  for (const path of ["/", "/weekly", "/weekly/002"]) {
+    await page.goto(path);
+    const artwork = path === "/weekly/002"
+      ? page.locator(".episode-detail-image.is-artwork img")
+      : page.locator('.weekly-card[data-episode-number="002"] .weekly-image.is-artwork img');
+    await artwork.scrollIntoViewIfNeeded();
+    await expect(artwork).toBeVisible();
+    await expect.poll(() => artwork.evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0);
+    const sources = await artwork.evaluate((image: HTMLImageElement) => ({
+      src: image.getAttribute("src"),
+      srcset: image.getAttribute("srcset"),
+      width: image.naturalWidth,
+    }));
+    expect(sources.src).toContain("-960.webp");
+    expect(sources.srcset).toContain("-1440.webp 1440w");
+    expect(sources.srcset).toContain("-1920.webp 1920w");
+    expect(sources.width).toBeGreaterThan(0);
+  }
+});
+
+test("language suggestion does not shift page content", async ({ page }) => {
+  await page.goto("/wiki/brands");
+  await page.evaluate(() => window.localStorage.setItem("next-token-language", "en"));
+  await page.reload();
+  const suggestion = page.locator("[data-language-suggestion]");
+  await expect(suggestion).toBeVisible();
+  const positions = await page.evaluate(() => {
+    const main = document.querySelector("main")!;
+    const suggestion = document.querySelector<HTMLElement>("[data-language-suggestion]")!;
+    const before = main.getBoundingClientRect().top;
+    suggestion.hidden = true;
+    const hidden = main.getBoundingClientRect().top;
+    suggestion.hidden = false;
+    return { before, hidden, position: getComputedStyle(suggestion).position };
+  });
+  expect(positions.position).toBe("fixed");
+  expect(positions.before).toBe(positions.hidden);
+});
+
 for (const viewport of viewports) {
   test.describe(`${viewport.name} ${viewport.width}px`, () => {
     test.use({ viewport: { width: viewport.width, height: viewport.height } });
@@ -102,7 +142,7 @@ for (const viewport of viewports) {
     for (const route of routes) {
       test(`${route.path} keeps shared geometry`, async ({ page }) => {
         await page.goto(route.path);
-        await page.evaluate(() => window.localStorage.setItem("next-token-language", "zh-Hans"));
+        await page.evaluate((language) => window.localStorage.setItem("next-token-language", language), route.path.startsWith("/en") ? "en" : "zh-Hans");
         await page.reload();
 
         const geometry = await page.evaluate((mainShellSelector) => {

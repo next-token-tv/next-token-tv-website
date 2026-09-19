@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { load } from 'js-yaml';
+import sharp from 'sharp';
 
 // Editorial mapping is YAML; this command produces the delivery snapshot, never the reverse.
 const [mappingPath, sourceRoot] = process.argv.slice(2);
@@ -29,12 +30,20 @@ const sourceGitStatus = execFileSync('git', ['-C', sourceRoot, 'status', '--porc
 if (sourceGitStatus) {
   throw new Error('Published audio sources must be committed before import');
 }
+const images = Object.fromEntries(await Promise.all([960, 1440, 1920].map(async (width) => {
+  const output = `/assets/weekly-${mapping.number}-cover${square ? "-square" : ""}-${width}.webp`;
+  await sharp(resolve(`public${image}`))
+    .resize({ width, withoutEnlargement: true })
+    .webp({ quality: 82 })
+    .toFile(resolve(`public${output}`));
+  return [width, output];
+})));
 const snapshot = {
-  ...data, images: { '960': image, '1440': image, '1920': image },
+  ...data, images,
   provenance: {
-    productionCommit: execFileSync('git', ['-C', sourceRoot, 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(),
+    productionCommit: execFileSync('git', ['-C', sourceRoot, 'log', '-1', '--format=%H', '--', ...sourcePaths], { encoding: 'utf8' }).trim(),
     sources,
   },
 };
 await writeFile(`src/content/imported/episodes/${data.episodeId}.production.json`, JSON.stringify(snapshot, null, 2) + '\n');
-console.log(`Imported ${data.episodeId}: ${sources.length} hashed production sources, original cover copied without modification.`);
+console.log(`Imported ${data.episodeId}: ${sources.length} hashed production sources, original cover preserved with responsive delivery images.`);

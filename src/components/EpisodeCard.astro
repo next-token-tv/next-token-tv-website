@@ -10,7 +10,16 @@ const href = `${locale === "en" ? "/en" : ""}/weekly/${episode.data.number}`;
 ---
 <article class:list={["weekly-card", { "has-artwork": episode.data.imageKind === "artwork" }]} data-episode-number={episode.data.number}>
   <a class:list={["weekly-image", { "is-artwork": episode.data.imageKind === "artwork" }]} href={href} aria-label={episode.data.title[locale]}>
-    <img src={episode.data.images["1920"]} width={episode.data.imageDimensions.width} height={episode.data.imageDimensions.height} loading="lazy" alt={copy.imageAlt} />
+    <img
+      src={episode.data.images["960"]}
+      srcset={`${episode.data.images["960"]} 960w, ${episode.data.images["1440"]} 1440w, ${episode.data.images["1920"]} 1920w`}
+      sizes="(max-width: 1280px) 100vw, 50vw"
+      width={episode.data.imageDimensions.width}
+      height={episode.data.imageDimensions.height}
+      loading="lazy"
+      decoding="async"
+      alt={copy.imageAlt}
+    />
     <span class="label">{episode.data.releaseDate} · {locale === "en" ? (episode.data.media.video ? "Audio & video" : "Audio") : (episode.data.media.video ? "音频 / 视频" : "音频")}</span>
   </a>
   <div class="weekly-copy">

@@ -96,7 +96,7 @@ a {
 .wordmark img {
   box-sizing: border-box;
   width: clamp(3.25rem, 4vw, 3.75rem);
-  height: auto;
+  height: clamp(3.25rem, 4vw, 3.75rem);
   flex: 0 0 auto;
   padding: 0.18rem;
   border: 1px solid rgba(17, 17, 17, 0.5);
@@ -3172,6 +3172,7 @@ html[lang="en"] .weekly-show-facts strong {
 
   .wordmark img {
     width: 2.8rem;
+    height: 2.8rem;
   }
 
   .wordmark > span {

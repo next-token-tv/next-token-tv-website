@@ -34,9 +34,9 @@
   ],
   "guestNames": [],
   "images": {
-    "960": "/assets/weekly-002-cover-square.jpg",
-    "1440": "/assets/weekly-002-cover-square.jpg",
-    "1920": "/assets/weekly-002-cover-square.jpg"
+    "960": "/assets/weekly-002-cover-square-960.webp",
+    "1440": "/assets/weekly-002-cover-square-1440.webp",
+    "1920": "/assets/weekly-002-cover-square-1920.webp"
   },
   "provenance": {
     "productionCommit": "15d285b048b6c38fe2e099dc981cb23a8aed8775",

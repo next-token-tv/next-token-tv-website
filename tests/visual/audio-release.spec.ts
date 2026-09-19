@@ -14,7 +14,8 @@ for (const width of [390, 768, 1280, 1320, 1440, 1920, 2560]) {
         const cards = page.locator('[data-episode-number]');
         await expect(page.locator('[data-episode-number="002"] .weekly-image .label')).toContainText(prefix ? 'Audio & video' : '音频 / 视频');
         const cover = page.locator('[data-episode-number="002"] .weekly-image img');
-        await expect(cover).toHaveAttribute('src', '/assets/weekly-002-cover-square.jpg');
+        await expect(cover).toHaveAttribute('src', '/assets/weekly-002-cover-square-960.webp');
+        await expect(cover).toHaveAttribute('srcset', /weekly-002-cover-square-1440\.webp 1440w/);
         const coverRect = await cover.boundingBox();
         expect(coverRect!.width / coverRect!.height).toBeCloseTo(1, 2);
         const frameRect = await page.locator('[data-episode-number="002"] .weekly-image').boundingBox();
@@ -54,6 +55,7 @@ for (const width of [390, 768, 1280, 1320, 1440, 1920, 2560]) {
       await expect(page.locator('.episode-transcript-cta')).toHaveCount(prefix ? 0 : 1);
       expect(await page.locator('.episode-detail-image img').evaluate(n => getComputedStyle(n).objectFit)).toBe('contain');
       const detailCover = page.locator('.episode-detail-image img');
+      await expect(detailCover).toHaveAttribute('src', '/assets/weekly-002-cover-square-960.webp');
       await expect(detailCover).toHaveAttribute('width', '3000');
       await expect(detailCover).toHaveAttribute('height', '3000');
       const coverBox = await detailCover.boundingBox();

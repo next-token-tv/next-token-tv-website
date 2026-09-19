@@ -4,6 +4,7 @@ for (const width of [390, 1440]) {
   for (const prefix of ['', '/en']) {
     test(`HTML sitemap ${prefix || 'zh'} at ${width}`, async ({ page, request }) => {
       await page.setViewportSize({ width, height: 900 });
+      await page.addInitScript((language) => window.localStorage.setItem('next-token-language', language), prefix ? 'en' : 'zh-Hans');
       await page.goto(`${prefix}/sitemap`);
       await expect(page.locator('h1')).toHaveText(prefix ? 'Sitemap' : '网站地图');
       await expect(page.locator(`footer a[href="${prefix}/sitemap"]`)).toBeVisible();
