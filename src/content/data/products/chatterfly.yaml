@@ -1,0 +1,17 @@
+kind: application
+brand: tencent
+name:
+  zh-Hans: Chatterfly
+  en: Chatterfly
+summary:
+  zh-Hans: 腾讯推出的 AI 语音输入工具。
+  en: An AI voice-input tool from Tencent.
+aliases: []
+official:
+  website: https://chatterfly.tencent.com/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://chatterfly.tencent.com/

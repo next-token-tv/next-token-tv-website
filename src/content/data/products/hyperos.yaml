@@ -1,0 +1,20 @@
+kind: operating-system
+brand: xiaomi
+name:
+  zh-Hans: 小米澎湃 OS
+  en: Xiaomi HyperOS
+summary:
+  zh-Hans: 小米面向手机及互联设备的操作系统。
+  en: Xiaomi's operating system for phones and connected devices.
+aliases:
+  - 小米澎湃 OS 4
+  - 澎湃 OS
+  - HyperOS
+official:
+  website: https://hyperos.mi.com/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://hyperos.mi.com/

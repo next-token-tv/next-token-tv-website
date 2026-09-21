@@ -1,0 +1,17 @@
+kind: platform
+brand: apple
+name:
+  zh-Hans: Apple TV
+  en: Apple TV
+summary:
+  zh-Hans: Apple 的视频流媒体订阅服务，提供原创影视内容。
+  en: Apple's video-streaming subscription service featuring original films and series.
+aliases: []
+official:
+  website: https://www.apple.com/apple-tv/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.apple.com/apple-tv/

@@ -1,0 +1,12 @@
+kind: game
+name: {zh-Hans: 魔法门英雄无敌, en: Heroes of Might and Magic}
+summary:
+  zh-Hans: 结合英雄成长、资源管理与战术战斗的回合制策略游戏系列。
+  en: A turn-based strategy game series combining hero progression, resource management and tactical combat.
+aliases: [英雄无敌, Might & Magic Heroes]
+official:
+  website: https://www.ubisoft.com/en-gb/games/heroes-of-might-and-magic
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label: {zh-Hans: Ubisoft 系列介绍, en: Ubisoft series overview}
+    href: https://www.ubisoft.com/en-gb/games/heroes-of-might-and-magic

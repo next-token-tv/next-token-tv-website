@@ -1,0 +1,17 @@
+kind: application
+name:
+  zh-Hans: Napkin AI
+  en: Napkin AI
+summary:
+  zh-Hans: 把文本转换成图示与可编辑视觉内容的 AI 工具。
+  en: An AI tool that turns text into diagrams and editable visuals.
+aliases:
+  - Napkin
+official:
+  website: https://www.napkin.ai/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.napkin.ai/

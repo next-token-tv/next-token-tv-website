@@ -173,7 +173,7 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
 
       {upcoming?.data.status === "announced" && (
         <a class="weekly-show-upcoming" href={`${weeklyPath}/${upcoming.data.number}`}>
-          <span>{labels.upcoming}</span>
+          <span>{upcoming.data.phase === "post-production" ? (locale === "en" ? "In production" : "节目制作中") : labels.upcoming}</span>
           <strong>#{upcoming.data.number}</strong>
           <p>{upcoming.data.title[locale]}</p>
           <p>

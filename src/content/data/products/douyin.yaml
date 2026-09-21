@@ -1,0 +1,17 @@
+kind: platform
+brand: bytedance
+name:
+  zh-Hans: 抖音
+  en: Douyin
+summary:
+  zh-Hans: 字节跳动旗下的短视频与直播内容平台。
+  en: ByteDance's short-video and livestreaming platform.
+aliases: []
+official:
+  website: https://www.bytedance.com/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.bytedance.com/

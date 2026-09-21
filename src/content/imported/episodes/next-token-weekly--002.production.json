@@ -44,6 +44,10 @@
     "productionCommit": "15d285b048b6c38fe2e099dc981cb23a8aed8775",
     "sources": [
       {
+        "path": "shows/weekly/episodes/002/04-release/artwork/cover-landscape.jpg",
+        "sha256": "6c6b2d451f518af61c2c88ad262bae19b2cc1addacce2299cbd7d71e637b5c23"
+      },
+      {
         "path": "shows/weekly/episodes/002/credits.json",
         "sha256": "2f8f3e2ec3ef28f75dd8cd555001c998d6523b44cbb01c98c9512218c6da5bab"
       },
@@ -72,5 +76,16 @@
         "sha256": "afd12e8cc09ec8611d1569bb6135dedb47a5fb89b5e868fa2ee3ae1f40cf076f"
       }
     ]
+  },
+  "cardImageDimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "cardImages": {
+    "480": "/assets/weekly-002-card-480.webp",
+    "720": "/assets/weekly-002-card-720.webp",
+    "960": "/assets/weekly-002-card-960.webp",
+    "1440": "/assets/weekly-002-card-1440.webp",
+    "1920": "/assets/weekly-002-card-1920.webp"
   }
 }

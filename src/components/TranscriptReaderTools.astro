@@ -61,7 +61,7 @@ const en = locale === "en";
       const turns = [...chapter.querySelectorAll<HTMLElement>('.transcript-turn')];
       return [{ id: chapter.id, title, text: title }, ...turns.map((turn, i) => {
         turn.id = `${chapter.id}-turn-${i + 1}`;
-        return { id: turn.id, title, text: (() => { const copy = turn.cloneNode(true) as HTMLElement; copy.querySelectorAll('[data-paragraph-copy], .transcript-paragraph-feedback').forEach(node => node.remove()); return copy.textContent?.replace(/\s+/g, ' ').trim() ?? ''; })() };
+        return { id: turn.id, title, text: (() => { const copy = turn.cloneNode(true) as HTMLElement; copy.querySelectorAll('[data-paragraph-copy], .transcript-paragraph-feedback, .transcript-paragraph-time').forEach(node => node.remove()); return copy.textContent?.replace(/\s+/g, ' ').trim() ?? ''; })() };
       })];
     });
     const search = () => {

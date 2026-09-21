@@ -172,7 +172,7 @@ function speakerFromParagraph(node) {
   const markedName = marker.slice(0, -1);
   const candidate = markedName.endsWith("†");
   const name = candidate ? markedName.slice(0, -1) : markedName;
-  const kind = name === "片头旁白" ? "narration" : name === "编者注" ? "editor-note" : "speech";
+  const kind = ["片头旁白", "片头解说"].includes(name) ? "narration" : name === "编者注" ? "editor-note" : "speech";
   return {
     name,
     candidate,

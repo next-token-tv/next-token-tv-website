@@ -11,18 +11,23 @@ interface Props {
   episodeNumber: string;
   locale: Locale;
   isReviewDraft?: boolean;
+  displayTitle?: string;
 }
 
-const { transcript, episodeNumber, locale, isReviewDraft = false } = Astro.props;
+const { transcript, episodeNumber, locale, isReviewDraft = false, displayTitle = transcript.data.title } = Astro.props;
 const speakerIds = [...new Set(
   transcript.data.chapters.flatMap(({ turns }) => turns.map(({ speakerId }) => speakerId).filter(Boolean)),
 )] as string[];
 const people = await getPeopleByIds(speakerIds);
 const peopleById = new Map(people.map((person) => [person.id, person]));
-const [seriesTitle, ...topicParts] = transcript.data.title.split("｜");
+const [seriesTitle, ...topicParts] = displayTitle.split("｜");
 const topicTitle = topicParts.join("｜");
 const episodePath = `${locale === "en" ? "/en" : ""}/weekly/${episodeNumber}`;
 const paragraphAnchorIds = getParagraphAnchorIds(transcript.data.chapters);
+const formatTime = (seconds: number) => {
+  const total = Math.floor(seconds);
+  return [Math.floor(total / 3600), Math.floor(total / 60) % 60, total % 60].map(n => String(n).padStart(2, '0')).join(':');
+};
 const copy = locale === "en" ? {
   back: "Back to episode",
   kicker: `Weekly #${episodeNumber} / Transcript`,
@@ -53,7 +58,7 @@ const copy = locale === "en" ? {
     <div class="transcript-hero-grid">
       <div>
         <p class="section-kicker">{copy.kicker}</p>
-        <h1 aria-label={transcript.data.title}>
+        <h1 aria-label={displayTitle}>
           <span>{seriesTitle}</span>
           {topicTitle && <span>{topicTitle}</span>}
         </h1>
@@ -122,9 +127,11 @@ const copy = locale === "en" ? {
                   <div class="transcript-paragraphs">
                     {turn.paragraphs.map((paragraph, paragraphIndex) => {
                       const paragraphId = paragraphAnchorIds[chapterIndex]?.[turnIndex]?.[paragraphIndex];
+                      const timing = turn.paragraphTimings?.[paragraphIndex];
                       return (
                         <p id={paragraphId} class="transcript-quote-paragraph">
                           <TranscriptSegments segments={paragraph} />
+                          {timing && <span class="transcript-paragraph-time" title={locale === 'en' ? 'Video subtitle cue range; not word-level timing' : '视频字幕对应范围，非逐字对齐时间'}>{locale === 'en' ? 'Video' : '视频'} · {formatTime(timing.startSeconds)}–{formatTime(timing.endSeconds)}</span>}
                           {!isReviewDraft && <a class="transcript-paragraph-link" href={`${episodePath}/transcript#${paragraphId}`} data-paragraph-copy aria-label={copy.paragraphLink} title={copy.paragraphLink}>¶</a>}
                         </p>
                       );
@@ -139,3 +146,58 @@ const copy = locale === "en" ? {
     </article>
   </div>
 </main>
+
+<script>
+  const sidebar = document.querySelector<HTMLElement>('.transcript-sidebar');
+  const toc = sidebar?.querySelector<HTMLDetailsElement>('.transcript-toc');
+  const list = toc?.querySelector<HTMLOListElement>('ol');
+  const chapters = [...document.querySelectorAll<HTMLElement>('.transcript-chapter')];
+  const links = [...(toc?.querySelectorAll<HTMLAnchorElement>('a[href^="#"]') ?? [])];
+  if (sidebar && toc && list && chapters.length) {
+    let active = -1;
+    let frame = 0;
+    const reveal = () => {
+      const link = links[active];
+      if (!link || !toc.open) return;
+      const bounds = list.getBoundingClientRect();
+      const item = link.getBoundingClientRect();
+      if (item.top < bounds.top || item.bottom > bounds.bottom) {
+        // Only move the directory's own scroll container, never the document.
+        list.scrollTop += item.top - bounds.top - (bounds.height - item.height) / 2;
+      }
+    };
+    const update = () => {
+      frame = 0;
+      const readingLine = parseFloat(getComputedStyle(chapters[0]!).scrollMarginTop) + 1;
+      let index = 0;
+      for (let i = 0; i < chapters.length; i++) {
+        if (chapters[i]!.getBoundingClientRect().top <= readingLine) index = i;
+        else break;
+      }
+      if (index !== active) {
+        links[active]?.removeAttribute('aria-current');
+        active = index;
+        links[active]?.setAttribute('aria-current', 'location');
+        reveal();
+      }
+    };
+    const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
+    const resize = () => {
+      // Reserve room for search, legend and the directory heading on short screens.
+      if (getComputedStyle(sidebar).position === 'sticky') {
+        const top = parseFloat(getComputedStyle(sidebar).top);
+        const controls = list.getBoundingClientRect().top - sidebar.getBoundingClientRect().top;
+        list.style.maxHeight = `${Math.max(80, innerHeight - top - controls - 16) / parseFloat(getComputedStyle(document.documentElement).fontSize)}rem`;
+      } else list.style.removeProperty('max-height');
+      schedule();
+      reveal();
+    };
+    addEventListener('scroll', schedule, { passive: true });
+    addEventListener('resize', resize);
+    addEventListener('hashchange', schedule);
+    toc.addEventListener('toggle', resize);
+    new ResizeObserver(resize).observe(sidebar.querySelector('.transcript-search') ?? sidebar);
+    document.fonts.ready.then(resize);
+    resize();
+  }
+</script>

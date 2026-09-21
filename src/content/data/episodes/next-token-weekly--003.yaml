@@ -1,23 +1,165 @@
 schemaVersion: 2
 number: '003'
 show: next-token-weekly
-status: announced
-scheduledAt: '2026-09-19'
-timeZone: Asia/Shanghai
-recordingMode: online
-participants: []
+status: published
+productionImport: next-token-weekly--003.production
+media:
+  audio: true
+  video: false
 title:
-  zh-Hans: 'Weekly #003｜9 月 19 日线上录制预告'
-  en: 'Weekly #003 | Online recording on September 19'
-preview:
-  eyebrow: {zh-Hans: 'Weekly #003 · 录制预告', en: 'Weekly #003 · Recording preview'}
-  heading:
-    zh-Hans: ['下一次圆桌，', '线上见。']
-    en: ['The next open table,', 'online.']
-  summary:
-    zh-Hans: Next Token Weekly 第三期将于 2026 年 9 月 19 日以线上形式录制。
-    en: 'Next Token Weekly episode #003 will be recorded online on September 19, 2026.'
-  note:
-    zh-Hans: 具体时间、主题与发布信息将在确认后更新。
-    en: The recording time, topic and release details will be added once confirmed.
-mentions: {brands: [], products: [], people: []}
+  zh-Hans: 'Weekly #003｜火线解读 Jev 新范式；用 Agent 还得买带鱼屏？ - Next Token｜词元之外'
+  en: 'Weekly #003 | Unpacking Jev’s new paradigm: do agents need an ultrawide? - Next Token'
+homepage:
+  zh-Hans:
+    eyebrow: 第 003 期 · 音频已上线
+    heading:
+      - 火线解读 Jev 新范式；
+      - 用 Agent 还得买带鱼屏？
+    lede: 从 Jev 的高频判断，聊到多模态、小模型和代码配乐，再到 Agent 的屏幕、硬盘、账号与数据边界。工具越能干，真实工作现场的新问题越具体。
+    copy: 从 Jev 的高频判断，聊到多模态、小模型和代码配乐，再到 Agent 的屏幕、硬盘、账号与数据边界。工具越能干，真实工作现场的新问题越具体。
+    imageAlt: Next Token Weekly 第三期：Jev 与 Agent 工作流
+    topicsLabel: 本期议题
+    topics:
+      - Jev
+      - Agent
+      - Vibe Coding
+    listenAction: 立即收听
+    watchAction: 立即观看
+  en:
+    eyebrow: 'Episode #003 · Audio out now'
+    heading:
+      - Unpacking Jev’s new paradigm;
+      - do agents need an ultrawide?
+    lede: From Jev and high-frequency decisions to multimodal tools, small models and music made with code—then on to the screens, storage, accounts and data boundaries that agents need in real work.
+    copy: From Jev and high-frequency decisions to multimodal tools, small models and music made with code—then on to the screens, storage, accounts and data boundaries that agents need in real work.
+    imageAlt: 'Next Token Weekly #003: Jev and agent workflows'
+    topicsLabel: Episode topics
+    topics:
+      - Jev
+      - Agent
+      - Vibe Coding
+    listenAction: Listen now
+    watchAction: Watch now
+platforms:
+  - platform: xiaoyuzhou
+    label:
+      zh-Hans: 小宇宙
+      en: Xiaoyuzhou
+    href: https://www.xiaoyuzhoufm.com/episode/6ab0646bac389df82734ef3f
+    action:
+      zh-Hans: 立即收听
+      en: Listen now
+mentions:
+  brands:
+    - yizhi-yanhua
+    - alibaba
+    - all-in
+    - amd
+    - anthropic
+    - apple
+    - bytedance
+    - cxmt
+    - deepseek
+    - figure
+    - google
+    - huawei
+    - li-auto
+    - meta
+    - netease-youdao
+    - next-token
+    - nubia
+    - nvidia
+    - openai
+    - saic-motor
+    - stepfun
+    - tencent
+    - typesafe-ai
+    - volcengine
+    - xiaomi
+    - zhipu
+    - zte
+  products:
+    - jevable
+    - heroes-of-might-and-magic
+    - hitchhikers-guide-to-the-galaxy
+    - 1password
+    - apple-tv
+    - arrow
+    - atlas
+    - blender
+    - bug-say
+    - chatgpt
+    - chatgpt-work
+    - chatterfly
+    - chrome
+    - claude
+    - claude-code
+    - claude-cowork
+    - codebuddy
+    - codex
+    - colaos
+    - devin
+    - dia
+    - doubao
+    - douyin
+    - ego-lite
+    - feishu
+    - figma
+    - gemini
+    - github
+    - glm
+    - gpt
+    - grok
+    - grok-bot
+    - helix
+    - hyperos
+    - icloud
+    - instinct
+    - ios
+    - ipad
+    - jev
+    - linux
+    - live2d
+    - lovable
+    - mac-mini
+    - mac-studio
+    - macos
+    - mimo
+    - mole
+    - muse
+    - napkin
+    - notion
+    - opencode
+    - openrouter
+    - pinduoduo
+    - qwen
+    - safari
+    - shandianshuo
+    - siri
+    - stable-diffusion
+    - step-audio
+    - tabbit
+    - taobao
+    - tetris
+    - tiktok
+    - typeless
+    - wechat
+    - wechat-input-method
+    - weibo
+    - workbuddy
+    - x
+    - xcode
+    - xiaohongshu
+    - zcode
+  people:
+    - brad-qiang
+    - chen-baoyi
+    - dario-amodei
+    - donald-trump
+    - elon-musk
+    - jensen-huang
+    - liu-shengyu
+    - luo-fuli
+    - sam-altman
+    - tang-jie
+    - tw93

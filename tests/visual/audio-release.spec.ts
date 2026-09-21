@@ -6,34 +6,31 @@ for (const width of [390, 768, 1280, 1320, 1440, 1920, 2560]) {
       await page.setViewportSize({ width, height: 1000 });
       for (const path of ['/', '/weekly']) {
         await page.goto(path === '/' ? (prefix || '/') : `${prefix}${path}`);
-        await expect(page.locator('.status-pill')).toHaveAttribute('href', `${prefix}/weekly/002`);
-        await expect(page.locator('.status-pill')).toContainText(prefix ? '#002 out now' : '#002 已上线');
-        await expect(page.locator('.upcoming-episode-link')).toHaveAttribute('href', `${prefix}/weekly/003`);
+        await expect(page.locator('.status-pill')).toHaveAttribute('href', `${prefix}/weekly/003`);
+        await expect(page.locator('.status-pill')).toContainText('#003');
+        await expect(page.locator('.upcoming-episode-link')).toHaveCount(0);
         const primary = page.locator(path === '/' ? '.hero-copy .button.primary' : '.weekly-latest-actions > a').first();
-        await expect(primary).toHaveAttribute('href', `${prefix}/weekly/002`);
+        await expect(primary).toHaveAttribute('href', `${prefix}/weekly/003`);
         const cards = page.locator('[data-episode-number]');
-        await expect(page.locator('[data-episode-number="002"] .weekly-image .label')).toContainText(prefix ? 'Audio & video' : '音频 / 视频');
-        const cover = page.locator('[data-episode-number="002"] .weekly-image img');
-        await expect(cover).toHaveAttribute('src', '/assets/weekly-002-cover-square-960.webp');
-        await expect(cover).toHaveAttribute('srcset', /weekly-002-cover-square-1440\.webp 1440w/);
+        const number = path === '/' ? '003' : '002';
+        await expect(page.locator(`[data-episode-number="${number}"] .weekly-image .label`)).toContainText(number === '002' ? (prefix ? 'Audio & video' : '音频 / 视频') : (prefix ? 'Audio' : '音频'));
+        const cover = page.locator(`[data-episode-number="${number}"] .weekly-image img`);
+        await expect(cover).toHaveAttribute('src', `/assets/weekly-${number}-cover-square-960.webp`);
+        await expect(cover).toHaveAttribute('srcset', /-1440\.webp 1440w/);
         const coverRect = await cover.boundingBox();
         expect(coverRect!.width / coverRect!.height).toBeCloseTo(1, 2);
-        const frameRect = await page.locator('[data-episode-number="002"] .weekly-image').boundingBox();
+        const frameRect = await page.locator(`[data-episode-number="${number}"] .weekly-image`).boundingBox();
         expect(frameRect!.width / frameRect!.height).toBeCloseTo(1, 2);
         expect(Math.abs(frameRect!.height - coverRect!.height)).toBeLessThan(1);
         expect(Math.abs(frameRect!.y - coverRect!.y)).toBeLessThan(1);
-        if (width >= 1280) {
-          const cardBox = await page.locator('[data-episode-number="002"]').boundingBox();
-          expect(Math.abs(cardBox!.y + cardBox!.height - coverRect!.y - coverRect!.height)).toBeLessThanOrEqual(1.1);
-        }
         if (path === '/') {
           await expect(page.locator('[data-brand-visual="weekly-001"] img')).toHaveAttribute('src', '/assets/weekly-001-960.webp');
           await expect(page.locator('.visual-caption strong')).toHaveText('24 signalsone open table');
         }
-        expect(await cards.evaluateAll(nodes => nodes.map(n => n.getAttribute('data-episode-number')))).toEqual(path === '/' ? ['002'] : ['002', '001']);
-        await expect(page.locator('a[href*="/002/transcript"]')).toHaveCount(prefix ? 0 : 2);
+        expect(await cards.evaluateAll(nodes => nodes.map(n => n.getAttribute('data-episode-number')))).toEqual(path === '/' ? ['003'] : ['003', '002', '001']);
+        await expect(page.locator('a[href*="/003/transcript"]')).toHaveCount(prefix ? 0 : 2);
         await expect(page.locator('.platform-list a[href*="spotify.com"]')).toHaveAttribute('href', /\/show\//);
-        if (!prefix) await expect(page.locator('main > section').first().locator('a[href="/weekly/002/transcript"]')).toContainText('#002');
+        if (!prefix) await expect(page.locator('main > section').first().locator('a[href="/weekly/003/transcript"]')).toContainText('#003');
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       }
       await page.goto(`${prefix}/weekly/002`);

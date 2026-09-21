@@ -1,0 +1,18 @@
+kind: model-family
+brand: typesafe-ai
+name:
+  zh-Hans: Jev
+  en: Jev
+summary:
+  zh-Hans: TypeSafe AI 面向分类、评分和选择等结构化判断任务的模型。
+  en: TypeSafe AI's model for structured decisions such as classification, scoring and selection.
+aliases: []
+status: preview
+official:
+  website: https://typesafe.ai/blog/introducing-system-one-models-and-jev
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://typesafe.ai/blog/introducing-system-one-models-and-jev

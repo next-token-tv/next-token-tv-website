@@ -1,0 +1,17 @@
+kind: hardware-brand
+name:
+  zh-Hans: 长鑫存储
+  en: CXMT
+summary:
+  zh-Hans: 研发、生产与销售 DRAM 存储芯片的半导体公司。
+  en: A semiconductor company developing, manufacturing and selling DRAM memory chips.
+aliases:
+  - 长鑫
+official:
+  website: https://www.cxmt.com/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.cxmt.com/

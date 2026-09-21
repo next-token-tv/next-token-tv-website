@@ -1,0 +1,16 @@
+kind: application
+name:
+  zh-Hans: ego (lite)
+  en: ego (lite)
+summary:
+  zh-Hans: 基于 Chromium、面向人和 AI Agent 共享浏览状态的浏览器。
+  en: A Chromium-based browser for people and AI agents to share browsing state.
+aliases: []
+official:
+  website: https://github.com/citrolabs/ego-lite
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://github.com/citrolabs/ego-lite

@@ -6,6 +6,7 @@ interface Props { locale: Locale }
 const { locale } = Astro.props;
 // Deliberately pinned: this recording image is the long-term brand visual, not a latest-episode cover.
 const source = await getPublishedEpisode("next-token-weekly--001");
+if (!source.data.recordingVenue) throw new Error("Brand recording visual requires a physical venue");
 const { partner, venue } = await resolveVenueId(source.data.recordingVenue);
 const venueLabel = `${locale === "en" ? partner.englishName : partner.name} · ${venue.name[locale]}`;
 ---

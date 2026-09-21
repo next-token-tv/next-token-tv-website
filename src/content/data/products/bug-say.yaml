@@ -1,0 +1,19 @@
+kind: application
+brand: netease-youdao
+name:
+  zh-Hans: 网易叭哥说
+  en: Bug Say
+summary:
+  zh-Hans: 网易有道推出的 AI 语音输入与文本整理工具。
+  en: An AI voice-input and text-refinement tool from NetEase Youdao.
+aliases:
+  - 叭哥说
+  - 叭哥
+official:
+  website: https://bug.youdao.com/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://bug.youdao.com/

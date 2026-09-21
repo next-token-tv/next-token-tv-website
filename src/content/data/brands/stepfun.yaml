@@ -1,0 +1,17 @@
+kind: ai-brand
+name:
+  zh-Hans: 阶跃星辰
+  en: StepFun
+summary:
+  zh-Hans: 研发多模态基础模型与语音模型的人工智能公司。
+  en: An AI company developing multimodal foundation models and speech models.
+aliases:
+  - 阶跃
+official:
+  website: https://www.stepfun.com/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.stepfun.com/

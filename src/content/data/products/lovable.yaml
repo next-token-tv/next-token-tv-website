@@ -1,0 +1,16 @@
+kind: agent
+name:
+  zh-Hans: Lovable
+  en: Lovable
+summary:
+  zh-Hans: 通过自然语言描述构建应用和网站的 AI 开发工具。
+  en: An AI development tool for building apps and websites from natural-language descriptions.
+aliases: []
+official:
+  website: https://lovable.dev/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://lovable.dev/

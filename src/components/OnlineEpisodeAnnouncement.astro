@@ -1,10 +1,13 @@
 ---
-import { getAnnouncedEpisode } from "../data/catalog";
+import { getAnnouncedEpisode, getPeopleByIds } from "../data/catalog";
+import { episodeImageSrcset } from "../data/episode-images";
+import PersonCard from "./PersonCard.astro";
 import type { Locale } from "../data/types";
 interface Props { episodeId: string; locale: Locale }
 const { episodeId, locale } = Astro.props;
 const { data } = await getAnnouncedEpisode(episodeId);
 const en = locale === "en";
+const participants = await getPeopleByIds(data.participants.map(({ person }) => person));
 const date = new Intl.DateTimeFormat(en ? "en-US" : "zh-Hans", {
   year: "numeric", month: "long", day: "numeric", timeZone: data.timeZone,
 }).format(new Date(data.scheduledAt));
@@ -18,11 +21,15 @@ const date = new Intl.DateTimeFormat(en ? "en-US" : "zh-Hans", {
         <p>{data.preview.summary[locale]}</p>
         <p>{data.preview.note[locale]}</p>
       </div>
-      <div class="episode-preview-poster">
+      {data.preview.image ? <div class="episode-preview-artwork">
+        <img src={data.preview.image} srcset={episodeImageSrcset(data.preview.images ?? {})}
+          sizes="(max-width: 1000px) 90vw, 45vw" width="1920" height="1080"
+          fetchpriority="high" alt={data.preview.heading[locale].join(" ")} />
+      </div> : <div class="episode-preview-poster">
         <span>Next Token Weekly</span>
         <strong>#{data.number}</strong>
         <div><span>{date}</span><span>{en ? "Online" : "线上录制"}</span></div>
-      </div>
+      </div>}
     </div>
   </section>
   <section class="episode-preview-details shell">
@@ -36,4 +43,25 @@ const date = new Intl.DateTimeFormat(en ? "en-US" : "zh-Hans", {
       <a href={en ? "/en/weekly" : "/weekly"}>{en ? "All episodes" : "查看全部节目"} →</a>
     </div>
   </section>
+  {participants.length > 0 && <section class="episode-preview-participants shell" aria-labelledby="episode-participants-title">
+    <div class="episode-preview-participants-heading">
+      <p class="section-kicker">{en ? "Episode participants" : "本期主理人"}</p>
+      <h2 class="heading-section-content" id="episode-participants-title">{en ? "Around the table" : "本期主理人"}</h2>
+    </div>
+    <div class="episode-preview-participant-grid">
+      {participants.map((person, index) => <PersonCard
+        name={person.data.name[locale]}
+        bio={data.participants[index]?.role === "duty-host" ? (en ? "Co-host · This week’s moderator" : "联合主理人 · 本期当值") : (en ? "Co-host" : "联合主理人")}
+        photo={person.data.photo} alt={person.data.alt[locale]}
+        width={person.data.width} height={person.data.height} index={index}
+        profilePath={`${en ? "/en" : ""}/wiki/people/${person.id}`} />)}
+    </div>
+  </section>}
 </main>
+
+<style>
+  .episode-preview-artwork { display: flex; align-items: center; min-width: 0; padding: 2rem 0 2rem 2rem; }
+  .episode-preview-artwork img { width: 100%; height: auto; object-fit: contain; }
+  .episode-preview-copy h1 { font-size: clamp(2.5rem, 10cqi, 4.25rem); overflow-wrap: anywhere; }
+  @media (max-width: 1000px) { .episode-preview-artwork { padding: 0 0 2rem; } }
+</style>

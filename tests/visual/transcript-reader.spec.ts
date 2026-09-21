@@ -1,13 +1,27 @@
 import { expect, test } from '@playwright/test';
 
+test('paragraph timing is excluded from search text and snippets', async ({ page }) => {
+  await page.goto('/weekly/003/transcript');
+  const time = page.locator('.transcript-paragraph-time').first();
+  const label = (await time.textContent())!.trim();
+  const input = page.getByRole('searchbox', { name: '搜索文字稿' });
+  await input.fill(label);
+  await expect(page.locator('[data-search-results] a')).toHaveCount(0);
+  await input.fill('视频');
+  await expect(page.locator('[data-search-results] a').first()).toBeVisible();
+  for (const text of await page.locator('[data-search-results] a').allTextContents()) {
+    expect(text).not.toMatch(/视频 · \d{2}:\d{2}:\d{2}/);
+  }
+});
+
 test('transcript is directly discoverable and only links to available locales', async ({ page }) => {
-  for (const path of ['/', '/weekly', '/weekly/001', '/weekly/002']) {
+  for (const path of ['/', '/weekly', '/weekly/001', '/weekly/002', '/weekly/003']) {
     await page.goto(path);
-    const expectedCount = path === '/' ? 2 : path === '/weekly' ? 3 : 1;
+    const expectedCount = path === '/' ? 2 : path === '/weekly' ? 4 : 1;
     await expect(page.locator('.episode-transcript-cta')).toHaveCount(expectedCount);
     const link = page.locator('main > section').first().locator('.episode-transcript-cta');
     await expect(link).toHaveCount(1);
-    const episode = path === '/weekly/001' ? '001' : '002';
+    const episode = path.startsWith('/weekly/00') ? path.split('/').pop() : '003';
     await expect(link).toHaveAttribute('href', `/weekly/${episode}/transcript`);
     if (path.startsWith('/weekly/00')) {
       await expect(page.locator('.transcript-cta-description')).toContainText('个章节 · 支持全文搜索');

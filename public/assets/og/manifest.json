@@ -11,6 +11,14 @@
     "image": "/assets/og/wiki-people-aj-62c8884a6a50.png",
     "alt": "人物库 — AJ"
   },
+  "/wiki/people/brad-qiang": {
+    "image": "/assets/og/wiki-people-brad-qiang-6b3a06bc1a07.png",
+    "alt": "人物库 — Brad 强"
+  },
+  "/wiki/people/chen-baoyi": {
+    "image": "/assets/og/wiki-people-chen-baoyi-76b35079c0ed.png",
+    "alt": "人物库 — 陈抱一"
+  },
   "/wiki/people/chen-mian": {
     "image": "/assets/og/wiki-people-chen-mian-408d2aedda94.png",
     "alt": "人物库 — 陈冕"
@@ -19,9 +27,21 @@
     "image": "/assets/og/wiki-people-cyber-zen-d65488979de2.png",
     "alt": "人物库 — 赛博禅心"
   },
+  "/wiki/people/dario-amodei": {
+    "image": "/assets/og/wiki-people-dario-amodei-58852338f98b.png",
+    "alt": "人物库 — Dario Amodei"
+  },
   "/wiki/people/dhh": {
     "image": "/assets/og/wiki-people-dhh-b0747c0c5ffe.png",
     "alt": "人物库 — David Heinemeier Hansson"
+  },
+  "/wiki/people/donald-trump": {
+    "image": "/assets/og/wiki-people-donald-trump-61d991b7a64c.png",
+    "alt": "人物库 — Donald Trump"
+  },
+  "/wiki/people/elon-musk": {
+    "image": "/assets/og/wiki-people-elon-musk-0d1ee319da51.png",
+    "alt": "人物库 — Elon Musk"
   },
   "/wiki/people/guanlan-dai": {
     "image": "/assets/og/wiki-people-guanlan-dai-24d812f3d621.png",
@@ -39,9 +59,17 @@
     "image": "/assets/og/wiki-people-he-tongxue-26c52dd8234d.png",
     "alt": "人物库 — 何同学"
   },
+  "/wiki/people/jensen-huang": {
+    "image": "/assets/og/wiki-people-jensen-huang-3efca38b3e9c.png",
+    "alt": "人物库 — 黄仁勋"
+  },
   "/wiki/people/liu-fei": {
     "image": "/assets/og/wiki-people-liu-fei-af9d0ea40676.png",
     "alt": "人物库 — 刘飞"
+  },
+  "/wiki/people/liu-shengyu": {
+    "image": "/assets/og/wiki-people-liu-shengyu-39170a59d1b0.png",
+    "alt": "人物库 — 刘胜与"
   },
   "/wiki/people/luo-fuli": {
     "image": "/assets/og/wiki-people-luo-fuli-c01ca3d5f092.png",
@@ -55,6 +83,10 @@
     "image": "/assets/og/wiki-people-orange-b575ef36e906.png",
     "alt": "联合主理人 — 橘子 Orange"
   },
+  "/wiki/people/sam-altman": {
+    "image": "/assets/og/wiki-people-sam-altman-60ac2cbee553.png",
+    "alt": "人物库 — Sam Altman"
+  },
   "/wiki/people/tang-jie": {
     "image": "/assets/og/wiki-people-tang-jie-402bf7caa207.png",
     "alt": "人物库 — 唐杰"
@@ -62,6 +94,10 @@
   "/wiki/people/tim-cook": {
     "image": "/assets/og/wiki-people-tim-cook-cbac7aaf3f8e.png",
     "alt": "人物库 — Tim Cook"
+  },
+  "/wiki/people/tw93": {
+    "image": "/assets/og/wiki-people-tw93-4d05d4b64af1.png",
+    "alt": "人物库 — Tw93"
   },
   "/wiki/people/wang-dengke": {
     "image": "/assets/og/wiki-people-wang-dengke-fbe306995df9.png",
@@ -92,8 +128,8 @@
     "alt": "WEEKLY #002 · 本期节目 — iPhone Duo 发布，Astra 会用电脑就算 AGI 吗？"
   },
   "/weekly/003": {
-    "image": "/assets/og/weekly-003-3e5d4468979c.png",
-    "alt": "WEEKLY #003 · 录制预告 — 下一次圆桌，线上见。"
+    "image": "/assets/og/weekly-003-a8f9ae8f8ced.png",
+    "alt": "WEEKLY #003 · 音频已上线 — 火线解读 Jev 新范式；用 Agent 还得买带鱼屏？"
   },
   "/en": {
     "image": "/assets/og/en-08bb9e481d06.png",
@@ -107,6 +143,14 @@
     "image": "/assets/og/en-wiki-people-aj-ccb49f97c5f0.png",
     "alt": "PEOPLE — AJ"
   },
+  "/en/wiki/people/brad-qiang": {
+    "image": "/assets/og/en-wiki-people-brad-qiang-ae48c1392903.png",
+    "alt": "PEOPLE — Brad Qiang"
+  },
+  "/en/wiki/people/chen-baoyi": {
+    "image": "/assets/og/en-wiki-people-chen-baoyi-46df785d42a0.png",
+    "alt": "PEOPLE — Chen Baoyi"
+  },
   "/en/wiki/people/chen-mian": {
     "image": "/assets/og/en-wiki-people-chen-mian-ca5597ec0832.png",
     "alt": "PEOPLE — Chen Mian"
@@ -115,9 +159,21 @@
     "image": "/assets/og/en-wiki-people-cyber-zen-4bd93b0808db.png",
     "alt": "PEOPLE — Cyber Zen"
   },
+  "/en/wiki/people/dario-amodei": {
+    "image": "/assets/og/en-wiki-people-dario-amodei-66bccf8f42b8.png",
+    "alt": "PEOPLE — Dario Amodei"
+  },
   "/en/wiki/people/dhh": {
     "image": "/assets/og/en-wiki-people-dhh-abe8524bc030.png",
     "alt": "PEOPLE — David Heinemeier Hansson"
+  },
+  "/en/wiki/people/donald-trump": {
+    "image": "/assets/og/en-wiki-people-donald-trump-2dc0d9ccf339.png",
+    "alt": "PEOPLE — Donald Trump"
+  },
+  "/en/wiki/people/elon-musk": {
+    "image": "/assets/og/en-wiki-people-elon-musk-360b640963be.png",
+    "alt": "PEOPLE — Elon Musk"
   },
   "/en/wiki/people/guanlan-dai": {
     "image": "/assets/og/en-wiki-people-guanlan-dai-0a69e3e589b4.png",
@@ -135,9 +191,17 @@
     "image": "/assets/og/en-wiki-people-he-tongxue-b4a0a085a688.png",
     "alt": "PEOPLE — He Tongxue"
   },
+  "/en/wiki/people/jensen-huang": {
+    "image": "/assets/og/en-wiki-people-jensen-huang-e4616a932322.png",
+    "alt": "PEOPLE — Jensen Huang"
+  },
   "/en/wiki/people/liu-fei": {
     "image": "/assets/og/en-wiki-people-liu-fei-33fcc7a62f3b.png",
     "alt": "PEOPLE — Liu Fei"
+  },
+  "/en/wiki/people/liu-shengyu": {
+    "image": "/assets/og/en-wiki-people-liu-shengyu-edfc98447d37.png",
+    "alt": "PEOPLE — Shengyu Liu"
   },
   "/en/wiki/people/luo-fuli": {
     "image": "/assets/og/en-wiki-people-luo-fuli-cf40ed947620.png",
@@ -151,6 +215,10 @@
     "image": "/assets/og/en-wiki-people-orange-431bd11143b3.png",
     "alt": "CO-HOST — 橘子 Orange"
   },
+  "/en/wiki/people/sam-altman": {
+    "image": "/assets/og/en-wiki-people-sam-altman-bc48c4e77fc2.png",
+    "alt": "PEOPLE — Sam Altman"
+  },
   "/en/wiki/people/tang-jie": {
     "image": "/assets/og/en-wiki-people-tang-jie-a8e439dd60ba.png",
     "alt": "PEOPLE — Jie Tang"
@@ -158,6 +226,10 @@
   "/en/wiki/people/tim-cook": {
     "image": "/assets/og/en-wiki-people-tim-cook-b8e1a2ef8771.png",
     "alt": "PEOPLE — Tim Cook"
+  },
+  "/en/wiki/people/tw93": {
+    "image": "/assets/og/en-wiki-people-tw93-a1eee458cdf9.png",
+    "alt": "PEOPLE — Tw93"
   },
   "/en/wiki/people/wang-dengke": {
     "image": "/assets/og/en-wiki-people-wang-dengke-7a9d96012841.png",
@@ -188,8 +260,8 @@
     "alt": "WEEKLY #002 · EPISODE — iPhone Duo launches. Does Astra using a computer count as AGI?"
   },
   "/en/weekly/003": {
-    "image": "/assets/og/en-weekly-003-2b731129d94f.png",
-    "alt": "WEEKLY #003 · PREVIEW — The next open table, online."
+    "image": "/assets/og/en-weekly-003-e95c4d4abe16.png",
+    "alt": "WEEKLY #003 · AUDIO OUT NOW — Unpacking Jev’s new paradigm; do agents need an ultrawide?"
   },
   "/weekly/001/transcript": {
     "image": "/assets/og/weekly-001-transcript-57cc5806682f.png",
@@ -198,5 +270,9 @@
   "/weekly/002/transcript": {
     "image": "/assets/og/weekly-002-transcript-f4839258996e.png",
     "alt": "WEEKLY #002 · 文字稿 — iPhone Duo 发布，Astra 会用电脑就算 AGI 吗？"
+  },
+  "/weekly/003/transcript": {
+    "image": "/assets/og/weekly-003-transcript-56088d31650c.png",
+    "alt": "WEEKLY #003 · 文字稿 — Next Token Weekly #003 阅读文字稿"
   }
 }

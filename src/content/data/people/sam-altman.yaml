@@ -1,0 +1,26 @@
+name:
+  zh-Hans: Sam Altman
+  en: Sam Altman
+bio:
+  zh-Hans: OpenAI 首席执行官。
+  en: Chief executive officer of OpenAI.
+aliases:
+  - 萨姆·奥尔特曼
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 本人或所属机构资料
+      en: Personal or institutional profile
+    href: https://openai.com/index/review-completed-altman-brockman-to-continue-to-lead-openai/
+relations:
+  - entityType: brand
+    entity: openai
+    role:
+      zh-Hans: 首席执行官
+      en: CEO
+    sources:
+      - label:
+          zh-Hans: 本人或所属机构资料
+          en: Personal or institutional profile
+        href: https://openai.com/index/review-completed-altman-brockman-to-continue-to-lead-openai/
+    lastVerifiedAt: '2026-09-21'

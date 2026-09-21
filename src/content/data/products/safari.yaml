@@ -1,0 +1,17 @@
+kind: application
+brand: apple
+name:
+  zh-Hans: Safari
+  en: Safari
+summary:
+  zh-Hans: Apple 为其设备提供的网页浏览器。
+  en: Apple's web browser for its devices.
+aliases: []
+official:
+  website: https://www.apple.com/safari/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.apple.com/safari/

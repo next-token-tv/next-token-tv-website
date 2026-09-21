@@ -1,0 +1,16 @@
+kind: application
+name:
+  zh-Hans: 闪电说
+  en: Shandianshuo
+summary:
+  zh-Hans: 结合语音输入、上下文与技能执行的沟通助手。
+  en: A communication assistant combining voice input, context and skills.
+aliases: []
+official:
+  website: https://shandianshuo.cn/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://shandianshuo.cn/

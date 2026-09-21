@@ -1,0 +1,18 @@
+kind: model-family
+brand: figure
+name:
+  zh-Hans: Helix
+  en: Helix
+summary:
+  zh-Hans: Figure 用于人形机器人感知与全身动作控制的模型家族。
+  en: Figure's model family for humanoid perception and whole-body action control.
+aliases:
+  - Helix 2.5
+official:
+  website: https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization

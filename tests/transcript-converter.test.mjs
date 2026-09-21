@@ -4,6 +4,43 @@ import test from "node:test";
 import remarkParse from "remark-parse";
 import { unified } from "unified";
 import { convertTranscript } from "../scripts/lib/transcript-converter.mjs";
+import { validateTranscriptManifest } from "../scripts/lib/transcript-manifest.mjs";
+
+test("Weekly 003 published transcript retains chapters and resolves its new entities", async () => {
+  const snapshot = JSON.parse(await readFile(new URL("../src/content/imported/transcripts/next-token-weekly--003.zh-Hans.json", import.meta.url), "utf8"));
+  assert.equal(snapshot.publicationStatus, "published");
+  assert.equal(snapshot.provenance.sourceState, "committed");
+  assert.equal(snapshot.chapters.length, 24);
+  const segments = snapshot.chapters.flatMap(c => c.turns.flatMap(t => t.paragraphs.flat()));
+  const ids = new Set(segments.filter(s => s.type === "entity-link").map(s => s.entityId));
+  for (const id of ["jev", "jevable", "heroes-of-might-and-magic", "hitchhikers-guide-to-the-galaxy", "typesafe-ai", "mole", "tw93", "liu-shengyu", "instinct"]) assert.ok(ids.has(id), id);
+  for (const id of ["apple-passwords", "mlx", "cuda", "diandian", "yangpan", "guizang", "orange", "xiangyang-qiaomu"]) assert.ok(!ids.has(id), id);
+  for (const [value, id] of [["GPT-4", "gpt"], ["刷推", "x"], ["罗福莉", "luo-fuli"]]) assert.ok(segments.some(s => s.value === value && s.entityId === id), value);
+  assert.ok(!segments.some(s => s.value.includes("罗福利")));
+});
+
+test("proofread reading manifests allow previews, not publication or stale source", () => {
+  const hash = "a".repeat(64);
+  const manifest = {reading_transcript_sha256: hash, subtitle_text_proofread: true, transcript_approved: false, publication_approved: false};
+  assert.doesNotThrow(() => validateTranscriptManifest(manifest, hash, true));
+  assert.throws(() => validateTranscriptManifest(manifest, "b".repeat(64), true), /hash/);
+  assert.throws(() => validateTranscriptManifest({...manifest, output_sha256: hash}, hash), /not approved/);
+  assert.throws(() => validateTranscriptManifest({...manifest, subtitle_text_proofread: false}, hash, true), /eligible/);
+  assert.doesNotThrow(() => validateTranscriptManifest({status: "complete_review_draft", reading_markdown_sha256: hash, transcript_approved: false, publication_approved: false}, hash, true));
+});
+
+test("opening narration label and episode exclusions preserve visible text", () => {
+  const source = "# Test\n\n## 节目片头\n\n**片头解说：** 还有一点点，Jev。";
+  const {snapshot} = convertTranscript(unified().use(remarkParse).parse(source), {
+    episodeId: "show--003", locale: "zh-Hans",
+    entities: [{entityType: "product", id: "diandian", aliases: ["点点"]}, {entityType: "product", id: "jev", aliases: ["Jev"]}],
+    excludedEntities: ["product:diandian"],
+  });
+  const turn = snapshot.chapters[0].turns[0];
+  assert.equal(turn.kind, "narration");
+  assert.equal(turn.paragraphs[0].map(s => s.value).join(""), "还有一点点，Jev。");
+  assert.deepEqual(turn.paragraphs[0].filter(s => s.type === "entity-link").map(s => s.entityId), ["jev"]);
+});
 
 test("deterministic matching skips invalid substrings, prefers full names and excludes hosts", () => {
   const source = `# Test\n\n## First\n\n**杨攀：** xH3 H3 H3。Next Token Weekly，Next Token。Three.js，three.js。ZCodeX ZCode。杨攀，橘子，DHH。\n\n## Second\n\n**橘子：** H3，DHH。`;

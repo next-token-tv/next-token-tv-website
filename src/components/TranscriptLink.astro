@@ -5,11 +5,12 @@ interface Props { episodeId: string; number: string; locale: Locale; variant?: "
 const { episodeId, number, locale, variant = "default", details = false, showNumber = false } = Astro.props;
 const transcript = await getEpisodeTranscriptOrNull(episodeId, locale);
 const isPublished = transcript?.data.publicationStatus === "published";
+const isLocalPreview = import.meta.env.DEV && transcript?.data.publicationStatus === "review-draft";
 ---
-{transcript && isPublished && (
+{transcript && (isPublished || isLocalPreview) && (
   <>
     <a class:list={["episode-transcript-cta", `transcript-cta--${variant}`]} href={`${locale === "en" ? "/en" : ""}/weekly/${number}/transcript`}>
-      {showNumber && <>#{number} · </>}{locale === "en" ? (details ? "Read the full transcript" : "Read the transcript") : (details ? "阅读完整文字稿" : "阅读文字稿")} <span aria-hidden="true">→</span>
+      {showNumber && <>#{number} · </>}{locale === "en" ? (details ? "Read the full transcript" : "Read the transcript") : (details ? "阅读完整文字稿" : "阅读文字稿")}{isLocalPreview && (locale === "en" ? " (preview)" : "（审阅版）")} <span aria-hidden="true">→</span>
     </a>
     {details && <p class="transcript-cta-description">{transcript.data.chapters.length} {locale === "en" ? "chapters · Full-text search" : "个章节 · 支持全文搜索"}</p>}
   </>

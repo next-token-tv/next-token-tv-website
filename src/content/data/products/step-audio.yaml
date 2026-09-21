@@ -1,0 +1,20 @@
+kind: model-family
+brand: stepfun
+name:
+  zh-Hans: Step-Audio
+  en: Step-Audio
+summary:
+  zh-Hans: 阶跃星辰的语音模型家族，覆盖实时语音交互与语音识别等任务。
+  en: StepFun's speech model family for tasks including real-time voice interaction and speech recognition.
+aliases:
+  - StepAudio
+  - StepAudio 3 Realtime
+  - StepAudio 3 ASR Max
+official:
+  website: https://static.stepfun.com/blog/stepaudio3/realtime/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://static.stepfun.com/blog/stepaudio3/realtime/

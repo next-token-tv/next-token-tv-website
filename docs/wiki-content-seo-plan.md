@@ -17,11 +17,11 @@
 
 | 类型 | 现有实体 | 已有中英文 Wiki 正文 | 尚无 Wiki 正文 |
 | --- | ---: | ---: | ---: |
-| 产品 | 112 | 112 | 0 |
-| 品牌 | 56 | 56 | 0 |
-| 人物 | 19 | 15 | 4 |
+| 产品 | 144 | 144 | 0 |
+| 品牌 | 66 | 66 | 0 |
+| 人物 | 28 | 24 | 4 |
 
-已有正文共 183 个实体、366 篇 Markdown：产品与品牌全部覆盖；人物覆盖除 4 位主理人外的全部（`dhh`、`tim-cook`、`tang-jie`、`he-tongxue`、`wang-le`、`chen-mian`、`wang-dengke`、`guanlan-dai`、`aj`、`cyber-zen`、`xiaohu`、`luo-fuli`、`liu-fei`、`hanqing`、`nan-qiao`）。
+已有正文共 234 个实体、468 篇 Markdown：产品与品牌全部覆盖；人物覆盖除 4 位主理人外的全部。
 
 尚无正文的 4 位均为主理人（`yangpan`、`guizang`、`orange`、`xiangyang-qiaomu`）：主理人详情模板尚未接入 Wiki 正文渲染，新增文件不会显示；接入属独立技术任务。
 
@@ -54,6 +54,7 @@ FAQ 先有需求线索，再选择可回答的问题。优先考虑官网、下�
 - [六个 AI 产品的 FAQ 研究](research/wiki-faq-ai-products-2026-09-17.md)及[样板搜索联想原始数据](research/wiki-faq-search-suggestions-2026-09-17.json)、[六个 AI 产品搜索联想原始数据](research/wiki-faq-ai-products-autocomplete-2026-09-17.json)
 - 2026-09-17 批次 7 份：[Agent 产品](research/wiki-faq-agent-products-2026-09-17.md)、[Linux 与硬件](research/wiki-faq-linux-hardware-2026-09-17.md)、[GPT 与 iPhone](research/wiki-faq-gpt-iphone-2026-09-17.md)、[全球品牌](research/wiki-faq-global-brands-2026-09-17.md)、[更多品牌](research/wiki-faq-more-brands-2026-09-17.md)、[公众人物](research/wiki-faq-people-public-figures-2026-09-17.md)、[创始人](research/wiki-faq-people-founders-2026-09-17.md)
 - 2026-09-18 批次 21 份，覆盖当轮全部实体（`docs/research/wiki-faq-*-2026-09-18.md`）：模型家族、Agent 平台、办公助手、工具平台、系统助手、创作工具、内容硬件、云与硬件、开发工具、消费应用、节目相关产品，以及媒体品牌、云软件品牌、产业品牌、设备品牌、AI 实验室、制造社区品牌和社区人物等批次
+- 2026-09-21 批次 8 份，覆盖第 003 期新增实体（`docs/research/wiki-faq-*-2026-09-21.md`）：新品四批、新品牌一批、公众人物与社区人物各一批、补齐批一份
 
 搜索联想属于实际需求线索，不是搜索量或热度排名。当前无 Search Console、关键词量级和 AI 引用监测数据，曝光、点击、CTR、排名、SEO/GEO 命中率均不能声称已验证。FAQ 不生成独立 URL，也不新增 FAQPage 标记；不承诺富媒体展示。
 

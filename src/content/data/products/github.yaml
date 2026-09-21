@@ -1,0 +1,17 @@
+kind: platform
+brand: microsoft
+name:
+  zh-Hans: GitHub
+  en: GitHub
+summary:
+  zh-Hans: 托管代码仓库并支持软件开发协作的平台。
+  en: A platform for hosting code repositories and collaborating on software development.
+aliases: []
+official:
+  website: https://github.com/about
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://github.com/about

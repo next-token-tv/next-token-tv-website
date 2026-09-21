@@ -1,0 +1,18 @@
+kind: agent
+brand: anthropic
+name:
+  zh-Hans: Claude Cowork
+  en: Claude Cowork
+summary:
+  zh-Hans: Anthropic 面向文件处理与办公任务的 Agent 产品。
+  en: Anthropic's agent product for working with files and office tasks.
+aliases:
+  - Cowork
+official:
+  website: https://claude.com/product/cowork
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://claude.com/product/cowork

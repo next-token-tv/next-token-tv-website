@@ -1,0 +1,17 @@
+kind: hardware-brand
+name:
+  zh-Hans: 上汽集团
+  en: SAIC Motor
+summary:
+  zh-Hans: 从事汽车研发、制造与相关出行业务的汽车集团。
+  en: An automotive group engaged in vehicle development, manufacturing and mobility businesses.
+aliases:
+  - 上汽
+official:
+  website: https://www.saicmotor.com/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.saicmotor.com/

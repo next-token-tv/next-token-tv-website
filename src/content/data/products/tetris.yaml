@@ -1,0 +1,16 @@
+kind: game
+name:
+  zh-Hans: 俄罗斯方块
+  en: Tetris
+summary:
+  zh-Hans: 通过旋转和排列下落方块消除完整行的益智游戏。
+  en: A puzzle game about rotating and arranging falling blocks to clear completed lines.
+aliases: []
+official:
+  website: https://tetris.com/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://tetris.com/

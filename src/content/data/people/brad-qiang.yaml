@@ -1,0 +1,24 @@
+name:
+  zh-Hans: Brad 强
+  en: Brad Qiang
+bio:
+  zh-Hans: 一支烟花社区主理人、联合创始人，开发者，参与 AI 技术交流与内容分享。
+  en: A community lead and co-founder of Yizhi Yanhua, and a developer sharing AI knowledge and projects.
+aliases:
+  - Brad强
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label: {zh-Hans: Brad 强的 GitHub, en: Brad Qiang on GitHub}
+    href: https://github.com/ccc7574
+  - label: {zh-Hans: 社区播客人物介绍, en: Community podcast biography}
+    href: https://www.xiaoyuzhoufm.com/podcast/658cea5d10888b10f7670b0e
+relations:
+  - entityType: brand
+    entity: yizhi-yanhua
+    role:
+      zh-Hans: 主理人、联合创始人
+      en: Community lead and co-founder
+    sources:
+      - label: {zh-Hans: 社区播客人物介绍, en: Community podcast biography}
+        href: https://www.xiaoyuzhoufm.com/podcast/658cea5d10888b10f7670b0e
+    lastVerifiedAt: '2026-09-21'

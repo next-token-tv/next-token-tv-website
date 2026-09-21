@@ -1,0 +1,18 @@
+schemaVersion: 2
+episodeId: next-token-weekly--003
+number: '003'
+show: next-token-weekly
+status: published
+language: zh-Hans
+recordedAt: '2026-09-19'
+releaseDate: '2026-09-21'
+recordingMode: online
+durationSeconds: 6022
+imageKind: artwork
+imageDimensions: {width: 3000, height: 3000}
+creditsSource: shows/weekly/episodes/003/credits.json
+cover: shows/weekly/episodes/003/04-release/artwork/cover-square.jpg
+sources:
+  - shows/weekly/episodes/003/credits.json
+  - shows/weekly/episodes/003/04-release/artwork/cover-square.jpg
+  - shows/weekly/episodes/003/04-release/copy/website-release.json

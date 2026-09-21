@@ -1,0 +1,16 @@
+kind: ai-brand
+name:
+  zh-Hans: TypeSafe AI
+  en: TypeSafe AI
+summary:
+  zh-Hans: 开发面向自动化、输出结构化判断的 System One 模型的人工智能公司。
+  en: An AI company developing System One models for structured decisions in software automation.
+aliases: []
+official:
+  website: https://typesafe.ai/blog/introducing-system-one-models-and-jev
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://typesafe.ai/blog/introducing-system-one-models-and-jev

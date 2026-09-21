@@ -156,7 +156,7 @@ const brands = defineCollection({
 const products = defineCollection({
   loader: yamlLoader("./src/content/data/products"),
   schema: z.object({
-    kind: z.enum(["model-family", "model", "application", "show", "game", "operating-system", "agent", "developer-tool", "platform", "api-service", "hardware", "framework"]),
+    kind: z.enum(["model-family", "model", "application", "show", "game", "book", "operating-system", "agent", "tool", "developer-tool", "platform", "api-service", "hardware", "framework"]),
     brand: z.string().optional(),
     parent: z.string().optional(),
     name: localizedText,
@@ -247,6 +247,8 @@ const episodes = defineCollection({
     z.object({
       ...episodeCore,
       status: z.literal("announced"),
+      phase: z.enum(["recording", "post-production"]).default("recording"),
+      detailLayout: z.boolean().default(false),
       scheduledAt: z.union([z.iso.date(), z.iso.datetime({ offset: true })]),
       timeZone: z.string(),
       recordingMode: z.enum(["online", "in-person"]).default("in-person"),
@@ -256,6 +258,8 @@ const episodes = defineCollection({
         role: z.enum(["duty-host", "co-host", "guest"]),
       })),
       preview: z.object({
+        image: assetPath.optional(),
+        images: z.record(z.string().regex(/^\d+$/), assetPath).optional(),
         eyebrow: localizedText,
         heading: localizedHeading,
         summary: localizedText,
@@ -275,13 +279,16 @@ const episodeImports = defineCollection({
     status: z.enum(["draft", "recorded", "scheduled", "published", "archived"]),
     language: locale,
     recordedAt: z.iso.date(),
-    recordingVenue: z.string(),
+    recordingMode: z.enum(["in-person", "online"]).default("in-person"),
+    recordingVenue: z.string().optional(),
     releaseDate: z.iso.date().optional(),
     editorialWindow: z.object({ start: z.iso.date(), end: z.iso.date() }).optional(),
     durationSeconds: z.number().positive().optional(),
     imageKind: z.enum(["photo", "artwork"]).default("photo"),
     imageDimensions: z.object({width: z.number().int().positive(), height: z.number().int().positive()}).default({width: 1920, height: 1080}),
     guestNames: z.array(localizedText).default([]),
+    cardImages: z.record(z.string(), assetPath).optional(),
+    cardImageDimensions: z.object({width: z.number().int().positive(), height: z.number().int().positive()}).optional(),
     participants: z.array(z.object({
       person: z.string(),
       role: z.enum(["duty-host", "co-host", "guest"]),
@@ -322,6 +329,10 @@ const transcriptImports = defineCollection({
     byline: z.string(),
     notices: z.array(z.string()),
     chapterCount: z.number().int().positive(),
+    timingSource: z.object({
+      sourceRepository: z.string(), sourceRevision: z.string().nullable(), sourceState: z.string(),
+      sourcePath: z.string(), sourceSha256: z.string(), timebase: z.literal("video"),
+    }).optional(),
     chapters: z.array(z.object({
       id: z.string(),
       title: z.string(),
@@ -331,6 +342,7 @@ const transcriptImports = defineCollection({
         speakerId: z.string().nullable(),
         candidate: z.boolean(),
         paragraphs: z.array(z.array(transcriptSegment)),
+        paragraphTimings: z.array(z.object({startSeconds: z.number().nonnegative(), endSeconds: z.number().nonnegative()}).nullable()).optional(),
       })),
     })),
     provenance: z.object({

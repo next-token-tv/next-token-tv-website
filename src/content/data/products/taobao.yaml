@@ -1,0 +1,17 @@
+kind: platform
+brand: alibaba
+name:
+  zh-Hans: 淘宝
+  en: Taobao
+summary:
+  zh-Hans: 阿里巴巴旗下连接商家与消费者的电商平台。
+  en: Alibaba's e-commerce platform connecting merchants and consumers.
+aliases: []
+official:
+  website: https://www.alibabagroup.com/en-US/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.alibabagroup.com/en-US/

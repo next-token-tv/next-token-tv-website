@@ -1,0 +1,16 @@
+kind: ai-brand
+name:
+  zh-Hans: QuiverAI
+  en: QuiverAI
+summary:
+  zh-Hans: 研发矢量图形生成模型的人工智能公司。
+  en: An AI company developing models for vector graphics.
+aliases: []
+official:
+  website: https://quiver.ai/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://quiver.ai/

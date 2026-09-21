@@ -1,0 +1,16 @@
+kind: developer-tool
+name:
+  zh-Hans: Mole
+  en: Mole
+summary:
+  zh-Hans: 用于 macOS 清理、卸载、空间分析和系统监控的开源工具。
+  en: An open-source tool for macOS cleanup, uninstallation, disk analysis and system monitoring.
+aliases: []
+official:
+  website: https://github.com/Tw93/Mole
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://github.com/Tw93/Mole

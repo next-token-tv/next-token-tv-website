@@ -1,0 +1,16 @@
+kind: model-family
+name:
+  zh-Hans: Stable Diffusion
+  en: Stable Diffusion
+summary:
+  zh-Hans: 用于图像生成的开放权重模型家族。
+  en: A family of open-weight image-generation models.
+aliases: []
+official:
+  website: https://stability.ai/stable-image
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://stability.ai/stable-image

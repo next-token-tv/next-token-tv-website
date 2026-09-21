@@ -1,0 +1,17 @@
+kind: developer-tool
+name:
+  zh-Hans: Live2D Cubism
+  en: Live2D Cubism
+summary:
+  zh-Hans: 用于为二维原画制作可操控动画的建模与动画工具。
+  en: Modeling and animation software for animating original two-dimensional artwork.
+aliases:
+  - Live2D
+official:
+  website: https://www.live2d.com/en/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.live2d.com/en/

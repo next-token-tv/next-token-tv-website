@@ -16,6 +16,28 @@ const pages = [
   '/api',
 ];
 
+test('retired entity URLs redirect directly to their canonical successor', async ({ request }) => {
+  const mappings = [
+    ['products/minimax-h3', 'products/minimax'],
+    ['products/glm-5-3-flash', 'products/glm'],
+    ['products/claude-opus-4-8', 'products/claude'],
+    ['products/claude-fable-5-1', 'products/claude'],
+    ['brands/workbuddy', 'products/workbuddy'],
+  ];
+  for (const [source, target] of mappings) for (const locale of ['', '/en']) {
+    const canonical = `${locale}/wiki/${target}`;
+    const destination = await request.get(canonical, { maxRedirects: 0 });
+    expect(destination.status(), canonical).toBe(200);
+    expect(await destination.text()).toContain(`rel="canonical" href="https://nexttoken.tv${canonical}"`);
+    for (const base of ['', '/wiki']) for (const suffix of ['', '/']) {
+      const path = `${locale}${base}/${source}${suffix}`;
+      const response = await request.get(path, { maxRedirects: 0 });
+      expect(response.status(), path).toBe(301);
+      expect(response.headers().location, path).toBe(canonical);
+    }
+  }
+});
+
 test('published page links and canonical metadata omit trailing slashes', async ({ page }) => {
   for (const path of pages) {
     await page.goto(path);

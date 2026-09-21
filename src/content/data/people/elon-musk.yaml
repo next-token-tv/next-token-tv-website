@@ -1,0 +1,15 @@
+name:
+  zh-Hans: Elon Musk
+  en: Elon Musk
+bio:
+  zh-Hans: 企业家，参与创立并领导 Tesla、SpaceX 等公司。
+  en: An entrepreneur who co-founded and leads companies including Tesla and SpaceX.
+aliases:
+  - 埃隆·马斯克
+  - 马斯克
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 本人或所属机构资料
+      en: Personal or institutional profile
+    href: https://www.tesla.com/elon-musk

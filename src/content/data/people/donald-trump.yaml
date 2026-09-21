@@ -1,0 +1,15 @@
+name:
+  zh-Hans: Donald Trump
+  en: Donald Trump
+bio:
+  zh-Hans: 美国第 45 任和第 47 任总统。
+  en: The 45th and 47th president of the United States.
+aliases:
+  - 唐纳德·特朗普
+  - 特朗普
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 本人或所属机构资料
+      en: Personal or institutional profile
+    href: https://www.whitehouse.gov/administration/donald-j-trump/

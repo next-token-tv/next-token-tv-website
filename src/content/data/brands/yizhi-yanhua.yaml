@@ -1,0 +1,18 @@
+kind: media-community-brand
+name:
+  zh-Hans: 一支烟花社区
+  en: Yizhi Yanhua Community
+summary:
+  zh-Hans: 围绕 AI、开发者工具与企业 AI 应用开展交流和内容分享的社区，运营一支烟花 AI 播客。
+  en: A community sharing knowledge about AI, developer tools and enterprise AI applications, with the Yizhi Yanhua AI podcast.
+aliases:
+  - 一支烟花AI社区
+  - 一支烟花 AI 社区
+  - 一支烟花AI
+  - 一支烟花 AI
+official:
+  website: https://www.xiaoyuzhoufm.com/podcast/658cea5d10888b10f7670b0e
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label: {zh-Hans: 一支烟花 AI 播客, en: Yizhi Yanhua AI podcast}
+    href: https://www.xiaoyuzhoufm.com/podcast/658cea5d10888b10f7670b0e

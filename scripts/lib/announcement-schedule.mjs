@@ -1,3 +1,8 @@
+export function needsRecordingScheduleRefresh(episode, now = Date.now()) {
+  return episode.status === 'announced' && episode.phase !== 'post-production'
+    && hasRecordingDatePassed(episode.scheduledAt, episode.timeZone, now);
+}
+
 export function hasRecordingDatePassed(scheduledAt, timeZone, now = Date.now()) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(scheduledAt)) {
     return Date.parse(scheduledAt) < now;

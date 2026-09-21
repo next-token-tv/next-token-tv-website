@@ -7,6 +7,8 @@ import { load } from "js-yaml";
 import remarkParse from "remark-parse";
 import { unified } from "unified";
 import { convertTranscript, sha256 } from "./lib/transcript-converter.mjs";
+import { validateTranscriptManifest } from "./lib/transcript-manifest.mjs";
+import { alignTranscriptTimings } from "./lib/transcript-timing.mjs";
 
 const websiteRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const execFileAsync = promisify(execFile);
@@ -16,7 +18,7 @@ const reviewPreview = flags.includes("--review-preview");
 if (!episodeId || !sourceArgument) {
   throw new Error("Usage: npm run import:transcript -- <episode-id> <source-markdown> [--review-preview]");
 }
-if (flags.some((flag) => flag !== "--review-preview")) {
+if (flags.some((flag) => flag !== "--review-preview" && !flag.startsWith("--timings-srt="))) {
   throw new Error(`Unknown import flag: ${flags.find((flag) => flag !== "--review-preview")}`);
 }
 
@@ -25,17 +27,7 @@ const source = await readFile(sourcePath, "utf8");
 const sourceSha256 = sha256(source);
 const manifestPath = resolve(dirname(sourcePath), reviewPreview ? "manifest.json" : "transcript-manifest.json");
 const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
-const manifestSourceSha256 = reviewPreview ? manifest.reading_markdown_sha256 : manifest.output_sha256;
-if (manifestSourceSha256 !== sourceSha256) {
-  throw new Error(`Source hash does not match ${manifestPath}`);
-}
-if (reviewPreview) {
-  if (manifest.status !== "complete_review_draft" || manifest.transcript_approved || manifest.publication_approved) {
-    throw new Error(`Transcript is not an eligible review draft: ${manifest.status}`);
-  }
-} else if (manifest.status !== "approved-for-publication") {
-  throw new Error(`Transcript is not approved for publication: ${manifest.status}`);
-}
+validateTranscriptManifest(manifest, sourceSha256, reviewPreview);
 
 async function inspectSourceProvenance(path) {
   let sourceRoot;
@@ -109,6 +101,10 @@ const membershipsRoot = resolve(websiteRoot, "src/content/data/host-memberships"
 const memberships = await Promise.all((await readdir(membershipsRoot)).filter(file => file.endsWith(".yaml"))
   .map(async file => load(await readFile(resolve(membershipsRoot, file), "utf8"))));
 const excludedEntities = memberships.filter(m => m.show === episode.show).map(m => `person:${m.person}`);
+for (const entity of rules.excludedEntities ?? []) {
+  if (!entities.some(item => `${item.entityType}:${item.id}` === entity)) throw new Error(`Unknown excluded entity: ${entity}`);
+  excludedEntities.push(entity);
+}
 for (const { entityType, id, alias } of rules.scopedAliases ?? []) {
   const entity = entities.find(item => item.entityType === entityType && item.id === id);
   if (!entity || !alias?.trim()) throw new Error(`Invalid scoped alias: ${id}`);
@@ -123,6 +119,15 @@ const { snapshot, report } = convertTranscript(tree, {
   resolutions: rules.resolutions,
   excludedEntities,
 });
+const timingArgument = flags.find(flag => flag.startsWith('--timings-srt='));
+if (timingArgument || rules.timingSource) {
+  const { stdout: sourceRoot } = await execFileAsync('git', ['-C', dirname(sourcePath), 'rev-parse', '--show-toplevel']);
+  const timingPath = timingArgument ? resolve(timingArgument.slice('--timings-srt='.length)) : resolve(sourceRoot.trim(), rules.timingSource);
+  const timingText = await readFile(timingPath, 'utf8');
+  const timingProvenance = await inspectSourceProvenance(timingPath);
+  snapshot.timingSource = { ...timingProvenance, sourceSha256: sha256(timingText), timebase: 'video' };
+  console.log(`Subtitle timing: ${alignTranscriptTimings(snapshot.chapters, timingText)} paragraphs matched exactly`);
+}
 if (!reviewPreview && snapshot.provenance.sourceState !== "committed") {
   throw new Error(`Published transcript source must be committed, got ${snapshot.provenance.sourceState}: ${snapshot.provenance.sourcePath}`);
 }

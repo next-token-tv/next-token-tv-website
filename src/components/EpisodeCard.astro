@@ -7,16 +7,18 @@ interface Props { episodeId: string; locale: Locale }
 const { episodeId, locale } = Astro.props;
 const episode = await getPublishedEpisode(episodeId);
 const copy = episode.data.homepage[locale];
+const images = episode.data.images;
+const dimensions = episode.data.imageDimensions;
 const href = `${locale === "en" ? "/en" : ""}/weekly/${episode.data.number}`;
 ---
 <article class:list={["weekly-card", { "has-artwork": episode.data.imageKind === "artwork" }]} data-episode-number={episode.data.number}>
   <a class:list={["weekly-image", { "is-artwork": episode.data.imageKind === "artwork" }]} href={href} aria-label={episode.data.title[locale]}>
     <img
-      src={episode.data.images["960"]}
-      srcset={episodeImageSrcset(episode.data.images)}
+      src={images["960"]}
+      srcset={episodeImageSrcset(images)}
       sizes="(max-width: 31.25rem) calc(100vw - 2.5rem), (max-width: 79.999rem) 92vw, (min-width: 100rem) 49.68rem, 49.68vw"
-      width={episode.data.imageDimensions.width}
-      height={episode.data.imageDimensions.height}
+      width={dimensions.width}
+      height={dimensions.height}
       loading="lazy"
       decoding="async"
       alt={copy.imageAlt}
@@ -40,8 +42,8 @@ const href = `${locale === "en" ? "/en" : ""}/weekly/${episode.data.number}`;
 <style>
   .weekly-card + .weekly-card { margin-top: 2rem; }
   .weekly-image { display: block; }
-  .weekly-image.is-artwork { display: block; align-self: start; width: 100%; min-height: 0; aspect-ratio: 1; padding: 0; border: 0; }
-  .weekly-image.is-artwork img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .weekly-image.is-artwork { display: block; align-self: start; width: 100%; min-height: 0; padding: 0; border: 0; }
+  .weekly-image.is-artwork img { display: block; width: 100%; height: auto; object-fit: contain; }
   .has-artwork .weekly-copy { padding: 2rem; justify-content: center; }
   .has-artwork .episode-number { margin-bottom: 1.5rem; }
   @media (min-width: 80rem) and (max-width: 89.999rem) {

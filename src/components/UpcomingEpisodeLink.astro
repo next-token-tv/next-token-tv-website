@@ -20,7 +20,7 @@ const venue = data?.recordingMode === "online" ? (locale === "en" ? "Online reco
 
 {data && (
   <a class="upcoming-episode-link" href={`${locale === "en" ? "/en" : ""}/weekly/${data.number}`}>
-    <span class="upcoming-episode-label">{locale === "en" ? "Next recording" : "下期录制预告"} · Weekly #{data.number}</span>
+    <span class="upcoming-episode-label">{data.phase === "post-production" ? (locale === "en" ? "In production" : "节目制作中") : (locale === "en" ? "Next recording" : "下期录制预告")} · Weekly #{data.number}</span>
     <span class="upcoming-episode-meta">{date} · {venue}</span>
     <span class="upcoming-episode-action">{locale === "en" ? "View preview" : "查看预告"} <span aria-hidden="true">→</span></span>
   </a>

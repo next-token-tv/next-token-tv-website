@@ -1,0 +1,12 @@
+kind: platform
+name: {zh-Hans: Jevable, en: Jevable}
+summary:
+  zh-Hans: 汇集使用 Jev 构建的项目和演示的网站。
+  en: A website showcasing projects and demos built with Jev.
+aliases: [Jevable.com, jevable.com]
+official:
+  website: https://jevable.com/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label: {zh-Hans: Jevable 网站, en: Jevable website}
+    href: https://jevable.com/

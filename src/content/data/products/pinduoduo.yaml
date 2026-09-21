@@ -1,0 +1,16 @@
+kind: platform
+name:
+  zh-Hans: 拼多多
+  en: Pinduoduo
+summary:
+  zh-Hans: 通过互动购物连接消费者与商家的电商平台。
+  en: An e-commerce platform connecting consumers and merchants through interactive shopping.
+aliases: []
+official:
+  website: https://investor.pddholdings.com/financial-information/annual-reports
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://investor.pddholdings.com/financial-information/annual-reports

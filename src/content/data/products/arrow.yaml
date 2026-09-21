@@ -1,0 +1,18 @@
+kind: model-family
+brand: quiver-ai
+name:
+  zh-Hans: Arrow
+  en: Arrow
+summary:
+  zh-Hans: QuiverAI 用于生成、编辑和动画化 SVG 矢量图形的模型家族。
+  en: QuiverAI's model family for generating, editing and animating SVG vector graphics.
+aliases:
+  - Arrow 2
+official:
+  website: https://quiver.ai/models/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://quiver.ai/models/

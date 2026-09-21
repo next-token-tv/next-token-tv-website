@@ -1,0 +1,26 @@
+name:
+  zh-Hans: Tw93
+  en: Tw93
+bio:
+  zh-Hans: 产品工程师、开源开发者，Mole 等工具的作者。
+  en: A product engineer and open-source developer who created tools including Mole.
+aliases:
+  - Tw93
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 本人或所属机构资料
+      en: Personal or institutional profile
+    href: https://github.com/Tw93/Mole
+relations:
+  - entityType: product
+    entity: mole
+    role:
+      zh-Hans: 作者
+      en: Creator
+    sources:
+      - label:
+          zh-Hans: 本人或所属机构资料
+          en: Personal or institutional profile
+        href: https://github.com/Tw93/Mole
+    lastVerifiedAt: '2026-09-21'

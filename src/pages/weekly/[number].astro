@@ -36,7 +36,7 @@ const alternatePath = `/en/weekly/${episode.data.number}`;
   canonicalPath={canonicalPath}
   alternatePath={alternatePath}
 >
-  {episode.data.status === "published"
+  {(episode.data.status === "published" || episode.data.detailLayout)
     ? <EpisodeDetailPage episodeId={episodeId} locale="zh-Hans" />
     : episode.data.recordingMode === "online"
       ? <OnlineEpisodeAnnouncement episodeId={episodeId} locale="zh-Hans" />

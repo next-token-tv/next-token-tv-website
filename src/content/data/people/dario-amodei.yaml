@@ -1,0 +1,26 @@
+name:
+  zh-Hans: Dario Amodei
+  en: Dario Amodei
+bio:
+  zh-Hans: Anthropic 联合创始人兼首席执行官。
+  en: Co-founder and chief executive officer of Anthropic.
+aliases:
+  - 达里奥·阿莫代伊
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 本人或所属机构资料
+      en: Personal or institutional profile
+    href: https://www.anthropic.com/company/leadership
+relations:
+  - entityType: brand
+    entity: anthropic
+    role:
+      zh-Hans: 联合创始人兼首席执行官
+      en: Co-founder and CEO
+    sources:
+      - label:
+          zh-Hans: 本人或所属机构资料
+          en: Personal or institutional profile
+        href: https://www.anthropic.com/company/leadership
+    lastVerifiedAt: '2026-09-21'

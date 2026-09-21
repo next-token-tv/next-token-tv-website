@@ -1,0 +1,14 @@
+kind: media-community-brand
+name:
+  zh-Hans: All-In
+  en: All-In
+summary:
+  zh-Hans: 讨论商业、科技与社会议题的播客及活动品牌。
+  en: A podcast and events brand covering business, technology and society.
+aliases: []
+official:
+  website: https://allin.com/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label: {zh-Hans: 官方介绍, en: Official introduction}
+    href: https://allin.com/

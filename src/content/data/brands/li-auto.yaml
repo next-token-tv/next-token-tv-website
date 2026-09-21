@@ -1,0 +1,16 @@
+kind: hardware-brand
+name:
+  zh-Hans: 理想汽车
+  en: Li Auto
+summary:
+  zh-Hans: 面向家庭用户研发和销售智能电动车的汽车公司。
+  en: An automaker developing and selling smart electric vehicles for families.
+aliases: []
+official:
+  website: https://www.lixiang.com/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.lixiang.com/

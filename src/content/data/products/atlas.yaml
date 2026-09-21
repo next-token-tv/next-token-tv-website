@@ -1,0 +1,19 @@
+kind: application
+brand: openai
+name:
+  zh-Hans: ChatGPT Atlas
+  en: ChatGPT Atlas
+summary:
+  zh-Hans: OpenAI 曾推出的内置 ChatGPT 的网页浏览器，现已弃用。
+  en: OpenAI's now-deprecated web browser with ChatGPT built in.
+aliases:
+  - Atlas
+status: deprecated
+official:
+  website: https://openai.com/index/introducing-chatgpt-atlas/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://openai.com/index/introducing-chatgpt-atlas/

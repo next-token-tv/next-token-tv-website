@@ -1,0 +1,12 @@
+kind: book
+name: {zh-Hans: 银河系漫游指南, en: "The Hitchhiker's Guide to the Galaxy"}
+summary:
+  zh-Hans: Douglas Adams 创作的幽默科幻小说；同名作品亦有广播、电视和电影等形式。本条目以小说为主。
+  en: A comic science-fiction novel by Douglas Adams, also known through radio, television and film adaptations. This entry focuses on the novel.
+aliases: []
+official:
+  website: https://www.panmacmillan.com/authors/douglas-adams/the-hitchhikers-guide-to-the-galaxy/9781529034523
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label: {zh-Hans: 出版社书目, en: Publisher catalogue}
+    href: https://www.panmacmillan.com/authors/douglas-adams/the-hitchhikers-guide-to-the-galaxy/9781529034523

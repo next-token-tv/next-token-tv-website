@@ -1,0 +1,16 @@
+kind: platform
+name:
+  zh-Hans: 微博
+  en: Weibo
+summary:
+  zh-Hans: 用于发布、阅读和交流公共内容的社交媒体平台。
+  en: A social media platform for publishing, reading and discussing public content.
+aliases: []
+official:
+  website: https://weibo.com/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://weibo.com/

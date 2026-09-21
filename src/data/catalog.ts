@@ -122,7 +122,12 @@ function validateCatalog(catalog: Catalog) {
       if (production.id !== `${episode.id}.production`) {
         throw new Error(`Production import ${production.id} must use ID ${episode.id}.production`);
       }
-      requireId(venues, production.data.recordingVenue, `venue referenced by episode ${episode.id}`);
+      if (production.data.recordingMode === "online") {
+        if (production.data.recordingVenue) throw new Error(`Online episode ${episode.id} must not have a physical venue`);
+      } else {
+        if (!production.data.recordingVenue) throw new Error(`In-person episode ${episode.id} requires a venue`);
+        requireId(venues, production.data.recordingVenue, `venue referenced by episode ${episode.id}`);
+      }
 
       const participantIds = production.data.participants.map(({ person }) => person);
       if (new Set(participantIds).size !== participantIds.length) {
@@ -373,6 +378,32 @@ export async function getPublishedEpisode(episodeId?: string) {
   };
 }
 
+/** Final page composition before verified media and production imports are available. */
+export async function getDetailEpisode(episodeId: string) {
+  const episode = await getEpisode(episodeId);
+  if (episode.data.status === "published") return getPublishedEpisode(episodeId);
+  const data = episode.data;
+  if (!data.detailLayout || !data.preview.images?.["960"]) throw new Error(`Episode ${episodeId} has no prepared detail layout`);
+  const homepageFor = (locale: Locale) => ({
+    eyebrow: `Next Token Weekly #${data.number}`,
+    heading: data.preview.heading[locale],
+    lede: data.preview.summary[locale],
+    imageAlt: data.preview.heading[locale].join(" "),
+  });
+  const homepage = { "zh-Hans": homepageFor("zh-Hans"), en: homepageFor("en") };
+  const platforms = ([
+    ["xiaoyuzhou", "小宇宙", "Xiaoyuzhou"], ["apple-podcasts", "Apple Podcasts", "Apple Podcasts"],
+    ["spotify", "Spotify", "Spotify"], ["bilibili", "哔哩哔哩", "Bilibili"], ["youtube", "YouTube", "YouTube"],
+  ] as const).map(([platform, zh, en]) => ({ platform, label: { "zh-Hans": zh, en }, href: undefined as string | undefined, action: undefined as Record<Locale, string> | undefined }));
+  return { ...episode, data: { ...data, homepage, platforms,
+    recordedAt: data.scheduledAt.slice(0, 10), releaseDate: undefined,
+    editorialWindow: undefined, durationSeconds: undefined,
+    images: data.preview.images, imageKind: "artwork" as const,
+    imageDimensions: { width: 1920, height: 1080 },
+    media: { audio: false, video: false }, guestNames: [] as Record<Locale, string>[],
+  } };
+}
+
 export async function getPublishedEpisodes(showId = "next-token-weekly") {
   const catalog = await getContentCatalog();
   return Promise.all(catalog.episodes.filter(({ data }) => data.status === "published" && data.show === showId)
@@ -449,10 +480,14 @@ export async function getEntityPeopleRelations(entityType: "person" | "brand" | 
     .map(relation => ({ name: person.data.name[locale], role: relation.role[locale], href: `${prefix}/wiki/people/${person.id}`, sources: relation.sources })));
 }
 
-export async function getPeopleDirectory() {
+export async function getPeopleDirectory(locale: Locale) {
   const catalog = await getContentCatalog();
   const hostOrder = (id: string) => catalog.hostMemberships.find(m => m.data.person === id)?.data.displayOrder ?? Number.MAX_SAFE_INTEGER;
-  return catalog.people.slice().sort((a, b) => hostOrder(a.id) - hostOrder(b.id) || a.id.localeCompare(b.id)).map(person => ({
+  return catalog.people.slice().sort((a, b) =>
+    hostOrder(a.id) - hostOrder(b.id)
+    || a.data.name[locale].localeCompare(b.data.name[locale], locale)
+    || a.id.localeCompare(b.id)
+  ).map(person => ({
     person,
     isHost: catalog.hostMemberships.some(m => m.data.person === person.id),
     episodesCount: catalog.episodes.filter(episode => {

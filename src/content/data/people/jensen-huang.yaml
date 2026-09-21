@@ -1,0 +1,25 @@
+name:
+  zh-Hans: 黄仁勋
+  en: Jensen Huang
+bio:
+  zh-Hans: NVIDIA 创始人、总裁兼首席执行官。
+  en: Founder, president and chief executive officer of NVIDIA.
+aliases: []
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 本人或所属机构资料
+      en: Personal or institutional profile
+    href: https://www.nvidia.com/en-eu/about-nvidia/governance/management-team/jensen-huang/
+relations:
+  - entityType: brand
+    entity: nvidia
+    role:
+      zh-Hans: 创始人兼首席执行官
+      en: Founder and CEO
+    sources:
+      - label:
+          zh-Hans: 本人或所属机构资料
+          en: Personal or institutional profile
+        href: https://www.nvidia.com/en-eu/about-nvidia/governance/management-team/jensen-huang/
+    lastVerifiedAt: '2026-09-21'

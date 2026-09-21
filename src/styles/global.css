@@ -2706,7 +2706,7 @@ html[lang="en"] .weekly-show-facts strong {
 .transcript-toc ol {
   max-height: min(62vh, 40.625rem);
   margin: 0;
-  padding: 0 0 1rem;
+  padding: 0 0 1rem 0.5rem;
   overflow: auto;
   list-style: none;
   scrollbar-width: thin;
@@ -2736,10 +2736,43 @@ html[lang="en"] .weekly-show-facts strong {
   color: var(--ink);
 }
 
+.transcript-toc a[aria-current="location"] {
+  color: var(--ink);
+  font-weight: 750;
+  position: relative;
+}
+
+.transcript-toc a[aria-current="location"]::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  left: -0.5rem;
+  width: 0.1875rem;
+  background: var(--signal);
+}
+
 .transcript-body {
   width: 100%;
   max-width: 58.75rem;
 }
+
+.transcript-quote-paragraph { position: relative; }
+.transcript-paragraph-time {
+  position: absolute;
+  inset-inline-end: 0;
+  bottom: 100%;
+  padding: 0.125rem 0.375rem;
+  background: var(--paper);
+  color: var(--muted);
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+}
+.transcript-quote-paragraph:hover .transcript-paragraph-time,
+.transcript-quote-paragraph:focus-within .transcript-paragraph-time { opacity: 1; }
 
 .transcript-chapter {
   scroll-margin-top: 6.875rem;
@@ -2898,6 +2931,7 @@ html[lang="en"] .weekly-show-facts strong {
 }
 
 .transcript-entity-link[data-entity-type="product"],
+.transcript-entity-link[data-entity-type="show"],
 .transcript-entity-key[data-entity-type="product"] {
   --entity-tint: 55, 130, 175;
 }

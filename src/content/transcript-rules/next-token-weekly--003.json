@@ -1,0 +1,25 @@
+{
+  "locale": "zh-Hans",
+  "timingSource": "shows/weekly/episodes/003/04-release/video/subtitles.zh-Hans.srt",
+  "excludedEntities": ["product:diandian"],
+  "scopedAliases": [
+    {"entityType": "product", "id": "x", "alias": "刷推"},
+    {"entityType": "product", "id": "heroes-of-might-and-magic", "alias": "魔法门"},
+    {"entityType": "person", "id": "sam-altman", "alias": "Sam"},
+    {"entityType": "person", "id": "dario-amodei", "alias": "Dario"},
+    {"entityType": "person", "id": "jensen-huang", "alias": "老黄"},
+    {"entityType": "person", "id": "donald-trump", "alias": "川子"},
+    {"entityType": "brand", "id": "li-auto", "alias": "理想"},
+    {"entityType": "brand", "id": "bytedance", "alias": "字节"},
+    {"entityType": "brand", "id": "alibaba", "alias": "阿里"},
+    {"entityType": "product", "id": "wechat-input-method", "alias": "微信智能语音输入法"},
+    {"entityType": "product", "id": "wechat-input-method", "alias": "微信语音输入法"}
+  ],
+  "resolutions": {
+    "Next Token Weekly": {"entityType": "show", "id": "next-token-weekly"},
+    "DeepSeek": {"entityType": "brand", "id": "deepseek"},
+    "MiniMax": {"entityType": "product", "id": "minimax"},
+    "赛博禅心": {"entityType": "person", "id": "cyber-zen"},
+    "Cyber Zen": {"entityType": "person", "id": "cyber-zen"}
+  }
+}

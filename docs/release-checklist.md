@@ -4,6 +4,10 @@
 
 `npm run check:release` audits the existing `dist` output. Run a fresh build first when using it separately.
 
+`npm run test:performance` runs serial mobile cold-load checks against a fresh local production build. Each representative route (home, episode, transcript and brand directory) receives three fresh-browser samples at 390 × 844, 2× density, 4× CPU slowdown, 150 ms latency and 1.6 Mbps download throughput. Budgets are median LCP ≤ 2.5 seconds, initial-load CLS ≤ 0.1 in every sample, and each initially loaded image ≤ 200 KiB. The three-second post-load observation includes font readiness but not later user interaction. Reports stay in ignored `test-results/performance`. These checks exclude production-only analytics and Internet/CDN latency; they are regression gates, not official PageSpeed scores or real-user Core Web Vitals. Use `PERFORMANCE_PORT` to override the default local port 4178.
+
+Retired entity URLs with a known successor have explicit 301 rules before generic migrations. Both locales, legacy and Wiki prefixes, and slash/no-slash forms resolve directly to the current canonical page. Browser regression checks require a single redirect followed by a 200 destination with matching canonical metadata.
+
 The built-site audit requires:
 
 - Published episode and transcript snapshots come from committed production sources. Importers reject dirty or untracked release inputs and do not serialize raw working-tree status into website data.
@@ -24,4 +28,4 @@ External playback, regional restrictions, and account permissions require manual
 - Without JavaScript, the full transcript, expanded table of contents, and per-paragraph permalink remain available; interactive tools are not displayed.
 - Each published paragraph has a `quote-` anchor based on its speaker identity and normalized plain text. The paragraph link copies its canonical URL when JavaScript and clipboard access are available; otherwise it remains a native link. Opening the fragment highlights that paragraph. Inserting unrelated paragraphs or chapters does not change its anchor. Text edits and inserting an identical speaker/text paragraph before an existing duplicate can change an anchor, so editorial references must be checked when transcript text changes.
 - Turn anchors are generated from chapter IDs and turn order. They remain local search targets, not editorially stable share identifiers. Chapter anchors remain the stable chapter sharing interface.
-- The current transcript snapshot has no verified turn timestamps. Timed video links are not generated.
+- Paragraphs with an unambiguous full-text subtitle match may show the enclosing video subtitle cue range on hover or keyboard focus. Timing labels are excluded from search text. Unmatched paragraphs remain untimed; timed video links are not generated.

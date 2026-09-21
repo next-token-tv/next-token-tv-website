@@ -1,0 +1,17 @@
+kind: developer-tool
+brand: apple
+name:
+  zh-Hans: Xcode
+  en: Xcode
+summary:
+  zh-Hans: 用于构建、测试和调试 Apple 平台应用的开发环境。
+  en: An environment for building, testing and debugging apps for Apple platforms.
+aliases: []
+official:
+  website: https://developer.apple.com/xcode/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://developer.apple.com/xcode/

@@ -100,7 +100,7 @@ test("episode artwork uses distinct responsive delivery images", async ({ page }
     await page.goto(path);
     const artwork = path === "/weekly/002"
       ? page.locator(".episode-detail-image.is-artwork img")
-      : page.locator('.weekly-card[data-episode-number="002"] .weekly-image.is-artwork img');
+      : page.locator('.weekly-card .weekly-image.is-artwork img').first();
     await artwork.scrollIntoViewIfNeeded();
     await expect(artwork).toBeVisible();
     await expect.poll(() => artwork.evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0);
@@ -125,7 +125,7 @@ for (const deviceScaleFactor of [1, 2]) {
         await page.goto(path);
         const image = page.locator(path.endsWith("/002")
           ? ".episode-detail-image.is-artwork img"
-          : '.weekly-card[data-episode-number="002"] .weekly-image.is-artwork img');
+          : '.weekly-card .weekly-image.is-artwork img').first();
         await image.scrollIntoViewIfNeeded();
         await expect.poll(() => image.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBe(true);
         expect(await image.evaluate((el: HTMLImageElement) => el.currentSrc))

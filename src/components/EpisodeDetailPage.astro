@@ -6,7 +6,7 @@ import { render } from "astro:content";
 import ConditionalImagePan from "./ConditionalImagePan.astro";
 import EpisodeMentions from "./EpisodeMentions.astro";
 import PlatformBrand from "./PlatformBrand.astro";
-import { getEpisodeShowNotes, getPeopleByIds, getPublishedEpisode } from "../data/catalog";
+import { getEpisodeShowNotes, getPeopleByIds, getDetailEpisode } from "../data/catalog";
 import { partnerPath, resolveVenueId } from "../data/partners";
 import type { Locale } from "../data/types";
 import { episodeImageSrcset } from "../data/episode-images";
@@ -18,11 +18,11 @@ interface Props {
 
 const { episodeId, locale } = Astro.props;
 const [episode, showNotes] = await Promise.all([
-  getPublishedEpisode(episodeId),
+  getDetailEpisode(episodeId),
   getEpisodeShowNotes(episodeId, locale),
 ]);
-const [{ partner, venue }, participants] = await Promise.all([
-  resolveVenueId(episode.data.recordingVenue),
+const [recording, participants] = await Promise.all([
+  episode.data.recordingVenue ? resolveVenueId(episode.data.recordingVenue) : Promise.resolve(null),
   getPeopleByIds(episode.data.participants.map(({ person }) => person)),
 ]);
 const { Content } = await render(showNotes);
@@ -97,7 +97,7 @@ const labels = locale === "en" ? {
         fetchpriority="high"
         alt={homepage.imageAlt}
       />
-      <span>{labels.published}</span>
+      <span>{episode.data.status === "published" ? labels.published : `Next Token Weekly #${episode.data.number}`}</span>
     </div>
     <div class="episode-detail-hero-copy">
       <a href={weeklyPath}>← {labels.back}</a>
@@ -106,7 +106,7 @@ const labels = locale === "en" ? {
         <p class="eyebrow">{homepage.eyebrow}</p>
         <h1 class="episode-hero-title">{homepage.heading[0]}<br />{homepage.heading[1]}</h1>
         <p>{homepage.lede}</p>
-        {!episode.data.media.video && <p>{locale === "en" ? "Audio out now · Video not yet available" : "音频已上线 · 视频版尚未上线"}</p>}
+        {episode.data.media.audio && !episode.data.media.video && <p>{locale === "en" ? "Audio out now · Video not yet available" : "音频已上线 · 视频版尚未上线"}</p>}
         <TranscriptLink episodeId={episodeId} number={episode.data.number} locale={locale} details />
         <div class="episode-actions">
           {episode.data.platforms.filter(({ href }) => href).map((platform) => (
@@ -130,12 +130,12 @@ const labels = locale === "en" ? {
           <dd>{recordingDate}</dd>
         </div>
         <div>
-          <dt>{labels.venue}</dt>
-          <dd>{locale === "en" ? `${partner.englishName} · ${venue.name.en}` : `${partner.name} · ${venue.name["zh-Hans"]}`}</dd>
+          <dt>{recording ? labels.venue : (locale === "en" ? "Recording format" : "录制形式")}</dt>
+          <dd>{recording ? (locale === "en" ? `${recording.partner.englishName} · ${recording.venue.name.en}` : `${recording.partner.name} · ${recording.venue.name["zh-Hans"]}`) : (locale === "en" ? "Online · Tencent Meeting" : "线上 · 腾讯会议")}</dd>
         </div>
         {windowValue && <div><dt>{labels.window}</dt><dd>{labels.windowValue}</dd></div>}
       </dl>
-      <a href={partnerPath(partner, locale)}>{labels.venueProfile} <span aria-hidden="true">→</span></a>
+      {recording && <a href={partnerPath(recording.partner, locale)}>{labels.venueProfile} <span aria-hidden="true">→</span></a>}
     </aside>
     <article class="episode-show-notes">
       <p class="section-kicker">{labels.showNotes}</p>
@@ -180,7 +180,7 @@ const labels = locale === "en" ? {
 <ConditionalImagePan />
 
 <style>
-  .episode-detail-image.is-artwork { display: block; align-self: start; width: 100%; min-height: 0; aspect-ratio: 1; padding: 0; border: 0; }
-  .episode-detail-image.is-artwork img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .episode-detail-image.is-artwork { display: block; align-self: start; width: 100%; min-height: 0; padding: 0; border: 0; }
+  .episode-detail-image.is-artwork img { display: block; width: 100%; height: auto; object-fit: contain; }
   .episode-guest-names { margin-top: 1.5rem; }
 </style>

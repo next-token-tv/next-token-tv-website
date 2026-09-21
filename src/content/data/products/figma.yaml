@@ -1,0 +1,16 @@
+kind: application
+name:
+  zh-Hans: Figma
+  en: Figma
+summary:
+  zh-Hans: 用于界面设计、原型制作和团队协作的设计平台。
+  en: A collaborative design platform for interface design and prototyping.
+aliases: []
+official:
+  website: https://www.figma.com/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.figma.com/

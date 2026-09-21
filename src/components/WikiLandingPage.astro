@@ -7,7 +7,7 @@ const { locale } = Astro.props;
 const en = locale === "en";
 const prefix = en ? "/en" : "";
 const [brands, products, people] = await Promise.all([
-  getBrandDirectory(locale), getProductDirectory(locale), getPeopleDirectory(),
+  getBrandDirectory(locale), getProductDirectory(locale), getPeopleDirectory(locale),
 ]);
 function pickFeatured<T extends { id: string }>(items: T[], ids: string[]) {
   return ids.map(id => {
@@ -49,6 +49,7 @@ const productTypes = [
   ["model", en ? "Models" : "模型"],
   ["application", en ? "Applications" : "应用"],
   ["agent", "Agent"],
+  ["tool", en ? "Tools" : "工具"],
   ["developer-tool", en ? "Developer tools" : "开发者工具"],
 ] as const;
 ---

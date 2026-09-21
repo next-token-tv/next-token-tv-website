@@ -25,7 +25,7 @@ if (!mapping.sources.includes(mapping.cover)) throw new Error('Cover must be amo
 const square = mapping.imageDimensions?.width === mapping.imageDimensions?.height && !!mapping.imageDimensions;
 const image = `/assets/weekly-${mapping.number}-cover${square ? "-square" : ""}.jpg`;
 await copyFile(resolve(sourceRoot, mapping.cover), resolve(`public${image}`));
-const { cover, creditsSource, sources: sourcePaths, ...data } = mapping;
+const { cover, cardCover, creditsSource, sources: sourcePaths, ...data } = mapping;
 const sourceGitStatus = execFileSync('git', ['-C', sourceRoot, 'status', '--porcelain', '--', ...sourcePaths], { encoding: 'utf8' }).trim();
 if (sourceGitStatus) {
   throw new Error('Published audio sources must be committed before import');
@@ -45,5 +45,16 @@ const snapshot = {
     sources,
   },
 };
+if (cardCover) {
+  if (!sourcePaths.includes(cardCover)) throw new Error('Card cover must be among verified sources');
+  const input = resolve(sourceRoot, cardCover);
+  const dimensions = await sharp(input).metadata();
+  snapshot.cardImageDimensions = { width: dimensions.width, height: dimensions.height };
+  snapshot.cardImages = Object.fromEntries(await Promise.all([480, 720, 960, 1440, 1920].map(async width => {
+    const output = `/assets/weekly-${mapping.number}-card-${width}.webp`;
+    await sharp(input).resize({ width, withoutEnlargement: true }).webp({ quality: 82 }).toFile(resolve(`public${output}`));
+    return [width, output];
+  })));
+}
 await writeFile(`src/content/imported/episodes/${data.episodeId}.production.json`, JSON.stringify(snapshot, null, 2) + '\n');
 console.log(`Imported ${data.episodeId}: ${sources.length} hashed production sources, original cover preserved with responsive delivery images.`);

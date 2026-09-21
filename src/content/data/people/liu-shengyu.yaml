@@ -1,0 +1,25 @@
+name:
+  zh-Hans: 刘胜与
+  en: Shengyu Liu
+bio:
+  zh-Hans: DeepSeek 机器学习系统工程师，研究内核设计与性能优化。
+  en: A machine learning systems engineer at DeepSeek working on kernel design and optimization.
+aliases: []
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 本人或所属机构资料
+      en: Personal or institutional profile
+    href: https://interestinglsy.github.io/
+relations:
+  - entityType: brand
+    entity: deepseek
+    role:
+      zh-Hans: 工程师
+      en: Engineer
+    sources:
+      - label:
+          zh-Hans: 本人或所属机构资料
+          en: Personal or institutional profile
+        href: https://interestinglsy.github.io/
+    lastVerifiedAt: '2026-09-21'

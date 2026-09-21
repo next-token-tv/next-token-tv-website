@@ -1,0 +1,17 @@
+kind: hardware
+brand: apple
+name:
+  zh-Hans: iPad
+  en: iPad
+summary:
+  zh-Hans: Apple 的平板电脑产品系列。
+  en: Apple's tablet computer family.
+aliases: []
+official:
+  website: https://www.apple.com/ipad/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://www.apple.com/ipad/

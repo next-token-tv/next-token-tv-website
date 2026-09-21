@@ -14,7 +14,7 @@ for (const width of [390, 1440]) for (const prefix of ['', '/en']) {
     await page.locator('[data-entity-filter="co-host"]').click();
     await expect(page.locator('.entity-directory-row:visible')).toHaveCount(4);
     await expect(page).toHaveURL(/type=co-host/);
-    await expect(page.locator('.entity-directory-row:visible').first()).toContainText(prefix ? '2 related episodes' : '2 期相关节目');
+    await expect(page.locator('.entity-directory-row:visible').first()).toContainText(prefix ? '3 related episodes' : '3 期相关节目');
     await page.locator('[data-entity-filter="mentioned"]').click();
     const mentionedCount = Number(await page.locator('[data-entity-filter="mentioned"] strong').textContent());
     await expect(page.locator('.entity-directory-row:visible')).toHaveCount(mentionedCount);

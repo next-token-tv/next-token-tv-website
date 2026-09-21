@@ -1,0 +1,14 @@
+kind: agent
+name:
+  zh-Hans: Instinct
+  en: Instinct
+summary:
+  zh-Hans: 连接应用与设备、通过文字或电话交互的个人 AI 助手。
+  en: A personal AI assistant that connects to applications and devices and interacts through text or calls.
+aliases: []
+official:
+  website: https://instinct.com/
+lastVerifiedAt: '2026-09-21'
+sources:
+  - label: {zh-Hans: 官方介绍, en: Official introduction}
+    href: https://instinct.com/

@@ -12,7 +12,7 @@ for (const width of [390, 1440]) {
       await expect(page.locator('#products li')).not.toHaveCount(0);
       await expect(page.locator('#people li')).not.toHaveCount(0);
       await expect(page.locator(`main a[href="/api"]`)).toHaveCount(prefix ? 0 : 1);
-      await expect(page.locator('main a[href*="/transcript"]')).toHaveCount(prefix ? 0 : 2);
+      await expect(page.locator('main a[href*="/transcript"]')).toHaveCount(prefix ? 0 : 3);
       await expect(page.locator(`#episodes a[href="${prefix}/weekly/002"] .episode-title`)).toHaveText(prefix
         ? 'iPhone Duo launches. Does Astra using a computer count as AGI?'
         : 'iPhone Duo 发布，Astra 会用电脑就算 AGI 吗？');

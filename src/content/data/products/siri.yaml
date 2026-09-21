@@ -2,7 +2,8 @@ kind: application
 brand: apple
 name: {zh-Hans: Siri, en: Siri}
 summary: {zh-Hans: Apple 设备内置的语音与智能助理。, en: The voice and intelligent assistant built into Apple devices.}
-aliases: []
+aliases:
+  - Siri AI
 status: available
 official: {website: https://www.apple.com/siri/}
 lastVerifiedAt: '2026-09-14'
