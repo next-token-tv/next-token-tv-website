@@ -52,7 +52,7 @@ Next Token｜词元之外是一档关注 AI 技术、产品与现实影响的视
 
 欢迎加入 Next Token Weekly 听友 2 群，一起交流 AI 工具与真实工作流。
 
-![Next Token Weekly 听友 2 群二维码，9 月 27 日前有效](/assets/weekly-003/community-qr.png)
+![Next Token Weekly 听友 2 群二维码，9 月 27 日前有效](/assets/weekly-003/community-qr.webp)
 
 欢迎加入 [Next Token Discord](https://discord.gg/RHVMkjpxEN)，分享你的使用体验和不同判断。
 

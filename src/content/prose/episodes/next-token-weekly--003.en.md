@@ -41,7 +41,7 @@ Jev’s type constraints and decision accuracy are separate questions. Computer 
 
 Join Next Token Weekly’s second WeChat listener group to discuss AI tools and real workflows. The source QR code states that it is valid before September 27, 2026.
 
-![Next Token Weekly WeChat listener group 2](/assets/weekly-003/community-qr.png)
+![Next Token Weekly WeChat listener group 2](/assets/weekly-003/community-qr.webp)
 
 You can also join [Next Token Discord](https://discord.gg/RHVMkjpxEN).
 
