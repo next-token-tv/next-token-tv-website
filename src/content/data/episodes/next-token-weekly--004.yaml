@@ -114,6 +114,14 @@ media:
   audio: true
   video: true
 platforms:
+  - platform: xiaoyuzhou
+    label:
+      zh-Hans: 小宇宙
+      en: Xiaoyuzhou
+    href: https://www.xiaoyuzhoufm.com/episode/6ab95070e742e36efcbbe1f2
+    action:
+      zh-Hans: 立即收听
+      en: Listen now
   - platform: spotify
     label:
       zh-Hans: Spotify
