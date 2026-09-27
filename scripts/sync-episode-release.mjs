@@ -13,8 +13,9 @@ const publication=JSON.parse(await fs.readFile(base+'04-release/platforms/public
 const metadata=JSON.parse(await fs.readFile(base+'episode.json','utf8'));
 const names={'xiaoyuzhou':['小宇宙','Xiaoyuzhou'],'apple-podcasts':['Apple Podcasts','Apple Podcasts'],spotify:['Spotify','Spotify'],bilibili:['哔哩哔哩','Bilibili'],youtube:['YouTube','YouTube']};
 const live=Object.entries(names).filter(([id])=>publication.platforms[id]?.status?.startsWith('published')&&publication.platforms[id].public_url);
+const audioOnly = id => publication.platforms[id]?.mode === 'audio-only' || id === 'apple-podcasts';
 if(live.length){
- episode.platforms=live.map(([id,[zh,en]])=>({platform:id,label:{'zh-Hans':zh,en},href:publication.platforms[id].public_url,action:{'zh-Hans':['xiaoyuzhou','spotify'].includes(id)?'收听 / 收看':id==='apple-podcasts'?'立即收听':'立即观看',en:['xiaoyuzhou','spotify'].includes(id)?'Listen / watch':id==='apple-podcasts'?'Listen now':'Watch now'}}));
+ episode.platforms=live.map(([id,[zh,en]])=>({platform:id,label:{'zh-Hans':zh,en},href:publication.platforms[id].public_url,action:{'zh-Hans':audioOnly(id)?'立即收听':['xiaoyuzhou','spotify'].includes(id)?'收听 / 收看':'立即观看',en:audioOnly(id)?'Listen now':['xiaoyuzhou','spotify'].includes(id)?'Listen / watch':'Watch now'}}));
  episode.media.audio=live.some(([id])=>['xiaoyuzhou','spotify','apple-podcasts'].includes(id));
  episode.media.video=live.some(([id])=>['bilibili','youtube'].includes(id));
  const dates=[metadata.release_date,...live.map(([id])=>(publication.platforms[id].published_at ?? publication.platforms[id].public_display_time))].filter(Boolean).map(d=>d.slice(0,10)).sort();

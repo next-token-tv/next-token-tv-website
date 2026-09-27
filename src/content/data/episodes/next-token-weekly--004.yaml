@@ -111,9 +111,17 @@ mentions:
     - andrej-karpathy
 productionImport: next-token-weekly--004.production
 media:
-  audio: false
+  audio: true
   video: true
 platforms:
+  - platform: spotify
+    label:
+      zh-Hans: Spotify
+      en: Spotify
+    href: https://open.spotify.com/episode/28dXWnp6PotufZig0yPcuY
+    action:
+      zh-Hans: 立即收听
+      en: Listen now
   - platform: bilibili
     label:
       zh-Hans: 哔哩哔哩
