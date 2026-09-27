@@ -17,7 +17,7 @@ if(live.length){
  episode.platforms=live.map(([id,[zh,en]])=>({platform:id,label:{'zh-Hans':zh,en},href:publication.platforms[id].public_url,action:{'zh-Hans':['xiaoyuzhou','spotify'].includes(id)?'收听 / 收看':id==='apple-podcasts'?'立即收听':'立即观看',en:['xiaoyuzhou','spotify'].includes(id)?'Listen / watch':id==='apple-podcasts'?'Listen now':'Watch now'}}));
  episode.media.audio=live.some(([id])=>['xiaoyuzhou','spotify','apple-podcasts'].includes(id));
  episode.media.video=live.some(([id])=>['bilibili','youtube'].includes(id));
- const dates=[metadata.release_date,...live.map(([id])=>publication.platforms[id].published_at)].filter(Boolean).map(d=>d.slice(0,10)).sort();
+ const dates=[metadata.release_date,...live.map(([id])=>(publication.platforms[id].published_at ?? publication.platforms[id].public_display_time))].filter(Boolean).map(d=>d.slice(0,10)).sort();
  if(dates.length)snapshot.releaseDate=dates[0];
  await fs.writeFile(path,dump(episode,{lineWidth:-1,noRefs:true}));
 }

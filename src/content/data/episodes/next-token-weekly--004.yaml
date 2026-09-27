@@ -1,11 +1,11 @@
 schemaVersion: 2
-number: "004"
+number: '004'
 show: next-token-weekly
 status: published
-transcriptPublishedAt: "2026-09-27"
+transcriptPublishedAt: '2026-09-27'
 title:
-  zh-Hans: "#004 Opus 5.5 越界，Muse 爆火，以及中国到底有没有 AI 产品经理？"
-  en: "#004 Opus 5.5 pushes boundaries, Muse takes off, and does China have AI product managers?"
+  zh-Hans: '#004 Opus 5.5 越界，Muse 爆火，以及中国到底有没有 AI 产品经理？'
+  en: '#004 Opus 5.5 pushes boundaries, Muse takes off, and does China have AI product managers?'
 mentions:
   brands:
     - amd
@@ -112,8 +112,16 @@ mentions:
 productionImport: next-token-weekly--004.production
 media:
   audio: false
-  video: false
-platforms: []
+  video: true
+platforms:
+  - platform: bilibili
+    label:
+      zh-Hans: 哔哩哔哩
+      en: Bilibili
+    href: https://www.bilibili.com/video/BV1AAaa6VE88/
+    action:
+      zh-Hans: 立即观看
+      en: Watch now
 homepage:
   zh-Hans:
     eyebrow: 第 004 期
@@ -122,7 +130,7 @@ homepage:
       - 以及中国到底有没有 AI 产品经理？
     lede: 模型开始抢剪辑师的活，Agent 开始替普通人办事，留给产品经理的工作到底是什么？从 Opus 5.5 的创作能力、Muse 的日常体验，聊到创业、分发与信任。
     copy: 模型开始抢剪辑师的活，Agent 开始替普通人办事，留给产品经理的工作到底是什么？从 Opus 5.5 的创作能力、Muse 的日常体验，聊到创业、分发与信任。
-    imageAlt: "#004 Opus 5.5 越界，Muse 爆火，以及中国到底有没有 AI 产品经理？"
+    imageAlt: '#004 Opus 5.5 越界，Muse 爆火，以及中国到底有没有 AI 产品经理？'
     topicsLabel: 本期议题
     topics:
       - Opus 5.5
@@ -131,13 +139,13 @@ homepage:
     listenAction: 查看本期
     watchAction: 查看本期
   en:
-    eyebrow: "Episode #004"
+    eyebrow: 'Episode #004'
     heading:
       - Opus 5.5 pushes boundaries, Muse takes off,
       - and does China have AI product managers?
     lede: As models take on creative work and agents handle everyday tasks, what remains for product managers? A roundtable on Opus 5.5, Muse, building products, distribution and trust.
     copy: As models take on creative work and agents handle everyday tasks, what remains for product managers? A roundtable on Opus 5.5, Muse, building products, distribution and trust.
-    imageAlt: "#004 Opus 5.5 pushes boundaries, Muse takes off, and does China have AI product managers?"
+    imageAlt: '#004 Opus 5.5 pushes boundaries, Muse takes off, and does China have AI product managers?'
     topicsLabel: Episode topics
     topics:
       - Opus 5.5
