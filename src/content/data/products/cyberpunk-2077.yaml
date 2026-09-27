@@ -1,0 +1,17 @@
+kind: game
+name:
+  zh-Hans: 赛博朋克 2077
+  en: Cyberpunk 2077
+summary:
+  zh-Hans: CD PROJEKT RED 开发的开放世界动作角色扮演游戏，故事发生在夜之城。
+  en: An open-world action role-playing game by CD PROJEKT RED, set in Night City.
+aliases:
+  - 赛博朋克2077
+official:
+  website: https://www.cyberpunk.net/
+sources:
+  - label:
+      zh-Hans: 游戏官方网站
+      en: Official game website
+    href: https://www.cyberpunk.net/
+lastVerifiedAt: '2026-09-27'

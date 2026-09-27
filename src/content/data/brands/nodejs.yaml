@@ -1,0 +1,19 @@
+kind: internet-software-brand
+name:
+  zh-Hans: Node.js
+  en: Node.js
+summary:
+  zh-Hans: 围绕开源 JavaScript 运行时 Node.js 的技术品牌与开发者生态。
+  en: The technology brand and developer ecosystem around the open-source Node.js JavaScript runtime.
+aliases:
+  - Node
+official:
+  website: https://nodejs.org/
+  documentation: https://nodejs.org/api/
+  repository: https://github.com/nodejs/node
+lastVerifiedAt: '2026-09-27'
+sources:
+  - label:
+      zh-Hans: Node.js 官方介绍
+      en: About Node.js
+    href: https://nodejs.org/en/about

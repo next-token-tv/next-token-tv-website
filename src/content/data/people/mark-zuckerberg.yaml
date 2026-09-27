@@ -1,0 +1,28 @@
+name:
+  zh-Hans: 马克·扎克伯格
+  en: Mark Zuckerberg
+bio:
+  zh-Hans: Meta 创始人、董事长兼首席执行官。
+  en: Founder, chairman and chief executive officer of Meta.
+aliases:
+  - 扎克伯格
+  - 小扎
+  - 扎克
+lastVerifiedAt: '2026-09-27'
+sources:
+  - label:
+      zh-Hans: Meta 领导团队
+      en: Meta leadership
+    href: https://investor.atmeta.com/leadership-and-governance/
+relations:
+  - entityType: brand
+    entity: meta
+    role:
+      zh-Hans: 创始人、董事长兼首席执行官
+      en: Founder, chairman and CEO
+    lastVerifiedAt: '2026-09-27'
+    sources:
+      - label:
+          zh-Hans: Meta 领导团队
+          en: Meta leadership
+        href: https://investor.atmeta.com/leadership-and-governance/

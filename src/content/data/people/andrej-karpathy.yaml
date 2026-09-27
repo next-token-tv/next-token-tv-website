@@ -1,0 +1,13 @@
+name:
+  zh-Hans: Andrej Karpathy
+  en: Andrej Karpathy
+bio:
+  zh-Hans: AI 研究者与教育者，OpenAI 联合创始成员、前 Tesla AI 负责人。
+  en: An AI researcher and educator, founding member of OpenAI and former Director of AI at Tesla.
+aliases: []
+sources:
+  - label:
+      zh-Hans: 个人网站
+      en: Personal website
+    href: https://karpathy.ai/
+lastVerifiedAt: '2026-09-27'

@@ -1,0 +1,16 @@
+kind: platform
+name:
+  zh-Hans: 亚马逊
+  en: Amazon
+summary:
+  zh-Hans: 面向消费者的在线购物与商品交易平台。
+  en: An online shopping marketplace for consumers.
+aliases: []
+official:
+  website: https://www.amazon.com/
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official source
+    href: https://www.amazon.com/
+lastVerifiedAt: '2026-09-27'

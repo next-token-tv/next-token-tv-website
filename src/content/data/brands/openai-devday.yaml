@@ -1,0 +1,19 @@
+kind: media-community-brand
+parentBrand: openai
+name:
+  zh-Hans: OpenAI DevDay
+  en: OpenAI DevDay
+summary:
+  zh-Hans: OpenAI 面向开发者举办的活动品牌，包含技术分享、产品演示与开发者交流。
+  en: OpenAI's developer event brand, featuring technical sessions, product demonstrations, and developer exchanges.
+aliases:
+  - Dev Day
+  - DevDay
+official:
+  website: https://devday.openai.com/
+lastVerifiedAt: '2026-09-27'
+sources:
+  - label:
+      zh-Hans: OpenAI DevDay 官方网站
+      en: OpenAI DevDay official website
+    href: https://devday.openai.com/

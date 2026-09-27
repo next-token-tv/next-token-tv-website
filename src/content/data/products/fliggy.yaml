@@ -1,0 +1,16 @@
+kind: platform
+name:
+  zh-Hans: 飞猪
+  en: Fliggy
+summary:
+  zh-Hans: 提供机票、酒店与旅行产品预订的在线旅行服务平台。
+  en: An online travel platform for flights, hotels and travel bookings.
+aliases: []
+official:
+  website: https://www.fliggy.com/
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official source
+    href: https://www.fliggy.com/
+lastVerifiedAt: '2026-09-27'

@@ -1,0 +1,25 @@
+name:
+  zh-Hans: 玉伯
+  en: Yubo
+bio:
+  zh-Hans: YouMind 创始人，关注 AI 与内容创作。
+  en: Founder of YouMind, focused on AI and content creation.
+aliases: []
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal source
+    href: https://podcasts.apple.com/us/podcast/id1777376704?i=1000758625510
+relations:
+  - entityType: product
+    entity: youmind
+    role:
+      zh-Hans: 创始人
+      en: Founder
+    sources:
+      - label:
+          zh-Hans: 官方或本人资料
+          en: Official or personal source
+        href: https://podcasts.apple.com/us/podcast/id1777376704?i=1000758625510
+    lastVerifiedAt: '2026-09-27'
+lastVerifiedAt: '2026-09-27'

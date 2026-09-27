@@ -1,0 +1,16 @@
+kind: series
+name:
+  zh-Hans: 黑镜
+  en: Black Mirror
+summary:
+  zh-Hans: 以科技与社会影响为主题的科幻单元剧集。
+  en: A science-fiction anthology series exploring technology and society.
+aliases: []
+official:
+  website: https://media.netflix.com/en/only-on-netflix/70264888
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official source
+    href: https://media.netflix.com/en/only-on-netflix/70264888
+lastVerifiedAt: '2026-09-27'

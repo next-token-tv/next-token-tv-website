@@ -1,0 +1,16 @@
+kind: platform
+name:
+  zh-Hans: 美团
+  en: Meituan
+summary:
+  zh-Hans: 提供外卖、到店消费及其他本地生活服务的互联网平台。
+  en: An internet platform for food delivery, local commerce and everyday services.
+aliases: []
+official:
+  website: https://www.meituan.com/
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official source
+    href: https://www.meituan.com/
+lastVerifiedAt: '2026-09-27'

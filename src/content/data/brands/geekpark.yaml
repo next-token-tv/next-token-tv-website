@@ -1,0 +1,17 @@
+kind: media-community-brand
+name:
+  zh-Hans: 极客公园
+  en: GeekPark
+summary:
+  zh-Hans: 关注科技创新、创业者与产品的媒体和社区。
+  en: A media and community organization focused on technology, founders and products.
+aliases:
+  - Geek Park
+official:
+  website: https://www.geekpark.net/about/
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal source
+    href: https://www.geekpark.net/about/
+lastVerifiedAt: '2026-09-27'

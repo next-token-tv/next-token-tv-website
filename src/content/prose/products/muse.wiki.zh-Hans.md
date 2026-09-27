@@ -3,14 +3,14 @@ entityType: product
 entity: muse
 locale: zh-Hans
 slot: wiki
-updatedAt: '2026-09-18'
+updatedAt: '2026-09-27'
 seoTitle: 'Meta Muse：面向开发者的多模态模型家族｜Next Token Wiki'
 seoDescription: '了解 Meta 的 Muse 模型家族（Muse Spark 1.3、Muse Voice Transcribe、Muse Image、Muse Glimmer）、开发者接入方式、preview 状态，以及 Weekly 节目中的相关讨论。'
 ---
 
 ## Muse 是什么
 
-Muse 是 [Meta](/wiki/brands/meta) 面向开发者提供的模型家族。[官方页面](https://ai.meta.com/llama/)（位于 ai.meta.com/llama/ 域名下）以"Your next build starts with Muse"呈现这一家族，并列出：
+Muse 是 [Meta](/wiki/brands/meta) 的模型家族。Meta 在[官方发布说明](https://ai.meta.com/blog/introducing-muse-spark-msl/)中明确称 Muse Spark 为 Muse 模型家族的首个模型；Spark 是本期对 Muse Spark 的简称，不是另一个家族名。[官方页面](https://ai.meta.com/llama/)（位于 ai.meta.com/llama/ 域名下）以"Your next build starts with Muse"呈现这一家族，并列出：
 
 - Muse Spark 1.3：面向长程 Agent 工作流的编码模型，官方称其能追踪上下文与此前结果、处理混乱或冲突的输入、在需要时主动询问；具备原生多模态感知（视频、图像与文档）。官方页面将其标注为 Public preview，并称已扩大全球可用范围。
 - Muse Voice Transcribe：流式语音转写模型。
@@ -19,7 +19,7 @@ Muse 是 [Meta](/wiki/brands/meta) 面向开发者提供的模型家族。[官�
 
 配套的开发者组件包括 Muse Code（终端编码 Agent，官方标注支持 macOS 与 Windows）、Meta Model API（自助接入）以及经 OpenRouter 调用 Spark 的方式。页面同时保留 Llama 4 与 Llama 3 的导航入口。
 
-需要注意的是：Weekly 节目参与者把"Muse"当作偏个人助手的产品来讨论（见下文），而官方站点的主题是面向开发者的模型家族与 API；两者的对应关系应以官方资料为准。
+同名的 [Muse 个人智能体](/wiki/products/muse-agent)是另一项产品，使用 Muse Spark 模型提供任务执行能力。模型家族与智能体应用在资料库中分开收录。
 
 ## 用途与使用边界
 
@@ -35,7 +35,7 @@ Weekly #001 的开场模型盘点中，[杨攀说"就在我们录节目之前，
 
 Weekly #002 的[Grok Bot / Muse：为什么 Agent 需要云电脑](/weekly/002/transcript#chapter-13)章节把 Muse 放在 Agent 与云电脑的语境中：[向阳乔木说"Meta 也出了一个叫 Muse"，并回到"返璞归真"的 Chat Bot 判断](/weekly/002/transcript#quote-5370d8756a780c47b0b1)；[橘子的理解是"Muse 其实还是更个人一点吧，它其实应该我理解免费也能用。它跟 Grok Bot 定位还不太一样，我觉得它更像一个就是美国豆包那种感觉"](/weekly/002/transcript#quote-e05b4279cf60687bde0c)。
 
-在"Agent 服务会成为新的云基础设施吗"章节，[橘子列举了某产品连接邮箱、日历、购物支付、健康等功能](/weekly/002/transcript#quote-6078d54926488c588306)，[杨攀确认语境后问"那 Muse 不是抄 WorkBuddy 吗？"](/weekly/002/transcript#quote-43c2cd9360a93e872d2b)，橘子认为它与 [WorkBuddy](/wiki/products/workbuddy) 不太一样。这段讨论中的 Muse 指向偏个人助手的形态，与官方页面的开发者定位并不完全对应；[与 Grok Bot 的对比讨论](/wiki/products/grok-bot)也属同一语境，均为参与者观点。
+在"Agent 服务会成为新的云基础设施吗"章节，[橘子列举了某产品连接邮箱、日历、购物支付、健康等功能](/weekly/002/transcript#quote-6078d54926488c588306)，[杨攀确认语境后问"那 Muse 不是抄 WorkBuddy 吗？"](/weekly/002/transcript#quote-43c2cd9360a93e872d2b)，橘子认为它与 [WorkBuddy](/wiki/products/workbuddy) 不太一样。这段讨论中的 Muse 指向 [Muse 个人智能体](/wiki/products/muse-agent)，而非模型家族；[与 Grok Bot 的对比讨论](/wiki/products/grok-bot)也属同一语境，均为参与者观点。
 
 ## 常见问题
 
@@ -53,7 +53,7 @@ Meta Model API 提供自助接入；官方页面标注了 Muse Voice Transcribe 
 
 ### Muse 是 AI 助手吗？跟 Grok Bot 一样吗？
 
-官方站点把 Muse 呈现为开发者模型家族，不是消息式助手产品。Weekly #002 中参与者把它理解为"更个人一点""更像美国豆包"，并认为与 [Grok Bot](/wiki/products/grok-bot) 的持久云电脑定位不同——这些是节目观点，产品的实际形态以官方资料为准。
+Meta 同时使用 Muse 命名模型家族和[个人智能体产品](/wiki/products/muse-agent)。本页介绍模型家族；Weekly #002、#004 中围绕日常任务与连接器的讨论主要指个人智能体。
 
 ### Muse 和 Llama 是什么关系？
 
@@ -62,3 +62,6 @@ Meta Model API 提供自助接入；官方页面标注了 Muse Voice Transcribe 
 ## 来源
 
 - [Meta：Muse 官方页面（ai.meta.com/llama/）](https://ai.meta.com/llama/)
+
+- [Meta：Muse 模型家族与 Muse Spark](https://ai.meta.com/blog/introducing-muse-spark-msl/)
+- [Meta：Muse 个人智能体](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/)

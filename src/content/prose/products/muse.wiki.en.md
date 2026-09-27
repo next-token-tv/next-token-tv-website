@@ -3,14 +3,14 @@ entityType: product
 entity: muse
 locale: en
 slot: wiki
-updatedAt: '2026-09-18'
+updatedAt: '2026-09-27'
 seoTitle: 'Meta Muse: The Developer-Facing Multimodal Model Family | Next Token Wiki'
 seoDescription: 'Meta Muse explained: family members (Muse Spark 1.3, Muse Voice Transcribe, Muse Image, Muse Glimmer), developer access, preview status, and the Weekly show discussion.'
 ---
 
 ## What is Muse
 
-Muse is a developer-facing model family from [Meta](/en/wiki/brands/meta). The [official page](https://ai.meta.com/llama/) (hosted under ai.meta.com/llama/) presents it with the headline "Your next build starts with Muse" and lists:
+Muse is a model family from [Meta](/en/wiki/brands/meta). Meta’s [launch announcement](https://ai.meta.com/blog/introducing-muse-spark-msl/) identifies Muse Spark as the first model in the Muse family. In this episode, Spark is shorthand for Muse Spark, not a separate family name. The [official page](https://ai.meta.com/llama/) (hosted under ai.meta.com/llama/) presents it with the headline "Your next build starts with Muse" and lists:
 
 - Muse Spark 1.3: a coding model trained for long-horizon, agentic workflows, which the official page says tracks context and prior results, works through messy or conflicting inputs, and asks for input when needed; it has native multimodal perception across video, images, and documents. The page labels it Public preview with expanded global access.
 - Muse Voice Transcribe: a streaming speech transcription model.
@@ -19,7 +19,7 @@ Muse is a developer-facing model family from [Meta](/en/wiki/brands/meta). The [
 
 Developer components include Muse Code (a CLI coding agent, listed for macOS and Windows), the Meta Model API for direct self-serve access, and OpenRouter as an access path for Spark. The page also keeps Llama 4 and Llama 3 in its navigation.
 
-One caveat: Weekly show participants discussed "Muse" as if it were a personal-assistant product (see below), while the official site's subject is a developer model family with APIs; the actual mapping should follow official material.
+The [Muse personal agent](/en/wiki/products/muse-agent) is a separate product powered by Muse Spark. The model family and the agent application have separate library entries.
 
 ## Use and boundaries
 
@@ -35,7 +35,7 @@ In the chapter “语音与多模态模型为什么仍然难用” (“Why speec
 
 The Weekly #002 chapter [Grok Bot / Muse：为什么 Agent 需要云电脑](/weekly/002/transcript#chapter-13) (“Grok Bot / Muse: why agents need cloud computers”) placed Muse in an agent-and-cloud-computer context: [Xiangyang Qiaomu said "Meta also released one called Muse", framing it as a return to the chatbot](/weekly/002/transcript#quote-5370d8756a780c47b0b1); [Orange understood it as "still more personal — I think it's free to use as well. It's positioned differently from Grok Bot; more like an American Doubao"](/weekly/002/transcript#quote-e05b4279cf60687bde0c).
 
-In the chapter “Agent 服务会成为新的云基础设施吗” (“Will agent services become the new cloud infrastructure”), [Orange listed features such as connecting email, calendar, shopping and payments, and health](/weekly/002/transcript#quote-6078d54926488c588306); [after Yang Pan pinned down the context he asked "isn't Muse copying WorkBuddy then?"](/weekly/002/transcript#quote-43c2cd9360a93e872d2b), and Orange judged it quite different from [WorkBuddy](/en/wiki/products/workbuddy). In this discussion Muse pointed toward a personal-assistant form that does not fully match the official developer positioning; the [comparison with Grok Bot](/en/wiki/products/grok-bot) belongs to the same context. All of it reflects the participants' views.
+In the chapter “Agent 服务会成为新的云基础设施吗” (“Will agent services become the new cloud infrastructure”), [Orange listed features such as connecting email, calendar, shopping and payments, and health](/weekly/002/transcript#quote-6078d54926488c588306); [after Yang Pan pinned down the context he asked "isn't Muse copying WorkBuddy then?"](/weekly/002/transcript#quote-43c2cd9360a93e872d2b), and Orange judged it quite different from [WorkBuddy](/en/wiki/products/workbuddy). In this discussion Muse refers to the [personal agent](/en/wiki/products/muse-agent), rather than the model family; the [comparison with Grok Bot](/en/wiki/products/grok-bot) belongs to the same context. All of it reflects the participants' views.
 
 ## FAQ
 
@@ -53,7 +53,7 @@ The Meta Model API offers self-serve access; the official page lists metered pri
 
 ### Is Muse an AI assistant, like Grok Bot?
 
-The official site presents Muse as a developer model family, not a messaging-style assistant. On Weekly #002, participants read it as "more personal" and "like an American Doubao", positioned differently from [Grok Bot](/en/wiki/products/grok-bot)'s persistent cloud computers — these are show opinions, and the product's actual form should follow official material.
+Meta uses Muse for both its model family and its [personal agent product](/en/wiki/products/muse-agent). This page covers the model family; the everyday-task and connector discussions in Weekly #002 and #004 primarily concern the personal agent.
 
 ### How do Muse and Llama relate?
 
@@ -62,3 +62,6 @@ Both live within Meta's official page system: Muse is presented on the ai.meta.c
 ## Sources
 
 - [Meta: Muse official page (ai.meta.com/llama/)](https://ai.meta.com/llama/)
+
+- [Meta: Muse model family and Muse Spark](https://ai.meta.com/blog/introducing-muse-spark-msl/)
+- [Meta: Muse personal agent](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/)

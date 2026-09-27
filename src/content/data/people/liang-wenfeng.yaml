@@ -1,0 +1,27 @@
+name:
+  zh-Hans: 梁文锋
+  en: Liang Wenfeng
+bio:
+  zh-Hans: DeepSeek 创始人。
+  en: Founder of DeepSeek.
+aliases:
+  - 梁圣
+  - 梁文峰
+lastVerifiedAt: '2026-09-27'
+sources:
+  - label:
+      zh-Hans: 湛江市政务服务和数据管理局资料
+      en: Zhanjiang government profile
+    href: https://www.zhanjiang.gov.cn/zsj/gkmlpt/content/2/2155/post_2155953.html
+relations:
+  - entityType: brand
+    entity: deepseek
+    role:
+      zh-Hans: 创始人
+      en: Founder
+    lastVerifiedAt: '2026-09-27'
+    sources:
+      - label:
+          zh-Hans: 湛江市政务服务和数据管理局资料
+          en: Zhanjiang government profile
+        href: https://www.zhanjiang.gov.cn/zsj/gkmlpt/content/2/2155/post_2155953.html

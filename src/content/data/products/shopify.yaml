@@ -1,0 +1,16 @@
+kind: platform
+name:
+  zh-Hans: Shopify
+  en: Shopify
+summary:
+  zh-Hans: 为商家提供网店、销售和商业运营工具的电商平台。
+  en: A commerce platform with online storefront, sales and business tools for merchants.
+aliases: []
+official:
+  website: https://www.shopify.com/
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal source
+    href: https://www.shopify.com/
+lastVerifiedAt: '2026-09-27'

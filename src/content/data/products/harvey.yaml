@@ -1,0 +1,16 @@
+kind: agent
+name:
+  zh-Hans: Harvey
+  en: Harvey
+summary:
+  zh-Hans: 面向法律和专业服务的 AI 工作平台，支持研究、文档分析及工作流。
+  en: An AI work platform for legal and professional services, with research, document analysis and workflows.
+aliases: []
+official:
+  website: https://www.harvey.ai/
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal source
+    href: https://www.harvey.ai/
+lastVerifiedAt: '2026-09-27'

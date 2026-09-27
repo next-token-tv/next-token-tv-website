@@ -1,0 +1,17 @@
+kind: hardware
+brand: apple
+name:
+  zh-Hans: MacBook
+  en: MacBook
+summary:
+  zh-Hans: Apple 的笔记本电脑产品系列，包括 MacBook Air 和 MacBook Pro。
+  en: Apple’s notebook computer family, including MacBook Air and MacBook Pro.
+aliases: []
+official:
+  website: https://www.apple.com/macbook-pro/
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal source
+    href: https://www.apple.com/macbook-pro/
+lastVerifiedAt: '2026-09-27'

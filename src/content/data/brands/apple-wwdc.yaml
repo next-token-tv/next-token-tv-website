@@ -1,0 +1,18 @@
+kind: media-community-brand
+parentBrand: apple
+name:
+  zh-Hans: Apple WWDC
+  en: Apple WWDC
+summary:
+  zh-Hans: Apple 全球开发者大会，面向开发者介绍软件平台、技术与开发工具。
+  en: Apple’s Worldwide Developers Conference, introducing software platforms, technologies and developer tools.
+aliases:
+  - WWDC
+official:
+  website: https://developer.apple.com/wwdc/
+sources:
+  - label:
+      zh-Hans: Apple 开发者官网
+      en: Apple Developer
+    href: https://developer.apple.com/wwdc/
+lastVerifiedAt: '2026-09-27'
