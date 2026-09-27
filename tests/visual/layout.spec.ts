@@ -52,7 +52,7 @@ test("platform lists share localized labels, logos and destinations", async ({ p
       if (path === '/weekly/001') {
         expect(entries.map(e => e.href)).not.toEqual(expected?.map(e => e.href));
         await expect(list.locator('a[href*="spotify.com"]')).toHaveAttribute('href', /\/episode\//);
-        await expect(list.locator('a[href*="spotify.com"] .coming')).toContainText(prefix ? "Listen / watch" : "收听/收看");
+        await expect(list.locator('a[href*="spotify.com"] .coming')).toContainText(prefix ? "Listen / watch" : "收听 / 收看");
       } else {
         if (expected) expect(entries).toEqual(expected);
         else expected = entries;

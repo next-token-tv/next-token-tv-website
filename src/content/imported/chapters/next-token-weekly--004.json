@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "episodeId": "next-token-weekly--004",
+  "source": "04-release/copy/chapters.json",
+  "sourceSha256": "e63d04aeebcc2e932435cd4e2d1cdbc07bf9ad3193d71afe1499d09d3726a16f",
+  "publicationStatus": "prepared",
+  "sections": {
+    "zh-Hans": "- 00:00 本期精彩片段\n- 01:11 节目片头\n\n### Opus 5.5：模型开始越界\n\n- 02:00 中秋开场与四位主理人自我介绍\n- 02:51 Opus 5.5：宣传片、像素动画与打击感\n- 08:47 从画笔演示到世界模型：理解与创造的边界\n- 11:07 剪辑师的斩杀线？模型与 Skill 的边界\n- 13:11 中秋小猫视频：把音乐、画面和转场一起考虑\n- 15:12 不再只听指令：从执行步骤到理解意图\n- 24:14 创作门槛降低之后，审美与偏好还重要吗\n\n### Muse：普通人需要怎样的 Agent\n\n- 29:30 Muse 与连接器：Agent 会成为新的服务入口吗\n- 33:13 普通人的生活场景，比技术名词更重要\n- 40:08 边聊天边执行：为什么交互体验这么重要\n- 41:56 中国到底有没有 AI 产品经理？\n- 44:53 动态、记忆和待办：纯聊天为什么不够用\n- 50:09 不只是产品设计：资源、成本与平台生态\n\n### Agent 硬件：入口之外\n\n- 55:26 随身 Agent 硬件：价值在设备，还是背后的服务？\n- 01:07:14 从开灯到约课：普通人需要怎样的自动化\n\n### 创业、作品与信任\n\n- 01:10:10 从 Harvey 聊起：先找到 PMF，再谈模型降本\n- 01:14:36 再谈 Jev：海量、高频与分类判断\n- 01:16:45 每个 Agent 都需要一间房：云电脑与算力需求\n- 01:20:40 卖软件还是交付服务？创作容易，分发更难\n- 01:25:24 为什么还要做播客：信任、声誉与人味\n- 01:28:49 作品不只是 App：从自己的真实社区开始\n\n- 01:30:50 片尾",
+    "en": "- 00:00 Highlights\n- 01:11 Intro\n\n### Opus 5.5 and creative work\n\n- 02:00 Opening and introductions\n- 02:51 Opus 5.5: motion design and pixel animation\n- 08:47 From drawing to world models\n- 11:07 Models, editing tools and skills\n- 13:11 Music, visuals and transitions together\n- 15:12 From following steps to understanding intent\n- 24:14 Taste and preferences after automation\n\n### Muse and everyday agency\n\n- 29:30 Muse, connectors and service discovery\n- 33:13 Everyday needs before technical jargon\n- 40:08 Talking while the agent works\n- 41:56 Where are the AI product managers?\n- 44:53 Memory, tasks and the limits of chat\n- 50:09 Resources, costs and platform ecosystems\n\n### Agent hardware\n\n- 55:26 Personal agent hardware and its services\n- 01:07:14 From switching lights to booking classes\n\n### Business, creation and trust\n\n- 01:10:10 Find product-market fit before optimizing model costs\n- 01:14:36 Jev: high-volume, frequent decisions\n- 01:16:45 Cloud computers and agent infrastructure\n- 01:20:40 Selling software or delivering a service\n- 01:25:24 Trust, reputation and the human voice\n- 01:28:49 Build a body of work and a real community\n\n- 01:30:50 Outro"
+  }
+}

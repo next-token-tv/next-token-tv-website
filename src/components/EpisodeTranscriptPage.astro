@@ -3,6 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import { getPeopleByIds } from "../data/catalog";
 import type { Locale } from "../data/types";
 import TranscriptSegments from "./TranscriptSegments.astro";
+import EpisodeArticleLink from "./EpisodeArticleLink.astro";
 import TranscriptReaderTools from "./TranscriptReaderTools.astro";
 import { getParagraphAnchorIds } from "../data/transcript-paragraph-anchors";
 
@@ -36,7 +37,7 @@ const copy = locale === "en" ? {
   read: "Full transcript",
   markdown: "Markdown format",
   candidate: "speaker attribution pending verification",
-  reviewDraft: "Review draft · Not published",
+  reviewDraft: "Local preview · Not published",
   paragraphLink: "Link to this paragraph",
 } : {
   back: "返回本期节目",
@@ -46,7 +47,7 @@ const copy = locale === "en" ? {
   read: "完整文字稿",
   markdown: "Markdown 格式",
   candidate: "人物署名仍待核对",
-  reviewDraft: "审阅版 · 尚未发布",
+  reviewDraft: "本地预览 · 尚未发布",
   paragraphLink: "引用此段",
 };
 ---
@@ -70,6 +71,7 @@ const copy = locale === "en" ? {
         </strong>
         <span>{String(transcript.data.chapterCount).padStart(2, "0")} {copy.chapters}</span>
         <p>{transcript.data.byline}</p>
+        <EpisodeArticleLink episodeId={transcript.data.episodeId} locale={locale} />
         {transcript.data.notices.map((notice) => <p class="transcript-notice">{notice}</p>)}
       </div>
     </div>

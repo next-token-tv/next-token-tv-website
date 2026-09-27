@@ -1,0 +1,13 @@
+---
+import { getEpisodeArticle } from "../data/episode-articles";
+import type { Locale } from "../data/types";
+interface Props { episodeId: string; locale: Locale; }
+const { episodeId, locale } = Astro.props;
+const entry = await getEpisodeArticle(episodeId, locale);
+const label = locale === "en" ? "Read the article" : "阅读精读文章";
+---
+{entry?.article.data.status === "published" && <a class="episode-article-link" href={`${locale === "en" ? "/en" : ""}/weekly/${entry.number}/article`}>{label} <span aria-hidden="true">→</span></a>}
+<style>
+  .episode-article-link { display: inline-flex; align-items: center; gap: .75rem; margin-block: 1rem; font-size: .9rem; font-weight: 700; text-decoration: underline; text-underline-offset: .3em; }
+  .episode-article-link:hover { color: var(--signal); }
+</style>

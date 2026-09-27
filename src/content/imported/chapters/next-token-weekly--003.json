@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "episodeId": "next-token-weekly--003",
+  "source": "04-release/copy/chapters.json",
+  "sourceSha256": "3fea08ee62ee58d33e17d21abc5495bb38b4db43b3291e8ed948e1677fad49ac",
+  "publicationStatus": "published",
+  "sections": {
+    "zh-Hans": "- 00:00 节目片头\n- 00:49 本期精彩片段\n\n### Jev：从聊天走向高频判断\n\n- 01:30 四位主理人开场\n- 01:41 Jev：不聊天，做结构化判断\n- 03:47 微信好友标签与高频判断\n- 07:22 语义搜索与数据库查询\n- 08:47 “没有幻觉”不等于判断正确\n- 17:18 用模型过滤隐性广告\n\n### 模型、工具与多模态\n\n- 20:57 把新模型接入现有 Agent\n- 25:07 多模态：音视频为什么要一起理解\n- 27:51 量化与本地小模型\n- 31:43 SVG、图标与设计工作流\n- 35:19 用 GPT-6 Astra 造数据、训练小模型\n- 40:59 实时语音与 Computer Use\n- 43:44 具身智能与零样本任务\n\n### 能力增长之后的创作现场\n\n- 48:07 Vibe Coding 把硬盘用满之后\n- 56:56 用代码做宣传片和配乐\n- 01:09:39 语音输入产品与实时反馈\n\n### Agent 的工作环境与边界\n\n- 01:20:07 Codex 多账号与工作空间\n- 01:24:29 常驻 Agent 与多平台内容分发\n- 01:26:42 Coding 与 Office：两种工作模式\n- 01:29:52 云端 Mac 与 Agent 执行环境\n- 01:30:49 企业数据与日志边界\n\n### 内容生产与研发自动化\n\n- 01:36:25 AI 剧与内容生产\n- 01:38:06 AI 参与研发与人的监督\n\n- 01:40:04 片尾",
+    "en": "- 00:00 Intro\n- 00:49 Highlights\n\n### Jev: beyond chat\n\n- 01:30 Opening\n- 01:41 Jev and structured decisions\n- 03:47 Contact labels and frequent decisions\n- 07:22 Semantic search and database queries\n- 08:47 Valid outputs are not necessarily correct decisions\n- 17:18 Filtering disguised advertising\n\n### Models, tools and multimodality\n\n- 20:57 Connecting new models to agents\n- 25:07 Understanding audio and video together\n- 27:51 Quantization and local models\n- 31:43 SVG, icons and design workflows\n- 35:19 Using GPT-6 Astra to create training data\n- 40:59 Realtime voice and computer use\n- 43:44 Embodied AI and zero-shot tasks\n\n### Creating with more capable AI\n\n- 48:07 When vibe coding fills the disk\n- 56:56 Making promotional videos and music with code\n- 01:09:39 Voice input and realtime feedback\n\n### Agent environments and boundaries\n\n- 01:20:07 Multiple accounts and workspaces in Codex\n- 01:24:29 Persistent agents and content distribution\n- 01:26:42 Coding and office workflows\n- 01:29:52 Cloud Macs and agent environments\n- 01:30:49 Enterprise data and logging boundaries\n\n### Content creation and research automation\n\n- 01:36:25 AI series and content production\n- 01:38:06 AI-assisted research and human oversight\n\n- 01:40:04 Outro"
+  }
+}

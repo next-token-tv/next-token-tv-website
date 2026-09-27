@@ -23,12 +23,57 @@ Recorded online via Tencent Meeting on September 19, 2026. Experiences, opinions
 - Do agents make an ultrawide necessary—and what about storage?
 - What boundaries should govern a persistent agent’s accounts and data?
 
-<!-- Final chapter import pending approved media edit. -->
+## Chapters
+
+<!-- chapters:website-en:start -->
+- 00:00 Intro
+- 00:49 Highlights
+
+### Jev: beyond chat
+
+- 01:30 Opening
+- 01:41 Jev and structured decisions
+- 03:47 Contact labels and frequent decisions
+- 07:22 Semantic search and database queries
+- 08:47 Valid outputs are not necessarily correct decisions
+- 17:18 Filtering disguised advertising
+
+### Models, tools and multimodality
+
+- 20:57 Connecting new models to agents
+- 25:07 Understanding audio and video together
+- 27:51 Quantization and local models
+- 31:43 SVG, icons and design workflows
+- 35:19 Using GPT-6 Astra to create training data
+- 40:59 Realtime voice and computer use
+- 43:44 Embodied AI and zero-shot tasks
+
+### Creating with more capable AI
+
+- 48:07 When vibe coding fills the disk
+- 56:56 Making promotional videos and music with code
+- 01:09:39 Voice input and realtime feedback
+
+### Agent environments and boundaries
+
+- 01:20:07 Multiple accounts and workspaces in Codex
+- 01:24:29 Persistent agents and content distribution
+- 01:26:42 Coding and office workflows
+- 01:29:52 Cloud Macs and agent environments
+- 01:30:49 Enterprise data and logging boundaries
+
+### Content creation and research automation
+
+- 01:36:25 AI series and content production
+- 01:38:06 AI-assisted research and human oversight
+
+- 01:40:04 Outro
+<!-- chapters:website-en:end -->
 
 ## References
 
 - [TypeSafe: System One Models and Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev)
-- [Ling-2.6-1T model page](https://huggingface.co/inclusionAI/Ling-2.6-1T)
+- [Arrow 2 (SVG generation model)](https://quiver.ai/blog/introducing-arrow-2-0)
 - [StepAudio 3 Realtime](https://static.stepfun.com/blog/stepaudio3/realtime/)
 
 ## People and terms
@@ -37,13 +82,6 @@ Guizang moderates this episode, joined by co-hosts Xiangyang Qiaomu, Orange and 
 
 Jev’s type constraints and decision accuracy are separate questions. Computer Use means performing actions through a computer interface; it is not itself a determination of AGI.
 
-## Community
-
-Join Next Token Weekly’s second WeChat listener group to discuss AI tools and real workflows. The source QR code states that it is valid before September 27, 2026.
-
-<img src="/assets/weekly-003/community-qr-960.webp" srcset="/assets/weekly-003/community-qr-480.webp 480w, /assets/weekly-003/community-qr-720.webp 720w, /assets/weekly-003/community-qr-960.webp 960w" sizes="(max-width: 31.25rem) calc(100vw - 2.5rem), 40rem" width="1616" height="920" loading="lazy" decoding="async" alt="Next Token Weekly WeChat listener group 2" />
-
-You can also join [Next Token Discord](https://discord.gg/RHVMkjpxEN).
 
 ## Production credits
 

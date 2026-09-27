@@ -148,7 +148,7 @@ const siteContentBase: Record<Locale, SiteContentBase> = {
       heading: ["订阅节目，", "不错过下一期。"],
       copy: "选择你习惯的平台，订阅或关注 Next Token，不错过每一期圆桌对谈。",
       platformsLabel: "收听与观看平台",
-      available: "立即收听",
+      available: "收听 / 收看",
       comingSoon: "即将开放",
     },
   },
@@ -206,7 +206,7 @@ const siteContentBase: Record<Locale, SiteContentBase> = {
       heading: ["Follow the show,", "stay in the loop."],
       copy: "Follow Next Token on your preferred platform and never miss an open-table conversation.",
       platformsLabel: "Listen and watch",
-      available: "Listen now",
+      available: "Listen / watch",
       comingSoon: "Coming soon",
     },
   },
@@ -221,10 +221,10 @@ export async function getSiteContent(locale: Locale): Promise<SiteContent> {
 
   return {
     ...base,
-    status: locale === "en" ? `#${episode.data.number} ${episode.data.media.video ? "out now" : "audio out now"}` : `#${episode.data.number} ${episode.data.media.video ? "已上线" : "音频已上线"}`,
+    status: locale === "en" ? `#${episode.data.number} ${!episode.data.media.audio && !episode.data.media.video ? "transcript out now" : episode.data.media.audio && !episode.data.media.video ? "audio out now" : "out now"}` : `#${episode.data.number} ${!episode.data.media.audio && !episode.data.media.video ? "文字稿已上线" : episode.data.media.audio && !episode.data.media.video ? "音频已上线" : "已上线"}`,
     description: locale === "en" ? "Next Token is a podcast about AI, products and real-world impact. " + episode.data.homepage[locale].lede : "Next Token｜词元之外，关注 AI 技术、产品与现实影响的播客。" + episode.data.homepage[locale].lede,
     ogDescription: episode.data.title[locale],
-    hero: { ...base.hero, primaryAction: locale === "en" ? `Explore latest episode #${episode.data.number}` : `收听最新一期 #${episode.data.number}` },
+    hero: { ...base.hero, primaryAction: locale === "en" ? `Explore latest episode #${episode.data.number}` : `查看最新一期 #${episode.data.number}` },
     latestEpisodePath: `${locale === "en" ? "/en" : ""}/weekly/${episode.data.number}`,
     weekly: episode.data.homepage[locale],
     hosts: {

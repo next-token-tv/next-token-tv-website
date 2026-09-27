@@ -2077,11 +2077,18 @@ html[lang="en"] .weekly-show-facts strong {
   max-width: 920px;
 }
 
+.episode-show-notes img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 .episode-show-notes > .section-kicker {
   margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
 }
 
-.episode-show-notes > p:not(.section-kicker) {
+.episode-show-notes > p:not(.section-kicker),
+.episode-show-notes > section[aria-labelledby="episode-community-title"] > p {
   color: var(--muted);
   font-size: clamp(1.05rem, 1.45vw, 1.3rem);
   line-height: 1.8;
@@ -2616,7 +2623,7 @@ html[lang="en"] .weekly-show-facts strong {
   display: block;
 }
 
-.transcript-hero h1 > span:first-child {
+.transcript-hero h1 > span:first-child:not(:only-child) {
   margin-bottom: 0.45rem;
   color: var(--signal);
   font-size: clamp(1rem, 1.35vw, 1.3rem);
@@ -2964,7 +2971,7 @@ html[lang="en"] .weekly-show-facts strong {
     line-height: 1.05;
   }
 
-  .transcript-hero h1 > span:first-child {
+  .transcript-hero h1 > span:first-child:not(:only-child) {
     margin-bottom: 0.25rem;
     font-size: 1rem;
   }

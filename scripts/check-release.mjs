@@ -2,6 +2,7 @@ import { readdir, readFile, stat } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { load } from 'js-yaml';
+import { episodeReleaseErrors } from './lib/episode-release.mjs';
 import { needsRecordingScheduleRefresh } from './lib/announcement-schedule.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -76,10 +77,12 @@ if (llms) {
   }
 }
 
+const publishedTranscriptEpisodes = new Set();
 const transcriptDirectory = resolve(root, 'src/content/imported/transcripts');
 for (const name of await readdir(transcriptDirectory)) {
   if (!name.endsWith('.json')) continue;
   const transcript = JSON.parse(await readFile(resolve(transcriptDirectory, name), 'utf8'));
+  if (transcript.publicationStatus === 'published' && transcript.provenance?.sourceState === 'committed') publishedTranscriptEpisodes.add(transcript.episodeId);
   const number = transcript.episodeId?.match(/--(\d{3})$/)?.[1];
   if (!number) {
     errors.push(`${name}: invalid transcript episode ID`);
@@ -228,9 +231,8 @@ for (const name of await readdir(directory)) {
   episodes++;
   if (data.status === 'published') published.push(data);
   if (data.status === 'published') {
-    if (!data.media?.audio && !data.media?.video) errors.push(`${name}: published episode has no released medium`);
     const snapshot = JSON.parse(await readFile(resolve(root, `src/content/imported/episodes/${data.productionImport}.json`), 'utf8'));
-    if (!snapshot.releaseDate || Date.parse(snapshot.releaseDate) > Date.now()) errors.push(`${name}: missing or future release date`);
+    for (const error of episodeReleaseErrors(data, snapshot, publishedTranscriptEpisodes.has(name.replace(/\.yaml$/, '')))) errors.push(`${name}: ${error}`);
   }
   if (data.status === 'announced') announced.push(data);
   for (const prefix of ['', '/en']) {

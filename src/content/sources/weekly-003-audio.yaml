@@ -7,7 +7,7 @@ language: zh-Hans
 recordedAt: '2026-09-19'
 releaseDate: '2026-09-21'
 recordingMode: online
-durationSeconds: 6022
+durationSeconds: 6034
 imageKind: artwork
 imageDimensions: {width: 3000, height: 3000}
 creditsSource: shows/weekly/episodes/003/credits.json

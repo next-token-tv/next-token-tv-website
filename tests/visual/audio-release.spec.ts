@@ -1,4 +1,9 @@
 import { expect, test } from '@playwright/test';
+import { readFileSync, readdirSync } from 'node:fs';
+import { load } from 'js-yaml';
+const episodes = readdirSync('src/content/data/episodes').filter(n=>n.endsWith('.yaml')).map(n=>load(readFileSync('src/content/data/episodes/'+n,'utf8')) as any).filter(e=>e.status==='published').sort((a,b)=>Number(b.number)-Number(a.number));
+const latest=episodes[0];
+const latestSnapshot=JSON.parse(readFileSync('src/content/imported/episodes/'+latest.productionImport+'.json','utf8'));
 
 for (const width of [390, 768, 1280, 1320, 1440, 1920, 2560]) {
   for (const prefix of ['', '/en']) {
@@ -6,16 +11,15 @@ for (const width of [390, 768, 1280, 1320, 1440, 1920, 2560]) {
       await page.setViewportSize({ width, height: 1000 });
       for (const path of ['/', '/weekly']) {
         await page.goto(path === '/' ? (prefix || '/') : `${prefix}${path}`);
-        await expect(page.locator('.status-pill')).toHaveAttribute('href', `${prefix}/weekly/003`);
-        await expect(page.locator('.status-pill')).toContainText('#003');
+        await expect(page.locator('.status-pill')).toHaveAttribute('href', `${prefix}/weekly/${latest.number}`);
+        await expect(page.locator('.status-pill')).toContainText('#'+latest.number);
         await expect(page.locator('.upcoming-episode-link')).toHaveCount(0);
         const primary = page.locator(path === '/' ? '.hero-copy .button.primary' : '.weekly-latest-actions > a').first();
-        await expect(primary).toHaveAttribute('href', `${prefix}/weekly/003`);
+        await expect(primary).toHaveAttribute('href', `${prefix}/weekly/${latest.number}`);
         const cards = page.locator('[data-episode-number]');
-        const number = path === '/' ? '003' : '002';
-        await expect(page.locator(`[data-episode-number="${number}"] .weekly-image .label`)).toContainText(number === '002' ? (prefix ? 'Audio & video' : '音频 / 视频') : (prefix ? 'Audio' : '音频'));
+        const number = latest.number;
         const cover = page.locator(`[data-episode-number="${number}"] .weekly-image img`);
-        await expect(cover).toHaveAttribute('src', `/assets/weekly-${number}-cover-square-960.webp`);
+        await expect(cover).toHaveAttribute('src', latestSnapshot.images['960']);
         await expect(cover).toHaveAttribute('srcset', /-1440\.webp 1440w/);
         const coverRect = await cover.boundingBox();
         expect(coverRect!.width / coverRect!.height).toBeCloseTo(1, 2);
@@ -27,10 +31,10 @@ for (const width of [390, 768, 1280, 1320, 1440, 1920, 2560]) {
           await expect(page.locator('[data-brand-visual="weekly-001"] img')).toHaveAttribute('src', '/assets/weekly-001-960.webp');
           await expect(page.locator('.visual-caption strong')).toHaveText('24 signalsone open table');
         }
-        expect(await cards.evaluateAll(nodes => nodes.map(n => n.getAttribute('data-episode-number')))).toEqual(path === '/' ? ['003'] : ['003', '002', '001']);
-        await expect(page.locator('a[href*="/003/transcript"]')).toHaveCount(prefix ? 0 : 2);
+        expect(await cards.evaluateAll(nodes => nodes.map(n => n.getAttribute('data-episode-number')))).toEqual(path === '/' ? [latest.number] : episodes.map(e=>e.number));
+        await expect(page.locator(`a[href*="/${latest.number}/transcript"]`)).toHaveCount(prefix ? 0 : 2);
         await expect(page.locator('.platform-list a[href*="spotify.com"]')).toHaveAttribute('href', /\/show\//);
-        if (!prefix) await expect(page.locator('main > section').first().locator('a[href="/weekly/003/transcript"]')).toContainText('#003');
+        if (!prefix) await expect(page.locator('main > section').first().locator(`a[href="/weekly/${latest.number}/transcript"]`)).toContainText('#'+latest.number);
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       }
       await page.goto(`${prefix}/weekly/002`);

@@ -78,6 +78,14 @@ const shows = defineCollection({
     flagship: z.boolean().default(false),
     cadence: z.enum(["weekly", "biweekly", "monthly", "irregular"]),
     defaultLocale: locale,
+    community: z.object({
+      qrImage: z.string().regex(/^\/assets\/.+\.(png|webp)$/),
+      width: z.number().int().positive(),
+      height: z.number().int().positive(),
+      description: localizedText,
+      imageAlt: localizedText,
+      discordUrl: z.url(),
+    }).optional(),
     subscriptions: z.array(z.object({ platform: z.string(), label: localizedText, href: z.url() })).default([]),
     page: z.object({ "zh-Hans": showPage, en: showPage }),
   }),
@@ -156,7 +164,7 @@ const brands = defineCollection({
 const products = defineCollection({
   loader: yamlLoader("./src/content/data/products"),
   schema: z.object({
-    kind: z.enum(["model-family", "model", "application", "show", "game", "book", "operating-system", "agent", "tool", "developer-tool", "platform", "api-service", "hardware", "framework"]),
+    kind: z.enum(["model-family", "model", "application", "show", "game", "book", "series", "operating-system", "agent", "tool", "developer-tool", "platform", "api-service", "hardware", "framework"]),
     brand: z.string().optional(),
     parent: z.string().optional(),
     name: localizedText,
@@ -232,6 +240,7 @@ const episodes = defineCollection({
       ...episodeCore,
       status: z.literal("published"),
       productionImport: z.string(),
+      transcriptPublishedAt: z.iso.date().optional(),
       media: z.object({ audio: z.boolean(), video: z.boolean() }),
       transcriptSeo: z.object({
         "zh-Hans": z.object({ title: z.string().min(1), description: z.string().min(1) }),
@@ -260,6 +269,7 @@ const episodes = defineCollection({
       preview: z.object({
         image: assetPath.optional(),
         images: z.record(z.string().regex(/^\d+$/), assetPath).optional(),
+        imageDimensions: z.object({ width: z.number().int().positive(), height: z.number().int().positive() }).optional(),
         eyebrow: localizedText,
         heading: localizedHeading,
         summary: localizedText,
@@ -365,7 +375,7 @@ const transcriptImports = defineCollection({
 });
 
 const prose = defineCollection({
-  loader: markdownLoader("./src/content/prose"),
+  loader: glob({ pattern: ["**/*.md", "!episode-articles/**/*.md"], base: "./src/content/prose", generateId: ({ entry }) => entry.replace(/\.md$/i, "") }),
   schema: z.object({
     entityType: z.enum(["brand", "product", "person", "partner", "venue", "show", "episode"]),
     entity: z.string(),
@@ -375,6 +385,19 @@ const prose = defineCollection({
     seoTitle: z.string().optional(),
     seoDescription: z.string().optional(),
   }),
+});
+
+const episodeArticles = defineCollection({
+  loader: markdownLoader("./src/content/prose/episode-articles"),
+  schema: z.object({
+    episode: z.string(),
+    locale,
+    status: z.enum(["draft", "published"]),
+    title: z.string(),
+    description: z.string(),
+    updatedAt: z.iso.date(),
+    publishedAt: z.iso.date().optional(),
+  }).refine(data => data.status !== "published" || !!data.publishedAt, "Published articles require publishedAt"),
 });
 
 const brandCopy = defineCollection({
@@ -401,5 +424,6 @@ export const collections = {
   episodes,
   episodeImports,
   transcriptImports,
+  episodeArticles,
   prose,
 };

@@ -103,7 +103,7 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
         <div class="weekly-latest-actions">
           <strong>{locale === "en" ? "Latest episode" : "最新一期"} #{latestEpisode.data.number}</strong>
           <p class="latest-episode-title">{episodeCopy.heading.join(locale === "en" ? " " : "")}</p>
-          <a href={`${weeklyPath}/${latestEpisode.data.number}`}>{locale === "en" ? (latestEpisode.data.media.video ? "Listen / watch" : "Listen now · Audio") : (latestEpisode.data.media.video ? "收听 / 收看" : "立即收听 · 音频版")} ↗</a>
+          <a href={`${weeklyPath}/${latestEpisode.data.number}`}>{locale === "en" ? (!latestEpisode.data.media.audio && !latestEpisode.data.media.video ? "Explore episode" : latestEpisode.data.media.video ? "Listen / watch" : "Listen now · Audio") : (!latestEpisode.data.media.audio && !latestEpisode.data.media.video ? "查看本期" : latestEpisode.data.media.video ? "收听 / 收看" : "立即收听 · 音频版")} ↗</a>
           <LatestTranscriptLink locale={locale} variant="inline" />
         </div>
         <UpcomingEpisodeLink locale={locale} />

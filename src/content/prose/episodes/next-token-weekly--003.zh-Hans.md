@@ -30,12 +30,57 @@ slot: show-notes
 - [橘子](https://m.okjike.com/users/FCEA29D3-5BB5-4174-B7A9-1DEE77CEDC46)：联合主理人。
 - [杨攀](https://m.okjike.com/users/B53205DA-8DDC-463C-87B3-3F65F88B6EA2)：联合主理人。
 
-<!-- Final chapter import pending approved media edit. -->
+## 时间轴
+
+<!-- chapters:website-zh-Hans:start -->
+- 00:00 节目片头
+- 00:49 本期精彩片段
+
+### Jev：从聊天走向高频判断
+
+- 01:30 四位主理人开场
+- 01:41 Jev：不聊天，做结构化判断
+- 03:47 微信好友标签与高频判断
+- 07:22 语义搜索与数据库查询
+- 08:47 “没有幻觉”不等于判断正确
+- 17:18 用模型过滤隐性广告
+
+### 模型、工具与多模态
+
+- 20:57 把新模型接入现有 Agent
+- 25:07 多模态：音视频为什么要一起理解
+- 27:51 量化与本地小模型
+- 31:43 SVG、图标与设计工作流
+- 35:19 用 GPT-6 Astra 造数据、训练小模型
+- 40:59 实时语音与 Computer Use
+- 43:44 具身智能与零样本任务
+
+### 能力增长之后的创作现场
+
+- 48:07 Vibe Coding 把硬盘用满之后
+- 56:56 用代码做宣传片和配乐
+- 01:09:39 语音输入产品与实时反馈
+
+### Agent 的工作环境与边界
+
+- 01:20:07 Codex 多账号与工作空间
+- 01:24:29 常驻 Agent 与多平台内容分发
+- 01:26:42 Coding 与 Office：两种工作模式
+- 01:29:52 云端 Mac 与 Agent 执行环境
+- 01:30:49 企业数据与日志边界
+
+### 内容生产与研发自动化
+
+- 01:36:25 AI 剧与内容生产
+- 01:38:06 AI 参与研发与人的监督
+
+- 01:40:04 片尾
+<!-- chapters:website-zh-Hans:end -->
 
 ## 相关资料
 
 - [TypeSafe：System One Models 与 Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev)
-- [Ling-2.6-1T 模型页面](https://huggingface.co/inclusionAI/Ling-2.6-1T)
+- [Arrow 2（SVG 生成模型）](https://quiver.ai/blog/introducing-arrow-2-0)
 - [StepAudio 3 Realtime 官方页面](https://static.stepfun.com/blog/stepaudio3/realtime/)
 
 ## 术语说明
@@ -48,13 +93,6 @@ Next Token｜词元之外是一档关注 AI 技术、产品与现实影响的视
 
 节目主页：[nexttoken.tv](https://nexttoken.tv/)
 
-## 社群
-
-欢迎加入 Next Token Weekly 听友 2 群，一起交流 AI 工具与真实工作流。
-
-<img src="/assets/weekly-003/community-qr-960.webp" srcset="/assets/weekly-003/community-qr-480.webp 480w, /assets/weekly-003/community-qr-720.webp 720w, /assets/weekly-003/community-qr-960.webp 960w" sizes="(max-width: 31.25rem) calc(100vw - 2.5rem), 40rem" width="1616" height="920" loading="lazy" decoding="async" alt="Next Token Weekly 听友 2 群二维码，9 月 27 日前有效" />
-
-欢迎加入 [Next Token Discord](https://discord.gg/RHVMkjpxEN)，分享你的使用体验和不同判断。
 
 ## 音乐
 

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import EpisodeTranscriptPage from "../../../components/EpisodeTranscriptPage.astro";
-import { getEpisodeTranscript, getDetailEpisode, getTranscriptEpisodes } from "../../../data/catalog";
+import { getEpisodeTranscript, getEpisode, getPublishedEpisode, getTranscriptEpisodes } from "../../../data/catalog";
 import { getSiteContent } from "../../../data/site";
 
 export async function getStaticPaths() {
@@ -19,14 +19,15 @@ interface Props {
 const { episodeId } = Astro.props;
 const [content, episode, transcript] = await Promise.all([
   getSiteContent("zh-Hans"),
-  getDetailEpisode(episodeId),
+  getEpisode(episodeId),
   getEpisodeTranscript(episodeId, "zh-Hans"),
 ]);
+const releaseDate = episode.data.status === "published" ? (await getPublishedEpisode(episodeId)).data.releaseDate : undefined;
 const canonicalPath = `/weekly/${episode.data.number}/transcript`;
 const episodePath = `/weekly/${episode.data.number}`;
 const seo = "transcriptSeo" in episode.data ? episode.data.transcriptSeo?.["zh-Hans"] : undefined;
 const isReviewDraft = transcript.data.publicationStatus === "review-draft";
-const displayTitle = isReviewDraft ? `Weekly #${episode.data.number}｜${episode.data.homepage["zh-Hans"].heading.join("")}` : transcript.data.title;
+const displayTitle = transcript.data.title;
 const pageTitle = seo?.title ?? `阅读文字稿｜${displayTitle} - Next Token｜词元之外`;
 const description = seo?.description ?? `${transcript.data.byline} 共 ${transcript.data.chapterCount} 个章节，保留完整对谈顺序与人物标注。`;
 const structuredData = {
@@ -37,7 +38,7 @@ const structuredData = {
   inLanguage: "zh-Hans",
   isPartOf: new URL(episodePath, Astro.site).toString(),
   url: new URL(canonicalPath, Astro.site).toString(),
-  datePublished: episode.data.releaseDate,
+  datePublished: releaseDate,
   publisher: {
     "@type": "Organization",
     name: "Next Token｜词元之外",

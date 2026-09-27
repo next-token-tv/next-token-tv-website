@@ -26,7 +26,7 @@ homepage:
       - 模型与 Agent
       - 智能硬件
       - 商业与组织
-    listenAction: 在小宇宙收听/收看
+    listenAction: 在小宇宙收听 / 收看
     watchAction: 在哔哩哔哩观看
   en:
     lede: 'Episode #001 unpacks 24 AI stories from August 27 to September 3, 2026. Four co-hosts move from a crowded week of model releases to agents, AI hardware, business shifts, and AI-native organizations.'
@@ -51,7 +51,7 @@ platforms:
       en: Xiaoyuzhou
     href: https://www.xiaoyuzhoufm.com/episode/6a9ad843f03e74ee6b05352c
     action:
-      zh-Hans: 收听/收看
+      zh-Hans: 收听 / 收看
       en: Listen / watch
   - platform: apple-podcasts
     label:
@@ -67,7 +67,7 @@ platforms:
       en: Spotify
     href: https://open.spotify.com/episode/0RJ44NMBaNvI01vZ6JQz6e
     action:
-      zh-Hans: 收听/收看
+      zh-Hans: 收听 / 收看
       en: Listen / watch
   - platform: bilibili
     label:

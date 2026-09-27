@@ -1,0 +1,112 @@
+{
+  "locale": "zh-Hans",
+  "resolutions": {
+    "Next Token Weekly": {
+      "entityType": "show",
+      "id": "next-token-weekly"
+    },
+    "DeepSeek": {
+      "entityType": "brand",
+      "id": "deepseek"
+    },
+    "MiniMax": {
+      "entityType": "product",
+      "id": "minimax"
+    },
+    "赛博禅心": {
+      "entityType": "person",
+      "id": "cyber-zen"
+    },
+    "Cyber Zen": {
+      "entityType": "person",
+      "id": "cyber-zen"
+    },
+    "Muse": {
+      "entityType": "product",
+      "id": "muse-agent"
+    },
+    "AK": {
+      "entityType": "person",
+      "id": "andrej-karpathy"
+    }
+  },
+  "notices": [
+    "章节标题由编辑添加，非嘉宾原话。"
+  ],
+  "excludedEntities": [
+    "product:diandian",
+    "brand:netease-youdao"
+  ],
+  "scopedAliases": [
+    {
+      "entityType": "product",
+      "id": "muse-agent",
+      "alias": "Muse"
+    },
+    {
+      "entityType": "product",
+      "id": "muse",
+      "alias": "Spark"
+    },
+    {
+      "entityType": "product",
+      "id": "muse-charm",
+      "alias": "Charm"
+    },
+    {
+      "entityType": "product",
+      "id": "claude",
+      "alias": "Opus 5.5"
+    },
+    {
+      "entityType": "product",
+      "id": "ego-lite",
+      "alias": "ego(lite)"
+    },
+    {
+      "entityType": "product",
+      "id": "gemini",
+      "alias": "Banana"
+    },
+    {
+      "entityType": "product",
+      "id": "after-effects",
+      "alias": "AE"
+    },
+    {
+      "entityType": "product",
+      "id": "adobe-premiere",
+      "alias": "PR"
+    },
+    {
+      "entityType": "product",
+      "id": "microsoft-office",
+      "alias": "Office"
+    },
+    {
+      "entityType": "product",
+      "id": "nintendo-switch",
+      "alias": "Switch"
+    },
+    {
+      "entityType": "person",
+      "id": "alexandr-wang",
+      "alias": "Alex"
+    },
+    {
+      "entityType": "person",
+      "id": "yann-lecun",
+      "alias": "杨立坤"
+    },
+    {
+      "entityType": "person",
+      "id": "zeng-ming",
+      "alias": "曾明"
+    },
+    {
+      "entityType": "person",
+      "id": "andrej-karpathy",
+      "alias": "AK"
+    }
+  ]
+}

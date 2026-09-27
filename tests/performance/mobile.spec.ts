@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import { writeFile } from 'node:fs/promises';
 
 // Local regression budgets, not Lighthouse scores or field Core Web Vitals.
-const routes = ['/', '/weekly/002', '/weekly/002/transcript', '/weekly/003', '/weekly/003/transcript', '/wiki/brands'];
+const routes = ['/', '/weekly/002', '/weekly/002/transcript', '/weekly/003', '/weekly/003/transcript', '/weekly/004', '/weekly/004/transcript', '/wiki/brands'];
 const median = (values: number[]) => [...values].sort((a, b) => a - b)[Math.floor(values.length / 2)];
 
 for (const path of routes) test(`mobile cold-load budget: ${path}`, async ({ browser, baseURL }, testInfo) => {

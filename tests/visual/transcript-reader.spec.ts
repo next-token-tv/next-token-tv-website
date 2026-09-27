@@ -15,13 +15,13 @@ test('paragraph timing is excluded from search text and snippets', async ({ page
 });
 
 test('transcript is directly discoverable and only links to available locales', async ({ page }) => {
-  for (const path of ['/', '/weekly', '/weekly/001', '/weekly/002', '/weekly/003']) {
+  for (const path of ['/', '/weekly', '/weekly/001', '/weekly/002', '/weekly/003', '/weekly/004']) {
     await page.goto(path);
-    const expectedCount = path === '/' ? 2 : path === '/weekly' ? 4 : 1;
+    const expectedCount = path === '/' ? 2 : path === '/weekly' ? 5 : 1;
     await expect(page.locator('.episode-transcript-cta')).toHaveCount(expectedCount);
     const link = page.locator('main > section').first().locator('.episode-transcript-cta');
     await expect(link).toHaveCount(1);
-    const episode = path.startsWith('/weekly/00') ? path.split('/').pop() : '003';
+    const episode = path.startsWith('/weekly/00') ? path.split('/').pop() : '004';
     await expect(link).toHaveAttribute('href', `/weekly/${episode}/transcript`);
     if (path.startsWith('/weekly/00')) {
       await expect(page.locator('.transcript-cta-description')).toContainText('个章节 · 支持全文搜索');

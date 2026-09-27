@@ -163,3 +163,43 @@ test("published transcript snapshot retains approved content and deterministic s
   const repeated = paragraphs.find(p => p.map(s => s.value).join('').includes('Codex 那时候已经比较轻松了'));
   assert.deepEqual(repeated.filter(s => s.type === 'entity-link').map(s => s.entityId), ['codex', 'deepseek', 'deepseek']);
 });
+
+test('standalone speaker headings preserve masks, bold prose, and paragraph ownership', () => {
+  const source = '# Test\n\n## Topic\n\n**橘子**\n\n保留 \\_\\_ 和（勘误）。\n\n**强调内容**\n\n**歸藏**\n\n原话。';
+  const { snapshot } = convertTranscript(unified().use(remarkParse).parse(source), {
+    episodeId: 'show--004', locale: 'zh-Hans', entities: [],
+  });
+  const turns = snapshot.chapters[0].turns;
+  assert.deepEqual(turns.map(t => t.speakerId), ['orange', 'guizang']);
+  assert.deepEqual(turns[0].paragraphs.map(p => p.map(s => s.value).join('')), ['保留 __ 和（勘误）。', '强调内容']);
+  assert.deepEqual(turns[0].paragraphs[1][0].marks, ['strong']);
+});
+
+test('complete reading preview requires matching independent QA and approved subtitle text', () => {
+  const hash = 'a'.repeat(64);
+  const srtHash = 'b'.repeat(64);
+  const manifest = { status: 'complete-reading-draft', srt_sha256: srtHash, srt_approval: { text_approved: true }, transcript_approved: false, publication_approved: false };
+  const evidence = { status: 'passed', readingSha256: hash, srtSha256: srtHash };
+  assert.doesNotThrow(() => validateTranscriptManifest(manifest, hash, true, evidence));
+  for (const invalid of [{}, {...evidence, status: 'failed'}, {...evidence, readingSha256: 'c'.repeat(64)}, {...evidence, srtSha256: 'c'.repeat(64)}]) {
+    assert.throws(() => validateTranscriptManifest(manifest, hash, true, invalid));
+  }
+  assert.throws(() => validateTranscriptManifest({...manifest, srt_approval: {text_approved: false}}, hash, true, evidence));
+  assert.throws(() => validateTranscriptManifest(manifest, hash, false, evidence));
+});
+
+test('complete model aliases and product title brackets remain in one link', () => {
+  const text = 'GPT 6 Sol、6 Sol、《黑镜》和《泰拉瑞亚》，以及《未知作品》。';
+  const {snapshot} = convertTranscript(unified().use(remarkParse).parse('# Test\n\n## Test\n\n**杨攀：** '+text), {
+    episodeId: 'show--004', locale: 'zh-Hans', entities: [
+      {entityType: 'product', id: 'gpt', aliases: ['GPT 6', 'Sol', 'GPT 6 Sol', '6 Sol']},
+      {entityType: 'product', id: 'black-mirror', aliases: ['黑镜']},
+      {entityType: 'product', id: 'terraria', aliases: ['泰拉瑞亚']},
+    ],
+  });
+  const segments = snapshot.chapters[0].turns[0].paragraphs.flat();
+  assert.equal(segments.map(s=>s.value).join(''), text);
+  assert.deepEqual(segments.filter(s=>s.type==='entity-link').map(s=>[s.value,s.entityId]), [
+    ['GPT 6 Sol','gpt'], ['6 Sol','gpt'], ['《黑镜》','black-mirror'], ['《泰拉瑞亚》','terraria'],
+  ]);
+});

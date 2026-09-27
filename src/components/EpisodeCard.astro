@@ -23,7 +23,7 @@ const href = `${locale === "en" ? "/en" : ""}/weekly/${episode.data.number}`;
       decoding="async"
       alt={copy.imageAlt}
     />
-    <span class="label">{episode.data.releaseDate} · {locale === "en" ? (episode.data.media.video ? "Audio & video" : "Audio") : (episode.data.media.video ? "音频 / 视频" : "音频")}</span>
+    {(episode.data.media.audio || episode.data.media.video) && <span class="label">{episode.data.releaseDate} · {locale === "en" ? (episode.data.media.video ? "Audio & video" : "Audio") : (episode.data.media.video ? "音频 / 视频" : "音频")}</span>}
   </a>
   <div class="weekly-copy">
     <div class="episode-number">#{episode.data.number}</div>
@@ -33,7 +33,7 @@ const href = `${locale === "en" ? "/en" : ""}/weekly/${episode.data.number}`;
       <p>{copy.copy}</p>
       <div class="episode-meta" aria-label={copy.topicsLabel}>{copy.topics.map(topic => <span>{topic}</span>)}</div>
       <div class="episode-actions">
-        <a class="episode-listen" href={href}>{locale === "en" ? (episode.data.media.video ? "Listen / watch" : "Listen now") : (episode.data.media.video ? "收听 / 收看" : "立即收听")} ↗</a>
+        <a class="episode-listen" href={href}>{locale === "en" ? (!episode.data.media.audio && !episode.data.media.video ? "Explore episode" : episode.data.media.video ? "Listen / watch" : "Listen now") : (!episode.data.media.audio && !episode.data.media.video ? "查看本期" : episode.data.media.video ? "收听 / 收看" : "立即收听")} ↗</a>
         <TranscriptLink episodeId={episodeId} number={episode.data.number} locale={locale} />
       </div>
     </div>

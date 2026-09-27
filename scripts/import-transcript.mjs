@@ -27,7 +27,23 @@ const source = await readFile(sourcePath, "utf8");
 const sourceSha256 = sha256(source);
 const manifestPath = resolve(dirname(sourcePath), reviewPreview ? "manifest.json" : "transcript-manifest.json");
 const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
-validateTranscriptManifest(manifest, sourceSha256, reviewPreview);
+let evidence;
+if (reviewPreview && manifest.status === "complete-reading-draft") {
+  const { stdout } = await execFileAsync("git", ["-C", dirname(sourcePath), "rev-parse", "--show-toplevel"]);
+  const repositoryRoot = stdout.trim();
+  const sourceRelative = relative(repositoryRoot, sourcePath).replaceAll("\\", "/");
+  const episodeRoot = resolve(dirname(sourcePath), "../../..");
+  const report = JSON.parse(await readFile(resolve(dirname(sourcePath), manifest.qa), "utf8"));
+  const bodyHash = sha256(await readFile(resolve(episodeRoot, manifest.srt)));
+  if (bodyHash !== report.inputs.program_srt.sha256) throw new Error("Reading QA subtitle hash is stale");
+  evidence = {
+    status: report.status,
+    readingSha256: report.outputs[relative(episodeRoot, sourcePath).replaceAll("\\", "/")],
+    srtSha256: bodyHash,
+  };
+  if (!sourceRelative.startsWith("shows/")) throw new Error("Reading source must belong to a show");
+}
+validateTranscriptManifest(manifest, sourceSha256, reviewPreview, evidence);
 
 async function inspectSourceProvenance(path) {
   let sourceRoot;
@@ -120,6 +136,7 @@ const { snapshot, report } = convertTranscript(tree, {
   excludedEntities,
 });
 const timingArgument = flags.find(flag => flag.startsWith('--timings-srt='));
+snapshot.notices.push(...(rules.notices ?? []));
 if (timingArgument || rules.timingSource) {
   const { stdout: sourceRoot } = await execFileAsync('git', ['-C', dirname(sourcePath), 'rev-parse', '--show-toplevel']);
   const timingPath = timingArgument ? resolve(timingArgument.slice('--timings-srt='.length)) : resolve(sourceRoot.trim(), rules.timingSource);

@@ -1,5 +1,7 @@
 ---
+import EpisodeCommunity from "./EpisodeCommunity.astro";
 import TranscriptLink from "./TranscriptLink.astro";
+import EpisodeArticleLink from "./EpisodeArticleLink.astro";
 import PlatformList from "./PlatformList.astro";
 import PersonCard from "./PersonCard.astro";
 import { render } from "astro:content";
@@ -75,7 +77,7 @@ const labels = locale === "en" ? {
   guest: "嘉宾",
   venueProfile: "查看场地伙伴",
   platforms: "04 / 收听与收看",
-  platformsHeading: "选择你的收看方式。",
+  platformsHeading: "选择你的收听与收看方式。",
   comingSoon: "即将开放",
   transcript: "阅读完整文字稿",
 };
@@ -97,7 +99,7 @@ const labels = locale === "en" ? {
         fetchpriority="high"
         alt={homepage.imageAlt}
       />
-      <span>{episode.data.status === "published" ? labels.published : `Next Token Weekly #${episode.data.number}`}</span>
+      {episode.data.imageKind === "photo" && <span>{labels.published}</span>}
     </div>
     <div class="episode-detail-hero-copy">
       <a href={weeklyPath}>← {labels.back}</a>
@@ -107,7 +109,9 @@ const labels = locale === "en" ? {
         <h1 class="episode-hero-title">{homepage.heading[0]}<br />{homepage.heading[1]}</h1>
         <p>{homepage.lede}</p>
         {episode.data.media.audio && !episode.data.media.video && <p>{locale === "en" ? "Audio out now · Video not yet available" : "音频已上线 · 视频版尚未上线"}</p>}
+        {!episode.data.media.audio && !episode.data.media.video && <p>{locale === "en" ? "Full transcript available" : "完整文字稿已上线"}</p>}
         <TranscriptLink episodeId={episodeId} number={episode.data.number} locale={locale} details />
+        <EpisodeArticleLink episodeId={episodeId} locale={locale} />
         <div class="episode-actions">
           {episode.data.platforms.filter(({ href }) => href).map((platform) => (
             <a class="episode-listen episode-platform" href={platform.href} target="_blank" rel="noopener noreferrer" aria-label={`${platform.label[locale]} · ${platform.action?.[locale] ?? platform.label[locale]}`}>
@@ -140,6 +144,7 @@ const labels = locale === "en" ? {
     <article class="episode-show-notes">
       <p class="section-kicker">{labels.showNotes}</p>
       <Content />
+      <EpisodeCommunity showId={episode.data.show} locale={locale} />
     </article>
   </section>
 
@@ -168,13 +173,13 @@ const labels = locale === "en" ? {
     {episode.data.guestNames.length > 0 && <p class="episode-guest-names">{locale === "en" ? "Guests" : "本期嘉宾"}：{episode.data.guestNames.map(name => name[locale]).join(" · ")}</p>}
   </section>
 
-  <section class="episode-detail-platforms shell">
+  {episode.data.platforms.some(platform => platform.href) && <section class="episode-detail-platforms shell">
     <div>
       <p class="section-kicker">{labels.platforms}</p>
       <h2 class="heading-section-content">{labels.platformsHeading}</h2>
     </div>
     <PlatformList platforms={episode.data.platforms.map((platform) => ({ ...platform, label: platform.label[locale], action: platform.action?.[locale] }))} comingSoon={labels.comingSoon} />
-  </section>
+  </section>}
 </main>
 
 <ConditionalImagePan />

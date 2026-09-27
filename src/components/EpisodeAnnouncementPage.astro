@@ -1,4 +1,6 @@
 ---
+import TranscriptLink from "./TranscriptLink.astro";
+import EpisodeMentions from "./EpisodeMentions.astro";
 import PersonCard from "./PersonCard.astro";
 import { getAnnouncedEpisode, getPeopleByIds } from "../data/catalog";
 import { partnerPath, resolveVenueId } from "../data/partners";
@@ -31,8 +33,7 @@ const fullDate = new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-Hans", 
   year: "numeric",
   month: "long",
   day: "numeric",
-  hour: "numeric",
-  minute: "2-digit",
+  ...(episode.data.scheduledAt.includes("T") ? { hour: "numeric" as const, minute: "2-digit" as const } : {}),
   hour12: locale === "en",
   timeZone: episode.data.timeZone,
 }).format(date);
@@ -44,7 +45,7 @@ const preview = {
 };
 const copy = locale === "zh-Hans"
   ? {
-      announcement: "录制预告",
+      announcement: episode.data.phase === "post-production" ? "后期制作中" : "录制预告",
       recording: "录制信息",
       date: "录制日期",
       partner: "场地合作伙伴",
@@ -60,7 +61,7 @@ const copy = locale === "zh-Hans"
       updates: "后续更新",
     }
   : {
-      announcement: "Recording preview",
+      announcement: episode.data.phase === "post-production" ? "In post-production" : "Recording preview",
       recording: "Recording details",
       date: "Recording date",
       partner: "Venue partner",
@@ -84,6 +85,7 @@ const copy = locale === "zh-Hans"
         <p class="eyebrow">{preview.eyebrow}</p>
         <h1 id="episode-preview-title">{preview.heading[0]}<br />{preview.heading[1]}</h1>
         <p>{preview.summary}</p>
+        <TranscriptLink episodeId={episodeId} number={episode.data.number} locale={locale} details />
       </div>
       <div class="episode-preview-poster" aria-label={`${episode.data.title[locale]} · ${fullDate}`}>
         <span>Next Token Weekly</span>
@@ -120,6 +122,8 @@ const copy = locale === "zh-Hans"
       </dl>
     </div>
   </section>
+
+  <EpisodeMentions episodeId={episodeId} locale={locale} />
 
   <section class="episode-preview-participants shell" aria-labelledby="episode-participants-title">
     <div class="episode-preview-participants-heading">

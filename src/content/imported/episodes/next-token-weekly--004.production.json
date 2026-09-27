@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 2,
+  "episodeId": "next-token-weekly--004",
+  "number": "004",
+  "show": "next-token-weekly",
+  "status": "published",
+  "language": "zh-Hans",
+  "recordedAt": "2026-09-25",
+  "recordingMode": "in-person",
+  "recordingVenue": "xiangwai--beijing-fuxi",
+  "durationSeconds": 5480,
+  "imageKind": "artwork",
+  "imageDimensions": {
+    "width": 3000,
+    "height": 3000
+  },
+  "participants": [
+    {
+      "person": "orange",
+      "role": "duty-host"
+    },
+    {
+      "person": "guizang",
+      "role": "co-host"
+    },
+    {
+      "person": "yangpan",
+      "role": "co-host"
+    },
+    {
+      "person": "xiangyang-qiaomu",
+      "role": "co-host"
+    }
+  ],
+  "guestNames": [],
+  "images": {
+    "480": "/assets/weekly-004/cover-square-480.webp",
+    "720": "/assets/weekly-004/cover-square-720.webp",
+    "960": "/assets/weekly-004/cover-square-960.webp",
+    "1440": "/assets/weekly-004/cover-square-1440.webp",
+    "1920": "/assets/weekly-004/cover-square-1920.webp"
+  },
+  "provenance": {
+    "productionCommit": "cda4db526df220329a2fa0cd4603d66007c9e939",
+    "sources": [
+      {
+        "path": "shows/weekly/episodes/004/episode.json",
+        "sha256": "1131673a0d2466d365b345fd58d0d6765204d527f15d3dd591cc30033710e7be"
+      },
+      {
+        "path": "shows/weekly/episodes/004/04-release/copy/chapters.json",
+        "sha256": "e63d04aeebcc2e932435cd4e2d1cdbc07bf9ad3193d71afe1499d09d3726a16f"
+      },
+      {
+        "path": "shows/weekly/episodes/004/04-release/artwork/cover-square.jpg",
+        "sha256": "535b48b01816cd3d2a91b712966669fdcdffd8588091e274130c7c2f42d3ed1a"
+      }
+    ]
+  }
+}

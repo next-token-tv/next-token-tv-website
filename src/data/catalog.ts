@@ -399,7 +399,7 @@ export async function getDetailEpisode(episodeId: string) {
     recordedAt: data.scheduledAt.slice(0, 10), releaseDate: undefined,
     editorialWindow: undefined, durationSeconds: undefined,
     images: data.preview.images, imageKind: "artwork" as const,
-    imageDimensions: { width: 1920, height: 1080 },
+    imageDimensions: data.preview.imageDimensions ?? { width: 1920, height: 1080 },
     media: { audio: false, video: false }, guestNames: [] as Record<Locale, string>[],
   } };
 }

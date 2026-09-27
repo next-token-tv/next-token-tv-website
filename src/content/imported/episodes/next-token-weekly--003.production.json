@@ -8,7 +8,7 @@
   "recordedAt": "2026-09-19",
   "releaseDate": "2026-09-21",
   "recordingMode": "online",
-  "durationSeconds": 6022,
+  "durationSeconds": 6034,
   "imageKind": "artwork",
   "imageDimensions": {
     "width": 3000,
@@ -41,7 +41,7 @@
     "1920": "/assets/weekly-003-cover-square-1920.webp"
   },
   "provenance": {
-    "productionCommit": "d6ef6ce7905bd9953168f0705530c8e6defea30b",
+    "productionCommit": "eb74ee8a64b081ceb21c16b7a9f353b1d349a551",
     "sources": [
       {
         "path": "shows/weekly/episodes/003/credits.json",
@@ -53,7 +53,7 @@
       },
       {
         "path": "shows/weekly/episodes/003/04-release/copy/website-release.json",
-        "sha256": "e99539b836fb6af2604cbd7557edd356af4d1cb77facbc9bf2cb2bfa3f1cbdc3"
+        "sha256": "96ee826fa379fe851d3ee535aab577857b5a94ddb0aacf4c8d96adaebdbb835a"
       }
     ]
   }

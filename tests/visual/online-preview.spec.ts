@@ -6,7 +6,7 @@ for (const width of [390, 768, 1440, 1920]) for (const prefix of ['', '/en']) {
       await page.goto(path === '/' ? (prefix || '/') : prefix + path);
       const preview = page.locator('.upcoming-episode-link');
       await expect(preview).toHaveCount(0);
-      await expect(page.locator('.status-pill')).toContainText('#003');
+      await expect(page.locator('.status-pill')).toContainText('#004');
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     }
     await page.goto(prefix + '/weekly/003');

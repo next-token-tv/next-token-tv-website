@@ -1,17 +1,17 @@
 schemaVersion: 2
-number: '003'
+number: "003"
 show: next-token-weekly
 status: published
 productionImport: next-token-weekly--003.production
 media:
   audio: true
-  video: false
+  video: true
 title:
-  zh-Hans: 'Weekly #003｜火线解读 Jev 新范式；用 Agent 还得买带鱼屏？ - Next Token｜词元之外'
-  en: 'Weekly #003 | Unpacking Jev’s new paradigm: do agents need an ultrawide? - Next Token'
+  zh-Hans: "#003 火线解读 Jev 新范式；用 Agent 还得买带鱼屏？"
+  en: "#003 Unpacking Jev’s new paradigm: do agents need an ultrawide?"
 homepage:
   zh-Hans:
-    eyebrow: 第 003 期 · 音频已上线
+    eyebrow: 第 003 期 · 现已上线
     heading:
       - 火线解读 Jev 新范式；
       - 用 Agent 还得买带鱼屏？
@@ -23,22 +23,22 @@ homepage:
       - Jev
       - Agent
       - Vibe Coding
-    listenAction: 立即收听
+    listenAction: 收听 / 收看
     watchAction: 立即观看
   en:
-    eyebrow: 'Episode #003 · Audio out now'
+    eyebrow: "Episode #003 · Out now"
     heading:
       - Unpacking Jev’s new paradigm;
       - do agents need an ultrawide?
     lede: From Jev and high-frequency decisions to multimodal tools, small models and music made with code—then on to the screens, storage, accounts and data boundaries that agents need in real work.
     copy: From Jev and high-frequency decisions to multimodal tools, small models and music made with code—then on to the screens, storage, accounts and data boundaries that agents need in real work.
-    imageAlt: 'Next Token Weekly #003: Jev and agent workflows'
+    imageAlt: "Next Token Weekly #003: Jev and agent workflows"
     topicsLabel: Episode topics
     topics:
       - Jev
       - Agent
       - Vibe Coding
-    listenAction: Listen now
+    listenAction: Listen / watch
     watchAction: Watch now
 platforms:
   - platform: xiaoyuzhou
@@ -47,8 +47,40 @@ platforms:
       en: Xiaoyuzhou
     href: https://www.xiaoyuzhoufm.com/episode/6ab0646bac389df82734ef3f
     action:
+      zh-Hans: 收听 / 收看
+      en: Listen / watch
+  - platform: apple-podcasts
+    label:
+      zh-Hans: Apple Podcasts
+      en: Apple Podcasts
+    href: https://podcasts.apple.com/us/podcast/id6809305832?i=1000790941853
+    action:
       zh-Hans: 立即收听
       en: Listen now
+  - platform: spotify
+    label:
+      zh-Hans: Spotify
+      en: Spotify
+    href: https://open.spotify.com/episode/6GNeGvJKfD7uYEFRk7IOaw
+    action:
+      zh-Hans: 收听 / 收看
+      en: Listen / watch
+  - platform: bilibili
+    label:
+      zh-Hans: 哔哩哔哩
+      en: Bilibili
+    href: https://www.bilibili.com/video/BV1zQhv6VEwj/
+    action:
+      zh-Hans: 立即观看
+      en: Watch now
+  - platform: youtube
+    label:
+      zh-Hans: YouTube
+      en: YouTube
+    href: https://youtu.be/sx_bAooPhdU
+    action:
+      zh-Hans: 立即观看
+      en: Watch now
 mentions:
   brands:
     - yizhi-yanhua

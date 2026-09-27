@@ -14,7 +14,7 @@ const GENERIC_CANDIDATES = new Set([
   "Token", "Token Maxxing", "TPS", "TTS", "UX", "Vibe Coding", "Web", "Web 2.0",
 ]);
 
-export const CONVERSION_VERSION = "1.4.0";
+export const CONVERSION_VERSION = "1.4.2";
 
 export function sha256(value) {
   return createHash("sha256").update(value).digest("hex");
@@ -101,12 +101,17 @@ function linkifyText(text, matcher, linkedInChapter, linkCounts) {
     }
 
     const { alias, entity } = match.candidate;
-    const end = match.index + alias.length;
+    let start = match.index;
+    let end = match.index + alias.length;
+    if (entity.entityType === "product" && start > cursor && text[start - 1] === "《" && text[end] === "》") {
+      start -= 1;
+      end += 1;
+    }
     const entityKey = `${entity.entityType}:${entity.id}`;
-    if (match.index > cursor) segments.push({ type: "text", value: text.slice(cursor, match.index) });
+    if (start > cursor) segments.push({ type: "text", value: text.slice(cursor, start) });
     segments.push({
       type: "entity-link",
-      value: alias,
+      value: text.slice(start, end),
       entityType: entity.entityType,
       entityId: entity.id,
       href: entity.href ?? `/wiki/${{ brand: "brands", product: "products", person: "people" }[entity.entityType]}/${entity.id}`,
@@ -168,8 +173,10 @@ function speakerFromParagraph(node) {
   const first = node.children?.[0];
   if (first?.type !== "strong") return null;
   const marker = plainText(first);
-  if (!marker.endsWith("：")) return null;
-  const markedName = marker.slice(0, -1);
+  const hasColon = marker.endsWith("：");
+  // A standalone bold name is also a speaker heading. Bold prose is not.
+  if (!hasColon && (node.children.length !== 1 || !SPEAKERS.has(marker.replace(/†$/, "")))) return null;
+  const markedName = hasColon ? marker.slice(0, -1) : marker;
   const candidate = markedName.endsWith("†");
   const name = candidate ? markedName.slice(0, -1) : markedName;
   const kind = ["片头旁白", "片头解说"].includes(name) ? "narration" : name === "编者注" ? "editor-note" : "speech";
