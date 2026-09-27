@@ -7,3 +7,5 @@ lastVerifiedAt: '2026-09-14'
 sources:
   - label: {zh-Hans: 哔哩哔哩公开账号, en: Public Bilibili profile}
     href: https://space.bilibili.com/163637592
+
+kind: creator-community

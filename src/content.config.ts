@@ -44,6 +44,7 @@ const people = defineCollection({
   schema: z.object({
     name: localizedText,
     bio: localizedText,
+    kind: z.enum(["business", "research-engineering", "creator-community", "other"]).default("other"),
     aliases: z.array(z.string()).default([]),
     sources: z.array(source).default([]),
     relations: z.array(z.object({

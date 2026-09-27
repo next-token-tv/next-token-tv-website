@@ -23,3 +23,5 @@ sources:
       zh-Hans: "个人网站源码"
       en: "Personal website source"
     href: https://github.com/luofuli/luofuli.github.io/blob/master/_config.yml
+
+kind: research-engineering

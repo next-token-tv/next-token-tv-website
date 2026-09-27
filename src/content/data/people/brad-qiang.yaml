@@ -22,3 +22,5 @@ relations:
       - label: {zh-Hans: 社区播客人物介绍, en: Community podcast biography}
         href: https://www.xiaoyuzhoufm.com/podcast/658cea5d10888b10f7670b0e
     lastVerifiedAt: '2026-09-21'
+
+kind: creator-community

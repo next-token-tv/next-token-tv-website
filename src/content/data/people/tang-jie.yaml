@@ -13,3 +13,5 @@ lastVerifiedAt: '2026-09-14'
 sources:
   - label: {zh-Hans: 清华大学个人主页, en: Tsinghua University profile}
     href: https://keg.cs.tsinghua.edu.cn/jietang/
+
+kind: research-engineering

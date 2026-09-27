@@ -15,3 +15,5 @@ lastVerifiedAt: '2026-09-14'
 sources:
   - label: {zh-Hans: Apple 管理层介绍, en: Apple leadership profile}
     href: https://www.apple.com/leadership/tim-cook/
+
+kind: business

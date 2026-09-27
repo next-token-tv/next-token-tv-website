@@ -1,5 +1,6 @@
 ---
 import { getEpisodeMentionEntities } from "../data/catalog";
+import { brandKind, productKind, personKind } from "../data/entity-kind-labels";
 import type { Locale } from "../data/types";
 
 interface Props { episodeId: string; locale: Locale; }
@@ -9,21 +10,30 @@ const prefix = locale === "en" ? "/en" : "";
 const copy = locale === "en"
   ? { kicker: "Referenced in this episode", title: "People, brands and products", brand: "Brands", product: "Products" }
   : { kicker: "本期提及", title: "人物、品牌与产品", brand: "品牌", product: "产品" };
+type MentionItem = { name: string; href: string; kind: string };
+function subgroups(items: MentionItem[], labels: Record<string, Record<Locale, string>>) {
+  return Object.entries(labels).map(([kind, label]) => ({
+    kind, label: label[locale], items: items.filter(item => item.kind === kind),
+  })).filter(group => group.items.length > 0);
+}
 const groups = [
   {
     kind: "person",
     label: locale === "en" ? "People" : "人物",
-    items: mentions.people.map(person => ({ name: person.data.name[locale], href: `${prefix}/wiki/people/${person.id}` })),
+    labels: personKind,
+    items: mentions.people.map(person => ({ kind: person.data.kind, name: person.data.name[locale], href: `${prefix}/wiki/people/${person.id}` })),
   },
   {
     kind: "brand",
     label: copy.brand,
-    items: mentions.brands.map((brand) => ({ name: brand.data.name[locale], href: `${prefix}/wiki/brands/${brand.id}` })),
+    labels: brandKind,
+    items: mentions.brands.map((brand) => ({ kind: brand.data.kind, name: brand.data.name[locale], href: `${prefix}/wiki/brands/${brand.id}` })),
   },
   {
     kind: "product",
     label: copy.product,
-    items: mentions.products.map((product) => ({ name: product.data.name[locale], href: `${prefix}/wiki/products/${product.id}` })),
+    labels: productKind,
+    items: mentions.products.map((product) => ({ kind: product.data.kind, name: product.data.name[locale], href: `${prefix}/wiki/products/${product.id}` })),
   },
 ].filter((group) => group.items.length > 0);
 ---
@@ -41,8 +51,15 @@ const groups = [
             <h3>{group.label}</h3>
             <span>{group.items.length}</span>
           </div>
-          <div class="episode-mention-list">
-            {group.items.map((item) => <a href={item.href}><strong>{item.name}</strong><b aria-hidden="true">→</b></a>)}
+          <div class="episode-mention-subgroups">
+            {subgroups(group.items, group.labels).map(subgroup => (
+              <div class="episode-mention-subgroup" data-mention-subkind={subgroup.kind}>
+                <h4>{subgroup.label}</h4>
+                <div class="episode-mention-list">
+                  {subgroup.items.map(item => <a href={item.href}><strong>{item.name}</strong><b aria-hidden="true">→</b></a>)}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       ))}
@@ -54,11 +71,13 @@ const groups = [
   .episode-mentions { padding-block: clamp(4rem, 8vw, 8rem); border-top: 1px solid var(--ink); }
   .episode-mentions > div:first-child { display: grid; grid-template-columns: minmax(10rem, .42fr) minmax(0, 1.58fr); gap: clamp(3rem, 8vw, 10rem); align-items: end; margin-bottom: clamp(2.5rem, 5vw, 4.5rem); }
   .episode-mentions h2 { margin: 0; }
-  .episode-mention-groups { display: grid; }
-  .episode-mention-group { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: 2rem; align-items: start; padding-block: 1.75rem; border-top: 1px solid var(--line); }
-  .episode-mention-group-heading { display: flex; align-items: baseline; gap: .65rem; padding-block: .65rem; }
-  .episode-mention-group-heading h3 { margin: 0; font-family: var(--sans); font-size: 1rem; font-weight: 850; }
-  .episode-mention-group-heading span { color: var(--muted); font-size: .8rem; font-weight: 750; }
+  .episode-mention-groups { display: grid; gap: clamp(2rem, 4vw, 3.5rem); }
+  .episode-mention-group-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; padding-bottom: .75rem; border-bottom: 1px solid var(--line); }
+  .episode-mention-group-heading h3 { margin: 0; font-family: var(--sans); font-size: .75rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+  .episode-mention-group-heading span { color: var(--muted); font-size: .72rem; font-weight: 750; }
+  .episode-mention-subgroups { display: grid; gap: 1rem; }
+  .episode-mention-subgroup { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 1rem; align-items: start; }
+  .episode-mention-subgroup h4 { margin: 0; padding-block: .75rem; color: var(--muted); font-family: var(--sans); font-size: .75rem; font-weight: 500; line-height: 1.5; }
   .episode-mention-list { display: flex; flex-wrap: wrap; gap: .65rem; }
   .episode-mention-list a { display: inline-flex; max-width: 100%; min-height: 2.75rem; align-items: center; gap: .7rem; padding: .65rem .85rem; border: 1px solid var(--ink); transition: color 180ms ease, background 180ms ease; }
   .episode-mention-list strong { font-size: .9rem; line-height: 1.2; overflow-wrap: anywhere; }
@@ -66,7 +85,7 @@ const groups = [
   .episode-mention-list a:hover { color: var(--paper); background: var(--ink); }
   @media (max-width: 47.5rem) {
     .episode-mentions > div:first-child { grid-template-columns: 1fr; gap: 1rem; }
-    .episode-mention-group { grid-template-columns: minmax(0, 1fr); gap: .75rem; padding-block: 1.5rem; }
-    .episode-mention-group-heading { padding-block: 0; }
+    .episode-mention-subgroup { grid-template-columns: minmax(0, 1fr); gap: .5rem; }
+    .episode-mention-subgroup h4 { padding-block: 0; }
   }
 </style>
