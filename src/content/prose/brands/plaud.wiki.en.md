@@ -18,7 +18,7 @@ The hardware lineup listed on the official site includes: Plaud Note and Note Pr
 
 Billing combines hardware with subscriptions: the site lists a free Starter plan with 300 transcription minutes per month, paid Pro and Unlimited plans billed monthly or yearly, and team plans with different minute allowances and features. Current prices and tier differences can be read from the [official pricing page](https://www.plaud.ai/).
 
-The official site does not state a founding year or headquarters location, so this entry does not paraphrase one. Current lineup and availability should be read from [plaud.ai](https://www.plaud.ai/).
+The official site does not state a founding year or headquarters location. Current lineup and availability should be read from [plaud.ai](https://www.plaud.ai/).
 
 ## Mention in the show
 

@@ -25,7 +25,7 @@ seoDescription: '了解长鑫存储是什么公司、做什么 DRAM 产品（DDR
 
 ## 节目中的讨论
 
-Next Token Weekly #003 在["Vibe Coding 把硬盘用满之后"](/weekly/003/transcript#chapter-15)章节中，杨攀[转述当天看到的新闻，称"长鑫也要开始搞那个对搞 NAND 闪存了"](/weekly/003/transcript#quote-66d1e7f2eb2259e23cbb)。这是主理人对新闻的口头转述，长鑫官网当前列出的产品线仍为 DRAM，NAND 方向没有官方来源佐证，本条目不作为既定事实采用。
+Next Token Weekly #003 在["Vibe Coding 把硬盘用满之后"](/weekly/003/transcript#chapter-15)章节中，杨攀[转述当天看到的新闻，称"长鑫也要开始搞那个对搞 NAND 闪存了"](/weekly/003/transcript#quote-66d1e7f2eb2259e23cbb)。这是主理人对新闻的口头转述，长鑫官网当前列出的产品线仍为 DRAM，NAND 方向没有官方来源佐证，不作事实引用。
 
 ## 常见问题
 

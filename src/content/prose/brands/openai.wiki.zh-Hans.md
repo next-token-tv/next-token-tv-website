@@ -25,7 +25,7 @@ OpenAI 是一家人工智能研究与部署公司，2015 年成立，总部位�
 
 ## 节目中的讨论
 
-Weekly #001 的"GLM 5.3 Flash 与 MiniMax H3，便宜模型为何更容易进入真实使用"章节中，歸藏转述了"OpenAI 买下 3 万台 Mac Mini"的消息，[杨攀补充说他了解到的信息是：这批设备不是为了跑模型，而是在 Mac 环境下大规模采集 Agent 行为训练数据](/weekly/001/transcript#quote-37d4edd56fc77789ace4)。Weekly #002 的"我们如何用 Agent 制作和发布播客"章节再次提到这条新闻，但[数字变成了"2 万台苹果"](/weekly/002/transcript#quote-1d82772db1d7aed5b833)。两次说法都是主理人转述的传闻，本页不把它们当作已核实的采购事实。
+Weekly #001 的"GLM 5.3 Flash 与 MiniMax H3，便宜模型为何更容易进入真实使用"章节中，歸藏转述了"OpenAI 买下 3 万台 Mac Mini"的消息，[杨攀补充说他了解到的信息是：这批设备不是为了跑模型，而是在 Mac 环境下大规模采集 Agent 行为训练数据](/weekly/001/transcript#quote-37d4edd56fc77789ace4)。Weekly #002 的"我们如何用 Agent 制作和发布播客"章节再次提到这条新闻，但[数字变成了"2 万台苹果"](/weekly/002/transcript#quote-1d82772db1d7aed5b833)。两次说法都是主理人转述的传闻，未经官方信息印证。
 
 Computer Use 是节目中 OpenAI 相关讨论的另一条主线。[杨攀在 Weekly #001 回忆 OpenAI 于 2023 年底至 2024 年初收购了一家做屏幕读取与鼠标模拟的小公司](/weekly/001/transcript#quote-43ef12de9319f179b344)，并认为这与 Codex 在 Computer Use 上的领先有关；[Weekly #002 中他进一步把 Computer Use 归结为 OpenAI 认定的"下一代 AGI 的必备能力"](/weekly/002/transcript#quote-633e4970e30a8309498b)。这些属于主理人的转述与判断。
 

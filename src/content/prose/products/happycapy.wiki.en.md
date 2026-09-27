@@ -25,7 +25,7 @@ What an agent can access depends on the task's authorization; the relationship t
 
 ## Discussion in the show
 
-In Weekly #002's chapter "临时环境与常驻电脑的区别" (Temporary environments vs. always-on computers), Guizang argued that domestic temporary-VM offerings "are all hard to use" and lack an always-on environment like Grok Bot's; Qiaomu then asked, [per the Chinese transcript, “Happycapy, right? I'm not sure if Happycapy gives you a VM, if I remember correctly.”](/weekly/002/transcript#quote-e59a1df53d4fdf5be2c5). This is an uncertain recollection; the official documentation describes a cloud sandbox rather than a full virtual machine, so this entry does not treat the guess as product fact.
+In Weekly #002's chapter "临时环境与常驻电脑的区别" (Temporary environments vs. always-on computers), Guizang argued that domestic temporary-VM offerings "are all hard to use" and lack an always-on environment like Grok Bot's; Qiaomu then asked, [per the Chinese transcript, “Happycapy, right? I'm not sure if Happycapy gives you a VM, if I remember correctly.”](/weekly/002/transcript#quote-e59a1df53d4fdf5be2c5). This is an uncertain recollection; the official documentation describes a cloud sandbox rather than a full virtual machine, and the guess has not been confirmed through official channels.
 
 ## Frequently asked questions
 

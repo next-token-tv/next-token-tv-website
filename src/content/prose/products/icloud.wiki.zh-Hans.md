@@ -22,7 +22,7 @@ iCloud+ 在存储之外增加隐私功能：Private Relay（限制网站和网�
 
 ## 节目中的讨论
 
-在 Weekly #003 的"Vibe Coding 把硬盘用满之后"一章中，歸藏[转述了一条新闻，说 Apple 把 Apple TV 会员等内容并入 iCloud](/weekly/003/transcript#quote-7df8b0d200cdbdfda485)，并[提到 iCloud 里有 AI 的 Token](/weekly/003/transcript#quote-cc569e0b99ccb850086e)。杨攀[问是否在中国不可用](/weekly/003/transcript#quote-13f9837110ee6c395ac3)，歸藏[回答"中国不行，中国欧盟都不行"](/weekly/003/transcript#quote-57c1250d630d023a5b8e)。这是参与者对当时新闻的转述与讨论，本页未独立核验该新闻的官方细节；功能可用性以 Apple 官方页面为准。
+在 Weekly #003 的"Vibe Coding 把硬盘用满之后"一章中，歸藏[转述了一条新闻，说 Apple 把 Apple TV 会员等内容并入 iCloud](/weekly/003/transcript#quote-7df8b0d200cdbdfda485)，并[提到 iCloud 里有 AI 的 Token](/weekly/003/transcript#quote-cc569e0b99ccb850086e)。杨攀[问是否在中国不可用](/weekly/003/transcript#quote-13f9837110ee6c395ac3)，歸藏[回答"中国不行，中国欧盟都不行"](/weekly/003/transcript#quote-57c1250d630d023a5b8e)。这是参与者对当时新闻的转述与讨论，该新闻的官方细节未经官方渠道印证；功能可用性以 Apple 官方页面为准。
 
 ## 常见问题
 

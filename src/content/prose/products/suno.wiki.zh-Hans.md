@@ -18,7 +18,7 @@ Suno 是一个 AI 音乐产品：用户从文本提示出发生成完整歌曲�
 
 ## 节目中的讨论
 
-Weekly #002 的"健康数据与日常记录：有用与隐私的边界"一章末尾的快速更新环节，向阳乔木播报海外动态时提到["Suno V6 发布了"，同一句还提到 ElevenLabs 与环球音乐的合作](/weekly/002/transcript#quote-ac088b26a16e66465ab3)。这是录制当时对新闻的转述，本页不对该版本作独立核验；当前可用的模型版本以[官网](https://suno.com/)为准。可阅读[第 002 期对应章节](/weekly/002/transcript#chapter-21)。
+Weekly #002 的"健康数据与日常记录：有用与隐私的边界"一章末尾的快速更新环节，向阳乔木播报海外动态时提到["Suno V6 发布了"，同一句还提到 ElevenLabs 与环球音乐的合作](/weekly/002/transcript#quote-ac088b26a16e66465ab3)。这是录制当时对新闻的转述，该版本未经官方渠道印证；当前可用的模型版本以[官网](https://suno.com/)为准。可阅读[第 002 期对应章节](/weekly/002/transcript#chapter-21)。
 
 ## 常见问题
 

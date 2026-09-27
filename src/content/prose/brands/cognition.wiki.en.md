@@ -20,7 +20,7 @@ In July 2025, Cognition signed a definitive agreement to acquire Windsurf, the a
 
 ## Discussion in the show
 
-Weekly #002's chapter "Grok Bot / Muse：为什么 Agent 需要云电脑" (why agents need a cloud computer) discusses the cloud-computer route for agents. Orange remarks that [Devin "just raised a new round, valuation exploding"](/weekly/002/transcript#quote-19300ab15820236763c2) (Chinese transcript), and Yang Pan adds that such companies "should be heading in this direction." This is a host's retelling of market news; this page does not repeat the funding or valuation figures.
+Weekly #002's chapter "Grok Bot / Muse：为什么 Agent 需要云电脑" (why agents need a cloud computer) discusses the cloud-computer route for agents. Orange remarks that [Devin "just raised a new round, valuation exploding"](/weekly/002/transcript#quote-19300ab15820236763c2) (Chinese transcript), and Yang Pan adds that such companies "should be heading in this direction." This is a host's retelling of market news; the funding and valuation figures follow company announcements.
 
 ## Frequently asked questions
 

@@ -34,7 +34,7 @@ Weekly #001 的“当所有模型都差不多，用户该如何选择”章节�
 
 ### MiMo 有 API 吗，怎么收费？
 
-有。官方提供与 OpenAI、Anthropic 兼容的 API，计费采用 Token Plan 订阅与用量结合的方式，官方还列出夜间折扣等规则。当前模型清单与费率见[官方站点](https://mimo.mi.com/)与[定价说明](https://mimo.mi.com/docs/zh-CN/news/latest/v2.5-news)，本文不固定具体价格。
+有。官方提供与 OpenAI、Anthropic 兼容的 API，计费采用 Token Plan 订阅与用量结合的方式，官方还列出夜间折扣等规则。当前模型清单与费率见[官方站点](https://mimo.mi.com/)与[定价说明](https://mimo.mi.com/docs/zh-CN/news/latest/v2.5-news)。
 
 ### MiMo 开源了吗？
 

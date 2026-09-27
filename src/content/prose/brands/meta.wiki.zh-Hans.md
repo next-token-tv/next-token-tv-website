@@ -26,7 +26,7 @@ Meta（Meta Platforms, Inc.）是一家美国科技公司，2004 年 2 月 4 日
 - Weekly #001 在讨论厂商自研时，杨攀说"Claude 也在搞，微软、Meta、智谱，听说也在搞"（[原文段落](/weekly/001/transcript#quote-58588dc08c390dab77b7)）。
 - Weekly #002 的"Grok Bot / Muse：为什么 Agent 需要云电脑"章节中，向阳乔木说"上周我们其实聊了 Grok Bot 是吧，Meta 也出了一个叫 Muse"，把它与 Chat Bot 的回归联系起来（[原文段落](/weekly/002/transcript#quote-5370d8756a780c47b0b1)）；杨攀随后把 Muse 与云端电脑路线放在一起讨论（[原文段落](/weekly/002/transcript#quote-af1872f1d5640ea3a393)）。
 
-以上均为节目中的发布消息与主理人观点；Muse 相关信息以 Meta 官方渠道为准，本页不将其作为产品事实。
+以上均为节目中的发布消息与主理人观点，未经官方信息印证；Muse 相关信息以 Meta 官方渠道为准。
 
 ## 常见问题
 

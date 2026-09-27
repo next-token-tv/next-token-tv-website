@@ -38,7 +38,7 @@ An execution-infrastructure platform for AI agents: durable, isolated runtimes w
 
 ### How much does Runta cost?
 
-The site offers a free trial via dashboard.runta.com, and plans are described on the official pricing page; this page does not restate prices.
+The site offers a free trial via dashboard.runta.com, and plans are described on the official pricing page.
 
 ### What is FrontierHarness Eval?
 

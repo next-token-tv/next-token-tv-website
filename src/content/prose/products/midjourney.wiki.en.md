@@ -14,13 +14,13 @@ Midjourney is an AI research lab known for image generation, and the product bui
 
 ## Usage and boundaries
 
-Users access Midjourney's image generation and editing features through the official website; the company points product questions and support to its Discord and help pages. Version information changes with model releases, so the current version number and update notes belong on the [official homepage and blog](https://www.midjourney.com/) rather than being fixed here.
+Users access Midjourney's image generation and editing features through the official website; the company points product questions and support to its Discord and help pages. Version information changes with model releases, so the current version number and update notes belong on the [official homepage and blog](https://www.midjourney.com/).
 
 Version naming deserves care: many version labels and nicknames circulate in the community, and version numbers seen online do not always match official release names. Check the official pages instead of relying on third-party retellings.
 
 ## Discussion in the show
 
-In Weekly #002's chapter "音乐与图像编辑：可控修改的进步与局限" (Music and image editing: progress and limits of controlled modification), Orange invoked Midjourney as a comparison while arguing that Suno faces no real competitor: [in his view in the Chinese transcript, Midjourney, like Suno, has no rivals and is already SOTA](/weekly/002/transcript#quote-4b7846ca32b421ab5018). When the same chapter discussed version updates focused on editing, [Orange said "Midjourney 2.5 也是" ("Midjourney 2.5 too") in the Chinese transcript](/weekly/002/transcript#quote-fd87cd38a2afc0f09b5a), alongside GPT Image 2.5's stable editing; Qiaomu added that people around him saw little noticeable difference. The "2.5" version number comes from a participant's remark and does not appear on the official homepage, so this entry does not adopt it as fact. These are participant impressions and judgments, not independent evaluations.
+In Weekly #002's chapter "音乐与图像编辑：可控修改的进步与局限" (Music and image editing: progress and limits of controlled modification), Orange invoked Midjourney as a comparison while arguing that Suno faces no real competitor: [in his view in the Chinese transcript, Midjourney, like Suno, has no rivals and is already SOTA](/weekly/002/transcript#quote-4b7846ca32b421ab5018). When the same chapter discussed version updates focused on editing, [Orange said "Midjourney 2.5 也是" ("Midjourney 2.5 too") in the Chinese transcript](/weekly/002/transcript#quote-fd87cd38a2afc0f09b5a), alongside GPT Image 2.5's stable editing; Qiaomu added that people around him saw little noticeable difference. The "2.5" version number comes from a participant's remark and does not appear on the official homepage, so it is not cited as fact. These are participant impressions and judgments, not independent evaluations.
 
 ## Frequently asked questions
 

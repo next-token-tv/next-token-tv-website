@@ -18,7 +18,7 @@ The plans listed on the official site are: Free — 10 songs per day, no subscri
 
 ## Discussion in the show
 
-In the quick-updates segment of Weekly #002's chapter "健康数据与日常记录：有用与隐私的边界" ("Health data and daily logging: usefulness versus privacy"), Xiangyang Qiaomu reported that ["Suno V6 had been released," in the same breath as ElevenLabs' partnership with Universal Music](/weekly/002/transcript#quote-ac088b26a16e66465ab3). This was the speaker's relay of news at recording time; this page does not independently verify that release, and the currently available models are governed by the [official site](https://suno.com/). See the [episode 002 chapter](/weekly/002/transcript#chapter-21) in the Chinese transcript; an English transcript is not available.
+In the quick-updates segment of Weekly #002's chapter "健康数据与日常记录：有用与隐私的边界" ("Health data and daily logging: usefulness versus privacy"), Xiangyang Qiaomu reported that ["Suno V6 had been released," in the same breath as ElevenLabs' partnership with Universal Music](/weekly/002/transcript#quote-ac088b26a16e66465ab3). This was the speaker's relay of news at recording time; that release has not been confirmed through official channels, and the currently available models are governed by the [official site](https://suno.com/). See the [episode 002 chapter](/weekly/002/transcript#chapter-21) in the Chinese transcript; an English transcript is not available.
 
 ## Frequently asked questions
 

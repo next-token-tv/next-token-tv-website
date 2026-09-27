@@ -42,7 +42,7 @@ At launch Manus was invitation-only, and invite codes were resold at high prices
 
 ### How much does Manus cost?
 
-Manus offers individual subscriptions and team plans, the latter including SSO. Current tiers and quotas are on the [official pricing page](https://manus.im/pricing); this page does not reproduce prices.
+Manus offers individual subscriptions and team plans, the latter including SSO. Current tiers and quotas are on the [official pricing page](https://manus.im/pricing).
 
 ### How is Manus different from other cloud agents?
 

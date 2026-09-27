@@ -23,7 +23,7 @@ Time-sensitive details such as features and availability should be read from the
 
 ## Discussion in the show
 
-In Weekly #002's chapter "Voice input: friction beyond accuracy," Yang Pan mentions that "this week's news: NetEase Youdao released a new free product claiming to benchmark against Typeless — permanently free," and speculates that the product "is probably not the same team as UU, but it is NetEase's, NetEase Youdao's" ([paragraph in the Chinese transcript](/weekly/002/transcript#quote-d55f5ee52262b97c51ae)). He also says he has not tried the product yet and still uses Typeless and WeChat's input method. The show does not name the product, and this page does not map it to any specific product; these are a host's retelling and speculation.
+In Weekly #002's chapter "Voice input: friction beyond accuracy," Yang Pan mentions that "this week's news: NetEase Youdao released a new free product claiming to benchmark against Typeless — permanently free," and speculates that the product "is probably not the same team as UU, but it is NetEase's, NetEase Youdao's" ([paragraph in the Chinese transcript](/weekly/002/transcript#quote-d55f5ee52262b97c51ae)). He also says he has not tried the product yet and still uses Typeless and WeChat's input method. The show does not name the product; these are a host's retelling and speculation that do not point to any specific product.
 
 ## Frequently asked questions
 

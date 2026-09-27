@@ -16,7 +16,7 @@ Seedance is a video generation model family developed by ByteDance's Seed team. 
 
 Seedance is the model layer of video content production: text prompts or reference images and videos go in, generated video comes out. The official page offers "Try now" and "Get API" entry points; developers can call the API through BytePlus with 480P/720P resolutions and multiple aspect ratios. Quality, duration limits, and editing capabilities evolve with versions, so the [official page](https://seed.bytedance.com/en/seedance2_5) remains the reference for current capabilities.
 
-Pricing is usage-based, with BytePlus listing plans and per-token settlement; current rates belong to the official pricing entry and are not fixed in this article. Content licensing, platform distribution rules, and material compliance remain the user's responsibility; finished videos made with Seedance that enter short-drama channels are additionally subject to each platform's own rules.
+Pricing is usage-based, with BytePlus listing plans and per-token settlement; current rates belong to the official pricing entry. Content licensing, platform distribution rules, and material compliance remain the user's responsibility; finished videos made with Seedance that enter short-drama channels are additionally subject to each platform's own rules.
 
 ## Discussion in the show
 
@@ -34,11 +34,11 @@ The official page offers "Try now" and "Get API" entry points; developers can ca
 
 ### How is Seedance priced?
 
-Pricing is usage-based and depends on resolution, duration, and input modes; the BytePlus page lists plans alongside per-token settlement. Current rates are on the [official pricing entry](https://www.byteplus.com/en/product/seedance); this article does not fix specific numbers.
+Pricing is usage-based and depends on resolution, duration, and input modes; the BytePlus page lists plans alongside per-token settlement. Current rates are on the [official pricing entry](https://www.byteplus.com/en/product/seedance).
 
 ### What is the relationship between Seedance and Dreamina?
 
-The official Seedance page does not map the model to specific apps, while BytePlus brands it "Dreamina Seedance 2.5." Which app or site serves which Seedance version should be checked on official pages and in-product documentation; this article does not draw that conclusion for them.
+The official Seedance page does not map the model to specific apps, while BytePlus brands it "Dreamina Seedance 2.5." Which app or site serves which Seedance version should be checked on official pages and in-product documentation.
 
 ## Sources
 

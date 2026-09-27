@@ -20,7 +20,7 @@ Taobao’s shape is that of a marketplace: goods and shops come from merchants, 
 
 ## Discussion in the show
 
-In Weekly #003’s chapter “用代码做宣传片和配乐” (“Making promo videos and soundtracks with code”), while discussing the Doubao phone and app ecosystems, [Orange drew an analogy with Taobao’s history: “just like when Taobao blocked WeChat, and then Pinduoduo arrived and now stands toe-to-toe with it. Taobao blocked the Doubao phone, but Douyin now has shopping, group buying, food delivery … a closed loop”](/weekly/003/transcript#quote-60e705d4d3e2a5890689). Yang Pan summed up his point: platforms stay closed to external AI assistants, while ByteDance can let the Doubao phone freely access its own services ([chapter-16](/weekly/003/transcript#chapter-16)). This is participant commentary on platform openness; the specific events mentioned come from the speakers and are not facts verified by this site.
+In Weekly #003’s chapter “用代码做宣传片和配乐” (“Making promo videos and soundtracks with code”), while discussing the Doubao phone and app ecosystems, [Orange drew an analogy with Taobao’s history: “just like when Taobao blocked WeChat, and then Pinduoduo arrived and now stands toe-to-toe with it. Taobao blocked the Doubao phone, but Douyin now has shopping, group buying, food delivery … a closed loop”](/weekly/003/transcript#quote-60e705d4d3e2a5890689). Yang Pan summed up his point: platforms stay closed to external AI assistants, while ByteDance can let the Doubao phone freely access its own services ([chapter-16](/weekly/003/transcript#chapter-16)). This is participant commentary on platform openness; the specific events mentioned come from the speakers and have not been confirmed through official channels.
 
 ## Frequently asked questions
 

@@ -30,7 +30,7 @@ Stripe is an online payments and financial infrastructure platform for businesse
 
 ### How does Stripe charge?
 
-Stripe charges per-transaction fees that vary by country, payment method, and product; current rates are on the [official pricing page](https://stripe.com/pricing), which this page does not freeze into specific numbers.
+Stripe charges per-transaction fees that vary by country, payment method, and product; current rates are on the [official pricing page](https://stripe.com/pricing).
 
 ### What is the relationship between Stripe and OpenRouter?
 

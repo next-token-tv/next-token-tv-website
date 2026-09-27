@@ -20,7 +20,7 @@ Cognition 的核心产品 [Devin](/wiki/products/devin) 面向真实的软件工
 
 ## 节目中的讨论
 
-Weekly #002 的"Grok Bot / Muse：为什么 Agent 需要云电脑"章节讨论云端 Agent 电脑的路线，橘子在讨论中提到[Devin"还正好融了新一轮，估值爆炸"](/weekly/002/transcript#quote-19300ab15820236763c2)，杨攀接着说这类公司"应该也是要往这方向"走。这是主持人对市场消息的转述，融资金额与估值本页不转述。
+Weekly #002 的"Grok Bot / Muse：为什么 Agent 需要云电脑"章节讨论云端 Agent 电脑的路线，橘子在讨论中提到[Devin"还正好融了新一轮，估值爆炸"](/weekly/002/transcript#quote-19300ab15820236763c2)，杨攀接着说这类公司"应该也是要往这方向"走。这是主持人对市场消息的转述，融资金额与估值以公司官方公告为准。
 
 ## 常见问题
 

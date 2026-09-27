@@ -20,7 +20,7 @@ Apple TV 是 [Apple](/wiki/brands/apple) 的全原创流媒体订阅服务，官
 
 ## 节目中的讨论
 
-在 Weekly #003 的"Vibe Coding 把硬盘用满之后"一章中，歸藏[转述了一条新闻，说 Apple 把 Apple TV 等会员内容并入 iCloud](/weekly/003/transcript#quote-7df8b0d200cdbdfda485)，并提到 [iCloud 里加入 AI Token](/weekly/003/transcript#quote-cc569e0b99ccb850086e)；杨攀[问是否在中国不可用](/weekly/003/transcript#quote-13f9837110ee6c395ac3)，歸藏[回答中国和欧盟都不行](/weekly/003/transcript#quote-57c1250d630d023a5b8e)。这是参与者对当时新闻的转述与讨论，本页未独立核验其官方细节；订阅内容的打包方式以 Apple 官方页面为准。
+在 Weekly #003 的"Vibe Coding 把硬盘用满之后"一章中，歸藏[转述了一条新闻，说 Apple 把 Apple TV 等会员内容并入 iCloud](/weekly/003/transcript#quote-7df8b0d200cdbdfda485)，并提到 [iCloud 里加入 AI Token](/weekly/003/transcript#quote-cc569e0b99ccb850086e)；杨攀[问是否在中国不可用](/weekly/003/transcript#quote-13f9837110ee6c395ac3)，歸藏[回答中国和欧盟都不行](/weekly/003/transcript#quote-57c1250d630d023a5b8e)。这是参与者对当时新闻的转述与讨论，其官方细节未经官方渠道印证；订阅内容的打包方式以 Apple 官方页面为准。
 
 ## 常见问题
 

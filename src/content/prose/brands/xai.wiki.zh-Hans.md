@@ -32,7 +32,7 @@ xAI 是研发 Grok 模型家族的 AI 公司，2023 年创立。官方公告页�
 
 ### SpaceXAI 和 SpaceX、X（社交平台）是什么关系？
 
-SpaceXAI 在 SpaceX 收购 xAI（2026 年 2 月 2 日公告）之后属于 SpaceX 体系；Grok 可在 X 平台使用（官方时间线载明 2023 年 12 月推出 Grok on X）。收购公告未提及 X 平台的归属变化，本页不作推断。
+SpaceXAI 在 SpaceX 收购 xAI（2026 年 2 月 2 日公告）之后属于 SpaceX 体系；Grok 可在 X 平台使用（官方时间线载明 2023 年 12 月推出 Grok on X）。收购公告未提及 X 平台的归属变化，以上不超出公告所述内容。
 
 ### xAI／SpaceXAI 的官网和 Grok 官网在哪里？
 

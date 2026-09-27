@@ -18,7 +18,7 @@ The official page also describes a multi-agent workflow with roles such as proje
 
 The main entry is the [official website](https://www.youware.com/), which offers a free sign-up. Accounts work across the desktop web and mobile apps on the App Store and Google Play, with files, context, and progress syncing between devices. Generated websites can be published directly; documents can be exported to PowerPoint or PDF or continued in the user's existing tools. The site also lists Docs, a help center, a blog, and a Discord community.
 
-Plan details and billing structure are on the [official pricing page](https://www.youware.com/pricing/); this page does not restate prices.
+Plan details and billing structure are on the [official pricing page](https://www.youware.com/pricing/).
 
 ## Discussion in the show
 

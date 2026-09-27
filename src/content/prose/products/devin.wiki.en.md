@@ -20,7 +20,7 @@ On boundaries: Devin executes in its own cloud environment, and its output still
 
 ## Discussion in the show
 
-In Weekly #002’s chapter “Grok Bot / Muse: why agents need a cloud computer,” Orange mentioned that [Devin had just closed a new funding round at a sharply higher valuation and expected it to move toward the cloud-computer direction](/weekly/002/transcript#quote-19300ab15820236763c2); Xiangyang Qiaomu then asked whether Devin was the first agent with a cloud assistant, sparking an on-the-spot debate about whether Devin or [Manus](/en/wiki/products/manus) came first. The chapter places Devin in the generation of products that “give the agent a computer.” The funding details are the participant’s retelling, not independently verified on this site — rely on company announcements. See the [Chinese transcript chapter](/weekly/002/transcript#chapter-13).
+In Weekly #002’s chapter “Grok Bot / Muse: why agents need a cloud computer,” Orange mentioned that [Devin had just closed a new funding round at a sharply higher valuation and expected it to move toward the cloud-computer direction](/weekly/002/transcript#quote-19300ab15820236763c2); Xiangyang Qiaomu then asked whether Devin was the first agent with a cloud assistant, sparking an on-the-spot debate about whether Devin or [Manus](/en/wiki/products/manus) came first. The chapter places Devin in the generation of products that “give the agent a computer.” The funding details are the participant’s retelling and have not been confirmed through official channels — rely on company announcements. See the [Chinese transcript chapter](/weekly/002/transcript#chapter-13).
 
 ## Frequently asked questions
 
@@ -42,7 +42,7 @@ Devin is a cloud agent for engineering teams with its own execution environment 
 
 ### What about Devin’s funding and valuation?
 
-As of September 2026, no reliable company announcement covering the latest round is available on this page; Orange mentioned in Weekly #002 that Devin had raised a new round at a much higher valuation — a participant’s retelling. Accurate information belongs to Cognition’s official announcements.
+As of September 2026, no company announcement covers the latest round; Orange mentioned in Weekly #002 that Devin had raised a new round at a much higher valuation — a participant’s retelling. Accurate information belongs to Cognition’s official announcements.
 
 ## Sources
 

@@ -36,7 +36,7 @@ The official site states its text to speech covers 70+ languages, with speech to
 
 ### Does ElevenLabs have a free tier?
 
-The site lists a free plan; paid subscriptions add higher usage and features. Current per-tier minutes, prices, and feature differences are on the [official pricing page](https://elevenlabs.io/); this page does not pin specific numbers.
+The site lists a free plan; paid subscriptions add higher usage and features. Current per-tier minutes, prices, and feature differences are on the [official pricing page](https://elevenlabs.io/).
 
 ### Where do I get the ElevenLabs API and an API key?
 

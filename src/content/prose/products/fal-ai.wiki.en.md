@@ -21,7 +21,7 @@ Per the official site, the main ways to use fal.ai are:
 - **Fine-tuning and training**: LoRA fine-tuning and bring-your-own-weights training, plus dedicated GPU clusters.
 - **Compute**: on-demand rental of GPUs such as H100, H200, and B200, with reserved enterprise capacity available.
 
-The platform also offers fal Agent, Workflows, and Sandbox for wiring models into workflows. Billing is usage-based; exact rates and plans are governed by the official pricing pages, and this page does not fix numbers. For enterprise use, the site mentions SOC 2 compliance, SSO, and private endpoints.
+The platform also offers fal Agent, Workflows, and Sandbox for wiring models into workflows. Billing is usage-based; exact rates and plans are governed by the official pricing pages. For enterprise use, the site mentions SOC 2 compliance, SSO, and private endpoints.
 
 ## Mentioned on the podcast
 
@@ -39,7 +39,7 @@ Primarily developers and teams embedding generative media into their own product
 
 ### How is fal.ai billed?
 
-The platform is usage-based: model calls are billed per use and GPU compute by rental time, with dedicated enterprise capacity available. Exact rates are on the official pricing pages; this page does not fix numbers.
+The platform is usage-based: model calls are billed per use and GPU compute by rental time, with dedicated enterprise capacity available. Exact rates are on the official pricing pages.
 
 ### Which models are on fal.ai?
 

@@ -47,7 +47,7 @@ Hailuo AI 是 MiniMax 的视频与图像创作平台（hailuoai.video），可�
 
 ### MiniMax 的产品怎么收费？
 
-各产品收费方式不同：Talkie 提供 Talkie+ 订阅，开放平台按 API 用量计费，Agent、Hailuo AI 等应用的套餐以各自官方页面为准。本页不复制具体价格。
+各产品收费方式不同：Talkie 提供 Talkie+ 订阅，开放平台按 API 用量计费，Agent、Hailuo AI 等应用的套餐以各自官方页面为准。
 
 ## 来源
 

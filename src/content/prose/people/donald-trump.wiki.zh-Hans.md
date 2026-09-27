@@ -23,7 +23,7 @@ Donald Trump（唐纳德·特朗普）是美国政治人物、商人与媒体人
 
 ## 在节目中的提及
 
-Donald Trump 不是本期节目的参与者，以下内容均为主理人的转述。[Weekly #003](/weekly/003/transcript#chapter-12) 的"用 GPT-6 Astra 造数据、训练小模型"章节中，歸藏提到三位 AI 公司负责人在讨论"减速"后，"结果晚上特朗普发了条推"（见[该段落](/weekly/003/transcript#quote-df591ae12841e717e097)）。这一情节是主理人对近期时事的转述，节目未引述推文具体内容，本条目不对该转述本身作事实认定。
+Donald Trump 不是本期节目的参与者，以下内容均为主理人的转述。[Weekly #003](/weekly/003/transcript#chapter-12) 的"用 GPT-6 Astra 造数据、训练小模型"章节中，歸藏提到三位 AI 公司负责人在讨论"减速"后，"结果晚上特朗普发了条推"（见[该段落](/weekly/003/transcript#quote-df591ae12841e717e097)）。这一情节是主理人对近期时事的转述，节目未引述推文具体内容。
 
 ## 常见问题
 

@@ -16,7 +16,7 @@ Seedance 是字节跳动 Seed 团队的视频生成模型家族。官方 [Seedan
 
 Seedance 的定位是视频内容生产的模型层：输入文本提示或参考图像/视频，输出生成视频。官方页面提供"Get API"与"Try now"入口；开发者可经 BytePlus 调用 API，支持 480P/720P 分辨率与多种画幅。生成质量、时长上限和编辑能力随版本演进，具体能力边界以[官方页面](https://seed.bytedance.com/en/seedance2_5)为准。
 
-价格按用量计费，BytePlus 页面列有按时长或按 Token 结算的套餐结构，具体费率见官方定价入口，本文不引用具体数字。需要注意，模型生成内容的版权、平台分发规则和素材合规仍由使用者负责；用 Seedance 制作的成片进入短剧等分发渠道时，还受各平台自身规则约束。
+价格按用量计费，BytePlus 页面列有按时长或按 Token 结算的套餐结构，具体费率见官方定价入口。需要注意，模型生成内容的版权、平台分发规则和素材合规仍由使用者负责；用 Seedance 制作的成片进入短剧等分发渠道时，还受各平台自身规则约束。
 
 ## 节目中的讨论
 
@@ -34,11 +34,11 @@ Seedance 是字节跳动 Seed 团队研发的视频生成模型家族，官方�
 
 ### Seedance 怎么收费？
 
-按生成用量计费，与分辨率、时长和输入模式相关；BytePlus 页面列有套餐与按 Token 结算的说明。当前费率以[官方定价入口](https://www.byteplus.com/en/product/seedance)为准，本文不固定具体价格。
+按生成用量计费，与分辨率、时长和输入模式相关；BytePlus 页面列有套餐与按 Token 结算的说明。当前费率以[官方定价入口](https://www.byteplus.com/en/product/seedance)为准。
 
 ### Seedance 和即梦是什么关系？
 
-官方 Seedance 页面没有说明它与各生成工具的对应关系，BytePlus 将该模型标注为"Dreamina Seedance 2.5"。哪个应用或站点可以使用哪个版本的 Seedance，应以官方页面和产品内说明为准，本文不替官方下结论。
+官方 Seedance 页面没有说明它与各生成工具的对应关系，BytePlus 将该模型标注为"Dreamina Seedance 2.5"。哪个应用或站点可以使用哪个版本的 Seedance，应以官方页面和产品内说明为准。
 
 ## 来源
 

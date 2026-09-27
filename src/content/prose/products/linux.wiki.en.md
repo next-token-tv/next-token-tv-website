@@ -10,7 +10,7 @@ seoDescription: 'What the Linux kernel is, where kernel.org and the official doc
 
 ## The Linux kernel and the distribution model
 
-Linux usually refers to the family of open operating systems built around the Linux kernel. The kernel was first released by Linus Torvalds on September 17, 1991, under the GNU GPL v2 license, and Torvalds remains its lead maintainer. The kernel alone is only the operating system core; a complete, usable system comes from a distribution that packages the kernel with the GNU toolchain, package management, and a desktop environment. Distributions are numerous and varied, so this page does not maintain a distribution list — check each distribution's official website for specifics.
+Linux usually refers to the family of open operating systems built around the Linux kernel. The kernel was first released by Linus Torvalds on September 17, 1991, under the GNU GPL v2 license, and Torvalds remains its lead maintainer. The kernel alone is only the operating system core; a complete, usable system comes from a distribution that packages the kernel with the GNU toolchain, package management, and a desktop environment. Distributions are numerous and varied; check each distribution's official website for specifics.
 
 [kernel.org](https://www.kernel.org/) is the official archive of Linux kernel source code (The Linux Kernel Archives), operated by the nonprofit Linux Kernel Organization. It publishes tarballs, patches, PGP signatures, and Git repositories for the mainline, stable, and longterm branches; kernel development documentation lives at [docs.kernel.org](https://docs.kernel.org/).
 

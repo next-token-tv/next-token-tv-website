@@ -20,7 +20,7 @@ Devin 是 [Cognition](/wiki/brands/cognition) 推出的软件工程智能体（A
 
 ## 节目中的讨论
 
-Weekly #002 的"Grok Bot / Muse：为什么 Agent 需要云电脑"一章里，橘子提到[Devin 刚完成新一轮融资、估值大涨，并预期它会走向云端电脑方向](/weekly/002/transcript#quote-19300ab15820236763c2)；向阳乔木接着问 Devin 是不是第一个带云端助手的，由此引出 Devin 与 [Manus](/wiki/products/manus) 谁更早的现场讨论。这一章把 Devin 归入"给 Agent 一台电脑"的产品代际。融资细节来自节目参与者的转述，本站未独立核验，以公司公告为准。可阅读[第 002 期对应章节](/weekly/002/transcript#chapter-13)。
+Weekly #002 的"Grok Bot / Muse：为什么 Agent 需要云电脑"一章里，橘子提到[Devin 刚完成新一轮融资、估值大涨，并预期它会走向云端电脑方向](/weekly/002/transcript#quote-19300ab15820236763c2)；向阳乔木接着问 Devin 是不是第一个带云端助手的，由此引出 Devin 与 [Manus](/wiki/products/manus) 谁更早的现场讨论。这一章把 Devin 归入"给 Agent 一台电脑"的产品代际。融资细节来自节目参与者的转述，未经官方渠道印证，以公司公告为准。可阅读[第 002 期对应章节](/weekly/002/transcript#chapter-13)。
 
 ## 常见问题
 
@@ -42,7 +42,7 @@ Devin 是面向软件工程团队的云端 Agent，有自己的执行环境和�
 
 ### Devin 融资和估值情况如何？
 
-截至 2026 年 9 月，本页掌握的可靠公司公告不含最新融资细节；Weekly #002 中橘子提到 Devin 刚融了新一轮、估值大涨，属节目参与者转述。准确信息以 Cognition 官方公告为准。
+截至 2026 年 9 月，官方公司公告不含最新融资细节；Weekly #002 中橘子提到 Devin 刚融了新一轮、估值大涨，属节目参与者转述。准确信息以 Cognition 官方公告为准。
 
 ## 来源
 

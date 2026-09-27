@@ -25,7 +25,7 @@ Application areas listed on the site cover mobile terminals, PCs, servers, virtu
 
 ## Discussion in the show
 
-In Next Token Weekly #003’s chapter “Vibe Coding 把硬盘用满之后” (when vibe coding fills up the disk), Yang Pan [relays news he saw that day, saying “CXMT is also going to start doing NAND flash”](/weekly/003/transcript#quote-66d1e7f2eb2259e23cbb). This is a host’s verbal retelling of a news item; CXMT’s official site currently lists only DRAM products, and no official source supports the NAND direction, so this entry does not adopt it as fact. See the [episode 003 chapter](/weekly/003/transcript#chapter-15) in the Chinese transcript.
+In Next Token Weekly #003’s chapter “Vibe Coding 把硬盘用满之后” (when vibe coding fills up the disk), Yang Pan [relays news he saw that day, saying “CXMT is also going to start doing NAND flash”](/weekly/003/transcript#quote-66d1e7f2eb2259e23cbb). This is a host’s verbal retelling of a news item; CXMT’s official site currently lists only DRAM products, and no official source supports the NAND direction, so it is not cited as fact. See the [episode 003 chapter](/weekly/003/transcript#chapter-15) in the Chinese transcript.
 
 ## Frequently asked questions
 

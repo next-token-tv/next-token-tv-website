@@ -23,7 +23,7 @@ These milestones follow the [English Wikipedia article](https://en.wikipedia.org
 
 ## Mention in the show
 
-Donald Trump is not a participant in the episode; the following is a host's remark. In Weekly #003's chapter “用 GPT-6 Astra 造数据、训练小模型” (Using GPT-6 Astra to generate data and train small models) of the [Chinese transcript](/weekly/003/transcript#chapter-12), Guizang says that after the three AI company leaders discussed slowing down, “结果晚上特朗普发了条推” — Trump then posted a tweet that evening ([paragraph](/weekly/003/transcript#quote-df591ae12841e717e097)). This is a host's retelling of recent events; the episode does not quote the post itself, and this entry makes no factual claim about that retelling beyond attributing it.
+Donald Trump is not a participant in the episode; the following is a host's remark. In Weekly #003's chapter “用 GPT-6 Astra 造数据、训练小模型” (Using GPT-6 Astra to generate data and train small models) of the [Chinese transcript](/weekly/003/transcript#chapter-12), Guizang says that after the three AI company leaders discussed slowing down, “结果晚上特朗普发了条推” — Trump then posted a tweet that evening ([paragraph](/weekly/003/transcript#quote-df591ae12841e717e097)). This is a host's retelling of recent events; the episode does not quote the post itself.
 
 ## Frequently asked questions
 

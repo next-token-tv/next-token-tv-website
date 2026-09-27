@@ -18,7 +18,7 @@ His GitHub account ([ccc7574](https://github.com/ccc7574)) carries the display n
 
 ## Mentioned in the show
 
-Brad Qiang does not appear in the episode quoted on this page; the following is a host's statement. In Weekly #003's chapter on [promotional films and soundtracks made with code](/weekly/003/transcript#chapter-16), Xiangyang Qiaomu says: "You know what? That Brad Qiang — he works at SAIC on a project related to Doubao." See [the line in the Chinese transcript](/weekly/003/transcript#quote-20c9c1dc8737b46c4007). This is a claim made on the show with no independent public source found for this page, and it is not a statement by Brad Qiang himself. Related entries: [SAIC Motor](/en/wiki/brands/saic-motor) and [Doubao](/en/wiki/products/doubao).
+Brad Qiang does not appear in the episode quoted on this page; the following is a host's statement. In Weekly #003's chapter on [promotional films and soundtracks made with code](/weekly/003/transcript#chapter-16), Xiangyang Qiaomu says: "You know what? That Brad Qiang — he works at SAIC on a project related to Doubao." See [the line in the Chinese transcript](/weekly/003/transcript#quote-20c9c1dc8737b46c4007). This is a claim made on the show and has no independent public corroboration; it is not a statement by Brad Qiang himself. Related entries: [SAIC Motor](/en/wiki/brands/saic-motor) and [Doubao](/en/wiki/products/doubao).
 
 ## Frequently asked questions
 

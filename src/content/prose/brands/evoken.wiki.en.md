@@ -16,7 +16,7 @@ Evoken (Chinese: 演语科技) is an AI application company founded by [Chen Mia
 
 According to Chen Mian's interview with LatePost ([republished full text](https://www.chwang.com/article/208345738693)), the company started from [Liblib](/en/wiki/products/liblib), a community for image generation and model asset sharing. [Lovart](/en/wiki/products/lovart), which opened its beta in May 2025, is an AI design agent built around a canvas-plus-conversation interface. [LibTV](/en/wiki/products/libtv), launched in March 2026, is an AI video tool. In the interview, Chen Mian describes the common role of the three products as an "alignment layer" between model capability and user needs: "The model is a DSLR camera... the application layer is the photographer."
 
-The interview also notes that Chen Mian previously worked on the Jianying (CapCut) team, and that the company went through several product pivots. The dates, product positioning, and quotes above all come from that interview and reflect the interviewee's own account; this page does not repeat the company's operating or funding figures.
+The interview also notes that Chen Mian previously worked on the Jianying (CapCut) team, and that the company went through several product pivots. The dates, product positioning, and quotes above all come from that interview and reflect the interviewee's own account; the company's operating and funding figures follow official sources.
 
 ## Discussion in the show
 

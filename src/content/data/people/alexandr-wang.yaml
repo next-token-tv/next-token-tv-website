@@ -2,9 +2,21 @@ name:
   zh-Hans: Alexandr Wang
   en: Alexandr Wang
 bio:
-  zh-Hans: Scale AI 创始人，人工智能行业创业者。
-  en: Founder of Scale AI and an entrepreneur in artificial intelligence.
+  zh-Hans: Scale AI 创始人，Meta 首席人工智能官。
+  en: Founder of Scale AI and Meta's Chief AI Officer.
 aliases: []
+relations:
+  - entityType: brand
+    entity: meta
+    role:
+      zh-Hans: 首席人工智能官
+      en: Chief AI Officer
+    lastVerifiedAt: '2026-09-27'
+    sources:
+      - label:
+          zh-Hans: Meta 投资者关系领导团队页
+          en: Meta investor relations leadership page
+        href: https://investor.atmeta.com/leadership-and-governance/
 sources:
   - label:
       zh-Hans: 官方或本人资料

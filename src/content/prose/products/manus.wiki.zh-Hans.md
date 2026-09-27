@@ -42,7 +42,7 @@ Manus 是一款通用 AI Agent，接受自然语言任务后自主规划并执�
 
 ### Manus 怎么收费？
 
-Manus 提供个人订阅与团队计划，团队计划包含单点登录；当前套餐和额度见[官方价格页](https://manus.im/pricing)，本页不复制具体价格。
+Manus 提供个人订阅与团队计划，团队计划包含单点登录；当前套餐和额度见[官方价格页](https://manus.im/pricing)。
 
 ### Manus 和其他云端 Agent 有什么区别？
 

@@ -2,12 +2,24 @@ name:
   zh-Hans: 曾鸣
   en: Zeng Ming
 bio:
-  zh-Hans: 研究企业战略、互联网与商业组织的战略学者。
-  en: A scholar of business strategy, the internet and organizational change.
+  zh-Hans: 企业战略学者，曾任阿里巴巴集团总参谋长、湖畔大学教育长。
+  en: A scholar of business strategy and former chief of staff of Alibaba Group and dean of studies at Hupan University.
 aliases: []
+relations:
+  - entityType: brand
+    entity: alibaba
+    role:
+      zh-Hans: 曾任阿里巴巴集团总参谋长
+      en: Former chief of staff, Alibaba Group
+    lastVerifiedAt: '2026-09-27'
+    sources:
+      - label:
+          zh-Hans: 阿里巴巴集团官方管理层介绍
+          en: Alibaba Group official management profile
+        href: https://page.1688.com/shtml/about/ali_group2_zengming.shtml
 sources:
   - label:
-      zh-Hans: 官方或本人资料
-      en: Official or personal source
-    href: https://podcasts.apple.com/us/podcast/id1634356920?i=1000787534675
+      zh-Hans: 阿里巴巴集团官方管理层介绍
+      en: Alibaba Group official management profile
+    href: https://page.1688.com/shtml/about/ali_group2_zengming.shtml
 lastVerifiedAt: '2026-09-27'

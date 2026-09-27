@@ -38,7 +38,7 @@ Weekly #001 的"Harness 评测：完成率、Token 成本与"斩杀线""章节�
 
 ### Runta 怎么收费？
 
-官网提供免费试用入口（dashboard.runta.com），方案与计费结构见[官方定价页](https://runta.com/)；本页不固定价格信息。
+官网提供免费试用入口（dashboard.runta.com），方案与计费结构见[官方定价页](https://runta.com/)。
 
 ### FrontierHarness Eval 是什么？
 

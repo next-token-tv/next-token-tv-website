@@ -32,7 +32,7 @@ xAI is the AI company behind the Grok model family, founded in 2023. Its officia
 
 ### What is the relationship between SpaceXAI, SpaceX, and X (the social platform)?
 
-SpaceXAI belongs to the SpaceX organization following the acquisition announced on February 2, 2026; Grok is available on the X platform (the official timeline records Grok on X launching in December 2023). The announcement does not mention any change of ownership for the X platform, so this page makes no inference.
+SpaceXAI belongs to the SpaceX organization following the acquisition announced on February 2, 2026; Grok is available on the X platform (the official timeline records Grok on X launching in December 2023). The announcement does not mention any change of ownership for the X platform; the foregoing stays within what the announcement states.
 
 ### Where are the xAI/SpaceXAI website and Grok's website?
 

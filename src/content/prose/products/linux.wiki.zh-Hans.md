@@ -10,7 +10,7 @@ seoDescription: '了解 Linux 内核的定位、kernel.org 与官方文档入口
 
 ## Linux 内核与发行模型
 
-Linux 通常指围绕 Linux 内核构建的开放操作系统家族。内核由林纳斯·托瓦兹（Linus Torvalds）于 1991 年 9 月 17 日首次发布，采用 GNU GPL v2 许可证，托瓦兹至今仍是内核的首席维护者。内核本身只是操作系统核心；日常可用的完整系统由各发行版把内核与 GNU 工具链、包管理器、桌面环境等组件打包而成。发行版数量庞大且定位各异，本页不维护发行版列表，具体选择请以各发行版官方网站为准。
+Linux 通常指围绕 Linux 内核构建的开放操作系统家族。内核由林纳斯·托瓦兹（Linus Torvalds）于 1991 年 9 月 17 日首次发布，采用 GNU GPL v2 许可证，托瓦兹至今仍是内核的首席维护者。内核本身只是操作系统核心；日常可用的完整系统由各发行版把内核与 GNU 工具链、包管理器、桌面环境等组件打包而成。发行版数量庞大且定位各异，具体选择请以各发行版官方网站为准。
 
 [kernel.org](https://www.kernel.org/) 是 Linux 内核的官方源码发布站（The Linux Kernel Archives），由非营利组织 Linux Kernel Organization 运营，提供 mainline、stable、longterm 等分支的源码包、补丁、PGP 签名和 Git 仓库；内核开发文档在 [docs.kernel.org](https://docs.kernel.org/)。
 

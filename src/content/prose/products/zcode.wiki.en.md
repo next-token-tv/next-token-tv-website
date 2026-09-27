@@ -44,7 +44,7 @@ Officially, ZCode is tuned together with GLM models, and the page states that GL
 
 ### How much does ZCode cost?
 
-ZCode is billed through Z.ai's GLM Coding Plan with Lite, Pro, and Max tiers. Current prices and quotas are on Z.ai's official plan page; this page does not reproduce numbers.
+ZCode is billed through Z.ai's GLM Coding Plan with Lite, Pro, and Max tiers. Current prices and quotas are on Z.ai's official plan page.
 
 ### How is ZCode different from Claude Code or Codex?
 

@@ -33,7 +33,7 @@ Per the official site, the main features are:
 - **Remote access**: officially described as reachable from outside the home without a public IP address;
 - **App center**: one-click installation of media, office, development, and other app categories.
 
-Clients cover phones, tablets, computers, smart TVs, browsers, and mini-programs, with one app covering all features. Model prices, per-model specifications, and third-party app ecosystems are governed by official materials; this page does not fix numbers.
+Clients cover phones, tablets, computers, smart TVs, browsers, and mini-programs, with one app covering all features. Model prices, per-model specifications, and third-party app ecosystems are governed by official materials.
 
 ## Mentioned on the podcast
 

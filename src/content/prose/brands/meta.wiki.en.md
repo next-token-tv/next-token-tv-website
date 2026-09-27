@@ -26,7 +26,7 @@ Company history and product-line facts are drawn from [Wikipedia's Meta Platform
 - Weekly #001 also touches on first-party AI efforts, with Yang Pan saying "Claude is doing it too, and Microsoft, Meta, Z.ai — I hear they are all doing it" ([paragraph in the Chinese transcript](/weekly/001/transcript#quote-58588dc08c390dab77b7)).
 - In Weekly #002's chapter "Grok Bot / Muse: why agents need a cloud computer," Xiangyang Qiaomu says "last week we talked about Grok Bot, and Meta also released something called Muse," linking it to the return of the chatbot form ([paragraph in the Chinese transcript](/weekly/002/transcript#quote-5370d8756a780c47b0b1)); Yang Pan then discusses Muse alongside the cloud-computer direction for agents ([paragraph](/weekly/002/transcript#quote-af1872f1d5640ea3a393)).
 
-These are release mentions and host opinions from the show; for Muse, Meta's official channels are the authoritative source, and this page does not treat them as product facts.
+These are release mentions and host opinions from the show and have not been confirmed through official channels; for Muse, Meta's official channels are the authoritative source.
 
 ## Frequently asked questions
 

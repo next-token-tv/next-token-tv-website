@@ -24,7 +24,7 @@ Sam Altman（萨姆·奥尔特曼）是美国企业家和投资人，人工智�
 
 ## 在节目中的提及
 
-Sam Altman 不是本期节目的参与者，以下内容均为主理人的转述与评论。[Weekly #003](/weekly/003/transcript#chapter-12) 的"用 GPT-6 Astra 造数据、训练小模型"章节中，歸藏提到"上周那三个就是 Sam、Dario 和马斯克在聊这个减速"（见[该段落](/weekly/003/transcript#quote-fbfa1bd7482a09489c1e)），随后转述"第二天 Sam 赶紧解释，我们不是这个意思"（见[该段落](/weekly/003/transcript#quote-5b35e6205bfafaa25be5)），杨攀补充说 OpenAI 马上要推新模型。三位 AI 公司负责人讨论"减速"一事在节目中仅为主理人转述，本条目不对该转述本身作事实认定。
+Sam Altman 不是本期节目的参与者，以下内容均为主理人的转述与评论。[Weekly #003](/weekly/003/transcript#chapter-12) 的"用 GPT-6 Astra 造数据、训练小模型"章节中，歸藏提到"上周那三个就是 Sam、Dario 和马斯克在聊这个减速"（见[该段落](/weekly/003/transcript#quote-fbfa1bd7482a09489c1e)），随后转述"第二天 Sam 赶紧解释，我们不是这个意思"（见[该段落](/weekly/003/transcript#quote-5b35e6205bfafaa25be5)），杨攀补充说 OpenAI 马上要推新模型。三位 AI 公司负责人讨论"减速"一事在节目中仅为主理人转述。
 
 ## 常见问题
 

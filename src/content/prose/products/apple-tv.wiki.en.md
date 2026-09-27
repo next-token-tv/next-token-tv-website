@@ -20,7 +20,7 @@ Subscription prices, free trials, and bundle options (such as Apple One) vary by
 
 ## Discussion in the show
 
-In the chapter “Vibe Coding 把硬盘用满之后” (when vibe coding fills the disk) of Weekly #003, Guizang [relays a news item saying Apple folded Apple TV membership and related benefits into iCloud](/weekly/003/transcript#quote-7df8b0d200cdbdfda485) and mentions [AI tokens added to iCloud](/weekly/003/transcript#quote-cc569e0b99ccb850086e); [Yang Pan asks whether it is unavailable in China](/weekly/003/transcript#quote-13f9837110ee6c395ac3), and Guizang [answers that neither China nor the EU is included](/weekly/003/transcript#quote-57c1250d630d023a5b8e). This is the participants' retelling of a news item at the time; this page does not independently verify the official details, and bundling follows Apple's official pages.
+In the chapter “Vibe Coding 把硬盘用满之后” (when vibe coding fills the disk) of Weekly #003, Guizang [relays a news item saying Apple folded Apple TV membership and related benefits into iCloud](/weekly/003/transcript#quote-7df8b0d200cdbdfda485) and mentions [AI tokens added to iCloud](/weekly/003/transcript#quote-cc569e0b99ccb850086e); [Yang Pan asks whether it is unavailable in China](/weekly/003/transcript#quote-13f9837110ee6c395ac3), and Guizang [answers that neither China nor the EU is included](/weekly/003/transcript#quote-57c1250d630d023a5b8e). This is the participants' retelling of a news item at the time; its official details have not been confirmed through official channels, and bundling follows Apple's official pages.
 
 ## Frequently asked questions
 

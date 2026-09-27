@@ -47,7 +47,7 @@ The official announcement lists these entry points: Hailuo AI and the MiniMax Hu
 
 ### How do MiniMax’s products charge?
 
-Pricing differs by product: Talkie offers a Talkie+ subscription, the open platform bills by API usage, and plans for Agent, Hailuo AI, and the other apps are on their own official pages. This page does not reproduce prices.
+Pricing differs by product: Talkie offers a Talkie+ subscription, the open platform bills by API usage, and plans for Agent, Hailuo AI, and the other apps are on their own official pages.
 
 ## Sources
 

@@ -30,7 +30,7 @@ Stripe 是面向企业的在线支付与金融基础设施平台：企业接入 
 
 ### Stripe 怎么收费？
 
-Stripe 按交易收取手续费，不同国家、支付方式和产品线费率不同；当前费率见[官方价格页](https://stripe.com/pricing)，不在此固定具体数字。
+Stripe 按交易收取手续费，不同国家、支付方式和产品线费率不同；当前费率见[官方价格页](https://stripe.com/pricing)。
 
 ### Stripe 和 OpenRouter 是什么关系？
 

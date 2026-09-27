@@ -20,7 +20,7 @@ The developer entry point is the [official documentation site](https://docs.x.ai
 
 ## Boundaries
 
-The Grok assistant is free to try, and a [SuperGrok subscription](https://grok.com/plans) adds higher limits and priority access; the developer API is billed by usage, with custom quotas and deployment options for enterprise customers. This page does not fix prices or quotas — see the official pages. As with any AI assistant, search results and generated content should be verified independently, and officially listed features and regional availability can change between releases.
+The Grok assistant is free to try, and a [SuperGrok subscription](https://grok.com/plans) adds higher limits and priority access; the developer API is billed by usage, with custom quotas and deployment options for enterprise customers. Prices and quotas are on the official pages. As with any AI assistant, search results and generated content should be verified independently, and officially listed features and regional availability can change between releases.
 
 ## Mentioned on the podcast
 
@@ -44,7 +44,7 @@ Grok is the model and assistant family (chat, search, generation, API); Grok Bot
 
 ### How much does Grok cost?
 
-The official assistant pages say it is free to try, with a SuperGrok subscription adding higher limits and priority access; the developer API is usage-based. Plans and rates are at [grok.com/plans](https://grok.com/plans) and official pricing pages — this page does not fix numbers.
+The official assistant pages say it is free to try, with a SuperGrok subscription adding higher limits and priority access; the developer API is usage-based. Plans and rates are at [grok.com/plans](https://grok.com/plans) and official pricing pages.
 
 ### Where do I get access to the Grok API?
 

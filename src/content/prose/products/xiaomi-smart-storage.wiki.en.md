@@ -22,7 +22,7 @@ Per the official app listing, the main uses are:
 - **Remote access**: viewing and downloading photos, videos, and files on the home device while away;
 - **Home media and organization**: smart album organization and a home cinema center that generates poster walls automatically.
 
-The official listing emphasizes that data is stored locally on the home device and reached remotely through the app. Hardware specifications, capacities, and pricing are governed by Xiaomi's official store pages; this page does not fix numbers.
+The official listing emphasizes that data is stored locally on the home device and reached remotely through the app. Hardware specifications, capacities, and pricing are governed by Xiaomi's official store pages.
 
 ## Mentioned on the podcast
 

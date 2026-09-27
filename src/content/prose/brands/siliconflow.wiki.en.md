@@ -43,7 +43,7 @@ Sign in to the [SiliconFlow cloud console](https://cloud.siliconflow.cn/) and cr
 
 ### Which models are available on SiliconFlow?
 
-The platform aggregates language, speech, image, and video models from multiple providers; the current list is in the [official documentation](https://docs.siliconflow.cn/) and on the site's models page, which this entry does not freeze.
+The platform aggregates language, speech, image, and video models from multiple providers; the current list is in the [official documentation](https://docs.siliconflow.cn/) and on the site's models page.
 
 ## Sources
 

@@ -18,14 +18,14 @@ The main product lines listed on the official site are:
 
 - [ChatGPT](/en/wiki/products/chatgpt): an AI assistant for individuals and organizations, with ChatGPT, ChatGPT Business, ChatGPT Enterprise, and ChatGPT for Education plans shown on the site.
 - [Codex](/en/wiki/products/codex): a coding agent for software development that works across editors, terminals, desktop apps, and the cloud.
-- [The GPT model family](/en/wiki/products/gpt): the model series behind these products; current versions belong to the official site and documentation, not this page.
+- [The GPT model family](/en/wiki/products/gpt): the model series behind these products; current versions are governed by the official site and documentation.
 - API platform and developer resources: developers connect through the [OpenAI API platform](https://platform.openai.com/docs/overview) and read documentation on [OpenAI Developers](https://developers.openai.com/); the site also lists Open Models and the Apps SDK.
 
 Product-level details and boundaries live in the product entries; this page covers only the company and how its product lines relate.
 
 ## Discussion in the show
 
-In Weekly #001's chapter on cheap models entering real usage, Guizang relayed a report that OpenAI had bought 30,000 Mac minis, and [Yang Pan added that, as he understood it, the machines were not for serving models but for collecting large-scale agent-behavior training data in Mac environments (Chinese transcript)](/weekly/001/transcript#quote-37d4edd56fc77789ace4). Weekly #002 revisited the story with [the number given as "20,000 Apple machines" (Chinese transcript)](/weekly/002/transcript#quote-1d82772db1d7aed5b833). Both are host-relayed rumors; this page does not treat them as verified procurement facts.
+In Weekly #001's chapter on cheap models entering real usage, Guizang relayed a report that OpenAI had bought 30,000 Mac minis, and [Yang Pan added that, as he understood it, the machines were not for serving models but for collecting large-scale agent-behavior training data in Mac environments (Chinese transcript)](/weekly/001/transcript#quote-37d4edd56fc77789ace4). Weekly #002 revisited the story with [the number given as "20,000 Apple machines" (Chinese transcript)](/weekly/002/transcript#quote-1d82772db1d7aed5b833). Both are host-relayed rumors and have not been confirmed through official channels.
 
 Computer Use is the other recurring thread. [Yang Pan recalls in Weekly #001 that OpenAI acquired a small company working on screen reading and mouse simulation around late 2023 to early 2024 (Chinese transcript)](/weekly/001/transcript#quote-43ef12de9319f179b344), linking it to Codex's lead in Computer Use; [in Weekly #002 he frames Computer Use as the capability OpenAI sees as required for next-generation AGI (Chinese transcript)](/weekly/002/transcript#quote-633e4970e30a8309498b). These are the hosts' recollections and judgments.
 

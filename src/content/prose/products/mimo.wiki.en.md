@@ -34,7 +34,7 @@ The official site is [mimo.mi.com](https://mimo.mi.com/), with model pages, API 
 
 ### Does MiMo have an API, and how is it billed?
 
-Yes. The official API is compatible with OpenAI and Anthropic interfaces, billed through Token Plan subscriptions combined with usage, with rules such as nightly discounts documented officially. Current models and rates are on the [official site](https://mimo.mi.com/) and the [news page](https://mimo.mi.com/docs/zh-CN/news/latest/v2.5-news); this article does not fix specific prices.
+Yes. The official API is compatible with OpenAI and Anthropic interfaces, billed through Token Plan subscriptions combined with usage, with rules such as nightly discounts documented officially. Current models and rates are on the [official site](https://mimo.mi.com/) and the [news page](https://mimo.mi.com/docs/zh-CN/news/latest/v2.5-news).
 
 ### Is MiMo open source?
 

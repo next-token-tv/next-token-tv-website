@@ -18,7 +18,7 @@ YouWare 是一个面向知识工作者的 AI Agent 工作区，由 YouWare 公�
 
 主要入口是[官网](https://www.youware.com/)，页面提供免费试用的注册入口；账户体系下有桌面网页与移动 App（App Store 与 Google Play 均有上架），文件、上下文和进度可在桌面与手机之间同步。生成的网站可以直接发布，文档类产出可导出为 PowerPoint、PDF 等格式，或转入用户已有的工具继续编辑。官网还列出了 Docs、帮助中心、博客与 Discord 社区。
 
-具体方案与收费结构见[官方定价页](https://www.youware.com/pricing/)，本页不固定价格信息。
+具体方案与收费结构见[官方定价页](https://www.youware.com/pricing/)。
 
 ## 节目中的讨论
 

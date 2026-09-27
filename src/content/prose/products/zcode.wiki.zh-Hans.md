@@ -44,7 +44,7 @@ ZCode 是智谱（Z.ai）的 Agent 开发环境，定位为 GLM-5.3 的官方 Ha
 
 ### ZCode 怎么收费？
 
-ZCode 通过智谱的 GLM Coding Plan 计费，分 Lite、Pro、Max 等档位。当前价格与额度见智谱官方套餐页，本页不复制具体数字。
+ZCode 通过智谱的 GLM Coding Plan 计费，分 Lite、Pro、Max 等档位。当前价格与额度见智谱官方套餐页。
 
 ### ZCode 和 Claude Code、Codex 有什么区别？
 
