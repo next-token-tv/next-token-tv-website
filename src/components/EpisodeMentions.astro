@@ -7,7 +7,7 @@ const { episodeId, locale } = Astro.props;
 const mentions = await getEpisodeMentionEntities(episodeId);
 const prefix = locale === "en" ? "/en" : "";
 const copy = locale === "en"
-  ? { kicker: "Referenced in this episode", title: "People, brands and products", brand: "Brand", product: "Product" }
+  ? { kicker: "Referenced in this episode", title: "People, brands and products", brand: "Brands", product: "Products" }
   : { kicker: "本期提及", title: "人物、品牌与产品", brand: "品牌", product: "产品" };
 const groups = [
   {
@@ -54,14 +54,19 @@ const groups = [
   .episode-mentions { padding-block: clamp(4rem, 8vw, 8rem); border-top: 1px solid var(--ink); }
   .episode-mentions > div:first-child { display: grid; grid-template-columns: minmax(10rem, .42fr) minmax(0, 1.58fr); gap: clamp(3rem, 8vw, 10rem); align-items: end; margin-bottom: clamp(2.5rem, 5vw, 4.5rem); }
   .episode-mentions h2 { margin: 0; }
-  .episode-mention-groups { display: grid; gap: clamp(2rem, 4vw, 3.5rem); }
-  .episode-mention-group-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; padding-bottom: .75rem; border-bottom: 1px solid var(--line); }
-  .episode-mention-group-heading h3 { margin: 0; font-family: var(--sans); font-size: .75rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
-  .episode-mention-group-heading span { color: var(--muted); font-size: .72rem; font-weight: 750; }
+  .episode-mention-groups { display: grid; }
+  .episode-mention-group { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: 2rem; align-items: start; padding-block: 1.75rem; border-top: 1px solid var(--line); }
+  .episode-mention-group-heading { display: flex; align-items: baseline; gap: .65rem; padding-block: .65rem; }
+  .episode-mention-group-heading h3 { margin: 0; font-family: var(--sans); font-size: 1rem; font-weight: 850; }
+  .episode-mention-group-heading span { color: var(--muted); font-size: .8rem; font-weight: 750; }
   .episode-mention-list { display: flex; flex-wrap: wrap; gap: .65rem; }
-  .episode-mention-list a { display: inline-flex; min-height: 2.75rem; align-items: center; gap: .7rem; padding: .65rem .85rem; border: 1px solid var(--ink); transition: color 180ms ease, background 180ms ease; }
-  .episode-mention-list strong { font-size: .9rem; line-height: 1.2; }
+  .episode-mention-list a { display: inline-flex; max-width: 100%; min-height: 2.75rem; align-items: center; gap: .7rem; padding: .65rem .85rem; border: 1px solid var(--ink); transition: color 180ms ease, background 180ms ease; }
+  .episode-mention-list strong { font-size: .9rem; line-height: 1.2; overflow-wrap: anywhere; }
   .episode-mention-list b { font-size: .9rem; line-height: 1; }
   .episode-mention-list a:hover { color: var(--paper); background: var(--ink); }
-  @media (max-width: 47.5rem) { .episode-mentions > div:first-child { grid-template-columns: 1fr; gap: 1rem; } }
+  @media (max-width: 47.5rem) {
+    .episode-mentions > div:first-child { grid-template-columns: 1fr; gap: 1rem; }
+    .episode-mention-group { grid-template-columns: minmax(0, 1fr); gap: .75rem; padding-block: 1.5rem; }
+    .episode-mention-group-heading { padding-block: 0; }
+  }
 </style>
