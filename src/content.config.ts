@@ -248,7 +248,7 @@ const episodes = defineCollection({
       }).optional(),
       homepage: z.object({ "zh-Hans": episodeHomepage, en: episodeHomepage }),
       platforms: z.array(z.object({
-        platform: z.enum(["xiaoyuzhou", "apple-podcasts", "spotify", "bilibili", "youtube"]),
+        platform: z.enum(["xiaoyuzhou", "apple-podcasts", "spotify", "bilibili", "youtube", "xiaohongshu"]),
         label: localizedText,
         href: z.url().optional(),
         action: localizedText.optional(),

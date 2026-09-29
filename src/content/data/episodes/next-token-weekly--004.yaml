@@ -146,6 +146,14 @@ platforms:
     action:
       zh-Hans: 立即观看
       en: Watch now
+  - platform: xiaohongshu
+    label:
+      zh-Hans: 小红书
+      en: RedNote
+    href: https://xhslink.cn/o/7DvJUUyU0jZ
+    action:
+      zh-Hans: 立即观看
+      en: Watch now
 homepage:
   zh-Hans:
     eyebrow: 第 004 期

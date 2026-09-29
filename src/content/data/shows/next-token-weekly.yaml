@@ -35,6 +35,9 @@ subscriptions:
   - platform: youtube
     label: { zh-Hans: YouTube, en: YouTube }
     href: https://www.youtube.com/channel/UC_9pr_usdNG29RauPFwIFQw
+  - platform: xiaohongshu
+    label: { zh-Hans: 小红书, en: RedNote }
+    href: https://www.xiaohongshu.com/user/profile/661ba04100000000030307b0
 page:
   zh-Hans:
     eyebrow: Next Token 的旗舰周播

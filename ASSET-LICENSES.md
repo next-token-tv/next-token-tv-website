@@ -41,6 +41,7 @@ All platform names and logos remain trademarks of their respective owners. The f
 | `platforms/bilibili.svg` | `7fa75c0e0d409ee38cc1ead07854de5caa2112ec7320ec1e5e9beb98f5bb5d9b` | <https://github.com/simple-icons/simple-icons/blob/develop/icons/bilibili.svg> | Recolored to `#FB7299` | Simple Icons repository: CC0; individual trademark and brand rules still apply |
 | `platforms/spotify.svg` | `2fe87e718808627adb144468b87902005c097aee7b5c3b9c7cf3e2f72d84d25a` | <https://github.com/pheralb/svgl/blob/main/static/library/spotify.svg> | Original colored vector | SVGL repository: MIT; Spotify trademark and brand rules still apply |
 | `platforms/youtube.svg` | `720cb6db5c3168fd3af1144d29462df150a61bcaee25d530ffb6bbb1412f4345` | <https://github.com/pheralb/svgl/blob/main/static/library/youtube.svg> | Original colored vector | SVGL repository: MIT; YouTube trademark and brand rules still apply |
+| `platforms/xiaohongshu.svg` | `23315f1bf4178aabeefe3a35459bd7021c79eb047ca84732294c9f1a7a0b1894` | <https://cdn.simpleicons.org/xiaohongshu/FF2442> | Colored `#FF2442` | Simple Icons repository: CC0; individual trademark and brand rules still apply |
 
 Relevant upstream notices:
 

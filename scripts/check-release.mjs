@@ -218,6 +218,7 @@ for (const [file, html] of pages) {
   }
 }
 const hosts = {
+  xiaohongshu: ['www.xiaohongshu.com', 'xiaohongshu.com', 'xhslink.com', 'xhslink.cn'],
   xiaoyuzhou: ['www.xiaoyuzhoufm.com'], 'apple-podcasts': ['podcasts.apple.com'],
   spotify: ['open.spotify.com'], bilibili: ['www.bilibili.com', 'b23.tv'], youtube: ['www.youtube.com', 'youtube.com', 'youtu.be'],
 };
