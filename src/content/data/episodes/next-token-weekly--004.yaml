@@ -120,8 +120,8 @@ platforms:
       en: Xiaoyuzhou
     href: https://www.xiaoyuzhoufm.com/episode/6ab95070e742e36efcbbe1f2
     action:
-      zh-Hans: 立即收听
-      en: Listen now
+      zh-Hans: 收听 / 收看
+      en: Listen / watch
   - platform: apple-podcasts
     label:
       zh-Hans: Apple Podcasts
@@ -143,6 +143,14 @@ platforms:
       zh-Hans: 哔哩哔哩
       en: Bilibili
     href: https://www.bilibili.com/video/BV1AAaa6VE88/
+    action:
+      zh-Hans: 立即观看
+      en: Watch now
+  - platform: youtube
+    label:
+      zh-Hans: YouTube
+      en: YouTube
+    href: https://youtu.be/p-OBIBt5OR0
     action:
       zh-Hans: 立即观看
       en: Watch now
