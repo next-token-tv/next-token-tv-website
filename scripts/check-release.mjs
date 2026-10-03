@@ -5,9 +5,11 @@ import { fileURLToPath } from 'node:url';
 import { load } from 'js-yaml';
 import { episodeReleaseErrors } from './lib/episode-release.mjs';
 import { needsRecordingScheduleRefresh } from './lib/announcement-schedule.mjs';
+import { createLocalLinkChecker } from './lib/local-link-check.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = resolve(root, 'dist');
+const checkLocalLink = createLocalLinkChecker(dist);
 const errors = [];
 const pages = new Map();
 const publishedText = new Map();
@@ -203,20 +205,22 @@ for (const [file, content] of publishedText) {
 
 for (const [file, html] of pages) {
   const pagePath = file.slice(dist.length).replace(/index\.html$/, '');
-  for (const [, raw] of html.matchAll(/\bhref="([^"]+)"/g)) {
-    const url = new URL(raw.replaceAll('&amp;', '&'), `https://nexttoken.tv${pagePath}`);
-    if (url.origin !== 'https://nexttoken.tv') continue;
-    const target = resolve(dist, `.${decodeURIComponent(url.pathname)}`);
-    let destination = target;
-    try {
-      if ((await stat(target)).isDirectory()) destination = resolve(target, 'index.html');
-      await stat(destination);
-      if (url.hash && pages.has(destination)) {
-        const id = decodeURIComponent(url.hash.slice(1));
-        if (!pages.get(destination).includes(`id="${id}"`)) errors.push(`${pagePath}: missing anchor ${raw}`);
-      }
-    } catch { errors.push(`${pagePath}: missing destination ${raw}`); }
+  for (const [, raw] of html.matchAll(/\b(?:href|src|poster|action)="([^"]+)"/g)) {
+    const error=await checkLocalLink(raw,pagePath==='/'?'/':pagePath.replace(/\/$/,''));
+    if(error)errors.push(`${pagePath}: ${error}`);
   }
+}
+for(const locale of ['zh-Hans','en']) {
+  const path=resolve(dist,`search/${locale}.json`);
+  try {
+    const documents=JSON.parse(await readFile(path,'utf8'));
+    if(!Array.isArray(documents))throw new Error('expected a search document array');
+    for(const document of documents) {
+      if(typeof document.href!=='string')throw new Error('missing search result href');
+      const error=await checkLocalLink(document.href);
+      if(error)errors.push(`/search/${locale}.json: ${error}`);
+    }
+  }catch(error){errors.push(`/search/${locale}.json: ${error.message}`);}
 }
 const directory = resolve(root, 'src/content/data/episodes');
 let episodes = 0;
@@ -261,5 +265,5 @@ for (const prefix of ['', '/en']) {
   }
 }
 if (errors.length) throw new Error(errors.join('\n'));
-console.log(`Release checks passed: ${pages.size} pages, ${episodes} episodes; redirects, slashless internal URLs, links, anchors, localized episode routes, public Wiki API, announcement dates and platform URL hosts.`);
+console.log(`Release checks passed: ${pages.size} pages, ${episodes} episodes; redirects, slashless internal URLs, links, resources, anchors, both search indexes, localized episode routes, public Wiki API, announcement dates and platform URL hosts.`);
 console.log('External platform availability is not inferred from URL validation; confirm playback before publication.');

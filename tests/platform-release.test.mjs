@@ -66,3 +66,14 @@ test('explicit negative media status still blocks downgrades despite legacy fall
   const episode = { platforms: [{ platform: 'xiaoyuzhou', href: record.public_url, action: mediaActions.both }], media: { audio: true, video: true } };
   assert.throws(() => planPlatformSync(episode, publication({ ...record, mode: undefined, video_status: 'review-pending' })), /downgrade/);
 });
+
+test('explicit release states distinguish uploading, review and publication',()=>{
+ const evidence={kind:'user-confirmation',description:'Public playback confirmed by operator'};
+ for(const state of ['uploaded','reviewing','unavailable']) {
+  const plan=planPlatformSync(blank,publication({...record,media_release:{audio:{state:'published',evidence},video:{state}}}));
+  assert.deepEqual(plan.media,{audio:true,video:false});
+ }
+ const plan=planPlatformSync(blank,publication({...record,media_release:{audio:{state:'published',evidence},video:{state:'published',evidence}}}));
+ assert.deepEqual(plan.media,{audio:true,video:true});
+ assert.throws(()=>planPlatformSync(blank,publication({...record,media_release:{audio:{state:'published'},video:{state:'uploaded'}}})),/evidence/);
+});

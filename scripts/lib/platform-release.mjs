@@ -4,6 +4,19 @@ const published = status => typeof status === 'string' && status.startsWith('pub
 
 export function publishedMedia(id, record, previous) {
   const kind = platforms[id].media;
+  if (record.media_release) {
+    const result = {};
+    for (const medium of ['audio', 'video']) {
+      const release = record.media_release[medium];
+      if (!release || !['unavailable', 'uploaded', 'reviewing', 'published'].includes(release.state))
+        throw new Error(`${id}: explicit ${medium} release state is required`);
+      if (release.state === 'published' && (!release.evidence?.kind || !release.evidence?.description))
+        throw new Error(`${id}: ${medium} publication requires evidence`);
+      result[medium] = release.state === 'published';
+    }
+    if (!result.audio && !result.video) throw new Error(`${id}: no published medium; reconcile before syncing`);
+    return result;
+  }
   if (kind === 'audio') return { audio: true, video: false };
   if (kind === 'video') return { audio: record.mode === 'audio-only', video: record.mode !== 'audio-only' };
   // Resolve each medium independently. Only missing evidence may inherit the
@@ -37,7 +50,7 @@ export function planPlatformSync(episode, publication) {
     // Historical aggregate review status describes an upload, not a retraction
     // of the existing episode. It may preserve a link, never introduce one.
     const legacyReview = record?.status === 'video-reviewing' && sameUrl;
-    if ((!published(record?.status) && !legacyReview) || !record.public_url) continue;
+    if ((!published(record?.status) && !Object.values(record?.media_release ?? {}).some(value => value.state === 'published') && !legacyReview) || !record.public_url) continue;
     if (!validPlatformUrl(id, record.public_url)) throw new Error(`${id}: invalid public URL`);
     const available = publishedMedia(id, record, sameUrl ? currentMedia(existing) : undefined);
     media.audio ||= available.audio;

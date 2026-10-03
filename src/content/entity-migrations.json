@@ -1,0 +1,106 @@
+[
+  {
+    "from": "brand:qwen",
+    "to": "product:qwen"
+  },
+  {
+    "from": "product:minimax-h3",
+    "to": "product:minimax"
+  },
+  {
+    "from": "product:glm-5-3-flash",
+    "to": "product:glm"
+  },
+  {
+    "from": "product:claude-opus-4-8",
+    "to": "product:claude"
+  },
+  {
+    "from": "product:claude-fable-5-1",
+    "to": "product:claude"
+  },
+  {
+    "from": "brand:workbuddy",
+    "to": "product:workbuddy"
+  },
+  {
+    "from": "person:yang-pan",
+    "to": "person:yangpan"
+  },
+  {
+    "from": "brand:android",
+    "to": "product:android"
+  },
+  {
+    "from": "brand:bilibili",
+    "to": "product:bilibili"
+  },
+  {
+    "from": "brand:devin",
+    "to": "product:devin"
+  },
+  {
+    "from": "brand:doubao",
+    "to": "product:doubao"
+  },
+  {
+    "from": "brand:fal-ai",
+    "to": "product:fal-ai"
+  },
+  {
+    "from": "brand:feishu",
+    "to": "product:feishu"
+  },
+  {
+    "from": "brand:openrouter",
+    "to": "product:openrouter"
+  },
+  {
+    "from": "brand:runta",
+    "to": "product:runta"
+  },
+  {
+    "from": "brand:spotify",
+    "to": "product:spotify"
+  },
+  {
+    "from": "brand:wechat",
+    "to": "product:wechat"
+  },
+  {
+    "from": "brand:xianyu",
+    "to": "product:xianyu"
+  },
+  {
+    "from": "brand:xiaohongshu",
+    "to": "product:xiaohongshu"
+  },
+  {
+    "from": "brand:xiaoyuzhou",
+    "to": "product:xiaoyuzhou"
+  },
+  {
+    "from": "brand:youtube",
+    "to": "product:youtube"
+  },
+  {
+    "from": "product:fireworks-ai",
+    "to": "brand:fireworks-ai"
+  },
+  {
+    "from": "brand:nodejs",
+    "to": "product:nodejs"
+  },
+  {
+    "from": "brand:all-in",
+    "to": "product:all-in"
+  },
+  {
+    "from": "brand:apple-wwdc",
+    "to": "product:apple-wwdc"
+  },
+  {
+    "from": "brand:openai-devday",
+    "to": "product:openai-devday"
+  }
+]
