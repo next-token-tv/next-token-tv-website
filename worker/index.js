@@ -2,9 +2,23 @@
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    // Local preview remains HTTP; only the configured production host upgrades.
-    if (url.hostname !== 'nexttoken.tv' || url.protocol !== 'http:') {
+    // Local preview retains the asset router's behavior.
+    if (url.hostname !== 'nexttoken.tv') {
       return env.ASSETS.fetch(request);
+    }
+    if (url.protocol === 'https:') {
+      const response = await env.ASSETS.fetch(request);
+      const location = response.headers.get('Location');
+      // The asset router uses 307 for drop-trailing-slash. Only promote that
+      // exact normalization, after routing confirms the destination exists.
+      if (response.status === 307 && location && url.pathname !== '/' && url.pathname.endsWith('/')) {
+        const target = new URL(location, url);
+        if (target.origin === url.origin && target.pathname === url.pathname.slice(0, -1)
+          && target.search === url.search && target.hash === url.hash) {
+          return new Response(response.body, { status: 308, headers: response.headers });
+        }
+      }
+      return response;
     }
 
     url.protocol = 'https:';

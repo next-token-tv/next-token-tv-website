@@ -38,3 +38,39 @@ test('asset redirect loops are bounded', async () => {
   const response = await worker.fetch(new Request('http://nexttoken.tv/a'), { ASSETS: { fetch: async (request) => Response.redirect(new URL(request.url).pathname === '/a' ? 'https://nexttoken.tv/b' : 'https://nexttoken.tv/a', 301) } });
   assert.equal(response.status, 508);
 });
+
+test('production slash normalization becomes permanent without another asset request', async () => {
+  for (const method of ['GET', 'HEAD']) {
+    for (const path of ['/en/', '/en/wiki/brands/agi-bar/', '/weekly/002/transcript/']) {
+      const request = new Request(`https://nexttoken.tv${path}?x=%2F&a=1&a=2`, { method });
+      const location = path.slice(0, -1) + '?x=%2F&a=1&a=2';
+      let calls = 0;
+      const response = await worker.fetch(request, { ASSETS: { fetch: async (received) => {
+        calls++;
+        assert.equal(received, request);
+        return new Response(null, { status: 307, headers: { Location: location, 'X-Test': 'asset' } });
+      } } });
+      assert.equal(response.status, 308);
+      assert.equal(response.headers.get('Location'), location);
+      assert.equal(response.headers.get('X-Test'), 'asset');
+      assert.equal(calls, 1);
+    }
+  }
+});
+
+test('unrelated redirects, root, files, missing paths and local preview remain unchanged', async () => {
+  for (const [url, status, location] of [
+    ['https://nexttoken.tv/', 307, '/en'],
+    ['https://nexttoken.tv/file.svg', 200, null],
+    ['https://nexttoken.tv/missing/', 404, null],
+    ['https://nexttoken.tv/products/minimax-h3/', 301, '/wiki/products/minimax'],
+    ['https://nexttoken.tv/en/', 307, 'https://example.com/en'],
+    ['https://nexttoken.tv/en/?a=1', 307, '/en?a=2'],
+    ['https://nexttoken.tv/en/', 307, '/en#section'],
+    ['https://nexttoken.tv/en/', 302, '/en'],
+    ['http://localhost:4176/en/', 307, '/en'],
+  ]) {
+    const asset = new Response(null, { status, headers: location ? { Location: location } : {} });
+    assert.equal(await worker.fetch(new Request(url), { ASSETS: { fetch: async () => asset } }), asset);
+  }
+});
