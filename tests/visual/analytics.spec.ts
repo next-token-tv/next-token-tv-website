@@ -1,5 +1,10 @@
 import { test, expect, type Page, type APIRequestContext } from '@playwright/test';
 
+test.afterEach(async ({ page }) => {
+  // Drain local proxy requests before Playwright disposes the request fixture.
+  await page.unrouteAll({ behavior: 'wait' });
+});
+
 async function simulatedProduction(page: Page, request: APIRequestContext, baseURL: string, path: string) {
   // All production-origin pages are served from the local build. No analytics
   // request or outbound platform navigation leaves this test browser.
