@@ -1,5 +1,5 @@
 ---
-entityType: brand
+entityType: product
 entity: nodejs
 locale: zh-Hans
 slot: wiki

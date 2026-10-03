@@ -9,6 +9,7 @@ export const productKind = {
   "model-family": { "zh-Hans": "模型家族", en: "Model family" },
   model: { "zh-Hans": "模型", en: "Model" },
   show: { "zh-Hans": "节目", en: "Show" },
+  event: { "zh-Hans": "活动", en: "Event" },
   game: { "zh-Hans": "游戏", en: "Game" },
   book: { "zh-Hans": "图书", en: "Book" },
   series: { "zh-Hans": "剧集", en: "TV series" },

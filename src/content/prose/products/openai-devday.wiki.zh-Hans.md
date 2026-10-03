@@ -1,16 +1,16 @@
 ---
-entityType: brand
+entityType: product
 entity: openai-devday
 locale: zh-Hans
 slot: wiki
 updatedAt: '2026-09-27'
 seoTitle: 'OpenAI DevDay：开发者大会的届次、日期与主要发布｜Next Token Wiki'
-seoDescription: '了解 OpenAI DevDay：首届 2023 年 11 月 6 日的发布、2025 与 2026 届的安排，以及这个开发者活动品牌的定位。'
+seoDescription: '了解 OpenAI DevDay：首届 2023 年 11 月 6 日的发布、2025 与 2026 届的安排，以及这个开发者技术活动的定位。'
 ---
 
 ## OpenAI DevDay
 
-DevDay 是 [OpenAI](/wiki/brands/openai) 面向开发者举办的技术活动品牌，参与者是使用 OpenAI 接口与模型构建产品的工程师、技术创始人和研究者。按官方活动页的描述，活动内容包括技术分会场、动手演示与工作坊，以及开发者之间的交流。OpenAI 的模型与接口本身见 [GPT 模型家族](/wiki/products/gpt)等相关条目。
+DevDay 是 [OpenAI](/wiki/brands/openai) 面向开发者举办的技术技术活动，参与者是使用 OpenAI 接口与模型构建产品的工程师、技术创始人和研究者。按官方活动页的描述，活动内容包括技术分会场、动手演示与工作坊，以及开发者之间的交流。OpenAI 的模型与接口本身见 [GPT 模型家族](/wiki/products/gpt)等相关条目。
 
 ## 届次与主要发布
 

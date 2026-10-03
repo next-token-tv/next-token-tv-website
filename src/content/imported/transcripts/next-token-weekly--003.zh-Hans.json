@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "conversionVersion": "1.4.0",
+  "conversionVersion": "1.4.2",
   "episodeId": "next-token-weekly--003",
   "locale": "zh-Hans",
   "title": "Next Token Weekly #003 阅读文字稿",
@@ -1289,7 +1289,18 @@
             [
               {
                 "type": "text",
-                "value": "对，你说想起来，我这周一直脑中萦绕一个东西，借梁文锋之前的什么文字稿，说什么我们就不做多模态，觉得语言模型就很厉害，流出来现在其实都打脸了。"
+                "value": "对，你说想起来，我这周一直脑中萦绕一个东西，借"
+              },
+              {
+                "type": "entity-link",
+                "value": "梁文锋",
+                "entityType": "person",
+                "entityId": "liang-wenfeng",
+                "href": "/wiki/people/liang-wenfeng"
+              },
+              {
+                "type": "text",
+                "value": "之前的什么文字稿，说什么我们就不做多模态，觉得语言模型就很厉害，流出来现在其实都打脸了。"
               }
             ]
           ],
@@ -1629,18 +1640,18 @@
             [
               {
                 "type": "text",
-                "value": "你说玩《"
+                "value": "你说玩"
               },
               {
                 "type": "entity-link",
-                "value": "魔法门",
+                "value": "《魔法门》",
                 "entityType": "product",
                 "entityId": "heroes-of-might-and-magic",
                 "href": "/wiki/products/heroes-of-might-and-magic"
               },
               {
                 "type": "text",
-                "value": "》是不是这种？这种游戏叫什么，走宫格的，就那么几个选项，"
+                "value": "是不是这种？这种游戏叫什么，走宫格的，就那么几个选项，"
               }
             ]
           ],
@@ -2279,18 +2290,18 @@
             [
               {
                 "type": "text",
-                "value": "你现在有一本小说，《"
+                "value": "你现在有一本小说，"
               },
               {
                 "type": "entity-link",
-                "value": "银河系漫游指南",
+                "value": "《银河系漫游指南》",
                 "entityType": "product",
                 "entityId": "hitchhikers-guide-to-the-galaxy",
                 "href": "/wiki/products/hitchhikers-guide-to-the-galaxy"
               },
               {
                 "type": "text",
-                "value": "》那个 42 嘛，42 就是终极答案，其实可以的。"
+                "value": "那个 42 嘛，42 就是终极答案，其实可以的。"
               }
             ]
           ],
@@ -5893,9 +5904,9 @@
               {
                 "type": "entity-link",
                 "value": "All-In",
-                "entityType": "brand",
-                "entityId": "all-in",
-                "href": "/wiki/brands/all-in"
+                "entityType": "product",
+                "entityId": "all-in-summit",
+                "href": "/wiki/products/all-in-summit"
               },
               {
                 "type": "text",
@@ -17984,7 +17995,7 @@
   ],
   "provenance": {
     "sourceRepository": "next-token",
-    "sourceRevision": "5aaca1d5fca5f4a382d6106dae0d62a115766610",
+    "sourceRevision": "3fdea8335faa822deb7a94480e322662df984f20",
     "sourceState": "committed",
     "sourcePath": "shows/weekly/episodes/003/04-release/copy/transcript.zh-Hans.md",
     "sourceSha256": "10959cb9dd57a18a456bcd9f7cbfc2728c0c8f7bcfc14c1b4d648e756097b98e"

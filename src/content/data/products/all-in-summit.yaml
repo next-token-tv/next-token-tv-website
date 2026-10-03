@@ -1,0 +1,16 @@
+kind: event
+name:
+  zh-Hans: All-In Summit
+  en: All-In Summit
+summary:
+  zh-Hans: All-In 团队举办的线下峰会，围绕商业、科技与社会议题展开对话。
+  en: An in-person summit hosted by the All-In team, featuring conversations on business, technology and society.
+aliases: []
+official:
+  website: https://allin.com/summit
+lastVerifiedAt: '2026-10-03'
+sources:
+  - label: {zh-Hans: 活动官网, en: Official event website}
+    href: https://allin.com/summit
+  - label: {zh-Hans: All-In 官网, en: All-In website}
+    href: https://allin.com/

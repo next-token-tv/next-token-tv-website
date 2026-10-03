@@ -85,7 +85,6 @@ mentions:
   brands:
     - yizhi-yanhua
     - alibaba
-    - all-in
     - amd
     - anthropic
     - apple
@@ -111,6 +110,7 @@ mentions:
     - zhipu
     - zte
   products:
+    - all-in-summit
     - jevable
     - heroes-of-might-and-magic
     - hitchhikers-guide-to-the-galaxy

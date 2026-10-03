@@ -1,10 +1,10 @@
-kind: internet-software-brand
+kind: developer-tool
 name:
   zh-Hans: Node.js
   en: Node.js
 summary:
-  zh-Hans: 围绕开源 JavaScript 运行时 Node.js 的技术品牌与开发者生态。
-  en: The technology brand and developer ecosystem around the open-source Node.js JavaScript runtime.
+  zh-Hans: 用于在浏览器之外执行 JavaScript 的开源、跨平台运行时。
+  en: An open-source, cross-platform runtime for executing JavaScript outside the browser.
 aliases:
   - Node
 official:

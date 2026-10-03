@@ -1,5 +1,5 @@
 ---
-entityType: brand
+entityType: product
 entity: openai-devday
 locale: en
 slot: wiki

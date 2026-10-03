@@ -1,0 +1,21 @@
+kind: ai-brand
+name:
+  zh-Hans: Fireworks AI
+  en: Fireworks AI
+summary:
+  zh-Hans: 提供开放模型推理、训练与部署服务的 AI 基础设施公司。
+  en: An AI infrastructure company providing inference, training and deployment services for open models.
+aliases:
+  - Fireworks
+official:
+  website: https://fireworks.ai/
+sources:
+  - label:
+      zh-Hans: 官方网站
+      en: Official website
+    href: https://fireworks.ai/
+  - label:
+      zh-Hans: 创始团队
+      en: Founding team
+    href: https://fireworks.ai/team
+lastVerifiedAt: '2026-10-03'

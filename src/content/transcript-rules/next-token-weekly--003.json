@@ -3,6 +3,7 @@
   "timingSource": "shows/weekly/episodes/003/04-release/video/subtitles.zh-Hans.srt",
   "excludedEntities": ["product:diandian"],
   "scopedAliases": [
+    {"entityType": "product", "id": "all-in-summit", "alias": "All-In"},
     {"entityType": "product", "id": "x", "alias": "刷推"},
     {"entityType": "product", "id": "heroes-of-might-and-magic", "alias": "魔法门"},
     {"entityType": "person", "id": "sam-altman", "alias": "Sam"},
@@ -16,6 +17,7 @@
     {"entityType": "product", "id": "wechat-input-method", "alias": "微信语音输入法"}
   ],
   "resolutions": {
+    "All-In": {"entityType": "product", "id": "all-in-summit"},
     "Next Token Weekly": {"entityType": "show", "id": "next-token-weekly"},
     "DeepSeek": {"entityType": "brand", "id": "deepseek"},
     "MiniMax": {"entityType": "product", "id": "minimax"},

@@ -1,5 +1,5 @@
 ---
-entityType: brand
+entityType: product
 entity: nodejs
 locale: en
 slot: wiki

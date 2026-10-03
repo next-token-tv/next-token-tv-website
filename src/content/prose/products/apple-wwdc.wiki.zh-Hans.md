@@ -1,5 +1,5 @@
 ---
-entityType: brand
+entityType: product
 entity: apple-wwdc
 locale: zh-Hans
 slot: wiki

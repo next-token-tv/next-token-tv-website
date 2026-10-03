@@ -19,15 +19,16 @@ mentions:
     - meta
     - microsoft
     - next-token
-    - nodejs
     - openai
-    - openai-devday
     - siliconflow
+    - fireworks-ai
     - stepfun
     - tencent
     - xiaomi
-    - apple-wwdc
   products:
+    - nodejs
+    - apple-wwdc
+    - openai-devday
     - adobe-premiere
     - after-effects
     - amazon
@@ -44,7 +45,6 @@ mentions:
     - ego-lite
     - facebook
     - ffmpeg
-    - fireworks-ai
     - fliggy
     - gemini
     - gmail

@@ -3311,9 +3311,9 @@
               {
                 "type": "entity-link",
                 "value": "Dev Day",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "openai-devday",
-                "href": "/wiki/brands/openai-devday"
+                "href": "/wiki/products/openai-devday"
               },
               {
                 "type": "text",
@@ -9167,9 +9167,9 @@
               {
                 "type": "entity-link",
                 "value": "Node",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "nodejs",
-                "href": "/wiki/brands/nodejs"
+                "href": "/wiki/products/nodejs"
               },
               {
                 "type": "text",
@@ -9571,9 +9571,9 @@
               {
                 "type": "entity-link",
                 "value": "Node.js",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "nodejs",
-                "href": "/wiki/brands/nodejs"
+                "href": "/wiki/products/nodejs"
               },
               {
                 "type": "text",
@@ -11965,9 +11965,9 @@
               {
                 "type": "entity-link",
                 "value": "Fireworks",
-                "entityType": "product",
+                "entityType": "brand",
                 "entityId": "fireworks-ai",
-                "href": "/wiki/products/fireworks-ai"
+                "href": "/wiki/brands/fireworks-ai"
               },
               {
                 "type": "text",
@@ -13133,9 +13133,9 @@
               {
                 "type": "entity-link",
                 "value": "WWDC",
-                "entityType": "brand",
+                "entityType": "product",
                 "entityId": "apple-wwdc",
-                "href": "/wiki/brands/apple-wwdc"
+                "href": "/wiki/products/apple-wwdc"
               },
               {
                 "type": "text",
@@ -15333,7 +15333,7 @@
   ],
   "provenance": {
     "sourceRepository": "next-token",
-    "sourceRevision": "82a657bca51627b23ea36c538683672277dc382f",
+    "sourceRevision": "3fdea8335faa822deb7a94480e322662df984f20",
     "sourceState": "committed",
     "sourcePath": "shows/weekly/episodes/004/03-post-production/transcripts/reading/transcript.zh-Hans.md",
     "sourceSha256": "16c15ebaba8015f5478b62e9174ea8288ecbd4977a756abb7754dd96193d228d"
