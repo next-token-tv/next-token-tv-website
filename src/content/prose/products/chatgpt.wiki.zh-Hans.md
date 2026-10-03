@@ -3,7 +3,7 @@ entityType: product
 entity: chatgpt
 locale: zh-Hans
 slot: wiki
-updatedAt: '2026-09-17'
+updatedAt: '2026-10-03'
 seoTitle: 'ChatGPT：通用 AI 助手、使用方式与边界｜Next Token Wiki'
 seoDescription: '了解 ChatGPT 的定位、常见使用方式、官方入口与需要人工核验的边界。'
 ---
@@ -20,7 +20,9 @@ ChatGPT 适合辅助思考和整理，但重要事实与决定仍需人工核验
 
 ## 节目中的讨论
 
-Weekly #002 的“平台内 AI 助手：入口简单，体验才完整”章节中，杨攀举例说，原本会问 DeepSeek 或 ChatGPT 的 Pocket 相机问题，因为微信小微入口更方便而改为询问小微；这里呈现的是入口便利性的具体观察，可阅读[对应中文章节](/weekly/002/transcript#chapter-17)。
+Weekly #002 中，杨攀举了一个 Pocket 相机设置的例子：他原本可能去问 DeepSeek 或 ChatGPT，但因为微信小微就在常用入口里，最后直接向小微提问。他对答案的评价也只是够用。这里讨论的是日常小问题中入口便利性对选择的影响，不是 ChatGPT 与小微的回答质量对照试验。
+
+阅读[杨攀的具体经历](/weekly/002/transcript#quote-dc7d0bbb900981555418)，或回到 [Weekly #002](/weekly/002) 了解平台内 AI 助手的完整讨论。
 
 ## 常见问题
 

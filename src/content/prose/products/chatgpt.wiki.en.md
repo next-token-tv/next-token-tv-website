@@ -3,7 +3,7 @@ entityType: product
 entity: chatgpt
 locale: en
 slot: wiki
-updatedAt: '2026-09-18'
+updatedAt: '2026-10-03'
 seoTitle: 'ChatGPT: general AI assistant, uses, and boundaries | Next Token Wiki'
 seoDescription: 'Learn what ChatGPT is, where to start, what it can help with, and which answers still need human review.'
 ---
@@ -20,7 +20,9 @@ ChatGPT is useful for thinking and organizing, while important facts and decisio
 
 ## Discussion in the show
 
-In Weekly #002’s chapter “Platform AI assistants: a simple entry makes the experience complete,” Yang Pan gives a Pocket camera example: a question he would otherwise ask DeepSeek or ChatGPT was asked to WeChat Xiaowei because that entry was more convenient. See the [Chinese transcript chapter](/weekly/002/transcript#chapter-17); an English transcript chapter is not available.
+In Weekly #002, Yangpan described a Pocket camera settings question. He might normally have asked DeepSeek or ChatGPT, but used WeChat’s Xiaowei because it was readily accessible in an app he was already using. He described the answer as adequate. The example concerns how convenience can shape the choice of assistant for an everyday question; it is not a controlled comparison of ChatGPT’s and Xiaowei’s answer quality.
+
+Read [Yangpan’s account in the Chinese transcript](/weekly/002/transcript#quote-dc7d0bbb900981555418), or visit [Weekly #002](/en/weekly/002) for the episode overview.
 
 ## Frequently asked questions
 

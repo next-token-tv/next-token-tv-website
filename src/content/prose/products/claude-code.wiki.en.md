@@ -3,7 +3,7 @@ entityType: product
 entity: claude-code
 locale: en
 slot: wiki
-updatedAt: '2026-09-18'
+updatedAt: '2026-10-03'
 seoTitle: 'Claude Code: terminal coding agent, uses, and permission boundaries | Next Token Wiki'
 seoDescription: 'Learn how Claude Code works with repositories and commands, and why software-engineering review and permissions still matter.'
 ---
@@ -20,7 +20,9 @@ Terminal access can expose source code, environment variables, and external serv
 
 ## Discussion in the show
 
-Weekly #001’s chapter “Harness evaluation: completion rate, token cost, and the kill line” discusses Claude Code alongside Codex and Claude in the context of tools, context, and execution environments; see the [Chinese transcript chapter](/weekly/001/transcript#chapter-06). An English transcript chapter is not available.
+In Weekly #001, Yangpan relayed an observation from the Harness Eval discussion that the same model could incur different costs across agent tools. Orange offered his interpretation of Claude Code’s prompts and tool architecture. This passage does not provide a complete, reproducible test setup, so these remarks should not be treated as a general claim about Claude Code’s current costs. A comparison needs the task, model, tool configuration, and test date—not only the model name.
+
+See [Yangpan’s cost observation](/weekly/001/transcript#quote-6f90037550cc0e8992e2) and [Orange’s interpretation](/weekly/001/transcript#quote-adbfd09f2a22e4ed4430) in the Chinese transcript, or visit [Weekly #001](/en/weekly/001) for the episode overview.
 
 ## Frequently asked questions
 

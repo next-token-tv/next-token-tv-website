@@ -3,7 +3,7 @@ entityType: product
 entity: codex
 locale: zh-Hans
 slot: wiki
-updatedAt: '2026-09-17'
+updatedAt: '2026-10-03'
 seoTitle: 'Codex：OpenAI 编码 Agent、使用场景与边界｜Next Token Wiki'
 seoDescription: '了解 OpenAI Codex 如何服务软件开发、官方文档入口以及 Agent 工作流中的审阅边界。'
 ---
@@ -19,6 +19,10 @@ Codex 适合把功能、修复、重构、测试或文档任务交给一个能�
 Codex 生成的改动仍应经过差异审阅和项目检查；需要通用对话与文件分析时，可了解 [ChatGPT](/wiki/products/chatgpt)。
 
 ## 节目中的讨论
+
+Weekly #001 中，杨攀回顾为节目准备主理人背景资料的经历：他将相同需求交给 Codex 和 DeepSeek Harness，感觉后者找到了更多资料。他同时表示没有仔细拆解相关搜索机制。这个例子记录的是一次具体任务中的个人体验，没有控制模型、搜索工具和运行配置，不能据此推导两者在所有研究任务中的优劣。
+
+可从[这段调研经历](/weekly/001/transcript#quote-dd5cd61bdd72b4d6d45f)了解当时的任务与分歧，再回到 [Weekly #001](/weekly/001) 查看完整节目。
 
 Weekly #002 的“我们如何用 Agent 制作和发布播客”章节中，杨攀分享了用 Codex 协助发布播客、启动录音和用 FFmpeg 剪辑的体验；参见[对应中文章节](/weekly/002/transcript#chapter-05)。
 

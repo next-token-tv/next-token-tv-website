@@ -3,7 +3,7 @@ entityType: product
 entity: claude-code
 locale: zh-Hans
 slot: wiki
-updatedAt: '2026-09-17'
+updatedAt: '2026-10-03'
 seoTitle: 'Claude Code：终端编码 Agent、用途与权限边界｜Next Token Wiki'
 seoDescription: '了解 Claude Code 如何读写代码库、运行命令，以及软件工程中必须保留的审阅和权限边界。'
 ---
@@ -20,7 +20,9 @@ Claude Code 适合探索陌生仓库、实现功能、修复问题、运行测�
 
 ## 节目中的讨论
 
-Weekly #001 的“Harness 评测：完成率、Token 成本与‘斩杀线’”章节把 Claude Code 与 Codex、Claude 放在工具、上下文和执行环境的语境中讨论；参见[对应中文章节](/weekly/001/transcript#chapter-06)。
+Weekly #001 讨论 Harness Eval 时，杨攀转述了同一模型在不同 Agent 工具中成本不同的观察；橘子则从 Claude Code 的提示词和工具架构解释自己的判断。节目没有在这段讨论中给出可复现的完整测试条件，因此这些观点不能当作 Claude Code 当前成本的通用结论。比较编码 Agent 时，需要同时核对任务、模型、工具配置和测试时间，而不能把全部差异归于模型名称。
+
+参见[杨攀对成本的转述](/weekly/001/transcript#quote-6f90037550cc0e8992e2)、[橘子的架构判断](/weekly/001/transcript#quote-adbfd09f2a22e4ed4430)，或回到 [Weekly #001](/weekly/001) 收听完整语境。
 
 ## 常见问题
 

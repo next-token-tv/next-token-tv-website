@@ -3,7 +3,7 @@ entityType: product
 entity: codex
 locale: en
 slot: wiki
-updatedAt: '2026-09-18'
+updatedAt: '2026-10-03'
 seoTitle: 'Codex: OpenAI’s coding agent, uses, and boundaries | Next Token Wiki'
 seoDescription: 'Learn how OpenAI Codex supports software development, where its documentation lives, and why review still matters.'
 ---
@@ -19,6 +19,10 @@ Codex is suited to feature work, fixes, refactors, tests, and documentation when
 Codex output still needs diff review and project checks. For general conversation and file analysis, see [ChatGPT](/en/wiki/products/chatgpt).
 
 ## Discussion in the show
+
+In Weekly #001, Yangpan described researching the co-hosts’ backgrounds for the show. He gave the same request to Codex and DeepSeek Harness and felt that the latter found more material. He also said he had not examined the search mechanism closely. This is an account of one task, without controlled model, search-tool, or runtime settings; it does not establish a general ranking for research work.
+
+Read the [research discussion in the Chinese transcript](/weekly/001/transcript#quote-dd5cd61bdd72b4d6d45f), then visit [Weekly #001](/en/weekly/001) for the episode overview.
 
 In Weekly #002’s chapter on producing and publishing a podcast, Yang Pan shares using Codex around podcast publishing, starting a recording, and editing with FFmpeg. See the [Chinese transcript chapter](/weekly/002/transcript#chapter-05); an English transcript chapter is not available.
 

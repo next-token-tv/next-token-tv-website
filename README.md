@@ -28,7 +28,7 @@
 - `public/assets/`：字体、图片和品牌资产。
 - `wrangler.jsonc`：Cloudflare 静态资产、自定义域名与 404 行为。
 
-Astro 默认在构建时预渲染所有页面，当前不需要 Cloudflare adapter 或 Worker 运行时。
+Astro 在构建时预渲染所有页面，不需要 Cloudflare adapter。轻量 Worker 在静态资源之前处理生产域名的 HTTP → HTTPS 跳转，其余请求交给 Static Assets。
 
 ## 元数据约定
 
@@ -91,6 +91,8 @@ npm install
 npm run dev
 ```
 
+启动前会自动生成分享图，需要本机安装 Chrome 和中文字体。PNG 与生成清单位于 Git 忽略的 `public/assets/og/`，首次生成耗时较长，后续复用内容哈希缓存。
+
 打开 <http://127.0.0.1:4174/> 查看中文页面，或打开 <http://127.0.0.1:4174/en> 查看英文页面。
 
 ## 构建
@@ -99,7 +101,7 @@ npm run dev
 npm run build
 ```
 
-构建前会先执行 Astro 与 TypeScript 检查，静态产物输出到 `dist/`。本地检查构建产物：
+构建时先生成分享图并执行 Astro 与 TypeScript 检查，包含当次 PNG 的静态产物输出到 `dist/`；旧哈希图片不保留。本地检查构建产物：
 
 ```bash
 npm run preview
@@ -121,11 +123,11 @@ npm run test:visual:update
 
 公共布局通过 `gtag.js` 接入 GA4，默认使用 Next Token Website 数据流的公开衡量 ID `G-HFGVTS33FD`。构建前可在 `.env.local` 或构建环境中通过 `PUBLIC_GOOGLE_ANALYTICS_ID` 覆盖；显式设为空字符串可禁用统计，格式错误时构建失败。衡量 ID 是公开配置，不是 API 密钥。
 
-统计仅在生产构建且浏览器域名与 Astro `site`（`nexttoken.tv`）一致时加载，避免本地开发、预览和 Workers 临时域名产生统计数据。每次页面加载由 GA4 自动记录一次 `page_view`，来源参数保留在页面 URL 中。配置变更需要重新构建和部署。
+统计仅在生产构建且浏览器域名与 Astro `site`（`nexttoken.tv`）一致时加载，避免本地开发、预览和 Workers 临时域名产生统计数据。每次页面加载由 GA4 自动记录一次 `page_view`，来源参数保留在页面 URL 中。平台入口点击与成功复制引用分别记录 `platform_outbound` 和 `copy_reference`，定义与边界见 [SEO 行为衡量](docs/seo-measurement.md)。配置变更需要重新构建和部署。
 
 ## Sitemap 与搜索索引
 
-本地开发与预览接受有无末尾斜杠的页面地址，避免 `/en` 等手动输入地址返回 404。静态产物使用目录格式，canonical、站内链接与 sitemap 统一使用带末尾斜杠的页面 URL；生产环境由 Cloudflare 的默认目录索引规则将无斜杠地址跳转到带斜杠地址。
+静态产物使用目录格式，canonical、站内链接与 sitemap 除根路径外统一不带尾斜杠。Cloudflare Static Assets 使用 `drop-trailing-slash` 将带尾斜杠地址跳转到规范 URL。生产域名的 HTTP 请求由 `worker/index.js` 返回 308，合并资源路由的旧路径和尾斜杠跳转；本地 HTTP 预览不升级协议。Worker-first 会让静态请求经过 Worker，需计入 Worker 请求用量。
 
 `@astrojs/sitemap` 在每次生产构建时根据实际生成的页面自动创建 `dist/sitemap-index.xml` 和分片 sitemap。入口为 <https://nexttoken.tv/sitemap-index.xml>，`/robots.txt` 和公共页面的 HTML head 都声明该入口。
 
