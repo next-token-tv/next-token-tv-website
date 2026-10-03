@@ -1,3 +1,4 @@
+import { getCatalogRelations } from "./catalog-relations";
 import { getContentCatalog } from "./catalog";
 import { absoluteSiteUrl } from "./internal-url";
 
@@ -13,10 +14,10 @@ function byId<T extends { id: string }>(entries: T[]) {
 
 export async function createWikiApi(site: URL) {
   const catalog = await getContentCatalog();
+  const relations = getCatalogRelations(catalog);
 
   const brands = byId(catalog.brands).map((brand) => {
-    const brandProducts = catalog.products.filter((entry) => entry.data.brand === brand.id);
-    const productIds = new Set(brandProducts.map((entry) => entry.id));
+    const brandProducts = relations.brandProducts(brand.id);
     return {
       schemaVersion,
       entityType: "brand" as const,
@@ -36,10 +37,7 @@ export async function createWikiApi(site: URL) {
         childBrands: byId(catalog.brands.filter((entry) => entry.data.parentBrand === brand.id)).map((entry) => entry.id),
         products: byId(brandProducts).map((entry) => entry.id),
         people: byId(catalog.people.filter((person) => person.data.relations.some((relation) => relation.entityType === "brand" && relation.entity === brand.id))).map((person) => person.id),
-        episodes: byId(catalog.episodes.filter((episode) =>
-          episode.data.mentions.brands.includes(brand.id)
-          || episode.data.mentions.products.some((productId) => productIds.has(productId)),
-        )).map((episode) => episode.id),
+        episodes: byId(relations.episodes("brand", brand.id)).map(episode => episode.id),
       },
     };
   });
@@ -66,7 +64,7 @@ export async function createWikiApi(site: URL) {
       parent: product.data.parent ?? null,
       children: byId(catalog.products.filter((entry) => entry.data.parent === product.id)).map((entry) => entry.id),
       people: byId(catalog.people.filter((person) => person.data.relations.some((relation) => relation.entityType === "product" && relation.entity === product.id))).map((person) => person.id),
-      episodes: byId(catalog.episodes.filter((episode) => episode.data.mentions.products.includes(product.id))).map((episode) => episode.id),
+      episodes: byId(relations.episodes("product", product.id)).map((episode) => episode.id),
     },
   }));
 
@@ -94,14 +92,7 @@ export async function createWikiApi(site: URL) {
       brands: person.data.relations.filter((relation) => relation.entityType === "brand").map((relation) => relation.entity),
       products: person.data.relations.filter((relation) => relation.entityType === "product").map((relation) => relation.entity),
       shows: byId(catalog.hostMemberships.filter((membership) => membership.data.person === person.id)).map((membership) => membership.data.show),
-      episodes: byId(catalog.episodes.filter((episode) => {
-        if (episode.data.mentions.people.includes(person.id)) return true;
-        if (episode.data.status === "announced") return episode.data.participants.some((participant) => participant.person === person.id);
-        if (!("productionImport" in episode.data)) return false;
-        const productionImport = episode.data.productionImport;
-        const production = catalog.episodeImports.find((entry) => entry.id === productionImport);
-        return production?.data.participants.some((participant) => participant.person === person.id) ?? false;
-      })).map((episode) => episode.id),
+      episodes: byId(relations.episodes("person", person.id)).map(episode => episode.id),
     },
   }));
 
