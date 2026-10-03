@@ -1,10 +1,8 @@
 import { pruneObsoleteOgImages } from './lib/og-retention.mjs';
 import {restoreOgCache,saveOgCache} from './lib/og-cache.mjs';
 import {mapConcurrent} from './lib/concurrent-map.mjs';
-import {platform,arch,release,availableParallelism} from 'node:os';
-import { standardCardHtml, fitStandardCard } from './lib/standard-og.mjs';
-import { entityCardHtml, fitEntityCard } from './lib/entity-og.mjs';
-import sharp from 'sharp';
+import {availableParallelism} from 'node:os';
+import {rendererFingerprint,renderOgCard} from './lib/og-renderer.mjs';
 import { announcementCopy } from '../src/data/announcement-copy.mjs';
 import { readFile, readdir, mkdir, writeFile } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
@@ -16,7 +14,7 @@ import { load } from 'js-yaml';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const out = resolve(root, 'public/assets/og');
 const started=Date.now();
-const concurrency=Number(process.env.NEXTTOKEN_OG_CONCURRENCY??Math.min(8,availableParallelism()));
+const concurrency=Number(process.env.NEXTTOKEN_OG_CONCURRENCY??Math.min(4,availableParallelism()));
 if(!Number.isInteger(concurrency)||concurrency<1||concurrency>8)throw new Error('NEXTTOKEN_OG_CONCURRENCY must be an integer from 1 to 8');
 const cache=resolve(process.env.NEXTTOKEN_OG_CACHE_DIR??resolve(root,'.cache/og'));
 let restored=0,generated=0;
@@ -53,29 +51,17 @@ let manifest;
 let browser;
 try {
   browser = await chromium.launch({channel:'chrome',headless:true});
-  const renderer=createHash('sha256').update(await readFile(fileURLToPath(import.meta.url))).update(await readFile(resolve(root,'package-lock.json'))).update(`${browser.version()}:${platform()}:${arch()}:${release()}`).digest('hex');
+  const renderer=await rendererFingerprint(browser.version());
   const entries=await mapConcurrent(cards,concurrency,async card=>{
     const photo = card.photo ? await readFile(resolve(root, 'public', `.${card.photo}`)) : null;
     const hash = createHash('sha256').update(renderer).update(card.collection ? entityTemplate : version).update(card.collection ? logo : '').update(font).update(JSON.stringify(card)).update(photo ?? '').digest('hex').slice(0, 12);
     const file = `${card.route.replaceAll('/', '-').replace(/^-|-$/g, '') || 'home'}-${hash}.png`;
     const entry=[card.route,{ image: `/assets/og/${file}`, alt: `${card.label} — ${card.title.replaceAll('\n', ' ')}` }];
     if(await restoreOgCache(cache,file,resolve(out,file))){restored++;return entry;}
-    const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
-    try {
-    if (card.collection) {
-      await page.setContent(entityCardHtml(card, { font, logo }));
-      await page.evaluate(fitEntityCard);
-    } else {
-      await page.setContent(standardCardHtml(card, { font, photo }));
-      await page.evaluate(fitStandardCard);
-    }
-    const screenshot = await page.screenshot();
-    await sharp(screenshot).png({ compressionLevel: 9 }).toFile(resolve(out, file));
+    await renderOgCard(browser,card,{font,logo,photo},resolve(out,file));
     await saveOgCache(cache,file,resolve(out,file));
     generated++;
     return entry;
-    } catch(error) {throw new Error(`${card.route}: ${error.message}`,{cause:error});}
-    finally {await page.close();}
   });
   manifest=Object.fromEntries(entries);
 } finally { await browser?.close(); }
