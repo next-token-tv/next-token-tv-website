@@ -9,7 +9,7 @@ export default defineConfig({
     sitemap({
       filter: (page) => {
         const path = new URL(page).pathname;
-        return !path.endsWith(".md") && !path.endsWith(".txt") && !path.endsWith(".json") && !/\/(?:404|(?:en\/)?design-system)(?:\.html|\/)?$/.test(path);
+        return !path.endsWith(".md") && !path.endsWith(".txt") && !path.endsWith(".json") && !/\/(?:404|(?:en\/)?(?:design-system|search))(?:\.html|\/)?$/.test(path);
       },
       i18n: {
         defaultLocale: "zh-Hans",

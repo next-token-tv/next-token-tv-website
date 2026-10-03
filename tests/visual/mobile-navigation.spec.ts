@@ -12,7 +12,7 @@ for (const prefix of ['', '/en']) {
       await expect(nav).not.toBeVisible();
       await toggle.click();
       await expect(nav).toBeVisible();
-      await expect(nav.locator('a')).toHaveCount(9);
+      await expect(nav.locator(`a[href="${prefix}/search"]`)).toBeVisible();
       await expect(nav.locator(`a[href="${prefix}/wiki"]`)).toBeVisible();
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       await page.keyboard.press('Escape');

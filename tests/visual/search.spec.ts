@@ -1,0 +1,33 @@
+import {test,expect} from '@playwright/test';
+for(const width of [390,1280]) test(`search entities, episodes and transcript anchors at ${width}`,async({page})=>{
+ await page.setViewportSize({width,height:844});
+ await page.goto('/search?q=Muse');
+ await expect(page.getByRole('status')).toContainText('找到');
+ await expect(page.locator('.search-results a').first()).toHaveCSS('display','block');
+ await expect(page.locator('.search-results li').first().getByRole('link')).toHaveAttribute('href',/\/wiki\//);
+ await page.locator('#search-kind').selectOption('transcript');
+ await expect(page.locator('.search-results a').first()).toHaveAttribute('href',/\/transcript#quote-/);
+ const href=await page.locator('.search-results a').first().getAttribute('href');
+ await page.locator('.search-results a').first().click();
+ await expect(page.locator(`[id="${href!.split('#')[1]}"]`)).toBeVisible();
+ await page.goto('/search');await page.locator('#search-query').fill('产品经理');await page.locator('#search-query').press('Enter');
+ await expect(page.getByRole('status')).toContainText('找到');
+ await page.locator('#search-query').fill('nothing-matches-abcxyz');
+ await expect(page.getByRole('status')).toContainText('没有找到');
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
+});
+test('English search and global entry',async({page})=>{
+ await page.goto('/en/search?q=Codex&type=entity');
+ await expect(page.getByRole('status')).toContainText('results');
+ await expect(page.locator('.search-results a').first()).toHaveAttribute('href','/en/wiki/products/codex');
+ await page.goto('/en/weekly/004');await page.locator('.nav-links').getByRole('link',{name:'Search',exact:true}).click();
+ await expect(page).toHaveURL(/\/en\/search$/);
+});
+test('search load failure offers retry and no-JS has a navigation fallback',async({page,browser})=>{
+ await page.route('**/search/zh-Hans.json',route=>route.abort());
+ await page.goto('/search?q=Muse');await expect(page.getByRole('status')).toContainText('重试');
+ await page.unroute('**/search/zh-Hans.json');await page.locator('#search-query').press('Enter');
+ await expect(page.getByRole('status')).toContainText('找到');
+ const context=await browser.newContext({javaScriptEnabled:false});const nojs=await context.newPage();
+ await nojs.goto('/search');await expect(nojs.locator('noscript').getByRole('link',{name:'网站地图'})).toBeVisible();await context.close();
+});

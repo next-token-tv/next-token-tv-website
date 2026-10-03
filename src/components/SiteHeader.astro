@@ -35,6 +35,7 @@ const isLibrary = currentPath.startsWith(content.locale === "en" ? "/en/wiki" : 
       <a href={homeSection("hosts")}>{content.navigation.hosts}</a>
       <a class="partners-link" href={partnersPath} aria-current={isPartners ? "page" : undefined}>{content.navigation.partners}</a>
       <a href={homeSection("subscribe")}>{content.navigation.subscribe}</a>
+      <a class="search-link" href={content.locale === "en" ? "/en/search" : "/search"} aria-label={content.locale === "en" ? "Search" : "搜索"}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="6" stroke="currentColor" stroke-width="2" /><path d="m15 15 6 6" stroke="currentColor" stroke-width="2" /></svg></a>
       <div class="language-switcher" aria-label={content.languageLabel}>
         <a href={content.locale === "zh-Hans" ? currentPath : alternatePath} lang="zh-Hans" data-language="zh-Hans" aria-current={content.locale === "zh-Hans" ? "page" : undefined}>中文</a>
         <span aria-hidden="true">/</span>
@@ -54,6 +55,7 @@ const isLibrary = currentPath.startsWith(content.locale === "en" ? "/en/wiki" : 
       <a href={homeSection("hosts")}>{content.navigation.hosts}</a>
       <a class="partners-link" href={partnersPath} aria-current={isPartners ? "page" : undefined}>{content.navigation.partners}</a>
       <a href={homeSection("subscribe")}>{content.navigation.subscribe}</a>
+      <a class="search-link" href={content.locale === "en" ? "/en/search" : "/search"} aria-label={content.locale === "en" ? "Search" : "搜索"}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="6" stroke="currentColor" stroke-width="2" /><path d="m15 15 6 6" stroke="currentColor" stroke-width="2" /></svg></a>
       <div class="language-switcher" aria-label={content.languageLabel}>
         <a href={content.locale === "zh-Hans" ? currentPath : alternatePath} lang="zh-Hans" data-language="zh-Hans" aria-current={content.locale === "zh-Hans" ? "page" : undefined}>中文</a>
         <span aria-hidden="true">/</span>
@@ -86,6 +88,7 @@ const isLibrary = currentPath.startsWith(content.locale === "en" ? "/en/wiki" : 
 </script>
 
 <style>
+  .search-link { display: inline-flex; align-items: center; justify-content: center; min-width: 2.75rem; min-height: 2.75rem; }
   .mobile-navigation { display: none; }
   @media (max-width: 900px) {
     .nav { position: relative; }

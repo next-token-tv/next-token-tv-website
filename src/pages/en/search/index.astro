@@ -1,0 +1,9 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import SearchPage from "../../../components/SearchPage.astro";
+import { getSiteContent } from "../../../data/site";
+const content=await getSiteContent("en");
+---
+<BaseLayout content={content} pageTitle="Search | Next Token" description="Search episodes, Wiki and transcripts." canonicalPath="/en/search" alternatePath="/search" noIndex>
+  <SearchPage locale="en" />
+</BaseLayout>

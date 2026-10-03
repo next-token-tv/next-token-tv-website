@@ -1,0 +1,84 @@
+---
+import type { Locale } from '../data/types';
+interface Props { locale: Locale }
+const {locale}=Astro.props;
+const en=locale==='en';
+---
+<main id="main" class="search-page shell" data-search-locale={locale}>
+  <header><p class="section-kicker">NEXT TOKEN / {en ? 'SEARCH' : '全站搜索'}</p><h1>{en ? 'Search' : '搜索'}</h1><p>{en ? 'Find people, products, episodes and moments in our conversations.' : '找到人物、产品、相关节目，以及对谈中的具体段落。'}</p></header>
+  <form role="search" action={en ? '/en/search' : '/search'}>
+    <label for="search-query">{en ? 'Keywords' : '关键词'}</label>
+    <div class="search-input-row"><input id="search-query" name="q" type="search" maxlength="120" placeholder={en ? 'Try Muse, Codex or a guest name' : '试试 Muse、Codex 或嘉宾名字'} autocomplete="off" /><button type="submit">{en ? 'Search' : '搜索'}</button></div>
+    <label for="search-kind">{en ? 'Content type' : '内容类型'}</label>
+    <select id="search-kind" name="type"><option value="all">{en ? 'All' : '全部'}</option><option value="entity">{en ? 'Wiki' : '资料库'}</option><option value="episode">{en ? 'Episodes' : '节目'}</option><option value="transcript">{en ? 'Transcript passages' : '文字稿段落'}</option></select>
+  </form>
+  <p class="search-status" role="status" aria-live="polite">{en ? 'Enter a keyword to begin.' : '输入关键词开始搜索。'}</p>
+  <ol class="search-results"></ol>
+  <button class="search-more" type="button" hidden>{en ? 'Show more' : '显示更多'}</button>
+  <noscript><p>{en ? 'Search requires JavaScript. Browse the' : '搜索需要启用 JavaScript，也可以浏览'} <a href={en ? '/en/sitemap' : '/sitemap'}>{en ? 'sitemap' : '网站地图'}</a>。</p></noscript>
+</main>
+<script>
+  import { searchDocuments, searchSnippet, type SearchDocument } from '../data/search-engine';
+  const root=document.querySelector<HTMLElement>('[data-search-locale]')!;
+  const en=root.dataset.searchLocale==='en';
+  const input=root.querySelector<HTMLInputElement>('input')!;
+  const select=root.querySelector<HTMLSelectElement>('select')!;
+  const status=root.querySelector<HTMLElement>('[role="status"]')!;
+  const results=root.querySelector<HTMLOListElement>('ol')!;
+  const more=root.querySelector<HTMLButtonElement>('.search-more')!;
+  const params=new URLSearchParams(location.search);
+  input.value=(params.get('q') ?? '').slice(0,120);
+  select.value=['all','entity','episode','transcript'].includes(params.get('type') ?? '') ? params.get('type')! : 'all';
+  let index: Promise<SearchDocument[]> | undefined;
+  let generation=0;
+  let matches:SearchDocument[]=[];
+  let count=0;
+  function render() {
+    for(const result of matches.slice(count,count+30)) {
+      const li=document.createElement('li');const a=document.createElement('a');const p=document.createElement('p');const small=document.createElement('small');
+      a.href=result.href;a.textContent=result.title;
+      small.textContent=({entity:en?'Wiki':'资料库',episode:en?'Episode':'节目',transcript:en?'Transcript':'文字稿'})[result.kind];
+      p.textContent=searchSnippet(result.text,input.value);
+      li.append(small,a,p);results.append(li);
+    }
+    count=Math.min(matches.length,count+30);more.hidden=count>=matches.length;
+  }
+  async function search() {
+    const request=++generation;const query=input.value.trim();
+    const url=new URL(location.href);url.search='';if(query)url.searchParams.set('q',query);if(select.value!=='all')url.searchParams.set('type',select.value);history.replaceState(null,'',url);
+    results.replaceChildren();more.hidden=true;count=0;
+    if(!query){status.textContent=en?'Enter a keyword to begin.':'输入关键词开始搜索。';return;}
+    status.textContent=en?'Searching…':'正在搜索…';
+    try {
+      index ??= fetch(`/search/${root.dataset.searchLocale}.json`).then(r=>{if(!r.ok)throw Error();return r.json();}).catch(error=>{index=undefined;throw error;});
+      const documents=await index;if(request!==generation)return;
+      matches=searchDocuments(documents,query,select.value);
+      status.textContent=matches.length ? (en?`${matches.length} results`:`找到 ${matches.length} 条结果`) : (en?'No results. Try another keyword.':'没有找到结果，试试其他关键词。');render();
+    } catch {if(request===generation)status.textContent=en?'Search could not load. Submit again to retry.':'搜索暂时无法加载，请再次搜索重试。';}
+  }
+  let timer:ReturnType<typeof setTimeout>;
+  input.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(search,200);});
+  select.addEventListener('change',()=>{clearTimeout(timer);void search();});
+  root.querySelector('form')!.addEventListener('submit',event=>{event.preventDefault();clearTimeout(timer);void search();});
+  more.addEventListener('click',render);
+  if(input.value)void search();
+</script>
+<style>
+  .search-page { padding-block: 3rem 5rem; min-height: 65vh; }
+  header { max-width: 55rem; margin-bottom: 2rem; }
+  form { max-width: 50rem; display: grid; gap: .75rem; }
+  label { font-weight: 700; }
+  .search-input-row { display: flex; gap: .5rem; }
+  input, select, button { border: 1px solid var(--ink); background: var(--paper); color: var(--ink); min-height: 2.75rem; padding: .65rem .85rem; font: inherit; }
+  input { flex: 1; min-width: 0; }
+  select { width: fit-content; }
+  button { cursor: pointer; }
+  :is(input, select, button, a):focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+  .search-status { margin-block: 1.5rem; }
+  .search-results { list-style: none; padding: 0; max-width: 60rem; }
+  .search-results :global(li) { border-top: 1px solid var(--line); padding-block: 1.25rem; overflow-wrap: anywhere; }
+  .search-results :global(a) { display: block; font-weight: 750; margin-block: .3rem; }
+  .search-results :global(p) { margin: 0; }
+  .search-results :global(small) { opacity: .65; }
+  [hidden] { display: none; }
+</style>
