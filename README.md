@@ -113,6 +113,8 @@ npm run preview
 npm run test:visual
 ```
 
+浏览器测试命令先完成构建，再启动 Playwright；120 秒启动超时只用于本地服务。`npm run test:performance` 和截图更新命令采用相同顺序。已显式构建时可设置 `PLAYWRIGHT_SKIP_BUILD=1` 复用产物；直接运行 `npx playwright test` 也需要预先构建。
+
 只有在确认视觉变化符合预期后更新基线：
 
 ```bash
