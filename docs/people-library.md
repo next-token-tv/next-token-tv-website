@@ -15,3 +15,5 @@
 - 栋哥 is excluded by editorial decision. Shiyi remains unresolved; names contained within media brands or technical terms do not create person references.
 
 - Mark Zuckerberg is the display name in both locales. 马克·扎克伯格、扎克伯格、小扎、扎克 remain aliases; transcript wording and the `mark-zuckerberg` route ID are preserved.
+
+- Yann LeCun is the display name in both locales; 杨立昆 is an alias. 黄仁勋 remains the Chinese display name, with Jensen Huang as both the English name and an explicit alias.
