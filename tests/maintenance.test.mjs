@@ -140,12 +140,15 @@ test('release gates disable inherited preview reuse and build only once',async()
   const log=join(root,'calls');
   await writeFile(join(root,'npm'),'#!/bin/sh\nprintf "%s %s %s\\n" "$2" "$PLAYWRIGHT_USE_EXISTING_SERVER" "$PLAYWRIGHT_SKIP_BUILD" >> "$REVIEW_TEST_LOG"\n');
   await chmod(join(root,'npm'),0o755);
-  const result=spawnSync(process.execPath,[join(import.meta.dirname,'../scripts/release-check.mjs')],{encoding:'utf8',env:{...process.env,PATH:root+':'+process.env.PATH,REVIEW_TEST_LOG:log,PLAYWRIGHT_USE_EXISTING_SERVER:'1',PLAYWRIGHT_SKIP_BUILD:''}});
+  const result=spawnSync(process.execPath,[join(import.meta.dirname,'../scripts/release-check.mjs')],{cwd:root,encoding:'utf8',env:{...process.env,PATH:root+':'+process.env.PATH,REVIEW_TEST_LOG:log,PLAYWRIGHT_USE_EXISTING_SERVER:'1',PLAYWRIGHT_SKIP_BUILD:''}});
   assert.equal(result.status,0,result.stderr);
   const calls=(await readFile(log,'utf8')).trim().split('\n');
-  assert.equal(calls.filter(line=>line.startsWith('build ')).length,1);
+  assert.equal(calls.filter(line=>line.startsWith('build:assets ')).length,1);
   assert.ok(calls.includes('test:visual 0 1'));
-  assert.ok(calls.includes('test:performance 0 1'));
+  assert.ok(!calls.some(line=>line.startsWith('test:performance ')));
+  const timing=JSON.parse(await readFile(join(root,'reports/maintenance/release-check.json'),'utf8'));
+  assert.equal(timing.performance.status,'not-run');
+  assert.equal(timing.stages.length,4);
  }finally{await rm(root,{recursive:true,force:true});}
 });
 

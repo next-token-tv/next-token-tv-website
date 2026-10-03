@@ -158,3 +158,5 @@ npm run deploy
 本仓库采用混合授权：网站程序代码使用 MIT License；文字稿、编辑文案、资料库内容、视觉回归快照以及 Next Token 的商标、Logo、肖像、节目图片和合作伙伴素材不随代码许可证授权。第三方字体与平台图标继续适用各自的上游许可证和商标规则。
 
 完整范围见 [LICENSE](LICENSE)，素材来源与授权说明见 [ASSET-LICENSES.md](ASSET-LICENSES.md)。
+
+移动端性能检查独立于发布门禁：`npm run performance:audit` 检查当前已部署版本的固定构建产物并记录结果，`npm run performance:report` 汇总当前版本状态和待检查发布。新版本不会继承旧版本的通过标志；未检测也允许发布。详见 [网站维护说明](docs/site-maintenance.md)。

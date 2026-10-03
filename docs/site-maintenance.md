@@ -2,13 +2,27 @@
 
 ## Verified releases
 
-`npm run release:check` runs content/type/style checks, builds once, then runs browser tests, performance checks and output audits against that build. Standalone browser test commands continue to build by default. `PLAYWRIGHT_SKIP_BUILD=1` is reserved for an already-built artifact.
+`npm run release:check` runs content/type/style checks once, builds once with `build:assets`, then runs browser tests and output audits against that build. Mobile performance is a separate audit and does not block publishing. Standalone `build` retains its own chapter, transcript and type checks. Standalone browser test commands continue to build by default. `PLAYWRIGHT_SKIP_BUILD=1` is reserved for an already-built artifact.
 
-`npm run release:prepare -- HEAD` exports the selected Git commit into `.releases/`, installs its locked dependencies and runs all release gates there. Uncommitted edits are excluded. A successful bundle contains `release.json` with the exact commit, verification time and SHA-256 of assets, Worker code and Wrangler configuration. Preparation does not publish.
+`npm run release:prepare -- HEAD` exports the selected Git commit into `.releases/`, installs its locked dependencies and runs all release gates there. Uncommitted edits are excluded. A successful bundle contains `release.json` with the exact commit, verification time and SHA-256 of assets, Worker code and Wrangler configuration. It also records per-stage durations and an explicit mobile performance status of `not-run`. Preparation does not publish.
 
 `npm run release:publish -- <bundle-directory>` verifies that hash again and deploys the same bundle without rebuilding. The deployment version, commit and digest are retained in `.releases/history.jsonl`. `npm run deploy` prepares the current commit and then publishes that verified bundle; use it only when deployment is intended. Run Wrangler-backed commands in the authorized host context.
 
 `npm run release:rollback -- <Cloudflare-version-id>` restores a previously deployed Cloudflare version and records the rollback locally. Rollback does not modify source files or Git commits. A successful CLI result still requires checking the live pages. Release bundles and history are local ignored files; preserve the selected bundle when moving machines.
+
+## Independent mobile performance
+
+`npm run performance:audit` audits the current deployed bundle recorded in `.releases/history.jsonl`, including a recorded rollback. `npm run performance:audit -- <verified-bundle>` selects another verified bundle. The audit runs all eight routes with three cold-load samples per route against a local server for the immutable release artifact, without rebuilding or deploying. These are local regression budgets, not live user measurements or a production-network test. A failed or incomplete audit exits unsuccessfully but does not retract or block a release.
+
+`.releases/performance-history.jsonl` records `running`, `passed`, `failed` or `error`, exact commit and artifact digest, timestamps and report location. A release with no matching audit is `not-run`; a pass on an older commit or different artifact is never inherited. A terminated process remains `running` until another audit is performed and is never reported as passed. Reports and samples remain under `.releases/performance/<audit-id>/`. Publishing records the matching performance state at that time; subsequent audits are reflected by the report without rewriting release history.
+
+`npm run performance:report` generates `reports/maintenance/performance.md` and `.json`, listing current release state, the latest audit, the last passing audit, and every deployment without a matching passing result. Prior releases without audit records remain `not-run`. This command supports periodic manual summaries; no automatic schedule is configured. These records and release bundles are local ignored files and must be retained or transferred together when changing machines.
+
+## Build timing and OG cache
+
+`reports/maintenance/release-check.json` records stage durations and outcomes. Verified bundles retain these durations in `release.json`. The OG generator reports newly generated and restored card counts and elapsed seconds. Cold rendering uses up to eight concurrent jobs by default, bounded by available CPU parallelism. Set `NEXTTOKEN_OG_CONCURRENCY` to an integer from 1 to 8 to override it. Each job owns one browser page; manifest order stays deterministic. A failure stops scheduling new jobs, waits for in-flight jobs to close, and fails without publishing a new manifest or pruning old output.
+
+`.cache/og/` is a shared local content-addressed image cache. Release preparation passes its absolute location to the isolated bundle using `NEXTTOKEN_OG_CACHE_DIR`. Keys cover card content, templates, font/photo/logo data, generator source, dependency lockfile, Chrome version and operating-system identity. Cache entries include a SHA-256 checksum; missing or corrupt entries regenerate. Cache retention is separate from pruning obsolete public images, so deleting a release bundle does not remove the reusable cache. The cache may be deleted to reclaim space or force rendering, including after a system-font change. A new renderer or cache key requires one cold generation before later releases can reuse it.
 
 ## Publication evidence
 
