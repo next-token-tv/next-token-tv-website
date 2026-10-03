@@ -13,6 +13,7 @@
 - `Luna` maps to GPT-5.6 Luna and `K3` to Kimi K3. Qwen 3.8 Max 0902 is a distinct snapshot product whose parent is Qwen 3.8 Max, not an alias of the parent.
 - Model entries are products with `kind: model`; model families and publisher brands remain separate records. `H3` maps to MiniMax H3; `Astra` maps to GPT-6 Astra in Weekly #001's catalog.
 - Published transcript corrections belong in the approved content-repository Markdown and its release manifest. Website imported JSON is regenerated with `npm run import:transcript`, never edited by hand. A publication import requires the source Markdown to be tracked, clean, and committed; only an explicit review preview may use modified or untracked source.
+- Entity-only reimports may use `--preserve-timings` to retain the existing paragraph timings and timing-source provenance. The importer requires the same source hash, chapter IDs, speakers and paragraph text; changed text or structure is rejected. This option cannot be combined with `--timings-srt`.
 
 Show links use the show entry’s `pagePath`; Next Token Weekly links to `/weekly`.
 

@@ -16,9 +16,9 @@ const [episodeId, sourceArgument, ...flags] = process.argv.slice(2);
 const reviewPreview = flags.includes("--review-preview");
 
 if (!episodeId || !sourceArgument) {
-  throw new Error("Usage: npm run import:transcript -- <episode-id> <source-markdown> [--review-preview]");
+  throw new Error("Usage: npm run import:transcript -- <episode-id> <source-markdown> [--review-preview] [--preserve-timings]");
 }
-if (flags.some((flag) => flag !== "--review-preview" && !flag.startsWith("--timings-srt="))) {
+if (flags.some((flag) => flag !== "--review-preview" && flag !== "--preserve-timings" && !flag.startsWith("--timings-srt="))) {
   throw new Error(`Unknown import flag: ${flags.find((flag) => flag !== "--review-preview")}`);
 }
 
@@ -137,7 +137,25 @@ const { snapshot, report } = convertTranscript(tree, {
 });
 const timingArgument = flags.find(flag => flag.startsWith('--timings-srt='));
 snapshot.notices.push(...(rules.notices ?? []));
-if (timingArgument || rules.timingSource) {
+if (flags.includes("--preserve-timings")) {
+  if (timingArgument) throw new Error("Cannot replace and preserve timings together");
+  const previous = JSON.parse(await readFile(resolve(websiteRoot, `src/content/imported/transcripts/${episodeId}.${rules.locale}.json`), "utf8"));
+  const structure = data => data.chapters.map(chapter => ({
+    id: chapter.id,
+    turns: chapter.turns.map(turn => ({
+      speaker: turn.speaker,
+      paragraphs: turn.paragraphs.map(paragraph => paragraph.map(segment => segment.value).join("")),
+    })),
+  }));
+  if (previous.provenance.sourceSha256 !== sourceSha256 || JSON.stringify(structure(previous)) !== JSON.stringify(structure(snapshot))) {
+    throw new Error("Cannot preserve timings when transcript text or structure changes");
+  }
+  snapshot.chapters.forEach((chapter, i) => chapter.turns.forEach((turn, j) => {
+    const timings = previous.chapters[i].turns[j].paragraphTimings;
+    if (timings) turn.paragraphTimings = timings;
+  }));
+  if (previous.timingSource) snapshot.timingSource = previous.timingSource;
+} else if (timingArgument || rules.timingSource) {
   const { stdout: sourceRoot } = await execFileAsync('git', ['-C', dirname(sourcePath), 'rev-parse', '--show-toplevel']);
   const timingPath = timingArgument ? resolve(timingArgument.slice('--timings-srt='.length)) : resolve(sourceRoot.trim(), rules.timingSource);
   const timingText = await readFile(timingPath, 'utf8');
