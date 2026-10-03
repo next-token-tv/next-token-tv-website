@@ -3,9 +3,9 @@ entityType: product
 entity: openai-devday
 locale: en
 slot: wiki
-updatedAt: '2026-09-27'
+updatedAt: '2026-10-03'
 seoTitle: 'OpenAI DevDay: editions, dates, and major announcements | Next Token Wiki'
-seoDescription: 'Learn what OpenAI DevDay is: the first edition on November 6, 2023, the 2025 and 2026 events, and what the developer conference brand covers.'
+seoDescription: 'Learn what OpenAI DevDay is: the first edition on November 6, 2023, the 2026 announcements including GPT-6.1 Sol, dots and ChatGPT Space, and earlier editions.'
 ---
 
 ## OpenAI DevDay
@@ -19,6 +19,16 @@ DevDay is the developer conference brand run by [OpenAI](/en/wiki/brands/openai)
 - **September 29, 2026**: the official event page shows this DevDay at Fort Mason in San Francisco, with an opening keynote by Sam Altman livestreamed free for everyone and in-person attendance by application and ticket. OpenAI also runs DevDay Exchanges in Bengaluru, Tokyo, Seoul, Paris, Berlin, London, São Paulo, and Mexico City.
 
 Schedules and registration for each edition should be read from the current information on [devday.openai.com](https://devday.openai.com/).
+
+## What was announced at DevDay 2026?
+
+OpenAI published its [official recap on September 29, 2026](https://openai.com/index/devday-2026-recap/), covering more than 20 announcements. Highlights include:
+
+- **GPT-6.1 Sol and Ultrafast**: a model update and a separate speed tier.
+- **Dots and ChatGPT Space**: ongoing agents and a shared workspace for people and AI.
+- **Developer tools**: cloud Codex, computer use in the Agents API, and a limited preview of the Decisions API.
+
+Availability varies by product and plan; an announcement does not mean universal access. The recap links to individual releases and their availability details.
 
 ## Discussion in the show
 
@@ -38,6 +48,10 @@ The first DevDay was held on November 6, 2023. That day, OpenAI published the an
 
 The official event page shows DevDay 2026 on September 29, 2026, at Fort Mason in San Francisco, with the opening keynote by Sam Altman livestreamed free; in-person attendance requires an application and a ticket. The series also includes DevDay Exchanges in eight cities including Bengaluru, Tokyo, and Seoul.
 
+### Where can I find the DevDay 2026 announcements?
+
+See the [September 29 official recap](https://openai.com/index/devday-2026-recap/) for the releases and availability details.
+
 ### How do I attend DevDay?
 
 For the 2026 edition: in-person attendance required an application on the official event page, with tickets after invitation, while the opening keynote was livestreamed free for everyone. Current registration channels and prices should be read from [devday.openai.com](https://devday.openai.com/).
@@ -46,4 +60,5 @@ For the 2026 edition: in-person attendance required an application on the offici
 
 - [OpenAI DevDay official event page](https://devday.openai.com/)
 - [OpenAI: New models and developer products announced at DevDay (2023-11-06)](https://openai.com/index/new-models-and-developer-products-announced-at-devday/)
+- [OpenAI: DevDay 2026 Recap (2026-09-29)](https://openai.com/index/devday-2026-recap/)
 - [Wikipedia: OpenAI](https://en.wikipedia.org/wiki/OpenAI)

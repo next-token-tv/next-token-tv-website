@@ -7,5 +7,9 @@ lastVerifiedAt: '2026-09-14'
 sources:
   - label: {zh-Hans: 哔哩哔哩公开账号, en: Public Bilibili profile}
     href: https://space.bilibili.com/163637592
+  - label: {zh-Hans: 5G 体验视频原始投稿, en: Original 5G experience video}
+    href: https://www.bilibili.com/video/av54737593/
+  - label: {zh-Hans: HTX Studio 英文频道, en: HTX Studio English channel}
+    href: https://www.youtube.com/@HTXStudio
 
 kind: creator-community

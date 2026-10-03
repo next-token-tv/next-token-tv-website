@@ -11,9 +11,13 @@ aliases:
   - DevDay
 official:
   website: https://devday.openai.com/
-lastVerifiedAt: '2026-09-27'
+lastVerifiedAt: '2026-10-03'
 sources:
   - label:
       zh-Hans: OpenAI DevDay 官方网站
       en: OpenAI DevDay official website
     href: https://devday.openai.com/
+  - label:
+      zh-Hans: DevDay 2026 官方会后总结
+      en: Official DevDay 2026 recap
+    href: https://openai.com/index/devday-2026-recap/

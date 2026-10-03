@@ -3,7 +3,7 @@ entityType: person
 entity: he-tongxue
 locale: en
 slot: wiki
-updatedAt: '2026-09-18'
+updatedAt: '2026-10-03'
 seoTitle: 'He Tongxue (He Shijie): Tech Video Creator and Notable Work | Next Token Wiki'
 seoDescription: 'He Tongxue (He Shijie), the creator behind 老师好我叫何同学: his viral 5G video, Tim Cook interview, platforms, and show mentions.'
 ---
@@ -12,6 +12,12 @@ seoDescription: 'He Tongxue (He Shijie), the creator behind 老师好我叫何�
 
 He Tongxue, real name He Shijie (何世杰), is a Chinese video creator focused on digital technology content. He publishes on [Bilibili](/en/wiki/products/bilibili) as “老师好我叫何同学” (roughly “Hello teacher, my name is He Tongxue”) and became widely known for his 2019 5G experience video and his interview with Apple's then-CEO Tim Cook.
 
+## Channels and original work
+
+- [老师好我叫何同学 on Bilibili](https://space.bilibili.com/163637592): his Chinese video account.
+- [HTX Studio on YouTube](https://www.youtube.com/@HTXStudio): the English channel associated with He Tongxue; the channel name is distinct from his personal name, He Shijie.
+- [The original 5G experience video](https://www.bilibili.com/video/av54737593/): published by his Bilibili account on June 6, 2019. The original upload provides a direct reference for the work described below.
+
 ## Career and notable work
 
 According to the [Chinese Wikipedia article](https://zh.wikipedia.org/wiki/%E8%80%81%E5%B8%88%E5%A5%BD%E6%88%91%E5%8F%AB%E4%BD%95%E5%90%8C%E5%AD%A6):
@@ -19,9 +25,7 @@ According to the [Chinese Wikipedia article](https://zh.wikipedia.org/wiki/%E8%8
 - He began posting self-made tech videos on Bilibili and other sites in 2017; an Apple “全家桶” (Apple ecosystem) experience video in February 2018 brought early attention.
 - On June 6, 2019, he published a campus 5G network test video, 《有多快？5G在日常使用中的真实体验》 (“How fast is it? The real experience of 5G in everyday use”), which passed 5 million views overnight, was covered by People's Daily, CCTV News, and other state media, and won Bilibili's 2019 Best Work of the Year award. He was named one of Bilibili's Top 100 creators for three consecutive years (2019–2021).
 - In February 2021 he published a video interview with [Tim Cook](/en/wiki/people/tim-cook); after graduating in July 2021 he became a full-time creator and founded his own studio, Hangzhou Jihe Digital Culture Creative Co., Ltd.
-- He also runs the English YouTube channel HTX Studio, while his main channel mirrors his Chinese videos.
-
-From late 2024 into 2025, he faced controversy over unattributed open-source code in a video and over comments about ride-hailing driver ratings; he publicly apologized in November 2025 (see the [Chinese Wikipedia article](https://zh.wikipedia.org/wiki/%E8%80%81%E5%B8%88%E5%A5%BD%E6%88%91%E5%8F%AB%E4%BD%95%E5%90%8C%E5%AD%A6)).
+- He also runs the English YouTube channel [HTX Studio](https://www.youtube.com/@HTXStudio), while his main channel mirrors his Chinese videos.
 
 ## Mention in the show
 
@@ -43,10 +47,12 @@ His June 2019 campus 5G test video, 《有多快？5G在日常使用中的真实
 
 ### Where does He Tongxue publish videos?
 
-Primarily on his [Bilibili account “老师好我叫何同学”](https://space.bilibili.com/163637592); he also runs the English YouTube channel HTX Studio, while his main channel mirrors his Chinese videos.
+Primarily on his [Bilibili account “老师好我叫何同学”](https://space.bilibili.com/163637592); he also runs the English YouTube channel [HTX Studio](https://www.youtube.com/@HTXStudio), while his main channel mirrors his Chinese videos.
 
 ## Sources
 
 - [Bilibili profile: 老师好我叫何同学](https://space.bilibili.com/163637592)
+- [Original 5G video (2019-06-06)](https://www.bilibili.com/video/av54737593/)
+- [HTX Studio on YouTube](https://www.youtube.com/@HTXStudio)
 - [Chinese Wikipedia: 老师好我叫何同学](https://zh.wikipedia.org/wiki/%E8%80%81%E5%B8%88%E5%A5%BD%E6%88%91%E5%8F%AB%E4%BD%95%E5%90%8C%E5%AD%A6)
 - [Tim Cook person page](/en/wiki/people/tim-cook)

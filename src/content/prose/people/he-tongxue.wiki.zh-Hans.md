@@ -3,7 +3,7 @@ entityType: person
 entity: he-tongxue
 locale: zh-Hans
 slot: wiki
-updatedAt: '2026-09-18'
+updatedAt: '2026-10-03'
 seoTitle: '何同学（何世杰）：数码科技视频创作者与代表作｜Next Token Wiki'
 seoDescription: '了解视频创作者何同学：B 站账号"老师好我叫何同学"、5G 与库克专访等代表作品，以及节目中的相关提及。'
 ---
@@ -12,6 +12,12 @@ seoDescription: '了解视频创作者何同学：B 站账号"老师好我叫何
 
 何同学本名何世杰，是一名以数码科技内容为主的视频创作者，在 [哔哩哔哩](/wiki/products/bilibili)以"老师好我叫何同学"为账号名发布视频。他因 2019 年的 5G 体验视频走红，此后又因采访时任苹果 CEO 的 Tim Cook 等视频广为人知。
 
+## 账号与原始作品
+
+- [哔哩哔哩「老师好我叫何同学」](https://space.bilibili.com/163637592)：中文视频账号。
+- [YouTube「HTX Studio」](https://www.youtube.com/@HTXStudio)：何同学的英文频道；HTX Studio 是频道名称，何世杰是其本名。
+- [《有多快？5G在日常使用中的真实体验》原始投稿](https://www.bilibili.com/video/av54737593/)：由其 B 站账号于 2019 年 6 月 6 日发布，可直接查看下文所述作品。
+
 ## 经历与代表作品
 
 据[中文维基百科条目](https://zh.wikipedia.org/wiki/%E8%80%81%E5%B8%88%E5%A5%BD%E6%88%91%E5%8F%AB%E4%BD%95%E5%90%8C%E5%AD%A6)记载：
@@ -19,9 +25,7 @@ seoDescription: '了解视频创作者何同学：B 站账号"老师好我叫何
 - 2017 年开始在哔哩哔哩等网站发布自制科技视频；2018 年 2 月的"苹果全家桶"体验视频让他获得初期关注。
 - 2019 年 6 月 6 日发布在校园内测试 5G 网络的视频《有多快？5G在日常使用中的真实体验》，一夜间播放量超过 500 万，获人民日报、央视新闻等官方媒体报道，并获得 bilibili 2019 年度最佳作品奖；2019 至 2021 年连续三年入选 bilibili 百大UP主。
 - 2021 年 2 月发布采访 [Tim Cook](/wiki/people/tim-cook) 的视频；同年 7 月本科毕业后成为全职视频创作者，并成立自己的工作室（即杭州几盒数字文化创意有限公司）。
-- 他还在 YouTube 运营英文频道 HTX Studio，主账号"老师好我叫何同学"则同步国内视频。
-
-2024 年末至 2025 年，他因视频开源代码署名及网约车评价言论引发争议，并于 2025 年 11 月公开道歉（详见[中文维基百科条目](https://zh.wikipedia.org/wiki/%E8%80%81%E5%B8%88%E5%A5%BD%E6%88%91%E5%8F%AB%E4%BD%95%E5%90%8C%E5%AD%A6)）。
+- 他还在 YouTube 运营英文频道 [HTX Studio](https://www.youtube.com/@HTXStudio)，主账号"老师好我叫何同学"则同步国内视频。
 
 ## 在节目中的提及
 
@@ -43,10 +47,12 @@ seoDescription: '了解视频创作者何同学：B 站账号"老师好我叫何
 
 ### 何同学在哪些平台更新视频？
 
-主要在[哔哩哔哩"老师好我叫何同学"账号](https://space.bilibili.com/163637592)发布；另在 YouTube 运营英文频道 HTX Studio，主账号同步国内视频。
+主要在[哔哩哔哩"老师好我叫何同学"账号](https://space.bilibili.com/163637592)发布；另在 YouTube 运营英文频道 [HTX Studio](https://www.youtube.com/@HTXStudio)，主账号同步国内视频。
 
 ## 来源
 
 - [哔哩哔哩"老师好我叫何同学"个人空间](https://space.bilibili.com/163637592)
+- [5G 体验视频原始投稿（2019-06-06）](https://www.bilibili.com/video/av54737593/)
+- [YouTube：HTX Studio](https://www.youtube.com/@HTXStudio)
 - [中文维基百科：老师好我叫何同学](https://zh.wikipedia.org/wiki/%E8%80%81%E5%B8%88%E5%A5%BD%E6%88%91%E5%8F%AB%E4%BD%95%E5%90%8C%E5%AD%A6)
 - [Tim Cook 人物页](/wiki/people/tim-cook)

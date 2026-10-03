@@ -3,7 +3,7 @@ entityType: person
 entity: liu-shengyu
 locale: en
 slot: wiki
-updatedAt: '2026-09-21'
+updatedAt: '2026-10-03'
 seoTitle: 'Shengyu Liu: Machine Learning Systems Engineer at DeepSeek | Next Token Wiki'
 seoDescription: "Learn about Shengyu Liu, a machine learning systems engineer at DeepSeek: his Peking University background, kernel and inference-systems work such as FlashMLA, and the show's discussion of his article."
 ---
@@ -28,17 +28,17 @@ Shengyu Liu does not appear in the episodes quoted on this page; the following a
 - In the chapter on [using GPT-6 Astra to generate data and train small models](/weekly/003/transcript#chapter-12), while discussing that AI can already write kernels, Yang Pan says "the article by the DeepSeek guy says GPT wrote it" (see [the line in the Chinese transcript](/weekly/003/transcript#quote-539cde67a227f49e4cce)); Orange adds that "people inside DeepSeek are already worried about losing their jobs... like a soldier in a battle who has nothing left to do" (see [that line](/weekly/003/transcript#quote-800ce427b20536d2256b)).
 - In the chapter on [enterprise data and log boundaries](/weekly/003/transcript#chapter-22), Guizang says "as for Shengyu Liu's article we mentioned earlier, it spread widely, including on Twitter" (see [that line](/weekly/003/transcript#quote-ba2febbbc4904a32a8a1)); Yang Pan attributes its virality to the combined topics of a "DeepSeek prodigy" and "criticizing Anthropic" (see [that line](/weekly/003/transcript#quote-7afad16dbe1350c4cba1)).
 
-The hosts' relays and comments are not statements by Shengyu Liu, and the article's claims should be read in the original.
+The hosts' relays and comments are not statements by Shengyu Liu. The original article's first-party URL and publication date have not been verified for this entry; the transcript is a record of the discussion, not a substitute for the article.
 
 ## Frequently asked questions
 
 ### Who is Shengyu Liu?
 
-A machine learning systems engineer at DeepSeek-AI who has worked on MLSys and kernel design and optimization since April 2025; earlier he studied in Peking University's Turing Class and led the PKU supercomputing team. See [his homepage](https://interestinglsy.github.io/). (Editorial addition, based on his own homepage.)
+A machine learning systems engineer at DeepSeek-AI who has worked on MLSys and kernel design and optimization since April 2025; earlier he studied in Peking University's Turing Class and led the PKU supercomputing team. See [his homepage](https://interestinglsy.github.io/).
 
 ### What is the "article by Shengyu Liu" mentioned on the show?
 
-Per the Weekly #003 hosts, it is an article that spread widely that week on Zhihu, Twitter and other platforms, with topics including that AI can already write production-grade kernels; the hosts attribute its virality to his "DeepSeek employee" status combined with "criticizing Anthropic". This page relays the hosts' account from the transcript only, and the article's claims should be read in the original; see [the relevant chapter in the Chinese transcript](/weekly/003/transcript#chapter-12). (Editorial addition, based on the transcript.)
+Per the Weekly #003 hosts, it is an article that spread widely that week on Zhihu, Twitter and other platforms, with topics including that AI can already write production-grade kernels; the hosts attribute its virality to his "DeepSeek employee" status combined with "criticizing Anthropic". The original article's first-party URL and publication date remain unverified here. This page records the hosts' account only; see [the relevant chapter in the Chinese transcript](/weekly/003/transcript#chapter-12).
 
 ## Sources
 
