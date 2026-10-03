@@ -1,7 +1,7 @@
 import {createHash} from 'node:crypto';
 import {readdir,readFile,readlink,realpath} from 'node:fs/promises';
 import {join,relative,resolve,sep} from 'node:path';
-const excluded=new Set(['.git','.releases','.cache','.astro','.wrangler','dist','test-results','playwright-report','reports/maintenance','public/assets/og','worker-configuration.d.ts','release.json','source.tar','node_modules/.cache','node_modules/.vite']);
+const excluded=new Set(['.git','.releases','.cache','.astro','.wrangler','dist','test-results','playwright-report','reports/maintenance','public/assets/og','worker-configuration.d.ts','release.json','source.tar','node_modules/.cache','node_modules/.vite','node_modules/.astro','node_modules/.mf']);
 export async function releaseInputDigest(root, env=process.env) {
   root=resolve(root);const hash=createHash('sha256');
   async function visit(directory) {

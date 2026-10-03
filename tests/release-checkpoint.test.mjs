@@ -97,3 +97,20 @@ const fs=require('node:fs');
   }
  }finally{await rm(root,{recursive:true,force:true});}
 });
+
+
+test('generated Astro and Miniflare caches do not change release inputs, installed code does', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'release-generated-cache-'));
+  try {
+    await mkdir(join(root, 'node_modules/example'), {recursive: true});
+    await writeFile(join(root, 'node_modules/example/index.js'), 'original');
+    const baseline = await releaseInputDigest(root, {});
+    for (const cache of ['.astro', '.mf']) {
+      await mkdir(join(root, 'node_modules', cache));
+      await writeFile(join(root, 'node_modules', cache, 'cache.json'), 'generated');
+    }
+    assert.equal(await releaseInputDigest(root, {}), baseline);
+    await writeFile(join(root, 'node_modules/example/index.js'), 'changed');
+    assert.notEqual(await releaseInputDigest(root, {}), baseline);
+  } finally { await rm(root, {recursive: true, force: true}); }
+});
