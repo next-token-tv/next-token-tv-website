@@ -18,3 +18,7 @@ sources:
       zh-Hans: Dia 官方产品介绍
       en: Dia product overview
     href: https://www.diabrowser.com/download/thanks
+
+socialSummary:
+  zh-Hans: 内置 AI 助手的浏览器
+  en: A browser with a built-in AI assistant for research and writing.

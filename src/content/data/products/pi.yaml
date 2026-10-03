@@ -18,3 +18,7 @@ sources:
       zh-Hans: Pi 官方文档
       en: Pi documentation
     href: https://pi.dev/docs/latest
+
+socialSummary:
+  zh-Hans: 可扩展的终端编码 Agent
+  en: A minimal terminal coding agent with customizable workflows.

@@ -12,3 +12,7 @@ official:
   website: https://www.anthropic.com/claude-code
   documentation: https://docs.anthropic.com/en/docs/claude-code/overview
 lastVerifiedAt: "2026-09-07"
+
+socialSummary:
+  zh-Hans: 面向软件开发的编码 Agent
+  en: A coding agent for software development.

@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { readFileSync } from 'node:fs';
-const cards = JSON.parse(readFileSync('public/assets/og/manifest.json', 'utf8'));
 test('every social card has a working PNG and complete matching head metadata', async ({ page, request }) => {
+  const cards = JSON.parse(readFileSync('public/assets/og/manifest.json', 'utf8'));
   for (const [path, card] of Object.entries(cards) as [string, {image: string; alt: string}][]) {
     await page.goto(path);
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', `https://nexttoken.tv${card.image}`);

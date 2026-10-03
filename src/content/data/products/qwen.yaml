@@ -34,3 +34,7 @@ sources:
       zh-Hans: Qwen 3.8 Max 官方资料
       en: Qwen 3.8 Max official information
     href: https://www.alibabacloud.com/help/en/model-studio/vision-model
+
+socialSummary:
+  zh-Hans: 覆盖语言、视觉等多模态的基础模型家族
+  en: A foundation-model family for language, vision, and other modalities.

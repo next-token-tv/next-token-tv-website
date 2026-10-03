@@ -10,3 +10,8 @@ test-results/
 
 # Generated Cloudflare runtime and binding declarations
 worker-configuration.d.ts
+
+# Generated social cards, manifest, and local design previews
+/public/assets/og/
+/docs/design/og-v2/*.png
+/docs/design/og-v2/*.html

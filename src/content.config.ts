@@ -153,6 +153,7 @@ const brands = defineCollection({
     parentBrand: z.string().optional(),
     name: localizedText,
     summary: localizedText,
+    socialSummary: localizedText.optional(),
     sources: z.array(source).default([]),
     aliases: z.array(z.string()).default([]),
     official: z.object({
@@ -172,6 +173,7 @@ const products = defineCollection({
     parent: z.string().optional(),
     name: localizedText,
     summary: localizedText,
+    socialSummary: localizedText.optional(),
     sources: z.array(source).default([]),
     aliases: z.array(z.string()).default([]),
     status: z.enum(["announced", "preview", "available", "deprecated", "discontinued"]).optional(),

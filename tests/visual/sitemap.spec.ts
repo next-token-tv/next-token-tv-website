@@ -30,6 +30,12 @@ for (const width of [390, 1440]) {
       }
       await expect(page.locator('.sitemap-episodes')).toHaveScreenshot(`sitemap-episodes-${prefix ? 'en' : 'zh'}-${width}.png`);
       await expect(page.locator('.sitemap-intro')).toHaveScreenshot(`sitemap-${prefix ? 'en' : 'zh'}-${width}.png`);
+      // Catalog height can leave the footer at a fractional device pixel.
+      // Align only the screenshot target so catalog changes do not alter border antialiasing.
+      await page.locator('.footer-bottom').evaluate(node => {
+        const top = node.getBoundingClientRect().top;
+        (node as HTMLElement).style.transform = `translateY(${Math.round(top) - top}px)`;
+      });
       await expect(page.locator('.footer-bottom')).toHaveScreenshot(`sitemap-footer-${prefix ? 'en' : 'zh'}-${width}.png`);
       const xml = await request.get('/sitemap-index.xml');
       expect(xml.status()).toBe(200);

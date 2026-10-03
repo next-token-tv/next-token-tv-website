@@ -2,7 +2,7 @@
 
 ## Open Graph
 
-`npm run generate:og` renders 1200 × 630 PNG cards from the website YAML metadata, transcript imports, and existing portraits. It runs before the production build. `public/assets/og/manifest.json` and PNGs are generated delivery assets; do not edit them manually.
+`npm run generate:og` renders 1200 × 630 PNG cards from the website YAML metadata, transcript imports, and existing portraits. It runs before both the production build and `npm run dev`. The entire `public/assets/og/` directory, including `manifest.json`, is ignored by Git and regenerated from source. Git keeps the SVG logo, fonts, editorial data, and rendering templates. Deployments include the generated files; obsolete image URLs are not retained.
 
 The renderer uses local Chrome, the bundled League Spartan font, and the system Chinese font (PingFang SC on the current macOS build host). Typography uses rem; the fixed raster canvas is 1200 × 630 pixels. Cards include a page-type label, title, and site identity. People cards include the existing portrait; transcripts use a distinct transcript label and chapter count.
 

@@ -16,18 +16,20 @@
     "preview": "wrangler dev --local --ip 127.0.0.1 --port 4174",
     "check": "npm run check:chapters && npm run test:transcript && npm run test:article && npm run test:release && npm run lint:styles && npm run check:worker && astro check",
     "test:article": "node --experimental-strip-types --test tests/article-markdown.test.mjs",
-    "test:release": "node --test tests/announcement-schedule.test.mjs tests/episode-release.test.mjs tests/platform-release.test.mjs tests/https-redirect.test.mjs",
+    "test:release": "node --test tests/announcement-schedule.test.mjs tests/episode-release.test.mjs tests/platform-release.test.mjs tests/https-redirect.test.mjs tests/og-retention.test.mjs",
     "test:transcript": "node --experimental-strip-types --test tests/transcript-converter.test.mjs tests/transcript-paragraph-anchors.test.mjs tests/transcript-timing.test.mjs",
     "lint:styles": "stylelint \"src/**/*.{css,astro}\" --allow-empty-input",
     "test:visual": "playwright test",
     "test:performance": "playwright test --config playwright.performance.config.ts",
     "test:visual:update": "playwright test --update-snapshots",
-    "check:release": "node scripts/check-release.mjs",
+    "check:release": "node scripts/check-release.mjs && npm run check:seo",
     "release:check": "npm run check && npm run test:visual && npm run test:performance && npm run check:release",
     "deploy": "npm run release:check && wrangler deploy",
     "import:chapters": "node scripts/import-chapters.mjs",
     "check:chapters": "node scripts/check-chapters.mjs",
-    "check:worker": "wrangler types && tsc -p worker/tsconfig.json"
+    "check:worker": "wrangler types && tsc -p worker/tsconfig.json",
+    "predev": "npm run generate:og",
+    "check:seo": "node scripts/check-seo.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",

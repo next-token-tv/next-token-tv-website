@@ -22,3 +22,7 @@ sources:
       zh-Hans: 群晖 NAS 部署指南
       en: Synology NAS deployment guide
     href: https://kb.synology.cn/zh-cn/UG/CN_Synology_Deployment_Guide_DSM_7_2/1
+
+socialSummary:
+  zh-Hans: "群晖的网络附加存储产品系列，覆盖家庭与企业的数据存储、文件共享、同步和备份需求。"
+  en: "Network-attached storage for files, sharing, and backups."

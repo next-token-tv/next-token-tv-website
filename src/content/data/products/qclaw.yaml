@@ -15,3 +15,7 @@ sources:
       zh-Hans: 官方资料
       en: Official information
     href: https://qclaw.qq.com/
+
+socialSummary:
+  zh-Hans: 通过微信远程执行任务的个人 AI 助手
+  en: A personal AI assistant for managing files and tasks through WeChat.

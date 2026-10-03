@@ -19,3 +19,7 @@ sources:
       zh-Hans: 官方 itch.io 页面
       en: Official itch.io page
     href: https://poncle.itch.io/vampire-survivors
+
+socialSummary:
+  zh-Hans: "poncle 开发的时间生存类 Roguelite 游戏，玩家在持续来袭的敌群中升级角色、武器与能力。"
+  en: "A time-survival roguelite by poncle."
