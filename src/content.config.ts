@@ -1,3 +1,5 @@
+import { platformIds, platforms } from "./data/platforms.mjs";
+import { brandKind, productKind, personKind } from "./data/entity-kind-labels";
 import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
@@ -44,7 +46,7 @@ const people = defineCollection({
   schema: z.object({
     name: localizedText,
     bio: localizedText,
-    kind: z.enum(["business", "research-engineering", "creator-community", "other"]).default("other"),
+    kind: z.enum(Object.keys(personKind) as [keyof typeof personKind, ...(keyof typeof personKind)[]]).default("other"),
     aliases: z.array(z.string()).default([]),
     sources: z.array(source).default([]),
     relations: z.array(z.object({
@@ -147,7 +149,7 @@ const venues = defineCollection({
 const brands = defineCollection({
   loader: yamlLoader("./src/content/data/brands"),
   schema: z.object({
-    kind: z.enum(["ai-brand", "hardware-brand", "internet-software-brand", "media-community-brand", "other-brand"]),
+    kind: z.enum(Object.keys(brandKind) as [keyof typeof brandKind, ...(keyof typeof brandKind)[]]),
     parentBrand: z.string().optional(),
     name: localizedText,
     summary: localizedText,
@@ -165,7 +167,7 @@ const brands = defineCollection({
 const products = defineCollection({
   loader: yamlLoader("./src/content/data/products"),
   schema: z.object({
-    kind: z.enum(["model-family", "model", "application", "show", "game", "book", "series", "operating-system", "agent", "tool", "developer-tool", "platform", "api-service", "hardware", "framework"]),
+    kind: z.enum(Object.keys(productKind) as [keyof typeof productKind, ...(keyof typeof productKind)[]]),
     brand: z.string().optional(),
     parent: z.string().optional(),
     name: localizedText,
@@ -248,7 +250,7 @@ const episodes = defineCollection({
       }).optional(),
       homepage: z.object({ "zh-Hans": episodeHomepage, en: episodeHomepage }),
       platforms: z.array(z.object({
-        platform: z.enum(["xiaoyuzhou", "apple-podcasts", "spotify", "bilibili", "youtube", "xiaohongshu"]),
+        platform: z.enum(platformIds as [keyof typeof platforms, ...(keyof typeof platforms)[]]),
         label: localizedText,
         href: z.url().optional(),
         action: localizedText.optional(),

@@ -1,24 +1,33 @@
 import fs from 'node:fs/promises';
-import {load, dump} from 'js-yaml';
-const number=process.argv[2];
-if(!/^\d{3}$/.test(number??''))throw Error('Usage: node scripts/sync-episode-release.mjs NNN');
-const base=`../next-token/shows/weekly/episodes/${number}/`;
-const path=`src/content/data/episodes/next-token-weekly--${number}.yaml`;
-const episode=load(await fs.readFile(path,'utf8'));
-const snapshotPath=`src/content/imported/episodes/${episode.productionImport}.json`;
-const snapshot=JSON.parse(await fs.readFile(snapshotPath,'utf8'));
-const publication=JSON.parse(await fs.readFile(base+'04-release/platforms/publication.json','utf8'));
-const metadata=JSON.parse(await fs.readFile(base+'episode.json','utf8'));
-const names={'xiaoyuzhou':['小宇宙','Xiaoyuzhou'],'apple-podcasts':['Apple Podcasts','Apple Podcasts'],spotify:['Spotify','Spotify'],bilibili:['哔哩哔哩','Bilibili'],youtube:['YouTube','YouTube'],xiaohongshu:['小红书','RedNote']};
-const live=Object.entries(names).filter(([id])=>publication.platforms[id]?.status?.startsWith('published')&&publication.platforms[id].public_url);
-const audioOnly = id => publication.platforms[id]?.mode === 'audio-only' || id === 'apple-podcasts';
-if(live.length){
- episode.platforms=live.map(([id,[zh,en]])=>({platform:id,label:{'zh-Hans':zh,en},href:publication.platforms[id].public_url,action:{'zh-Hans':audioOnly(id)?'立即收听':['xiaoyuzhou','spotify'].includes(id)?'收听 / 收看':'立即观看',en:audioOnly(id)?'Listen now':['xiaoyuzhou','spotify'].includes(id)?'Listen / watch':'Watch now'}}));
- episode.media.audio=live.some(([id])=>(['xiaoyuzhou','spotify','apple-podcasts'].includes(id)||id==='xiaohongshu'&&audioOnly(id)));
- episode.media.video=live.some(([id])=>(['bilibili','youtube'].includes(id)||id==='xiaohongshu'&&!audioOnly(id)));
- const dates=[metadata.release_date,...live.map(([id])=>(publication.platforms[id].published_at ?? publication.platforms[id].public_display_time))].filter(Boolean).map(d=>d.slice(0,10)).sort();
- if(dates.length)snapshot.releaseDate=dates[0];
- await fs.writeFile(path,dump(episode,{lineWidth:-1,noRefs:true}));
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { load, dump } from 'js-yaml';
+import { planPlatformSync } from './lib/platform-release.mjs';
+
+const number = process.argv[2];
+if (!/^\d{3}$/.test(number ?? '')) {
+  throw new Error('Usage: node scripts/sync-episode-release.mjs NNN');
 }
-await fs.writeFile(snapshotPath,JSON.stringify(snapshot,null,2)+'\n');
-console.log({number,platforms:live.map(([id])=>id),releaseDate:snapshot.releaseDate??null});
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const productionRoot = resolve(root, `../next-token/shows/weekly/episodes/${number}`);
+const episodePath = resolve(root, `src/content/data/episodes/next-token-weekly--${number}.yaml`);
+const episode = load(await fs.readFile(episodePath, 'utf8'));
+const snapshotPath = resolve(root, `src/content/imported/episodes/${episode.productionImport}.json`);
+const snapshot = JSON.parse(await fs.readFile(snapshotPath, 'utf8'));
+const publication = JSON.parse(await fs.readFile(resolve(productionRoot, '04-release/platforms/publication.json'), 'utf8'));
+const metadata = JSON.parse(await fs.readFile(resolve(productionRoot, 'episode.json'), 'utf8'));
+
+// Finish reconciliation before writing either file.
+const plan = planPlatformSync(episode, publication);
+if (plan.platforms.length) {
+  episode.platforms = plan.platforms;
+  episode.media = plan.media;
+  const dates = [metadata.release_date, ...plan.platforms.map(({ platform }) => {
+    const record = publication.platforms[platform];
+    return record.published_at ?? record.public_display_time;
+  })].filter(Boolean).map(date => date.slice(0, 10)).sort();
+  if (dates.length) snapshot.releaseDate = dates[0];
+  await fs.writeFile(episodePath, dump(episode, { lineWidth: -1, noRefs: true }));
+  await fs.writeFile(snapshotPath, JSON.stringify(snapshot, null, 2) + '\n');
+}
+console.log({ number, platforms: plan.platforms.map(entry => entry.platform), releaseDate: snapshot.releaseDate ?? null });

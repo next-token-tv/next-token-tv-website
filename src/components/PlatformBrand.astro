@@ -1,20 +1,14 @@
 ---
+import { platforms } from "../data/platforms.mjs";
 interface Props {
   platform: string;
   name: string;
 }
 const { platform, name } = Astro.props;
-const icons: Record<string, string> = {
-  xiaoyuzhou: "/assets/platforms/xiaoyuzhou.svg",
-  "apple-podcasts": "/assets/platforms/apple-podcasts.svg",
-  spotify: "/assets/platforms/spotify.svg",
-  bilibili: "/assets/platforms/bilibili.svg",
-  xiaohongshu: "/assets/platforms/xiaohongshu.svg",
-  youtube: "/assets/platforms/youtube.svg",
-};
+const icon = platforms[platform as keyof typeof platforms]?.icon;
 ---
 <span class="platform-brand">
-  {icons[platform] && <img class="platform-logo" src={icons[platform]} width="28" height="28" alt="" aria-hidden="true" />}
+  {icon && <img class="platform-logo" src={icon} width="28" height="28" alt="" aria-hidden="true" />}
   <span>{name}</span>
 </span>
 <style>

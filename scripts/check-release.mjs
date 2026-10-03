@@ -1,3 +1,4 @@
+import { validPlatformUrl } from '../src/data/platforms.mjs';
 import { readdir, readFile, stat } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -217,11 +218,6 @@ for (const [file, html] of pages) {
     } catch { errors.push(`${pagePath}: missing destination ${raw}`); }
   }
 }
-const hosts = {
-  xiaohongshu: ['www.xiaohongshu.com', 'xiaohongshu.com', 'xhslink.com', 'xhslink.cn'],
-  xiaoyuzhou: ['www.xiaoyuzhoufm.com'], 'apple-podcasts': ['podcasts.apple.com'],
-  spotify: ['open.spotify.com'], bilibili: ['www.bilibili.com', 'b23.tv'], youtube: ['www.youtube.com', 'youtube.com', 'youtu.be'],
-};
 const directory = resolve(root, 'src/content/data/episodes');
 let episodes = 0;
 const published = [];
@@ -245,8 +241,7 @@ for (const name of await readdir(directory)) {
   }
   for (const platform of data.platforms ?? []) {
     if (!platform.href) continue;
-    const url = new URL(platform.href);
-    if (url.protocol !== 'https:' || !hosts[platform.platform]?.includes(url.hostname)) errors.push(`${name}: invalid ${platform.platform} destination`);
+    if (!validPlatformUrl(platform.platform, platform.href)) errors.push(`${name}: invalid ${platform.platform} destination`);
     if (!platform.action?.['zh-Hans'] || !platform.action?.en) errors.push(`${name}: missing bilingual platform action`);
     for (const prefix of ['', '/en']) {
       const html = pages.get(resolve(dist, `.${prefix}/weekly/${data.number}/index.html`)) ?? '';
