@@ -35,13 +35,14 @@
     "check:seo": "node scripts/check-seo.mjs",
     "check:worker": "wrangler types && tsc -p worker/tsconfig.json",
     "release:prepare": "node scripts/release.mjs prepare",
+    "release:resume": "node scripts/release.mjs resume",
     "release:publish": "node scripts/release.mjs publish",
     "release:rollback": "node scripts/release.mjs rollback",
     "library:report": "node scripts/library-report.mjs",
     "entity:migrate": "node --experimental-strip-types scripts/entity-migrate.mjs",
     "generate:redirects": "node scripts/generate-entity-redirects.mjs",
     "check:redirects": "node scripts/generate-entity-redirects.mjs --check",
-    "test:maintenance": "node --experimental-strip-types --test tests/maintenance.test.mjs tests/search.test.mjs tests/catalog-relations.test.mjs tests/performance-workflow.test.mjs"
+    "test:maintenance": "node --experimental-strip-types --test tests/maintenance.test.mjs tests/search.test.mjs tests/catalog-relations.test.mjs tests/performance-workflow.test.mjs tests/release-checkpoint.test.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",

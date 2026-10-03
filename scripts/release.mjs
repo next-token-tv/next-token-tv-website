@@ -25,12 +25,15 @@ if (command === 'prepare' || command === 'deploy') {
   run('git', ['archive', revision, '-o', archive]);
   run('tar', ['-xf', archive, '-C', bundle]);
   run('npm', ['ci'], bundle);
-  run('npm', ['run', 'release:check'], bundle);
-  const gates=JSON.parse(await readFile(resolve(bundle,'reports/maintenance/release-check.json'),'utf8'));
-  const manifest = { schemaVersion: 1, revision, verifiedAt: new Date().toISOString(), digest: await artifactDigest(bundle), checks: 'passed',performance:{status:'not-run',policy:'separate-audit'},timing:{seconds:(Date.now()-preparationStarted)/1000,commands:timings,stages:gates.stages} };
-  await writeFile(resolve(bundle, 'release.json'), JSON.stringify(manifest, null, 2) + '\n');
-  console.log(`Verified release: ${bundle}\nPublish: npm run release:publish -- ${bundle}`);
+  await writeFile(resolve(bundle,'release-attempt.json'),JSON.stringify({schemaVersion:1,revision})+'\n');
+  await verifyBundle(bundle, revision, false);
   if (command === 'deploy') run(process.execPath, [resolve(root, 'scripts/release.mjs'), 'publish', bundle]);
+} else if (command === 'resume') {
+  if (!argument) throw new Error('Usage: npm run release:resume -- <failed-bundle>');
+  const bundle=resolve(argument);
+  const attempt=JSON.parse(await readFile(resolve(bundle,'release-attempt.json'),'utf8'));
+  if(attempt.schemaVersion!==1 || !/^[a-f0-9]{40}$/.test(attempt.revision))throw new Error('Invalid release attempt');
+  await verifyBundle(bundle,attempt.revision,true);
 } else if (command === 'publish') {
   if (!argument) throw new Error('Usage: npm run release:publish -- <verified-bundle>');
   const bundle = resolve(argument);
@@ -48,4 +51,30 @@ if (command === 'prepare' || command === 'deploy') {
   if (!/^[a-f0-9-]{36}$/.test(argument ?? '')) throw new Error('Usage: npm run release:rollback -- <Cloudflare-version-id>');
   run('npx', ['wrangler', 'rollback', argument]);
   await appendFile(resolve(directory, 'history.jsonl'), JSON.stringify({ rolledBackAt: new Date().toISOString(), version: argument }) + '\n');
-} else throw new Error('Expected prepare, publish, deploy or rollback');
+} else throw new Error('Expected prepare, resume, publish, deploy or rollback');
+
+async function verifyBundle(bundle,revision,resume) {
+  let resumable=false;
+  try {
+    if(resume) {
+      const checkpoint=JSON.parse(await readFile(resolve(bundle,'reports/maintenance/release-check.json'),'utf8'));
+      if(checkpoint.schemaVersion!==1)throw new Error('This historical bundle does not support checkpoints; prepare its revision again');
+    }
+    run('npm',['run','release:check',...(resume?['--','--resume']:[])],bundle);
+    const gates=JSON.parse(await readFile(resolve(bundle,'reports/maintenance/release-check.json'),'utf8'));
+    const digest=await artifactDigest(bundle);
+    const required=['check','build:assets','test:visual','check:release'];
+    const legacy=gates.schemaVersion===undefined && gates.artifactDigest===undefined;
+    resumable=gates.schemaVersion===1;
+    if(gates.status!=='passed' || !Array.isArray(gates.stages) || gates.stages.length!==required.length || gates.stages.some((s,i)=>s.name!==required[i] || s.status!=='passed'))throw new Error('Release gates incomplete');
+    // Historical full runs did not emit an artifact digest. Resume requires the modern protocol.
+    if(!(legacy && !resume) && (gates.schemaVersion!==1 || gates.artifactDigest!==digest))throw new Error('Unsupported release report or artifact changed');
+    const manifest={schemaVersion:1,revision,verifiedAt:new Date().toISOString(),digest,checks:'passed',performance:{status:'not-run',policy:'separate-audit'},timing:{seconds:(Date.now()-preparationStarted)/1000,commands:timings,stages:gates.stages,attempts:gates.attempts}};
+    await writeFile(resolve(bundle,'release.json'),JSON.stringify(manifest,null,2)+'\n');
+    console.log(`Verified release: ${bundle}\nPublish: npm run release:publish -- ${bundle}`);
+  } catch(error) {
+    try {resumable=JSON.parse(await readFile(resolve(bundle,'reports/maintenance/release-check.json'),'utf8')).schemaVersion===1;} catch {}
+    console.error(resumable ? `Retry unchanged bundle: npm run release:resume -- ${bundle}` : `Prepare again: npm run release:prepare -- ${revision}`);
+    throw error;
+  }
+}

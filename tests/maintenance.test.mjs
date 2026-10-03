@@ -137,7 +137,10 @@ test('release gates disable inherited preview reuse and build only once',async()
  const {spawnSync}=await import('node:child_process');
  const root=await mkdtemp(join(tmpdir(),'release-env-'));
  try {
-  const log=join(root,'calls');
+  const log=join(root,'test-results/calls');
+  await mkdir(join(root,'test-results'));
+  await mkdir(join(root,'dist'));await mkdir(join(root,'worker'));
+  await writeFile(join(root,'dist/index.html'),'test');await writeFile(join(root,'worker/index.js'),'test');await writeFile(join(root,'wrangler.jsonc'),'{}');
   await writeFile(join(root,'npm'),'#!/bin/sh\nprintf "%s %s %s\\n" "$2" "$PLAYWRIGHT_USE_EXISTING_SERVER" "$PLAYWRIGHT_SKIP_BUILD" >> "$REVIEW_TEST_LOG"\n');
   await chmod(join(root,'npm'),0o755);
   const result=spawnSync(process.execPath,[join(import.meta.dirname,'../scripts/release-check.mjs')],{cwd:root,encoding:'utf8',env:{...process.env,PATH:root+':'+process.env.PATH,REVIEW_TEST_LOG:log,PLAYWRIGHT_USE_EXISTING_SERVER:'1',PLAYWRIGHT_SKIP_BUILD:''}});
