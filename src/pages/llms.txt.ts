@@ -1,3 +1,4 @@
+import { announcementCopy } from "../data/announcement-copy.mjs";
 import type { APIRoute } from "astro";
 import { getEpisodesForShow, getPublishedTranscriptEpisodes } from "../data/catalog";
 import { absoluteSiteUrl } from "../data/internal-url";
@@ -18,7 +19,7 @@ export const GET: APIRoute = async ({ site }) => {
     .flatMap((episode) => {
       const number = episode.data.number;
       const title = episode.data.title["zh-Hans"];
-      const status = episode.data.status === "published" ? "已发布节目" : "录制预告";
+      const status = episode.data.status === "published" ? "已发布节目" : announcementCopy(episode.data, "zh-Hans").label;
       const lines = [`- [${title}](${absolute(`/weekly/${number}`, site!)}): ${status}页面`];
       if (transcriptNumbers.has(number)) {
         lines.push(

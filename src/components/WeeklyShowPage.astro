@@ -1,4 +1,5 @@
 ---
+import { announcementCopy } from "../data/announcement-copy.mjs";
 import EpisodeCard from "./EpisodeCard.astro";
 import LatestTranscriptLink from "./LatestTranscriptLink.astro";
 import UpcomingEpisodeLink from "./UpcomingEpisodeLink.astro";
@@ -173,7 +174,7 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
 
       {upcoming?.data.status === "announced" && (
         <a class="weekly-show-upcoming" href={`${weeklyPath}/${upcoming.data.number}`}>
-          <span>{upcoming.data.phase === "post-production" ? (locale === "en" ? "In production" : "节目制作中") : labels.upcoming}</span>
+          <span>{announcementCopy(upcoming.data, locale).label}</span>
           <strong>#{upcoming.data.number}</strong>
           <p>{upcoming.data.title[locale]}</p>
           <p>

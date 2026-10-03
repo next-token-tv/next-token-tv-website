@@ -1,4 +1,5 @@
 ---
+import { announcementCopy } from "../data/announcement-copy.mjs";
 import TranscriptLink from "./TranscriptLink.astro";
 import EpisodeMentions from "./EpisodeMentions.astro";
 import PersonCard from "./PersonCard.astro";
@@ -37,6 +38,7 @@ const fullDate = new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-Hans", 
   hour12: locale === "en",
   timeZone: episode.data.timeZone,
 }).format(date);
+const statusCopy = announcementCopy(episode.data, locale);
 const preview = {
   eyebrow: episode.data.preview.eyebrow[locale],
   heading: episode.data.preview.heading[locale],
@@ -45,9 +47,9 @@ const preview = {
 };
 const copy = locale === "zh-Hans"
   ? {
-      announcement: episode.data.phase === "post-production" ? "后期制作中" : "录制预告",
+      announcement: statusCopy.label,
       recording: "录制信息",
-      date: "录制日期",
+      date: statusCopy.date,
       partner: "场地合作伙伴",
       venue: "具体场地",
       city: "地区",
@@ -61,9 +63,9 @@ const copy = locale === "zh-Hans"
       updates: "后续更新",
     }
   : {
-      announcement: episode.data.phase === "post-production" ? "In post-production" : "Recording preview",
+      announcement: statusCopy.label,
       recording: "Recording details",
-      date: "Recording date",
+      date: statusCopy.date,
       partner: "Venue partner",
       venue: "Venue",
       city: "Location",
@@ -85,6 +87,7 @@ const copy = locale === "zh-Hans"
         <p class="eyebrow">{preview.eyebrow}</p>
         <h1 id="episode-preview-title">{preview.heading[0]}<br />{preview.heading[1]}</h1>
         <p>{preview.summary}</p>
+        <p>{statusCopy.note}</p>
         <TranscriptLink episodeId={episodeId} number={episode.data.number} locale={locale} details />
       </div>
       <div class="episode-preview-poster" aria-label={`${episode.data.title[locale]} · ${fullDate}`}>

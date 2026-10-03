@@ -12,6 +12,7 @@ import { getEpisodeShowNotes, getPeopleByIds, getDetailEpisode } from "../data/c
 import { partnerPath, resolveVenueId } from "../data/partners";
 import type { Locale } from "../data/types";
 import { episodeImageSrcset } from "../data/episode-images";
+import { announcementCopy } from "../data/announcement-copy.mjs";
 
 interface Props {
   episodeId: string;
@@ -29,6 +30,7 @@ const [recording, participants] = await Promise.all([
 ]);
 const { Content } = await render(showNotes);
 const homepage = episode.data.homepage[locale];
+const announcement = episode.data.status === "announced" ? announcementCopy(episode.data, locale) : null;
 const weeklyPath = locale === "en" ? "/en/weekly" : "/weekly";
 const recordingDate = new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-Hans", {
   year: "numeric",
@@ -109,12 +111,13 @@ const labels = locale === "en" ? {
         <h1 class="episode-hero-title">{homepage.heading[0]}<br />{homepage.heading[1]}</h1>
         <p>{homepage.lede}</p>
         {episode.data.media.audio && !episode.data.media.video && <p>{locale === "en" ? "Audio out now · Video not yet available" : "音频已上线 · 视频版尚未上线"}</p>}
-        {!episode.data.media.audio && !episode.data.media.video && <p>{locale === "en" ? "Full transcript available" : "完整文字稿已上线"}</p>}
+        {announcement && <p>{announcement.label} · {announcement.note}</p>}
+        {!announcement && !episode.data.media.audio && !episode.data.media.video && <p>{locale === "en" ? "Full transcript available" : "完整文字稿已上线"}</p>}
         <TranscriptLink episodeId={episodeId} number={episode.data.number} locale={locale} details />
         <EpisodeArticleLink episodeId={episodeId} locale={locale} />
         <div class="episode-actions">
           {episode.data.platforms.filter(({ href }) => href).map((platform) => (
-            <a class="episode-listen episode-platform" href={platform.href} target="_blank" rel="noopener noreferrer" aria-label={`${platform.label[locale]} · ${platform.action?.[locale] ?? platform.label[locale]}`}>
+            <a class="episode-listen episode-platform" data-listen-platform={platform.platform} href={platform.href} target="_blank" rel="noopener noreferrer" aria-label={`${platform.label[locale]} · ${platform.action?.[locale] ?? platform.label[locale]}`}>
               <PlatformBrand platform={platform.platform} name={platform.label[locale]} /> <span aria-hidden="true">↗</span>
             </a>
           ))}
@@ -130,7 +133,7 @@ const labels = locale === "en" ? {
         {episode.data.releaseDate && <div><dt>{locale === "en" ? "Published" : "发布日期"}</dt><dd>{episode.data.releaseDate}</dd></div>}
         {duration && <div><dt>{locale === "en" ? "Duration" : "音频时长"}</dt><dd>{Math.floor(duration / 3600)}:{String(Math.floor(duration / 60) % 60).padStart(2, "0")}:{String(duration % 60).padStart(2, "0")}</dd></div>}
         <div>
-          <dt>{labels.recorded}</dt>
+          <dt>{announcement?.date ?? labels.recorded}</dt>
           <dd>{recordingDate}</dd>
         </div>
         <div>

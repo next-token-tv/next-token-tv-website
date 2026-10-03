@@ -1,4 +1,5 @@
 ---
+import { announcementCopy } from "../data/announcement-copy.mjs";
 import { getAnnouncedEpisode, getPeopleByIds } from "../data/catalog";
 import { episodeImageSrcset } from "../data/episode-images";
 import PersonCard from "./PersonCard.astro";
@@ -6,6 +7,7 @@ import type { Locale } from "../data/types";
 interface Props { episodeId: string; locale: Locale }
 const { episodeId, locale } = Astro.props;
 const { data } = await getAnnouncedEpisode(episodeId);
+const statusCopy = announcementCopy(data, locale);
 const en = locale === "en";
 const participants = await getPeopleByIds(data.participants.map(({ person }) => person));
 const date = new Intl.DateTimeFormat(en ? "en-US" : "zh-Hans", {
@@ -20,6 +22,7 @@ const date = new Intl.DateTimeFormat(en ? "en-US" : "zh-Hans", {
         <h1>{data.preview.heading[locale][0]}<br />{data.preview.heading[locale][1]}</h1>
         <p>{data.preview.summary[locale]}</p>
         <p>{data.preview.note[locale]}</p>
+        <p>{statusCopy.note}</p>
       </div>
       {data.preview.image ? <div class="episode-preview-artwork">
         <img src={data.preview.image} srcset={episodeImageSrcset(data.preview.images ?? {})}
@@ -33,11 +36,11 @@ const date = new Intl.DateTimeFormat(en ? "en-US" : "zh-Hans", {
     </div>
   </section>
   <section class="episode-preview-details shell">
-    <p class="section-kicker">{en ? "Recording details" : "录制信息"}</p>
+    <p class="section-kicker">{statusCopy.label}</p>
     <div>
       <h2 class="heading-section-content">{en ? "An online roundtable." : "一场线上圆桌。"}</h2>
       <dl class="episode-preview-facts">
-        <div><dt>{en ? "Date" : "录制日期"}</dt><dd>{date}</dd></div>
+        <div><dt>{statusCopy.date}</dt><dd>{date}</dd></div>
         <div><dt>{en ? "Format" : "录制形式"}</dt><dd>{en ? "Online" : "线上"}</dd></div>
       </dl>
       <a href={en ? "/en/weekly" : "/weekly"}>{en ? "All episodes" : "查看全部节目"} →</a>

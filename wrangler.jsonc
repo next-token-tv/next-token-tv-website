@@ -2,8 +2,13 @@
   "$schema": "https://developers.cloudflare.com/workers/wrangler/config-schema.json",
   "name": "next-token-tv",
   "compatibility_date": "2026-09-04",
+  "main": "worker/index.js",
+  "dev": { "host": "localhost" },
+  "observability": { "enabled": true },
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": true,
     "html_handling": "drop-trailing-slash",
     "not_found_handling": "404-page"
   },

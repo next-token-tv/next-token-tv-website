@@ -30,3 +30,16 @@ test('announcements with an exact time retain timestamp-based expiry', () => {
   assert.equal(hasRecordingDatePassed(scheduledAt, 'Asia/Shanghai', Date.parse('2026-09-19T02:00:00Z')), false);
   assert.equal(hasRecordingDatePassed(scheduledAt, 'Asia/Shanghai', Date.parse('2026-09-19T02:00:01Z')), true);
 });
+
+// Static output must not assert a future or completed recording as time passes.
+import { announcementCopy } from '../src/data/announcement-copy.mjs';
+test('unconfirmed recordings use durable wording in both languages', () => {
+  for (const locale of ['zh-Hans', 'en']) {
+    const before = announcementCopy({ phase: 'recording', scheduledAt: '2099-01-01' }, locale);
+    const after = announcementCopy({ phase: 'recording', scheduledAt: '2000-01-01' }, locale);
+    assert.deepEqual(before, after);
+    assert.match(before.label, locale === 'en' ? /unconfirmed/ : /待确认/);
+    assert.doesNotMatch(before.label, /Next|下一次|已录制/);
+    assert.notEqual(announcementCopy({ phase: 'post-production' }, locale).label, before.label);
+  }
+});

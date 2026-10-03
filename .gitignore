@@ -7,3 +7,6 @@ playwright-report/
 test-results/
 .env*
 !.env.example
+
+# Generated Cloudflare runtime and binding declarations
+worker-configuration.d.ts

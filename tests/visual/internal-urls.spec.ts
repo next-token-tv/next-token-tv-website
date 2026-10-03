@@ -23,6 +23,7 @@ test('retired entity URLs redirect directly to their canonical successor', async
     ['products/claude-opus-4-8', 'products/claude'],
     ['products/claude-fable-5-1', 'products/claude'],
     ['brands/workbuddy', 'products/workbuddy'],
+    ['brands/qwen', 'products/qwen'],
   ];
   for (const [source, target] of mappings) for (const locale of ['', '/en']) {
     const canonical = `${locale}/wiki/${target}`;

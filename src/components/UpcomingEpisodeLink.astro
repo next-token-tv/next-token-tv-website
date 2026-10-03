@@ -1,4 +1,5 @@
 ---
+import { announcementCopy } from "../data/announcement-copy.mjs";
 import { getAnnouncedEpisodes } from "../data/catalog";
 import { resolveVenueId } from "../data/partners";
 import type { Locale } from "../data/types";
@@ -10,6 +11,7 @@ const episode = episodes.filter(({ data }) => data.show === showId)
   .sort((a, b) => a.data.status === "announced" && b.data.status === "announced"
     ? Date.parse(a.data.scheduledAt) - Date.parse(b.data.scheduledAt) : 0)[0];
 const data = episode?.data.status === "announced" ? episode.data : undefined;
+const statusCopy = data ? announcementCopy(data, locale) : undefined;
 const recording = data?.recordingVenue ? await resolveVenueId(data.recordingVenue) : undefined;
 const date = data ? new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-Hans", {
   month: "short", day: "numeric", ...(data.scheduledAt.length > 10 ? { hour: "numeric" as const, minute: "2-digit" as const } : {}),
@@ -20,7 +22,7 @@ const venue = data?.recordingMode === "online" ? (locale === "en" ? "Online reco
 
 {data && (
   <a class="upcoming-episode-link" href={`${locale === "en" ? "/en" : ""}/weekly/${data.number}`}>
-    <span class="upcoming-episode-label">{data.phase === "post-production" ? (locale === "en" ? "In production" : "节目制作中") : (locale === "en" ? "Next recording" : "下期录制预告")} · Weekly #{data.number}</span>
+    <span class="upcoming-episode-label">{statusCopy?.label} · Weekly #{data.number}</span>
     <span class="upcoming-episode-meta">{date} · {venue}</span>
     <span class="upcoming-episode-action">{locale === "en" ? "View preview" : "查看预告"} <span aria-hidden="true">→</span></span>
   </a>

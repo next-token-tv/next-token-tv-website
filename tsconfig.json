@@ -2,5 +2,10 @@
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "noUncheckedIndexedAccess": true
-  }
+  },
+  "exclude": [
+    "dist",
+    "worker",
+    "worker-configuration.d.ts"
+  ]
 }
