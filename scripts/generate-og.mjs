@@ -1,9 +1,12 @@
 import { pruneObsoleteOgImages } from './lib/og-retention.mjs';
+import {restoreOgCache,saveOgCache} from './lib/og-cache.mjs';
+import {mapConcurrent} from './lib/concurrent-map.mjs';
+import {platform,arch,release,availableParallelism} from 'node:os';
 import { standardCardHtml, fitStandardCard } from './lib/standard-og.mjs';
 import { entityCardHtml, fitEntityCard } from './lib/entity-og.mjs';
 import sharp from 'sharp';
 import { announcementCopy } from '../src/data/announcement-copy.mjs';
-import { readFile, readdir, mkdir, writeFile, access } from 'node:fs/promises';
+import { readFile, readdir, mkdir, writeFile } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
@@ -12,6 +15,11 @@ import { load } from 'js-yaml';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const out = resolve(root, 'public/assets/og');
+const started=Date.now();
+const concurrency=Number(process.env.NEXTTOKEN_OG_CONCURRENCY??Math.min(8,availableParallelism()));
+if(!Number.isInteger(concurrency)||concurrency<1||concurrency>8)throw new Error('NEXTTOKEN_OG_CONCURRENCY must be an integer from 1 to 8');
+const cache=resolve(process.env.NEXTTOKEN_OG_CACHE_DIR??resolve(root,'.cache/og'));
+let restored=0,generated=0;
 await mkdir(out, { recursive: true });
 const read = async (path) => load(await readFile(resolve(root, path), 'utf8'));
 const collection = async (name) => Promise.all((await readdir(resolve(root, `src/content/data/${name}`))).filter(n => n.endsWith('.yaml')).map(async n => ({ id: n.slice(0, -5), ...await read(`src/content/data/${name}/${n}`) })));
@@ -41,33 +49,37 @@ const font = (await readFile(resolve(root, 'public/assets/league-spartan-black.t
 const version = await readFile(resolve(root, 'scripts/lib/standard-og.mjs'));
 const entityTemplate = await readFile(resolve(root, 'scripts/lib/entity-og.mjs'));
 const logo = (await readFile(resolve(root, 'public/assets/brand-kit/logo-next-token.svg'))).toString('base64');
-const manifest = {};
+let manifest;
 let browser;
-const layoutErrors = [];
 try {
-  for (const card of cards) {
+  browser = await chromium.launch({channel:'chrome',headless:true});
+  const renderer=createHash('sha256').update(await readFile(fileURLToPath(import.meta.url))).update(await readFile(resolve(root,'package-lock.json'))).update(`${browser.version()}:${platform()}:${arch()}:${release()}`).digest('hex');
+  const entries=await mapConcurrent(cards,concurrency,async card=>{
     const photo = card.photo ? await readFile(resolve(root, 'public', `.${card.photo}`)) : null;
-    const hash = createHash('sha256').update(card.collection ? entityTemplate : version).update(card.collection ? logo : '').update(font).update(JSON.stringify(card)).update(photo ?? '').digest('hex').slice(0, 12);
+    const hash = createHash('sha256').update(renderer).update(card.collection ? entityTemplate : version).update(card.collection ? logo : '').update(font).update(JSON.stringify(card)).update(photo ?? '').digest('hex').slice(0, 12);
     const file = `${card.route.replaceAll('/', '-').replace(/^-|-$/g, '') || 'home'}-${hash}.png`;
-    manifest[card.route] = { image: `/assets/og/${file}`, alt: `${card.label} — ${card.title.replaceAll('\n', ' ')}` };
-    try { await access(resolve(out, file)); continue; } catch {}
-    browser ??= await chromium.launch({ channel: 'chrome', headless: true });
+    const entry=[card.route,{ image: `/assets/og/${file}`, alt: `${card.label} — ${card.title.replaceAll('\n', ' ')}` }];
+    if(await restoreOgCache(cache,file,resolve(out,file))){restored++;return entry;}
     const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
+    try {
     if (card.collection) {
       await page.setContent(entityCardHtml(card, { font, logo }));
-      try { await page.evaluate(fitEntityCard); }
-      catch (error) { layoutErrors.push(`${card.route}: ${error.message}`); await page.close(); continue; }
+      await page.evaluate(fitEntityCard);
     } else {
       await page.setContent(standardCardHtml(card, { font, photo }));
       await page.evaluate(fitStandardCard);
     }
     const screenshot = await page.screenshot();
     await sharp(screenshot).png({ compressionLevel: 9 }).toFile(resolve(out, file));
-    await page.close();
-  }
+    await saveOgCache(cache,file,resolve(out,file));
+    generated++;
+    return entry;
+    } catch(error) {throw new Error(`${card.route}: ${error.message}`,{cause:error});}
+    finally {await page.close();}
+  });
+  manifest=Object.fromEntries(entries);
 } finally { await browser?.close(); }
-if (layoutErrors.length) throw new Error(layoutErrors.join('\n'));
 await writeFile(resolve(out, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
-console.log(`Prepared ${cards.length} Open Graph cards (1200 × 630).`);
+console.log(`Prepared ${cards.length} Open Graph cards (1200 × 630): ${generated} generated, ${restored} restored, concurrency ${concurrency}; ${((Date.now()-started)/1000).toFixed(2)}s.`);
 const cleanup = await pruneObsoleteOgImages(root, manifest);
 console.log(`Removed ${cleanup.removed} obsolete OG images (${(cleanup.bytes / 1048576).toFixed(2)} MiB).`);

@@ -13,6 +13,7 @@ worker-configuration.d.ts
 
 # Verified release bundles and maintenance reports
 .releases/
+.cache/
 reports/maintenance/
 
 # Generated social cards, manifest, and local design previews
