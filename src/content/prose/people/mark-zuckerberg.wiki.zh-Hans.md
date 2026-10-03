@@ -3,14 +3,14 @@ entityType: person
 entity: mark-zuckerberg
 locale: zh-Hans
 slot: wiki
-updatedAt: '2026-09-27'
-seoTitle: '马克·扎克伯格（Mark Zuckerberg）：Meta 创始人、董事长兼首席执行官｜Next Token Wiki'
-seoDescription: '了解马克·扎克伯格：2004 年创立 Facebook、2021 年更名 Meta，任内的收购与 AI 布局，以及节目中的相关讨论。'
+updatedAt: '2026-10-03'
+seoTitle: 'Mark Zuckerberg：Meta 创始人、董事长兼首席执行官｜Next Token Wiki'
+seoDescription: '了解Mark Zuckerberg：2004 年创立 Facebook、2021 年更名 Meta，任内的收购与 AI 布局，以及节目中的相关讨论。'
 ---
 
-## 马克·扎克伯格（Mark Zuckerberg）
+## Mark Zuckerberg
 
-马克·扎克伯格是 [Meta](/wiki/brands/meta) 的创始人、董事长兼首席执行官。Meta 官方管理层页记载，他于 2004 年以 Facebook 起家创立公司，负责设定公司的整体方向与产品战略，并主导 Meta 服务的设计以及核心技术与基础设施的开发。他以把 Facebook 从校园社交网络发展为覆盖 Facebook、Instagram、WhatsApp 等应用的全球公司，并在 2021 年推动公司转向"元宇宙"定位而为人所知。
+Mark Zuckerberg是 [Meta](/wiki/brands/meta) 的创始人、董事长兼首席执行官。Meta 官方管理层页记载，他于 2004 年以 Facebook 起家创立公司，负责设定公司的整体方向与产品战略，并主导 Meta 服务的设计以及核心技术与基础设施的开发。他以把 Facebook 从校园社交网络发展为覆盖 Facebook、Instagram、WhatsApp 等应用的全球公司，并在 2021 年推动公司转向"元宇宙"定位而为人所知。
 
 ## 经历与代表作品
 
@@ -27,7 +27,7 @@ seoDescription: '了解马克·扎克伯格：2004 年创立 Facebook、2021 年
 
 ## 在节目中的提及
 
-马克·扎克伯格不是节目的参与者，以下均为主理人的讨论与评论。Weekly #004 的"Muse：面向普通人的 Personal Agent"章节（[章节链接](/weekly/004/transcript#chapter-06)）围绕 Meta 的 [Muse](/wiki/products/muse) 展开：歸藏说当时收购 [Alexandr Wang](/wiki/people/alexandr-wang) 的公司时"很多人骂那个扎克脑子有问题"，而现在 Meta 一天涨了两万亿美金市值（见[该段落](/weekly/004/transcript#quote-8b2f5ae592ee2bcfbb73)）；他还说"小扎能力排众议，让 Muse 读那个 Instagram 和 Facebook 还有 Threads 的那个信息"（见[该段落](/weekly/004/transcript#quote-dbed584c312b76ce1677)）；杨攀提到网上有"Muse 抄袭 [OpenClaw](/wiki/products/openclaw)"的争议（见[该段落](/weekly/004/transcript#quote-a1eaa32bd604fba5deb7)）。在"开放生态、资源与商业闭环"章节（[章节链接](/weekly/004/transcript#chapter-09)）中，歸藏转述了外界"Alex 是个外行扎克伯格是个外行"的批评，并认为"小扎非常坚定地去推进，任何资源都给"（见[该段落](/weekly/004/transcript#quote-2d83edbea716b549a644)）；橘子评论 Muse 的成本"只有他能干"（见[该段落](/weekly/004/transcript#quote-130cdc0fdf9ff1ca32cc)）。在"创始人驱动与前沿模型"章节，杨攀自我调侃"我们太不要脸了，又爆又开始吹小扎了"（见[该段落](/weekly/004/transcript#quote-d04b06212adfb1896215)）。这些是节目语境中的观点与转述，其中"收购""几百亿美元"等说法是主理人的口语概括，不代表 [Alexandr Wang](/wiki/people/alexandr-wang) 或 Meta 本人的表态。
+Mark Zuckerberg不是节目的参与者，以下均为主理人的讨论与评论。Weekly #004 的"Muse：面向普通人的 Personal Agent"章节（[章节链接](/weekly/004/transcript#chapter-06)）围绕 Meta 的 [Muse](/wiki/products/muse) 展开：歸藏说当时收购 [Alexandr Wang](/wiki/people/alexandr-wang) 的公司时"很多人骂那个扎克脑子有问题"，而现在 Meta 一天涨了两万亿美金市值（见[该段落](/weekly/004/transcript#quote-8b2f5ae592ee2bcfbb73)）；他还说"小扎能力排众议，让 Muse 读那个 Instagram 和 Facebook 还有 Threads 的那个信息"（见[该段落](/weekly/004/transcript#quote-dbed584c312b76ce1677)）；杨攀提到网上有"Muse 抄袭 [OpenClaw](/wiki/products/openclaw)"的争议（见[该段落](/weekly/004/transcript#quote-a1eaa32bd604fba5deb7)）。在"开放生态、资源与商业闭环"章节（[章节链接](/weekly/004/transcript#chapter-09)）中，歸藏转述了外界"Alex 是个外行扎克伯格是个外行"的批评，并认为"小扎非常坚定地去推进，任何资源都给"（见[该段落](/weekly/004/transcript#quote-2d83edbea716b549a644)）；橘子评论 Muse 的成本"只有他能干"（见[该段落](/weekly/004/transcript#quote-130cdc0fdf9ff1ca32cc)）。在"创始人驱动与前沿模型"章节，杨攀自我调侃"我们太不要脸了，又爆又开始吹小扎了"（见[该段落](/weekly/004/transcript#quote-d04b06212adfb1896215)）。这些是节目语境中的观点与转述，其中"收购""几百亿美元"等说法是主理人的口语概括，不代表 [Alexandr Wang](/wiki/people/alexandr-wang) 或 Meta 本人的表态。
 
 ## 常见问题
 

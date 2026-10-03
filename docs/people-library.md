@@ -13,3 +13,5 @@
 - Person aliases identify the person by name or a confirmed nickname, not a spoken description containing another entity. In Weekly #001, only “Ruby on Rails” links to the framework; “那个连，作者” remains plain text. DHH's authorship is recorded as a person-to-product relationship. Runta is a platform product, not a person alias.
 - Weekly #001 includes the four co-hosts, Guanlan Dai, DHH, Chen Mian, Fuli Luo, Wang Le and AJ. The editor confirmed Wang Le as FoloToy's founder and AJ as WaytoAGI's initiator on 2026-09-09. Public sources are attached to their records.
 - 栋哥 is excluded by editorial decision. Shiyi remains unresolved; names contained within media brands or technical terms do not create person references.
+
+- Mark Zuckerberg is the display name in both locales. 马克·扎克伯格、扎克伯格、小扎、扎克 remain aliases; transcript wording and the `mark-zuckerberg` route ID are preserved.
