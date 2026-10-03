@@ -15,6 +15,31 @@ const productionHostname = Astro.site?.hostname;
       window.gtag('js', new Date());
       window.gtag('config', measurementId);
 
+
+      const context = () => ({
+        page_path: location.pathname,
+        language: document.documentElement.lang,
+        episode_number: location.pathname.match(/^\/(?:en\/)?weekly\/(\d{3})(?:\/|$)/)?.[1],
+      });
+      const platformClick = (event) => {
+        if (event.defaultPrevented || (event.type === 'auxclick' && event.button !== 1)) return;
+        const link = event.target instanceof Element ? event.target.closest('a[data-listen-platform]') : null;
+        if (!link) return;
+        const destination = new URL(link.href);
+        if (!['https:', 'http:'].includes(destination.protocol) || destination.hostname === productionHostname) return;
+        window.gtag('event', 'platform_outbound', {
+          ...context(), platform: link.dataset.listenPlatform, link_domain: destination.hostname,
+        });
+      };
+      document.addEventListener('click', platformClick);
+      document.addEventListener('auxclick', platformClick);
+      document.addEventListener('nexttoken:copy', (event) => {
+        const { kind, anchor } = event.detail ?? {};
+        if (!['chapter', 'paragraph'].includes(kind) || typeof anchor !== 'string' ||
+            !/^(?:chapter-[a-z0-9-]+|quote-[a-f0-9]+)$/.test(anchor)) return;
+        window.gtag('event', 'copy_reference', { ...context(), reference_type: kind, reference_id: anchor });
+      });
+
       const script = document.createElement('script');
       script.async = true;
       script.src = 'https://www.googletagmanager.com/gtag/js?id=' + measurementId;

@@ -109,6 +109,7 @@ const en = locale === "en";
         url.hash = chapter.id;
         try {
           await navigator.clipboard.writeText(url.href);
+          document.dispatchEvent(new CustomEvent('nexttoken:copy', { detail: { kind: 'chapter', anchor: chapter.id } }));
           feedback.textContent = en ? ' Copied' : ' 已复制';
         } catch {
           feedback.textContent = en ? ' Copy this link: ' : ' 请复制此链接：';
@@ -138,6 +139,7 @@ const en = locale === "en";
         }
         try {
           await navigator.clipboard.writeText(url.href);
+          document.dispatchEvent(new CustomEvent('nexttoken:copy', { detail: { kind: 'paragraph', anchor: url.hash.slice(1) } }));
           feedback.textContent = en ? ' Copied' : ' 已复制';
         } catch {
           feedback.textContent = en ? ' Copy this link: ' : ' 请复制此链接：';
