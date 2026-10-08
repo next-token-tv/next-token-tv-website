@@ -127,13 +127,21 @@ transcriptPublishedAt: '2026-10-08'
 productionImport: next-token-weekly--005.production
 media:
   audio: true
-  video: false
+  video: true
 platforms:
   - platform: xiaoyuzhou
     label:
       zh-Hans: 小宇宙
       en: Xiaoyuzhou
     href: https://www.xiaoyuzhoufm.com/episode/6ac6dabe195d838e2aee61a0
+    action:
+      zh-Hans: 立即收听
+      en: Listen now
+  - platform: apple-podcasts
+    label:
+      zh-Hans: Apple Podcasts
+      en: Apple Podcasts
+    href: https://podcasts.apple.com/us/podcast/id6809305832?i=1000793869924
     action:
       zh-Hans: 立即收听
       en: Listen now
@@ -145,6 +153,14 @@ platforms:
     action:
       zh-Hans: 立即收听
       en: Listen now
+  - platform: bilibili
+    label:
+      zh-Hans: 哔哩哔哩
+      en: Bilibili
+    href: https://www.bilibili.com/video/BV1ZDHX6eEwz/
+    action:
+      zh-Hans: 立即观看
+      en: Watch now
 homepage:
   zh-Hans:
     eyebrow: 第 005 期

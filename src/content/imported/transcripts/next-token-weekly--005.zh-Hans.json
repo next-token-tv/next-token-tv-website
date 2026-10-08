@@ -6,8 +6,7 @@
   "title": "#005 国庆补课：PA 大战白热化；游戏、软件、硬件，一切都将开源？",
   "byline": "",
   "notices": [
-    "章节标题由编辑添加，非嘉宾原话。",
-    "三处署名仍待核对，已在对应话轮保留“待核”标记。"
+    "章节标题由编辑添加，非嘉宾原话。"
   ],
   "chapters": [
     {
@@ -4162,7 +4161,7 @@
           "kind": "speech",
           "speaker": "向阳乔木",
           "speakerId": "xiangyang-qiaomu",
-          "candidate": true,
+          "candidate": false,
           "paragraphs": [
             [
               {
@@ -5572,9 +5571,9 @@
         },
         {
           "kind": "speech",
-          "speaker": "向阳乔木",
-          "speakerId": "xiangyang-qiaomu",
-          "candidate": true,
+          "speaker": "橘子",
+          "speakerId": "orange",
+          "candidate": false,
           "paragraphs": [
             [
               {
@@ -9095,7 +9094,7 @@
           "kind": "speech",
           "speaker": "橘子",
           "speakerId": "orange",
-          "candidate": true,
+          "candidate": false,
           "paragraphs": [
             [
               {
@@ -12054,10 +12053,10 @@
   ],
   "provenance": {
     "sourceRepository": "next-token",
-    "sourceRevision": "76c0ca2cbdd0d83992c4e5e8186d38e069884d70",
+    "sourceRevision": "da3e1f44ee0d05cc354d4f8edc8a599c28a0b922",
     "sourceState": "committed",
     "sourcePath": "shows/weekly/episodes/005/03-post-production/transcripts/reading/transcript.zh-Hans.md",
-    "sourceSha256": "7567b98c92d7dc317497ee9a81e5bffbe397b9bd043688aaba7f901a0388773d"
+    "sourceSha256": "e6b8f409b24dffbba00e497db07567101dc2280cbc140c8107c028e328b69758"
   },
   "chapterCount": 20,
   "publicationStatus": "published"
