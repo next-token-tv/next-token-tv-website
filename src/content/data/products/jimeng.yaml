@@ -1,0 +1,18 @@
+kind: application
+name:
+  zh-Hans: 即梦 AI
+  en: Jimeng AI
+summary:
+  zh-Hans: 提供 AI 图片与视频创作的应用。
+  en: An application for AI image and video creation.
+aliases:
+  - 即梦
+official:
+  website: https://jimeng.jianying.com/
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://jimeng.jianying.com/
+lastVerifiedAt: '2026-10-08'
+brand: bytedance

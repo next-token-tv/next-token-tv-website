@@ -9,12 +9,12 @@ flagship: true
 cadence: weekly
 defaultLocale: zh-Hans
 community:
-  qrImage: /assets/weekly-004/community-qr-20260927.webp
+  qrImage: /assets/weekly-005/community-qr-20261008.webp
   width: 1616
   height: 920
   description:
-    zh-Hans: 欢迎加入 Next Token Weekly 听友 2 群，一起聊 AI 工具、节目选题与真实使用体验。长按或扫描下方二维码入群（2026 年 10 月 4 日前有效）。
-    en: Join Next Token Weekly’s second WeChat listener group to discuss AI tools and real workflows. Scan the QR code below before October 4, 2026.
+    zh-Hans: 欢迎加入 Next Token Weekly 听友 2 群，一起聊 AI 工具、节目选题与真实使用体验。长按或扫描下方二维码入群（2026 年 10 月 15 日前有效）。
+    en: Join Next Token Weekly’s second WeChat listener group to discuss AI tools and real workflows. Scan the QR code below before October 15, 2026.
   imageAlt:
     zh-Hans: Next Token Weekly 听友 2 群二维码
     en: Next Token Weekly listener group 2 QR code

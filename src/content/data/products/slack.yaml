@@ -1,0 +1,16 @@
+kind: platform
+name:
+  zh-Hans: Slack
+  en: Slack
+summary:
+  zh-Hans: 用于团队消息、频道沟通和工作协作的平台。
+  en: A platform for team messaging, channels and workplace collaboration.
+aliases: []
+official:
+  website: https://slack.com/
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://slack.com/
+lastVerifiedAt: '2026-10-08'

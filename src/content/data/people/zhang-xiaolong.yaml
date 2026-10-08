@@ -1,0 +1,15 @@
+kind: business
+name:
+  zh-Hans: 张小龙
+  en: Allen Zhang
+bio:
+  zh-Hans: 微信创始人，腾讯微信事业群负责人。
+  en: Creator of WeChat and leader of Tencent’s Weixin business group.
+aliases:
+  - Zhang Xiaolong
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.tencent.com/zh-cn/newsroom/media-resources/our-people/
+lastVerifiedAt: '2026-10-08'

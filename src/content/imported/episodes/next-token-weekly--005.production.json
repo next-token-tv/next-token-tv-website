@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 2,
+  "episodeId": "next-token-weekly--005",
+  "number": "005",
+  "show": "next-token-weekly",
+  "status": "published",
+  "language": "zh-Hans",
+  "recordedAt": "2026-10-07",
+  "releaseDate": "2026-10-08",
+  "recordingMode": "in-person",
+  "recordingLocation": {
+    "zh-Hans": "北京·温榆河公园",
+    "en": "Wenyu River Park, Beijing"
+  },
+  "durationSeconds": 4404,
+  "imageKind": "artwork",
+  "imageDimensions": {
+    "width": 3000,
+    "height": 3000
+  },
+  "participants": [
+    {
+      "person": "yangpan",
+      "role": "duty-host"
+    },
+    {
+      "person": "xiangyang-qiaomu",
+      "role": "co-host"
+    },
+    {
+      "person": "guizang",
+      "role": "co-host"
+    },
+    {
+      "person": "orange",
+      "role": "co-host"
+    }
+  ],
+  "guestNames": [],
+  "images": {
+    "480": "/assets/weekly-005-cover-square-480.webp",
+    "720": "/assets/weekly-005-cover-square-720.webp",
+    "960": "/assets/weekly-005-cover-square-960.webp",
+    "1440": "/assets/weekly-005-cover-square-1440.webp",
+    "1920": "/assets/weekly-005-cover-square-1920.webp"
+  },
+  "provenance": {
+    "productionCommit": "76c0ca2cbdd0d83992c4e5e8186d38e069884d70",
+    "sources": [
+      {
+        "path": "shows/weekly/episodes/005/credits.json",
+        "sha256": "c2d1974bbfdc957969c29e309894eebc7ae17d2f02a96394668aa0c3dd3a0e17"
+      },
+      {
+        "path": "shows/weekly/episodes/005/04-release/artwork/cover-square.jpg",
+        "sha256": "d0676086b32095596cfe6d89ad81fa791bcd24f3942edf7e202a08b3b8a42e3f"
+      },
+      {
+        "path": "shows/weekly/episodes/005/04-release/copy/website-release.json",
+        "sha256": "b2a2265fd2c6b32733481374a5eb763088816b580620921b249d773b7de19dab"
+      }
+    ]
+  }
+}

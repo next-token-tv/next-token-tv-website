@@ -1,0 +1,16 @@
+kind: game
+name:
+  zh-Hans: DotA
+  en: Defense of the Ancients
+summary:
+  zh-Hans: 源自《魔兽争霸 III》自定义地图的多人对战游戏。
+  en: A multiplayer battle game originating as a custom map for Warcraft III.
+aliases:
+  - Dota
+official: {}
+sources:
+  - label:
+      zh-Hans: 作品历史资料
+      en: Game history
+    href: https://en.wikipedia.org/wiki/Defense_of_the_Ancients
+lastVerifiedAt: '2026-10-08'

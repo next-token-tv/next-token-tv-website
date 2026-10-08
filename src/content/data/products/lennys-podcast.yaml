@@ -1,0 +1,17 @@
+kind: show
+name:
+  zh-Hans: Lenny’s Podcast
+  en: Lenny’s Podcast
+summary:
+  zh-Hans: 由 Lenny Rachitsky 主持，讨论产品、职业发展和增长的访谈播客。
+  en: An interview podcast hosted by Lenny Rachitsky about product, careers and growth.
+aliases:
+  - Lenny's Podcast
+official:
+  website: https://www.lennysnewsletter.com/podcast
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal source
+    href: https://www.lennysnewsletter.com/podcast
+lastVerifiedAt: '2026-10-08'

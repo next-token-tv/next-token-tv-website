@@ -1,0 +1,16 @@
+kind: developer-tool
+name:
+  zh-Hans: Tailwind CSS
+  en: Tailwind CSS
+summary:
+  zh-Hans: 通过组合实用类构建网页界面的 CSS 框架。
+  en: A utility-first CSS framework for building web interfaces.
+aliases: []
+official:
+  website: https://tailwindcss.com/
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal source
+    href: https://tailwindcss.com/
+lastVerifiedAt: '2026-10-08'

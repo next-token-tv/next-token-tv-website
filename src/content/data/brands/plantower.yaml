@@ -1,0 +1,17 @@
+kind: hardware-brand
+name:
+  zh-Hans: 攀藤科技
+  en: Plantower
+summary:
+  zh-Hans: 研发、生产和销售空气质量传感器的公司。
+  en: A company developing, manufacturing and selling air-quality sensors.
+aliases:
+  - 攀藤
+official:
+  website: https://www.plantower.com/
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.plantower.com/
+lastVerifiedAt: '2026-10-08'

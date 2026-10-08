@@ -1,0 +1,23 @@
+schemaVersion: 2
+episodeId: next-token-weekly--005
+number: '005'
+show: next-token-weekly
+status: published
+language: zh-Hans
+recordedAt: '2026-10-07'
+releaseDate: '2026-10-08'
+recordingMode: in-person
+recordingLocation:
+  zh-Hans: 北京·温榆河公园
+  en: Wenyu River Park, Beijing
+durationSeconds: 4404
+imageKind: artwork
+imageDimensions:
+  width: 3000
+  height: 3000
+creditsSource: shows/weekly/episodes/005/credits.json
+cover: shows/weekly/episodes/005/04-release/artwork/cover-square.jpg
+sources:
+  - shows/weekly/episodes/005/credits.json
+  - shows/weekly/episodes/005/04-release/artwork/cover-square.jpg
+  - shows/weekly/episodes/005/04-release/copy/website-release.json

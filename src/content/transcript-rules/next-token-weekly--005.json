@@ -1,0 +1,147 @@
+{
+  "locale": "zh-Hans",
+  "resolutions": {
+    "Next Token Weekly": {
+      "entityType": "show",
+      "id": "next-token-weekly"
+    },
+    "DeepSeek": {
+      "entityType": "brand",
+      "id": "deepseek"
+    },
+    "MiniMax": {
+      "entityType": "product",
+      "id": "minimax"
+    },
+    "赛博禅心": {
+      "entityType": "person",
+      "id": "cyber-zen"
+    },
+    "Cyber Zen": {
+      "entityType": "person",
+      "id": "cyber-zen"
+    },
+    "Muse": {
+      "entityType": "product",
+      "id": "muse-agent"
+    },
+    "AK": {
+      "entityType": "person",
+      "id": "andrej-karpathy"
+    }
+  },
+  "notices": [
+    "章节标题由编辑添加，非嘉宾原话。",
+    "三处署名仍待核对，已在对应话轮保留“待核”标记。"
+  ],
+  "excludedEntities": [
+    "product:diandian"
+  ],
+  "scopedAliases": [
+    {
+      "entityType": "product",
+      "id": "muse-agent",
+      "alias": "Muse"
+    },
+    {
+      "entityType": "product",
+      "id": "claude",
+      "alias": "Opus 5.5"
+    },
+    {
+      "entityType": "product",
+      "id": "gpt",
+      "alias": "GPT Image 2.0"
+    },
+    {
+      "entityType": "product",
+      "id": "glm",
+      "alias": "GLM 5.3"
+    },
+    {
+      "entityType": "product",
+      "id": "glm",
+      "alias": "智谱 5.2"
+    },
+    {
+      "entityType": "product",
+      "id": "kimi",
+      "alias": "K3"
+    },
+    {
+      "entityType": "product",
+      "id": "gemini",
+      "alias": "Gemini 4"
+    },
+    {
+      "entityType": "product",
+      "id": "deepseek",
+      "alias": "DeepSeek V4.1 Flash"
+    },
+    {
+      "entityType": "product",
+      "id": "deepseek",
+      "alias": "DeepSeek Flash"
+    },
+    {
+      "entityType": "product",
+      "id": "nvidia-dgx-spark",
+      "alias": "DGX"
+    },
+    {
+      "entityType": "person",
+      "id": "tao-fangbo",
+      "alias": "陶方波"
+    },
+    {
+      "entityType": "person",
+      "id": "tw93",
+      "alias": "汤威"
+    },
+    {
+      "entityType": "person",
+      "id": "zhang-xiaolong",
+      "alias": "龙哥"
+    },
+    {
+      "entityType": "product",
+      "id": "taopiaopiao",
+      "alias": "淘票"
+    },
+    {
+      "entityType": "product",
+      "id": "app-store",
+      "alias": "Apple Store"
+    },
+    {
+      "entityType": "product",
+      "id": "deepseek",
+      "alias": "DeepSeek R1"
+    },
+    {
+      "entityType": "product",
+      "id": "xiaomi-bluetooth-remote",
+      "alias": "小米遥控器"
+    },
+    {
+      "entityType": "product",
+      "id": "xiaomi-bluetooth-remote",
+      "alias": "小米蓝牙遥控器"
+    },
+    {
+      "entityType": "product",
+      "id": "apple-tv-remote",
+      "alias": "Apple TV 的那个遥控器"
+    },
+    {
+      "entityType": "product",
+      "id": "claude-code",
+      "alias": "CC"
+    },
+    {
+      "entityType": "product",
+      "id": "artificial-analysis",
+      "alias": "AA"
+    }
+  ]
+}

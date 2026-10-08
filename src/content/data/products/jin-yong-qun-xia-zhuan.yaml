@@ -1,0 +1,17 @@
+kind: game
+name:
+  zh-Hans: 金庸群侠传
+  en: Jin Yong Qun Xia Zhuan
+summary:
+  zh-Hans: 以金庸武侠世界为背景的经典单机角色扮演游戏。
+  en: A classic single-player role-playing game set in Jin Yong’s wuxia world.
+aliases:
+  - 金庸群俠傳
+official:
+  website: https://www.soft-world.com/News/NewsDetail?Sn=5
+sources:
+  - label:
+      zh-Hans: 发行商资料
+      en: Publisher information
+    href: https://www.soft-world.com/News/NewsDetail?Sn=5
+lastVerifiedAt: '2026-10-08'

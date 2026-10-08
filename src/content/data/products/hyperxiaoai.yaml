@@ -1,0 +1,17 @@
+kind: agent
+name:
+  zh-Hans: 超级小爱
+  en: Super XiaoAI
+summary:
+  zh-Hans: 小米生态中的 AI 助手，提供语音交互、信息问答和设备操作等功能。
+  en: An AI assistant in Xiaomi’s ecosystem for voice interaction, information and device actions.
+aliases: []
+official:
+  website: https://xiaoai.mi.com/
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://xiaoai.mi.com/
+lastVerifiedAt: '2026-10-08'
+brand: xiaomi

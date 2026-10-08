@@ -1,0 +1,16 @@
+kind: hardware-brand
+name:
+  zh-Hans: 任天堂
+  en: Nintendo
+summary:
+  zh-Hans: 开发游戏主机、游戏软件及相关娱乐产品的公司。
+  en: A company developing game consoles, games and related entertainment products.
+aliases: []
+official:
+  website: https://www.nintendo.com/us/
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal source
+    href: https://www.nintendo.com/us/
+lastVerifiedAt: '2026-10-08'

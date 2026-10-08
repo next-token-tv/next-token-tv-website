@@ -1,0 +1,17 @@
+kind: platform
+name:
+  zh-Hans: App Store
+  en: App Store
+summary:
+  zh-Hans: Apple 的应用分发商店，提供应用与游戏的下载及更新。
+  en: Apple’s app distribution store for downloading and updating applications and games.
+aliases: []
+official:
+  website: https://www.apple.com/app-store/
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.apple.com/app-store/
+lastVerifiedAt: '2026-10-08'
+brand: apple

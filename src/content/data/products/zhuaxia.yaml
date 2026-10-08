@@ -1,0 +1,15 @@
+kind: platform
+name:
+  zh-Hans: 抓虾
+  en: Zhuaxia
+summary:
+  zh-Hans: Web 2.0 时代的中文在线 RSS 阅读与订阅服务。
+  en: A Chinese online RSS reader and subscription service from the Web 2.0 era.
+aliases: []
+official: {}
+sources:
+  - label:
+      zh-Hans: 百度 RSS 历史帮助文档
+      en: Baidu historical RSS documentation
+    href: https://www.baidu.com/search/rss.html
+lastVerifiedAt: '2026-10-08'

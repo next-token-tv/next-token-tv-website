@@ -1,0 +1,18 @@
+kind: hardware
+name:
+  zh-Hans: Apple TV 遥控器
+  en: Apple TV Remote
+summary:
+  zh-Hans: 用于操作 Apple TV 的实体遥控器；支持 Siri 的型号称为 Siri Remote。
+  en: The physical remote for Apple TV; Siri-enabled models are called Siri Remote.
+aliases:
+  - Siri Remote
+official:
+  website: https://www.apple.com/apple-tv-4k/
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.apple.com/apple-tv-4k/
+lastVerifiedAt: '2026-10-08'
+brand: apple

@@ -1,0 +1,18 @@
+kind: hardware
+name:
+  zh-Hans: 小米蓝牙遥控器 2 Pro
+  en: Xiaomi Bluetooth Remote 2 Pro
+summary:
+  zh-Hans: 小米的蓝牙语音遥控器，支持智能语音、NFC 投屏与 USB-C 充电。
+  en: Xiaomi’s Bluetooth voice remote with voice control, NFC casting and USB-C charging.
+aliases:
+  - 小米蓝牙遥控器
+official:
+  website: https://www.mi.com/xiaomi-bluetooth-remote-2-pro
+sources:
+  - label:
+      zh-Hans: 官方产品页
+      en: Official product page
+    href: https://www.mi.com/xiaomi-bluetooth-remote-2-pro
+lastVerifiedAt: '2026-10-08'
+brand: xiaomi

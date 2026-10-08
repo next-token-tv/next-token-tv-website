@@ -1,3 +1,4 @@
+import {nextEpisode,latestEpisode} from './episode-fixture';
 import { expect, test } from '@playwright/test';
 for (const width of [390, 768, 1440, 1920]) for (const prefix of ['', '/en']) {
   test(`published online episode replaces preview ${prefix || 'zh'} ${width}`, async ({ page }) => {
@@ -5,8 +6,9 @@ for (const width of [390, 768, 1440, 1920]) for (const prefix of ['', '/en']) {
     for (const path of ['/', '/weekly']) {
       await page.goto(path === '/' ? (prefix || '/') : prefix + path);
       const preview = page.locator('.upcoming-episode-link');
-      await expect(preview).toHaveCount(0);
-      await expect(page.locator('.status-pill')).toContainText('#004');
+      await expect(preview).toHaveCount(nextEpisode ? 1 : 0);
+      if(nextEpisode) await expect(preview).toHaveAttribute('href', `${prefix}/weekly/${nextEpisode.number}`);
+      await expect(page.locator('.status-pill')).toContainText('#'+latestEpisode.number);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     }
     await page.goto(prefix + '/weekly/003');

@@ -1,0 +1,18 @@
+kind: hardware
+name:
+  zh-Hans: PlayStation 5
+  en: PlayStation 5
+summary:
+  zh-Hans: 索尼的家用游戏主机系列，通常简称 PS5。
+  en: Sony’s home video game console family, commonly abbreviated as PS5.
+aliases:
+  - PS5
+official:
+  website: https://www.playstation.com/en-us/ps5/
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.playstation.com/en-us/ps5/
+lastVerifiedAt: '2026-10-08'
+brand: sony

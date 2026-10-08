@@ -1,0 +1,17 @@
+kind: platform
+name:
+  zh-Hans: AIHOT
+  en: AIHOT
+summary:
+  zh-Hans: 聚合 AI 信源、整理热点与日报的资讯网站，提供开源的网站框架。
+  en: An AI news website curating sources, trends and daily digests, with an open-source website framework.
+aliases:
+  - AIHOT.news
+official:
+  website: https://aihot.news/
+sources:
+  - label:
+      zh-Hans: 官方仓库
+      en: Official repository
+    href: https://github.com/KKKKhazix/AIHOT
+lastVerifiedAt: '2026-10-08'

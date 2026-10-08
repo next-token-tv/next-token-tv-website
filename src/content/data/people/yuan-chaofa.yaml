@@ -1,0 +1,15 @@
+kind: research-engineering
+name:
+  zh-Hans: 袁朝发
+  en: Chaofa Yuan
+bio:
+  zh-Hans: 大模型算法工程师与技术博主，撰写 LLM、Agent 和深度学习内容。
+  en: An LLM engineer and technical blogger writing about language models, agents and deep learning.
+aliases:
+  - chaofa用代码打点酱油
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal source
+    href: https://yuanchaofa.com/
+lastVerifiedAt: '2026-10-08'

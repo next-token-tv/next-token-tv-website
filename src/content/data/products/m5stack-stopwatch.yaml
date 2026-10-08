@@ -1,0 +1,19 @@
+kind: hardware
+name:
+  zh-Hans: M5Stack StopWatch
+  en: M5Stack StopWatch
+summary:
+  zh-Hans: M5Stack 的圆形 AMOLED 触摸屏开发板，面向便携交互与物联网开发。
+  en: M5Stack’s round AMOLED touch-screen development board for portable interaction and IoT projects.
+aliases:
+  - StopWatch
+  - Stopwatch
+official:
+  website: https://docs.m5stack.com/en/core/StopWatch
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://docs.m5stack.com/en/core/StopWatch
+lastVerifiedAt: '2026-10-08'
+parent: m5stack

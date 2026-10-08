@@ -1,0 +1,20 @@
+kind: developer-tool
+name:
+  zh-Hans: Strata
+  en: Strata
+summary:
+  zh-Hans: 面向消费级硬件运行大语言模型的开源推理引擎，支持本地 API 服务。
+  en: An open-source inference engine for running language models on consumer hardware with local API serving.
+aliases: []
+official:
+  website: https://github.com/Niko1221/Strata
+sources:
+  - label:
+      zh-Hans: 官方仓库
+      en: Official repository
+    href: https://github.com/Niko1221/Strata
+  - label:
+      zh-Hans: DGX Spark 移植
+      en: DGX Spark port
+    href: https://github.com/shi3z/Strata-DGX-Spark
+lastVerifiedAt: '2026-10-08'

@@ -1,0 +1,178 @@
+schemaVersion: 2
+number: '005'
+show: next-token-weekly
+status: published
+title:
+  zh-Hans: '#005 国庆补课：PA 大战白热化；游戏、软件、硬件，一切都将开源？'
+  en: '#005 Holiday catch-up: the personal agent race heats up; will games, software and hardware all go open source?'
+mentions:
+  brands:
+    - openai
+    - anthropic
+    - meta
+    - google
+    - deepseek
+    - zhipu
+    - adobe
+    - cloudflare
+    - xiaomi
+    - nvidia
+    - espressif
+    - folotoy
+    - modretro
+    - sony
+    - nintendo
+    - minimax
+    - stepfun
+    - mistral-ai
+    - reflection-ai
+    - lego
+    - seamate
+    - plantower
+  products:
+    - dots
+    - instinct
+    - muse-agent
+    - grok-bot
+    - codex
+    - chatgpt
+    - openclaw
+    - claude-code
+    - claude-cowork
+    - deepseek-harness
+    - pi
+    - trae
+    - claude
+    - gpt
+    - glm
+    - kimi
+    - deepseek
+    - gemini
+    - qwen
+    - mistral
+    - openai-devday
+    - lennys-podcast
+    - wechat
+    - whatsapp
+    - airbnb
+    - ctrip
+    - substack
+    - aihot
+    - github
+    - x
+    - xiaohongshu
+    - xiaoyuzhou
+    - bilibili
+    - tiktok
+    - artificial-analysis
+    - mole
+    - obsidian
+    - typora
+    - milkdown
+    - codemirror
+    - pixijs
+    - godot-engine
+    - tailwind-css
+    - sublime-text
+    - photoshop
+    - descript
+    - pencil
+    - magicpath
+    - chrome
+    - jianying
+    - mac-studio
+    - iphone
+    - esp32
+    - m5stack
+    - ai-passport
+    - nvidia-dgx-spark
+    - xiaomi-bluetooth-remote
+    - legend-of-zelda
+    - modretro-chromatic
+    - jin-yong-qun-xia-zhuan
+    - bloodborne
+    - elden-ring
+    - minecraft
+    - windows
+    - android
+    - ios
+    - slack
+    - alipay
+    - taopiaopiao
+    - imessage
+    - zhuaxia
+    - raspberry-pi
+    - app-store
+    - steam
+    - go
+    - anyps5
+    - playstation-5
+    - dota
+    - strata
+    - m5stack-stopwatch
+    - muse-home-link
+    - hyperxiaoai
+    - apple-tv-remote
+    - jimeng
+  people:
+    - tao-fangbo
+    - kazike
+    - tw93
+    - yuan-chaofa
+    - thibault-sottiaux
+    - lenny-rachitsky
+    - wang-le
+    - zhang-xiaolong
+transcriptPublishedAt: '2026-10-08'
+productionImport: next-token-weekly--005.production
+media:
+  audio: true
+  video: false
+platforms:
+  - platform: xiaoyuzhou
+    label:
+      zh-Hans: 小宇宙
+      en: Xiaoyuzhou
+    href: https://www.xiaoyuzhoufm.com/episode/6ac6dabe195d838e2aee61a0
+    action:
+      zh-Hans: 立即收听
+      en: Listen now
+  - platform: spotify
+    label:
+      zh-Hans: Spotify
+      en: Spotify
+    href: https://open.spotify.com/episode/47rgaESek4Vl1jHD7OwcEc
+    action:
+      zh-Hans: 立即收听
+      en: Listen now
+homepage:
+  zh-Hans:
+    eyebrow: 第 005 期
+    heading:
+      - 国庆补课：PA 大战白热化；
+      - 游戏、软件、硬件，一切都将开源？
+    lede: 国庆假期，Personal Agent 成了我们的共同话题。我们从 Dots 放进 Codex 后的上手体验、记忆与云电脑权限聊起，讨论 Agent 应该是助理还是数字分身；再聊 Instinct 的订房和商旅模式，以及邮箱、微信与 RSS 的信息开放差异。
+    copy: 国庆假期，Personal Agent 成了我们的共同话题。我们从 Dots 放进 Codex 后的上手体验、记忆与云电脑权限聊起，讨论 Agent 应该是助理还是数字分身；再聊 Instinct 的订房和商旅模式，以及邮箱、微信与 RSS 的信息开放差异。
+    imageAlt: '#005 国庆补课：PA 大战白热化；游戏、软件、硬件，一切都将开源？'
+    topicsLabel: 本期议题
+    topics:
+      - Personal Agent
+      - 开源
+      - 小硬件
+    listenAction: 立即收听
+    watchAction: 查看本期
+  en:
+    eyebrow: 'Episode #005'
+    heading:
+      - The personal agent race heats up.
+      - Will everything go open source?
+    lede: 'From Dots and Instinct to games, software rewrites and small hardware: four co-hosts share hands-on experiences with personal agents, memory, permissions, open ecosystems and multi-model workflows.'
+    copy: 'From Dots and Instinct to games, software rewrites and small hardware: four co-hosts share hands-on experiences with personal agents, memory, permissions, open ecosystems and multi-model workflows.'
+    imageAlt: '#005 Holiday catch-up: the personal agent race heats up; will games, software and hardware all go open source?'
+    topicsLabel: Episode topics
+    topics:
+      - Personal Agent
+      - Open source
+      - Small hardware
+    listenAction: Listen now
+    watchAction: Explore episode

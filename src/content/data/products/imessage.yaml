@@ -1,0 +1,17 @@
+kind: application
+name:
+  zh-Hans: iMessage
+  en: iMessage
+summary:
+  zh-Hans: Apple 信息应用中的网络消息服务，可在 Apple 设备间发送文字和媒体。
+  en: Apple’s internet messaging service in Messages for sending texts and media across Apple devices.
+aliases: []
+official:
+  website: https://support.apple.com/guide/iphone/about-imessage-iph4e9799206/ios
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://support.apple.com/guide/iphone/about-imessage-iph4e9799206/ios
+lastVerifiedAt: '2026-10-08'
+brand: apple

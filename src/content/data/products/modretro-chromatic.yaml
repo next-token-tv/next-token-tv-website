@@ -1,0 +1,18 @@
+kind: hardware
+name:
+  zh-Hans: ModRetro Chromatic
+  en: ModRetro Chromatic
+summary:
+  zh-Hans: ModRetro 的复古掌上游戏机，支持 Game Boy 和 Game Boy Color 卡带。
+  en: ModRetro’s retro handheld console compatible with Game Boy and Game Boy Color cartridges.
+official:
+  website: https://support.modretro.com/en_us/chromatic-manual-S1cy8e_0Zx
+lastVerifiedAt: '2026-10-08'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://support.modretro.com/en_us/chromatic-manual-S1cy8e_0Zx
+brand: modretro
+aliases:
+  - Chromatic

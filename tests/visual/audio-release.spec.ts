@@ -1,8 +1,11 @@
+import {nextEpisode} from './episode-fixture';
 import { expect, test } from '@playwright/test';
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { load } from 'js-yaml';
 const episodes = readdirSync('src/content/data/episodes').filter(n=>n.endsWith('.yaml')).map(n=>load(readFileSync('src/content/data/episodes/'+n,'utf8')) as any).filter(e=>e.status==='published').sort((a,b)=>Number(b.number)-Number(a.number));
 const latest=episodes[0];
+const transcriptPath='src/content/imported/transcripts/next-token-weekly--'+latest.number+'.zh-Hans.json';
+const hasTranscript=existsSync(transcriptPath) && JSON.parse(readFileSync(transcriptPath,'utf8')).publicationStatus==='published';
 const latestSnapshot=JSON.parse(readFileSync('src/content/imported/episodes/'+latest.productionImport+'.json','utf8'));
 
 for (const width of [390, 768, 1280, 1320, 1440, 1920, 2560]) {
@@ -13,7 +16,8 @@ for (const width of [390, 768, 1280, 1320, 1440, 1920, 2560]) {
         await page.goto(path === '/' ? (prefix || '/') : `${prefix}${path}`);
         await expect(page.locator('.status-pill')).toHaveAttribute('href', `${prefix}/weekly/${latest.number}`);
         await expect(page.locator('.status-pill')).toContainText('#'+latest.number);
-        await expect(page.locator('.upcoming-episode-link')).toHaveCount(0);
+        await expect(page.locator('.upcoming-episode-link')).toHaveCount(nextEpisode ? 1 : 0);
+        if(nextEpisode) await expect(page.locator('.upcoming-episode-link')).toHaveAttribute('href', `${prefix}/weekly/${nextEpisode.number}`);
         const primary = page.locator(path === '/' ? '.hero-copy .button.primary' : '.weekly-latest-actions > a').first();
         await expect(primary).toHaveAttribute('href', `${prefix}/weekly/${latest.number}`);
         const cards = page.locator('[data-episode-number]');
@@ -32,9 +36,9 @@ for (const width of [390, 768, 1280, 1320, 1440, 1920, 2560]) {
           await expect(page.locator('.visual-caption strong')).toHaveText('24 signalsone open table');
         }
         expect(await cards.evaluateAll(nodes => nodes.map(n => n.getAttribute('data-episode-number')))).toEqual(path === '/' ? [latest.number] : episodes.map(e=>e.number));
-        await expect(page.locator(`a[href*="/${latest.number}/transcript"]`)).toHaveCount(prefix ? 0 : 2);
+        await expect(page.locator(`a[href*="/${latest.number}/transcript"]`)).toHaveCount(prefix || !hasTranscript ? 0 : 2);
         await expect(page.locator('.platform-list a[href*="spotify.com"]')).toHaveAttribute('href', /\/show\//);
-        if (!prefix) await expect(page.locator('main > section').first().locator(`a[href="/weekly/${latest.number}/transcript"]`)).toContainText('#'+latest.number);
+        if (!prefix && hasTranscript) await expect(page.locator('main > section').first().locator(`a[href="/weekly/${latest.number}/transcript"]`)).toContainText('#'+latest.number);
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       }
       await page.goto(`${prefix}/weekly/002`);

@@ -1,0 +1,18 @@
+kind: game
+name:
+  zh-Hans: 塞尔达传说
+  en: The Legend of Zelda
+summary:
+  zh-Hans: 任天堂的动作冒险游戏系列，以海拉鲁世界的探索、解谜和战斗为主题。
+  en: Nintendo’s action-adventure series featuring exploration, puzzles and combat in Hyrule.
+official:
+  website: https://zelda.nintendo.com/about/
+lastVerifiedAt: '2026-10-08'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official information
+    href: https://zelda.nintendo.com/about/
+brand: nintendo
+aliases:
+  - 塞尔达

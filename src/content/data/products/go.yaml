@@ -1,0 +1,17 @@
+kind: developer-tool
+name:
+  zh-Hans: Go
+  en: Go
+summary:
+  zh-Hans: 面向软件开发的开源编程语言，配有编译器及开发工具链。
+  en: An open-source programming language with a compiler and development toolchain.
+aliases:
+  - Golang
+official:
+  website: https://go.dev/
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://go.dev/
+lastVerifiedAt: '2026-10-08'

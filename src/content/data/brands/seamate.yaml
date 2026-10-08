@@ -1,0 +1,16 @@
+kind: media-community-brand
+name:
+  zh-Hans: 出海同学会
+  en: Seamate
+summary:
+  zh-Hans: 大观资本发起的行业社群，通过讨论与交流连接出海创业者和从业者。
+  en: An industry community initiated by Grand View Capital, connecting global-market founders and practitioners through discussion.
+aliases: []
+official:
+  website: https://seamate.cn/
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://seamate.cn/
+lastVerifiedAt: '2026-10-08'

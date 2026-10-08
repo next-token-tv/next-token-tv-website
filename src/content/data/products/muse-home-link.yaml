@@ -1,0 +1,17 @@
+kind: hardware
+name:
+  zh-Hans: Muse Home Link
+  en: Muse Home Link
+summary:
+  zh-Hans: 让 Muse 连接家庭 Wi-Fi、兼容智能设备及本地 HTTP API 的 USB-C 硬件。
+  en: A USB-C device connecting Muse to home Wi-Fi, compatible devices and local HTTP APIs.
+aliases: []
+official:
+  website: https://gadgets.muse.ai/home-link
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://gadgets.muse.ai/home-link
+lastVerifiedAt: '2026-10-08'
+brand: meta

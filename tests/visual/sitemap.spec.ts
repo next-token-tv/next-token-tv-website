@@ -28,6 +28,7 @@ for (const width of [390, 1440]) {
         expect(Math.abs(episode!.y - transcript!.y)).toBeLessThan(1);
         expect(transcript!.x).toBeGreaterThan(episode!.x);
       }
+      await page.locator('.site-header').evaluate(node => { (node as HTMLElement).style.visibility='hidden'; });
       await expect(page.locator('.sitemap-episodes')).toHaveScreenshot(`sitemap-episodes-${prefix ? 'en' : 'zh'}-${width}.png`);
       await expect(page.locator('.sitemap-intro')).toHaveScreenshot(`sitemap-${prefix ? 'en' : 'zh'}-${width}.png`);
       // Catalog height can leave the footer at a fractional device pixel.

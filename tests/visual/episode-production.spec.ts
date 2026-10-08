@@ -1,3 +1,4 @@
+import {latestEpisode} from './episode-fixture';
 import { expect, test } from '@playwright/test';
 
 for (const locale of ['', '/en']) {
@@ -32,7 +33,7 @@ test('latest episode and square cards expose the published transcript', async ({
     await page.goto(path);
     await expect(page.locator('a[href="/weekly/004/transcript"]').first()).toBeVisible();
     const card = page.locator('.weekly-card').first();
-    await expect(card).toHaveAttribute('data-episode-number', '004');
+    await expect(card).toHaveAttribute('data-episode-number', latestEpisode.number);
     const image = card.locator('.weekly-image img');
     const box = await image.boundingBox();
     expect(box!.width / box!.height).toBeCloseTo(1, 2);

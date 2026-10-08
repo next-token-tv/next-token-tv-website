@@ -1,0 +1,18 @@
+kind: hardware
+name:
+  zh-Hans: NVIDIA DGX Spark
+  en: NVIDIA DGX Spark
+summary:
+  zh-Hans: NVIDIA 面向本地 AI 开发与运行的桌面级计算系统。
+  en: NVIDIA’s desktop computing system for local AI development and workloads.
+aliases:
+  - DGX Spark
+official:
+  website: https://www.nvidia.com/en-us/products/workstations/dgx-spark/
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal source
+    href: https://www.nvidia.com/en-us/products/workstations/dgx-spark/
+lastVerifiedAt: '2026-10-08'
+brand: nvidia

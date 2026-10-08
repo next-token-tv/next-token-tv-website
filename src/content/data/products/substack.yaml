@@ -1,0 +1,16 @@
+kind: platform
+name:
+  zh-Hans: Substack
+  en: Substack
+summary:
+  zh-Hans: 供创作者发布文章、Newsletter 和播客并管理订阅的平台。
+  en: A publishing and subscription platform for writers, newsletters and podcasts.
+aliases: []
+official:
+  website: https://substack.com/
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal source
+    href: https://substack.com/
+lastVerifiedAt: '2026-10-08'

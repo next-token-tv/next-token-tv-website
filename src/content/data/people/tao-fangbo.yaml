@@ -1,0 +1,14 @@
+kind: business
+name:
+  zh-Hans: 陶芳波
+  en: Fangbo Tao
+bio:
+  zh-Hans: 心识宇宙创始人，研究人工智能与数字分身。
+  en: Founder of Mindverse, working on artificial intelligence and digital selves.
+aliases: []
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal source
+    href: https://ics.pku.edu.cn/xwtz/xxyd/f6244c1e2bf2494d89448455e97eae42.htm
+lastVerifiedAt: '2026-10-08'
