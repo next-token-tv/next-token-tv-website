@@ -42,5 +42,5 @@ test('latest episode and square cards expose the published transcript', async ({
   await expect(page.locator('main')).not.toContainText('审阅版');
   const markdown = await request.get(`/weekly/${latestEpisode.number}/transcript.md`);
   expect(markdown.ok()).toBe(true);
-  expect(await markdown.text()).toContain('Jev');
+  expect(await markdown.text()).toContain(`#${latestEpisode.number}`);
 });

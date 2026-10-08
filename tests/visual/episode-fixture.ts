@@ -4,3 +4,5 @@ export const episodeData=readdirSync('src/content/data/episodes').filter(n=>n.en
 export const nextEpisode=episodeData.filter(e=>e.status==='announced').sort((a,b)=>Date.parse(a.scheduledAt)-Date.parse(b.scheduledAt))[0];
 
 export const latestEpisode=episodeData.filter(e=>e.status==='published').sort((a,b)=>Number(b.number)-Number(a.number))[0];
+
+export const publishedTranscripts=readdirSync("src/content/imported/transcripts").filter(n=>n.endsWith(".json")).map(n=>JSON.parse(readFileSync("src/content/imported/transcripts/"+n,"utf8"))).filter(t=>t.publicationStatus==="published");
