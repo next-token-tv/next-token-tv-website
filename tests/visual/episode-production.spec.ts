@@ -31,16 +31,16 @@ test('latest episode and square cards expose the published transcript', async ({
   await page.setViewportSize({ width: 1233, height: 897 });
   for (const path of ['/', '/weekly']) {
     await page.goto(path);
-    await expect(page.locator('a[href="/weekly/004/transcript"]').first()).toBeVisible();
+    await expect(page.locator(`a[href="/weekly/${latestEpisode.number}/transcript"]`).first()).toBeVisible();
     const card = page.locator('.weekly-card').first();
     await expect(card).toHaveAttribute('data-episode-number', latestEpisode.number);
     const image = card.locator('.weekly-image img');
     const box = await image.boundingBox();
     expect(box!.width / box!.height).toBeCloseTo(1, 2);
   }
-  await page.goto('/weekly/004/transcript');
+  await page.goto(`/weekly/${latestEpisode.number}/transcript`);
   await expect(page.locator('main')).not.toContainText('审阅版');
-  const markdown = await request.get('/weekly/004/transcript.md');
+  const markdown = await request.get(`/weekly/${latestEpisode.number}/transcript.md`);
   expect(markdown.ok()).toBe(true);
   expect(await markdown.text()).toContain('Jev');
 });
