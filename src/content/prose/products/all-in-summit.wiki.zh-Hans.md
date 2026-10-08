@@ -4,7 +4,7 @@ entity: all-in-summit
 locale: zh-Hans
 slot: wiki
 updatedAt: '2026-10-03'
-seoTitle: All-In Summit | Next Token Wiki
+seoTitle: 'All-In Summit：All-In 团队的线下峰会｜Next Token Wiki'
 seoDescription: All-In 团队举办的线下峰会。
 ---
 
