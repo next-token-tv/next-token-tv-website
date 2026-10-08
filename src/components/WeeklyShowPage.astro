@@ -181,7 +181,7 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
             {formatDate(upcoming.data.scheduledAt, upcoming.data.timeZone, upcoming.data.scheduledAt.length > 10)} · {
               upcoming.data.recordingMode === "online" ? (locale === "en" ? "Online recording" : "线上录制") : upcomingVenue ? locale === "en"
                 ? `${upcomingVenue.partner.englishName} · ${upcomingVenue.venue.name.en}`
-                : `${upcomingVenue.partner.name} · ${upcomingVenue.venue.name["zh-Hans"]}` : ""
+                : `${upcomingVenue.partner.name} · ${upcomingVenue.venue.name["zh-Hans"]}` : upcoming.data.recordingLocation?.[locale] ?? ""
             }
           </p>
           <span>{labels.previewAction} ↗</span>

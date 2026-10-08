@@ -17,7 +17,7 @@ const date = data ? new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-Hans
   month: "short", day: "numeric", ...(data.scheduledAt.length > 10 ? { hour: "numeric" as const, minute: "2-digit" as const } : {}),
   hour12: locale === "en", timeZone: data.timeZone,
 }).format(new Date(data.scheduledAt)) : "";
-const venue = data?.recordingMode === "online" ? (locale === "en" ? "Online recording" : "线上录制") : recording ? `${locale === "en" ? recording.partner.englishName : recording.partner.name} · ${recording.venue.name[locale]}` : "";
+const venue = data?.recordingMode === "online" ? (locale === "en" ? "Online recording" : "线上录制") : recording ? `${locale === "en" ? recording.partner.englishName : recording.partner.name} · ${recording.venue.name[locale]}` : data?.recordingLocation?.[locale] ?? "";
 ---
 
 {data && (

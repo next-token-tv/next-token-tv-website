@@ -203,3 +203,34 @@ test('complete model aliases and product title brackets remain in one link', () 
     ['GPT 6 Sol','gpt'], ['6 Sol','gpt'], ['《黑镜》','black-mirror'], ['《泰拉瑞亚》','terraria'],
   ]);
 });
+
+test('pending standalone speaker labels retain attribution and never become dialogue', () => {
+  const source = '# Test\n\n## Chapter\n\n**杨攀**\n\n前一句。\n\n**向阳乔木（待核）**\n\n还是，又拉开了\n\n**橘子（待核）**\n\n可以。';
+  const {snapshot,report} = convertTranscript(unified().use(remarkParse).parse(source), {episodeId:'show--005',locale:'zh-Hans',entities:[]});
+  const turns = snapshot.chapters[0].turns;
+  assert.deepEqual(turns.map(t=>[t.speakerId,t.candidate]), [['yangpan',false],['xiangyang-qiaomu',true],['orange',true]]);
+  assert.equal(report.paragraphs,3);
+  assert.equal(report.candidateSpeakerMarkers,2);
+  assert.equal(turns[1].paragraphs[0].map(s=>s.value).join(''),'还是，又拉开了');
+});
+
+test('relinking preserves editorial text, formatting, speaker flags and provenance', async () => {
+  const {relinkTranscript} = await import('../scripts/lib/transcript-converter.mjs');
+  const snapshot={provenance:{sourceSha256:'verified'},publicationStatus:'review-draft',chapters:[{turns:[{speaker:'橘子',candidate:true,paragraphs:[[
+    {type:'text',value:'用 ',marks:['strong']},
+    {type:'entity-link',value:'DeepSeek',entityType:'brand',entityId:'deepseek',href:'/old',marks:['strong']},
+    {type:'text',value:' R1',marks:['strong']},
+    {type:'external-link',value:'source',href:'https://example.com'},
+    {type:'code',value:'CC'}
+  ]]}]}]};
+  const result=relinkTranscript(snapshot,{entities:[{entityType:'product',id:'deepseek',aliases:['DeepSeek R1']}]});
+  assert.deepEqual(result.provenance,snapshot.provenance);
+  assert.equal(result.chapters[0].turns[0].candidate,true);
+  const paragraph=result.chapters[0].turns[0].paragraphs[0];
+  assert.equal(paragraph.map(s=>s.value).join(''),'用 DeepSeek R1sourceCC');
+  assert.deepEqual(paragraph[1].marks,['strong']);
+  assert.equal(paragraph[1].entityId,'deepseek');
+  assert.equal(paragraph[1].value,'DeepSeek R1');
+  assert.deepEqual(paragraph.slice(-2),snapshot.chapters[0].turns[0].paragraphs[0].slice(-2));
+  assert.equal(snapshot.chapters[0].turns[0].paragraphs[0][1].href,'/old');
+});

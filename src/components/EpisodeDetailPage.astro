@@ -137,8 +137,8 @@ const labels = locale === "en" ? {
           <dd>{recordingDate}</dd>
         </div>
         <div>
-          <dt>{recording ? labels.venue : (locale === "en" ? "Recording format" : "录制形式")}</dt>
-          <dd>{recording ? (locale === "en" ? `${recording.partner.englishName} · ${recording.venue.name.en}` : `${recording.partner.name} · ${recording.venue.name["zh-Hans"]}`) : (locale === "en" ? "Online · Tencent Meeting" : "线上 · 腾讯会议")}</dd>
+          <dt>{recording || episode.data.recordingLocation ? labels.venue : (locale === "en" ? "Recording format" : "录制形式")}</dt>
+          <dd>{recording ? (locale === "en" ? `${recording.partner.englishName} · ${recording.venue.name.en}` : `${recording.partner.name} · ${recording.venue.name["zh-Hans"]}`) : (episode.data.recordingLocation?.[locale] ?? (locale === "en" ? "Online" : "线上"))}</dd>
         </div>
         {windowValue && <div><dt>{labels.window}</dt><dd>{labels.windowValue}</dd></div>}
       </dl>

@@ -2998,6 +2998,10 @@ html[lang="en"] .weekly-show-facts strong {
   transform: translateY(0);
 }
 
+@media (min-width: 1251px) and (max-width: 1320px) {
+  .nav-links { gap: 1rem; }
+}
+
 @media (max-width: 1250px) {
   .wordmark-divider,
   .wordmark-tagline,

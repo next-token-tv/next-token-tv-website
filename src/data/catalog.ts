@@ -222,7 +222,7 @@ export async function getEpisodeTranscriptOrNull(episodeId: string, locale: Loca
 export async function getTranscriptEpisodes(locale: Locale) {
   const catalog = await getContentCatalog();
   const episodeIds = new Set(
-    catalog.transcriptImports.filter(({ data }) => data.locale === locale).map(({ data }) => data.episodeId),
+    catalog.transcriptImports.filter(({ data }) => data.locale === locale && (import.meta.env.DEV || data.publicationStatus === "published")).map(({ data }) => data.episodeId),
   );
   return catalog.episodes.filter(({ id }) => episodeIds.has(id));
 }

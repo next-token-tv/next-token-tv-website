@@ -39,6 +39,7 @@ for (const locale of ['zh-Hans', 'en']) {
 for (const name of await readdir(resolve(root, 'src/content/imported/transcripts'))) {
   if (!name.endsWith('.json')) continue;
   const t = JSON.parse(await readFile(resolve(root, 'src/content/imported/transcripts', name), 'utf8'));
+  if (t.publicationStatus !== 'published') continue;
   const episode = episodes.find(e => e.id === t.episodeId);
   if (!episode) throw new Error(`Unknown transcript episode ${t.episodeId}`);
   cards.push({ route: `${t.locale === 'en' ? '/en' : ''}/weekly/${episode.number}/transcript`, locale: t.locale, label: `WEEKLY #${episode.number} · ${t.locale === 'en' ? 'TRANSCRIPT' : '文字稿'}`, title: t.title.replace(/^.*?[｜|]/, '').trim(), subtitle: t.locale === 'en' ? `${t.chapters.length} chapters · Read & search` : `${t.chapters.length} 个章节 · 完整对谈 · 全文搜索` });

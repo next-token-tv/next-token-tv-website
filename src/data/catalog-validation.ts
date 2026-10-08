@@ -91,8 +91,8 @@ export function validateCatalog(catalog: Catalog) {
       if (production.data.recordingMode === "online") {
         if (production.data.recordingVenue) throw new Error(`Online episode ${episode.id} must not have a physical venue`);
       } else {
-        if (!production.data.recordingVenue) throw new Error(`In-person episode ${episode.id} requires a venue`);
-        requireId(venues, production.data.recordingVenue, `venue referenced by episode ${episode.id}`);
+        if (!production.data.recordingVenue && !production.data.recordingLocation) throw new Error(`In-person episode ${episode.id} requires a venue or recording location`);
+        if (production.data.recordingVenue) requireId(venues, production.data.recordingVenue, `venue referenced by episode ${episode.id}`);
       }
 
       const participantIds = production.data.participants.map(({ person }) => person);
@@ -102,8 +102,8 @@ export function validateCatalog(catalog: Catalog) {
       participantIds.forEach((person) => requireId(people, person, `person referenced by episode ${episode.id}`));
     } else {
       if (episode.data.recordingMode === "in-person") {
-        if (!episode.data.recordingVenue) throw new Error(`In-person episode ${episode.id} requires a venue`);
-        requireId(venues, episode.data.recordingVenue, `venue referenced by announced episode ${episode.id}`);
+        if (!episode.data.recordingVenue && !(episode.data.detailLayout && episode.data.recordingLocation)) throw new Error(`In-person episode ${episode.id} requires a venue or a prepared recording location`);
+        if (episode.data.recordingVenue) requireId(venues, episode.data.recordingVenue, `venue referenced by announced episode ${episode.id}`);
       } else if (episode.data.recordingVenue) {
         throw new Error(`Online episode ${episode.id} must not reference a physical venue`);
       }

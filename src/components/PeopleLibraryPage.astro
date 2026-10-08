@@ -23,7 +23,7 @@ const cardTitle = (aliases: string[], name: string) => {
   if (cjkAlias) return cjkAlias;
   return hasCJK(name) ? name : short[0] ?? name;
 };
-const chapterLinks = catalog.transcriptImports.filter(t => t.data.locale === locale).flatMap(t => t.data.chapters.filter(c => c.turns.some(turn => turn.paragraphs.some(p => p.some(s => s.entityType === "person" && s.entityId === person.id)))).map(c => ({episodeId:t.data.episodeId, title:c.title, href:`${prefix}/weekly/${catalog.episodes.find(e => e.id === t.data.episodeId)!.data.number}/transcript#${c.id}`})));
+const chapterLinks = catalog.transcriptImports.filter(t => t.data.locale === locale && (import.meta.env.DEV || t.data.publicationStatus === "published")).flatMap(t => t.data.chapters.filter(c => c.turns.some(turn => turn.paragraphs.some(p => p.some(s => s.entityType === "person" && s.entityId === person.id)))).map(c => ({episodeId:t.data.episodeId, title:c.title, href:`${prefix}/weekly/${catalog.episodes.find(e => e.id === t.data.episodeId)!.data.number}/transcript#${c.id}`})));
 const mentions = catalog.episodes.filter(episode => episode.data.mentions.people.includes(person.id) || chapterLinks.some(chapter => chapter.episodeId === episode.id)).sort((a, b) => Number(b.data.number) - Number(a.data.number));
 
 ---

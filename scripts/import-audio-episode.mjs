@@ -22,14 +22,18 @@ for (const path of mapping.sources) {
   sources.push({ path, sha256: createHash('sha256').update(bytes).digest('hex') });
 }
 if (!mapping.sources.includes(mapping.cover)) throw new Error('Cover must be among verified sources');
+if(mapping.imageKind==='artwork'){
+  const meta=await sharp(resolve(sourceRoot,mapping.cover)).metadata();
+  if(meta.width!==meta.height || meta.width!==mapping.imageDimensions?.width || meta.height!==mapping.imageDimensions?.height)throw new Error('Episode artwork must use a square original matching declared dimensions; do not crop a landscape cover');
+}
 const square = mapping.imageDimensions?.width === mapping.imageDimensions?.height && !!mapping.imageDimensions;
 const image = `/assets/weekly-${mapping.number}-cover${square ? "-square" : ""}.jpg`;
-await copyFile(resolve(sourceRoot, mapping.cover), resolve(`public${image}`));
 const { cover, cardCover, creditsSource, sources: sourcePaths, ...data } = mapping;
 const sourceGitStatus = execFileSync('git', ['-C', sourceRoot, 'status', '--porcelain', '--', ...sourcePaths], { encoding: 'utf8' }).trim();
 if (sourceGitStatus) {
   throw new Error('Published audio sources must be committed before import');
 }
+await copyFile(resolve(sourceRoot, mapping.cover), resolve(`public${image}`));
 const images = Object.fromEntries(await Promise.all([480, 720, 960, 1440, 1920].map(async (width) => {
   const output = `/assets/weekly-${mapping.number}-cover${square ? "-square" : ""}-${width}.webp`;
   await sharp(resolve(`public${image}`))

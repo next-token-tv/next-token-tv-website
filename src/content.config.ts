@@ -227,6 +227,7 @@ const localizedHeading = z.object({
 });
 
 const episodeCore = {
+  recordingLocation: localizedText.optional(),
   schemaVersion: z.number().int().positive(),
   number: z.string().regex(/^\d{3}$/),
   show: z.string(),
@@ -294,6 +295,7 @@ const episodeImports = defineCollection({
     status: z.enum(["draft", "recorded", "scheduled", "published", "archived"]),
     language: locale,
     recordedAt: z.iso.date(),
+    recordingLocation: localizedText.optional(),
     recordingMode: z.enum(["in-person", "online"]).default("in-person"),
     recordingVenue: z.string().optional(),
     releaseDate: z.iso.date().optional(),

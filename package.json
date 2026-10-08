@@ -18,7 +18,7 @@
     "performance:audit": "node scripts/performance.mjs audit",
     "performance:report": "node scripts/performance.mjs report",
     "preview": "wrangler dev --local --ip 127.0.0.1 --port 4174",
-    "check": "npm run check:chapters && npm run test:transcript && npm run test:article && npm run test:release && npm run lint:styles && npm run check:worker && astro check && npm run check:redirects && npm run test:maintenance",
+    "check": "npm run check:chapters && npm run test:transcript && npm run test:article && npm run test:release && npm run lint:styles && npm run check:worker && astro check && npm run check:redirects && npm run test:maintenance && npm run check:artwork",
     "test:article": "node --experimental-strip-types --test tests/article-markdown.test.mjs",
     "test:release": "node --test tests/announcement-schedule.test.mjs tests/episode-release.test.mjs tests/platform-release.test.mjs tests/https-redirect.test.mjs tests/og-retention.test.mjs tests/browser-test-runner.test.mjs",
     "test:transcript": "node --experimental-strip-types --test tests/transcript-converter.test.mjs tests/transcript-paragraph-anchors.test.mjs tests/transcript-timing.test.mjs",
@@ -26,7 +26,8 @@
     "test:visual": "node scripts/run-browser-tests.mjs visual",
     "test:performance": "node scripts/run-browser-tests.mjs performance",
     "test:visual:update": "node scripts/run-browser-tests.mjs visual --update-snapshots",
-    "check:release": "node scripts/check-release.mjs && npm run check:seo",
+    "check:artwork": "node scripts/check-episode-artwork.mjs",
+    "check:release": "node scripts/check-release.mjs && npm run check:seo && npm run check:artwork -- --dist",
     "check:links": "node scripts/check-release.mjs",
     "release:check": "node scripts/release-check.mjs",
     "deploy": "node scripts/release.mjs deploy",
@@ -42,7 +43,7 @@
     "entity:migrate": "node --experimental-strip-types scripts/entity-migrate.mjs",
     "generate:redirects": "node scripts/generate-entity-redirects.mjs",
     "check:redirects": "node scripts/generate-entity-redirects.mjs --check",
-    "test:maintenance": "node --experimental-strip-types --test tests/maintenance.test.mjs tests/search.test.mjs tests/catalog-relations.test.mjs tests/performance-workflow.test.mjs tests/release-checkpoint.test.mjs"
+    "test:maintenance": "node --experimental-strip-types --test tests/maintenance.test.mjs tests/search.test.mjs tests/catalog-relations.test.mjs tests/performance-workflow.test.mjs tests/release-checkpoint.test.mjs tests/episode-artwork.test.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",

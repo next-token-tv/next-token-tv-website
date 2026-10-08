@@ -14,7 +14,7 @@ const GENERIC_CANDIDATES = new Set([
   "Token", "Token Maxxing", "TPS", "TTS", "UX", "Vibe Coding", "Web", "Web 2.0",
 ]);
 
-export const CONVERSION_VERSION = "1.4.2";
+export const CONVERSION_VERSION = "1.4.3";
 
 export function sha256(value) {
   return createHash("sha256").update(value).digest("hex");
@@ -175,10 +175,10 @@ function speakerFromParagraph(node) {
   const marker = plainText(first);
   const hasColon = marker.endsWith("：");
   // A standalone bold name is also a speaker heading. Bold prose is not.
-  if (!hasColon && (node.children.length !== 1 || !SPEAKERS.has(marker.replace(/†$/, "")))) return null;
+  if (!hasColon && (node.children.length !== 1 || !SPEAKERS.has(marker.replace(/(?:†|（待核）)$/, "")))) return null;
   const markedName = hasColon ? marker.slice(0, -1) : marker;
-  const candidate = markedName.endsWith("†");
-  const name = candidate ? markedName.slice(0, -1) : markedName;
+  const candidate = /(?:†|（待核）)$/.test(markedName);
+  const name = markedName.replace(/(?:†|（待核）)$/, "");
   const kind = ["片头旁白", "片头解说"].includes(name) ? "narration" : name === "编者注" ? "editor-note" : "speech";
   return {
     name,
@@ -344,4 +344,35 @@ export function convertTranscript(tree, {
   }
 
   return { snapshot, report };
+}
+
+// Rebuild annotations on the imported text without rereading an editorial source.
+export function relinkTranscript(snapshot, {entities, resolutions = {}, excludedEntities = []}) {
+  const result = structuredClone(snapshot);
+  const excluded = new Set(excludedEntities);
+  const matcher = createEntityMatcher(entities.filter(e => !excluded.has(`${e.entityType}:${e.id}`)), resolutions);
+  if (matcher.ambiguousAliases.length) throw new Error(`Ambiguous aliases: ${matcher.ambiguousAliases.map(a=>a.alias).join(', ')}`);
+  const counts = new Map();
+  for (const chapter of result.chapters) {
+    const linked = new Set();
+    for (const turn of chapter.turns) turn.paragraphs = turn.paragraphs.map(paragraph => {
+      // Existing external links remain editorial content, not entity annotations.
+      const output = [];
+      let text = '';
+      let marks;
+      const flush = () => {
+        if(text) output.push(...linkifyText(text, matcher, linked, counts).map(s => marks ? {...s, marks} : s));
+        text='';
+      };
+      for (const segment of paragraph) {
+        if(segment.type === 'text' || segment.type === 'entity-link') {
+          if(JSON.stringify(marks)!==JSON.stringify(segment.marks)) flush();
+          marks=segment.marks; text += segment.value;
+        }
+        else {flush(); output.push(segment);}
+      }
+      flush();return output;
+    });
+  }
+  return result;
 }
