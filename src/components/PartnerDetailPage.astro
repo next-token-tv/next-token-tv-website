@@ -76,7 +76,7 @@ const partnerSchema = {
     <a href={listPath}><span aria-hidden="true">←</span>{copy.back}</a>
   </div>
 
-  <section class="partner-profile-hero" aria-labelledby="partner-name">
+  <section class="partner-profile-hero shell" aria-labelledby="partner-name">
     <div class="partner-profile-copy">
       <p class="partner-role">{partner.role[locale]}</p>
       <img class="partner-profile-logo" src={partner.logo} width="142" height="101" alt={copy.logo} />
@@ -165,7 +165,7 @@ const partnerSchema = {
       <p class="section-kicker">04 / {copy.gallery}</p>
       <h2 id="gallery-title">{copy.gallery}</h2>
     </div>
-    <div class="partner-gallery-grid">
+    <div class="partner-gallery-grid shell">
       {venueGallery.map((image) => (
         <figure>
           <img src={image.src} width="1080" height="720" alt={image.alt[locale]} loading="lazy" />

@@ -285,7 +285,6 @@ p {
 }
 
 h1 {
-  max-width: 760px;
   margin-bottom: 2.25rem;
   font-family: var(--display);
   font-size: clamp(4.25rem, 7.1vw, 8rem);
@@ -1038,7 +1037,6 @@ h1 .accent {
 }
 
 .partners-intro h1 {
-  max-width: 1000px;
   margin: 0;
   font-size: clamp(3.5rem, 6.4vw, 7rem);
 }
@@ -1244,9 +1242,10 @@ h1 .accent {
 
 .partner-profile-copy {
   display: flex;
+  container-type: inline-size;
   flex-direction: column;
   align-items: flex-start;
-  padding: clamp(3rem, 6vw, 6.5rem) var(--gutter);
+  padding: clamp(3rem, 6vw, 6.5rem) var(--gutter) clamp(3rem, 6vw, 6.5rem) 0;
 }
 
 .partner-profile-logo {
@@ -1257,7 +1256,7 @@ h1 .accent {
 
 .partner-profile-copy h1 {
   margin: auto 0 0;
-  font-size: clamp(4.5rem, 8vw, 9rem);
+  font-size: clamp(3rem, 14cqi, 6rem);
 }
 
 .partner-profile-english {
@@ -1637,7 +1636,6 @@ h1 .accent {
 }
 
 .weekly-show-hero-copy h1 {
-  max-width: 980px;
   margin-bottom: clamp(1.75rem, 2.5vw, 2.5rem);
   font-size: min(clamp(4.25rem, 5.8vw, 6rem), 13cqi);
 }
@@ -2008,7 +2006,6 @@ html[lang="en"] .weekly-show-facts strong {
 }
 
 .episode-hero-title {
-  max-width: 51.25rem;
   margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
   font-size: var(--episode-title-size);
 }
@@ -2230,7 +2227,6 @@ html[lang="en"] .weekly-show-facts strong {
 }
 
 .episode-preview-copy h1 {
-  max-width: 900px;
   margin-bottom: clamp(2rem, 4vw, 3.5rem);
   font-size: min(clamp(4.5rem, 7.3vw, 8rem), 15cqi);
 }
@@ -2613,7 +2609,6 @@ html[lang="en"] .weekly-show-facts strong {
 }
 
 .transcript-hero h1 {
-  max-width: none;
   margin: 0.75rem 0 0;
   font-size: clamp(2.35rem, 3.8vw, 4.25rem);
   line-height: 1.08;
@@ -3397,7 +3392,7 @@ html[lang="en"] .weekly-show-facts strong {
   }
 
   .partner-profile-copy h1 {
-    font-size: clamp(4rem, 19vw, 6.5rem);
+    font-size: clamp(3rem, 14cqi, 6rem);
   }
 
   .partner-profile-image {
