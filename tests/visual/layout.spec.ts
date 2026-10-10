@@ -41,7 +41,7 @@ test("platform lists share localized labels, logos and destinations", async ({ p
     for (const path of ["/", "/weekly", "/weekly/001"]) {
       await page.goto(path === "/" ? (prefix || "/") : `${prefix}${path}`);
       const list = page.locator(".platform-list");
-      await expect(list.locator("a.platform.is-live")).toHaveCount(path === "/weekly/001" ? 5 : 6);
+      await expect(list.locator("a.platform.is-live")).toHaveCount(path === "/weekly/001" ? 5 : path === "/weekly" ? 7 : 6);
       await expect(list.locator("img.platform-logo")).toHaveCount(path === "/weekly/001" ? 5 : 6);
       const entries = await list.locator(".platform").evaluateAll((rows) => rows.map((row) => ({
         text: row.textContent?.replace(/\s+/g, " ").trim(),
@@ -55,7 +55,8 @@ test("platform lists share localized labels, logos and destinations", async ({ p
         await expect(list.locator('a[href*="spotify.com"] .coming')).toContainText(prefix ? "Listen / watch" : "收听 / 收看");
       } else {
         await expect(list.locator('a[href*="xiaohongshu.com"]')).toHaveAttribute("href", "https://www.xiaohongshu.com/user/profile/661ba04100000000030307b0");
-        if (expected) expect(entries).toEqual(expected);
+        if (path === '/weekly') await expect(list.locator('a[href$="/weekly/rss.xml"]')).toHaveCount(1);
+        if (expected) expect(entries.filter(entry => !entry.href?.endsWith('/weekly/rss.xml'))).toEqual(expected);
         else expected = entries;
         await expect(list.locator('a[href*="spotify.com"]')).toHaveAttribute('href', /\/show\//);
         await expect(list.locator('a[href*="spotify.com"] .coming')).toContainText(prefix ? "Follow show" : "订阅 / 关注");

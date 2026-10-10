@@ -30,7 +30,8 @@ test('transcript is directly discoverable and only links to available locales', 
     await link.click();
     await expect(page.locator('.transcript-body')).toBeVisible();
     await page.goto(`/en${path}`);
-    await expect(page.locator('.episode-transcript-cta')).toHaveCount(0);
+    await expect(page.locator('.episode-transcript-cta')).toHaveCount(expectedCount);
+    await expect(page.locator('main > section').first().locator('.episode-transcript-cta')).toHaveAttribute('href', `/en/weekly/${episode}/transcript`);
   }
 });
 

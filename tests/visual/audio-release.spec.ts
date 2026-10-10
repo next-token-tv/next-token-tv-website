@@ -14,6 +14,7 @@ for (const width of [390, 768, 1280, 1320, 1440, 1920, 2560]) {
       await page.setViewportSize({ width, height: 1000 });
       for (const path of ['/', '/weekly']) {
         await page.goto(path === '/' ? (prefix || '/') : `${prefix}${path}`);
+        await page.evaluate(() => document.fonts.ready);
         await expect(page.locator('.status-pill')).toHaveAttribute('href', `${prefix}/weekly/${latest.number}`);
         await expect(page.locator('.status-pill')).toContainText('#'+latest.number);
         await expect(page.locator('.upcoming-episode-link')).toHaveCount(nextEpisode ? 1 : 0);
@@ -33,10 +34,10 @@ for (const width of [390, 768, 1280, 1320, 1440, 1920, 2560]) {
         expect(Math.abs(frameRect!.y - coverRect!.y)).toBeLessThan(1);
         if (path === '/') {
           await expect(page.locator('[data-brand-visual="weekly-001"] img')).toHaveAttribute('src', '/assets/weekly-001-960.webp');
-          await expect(page.locator('.visual-caption strong')).toHaveText('24 signalsone open table');
+          await expect(page.locator('.visual-caption strong')).toHaveText('AI signalsone open table');
         }
         expect(await cards.evaluateAll(nodes => nodes.map(n => n.getAttribute('data-episode-number')))).toEqual(path === '/' ? [latest.number] : episodes.map(e=>e.number));
-        await expect(page.locator(`a[href*="/${latest.number}/transcript"]`)).toHaveCount(prefix || !hasTranscript ? 0 : 2);
+        await expect(page.locator(`a[href*="/${latest.number}/transcript"]`)).toHaveCount(!hasTranscript ? 0 : 2);
         await expect(page.locator('.platform-list a[href*="spotify.com"]')).toHaveAttribute('href', /\/show\//);
         if (!prefix && hasTranscript) await expect(page.locator('main > section').first().locator(`a[href="/weekly/${latest.number}/transcript"]`)).toContainText('#'+latest.number);
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
@@ -57,7 +58,7 @@ for (const width of [390, 768, 1280, 1320, 1440, 1920, 2560]) {
       await expect(page.locator('.episode-detail-meta')).toContainText('2026-09-13');
       await expect(page.locator('.episode-guest-names')).toHaveCount(0);
       await expect(page.locator('.episode-preview-hero')).toHaveCount(0);
-      await expect(page.locator('.episode-transcript-cta')).toHaveCount(prefix ? 0 : 1);
+      await expect(page.locator('.episode-transcript-cta')).toHaveCount(1);
       expect(await page.locator('.episode-detail-image img').evaluate(n => getComputedStyle(n).objectFit)).toBe('contain');
       const detailCover = page.locator('.episode-detail-image img');
       await expect(detailCover).toHaveAttribute('src', '/assets/weekly-002-cover-square-960.webp');
