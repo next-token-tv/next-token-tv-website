@@ -5,7 +5,8 @@ const cards = Object.entries(JSON.parse(readFileSync('public/assets/og/manifest.
 for (let group = 0; group < 4; group++) {
 test(`every social card has a working PNG and complete matching head metadata (group ${group + 1}/4)`, async ({ page, request }) => {
   for (const [path, card] of cards.filter((_, index) => index % 4 === group)) {
-    await page.goto(path);
+    const pageResponse = await page.goto(path);
+    expect(pageResponse?.status(), path).toBe(200);
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', `https://nexttoken.tv${card.image}`);
     await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content', `https://nexttoken.tv${card.image}`);
     await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary_large_image');

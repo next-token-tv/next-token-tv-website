@@ -45,6 +45,7 @@ for (const name of await readdir(resolve(root, 'src/content/imported/transcripts
   cards.push({ route: `${t.locale === 'en' ? '/en' : ''}/weekly/${episode.number}/transcript`, locale: t.locale, label: `WEEKLY #${episode.number} · ${t.locale === 'en' ? 'TRANSCRIPT' : '文字稿'}`, title: t.title.replace(/^.*?[｜|]/, '').trim(), subtitle: t.locale === 'en' ? `${t.chapters.length} chapters · Read & search` : `${t.chapters.length} 个章节 · 完整对谈 · 全文搜索` });
 }
 cards.push({ route: '/blog', locale: 'zh-Hans', label: 'NEXT TOKEN / 博客', title: '从对谈出发，\n把一个问题聊透。', subtitle: 'AI 产品、技术与真实使用体验' });
+cards.push({ route: '/en/blog', locale: 'en', label: 'NEXT TOKEN / BLOG', title: 'From conversations,\none question at a time.', subtitle: 'AI products, technology, and first-hand experience' });
 for (const name of await readdir(resolve(root, 'src/content/prose/blog'))) {
   if (!name.endsWith('.md')) continue;
   const markdown = await readFile(resolve(root, 'src/content/prose/blog', name), 'utf8');
@@ -52,7 +53,9 @@ for (const name of await readdir(resolve(root, 'src/content/prose/blog'))) {
   if (!frontmatter) throw new Error(`Missing Blog frontmatter: ${name}`);
   const post = load(frontmatter);
   if (post.status !== 'published') continue;
-  cards.push({ route: `/blog/${name.slice(0, -3)}`, locale: post.locale, label: 'NEXT TOKEN / 博客', title: post.title, subtitle: post.description });
+  const en = post.locale === 'en';
+  const slug = name.replace(en ? /\.en\.md$/ : /\.md$/, '');
+  cards.push({ route: `${en ? '/en' : ''}/blog/${slug}`, locale: post.locale, label: en ? 'NEXT TOKEN / BLOG' : 'NEXT TOKEN / 博客', title: post.title, subtitle: post.description });
 }
 const font = (await readFile(resolve(root, 'public/assets/league-spartan-black.ttf'))).toString('base64');
 const version = await readFile(resolve(root, 'scripts/lib/standard-og.mjs'));
