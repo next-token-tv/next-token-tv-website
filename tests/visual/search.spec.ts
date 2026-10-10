@@ -52,3 +52,18 @@ for (const width of [390, 1280]) for (const locale of ['', '/en']) test(`search 
  await expect(input).toBeFocused();
  await expect(input).toHaveValue('Codex');
 });
+
+test('English transcript search links retain the shared paragraph anchors', async ({page, request}) => {
+ const response = await request.get('/search/en.json');
+ expect(response.ok()).toBe(true);
+ const documents = await response.json() as Array<{kind:string; href:string}>;
+ for (const number of ['001','002','003','004','005']) {
+  const results = documents.filter(row => row.kind === 'transcript' && row.href.startsWith(`/en/weekly/${number}/transcript#`));
+  expect(results.length).toBeGreaterThan(0);
+  for (const entry of [results[0], results.at(-1)!]) {
+   await page.goto(entry.href);
+   const id = decodeURIComponent(entry.href.split('#')[1]);
+   await expect(page.locator(`[id="${id}"]`)).toHaveCount(1);
+  }
+ }
+});

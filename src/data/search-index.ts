@@ -34,7 +34,10 @@ export async function createSearchIndex(locale: Locale): Promise<SearchDocument[
     if(data.locale!==locale || data.publicationStatus!=='published') continue;
     const episode=catalog.episodes.find(e=>e.id===data.episodeId && e.data.status==='published');
     if(!episode) continue;
-    const anchors=getParagraphAnchorIds(data.chapters);
+    // Translations use the same stable paragraph IDs as the Chinese reading source.
+    const source = catalog.transcriptImports.find(entry => entry.data.episodeId === data.episodeId && entry.data.locale === 'zh-Hans');
+    if (!source) throw new Error(`Missing Chinese transcript anchor source: ${data.episodeId}`);
+    const anchors=getParagraphAnchorIds(source.data.chapters);
     data.chapters.forEach((chapter,i)=>chapter.turns.forEach((turn,j)=>turn.paragraphs.forEach((paragraph,k)=>{
       documents.push({kind:'transcript',aliases:[turn.speaker],title:`${episode.data.title[locale]} · ${chapter.title} · ${turn.speaker}`,text:paragraph.map(s=>s.value).join(''),href:`${prefix}/weekly/${episode.data.number}/transcript#${anchors[i]![j]![k]}`});
     })));

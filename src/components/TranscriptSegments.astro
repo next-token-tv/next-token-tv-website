@@ -20,7 +20,7 @@ const { segments, wikiPrefix = "" } = Astro.props;
       : segment.value;
 
   if (segment.type === "entity-link") {
-    const href = wikiPrefix && segment.href?.startsWith("/wiki/") ? `${wikiPrefix}${segment.href}` : segment.href;
+    const href = wikiPrefix && segment.href && /^\/wiki\//.test(segment.href) ? `${wikiPrefix}${segment.href}` : segment.href;
     return <a class="transcript-entity-link" data-entity-type={segment.entityType} href={href}>{content}</a>;
   }
   if (segment.type === "external-link") {
