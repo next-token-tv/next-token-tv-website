@@ -1,0 +1,88 @@
+---
+import { render, type CollectionEntry } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getBlogPosts } from "../../../data/blog";
+import { getDetailEpisode } from "../../../data/catalog";
+import { getSiteContent } from "../../../data/site";
+
+export async function getStaticPaths() {
+  return (await getBlogPosts("en")).map(article => ({ params: { slug: article.id }, props: { article } }));
+}
+interface Props { article: CollectionEntry<"blogEn">; }
+const { article } = Astro.props;
+const { Content, headings } = await render(article);
+if (headings.some(heading => heading.depth === 1)) throw new Error(`Article ${article.id} must not contain a second H1`);
+const content = await getSiteContent("en");
+const episodes = await Promise.all(article.data.episodes.map(id => getDetailEpisode(id)));
+const episode = episodes[0]!;
+const number = episode.data.number;
+const episodePath = `/en/weekly/${number}`;
+const path = `/en/blog/${article.id}`;
+const draft = article.data.status === "draft";
+const schema = {
+  "@context": "https://schema.org", "@type": "Article", headline: article.data.title,
+  description: article.data.description, inLanguage: "en",
+  datePublished: article.data.publishedAt, dateModified: article.data.updatedAt,
+  mainEntityOfPage: new URL(path, Astro.site).href,
+  isBasedOn: episodes.map(entry => new URL(`/weekly/${entry.data.number}/transcript`, Astro.site).href),
+  publisher: { "@type": "Organization", name: "Next Token｜词元之外", url: Astro.site?.href },
+};
+---
+<BaseLayout content={content} pageTitle={article.data.title} description={article.data.description} canonicalPath={path} alternatePath={`/blog/${article.id}`} noIndex={draft} ogType="article" markdownPath={`${path}.md`}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, "\\u003c")} />
+  <main id="main" class="episode-article-page">
+    <header class="article-header shell">
+      <a class="article-back" href="/en/blog">← All blog articles</a>
+      <p class="section-kicker">Blog / WEEKLY #{number}{draft && " · Under review"}</p>
+      <h1 class="article-title">{article.data.title}</h1>
+      <p class="article-deck">{article.data.description}</p>
+      <div class="article-meta"><span>Next Token Editorial</span><time datetime={article.data.publishedAt ?? article.data.updatedAt}>{article.data.publishedAt ?? article.data.updatedAt}</time>{draft && <span>Under review · Not yet published</span>}</div>
+      <nav class="article-actions" aria-label="Article formats and sources">
+        <a href={`${path}.md`} type="text/markdown">Markdown version ↗</a>
+        <a href={`${episodePath}/transcript`}>Read the full transcript →</a>
+      </nav>
+    </header>
+    <div class="article-layout shell">
+      <aside class="article-outline">
+        <nav aria-label="On this page"><p class="article-outline-label">On this page</p><ol>{headings.filter(heading => heading.depth === 2).map(heading => <li><a href={`#${heading.slug}`}>{heading.text}</a></li>)}</ol></nav>
+        <p class="article-source-note">Compiled from {episodes.map(entry => `Weekly #${entry.data.number} (recorded ${entry.data.recordedAt})`).join(", ")}. Experiences and judgments reflect the discussion at recording time.</p>
+      </aside>
+      <article class="episode-article-prose" aria-label="Article body"><Content /></article>
+    </div>
+    <nav class="article-footer shell" aria-label="Source episodes">{episodes.map(entry => <a href={`/en/weekly/${entry.data.number}/transcript`}>Weekly #{entry.data.number} · Full transcript →</a>)}<a href="/en/blog">More blog articles →</a></nav>
+  </main>
+</BaseLayout>
+<style>
+  .article-header { padding-block: 2rem 2.5rem; border-bottom: .0625rem solid var(--line); }
+  .article-context { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; margin-bottom: 2.5rem; font-size: .9rem; }
+  .article-context a:hover { color: var(--signal); }
+  .article-title { margin-block: 1.25rem; font-size: 2.25rem; text-wrap: balance; }
+  .article-deck { max-width: 48rem; margin-block: 1.5rem; font-size: 1.125rem; line-height: 1.8; color: var(--muted); }
+  .article-meta, .article-actions { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; font-size: .85rem; line-height: 1.6; }
+  .article-meta { color: var(--muted); }
+  .article-actions { margin-top: 1.25rem; font-weight: 700; }
+  .article-layout { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 46rem); gap: 4rem; padding-block: 3rem 4rem; }
+  .article-outline { align-self: start; position: sticky; top: 7rem; max-height: calc(100dvh - 8rem); overflow-y: auto; font-size: .85rem; line-height: 1.7; }
+  .article-outline-label { margin: 0 0 1rem; font-weight: 700; }
+  .article-outline ol { margin: 0; padding-left: 1.25rem; }
+  .article-outline li { padding-block: .4rem; }
+  .article-source-note { margin-top: 2rem; color: var(--muted); }
+  .episode-article-prose { min-width: 0; font-size: 1.1rem; line-height: 1.9; overflow-wrap: anywhere; }
+  .episode-article-prose :global(h2) { margin: 3rem 0 1.25rem; font-size: 1.75rem; scroll-margin-top: 7rem; }
+  .episode-article-prose :global(h2:first-child) { margin-top: 0; }
+  .episode-article-prose :global(p) { margin: 0 0 1.5rem; }
+  .episode-article-prose :global(a) { color: inherit; text-decoration: underline dashed; text-decoration-color: color-mix(in srgb, var(--ink) 35%, transparent); text-underline-offset: .3em; }
+  .episode-article-prose :global(a:hover), .episode-article-prose :global(a:focus-visible) { background: color-mix(in srgb, var(--signal) 10%, transparent); }
+  .episode-article-prose :global(blockquote) { margin: 2rem 0; padding: .25rem 0 .25rem 1.5rem; border-left: .2rem solid var(--signal); }
+  .episode-article-prose :global(blockquote p) { margin: 0; }
+  .article-footer { display: flex; flex-wrap: wrap; gap: 1.25rem 2rem; padding-block: 2rem; border-top: .0625rem solid var(--line); font-weight: 700; }
+  .article-actions a:hover, .article-outline a:hover, .article-footer a:hover { color: var(--signal); }
+  @media (min-width: 48rem) { .article-title { font-size: 3rem; } }
+  @media (max-width: 47.999rem) {
+    .article-layout { grid-template-columns: minmax(0, 1fr); gap: 2rem; padding-top: 2rem; }
+    .article-outline { position: static; max-height: none; padding-bottom: 1.5rem; border-bottom: .0625rem solid var(--line); }
+    .article-source-note { margin-top: 1rem; }
+    .episode-article-prose { font-size: 1.05rem; }
+    .episode-article-prose :global(h2) { font-size: 1.5rem; }
+  }
+</style>

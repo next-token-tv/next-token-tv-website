@@ -43,12 +43,12 @@ const upcomingVenue = upcoming?.data.status === "announced" && upcoming.data.rec
 const weeklyPath = locale === "en" ? "/en/weekly" : "/weekly";
 
 const labels = locale === "en" ? {
-  overviewIndex: "01 / The Show",
-  formatIndex: "02 / The Format",
-  hostsIndex: "03 / The Co-hosts",
+  overviewIndex: "02 / The Show",
+  formatIndex: "03 / The Format",
+  hostsIndex: "04 / The Co-hosts",
   hostsHeading: ["Four voices,", "different judgments."],
   hostsNote: "No permanent host. The duty host rotates, and disagreement remains part of the show.",
-  episodesIndex: "04 / Episodes",
+  episodesIndex: "01 / Episodes",
   episodesHeading: ["One week at a time,", "the signal gets clearer."],
   currentEpisode: "Featured episode",
   episodeDetail: "Explore episode · Listen / watch",
@@ -61,12 +61,12 @@ const labels = locale === "en" ? {
   available: "Available now",
   comingSoon: "Coming soon",
 } : {
-  overviewIndex: "01 / 栏目",
-  formatIndex: "02 / 节目结构",
-  hostsIndex: "03 / 联合主理人",
+  overviewIndex: "02 / 栏目",
+  formatIndex: "03 / 节目结构",
+  hostsIndex: "04 / 联合主理人",
   hostsHeading: ["四个人，", "带着不同判断上桌。"],
   hostsNote: "没有长期固定主持人。当值主理人轮换串场，真实的分歧留在节目里。",
-  episodesIndex: "04 / Episodes",
+  episodesIndex: "01 / Episodes",
   episodesHeading: ["从每一周，", "看见下一步。"],
   currentEpisode: "精选节目",
   episodeDetail: "查看本期 · 收听/收看",
@@ -107,6 +107,11 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
           <a href={`${weeklyPath}/${latestEpisode.data.number}`}>{locale === "en" ? (!latestEpisode.data.media.audio && !latestEpisode.data.media.video ? "Explore episode" : latestEpisode.data.media.video ? "Listen / watch" : "Listen now · Audio") : (!latestEpisode.data.media.audio && !latestEpisode.data.media.video ? "查看本期" : latestEpisode.data.media.video ? "收听 / 收看" : "立即收听 · 音频版")} ↗</a>
           <LatestTranscriptLink locale={locale} variant="inline" />
         </div>
+        <nav class="show-shortcuts" aria-label={locale === "en" ? "On this page" : "本页导航"}>
+          <a href="#episodes">{locale === "en" ? "All episodes" : "全部节目"} ↓</a>
+          <a href="#about-show">{locale === "en" ? "About the show" : "关于节目"}</a>
+          <a href="#subscribe">{locale === "en" ? "Subscribe" : "订阅节目"}</a>
+        </nav>
         <UpcomingEpisodeLink locale={locale} />
       </div>
       <div class="weekly-show-poster" aria-hidden="true">
@@ -120,7 +125,37 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
     </div>
   </section>
 
-  <section class="weekly-show-overview shell">
+  <section class="weekly-show-episodes weekly" id="episodes">
+    <div class="shell">
+      <div class="weekly-show-section-heading weekly-show-section-heading-inverse">
+        <div>
+          <p class="section-index">{labels.episodesIndex}</p>
+          <h2>{labels.episodesHeading[0]}<br />{labels.episodesHeading[1]}</h2>
+        </div>
+        <p>{episodeCopy.lede}</p>
+      </div>
+
+      {episodes.map(episode => <EpisodeCard episodeId={episode.id} locale={locale} />)}
+
+      {upcoming?.data.status === "announced" && (
+        <a class="weekly-show-upcoming" href={`${weeklyPath}/${upcoming.data.number}`}>
+          <span>{announcementCopy(upcoming.data, locale).label}</span>
+          <strong>#{upcoming.data.number}</strong>
+          <p>{upcoming.data.title[locale]}</p>
+          <p>
+            {formatDate(upcoming.data.scheduledAt, upcoming.data.timeZone, upcoming.data.scheduledAt.length > 10)} · {
+              upcoming.data.recordingMode === "online" ? (locale === "en" ? "Online recording" : "线上录制") : upcomingVenue ? locale === "en"
+                ? `${upcomingVenue.partner.englishName} · ${upcomingVenue.venue.name.en}`
+                : `${upcomingVenue.partner.name} · ${upcomingVenue.venue.name["zh-Hans"]}` : upcoming.data.recordingLocation?.[locale] ?? ""
+            }
+          </p>
+          <span>{labels.previewAction} ↗</span>
+        </a>
+      )}
+    </div>
+  </section>
+
+  <section class="weekly-show-overview shell" id="about-show">
     <p class="section-index">{labels.overviewIndex}</p>
     <div>
       <h2>{page.formatHeading[0]}<br />{page.formatHeading[1]}</h2>
@@ -160,37 +195,7 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
     </div>
   </section>
 
-  <section class="weekly-show-episodes weekly">
-    <div class="shell">
-      <div class="weekly-show-section-heading weekly-show-section-heading-inverse">
-        <div>
-          <p class="section-index">{labels.episodesIndex}</p>
-          <h2>{labels.episodesHeading[0]}<br />{labels.episodesHeading[1]}</h2>
-        </div>
-        <p>{episodeCopy.lede}</p>
-      </div>
-
-      {episodes.map(episode => <EpisodeCard episodeId={episode.id} locale={locale} />)}
-
-      {upcoming?.data.status === "announced" && (
-        <a class="weekly-show-upcoming" href={`${weeklyPath}/${upcoming.data.number}`}>
-          <span>{announcementCopy(upcoming.data, locale).label}</span>
-          <strong>#{upcoming.data.number}</strong>
-          <p>{upcoming.data.title[locale]}</p>
-          <p>
-            {formatDate(upcoming.data.scheduledAt, upcoming.data.timeZone, upcoming.data.scheduledAt.length > 10)} · {
-              upcoming.data.recordingMode === "online" ? (locale === "en" ? "Online recording" : "线上录制") : upcomingVenue ? locale === "en"
-                ? `${upcomingVenue.partner.englishName} · ${upcomingVenue.venue.name.en}`
-                : `${upcomingVenue.partner.name} · ${upcomingVenue.venue.name["zh-Hans"]}` : upcoming.data.recordingLocation?.[locale] ?? ""
-            }
-          </p>
-          <span>{labels.previewAction} ↗</span>
-        </a>
-      )}
-    </div>
-  </section>
-
-  <section class="weekly-show-follow shell">
+  <section class="weekly-show-follow shell" id="subscribe">
     <div>
       <p class="section-index">{labels.followIndex}</p>
       <h2 class="heading-follow-display">{labels.followHeading[0]}<br />{labels.followHeading[1]}</h2>
@@ -202,5 +207,8 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
 <ConditionalImagePan />
 
 <style>
+  .show-shortcuts { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; margin-top: 1.5rem; font-size: .9rem; font-weight: 700; }
+  .show-shortcuts a:hover { color: var(--signal); }
+  #episodes, #about-show, #subscribe { scroll-margin-top: 6rem; }
   .latest-episode-title { flex-basis: 100%; margin: 0; font-size: 1rem; line-height: 1.5; }
 </style>

@@ -1,10 +1,9 @@
 ---
-import { render, type CollectionEntry } from "astro:content";
+import { render, type CollectionEntry, getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getBlogPosts } from "../../data/blog";
 import { getDetailEpisode } from "../../data/catalog";
 import { getSiteContent } from "../../data/site";
-
 export async function getStaticPaths() {
   return (await getBlogPosts()).map(article => ({ params: { slug: article.id }, props: { article } }));
 }
@@ -19,6 +18,7 @@ const number = episode.data.number;
 const episodePath = `/weekly/${number}`;
 const path = `/blog/${article.id}`;
 const draft = article.data.status === "draft";
+const hasEnglish = (await getCollection("blogEn")).some(post => post.id === article.id);
 const schema = {
   "@context": "https://schema.org", "@type": "Article", headline: article.data.title,
   description: article.data.description, inLanguage: "zh-Hans",
@@ -28,11 +28,14 @@ const schema = {
   publisher: { "@type": "Organization", name: "Next Token｜词元之外", url: Astro.site?.href },
 };
 ---
-<BaseLayout content={content} pageTitle={article.data.title} description={article.data.description} canonicalPath={path} hasLocaleAlternate={false} noIndex={draft} ogType="article" markdownPath={`${path}.md`}>
+<BaseLayout content={content} pageTitle={article.data.title} description={article.data.description} canonicalPath={path} hasLocaleAlternate={hasEnglish} alternatePath={hasEnglish ? `/en/blog/${article.id}` : undefined} noIndex={draft} ogType="article" markdownPath={`${path}.md`}>
   <script is:inline type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, "\\u003c")} />
   <main id="main" class="episode-article-page">
     <header class="article-header shell">
-      <a class="article-back" href="/blog">← 所有博客文章</a>
+      <nav class="article-context" aria-label="博客导航">
+        <a href="/blog">所有博客文章</a>
+        {episodes.map(entry => <a href={`/blog/episodes/${entry.data.number}`}>第 {entry.data.number} 期相关博客</a>)}
+      </nav>
       <p class="section-kicker">博客 / WEEKLY #{number}{draft && " · 审阅稿"}</p>
       <h1 class="article-title">{article.data.title}</h1>
       <p class="article-deck">{article.data.description}</p>
@@ -54,7 +57,8 @@ const schema = {
 </BaseLayout>
 <style>
   .article-header { padding-block: 2rem 2.5rem; border-bottom: .0625rem solid var(--line); }
-  .article-back { display: inline-block; margin-bottom: 2.5rem; font-size: .9rem; font-weight: 700; }
+  .article-context { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; margin-bottom: 2.5rem; font-size: .9rem; }
+  .article-context a:hover { color: var(--signal); }
   .article-title { margin-block: 1.25rem; font-size: 2.25rem; text-wrap: balance; }
   .article-deck { max-width: 48rem; margin-block: 1.5rem; font-size: 1.125rem; line-height: 1.8; color: var(--muted); }
   .article-meta, .article-actions { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; font-size: .85rem; line-height: 1.6; }

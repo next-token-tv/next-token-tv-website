@@ -1,0 +1,40 @@
+---
+import CommunityJoin from "./CommunityJoin.astro";
+import ShowSubscriptions from "./ShowSubscriptions.astro";
+import type { Locale } from "../data/types";
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const en = locale === "en";
+---
+<main id="main" class="community-page shell">
+  <header>
+    <p class="section-kicker">NEXT TOKEN / {en ? "STAY CONNECTED" : "保持联系"}</p>
+    <h1>{en ? "Community & Subscriptions" : "社群与订阅"}</h1>
+    <p>{en ? "Join the conversation, follow new episodes, or read our latest articles." : "加入讨论、订阅节目，或在阅读器里收到新文章。"}</p>
+    <nav aria-label={en ? "On this page" : "本页导航"}><a href="#join">{en ? "Join the community" : "加入社群"} ↓</a><a href="#follow">{en ? "Follow episodes" : "订阅节目"} ↓</a><a href="#read">{en ? "Subscribe to the blog" : "订阅博客"} ↓</a></nav>
+  </header>
+  <section id="join">
+    <div><h2>{en ? "Join the community" : "加入社群"}</h2><p>{en ? "Discuss AI tools, episode topics and your own experiences with fellow listeners." : "和听友一起聊 AI 工具、节目话题与真实使用体验。"}</p></div>
+    <CommunityJoin locale={locale} showDiscord={false} />
+  </section>
+  <section id="follow">
+    <div><h2>{en ? "Follow episodes" : "订阅节目"}</h2><p>{en ? "Choose your listening or viewing platform, or subscribe to website episode updates via RSS." : "选择常用的收听或观看平台，也可以通过 RSS 订阅官网每期更新。"}</p></div>
+    <ShowSubscriptions locale={locale} includeRss />
+  </section>
+  <section id="read">
+    <div><h2>{en ? "Subscribe to the blog" : "订阅博客"}</h2><p>{en ? "Receive full articles in your RSS reader and read at your own pace." : "在 RSS 阅读器里接收完整文章，按自己的节奏阅读。"}</p></div>
+    <div class="reading-links"><a href={`${en ? "/en" : ""}/blog/rss.xml`} type="application/rss+xml">{en ? "Blog RSS" : "博客 RSS"} ↗</a><a href={`${en ? "/en" : ""}/blog`}>{en ? "Browse articles" : "浏览博客文章"} →</a></div>
+  </section>
+</main>
+<style>
+  .community-page { padding-block: 3rem 5rem; }
+  header { padding-bottom: 3rem; }
+  h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-block: 1.5rem; }
+  header > p:last-of-type, section p { color: var(--muted); line-height: 1.8; max-width: 36rem; }
+  nav { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin-top: 2rem; }
+  section { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4rem; padding-block: 3rem; border-top: .0625rem solid var(--line); scroll-margin-top: 6rem; }
+  h2 { font-size: 2rem; margin: 0 0 1rem; }
+  .reading-links { display: flex; flex-direction: column; align-items: flex-start; gap: 1.5rem; font-weight: 700; }
+  a:hover { color: var(--signal); }
+  @media (max-width: 47.999rem) { section { grid-template-columns: minmax(0, 1fr); gap: 1rem; } }
+</style>

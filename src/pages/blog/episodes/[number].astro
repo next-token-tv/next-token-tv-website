@@ -15,7 +15,7 @@ const posts = (await getBlogPosts()).filter(post => post.data.episodes.includes(
 const number = episode.data.number;
 const hasTranscript = (await getPublishedTranscriptEpisodes("zh-Hans")).some(entry => entry.id === episode.id);
 ---
-<BaseLayout content={content} pageTitle={`第 ${number} 期相关博客`} description={`从 Next Token Weekly 第 ${number} 期延伸的主题文章。`} canonicalPath={`/blog/episodes/${number}`} hasLocaleAlternate={false}>
+<BaseLayout content={content} pageTitle={`第 ${number} 期相关博客`} description={`从 Next Token Weekly 第 ${number} 期延伸的主题文章。`} canonicalPath={`/blog/episodes/${number}`} alternatePath={`/en/blog/episodes/${number}`}>
   <main id="main" class="episode-blog shell">
     <header>
       <a href="/blog/episodes">← 按期浏览</a>

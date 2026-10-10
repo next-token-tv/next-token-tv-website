@@ -12,9 +12,11 @@ interface Props {
   locale: Locale;
   isReviewDraft?: boolean;
   displayTitle?: string;
+  /** Paragraph anchors from the canonical Chinese transcript; translations must reuse them so deep links match. */
+  anchorIds?: string[][][];
 }
 
-const { transcript, episodeNumber, locale, isReviewDraft = false, displayTitle = transcript.data.title } = Astro.props;
+const { transcript, episodeNumber, locale, isReviewDraft = false, displayTitle = transcript.data.title, anchorIds } = Astro.props;
 const speakerIds = [...new Set(
   transcript.data.chapters.flatMap(({ turns }) => turns.map(({ speakerId }) => speakerId).filter(Boolean)),
 )] as string[];
@@ -23,7 +25,7 @@ const peopleById = new Map(people.map((person) => [person.id, person]));
 const [seriesTitle, ...topicParts] = displayTitle.split("｜");
 const topicTitle = topicParts.join("｜");
 const episodePath = `${locale === "en" ? "/en" : ""}/weekly/${episodeNumber}`;
-const paragraphAnchorIds = getParagraphAnchorIds(transcript.data.chapters);
+const paragraphAnchorIds = anchorIds ?? getParagraphAnchorIds(transcript.data.chapters);
 const formatTime = (seconds: number) => {
   const total = Math.floor(seconds);
   return [Math.floor(total / 3600), Math.floor(total / 60) % 60, total % 60].map(n => String(n).padStart(2, '0')).join(':');
@@ -38,6 +40,7 @@ const copy = locale === "en" ? {
   candidate: "speaker attribution pending verification",
   reviewDraft: "Local preview · Not published",
   paragraphLink: "Link to this paragraph",
+  speakerPage: (name: string) => `Open ${name}'s profile`,
 } : {
   back: "返回本期节目",
   kicker: `Weekly #${episodeNumber} / 阅读文字稿`,
@@ -48,6 +51,7 @@ const copy = locale === "en" ? {
   candidate: "人物署名仍待核对",
   reviewDraft: "本地预览 · 尚未发布",
   paragraphLink: "引用此段",
+  speakerPage: (name: string) => `查看${name}的个人页面`,
 };
 ---
 
@@ -64,13 +68,15 @@ const copy = locale === "en" ? {
         </h1>
       </div>
       <div class="transcript-hero-meta">
-        <strong class="transcript-format-row">
-          <span>{copy.read}</span>
-          {!isReviewDraft && <a class="transcript-format-link" href={`${episodePath}/transcript.md`} type="text/markdown">{copy.markdown} <span aria-hidden="true">↗</span></a>}
-        </strong>
-        <span>{String(transcript.data.chapterCount).padStart(2, "0")} {copy.chapters}</span>
-        <p>{transcript.data.byline}</p>
-        {!isReviewDraft && <a class="transcript-format-link" href={`/blog/episodes/${episodeNumber}`}>{locale === "en" ? "Related blog posts (中文)" : "本期相关博客"} <span aria-hidden="true">→</span></a>}
+        <div class="transcript-meta-summary">
+          <strong>{copy.read}</strong>
+          <span>{String(transcript.data.chapterCount).padStart(2, "0")} {copy.chapters}</span>
+        </div>
+        {!isReviewDraft && <div class="transcript-meta-actions">
+          <a class="transcript-format-link" href={`${episodePath}/transcript.md`} type="text/markdown"><span>{copy.markdown}</span><span aria-hidden="true">↗</span></a>
+          <a class="transcript-format-link" href={`${locale === "en" ? "/en" : ""}/blog/episodes/${episodeNumber}`}><span>{locale === "en" ? "Related blog posts" : "本期相关博客"}</span><span aria-hidden="true">→</span></a>
+        </div>}
+        {transcript.data.byline && <p>{transcript.data.byline}</p>}
         {transcript.data.notices.map((notice) => <p class="transcript-notice">{notice}</p>)}
       </div>
     </div>
@@ -109,7 +115,7 @@ const copy = locale === "en" ? {
                 <div class:list={["transcript-turn", `is-${turn.kind}`]} data-speaker={turn.speakerId ?? undefined}>
                   <div class="transcript-speaker">
                     {person ? (
-                      <a href={`/wiki/people/${person.id}`} aria-label={`查看${turn.speaker}的个人页面`}>
+                      <a href={`${locale === "en" ? "/en" : ""}/wiki/people/${person.id}`} aria-label={copy.speakerPage(turn.speaker)}>
                         <img
                           src={person.data.photo}
                           width="28"
@@ -131,7 +137,7 @@ const copy = locale === "en" ? {
                       const timing = turn.paragraphTimings?.[paragraphIndex];
                       return (
                         <p id={paragraphId} class="transcript-quote-paragraph">
-                          <TranscriptSegments segments={paragraph} />
+                          <TranscriptSegments segments={paragraph} wikiPrefix={locale === "en" ? "/en" : ""} />
                           {timing && <span class="transcript-paragraph-time" title={locale === 'en' ? 'Video subtitle cue range; not word-level timing' : '视频字幕对应范围，非逐字对齐时间'}>{locale === 'en' ? 'Video' : '视频'} · {formatTime(timing.startSeconds)}–{formatTime(timing.endSeconds)}</span>}
                           {!isReviewDraft && <a class="transcript-paragraph-link" href={`${episodePath}/transcript#${paragraphId}`} data-paragraph-copy aria-label={copy.paragraphLink} title={copy.paragraphLink}>¶</a>}
                         </p>

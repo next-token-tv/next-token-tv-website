@@ -253,6 +253,7 @@ const episodes = defineCollection({
       media: z.object({ audio: z.boolean(), video: z.boolean() }),
       transcriptSeo: z.object({
         "zh-Hans": z.object({ title: z.string().min(1), description: z.string().min(1) }),
+        en: z.object({ title: z.string().min(1), description: z.string().min(1) }).optional(),
       }).optional(),
       homepage: z.object({ "zh-Hans": episodeHomepage, en: episodeHomepage }),
       platforms: z.array(z.object({
@@ -410,16 +411,28 @@ const episodeArticles = defineCollection({
   }).refine(data => data.status !== "published" || !!data.publishedAt, "Published articles require publishedAt"),
 });
 
+const blogFields = {
+  episodes: z.array(z.string()).min(1).refine(ids => new Set(ids).size === ids.length, "Duplicate source episodes"),
+  title: z.string().min(1),
+  description: z.string().min(1),
+  status: z.enum(["draft", "published"]),
+  updatedAt: z.iso.date(),
+  publishedAt: z.iso.date().optional(),
+};
+
 const blog = defineCollection({
-  loader: markdownLoader("./src/content/prose/blog"),
+  loader: glob({ pattern: ["**/*.md", "!**/*.en.md"], base: "./src/content/prose/blog" }),
   schema: z.object({
     locale: z.literal("zh-Hans"),
-    episodes: z.array(z.string()).min(1).refine(ids => new Set(ids).size === ids.length, "Duplicate source episodes"),
-    title: z.string().min(1),
-    description: z.string().min(1),
-    status: z.enum(["draft", "published"]),
-    updatedAt: z.iso.date(),
-    publishedAt: z.iso.date().optional(),
+    ...blogFields,
+  }).refine(data => data.status !== "published" || !!data.publishedAt, "Published blog posts require publishedAt"),
+});
+
+const blogEn = defineCollection({
+  loader: glob({ pattern: ["**/*.en.md"], base: "./src/content/prose/blog", generateId: ({ entry }) => entry.replace(/\.en\.md$/i, "") }),
+  schema: z.object({
+    locale: z.literal("en"),
+    ...blogFields,
   }).refine(data => data.status !== "published" || !!data.publishedAt, "Published blog posts require publishedAt"),
 });
 
@@ -436,6 +449,7 @@ const brandCopy = defineCollection({
 
 export const collections = {
   blog,
+  blogEn,
   brandCopy,
   people,
   shows,

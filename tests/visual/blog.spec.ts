@@ -4,7 +4,7 @@ import { load } from "js-yaml";
 
 const reviewDrafts = process.env.PLAYWRIGHT_BLOG_DRAFTS === "1";
 const slugs = ["jev-structured-decisions", "agent-browser-ultrawide"];
-const posts = readdirSync("src/content/prose/blog").filter(file => file.endsWith(".md")).map(file => {
+const posts = readdirSync("src/content/prose/blog").filter(file => file.endsWith(".md") && !file.endsWith(".en.md")).map(file => {
   const source = readFileSync(`src/content/prose/blog/${file}`, "utf8");
   const frontmatter = source.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!frontmatter?.[1]) throw new Error(`Missing frontmatter: ${file}`);
@@ -13,7 +13,7 @@ const posts = readdirSync("src/content/prose/blog").filter(file => file.endsWith
 });
 const visiblePosts = posts.filter(post => post.status === "published" || reviewDrafts);
 for (const width of [390, 768, 1280, 1440, 1920, 2560]) {
-  for (const path of ["/blog", "/blog/episodes", "/blog/episodes/003", ...visiblePosts.filter(post => slugs.includes(post.slug)).map(post => `/blog/${post.slug}`), "/en"]) {
+  for (const path of ["/community", "/en/community", "/en/blog", "/en/blog/episodes", "/en/blog/episodes/003", "/en/blog/jev-structured-decisions", "/blog", "/blog/episodes", "/blog/episodes/003", ...visiblePosts.filter(post => slugs.includes(post.slug)).map(post => `/blog/${post.slug}`), "/en"]) {
     test(`Blog layout ${path} at ${width}`, async ({ page }) => {
       await page.setViewportSize({ width, height: 1000 });
       await page.goto(path);
@@ -65,3 +65,34 @@ for (const post of posts.filter(post => post.status === "draft")) {
     expect(await (await request.get('/blog/rss.xml')).text()).not.toContain(`https://nexttoken.tv${path}</guid>`);
   });
 }
+
+test('Blog filters preserve the query, handle no results and reset', async ({ page }) => {
+  await page.goto('/blog');
+  await expect(page.locator('.blog-row:visible')).toHaveCount(visiblePosts.length);
+  await page.getByLabel('节目期数', { exact: true }).selectOption('003');
+  await page.getByLabel('搜索主题', { exact: true }).fill('Jev');
+  await expect(page.locator('.blog-row:visible')).toHaveCount(1);
+  await expect(page.locator('.blog-row:visible h2 a')).toHaveAttribute('href', '/blog/jev-structured-decisions');
+  await page.reload();
+  await expect(page.getByLabel('搜索主题', { exact: true })).toHaveValue('Jev');
+  await expect(page.getByLabel('节目期数', { exact: true })).toHaveValue('003');
+  await expect(page.locator('.blog-row:visible')).toHaveCount(1);
+  await page.getByLabel('搜索主题', { exact: true }).fill('no-match-123456789');
+  await expect(page.locator('.blog-row:visible')).toHaveCount(0);
+  await page.getByRole('button', { name: '清除筛选' }).click();
+  await expect(page.locator('.blog-row:visible')).toHaveCount(visiblePosts.length);
+  await expect(page).toHaveURL(/\/blog$/);
+});
+
+test('Published blog feeds include every article in their locale', async ({ request }) => {
+ for (const locale of ['', '/en']) {
+  const response = await request.get(`${locale}/blog/rss.xml`);
+  expect(response.status()).toBe(200);
+  expect(response.headers()['content-type']).toContain('xml');
+  const xml = await response.text();
+  expect((xml.match(/<item>/g) ?? []).length).toBe(posts.filter(post => post.status === 'published').length);
+  for (const post of posts.filter(post => post.status === 'published')) {
+   expect(xml).toContain(`https://nexttoken.tv${locale}/blog/${post.slug}</guid>`);
+  }
+ }
+});

@@ -39,8 +39,8 @@ export async function createSearchIndex(locale: Locale): Promise<SearchDocument[
       documents.push({kind:'transcript',aliases:[turn.speaker],title:`${episode.data.title[locale]} · ${chapter.title} · ${turn.speaker}`,text:paragraph.map(s=>s.value).join(''),href:`${prefix}/weekly/${episode.data.number}/transcript#${anchors[i]![j]![k]}`});
     })));
   }
-  if (locale === 'zh-Hans') for (const post of await getBlogPosts()) {
-    documents.push({kind:'blog',title:post.data.title,href:`/blog/${post.id}`,text:`${post.data.description} ${proseText(post.body ?? '')}`});
+  for (const post of await getBlogPosts(locale)) {
+    documents.push({kind:'blog',title:post.data.title,href:`${prefix}/blog/${post.id}`,text:`${post.data.description} ${proseText(post.body ?? '')}`});
   }
   return documents;
 }

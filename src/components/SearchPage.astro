@@ -30,8 +30,13 @@ const en=locale==='en';
   input.value=(params.get('q') ?? '').slice(0,120);
   select.value=['all','entity','episode','transcript','blog'].includes(params.get('type') ?? '') ? params.get('type')! : 'all';
   if (location.hash === '#search-query') {
-    input.focus();
-    input.select();
+    const focusSearch = () => {
+      input.scrollIntoView({ block: 'center', behavior: 'instant' });
+      input.focus({ preventScroll: true });
+      input.select();
+    };
+    if (document.readyState === 'complete') focusSearch();
+    else window.addEventListener('load', focusSearch, { once: true });
   }
   let index: Promise<SearchDocument[]> | undefined;
   let generation=0;
@@ -73,11 +78,12 @@ const en=locale==='en';
   form { max-width: 50rem; display: grid; gap: .75rem; }
   label { font-weight: 700; }
   .search-input-row { display: flex; gap: .5rem; }
-  input, select, button { border: 1px solid var(--ink); background: var(--paper); color: var(--ink); min-height: 2.75rem; padding: .65rem .85rem; font: inherit; }
+  input, button { border: 1px solid var(--ink); background: var(--paper); color: var(--ink); min-height: 2.75rem; padding: .65rem .85rem; font: inherit; }
   input { flex: 1; min-width: 0; }
-  select { width: fit-content; }
+  select { width: min(100%, 18rem); }
+  #search-query { scroll-margin-top: 8rem; }
   button { cursor: pointer; }
-  :is(input, select, button, a):focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+  :is(input, button, a):focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
   .search-status { margin-block: 1.5rem; }
   .search-results { list-style: none; padding: 0; max-width: 60rem; }
   .search-results :global(li) { border-top: 1px solid var(--line); padding-block: 1.25rem; overflow-wrap: anywhere; }

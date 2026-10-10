@@ -1,0 +1,121 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getSiteContent } from "../../../data/site";
+import { createWikiApi } from "../../../data/wiki-api";
+
+const content = await getSiteContent("en");
+const collections = await createWikiApi(Astro.site!);
+const endpoints = [
+  { label: "Brands", id: "brands", count: collections.brands.length },
+  { label: "Products", id: "products", count: collections.products.length },
+  { label: "People", id: "people", count: collections.people.length },
+];
+---
+
+<BaseLayout
+  content={content}
+  pageTitle="Data API | Next Token"
+  description="Access brands, products, people, and their relationships from the Next Token wiki through a public, read-only, versioned JSON API."
+  canonicalPath="/en/api"
+  alternatePath="/api"
+>
+  <main id="main" class="api-docs shell">
+    <header class="api-hero">
+      <div>
+        <p class="section-kicker">NEXT TOKEN / DATA API</p>
+        <h1>Structured data<br /><span>from the wiki.</span></h1>
+      </div>
+      <div class="api-intro">
+        <p>Public, read-only, no authentication. Retrieve brands, products, people, and their relationships, with list queries and per-entity details.</p>
+        <a class="button button-dark" href="/api/v1/wiki.json">Open the API entry point <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+
+    <section class="api-section" aria-labelledby="collections-title">
+      <div class="api-section-heading">
+        <p class="section-kicker">01 / COLLECTIONS</p>
+        <h2 id="collections-title" class="heading-section-compact">Three collections, one contract.</h2>
+      </div>
+      <div class="api-collections">
+        {endpoints.map((endpoint, index) => (
+          <a href={`/api/v1/wiki/${endpoint.id}.json`}>
+            <span>{String(index + 1).padStart(2, "0")} / {endpoint.count}</span>
+            <strong>{endpoint.label}</strong>
+            <code>/api/v1/wiki/{endpoint.id}.json</code>
+            <span aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="api-section api-contract" aria-labelledby="contract-title">
+      <div class="api-section-heading">
+        <p class="section-kicker">02 / CONTRACT</p>
+        <h2 id="contract-title" class="heading-section-compact">Lists, plus per-entity details.</h2>
+      </div>
+      <div class="api-contract-grid">
+        <div>
+          <h3>Collection response</h3>
+          <code>{`{
+  "schemaVersion": 1,
+  "collection": "brands",
+  "count": ${collections.brands.length},
+  "data": [...]
+}`}</code>
+        </div>
+        <div>
+          <h3>Shared entity fields</h3>
+          <p><code>id</code> is the stable reference key; <code>url</code> points to the wiki page; <code>apiUrl</code> points to the per-entity JSON. Records carry bilingual names and summaries, kinds, aliases, sources, verification dates, and <code>relationships</code>.</p>
+        </div>
+        <div>
+          <h3>Per-entity paths</h3>
+          <code>/api/v1/wiki/brands/&lt;id&gt;.json</code>
+          <code>/api/v1/wiki/products/&lt;id&gt;.json</code>
+          <code>/api/v1/wiki/people/&lt;id&gt;.json</code>
+        </div>
+        <div>
+          <h3>Filtering and CORS</h3>
+          <p>Brands and products can be filtered client-side by <code>kind</code>. All responses are UTF-8 JSON and readable cross-origin from browsers.</p>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+</BaseLayout>
+
+<style>
+  .api-docs { padding-bottom: 7rem; }
+  .api-hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr); gap: 4rem; align-items: start; padding-block: 3rem 4rem; border-bottom: 0.0625rem solid var(--ink); }
+  .api-hero h1 { margin: 1rem 0 0; font-family: var(--display); font-size: 4.25rem; line-height: 1.05; }
+  .api-hero h1 span { color: var(--signal); }
+  .api-intro { max-width: 31rem; }
+  .api-intro p { margin: 0 0 1.5rem; color: var(--muted); line-height: 1.8; }
+  .api-section { padding-block: 4rem; border-bottom: 0.0625rem solid var(--ink); }
+  .api-section-heading { display: grid; grid-template-columns: minmax(11rem, 0.45fr) minmax(0, 1.55fr); gap: 3rem; margin-bottom: 2rem; }
+  .api-section-heading h2 { margin: 0; }
+  .api-collections { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 0.0625rem solid var(--ink); border-left: 0.0625rem solid var(--ink); }
+  .api-collections a { position: relative; display: flex; min-width: 0; min-height: 14rem; flex-direction: column; gap: 1.25rem; padding: 1.5rem; border-right: 0.0625rem solid var(--ink); border-bottom: 0.0625rem solid var(--ink); }
+  .api-collections a > span:first-child { color: var(--signal); font-size: 0.75rem; font-weight: 800; }
+  .api-collections a > span:last-child { position: absolute; top: 1.5rem; right: 1.5rem; color: var(--signal); }
+  .api-collections strong { margin-top: auto; font-family: var(--display); font-size: 2rem; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+  .api-collections code { overflow-wrap: anywhere; color: var(--muted); font-size: 0.78rem; }
+  .api-contract-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 0.0625rem solid var(--ink); border-left: 0.0625rem solid var(--ink); }
+  .api-contract-grid > div { min-width: 0; padding: 2rem; border-right: 0.0625rem solid var(--ink); border-bottom: 0.0625rem solid var(--ink); }
+  .api-contract-grid h3 { margin: 0 0 1.25rem; font-size: 1rem; }
+  .api-contract-grid p { max-width: 40rem; margin: 0; color: var(--muted); line-height: 1.8; }
+  .api-contract-grid > div > code { display: block; overflow-x: auto; white-space: pre; font-size: 0.8rem; line-height: 1.7; }
+  @media (max-width: 60rem) {
+    .api-hero { grid-template-columns: 1fr; min-height: 0; gap: 2.5rem; }
+    .api-section-heading { grid-template-columns: 1fr; gap: 1.5rem; }
+  }
+  @media (max-width: 40rem) {
+    .api-docs { padding-bottom: 4rem; }
+    .api-hero { padding-block: 3rem; }
+    .api-hero h1 { font-size: 2.75rem; }
+    .api-section { padding-block: 3rem; }
+    .api-collections, .api-contract-grid { grid-template-columns: 1fr; }
+    .api-collections a { min-height: 10rem; }
+  }
+</style>

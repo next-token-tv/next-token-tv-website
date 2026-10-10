@@ -11,7 +11,8 @@ const { content, currentPath, alternatePath } = Astro.props;
 const homePath = content.locale === "en" ? "/en" : "/";
 const weeklyPath = content.locale === "en" ? "/en/weekly" : "/weekly";
 const libraryPath = content.locale === "en" ? "/en/wiki" : "/wiki";
-const homeSection = (id: string) => currentPath === homePath ? `#${id}` : `${homePath}#${id}`;
+const communityPath = content.locale === "en" ? "/en/community" : "/community";
+const blogPath = content.locale === "en" ? "/en/blog" : "/blog";
 const isWeekly = currentPath.startsWith(weeklyPath);
 const isLibrary = currentPath.startsWith(content.locale === "en" ? "/en/wiki" : "/wiki");
 ---
@@ -27,12 +28,10 @@ const isLibrary = currentPath.startsWith(content.locale === "en" ? "/en/wiki" : 
       </span>
     </a>
     <nav class="nav-links" aria-label={content.navigationLabel}>
-      <a href={homeSection("about")}>{content.navigation.about}</a>
-      <a href={weeklyPath} aria-current={isWeekly ? "page" : undefined}>{content.navigation.weekly}</a>
-      <a href="/blog" aria-current={currentPath.startsWith("/blog") ? "page" : undefined} lang="zh-Hans">{content.locale === "en" ? "Blog (中文)" : "博客"}</a>
+      <a href={weeklyPath} aria-current={isWeekly ? "page" : undefined}>{content.locale === "en" ? "Episodes" : "节目"}</a>
+      <a href={blogPath} aria-current={currentPath === blogPath || currentPath.startsWith(`${blogPath}/`) ? "page" : undefined}>{content.locale === "en" ? "Blog" : "博客"}</a>
       <a class="library-link" href={libraryPath} aria-current={isLibrary ? "page" : undefined}>{content.navigation.library}</a>
-      <a href={homeSection("hosts")}>{content.navigation.hosts}</a>
-      <a href={homeSection("subscribe")}>{content.navigation.subscribe}</a>
+      <a href={communityPath} aria-current={currentPath === communityPath ? "page" : undefined}>{content.locale === "en" ? "Community & Subscriptions" : "社群与订阅"}</a>
       <a class="search-link" aria-keyshortcuts="Meta+K Control+K" href={content.locale === "en" ? "/en/search" : "/search"} aria-label={content.locale === "en" ? "Search" : "搜索"}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="6" stroke="currentColor" stroke-width="2" /><path d="m15 15 6 6" stroke="currentColor" stroke-width="2" /></svg></a>
       <div class="language-switcher" aria-label={content.languageLabel}>
         <a href={content.locale === "zh-Hans" ? currentPath : alternatePath} lang="zh-Hans" data-language="zh-Hans" aria-current={content.locale === "zh-Hans" ? "page" : undefined}>中文</a>
@@ -47,12 +46,10 @@ const isLibrary = currentPath.startsWith(content.locale === "en" ? "/en/wiki" : 
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.5" /></svg>
       </summary>
     <nav class="mobile-nav-links" aria-label={content.navigationLabel}>
-      <a href={homeSection("about")}>{content.navigation.about}</a>
-      <a href={weeklyPath} aria-current={isWeekly ? "page" : undefined}>{content.navigation.weekly}</a>
-      <a href="/blog" aria-current={currentPath.startsWith("/blog") ? "page" : undefined} lang="zh-Hans">{content.locale === "en" ? "Blog (中文)" : "博客"}</a>
+      <a href={weeklyPath} aria-current={isWeekly ? "page" : undefined}>{content.locale === "en" ? "Episodes" : "节目"}</a>
+      <a href={blogPath} aria-current={currentPath === blogPath || currentPath.startsWith(`${blogPath}/`) ? "page" : undefined}>{content.locale === "en" ? "Blog" : "博客"}</a>
       <a class="library-link" href={libraryPath} aria-current={isLibrary ? "page" : undefined}>{content.navigation.library}</a>
-      <a href={homeSection("hosts")}>{content.navigation.hosts}</a>
-      <a href={homeSection("subscribe")}>{content.navigation.subscribe}</a>
+      <a href={communityPath} aria-current={currentPath === communityPath ? "page" : undefined}>{content.locale === "en" ? "Community & Subscriptions" : "社群与订阅"}</a>
       <a class="search-link" aria-keyshortcuts="Meta+K Control+K" href={content.locale === "en" ? "/en/search" : "/search"} aria-label={content.locale === "en" ? "Search" : "搜索"}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="6" stroke="currentColor" stroke-width="2" /><path d="m15 15 6 6" stroke="currentColor" stroke-width="2" /></svg></a>
       <div class="language-switcher" aria-label={content.languageLabel}>
         <a href={content.locale === "zh-Hans" ? currentPath : alternatePath} lang="zh-Hans" data-language="zh-Hans" aria-current={content.locale === "zh-Hans" ? "page" : undefined}>中文</a>
@@ -80,7 +77,8 @@ const isLibrary = currentPath.startsWith(content.locale === "en" ? "/en/wiki" : 
     if (input) {
       const navigation = document.querySelector<HTMLDetailsElement>(".mobile-navigation");
       if (navigation) navigation.open = false;
-      input.focus();
+      input.scrollIntoView({ block: "center", behavior: "instant" });
+      input.focus({ preventScroll: true });
       input.select();
     } else {
       window.location.assign(`${link.href}#search-query`);

@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import { getSiteContent } from "../../../../data/site";
+import { getEpisodesForShow } from "../../../../data/catalog";
+import { getBlogPosts } from "../../../../data/blog";
+const content = await getSiteContent("en");
+const posts = await getBlogPosts("en");
+const episodes = (await getEpisodesForShow("next-token-weekly")).filter(episode => episode.data.status === "published").reverse();
+---
+<BaseLayout content={content} pageTitle="Blog by episode" description="Read Next Token's topic articles organized by episode." canonicalPath="/en/blog/episodes" alternatePath="/blog/episodes">
+  <main id="main" class="episode-index shell">
+    <header><a href="/en/blog">← All blog articles</a><p class="section-kicker">NEXT TOKEN / BLOG</p><h1>Blog by episode</h1></header>
+    <section aria-label="Episodes">{episodes.map(episode => {
+      const count = posts.filter(post => post.data.episodes.includes(episode.id)).length;
+      return <article><span class="number">#{episode.data.number}</span><div><h2><a href={`/en/blog/episodes/${episode.data.number}`}>{episode.data.title["en"]}</a></h2><p>{count ? `${count} related ${count === 1 ? "article" : "articles"}` : "Articles in preparation"}</p></div></article>;
+    })}</section>
+  </main>
+</BaseLayout>
+<style>
+  .episode-index { padding-block: 3rem 5rem; min-height: 65vh; }
+  header { padding-bottom: 3rem; }
+  .section-kicker { margin-top: 2rem; }
+  h1 { font-size: clamp(2rem, 4vw, 3.75rem); margin-block: 1.5rem; }
+  article { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: 2rem; padding-block: 2rem; border-top: .0625rem solid var(--line); }
+  .number { color: var(--signal); font-family: var(--display); font-size: 2rem; }
+  h2 { font-size: 1.75rem; margin: 0 0 1rem; }
+  article p { color: var(--muted); }
+  a:hover { color: var(--signal); }
+  @media (max-width: 47.999rem) { article { grid-template-columns: minmax(0, 1fr); gap: 1rem; } }
+</style>

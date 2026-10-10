@@ -1,14 +1,10 @@
 ---
 import { getPublishedEpisode } from "../data/catalog";
-import { resolveVenueId } from "../data/partners";
 import type { Locale } from "../data/types";
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 // Deliberately pinned: this recording image is the long-term brand visual, not a latest-episode cover.
 const source = await getPublishedEpisode("next-token-weekly--001");
-if (!source.data.recordingVenue) throw new Error("Brand recording visual requires a physical venue");
-const { partner, venue } = await resolveVenueId(source.data.recordingVenue);
-const venueLabel = `${locale === "en" ? partner.englishName : partner.name} · ${venue.name[locale]}`;
 ---
 <div class="hero-visual" data-brand-visual="weekly-001" aria-label={locale === "en" ? "Next Token roundtable recording" : "Next Token 圆桌录制现场"}>
   <img
@@ -20,12 +16,11 @@ const venueLabel = `${locale === "en" ? partner.englishName : partner.name} · $
     width="1920" height="1080" decoding="async" fetchpriority="high"
     alt={source.data.homepage[locale].imageAlt}
   />
-  <div class="episode-stamp">Weekly<br />#001</div>
+  <div class="episode-stamp">Weekly</div>
   <div class="visual-caption">
-    <strong>24 signals<br />one open table</strong>
+    <strong>AI signals<br />one open table</strong>
     <span class="recording-caption">
-      <span>Recorded · {source.data.recordedAt.replaceAll("-", ".")}</span>
-      <span>· {venueLabel}</span>
+      <span>Since {source.data.recordedAt.replaceAll("-", ".")}</span>
     </span>
   </div>
 </div>

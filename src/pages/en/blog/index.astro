@@ -1,0 +1,101 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getSiteContent } from "../../../data/site";
+import { getBlogPosts } from "../../../data/blog";
+import { getEpisodesForShow } from "../../../data/catalog";
+const content = await getSiteContent("en");
+const posts = await getBlogPosts("en");
+const episodes = (await getEpisodesForShow("next-token-weekly")).filter(episode => posts.some(post => post.data.episodes.includes(episode.id))).reverse();
+---
+<BaseLayout content={content} pageTitle="Blog | Next Token 词元之外" description="Long-form articles on AI products, technology, and first-hand experience, expanding on Next Token conversations." canonicalPath="/en/blog" alternatePath="/blog">
+  <main id="main" class="blog-page shell">
+    <header class="blog-intro">
+      <p class="section-kicker">NEXT TOKEN / BLOG</p>
+      <h1>From conversations, <br /> one question at a time.</h1>
+      <p>AI products, technology, and first-hand experience. Topics worth expanding, details worth keeping.</p>
+      <a class="blog-read" href="/en/blog/episodes">Browse by episode <span aria-hidden="true">→</span></a>
+      <a class="blog-read blog-feed" href="/en/blog/rss.xml" type="application/rss+xml">Subscribe via RSS <span aria-hidden="true">↗</span></a>
+    </header>
+    <form class="blog-filters" hidden role="search" aria-label="Filter blog posts">
+      <div><label for="blog-query">Search topics</label><input id="blog-query" type="search" name="q" placeholder="Keywords from titles or summaries" /></div>
+      <div><label for="blog-episode">Episode</label><select id="blog-episode" name="episode"><option value="">All episodes</option>{episodes.map(episode => <option value={episode.data.number}>Episode {episode.data.number}</option>)}</select></div>
+      <button type="reset">Clear filters</button>
+      <p class="filter-count" role="status" aria-live="polite">{posts.length} articles</p>
+    </form>
+    <p class="blog-no-results" hidden>No articles found. Try other keywords or episodes.</p>
+    <section aria-label="Blog articles" class="blog-list">
+      {posts.length ? posts.map(post => <article class="blog-row" data-search={`${post.data.title} ${post.data.description}`} data-episodes={post.data.episodes.join(" ")}>
+        <div class="blog-meta"><time datetime={post.data.publishedAt ?? post.data.updatedAt}>{post.data.publishedAt ?? post.data.updatedAt}</time>{post.data.status === "draft" && <span>Under review</span>}</div>
+        <div><h2><a href={`/en/blog/${post.id}`}>{post.data.title}</a></h2><p>{post.data.description}</p><a class="blog-read" href={`/en/blog/${post.id}`}>Read more <span aria-hidden="true">→</span></a></div>
+      </article>) : <p class="blog-empty">Articles are on the way. Start with the <a href="/en/weekly">Weekly conversations</a>.</p>}
+    </section>
+  </main>
+</BaseLayout>
+<script>
+  const form = document.querySelector<HTMLFormElement>(".blog-filters");
+  const query = document.querySelector<HTMLInputElement>("#blog-query");
+  const episode = document.querySelector<HTMLSelectElement>("#blog-episode");
+  const rows = [...document.querySelectorAll<HTMLElement>(".blog-row")];
+  if (form && query && episode) {
+    const normalize = (value: string) => value.normalize("NFKC").toLocaleLowerCase();
+    const apply = (updateUrl: boolean) => {
+      const terms = normalize(query.value).trim().split(/\s+/u).filter(Boolean);
+      let count = 0;
+      for (const row of rows) {
+        const matches = terms.every(term => normalize(row.dataset.search ?? "").includes(term)) &&
+          (!episode.value || (row.dataset.episodes ?? "").split(" ").includes(`next-token-weekly--${episode.value}`));
+        row.hidden = !matches;
+        if (matches) count++;
+      }
+      form.querySelector<HTMLElement>(".filter-count")!.textContent = `${count} articles`;
+      document.querySelector<HTMLElement>(".blog-no-results")!.hidden = count > 0;
+      if (updateUrl) {
+        const url = new URL(location.href);
+        for (const [key, value] of [["q", query.value.trim()], ["episode", episode.value]] as const) {
+          if (value) url.searchParams.set(key, value); else url.searchParams.delete(key);
+        }
+        history.replaceState(null, "", url);
+      }
+    };
+    const restore = () => {
+      const params = new URLSearchParams(location.search);
+      query.value = params.get("q") ?? "";
+      episode.value = params.get("episode") ?? "";
+      apply(false);
+    };
+    form.hidden = false;
+    restore();
+    form.addEventListener("submit", event => { event.preventDefault(); apply(true); });
+    query.addEventListener("input", () => apply(true));
+    episode.addEventListener("change", () => apply(true));
+    form.addEventListener("reset", () => { query.value = ""; episode.value = ""; apply(true); });
+    window.addEventListener("popstate", restore);
+  }
+</script>
+<style>
+  .blog-filters { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) auto; gap: 1rem 1.5rem; align-items: end; margin-bottom: 2rem; }
+  .blog-filters label { display: block; margin-bottom: .5rem; font-size: .85rem; font-weight: 700; }
+  .blog-filters input, .blog-filters button { min-height: 2.75rem; padding: .65rem .85rem; border: .0625rem solid var(--line); background: transparent; color: var(--ink); font: inherit; }
+  .blog-filters input, .blog-filters select { width: 100%; min-width: 0; }
+  .blog-filters button { cursor: pointer; }
+  .filter-count { grid-column: 1 / -1; color: var(--muted); font-size: .85rem; }
+  .blog-no-results { padding-block: 2rem; color: var(--muted); }
+  .blog-page [hidden] { display: none; }
+  @media (max-width: 47.999rem) { .blog-filters { grid-template-columns: minmax(0, 1fr); } }
+
+  .blog-page { padding-block: 3rem 5rem; min-height: 65vh; }
+  .blog-intro { padding-bottom: 3rem; }
+  h1 { font-size: 2.75rem; margin-block: 1.5rem; }
+  .blog-intro > p:not(.section-kicker) { font-size: 1.125rem; color: var(--muted); max-width: 38rem; }
+  .blog-row { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 46rem); gap: 4rem; padding-block: 2.5rem; border-top: .0625rem solid var(--ink); }
+  .blog-meta { display: flex; flex-direction: column; gap: .75rem; font-size: .85rem; color: var(--muted); }
+  h2 { text-wrap: balance; font-size: 1.75rem; margin: 0 0 1rem; }
+  .blog-row p { color: var(--muted); line-height: 1.8; }
+  .blog-read { display: inline-flex; gap: 2rem; margin-top: 1.5rem; font-weight: 700; }
+  a:hover { color: var(--signal); }
+  .blog-feed { margin-inline-start: 2rem; }
+  .blog-empty { border-top: .0625rem solid var(--line); padding-block: 2rem; }
+  .blog-empty a { text-decoration: underline; }
+  @media (min-width: 48rem) { h1 { font-size: 3.75rem; } }
+  @media (max-width: 47.999rem) { .blog-row { grid-template-columns: minmax(0, 1fr); gap: 1rem; } .blog-meta { flex-direction: row; align-items: center; flex-wrap: wrap; } }
+</style>

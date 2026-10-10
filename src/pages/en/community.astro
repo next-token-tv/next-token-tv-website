@@ -1,0 +1,9 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CommunityPage from "../../components/CommunityPage.astro";
+import { getSiteContent } from "../../data/site";
+const content = await getSiteContent("en");
+---
+<BaseLayout content={content} pageTitle="Community & Subscriptions" description="Join the Next Token community and follow our episodes and articles." canonicalPath="/en/community" alternatePath="/community">
+  <CommunityPage locale="en" />
+</BaseLayout>

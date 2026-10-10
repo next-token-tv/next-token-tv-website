@@ -1,6 +1,7 @@
 @layer reset, tokens, base, layouts, components, utilities, overrides;
 @import "./tokens.css";
 @import "./typography.css";
+@import "./form-controls.css";
 
 @layer components {
 
@@ -2470,6 +2471,11 @@ html[lang="en"] .weekly-show-facts strong {
 }
 
 .site-footer {
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.footer-brand {
   color: var(--white);
   background: var(--signal);
 }
@@ -2479,7 +2485,7 @@ html[lang="en"] .weekly-show-facts strong {
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 3rem;
   align-items: end;
-  padding: clamp(5rem, 10vw, 9rem) var(--gutter) 3rem;
+  padding: clamp(5rem, 10vw, 9rem) var(--gutter) clamp(3rem, 6vw, 5rem);
 }
 
 .footer-main h2 {
@@ -2495,49 +2501,84 @@ html[lang="en"] .weekly-show-facts strong {
   background: var(--white);
 }
 
+.footer-directory {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) repeat(4, minmax(0, 1fr));
+  gap: 2rem;
+  padding: 3rem var(--gutter);
+}
+
+.footer-perspective {
+  max-width: 19rem;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.footer-directory h3 {
+  margin: 0 0 .75rem;
+  font-family: inherit;
+  font-size: .8rem;
+  font-weight: 500;
+}
+
+.footer-directory ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-directory .footer-link {
+  font-size: .95rem;
+  font-weight: 700;
+}
+
 .footer-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  padding: 1.2rem var(--gutter);
-  border-top: 1px solid var(--white);
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.03em;
+  padding: 1rem var(--gutter);
+  border-top: 1px solid var(--line);
+  font-size: .76rem;
+  letter-spacing: .03em;
 }
 
-.footer-meta {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.5rem;
-}
 
-.footer-link,
-.footer-github {
+.footer-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: .45rem;
   min-height: 44px;
   color: inherit;
   text-decoration: none;
 }
 
-.footer-github svg {
-  flex-shrink: 0;
-}
-
-.footer-link:hover,
-.footer-github:hover {
+.footer-link:hover {
   text-decoration: underline;
-  text-underline-offset: 0.2em;
+  text-underline-offset: .2em;
 }
 
-.footer-link:focus-visible,
-.footer-github:focus-visible {
+.footer-link:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 4px;
+}
+
+@media (min-width: 48rem) and (max-width: 74.999rem) {
+  .footer-directory { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .footer-perspective { grid-column: 1 / -1; max-width: none; }
+}
+
+@media (max-width: 47.999rem) {
+  .footer-directory {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 1.5rem;
+  }
+
+  .footer-perspective {
+    grid-column: 1 / -1;
+    max-width: none;
+  }
 }
 
 .not-found {
@@ -2611,7 +2652,7 @@ html[lang="en"] .weekly-show-facts strong {
 .transcript-hero h1 {
   margin: 0.75rem 0 0;
   font-size: clamp(2.35rem, 3.8vw, 4.25rem);
-  line-height: 1.08;
+  line-height: var(--section-heading-leading);
 }
 
 .transcript-hero h1 > span {
@@ -2627,48 +2668,57 @@ html[lang="en"] .weekly-show-facts strong {
 
 .transcript-hero-meta {
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 0.65rem 1rem;
-  padding-top: 0.9rem;
+  gap: 1rem;
+  padding-top: 1rem;
   border-top: 1px solid var(--ink);
 }
 
-.transcript-hero-meta > strong,
-.transcript-hero-meta > span {
-  font-size: 0.75rem;
-  font-weight: 850;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.transcript-hero-meta > span {
-  color: var(--signal);
-}
-
-.transcript-format-row {
+.transcript-meta-summary {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
-  gap: 0.75rem;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  font-size: 0.75rem;
+}
+
+.transcript-meta-summary > span {
+  color: var(--muted);
+}
+
+.transcript-meta-actions {
+  display: grid;
+  border-top: 1px solid var(--line);
 }
 
 .transcript-format-link {
-  margin-inline-start: auto;
-  color: var(--signal);
-  font: inherit;
-  letter-spacing: normal;
-  text-transform: none;
-  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.65rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.5;
 }
 
-.transcript-format-link:hover {
+.transcript-format-link > span:last-child {
+  color: var(--signal);
+}
+
+.transcript-format-link:hover,
+.transcript-format-link:focus-visible {
+  color: var(--signal);
   text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
 .transcript-hero-meta > p {
   grid-column: 1 / -1;
-  margin: 0.45rem 0 0;
+  margin: 0;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   line-height: 1.65;
 }
 
@@ -2963,7 +3013,6 @@ html[lang="en"] .weekly-show-facts strong {
 
   .transcript-hero h1 {
     font-size: 3rem;
-    line-height: 1.05;
   }
 
   .transcript-hero h1 > span:first-child:not(:only-child) {

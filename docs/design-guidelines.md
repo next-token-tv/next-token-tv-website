@@ -15,7 +15,7 @@
 - Navigation, homepage section headings, card grids, subscription content, and footer content share the same outer content edges in both languages. Internal columns and readable prose may be narrower.
 - Full-width backgrounds are independent of content width. The homepage Weekly section wraps its content in `.shell`; its background and the topic rail remain full bleed. Do not nest padded shells or add a second inline gutter to their parents.
 - The homepage hero uses the same shell: text aligns with its left content edge and the photograph ends at its right content edge. Neither column bleeds beyond the shared content area.
-- The homepage brand visual is owned by `BrandHeroVisual.astro` and deliberately retains the original Weekly #001 recording photograph, monochrome treatment, panning, stamp and “24 signals / one open table” caption. It is a long-term brand asset, not a latest-episode cover. Episode releases update the primary CTA and episode cards, never this visual; replacement requires explicit user approval.
+- The homepage brand visual is owned by `BrandHeroVisual.astro` and deliberately retains the original Weekly #001 recording photograph, monochrome treatment, panning, “Weekly” stamp, “AI signals / one open table” caption and “Since 2026.09.03” start date. The homepage caption omits episode numbers, per-episode story counts and venue names. It is a long-term brand asset, not a latest-episode cover. Episode releases update the primary CTA and episode cards, never this visual; replacement requires explicit user approval.
 - The Weekly landing-page and episode-announcement heroes follow the same rule: their two-column blocks use `.shell`, and neither column extends beyond the shared desktop content area. At stacked breakpoints, a background panel may reach the shell edge while its text retains the shared gutter.
 - Published episode heroes use `.episode-detail-hero-inner.shell` for both image and copy; only the outer dark background spans the viewport.
 - Partner detail heroes and photo galleries use `.shell`; their copy and images align with the shared content edges. Full-width section backgrounds remain independent of these containers.
@@ -35,6 +35,8 @@
 - Full-episode transcripts use a compact long-form editorial layout rather than chat bubbles. The article header and chapter headings use blog-scale typography so the first viewport reaches the table of contents and transcript body; the title should take the available horizontal space before wrapping, and the table of contents is open by default. Speaker portraits are 1.5–1.75rem circles with one subtle light-gray ring and no white inner ring or shadow. Speaker names and turn rules use stable accents sampled from their grid portraits: Yangpan sky blue (`#318fbd`), Guizang ochre (`#a96a00`), Orange orange (`#f06a31`), and Xiangyang Qiaomu deep black (`#171717`). Candidate attribution markers remain visible beside the name with one concise explanation in the article header; do not repeat that explanation beside the table of contents. Narration uses a quieter size than participant dialogue.
 
 ## Section heading scale and line height
+
+- Transcript topic H1 titles use `--section-heading-leading` (1.25) at every breakpoint, including short desktop viewports. Multi-line reading titles must not use compact display-heading leading.
 
 - Large repeated editorial sections use `.heading-section-display`: `3.1rem` below `48rem`, `4.25rem` from `48rem`, and `5.25rem` from `80rem`.
 - Repeated content sections use `.heading-section-content`: `2.25rem` below `48rem`, `2.65rem` from `48rem`, and `3rem` from `80rem`. This role includes episode mentions, participants, viewing platforms, entity facts, entity links, and related episodes.
@@ -104,3 +106,9 @@
 - Compact entity relationships use one row per relationship, with entry, person role and named reference columns. On narrow screens each row stacks as one group with visible role/reference labels. No inner decorative rules are added.
 
 - H1 titles use the full width of their layout column, without a separate fixed or character-based max-width. Keep `text-wrap: balance` and intentional line breaks. Reading-width limits apply to body copy, not page titles; the Blog introduction does not impose a narrower title container.
+
+## Form controls
+
+- Native select controls share `src/styles/form-controls.css`, imported by the global stylesheet. It owns the border, background, arrow, padding, minimum height, typography, focus and disabled states.
+- Pages may set select width and surrounding layout, but must not duplicate its visual styles. Keep native keyboard and mobile picker behavior; expanded option menus may follow operating-system rendering.
+- Search input anchor positioning leaves clearance below the sticky header. Global search shortcuts reveal and focus the input without losing the existing query.

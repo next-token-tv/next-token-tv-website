@@ -1,0 +1,64 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import EpisodeTranscriptPage from "../../../../components/EpisodeTranscriptPage.astro";
+import { getEpisodeTranscript, getEpisode, getPublishedEpisode, getTranscriptEpisodes } from "../../../../data/catalog";
+import { getParagraphAnchorIds } from "../../../../data/transcript-paragraph-anchors";
+import { getSiteContent } from "../../../../data/site";
+
+export async function getStaticPaths() {
+  const episodes = await getTranscriptEpisodes("en");
+  return episodes.map((episode) => ({
+    params: { number: episode.data.number },
+    props: { episodeId: episode.id },
+  }));
+}
+
+interface Props {
+  episodeId: string;
+}
+
+const { episodeId } = Astro.props;
+const [content, episode, transcript, zhTranscript] = await Promise.all([
+  getSiteContent("en"),
+  getEpisode(episodeId),
+  getEpisodeTranscript(episodeId, "en"),
+  getEpisodeTranscript(episodeId, "zh-Hans"),
+]);
+const releaseDate = episode.data.status === "published" ? (await getPublishedEpisode(episodeId)).data.releaseDate : undefined;
+const canonicalPath = `/en/weekly/${episode.data.number}/transcript`;
+const episodePath = `/en/weekly/${episode.data.number}`;
+const seo = "transcriptSeo" in episode.data ? episode.data.transcriptSeo?.["en"] : undefined;
+const isReviewDraft = transcript.data.publicationStatus === "review-draft";
+const displayTitle = transcript.data.title;
+const pageTitle = seo?.title ?? `Episode transcript | ${displayTitle} - Next Token`;
+const description = seo?.description ?? `${transcript.data.byline} ${transcript.data.chapterCount} chapters in total, preserving the full conversation order and speaker labels.`;
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: displayTitle,
+  description,
+  inLanguage: "en",
+  isPartOf: new URL(episodePath, Astro.site).toString(),
+  url: new URL(canonicalPath, Astro.site).toString(),
+  datePublished: releaseDate,
+  publisher: {
+    "@type": "Organization",
+    name: "Next Token",
+    url: new URL("/", Astro.site).toString(),
+  },
+};
+---
+
+<BaseLayout
+  content={content}
+  pageTitle={pageTitle}
+  description={description}
+  canonicalPath={canonicalPath}
+  alternatePath={`/weekly/${episode.data.number}/transcript`}
+  noIndex={isReviewDraft}
+  ogType="article"
+  markdownPath={isReviewDraft ? undefined : `/en/weekly/${episode.data.number}/transcript.md`}
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  <EpisodeTranscriptPage transcript={transcript} episodeNumber={episode.data.number} locale="en" isReviewDraft={isReviewDraft} displayTitle={displayTitle} anchorIds={getParagraphAnchorIds(zhTranscript.data.chapters)} />
+</BaseLayout>

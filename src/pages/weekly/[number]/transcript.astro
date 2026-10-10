@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import EpisodeTranscriptPage from "../../../components/EpisodeTranscriptPage.astro";
-import { getEpisodeTranscript, getEpisode, getPublishedEpisode, getTranscriptEpisodes } from "../../../data/catalog";
+import { getEpisodeTranscript, getEpisodeTranscriptOrNull, getEpisode, getPublishedEpisode, getTranscriptEpisodes } from "../../../data/catalog";
 import { getSiteContent } from "../../../data/site";
 
 export async function getStaticPaths() {
@@ -27,6 +27,7 @@ const canonicalPath = `/weekly/${episode.data.number}/transcript`;
 const episodePath = `/weekly/${episode.data.number}`;
 const seo = "transcriptSeo" in episode.data ? episode.data.transcriptSeo?.["zh-Hans"] : undefined;
 const isReviewDraft = transcript.data.publicationStatus === "review-draft";
+const hasEnglish = (await getEpisodeTranscriptOrNull(episodeId, "en"))?.data.publicationStatus === "published";
 const displayTitle = transcript.data.title;
 const pageTitle = seo?.title ?? `阅读文字稿｜${displayTitle} - Next Token｜词元之外`;
 const description = seo?.description ?? `${transcript.data.byline} 共 ${transcript.data.chapterCount} 个章节，保留完整对谈顺序与人物标注。`;
@@ -52,9 +53,9 @@ const structuredData = {
   pageTitle={pageTitle}
   description={description}
   canonicalPath={canonicalPath}
-  alternatePath={`/en/weekly/${episode.data.number}`}
+  alternatePath={hasEnglish ? `/en/weekly/${episode.data.number}/transcript` : `/en/weekly/${episode.data.number}`}
   noIndex={isReviewDraft}
-  hasLocaleAlternate={false}
+  hasLocaleAlternate={hasEnglish}
   ogType="article"
   markdownPath={isReviewDraft ? undefined : `/weekly/${episode.data.number}/transcript.md`}
 >

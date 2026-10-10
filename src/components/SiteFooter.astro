@@ -9,42 +9,51 @@ const { locale } = Astro.props;
 const perspective = locale === "zh-Hans"
   ? "来自中文世界的 AI 现场观点。"
   : "Perspectives on AI from the Chinese-speaking world.";
-const libraryPath = `${locale === "en" ? "/en" : ""}/wiki`;
+const en = locale === "en";
+const prefix = en ? "/en" : "";
+const groups = [
+  { title: en ? "Explore" : "内容", links: [
+    { label: en ? "Episodes" : "节目", href: `${prefix}/weekly` },
+    { label: en ? "Blog" : "博客", href: `${prefix}/blog` },
+    { label: en ? "Wiki" : "资料库", href: `${prefix}/wiki` },
+  ] },
+  { title: en ? "About" : "关于", links: [
+    { label: en ? "About Next Token" : "关于品牌", href: `${prefix || "/"}#about` },
+    { label: en ? "Co-hosts" : "联合主理人", href: `${prefix || "/"}#hosts` },
+    { label: en ? "Partners" : "合作伙伴", href: `${prefix}/partners` },
+    { label: en ? "Brand Kit" : "品牌素材", href: `${prefix}/brand-kit` },
+  ] },
+  { title: en ? "Stay connected" : "保持联系", links: [
+    { label: en ? "Join the community" : "加入社群", href: `${prefix}/community#join` },
+    { label: en ? "Follow the show" : "订阅节目", href: `${prefix}/weekly#subscribe` },
+  ] },
+  { title: en ? "Open access" : "开放访问", links: [
+    { label: en ? "Data API (中文)" : "Data API", href: "/api" },
+    { label: en ? "Episode RSS (中文)" : "节目 RSS", href: "/weekly/rss.xml", type: "application/rss+xml" },
+    { label: en ? "Blog RSS" : "博客 RSS", href: `${prefix}/blog/rss.xml`, type: "application/rss+xml" },
+    { label: "llms.txt", href: "/llms.txt", type: "text/plain" },
+    { label: en ? "Sitemap" : "网站地图", href: `${prefix}/sitemap` },
+    { label: "GitHub", href: siteLinks.github, external: true },
+  ] },
+];
 ---
 
 <footer class="site-footer">
-  <div class="footer-main shell">
-    <h2>Beyond the<br />Next Token.</h2>
-    <span class="footer-mark" aria-hidden="true"></span>
+  <div class="footer-brand">
+    <div class="footer-main shell">
+      <h2>Beyond the<br />Next Token.</h2>
+      <span class="footer-mark" aria-hidden="true"></span>
+    </div>
+  </div>
+  <div class="footer-directory shell">
+    <p class="footer-perspective">{perspective}</p>
+    {groups.map((group, index) => <nav aria-labelledby={`footer-group-${index}`}>
+      <h3 id={`footer-group-${index}`}>{group.title}</h3>
+      <ul>{group.links.map(link => <li><a class="footer-link" href={link.href} type={"type" in link ? link.type : undefined} target={"external" in link ? "_blank" : undefined} rel={"external" in link ? "noopener noreferrer" : undefined}>{link.label}</a></li>)}</ul>
+    </nav>)}
   </div>
   <div class="footer-bottom shell">
-    <span>{perspective}</span>
-    <div class="footer-meta">
-      <span>© {new Date().getFullYear()} NEXT TOKEN · NEXTTOKEN.TV</span>
-      <a class="footer-link" href={`${locale === "en" ? "/en" : ""}/brand-kit`}>
-        {locale === "en" ? "Brand Kit" : "品牌素材"}
-      </a>
-      <a class="footer-link" href={`${locale === "en" ? "/en" : ""}/partners`}>
-        {locale === "en" ? "Partners" : "合作伙伴"}
-      </a>
-      <a class="footer-link" href={`${locale === "en" ? "/en" : "/"}#community`}>
-        {locale === "en" ? "Community" : "加入社群"}
-      </a>
-      <a class="footer-link" href="/blog/rss.xml" type="application/rss+xml">
-        {locale === "en" ? "Blog RSS (中文)" : "博客 RSS"}
-      </a>
-      <a class="footer-link" href={libraryPath}>
-        {locale === "en" ? "Wiki" : "资料库"}
-      </a>
-      <a class="footer-link" href={`${locale === "en" ? "/en" : ""}/sitemap`}>
-        {locale === "en" ? "Sitemap" : "网站地图"}
-      </a>
-      <a class="footer-github" href={siteLinks.github} target="_blank" rel="noopener noreferrer">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
-          <path d="M12 .297a12 12 0 0 0-3.793 23.385c.6.111.82-.261.82-.577v-2.234c-3.338.726-4.043-1.416-4.043-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.303-5.467-1.334-5.467-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.323 3.301 1.23a11.52 11.52 0 0 1 6.006 0c2.291-1.553 3.297-1.23 3.297-1.23.654 1.652.243 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.625-5.479 5.922.43.372.823 1.102.823 2.222v3.293c0 .319.216.694.825.576A12.001 12.001 0 0 0 12 .297Z" />
-        </svg>
-        <span>GitHub</span>
-      </a>
-    </div>
+    <span>© {new Date().getFullYear()} NEXT TOKEN · NEXTTOKEN.TV</span>
+
   </div>
 </footer>

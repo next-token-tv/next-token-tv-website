@@ -1,0 +1,9 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CommunityPage from "../components/CommunityPage.astro";
+import { getSiteContent } from "../data/site";
+const content = await getSiteContent("zh-Hans");
+---
+<BaseLayout content={content} pageTitle="社群与订阅" description="加入词元之外听友社群，订阅节目与博客更新。" canonicalPath="/community" alternatePath="/en/community">
+  <CommunityPage locale="zh-Hans" />
+</BaseLayout>

@@ -7,7 +7,7 @@ const content = await getSiteContent("zh-Hans");
 const posts = await getBlogPosts();
 const episodes = (await getEpisodesForShow("next-token-weekly")).filter(episode => episode.data.status === "published").reverse();
 ---
-<BaseLayout content={content} pageTitle="按期浏览博客" description="按节目期数阅读 Next Token 的相关主题文章。" canonicalPath="/blog/episodes" hasLocaleAlternate={false}>
+<BaseLayout content={content} pageTitle="按期浏览博客" description="按节目期数阅读 Next Token 的相关主题文章。" canonicalPath="/blog/episodes" alternatePath="/en/blog/episodes">
   <main id="main" class="episode-index shell">
     <header><a href="/blog">← 所有博客文章</a><p class="section-kicker">NEXT TOKEN / 博客</p><h1>按期浏览博客</h1></header>
     <section aria-label="节目期数">{episodes.map(episode => {

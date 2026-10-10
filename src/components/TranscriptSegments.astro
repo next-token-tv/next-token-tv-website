@@ -5,9 +5,11 @@ type Segment = CollectionEntry<"transcriptImports">["data"]["chapters"][number][
 
 interface Props {
   segments: Segment[];
+  /** Locale prefix for entity links, e.g. "/en"; entity hrefs are authored against the Chinese wiki. */
+  wikiPrefix?: string;
 }
 
-const { segments } = Astro.props;
+const { segments, wikiPrefix = "" } = Astro.props;
 ---
 
 {segments.map((segment) => {
@@ -18,7 +20,8 @@ const { segments } = Astro.props;
       : segment.value;
 
   if (segment.type === "entity-link") {
-    return <a class="transcript-entity-link" data-entity-type={segment.entityType} href={segment.href}>{content}</a>;
+    const href = wikiPrefix && segment.href?.startsWith("/wiki/") ? `${wikiPrefix}${segment.href}` : segment.href;
+    return <a class="transcript-entity-link" data-entity-type={segment.entityType} href={href}>{content}</a>;
   }
   if (segment.type === "external-link") {
     return <a href={segment.href} target="_blank" rel="noopener noreferrer">{content}</a>;

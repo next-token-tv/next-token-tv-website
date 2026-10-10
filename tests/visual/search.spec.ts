@@ -31,3 +31,24 @@ test('search load failure offers retry and no-JS has a navigation fallback',asyn
  const context=await browser.newContext({javaScriptEnabled:false});const nojs=await context.newPage();
  await nojs.goto('/search');await expect(nojs.locator('noscript').getByRole('link',{name:'网站地图'})).toBeVisible();await context.close();
 });
+
+for (const width of [390, 1280]) for (const locale of ['', '/en']) test(`search shortcut reveals and focuses the input ${locale || 'zh'} at ${width}`, async ({ page }) => {
+ await page.setViewportSize({width,height:844});
+ await page.goto(`${locale}/weekly`);
+ await page.locator('footer').scrollIntoViewIfNeeded();
+ await page.keyboard.press('Meta+k');
+ await expect(page).toHaveURL(new RegExp(`${locale}/search#search-query$`));
+ const input = page.locator('#search-query');
+ await expect(input).toBeFocused();
+ await expect(async () => {
+  const bounds = await input.boundingBox();
+  const header = await page.locator('.site-header').boundingBox();
+  expect(bounds!.y).toBeGreaterThan(header!.y + header!.height);
+  expect(bounds!.y + bounds!.height).toBeLessThan(page.viewportSize()!.height);
+ }).toPass();
+ await input.fill('Codex');
+ await page.locator('footer').scrollIntoViewIfNeeded();
+ await page.keyboard.press('Control+k');
+ await expect(input).toBeFocused();
+ await expect(input).toHaveValue('Codex');
+});

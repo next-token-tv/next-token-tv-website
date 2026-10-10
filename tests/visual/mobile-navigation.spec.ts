@@ -32,7 +32,8 @@ for (const prefix of ['', '/en']) {
     await page.goto(prefix || '/');
     const menu = page.locator('.mobile-navigation');
     await menu.locator('summary').click();
-    await menu.locator('a[href="#about"]').click();
+    await menu.locator(`a[href="${prefix}/community"]`).click();
+    await expect(page).toHaveURL(new RegExp(`${prefix}/community$`));
     await expect(menu).not.toHaveAttribute('open', '');
     await menu.locator('summary').click();
     await menu.locator(`a[href="${prefix}/wiki"]`).click();
