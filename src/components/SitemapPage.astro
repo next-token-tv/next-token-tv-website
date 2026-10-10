@@ -94,7 +94,9 @@ const episodeDisplayTitle = (episode: (typeof episodeRows)[number]) => episode.d
   ))}
 </main>
 <style>
-  .sitemap-page { padding-block: 4rem 6rem; }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.sitemap-page { padding-block: 4rem 6rem; }
   .sitemap-intro { margin-bottom: 3rem; }
   h1 { font-family: var(--display); font-size: 3rem; line-height: 1.25; margin: 1rem 0; }
   .sitemap-intro > p:last-of-type { max-width: 42rem; color: var(--muted); }
@@ -122,4 +124,5 @@ const episodeDisplayTitle = (episode: (typeof episodeRows)[number]) => episode.d
   }
   @media (max-width: 60rem) { ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 40rem) { ul { grid-template-columns: 1fr; } .sitemap-page { padding-block: 2.5rem 4rem; } }
+}
 </style>

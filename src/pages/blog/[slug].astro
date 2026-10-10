@@ -37,7 +37,7 @@ const schema = {
         {episodes.map(entry => <a href={`/blog/episodes/${entry.data.number}`}>第 {entry.data.number} 期相关博客</a>)}
       </nav>
       <p class="section-kicker">博客 / WEEKLY #{number}{draft && " · 审阅稿"}</p>
-      <h1 class="article-title">{article.data.title}</h1>
+      <h1 class="article-title heading-reading-title">{article.data.title}</h1>
       <p class="article-deck">{article.data.description}</p>
       <div class="article-meta"><span>Next Token 编辑整理</span><time datetime={article.data.publishedAt ?? article.data.updatedAt}>{article.data.publishedAt ?? article.data.updatedAt}</time>{draft && <span>待审核 · 尚未发布</span>}</div>
       <nav class="article-actions" aria-label="文章格式与原文">
@@ -56,10 +56,12 @@ const schema = {
   </main>
 </BaseLayout>
 <style>
-  .article-header { padding-block: 2rem 2.5rem; border-bottom: .0625rem solid var(--line); }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.article-header { padding-block: 2rem 2.5rem; border-bottom: .0625rem solid var(--line); }
   .article-context { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; margin-bottom: 2.5rem; font-size: .9rem; }
   .article-context a:hover { color: var(--signal); }
-  .article-title { margin-block: 1.25rem; font-size: 2.25rem; text-wrap: balance; }
+  .article-title { margin-block: 1.25rem; --reading-title-size: 2.25rem; text-wrap: balance; }
   .article-deck { max-width: 48rem; margin-block: 1.5rem; font-size: 1.125rem; line-height: 1.8; color: var(--muted); }
   .article-meta, .article-actions { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; font-size: .85rem; line-height: 1.6; }
   .article-meta { color: var(--muted); }
@@ -80,7 +82,7 @@ const schema = {
   .episode-article-prose :global(blockquote p) { margin: 0; }
   .article-footer { display: flex; flex-wrap: wrap; gap: 1.25rem 2rem; padding-block: 2rem; border-top: .0625rem solid var(--line); font-weight: 700; }
   .article-actions a:hover, .article-outline a:hover, .article-footer a:hover { color: var(--signal); }
-  @media (min-width: 48rem) { .article-title { font-size: 3rem; } }
+  @media (min-width: 48rem) { .article-title { --reading-title-size: 3rem; } }
   @media (max-width: 47.999rem) {
     .article-layout { grid-template-columns: minmax(0, 1fr); gap: 2rem; padding-top: 2rem; }
     .article-outline { position: static; max-height: none; padding-bottom: 1.5rem; border-bottom: .0625rem solid var(--line); }
@@ -88,4 +90,5 @@ const schema = {
     .episode-article-prose { font-size: 1.05rem; }
     .episode-article-prose :global(h2) { font-size: 1.5rem; }
   }
+}
 </style>

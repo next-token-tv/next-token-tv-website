@@ -68,7 +68,9 @@ const groups = [
 )}
 
 <style>
-  .episode-mentions { padding-block: clamp(4rem, 8vw, 8rem); border-top: 1px solid var(--ink); }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.episode-mentions { padding-block: clamp(4rem, 8vw, 8rem); border-top: 1px solid var(--ink); }
   .episode-mentions > div:first-child { display: grid; grid-template-columns: minmax(10rem, .42fr) minmax(0, 1.58fr); gap: clamp(3rem, 8vw, 10rem); align-items: end; margin-bottom: clamp(2.5rem, 5vw, 4.5rem); }
   .episode-mentions h2 { margin: 0; }
   .episode-mention-groups { display: grid; gap: clamp(2rem, 4vw, 3.5rem); }
@@ -88,4 +90,5 @@ const groups = [
     .episode-mention-subgroup { grid-template-columns: minmax(0, 1fr); gap: .5rem; }
     .episode-mention-subgroup h4 { padding-block: 0; }
   }
+}
 </style>

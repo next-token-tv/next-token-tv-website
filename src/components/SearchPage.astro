@@ -73,7 +73,9 @@ const en=locale==='en';
   if(input.value)void search();
 </script>
 <style>
-  .search-page { padding-block: 3rem 5rem; min-height: 65vh; }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.search-page { padding-block: 3rem 5rem; min-height: 65vh; }
   header { max-width: 55rem; margin-bottom: 2rem; }
   form { max-width: 50rem; display: grid; gap: .75rem; }
   label { font-weight: 700; }
@@ -91,4 +93,5 @@ const en=locale==='en';
   .search-results :global(p) { margin: 0; }
   .search-results :global(small) { opacity: .65; }
   [hidden] { display: none; }
+}
 </style>

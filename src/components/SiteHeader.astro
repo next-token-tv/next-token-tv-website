@@ -104,7 +104,9 @@ const isLibrary = currentPath.startsWith(content.locale === "en" ? "/en/wiki" : 
 </script>
 
 <style>
-  .search-link { display: inline-flex; align-items: center; justify-content: center; min-width: 2.75rem; min-height: 2.75rem; }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.search-link { display: inline-flex; align-items: center; justify-content: center; min-width: 2.75rem; min-height: 2.75rem; }
   .mobile-navigation { display: none; }
   @media (max-width: 900px) {
     .nav { position: relative; }
@@ -121,4 +123,5 @@ const isLibrary = currentPath.startsWith(content.locale === "en" ? "/en/wiki" : 
     .mobile-nav-links .language-switcher a { display: inline-flex; align-items: center; min-height: 2.75rem; }
     .mobile-nav-links .mobile-latest { border-bottom: 0; }
   }
+}
 </style>

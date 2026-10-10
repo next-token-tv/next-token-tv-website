@@ -29,7 +29,9 @@ const venue = data?.recordingMode === "online" ? (locale === "en" ? "Online reco
 )}
 
 <style>
-  .upcoming-episode-link { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.4rem 1rem; margin-top: 1.5rem; padding-top: 1rem; border-top: 0.0625rem solid var(--ink); font-size: 0.875rem; line-height: 1.5; }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.upcoming-episode-link { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.4rem 1rem; margin-top: 1.5rem; padding-top: 1rem; border-top: 0.0625rem solid var(--ink); font-size: 0.875rem; line-height: 1.5; }
   .upcoming-episode-label { font-weight: 750; }
   .upcoming-episode-meta { grid-column: 1; color: var(--muted); font-size: 0.8rem; }
   .upcoming-episode-action { grid-column: 2; grid-row: 1 / 3; align-self: center; color: var(--signal); white-space: nowrap; }
@@ -38,4 +40,5 @@ const venue = data?.recordingMode === "online" ? (locale === "en" ? "Online reco
     .upcoming-episode-link { grid-template-columns: 1fr; }
     .upcoming-episode-action { grid-column: 1; grid-row: auto; }
   }
+}
 </style>

@@ -13,6 +13,9 @@ const label = locale === "en" ? "Read the article" : "阅读精读文章";
 {entry?.article.data.status === "published" && <a class="episode-article-link" href={`${locale === "en" ? "/en" : ""}/weekly/${entry.number}/article`}>{label} <span aria-hidden="true">→</span></a>}
 {posts.length > 0 && <a class="episode-article-link" href={`${locale === "en" ? "/en" : ""}/blog/episodes/${episode.data.number}`}>{locale === "en" ? "Related blog articles" : "本期相关博客"} <span aria-hidden="true">→</span></a>}
 <style>
-  .episode-article-link { display: inline-flex; align-items: center; gap: .75rem; margin-block: 1rem; font-size: .9rem; font-weight: 700; text-decoration: underline; text-underline-offset: .3em; }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.episode-article-link { display: inline-flex; align-items: center; gap: .75rem; margin-block: 1rem; font-size: .9rem; font-weight: 700; text-decoration: underline; text-underline-offset: .3em; }
   .episode-article-link:hover { color: var(--signal); }
+}
 </style>

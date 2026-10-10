@@ -42,7 +42,9 @@ const copy = locale === "en"
 )}
 
 <style>
-  .entity-related-episodes { display: grid; grid-template-columns: minmax(16rem, .65fr) minmax(0, 1.35fr); gap: clamp(3rem, 8vw, 9rem); padding-block: clamp(5rem, 9vw, 9rem); border-top: 1px solid var(--ink); }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.entity-related-episodes { display: grid; grid-template-columns: minmax(16rem, .65fr) minmax(0, 1.35fr); gap: clamp(3rem, 8vw, 9rem); padding-block: clamp(5rem, 9vw, 9rem); border-top: 1px solid var(--ink); }
   .entity-related-episodes h2 { max-width: 34rem; margin: 1.5rem 0 0; }
   .entity-related-episode-list { border-top: 1px solid var(--ink); }
   .entity-related-episode-list .episode-link { display: grid; grid-template-columns: 6rem 8rem minmax(0, 1fr) 2rem; gap: 1rem; align-items: center; padding: 1.5rem 0; border-bottom: 1px solid var(--ink); }
@@ -66,4 +68,5 @@ const copy = locale === "en"
     .entity-related-episode-list p { grid-column: 2; }
     .entity-related-episode-list b { grid-column: 3; grid-row: 1 / span 3; }
   }
+}
 </style>

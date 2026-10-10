@@ -52,7 +52,9 @@ const schema = {
   </main>
 </BaseLayout>
 <style>
-  .article-header { padding-block: 2rem 2.5rem; border-bottom: .0625rem solid var(--line); }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.article-header { padding-block: 2rem 2.5rem; border-bottom: .0625rem solid var(--line); }
   .article-back { display: inline-block; margin-bottom: 2.5rem; font-size: .9rem; font-weight: 700; }
   .article-title { margin-block: 1.25rem; font-size: 2.25rem; text-wrap: balance; }
   .article-deck { max-width: 48rem; margin-block: 1.5rem; font-size: 1.125rem; line-height: 1.8; color: var(--muted); }
@@ -83,4 +85,5 @@ const schema = {
     .episode-article-prose { font-size: 1.05rem; }
     .episode-article-prose :global(h2) { font-size: 1.5rem; }
   }
+}
 </style>

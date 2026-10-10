@@ -64,7 +64,9 @@ const schema = {
   </div>
 </>}
 <style>
-  .wiki-reading { padding-block: 1.5rem 2rem; border-top: 1px solid var(--line); }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.wiki-reading { padding-block: 1.5rem 2rem; border-top: 1px solid var(--line); }
   .wiki-breadcrumbs { display: flex; flex-wrap: wrap; gap: .65rem; color: var(--muted); font-size: .85rem; margin-bottom: 1.5rem; }
   .wiki-reading-grid { display: grid; grid-template-columns: var(--wiki-hero-columns); gap: 1.5rem var(--wiki-column-gap); }
   .wiki-outline { min-width: 0; }
@@ -110,4 +112,5 @@ const schema = {
     .wiki-outline { padding-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
     .wiki-updated { margin-top: 1rem; }
   }
+}
 </style>

@@ -1,0 +1,694 @@
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+@media (min-width: 62.5625rem) and (max-height: 47.5rem) {
+  .transcript-hero {
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .transcript-back {
+    margin-bottom: 1rem;
+  }
+
+  .transcript-hero h1 {
+    --reading-title-size: 3rem;
+  }
+
+  .transcript-hero h1 > span:first-child:not(:only-child) {
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+  }
+
+  .transcript-layout {
+    padding-top: 1.5rem;
+  }
+
+  .transcript-chapter > header {
+    margin-bottom: 1.25rem;
+  }
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 650ms ease,
+    transform 650ms cubic-bezier(0.2, 0.7, 0, 1);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (min-width: 1251px) and (max-width: 1320px) {
+  .nav-links { gap: 1rem; }
+}
+
+@media (max-width: 1250px) {
+  .wordmark-divider,
+  .wordmark-tagline,
+  .status-pill {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-links > a {
+    display: none;
+  }
+
+  .nav-links > a.partners-link {
+    display: inline-block;
+  }
+}
+
+@media (max-width: 1000px) {
+  .hero-grid {
+    height: auto;
+    min-height: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy {
+    min-height: 620px;
+    padding-right: 0;
+  }
+
+  .hero-visual {
+    min-height: min(78vw, 720px);
+    border-top: 1px solid var(--ink);
+    border-left: 0;
+  }
+
+  .host-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .weekly-card,
+  .subscribe {
+    grid-template-columns: 1fr;
+  }
+
+  .weekly-image {
+    min-height: min(62vw, 560px);
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 253, 246, 0.35);
+  }
+
+  .episode-number {
+    margin-bottom: 3.5rem;
+  }
+
+  .partner-row {
+    grid-template-columns: 10rem minmax(14rem, 0.9fr) minmax(0, 1.1fr) 9rem;
+  }
+
+  .partner-row-location {
+    display: none;
+  }
+
+  .partner-profile-hero {
+    min-height: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .partner-profile-copy {
+    min-height: 600px;
+  }
+
+  .partner-profile-image {
+    min-height: min(68vw, 650px);
+    border-top: 1px solid var(--ink);
+    border-left: 0;
+  }
+
+  .partner-venues {
+    grid-template-columns: 1fr;
+  }
+
+  .partner-venue {
+    grid-template-columns:
+      minmax(4.5rem, 0.3fr) minmax(12rem, 0.9fr) minmax(15rem, 1.2fr)
+      minmax(8rem, 0.55fr);
+  }
+
+  .episode-preview-hero-inner,
+  .episode-preview-venue-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .episode-preview-poster {
+    min-height: min(78vw, 650px);
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    border-top: 1px solid var(--ink);
+    border-left: 0;
+  }
+
+  .episode-preview-venue-logo {
+    min-height: 420px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.35);
+  }
+
+  .episode-preview-participant-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .weekly-show-hero-inner {
+    min-height: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .weekly-show-hero-copy {
+    min-height: 620px;
+  }
+
+  .weekly-show-poster {
+    min-height: min(72vw, 620px);
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    border-top: 1px solid var(--ink);
+    border-left: 0;
+  }
+
+  .weekly-show-poster > strong {
+    writing-mode: initial;
+    transform: none;
+  }
+
+  .weekly-show-host-grid,
+  .weekly-show-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .weekly-show-follow {
+    grid-template-columns: 1fr;
+  }
+
+  .weekly-show-upcoming {
+    grid-template-columns: 0.65fr 0.35fr 1.35fr 1fr;
+  }
+
+  .weekly-show-upcoming > span:last-child {
+    grid-column: 3 / -1;
+  }
+
+  .episode-detail-hero-inner,
+  .episode-detail-content,
+  .episode-detail-platforms {
+    grid-template-columns: 1fr;
+  }
+
+  .episode-detail-image {
+    min-height: min(68vw, 650px);
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 253, 246, 0.38);
+  }
+
+  .episode-detail-hero-copy {
+    min-height: 680px;
+  }
+
+  .episode-detail-participant-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .transcript-hero-grid,
+  .transcript-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .transcript-hero-grid {
+    gap: 1.75rem;
+  }
+
+  .transcript-layout {
+    gap: 2.5rem;
+  }
+
+  .transcript-sidebar {
+    position: static;
+  }
+
+  .transcript-toc ol {
+    max-height: min(30vh, 260px);
+  }
+}
+
+@media (max-width: 720px) {
+  .nav {
+    min-height: 66px;
+  }
+
+  .nav-links > a {
+    display: none;
+  }
+
+  .nav-links > a.partners-link {
+    display: inline-block;
+  }
+
+  .status-pill {
+    display: none;
+  }
+
+  .wordmark {
+    gap: 0.75rem;
+  }
+
+  .wordmark img {
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+
+  .wordmark > span {
+    display: none;
+  }
+
+  .hero-copy {
+    min-height: 570px;
+    padding-top: 4rem;
+  }
+
+  h1 {
+    font-size: clamp(3.75rem, 20vw, 6.7rem);
+  }
+
+  .section-heading {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .brand-manifesto,
+  .host-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .manifesto-card {
+    min-height: 300px;
+  }
+
+  .manifesto-card .number {
+    margin-bottom: 4.5rem;
+  }
+
+  .hosts-header {
+    display: block;
+  }
+
+  .hosts-note {
+    margin-top: 1.5rem;
+  }
+
+  .host-card {
+    display: grid;
+    grid-template-columns: 0.86fr 1.14fr;
+  }
+
+  .host-info {
+    min-height: 0;
+    padding: 1rem;
+  }
+
+  .host-socials {
+    padding-top: 1rem;
+  }
+
+  .host-socials a,
+  .social-account {
+    grid-template-columns: minmax(3.2rem, auto) minmax(0, 1fr) auto;
+    gap: 0.4rem;
+    font-size: 0.64rem;
+  }
+
+  .social-note {
+    display: none;
+  }
+
+  .visual-caption {
+    align-items: start;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .visual-caption > span {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .recording-caption {
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+
+  .platform {
+    grid-template-columns: 2rem 1fr;
+    padding-block: 1rem;
+  }
+
+  .platform .coming {
+    grid-column: 2;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-mark {
+    display: none;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .partners-intro {
+    padding-top: 4rem;
+  }
+
+  .partners-intro-grid,
+  .partner-story,
+  .partner-section-heading,
+  .partner-sources {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .partners-intro h1 {
+    font-size: clamp(2.75rem, 12vw, 4.5rem);
+  }
+
+  .partner-directory {
+    padding-inline: 0;
+    padding-top: 0;
+    padding-bottom: 5rem;
+  }
+
+  .partner-row {
+    min-height: 0;
+    grid-template-columns: 7.5rem minmax(0, 1fr);
+    border-top: 0;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .partner-row > * {
+    border-right: 0;
+  }
+
+  .partner-row > *:first-child {
+    border-left: 0;
+  }
+
+  .partner-row-logo {
+    grid-row: span 2;
+    padding: 1rem;
+    border-right: 1px solid var(--ink);
+  }
+
+  .partner-row-identity {
+    min-height: 145px;
+  }
+
+  .partner-row-summary {
+    grid-column: 1 / -1;
+    padding: 1.4rem var(--gutter);
+    border-top: 1px solid var(--ink);
+  }
+
+  .partner-row-action {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    padding: 1rem var(--gutter);
+  }
+
+  .partner-row-action span:last-child {
+    align-self: center;
+    font-size: 1.4rem;
+  }
+
+  .partner-profile-copy {
+    min-height: 520px;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .partner-profile-logo {
+    margin-top: 3rem;
+  }
+
+  .partner-profile-copy h1 {
+    font-size: clamp(3rem, 14cqi, 6rem);
+  }
+
+  .partner-profile-image {
+    min-height: 75vw;
+  }
+
+  .partner-venues {
+    gap: 2rem;
+  }
+
+  .partner-venue {
+    grid-template-columns: 3.75rem minmax(0, 1fr);
+  }
+
+  .partner-venue-index {
+    grid-row: span 2;
+  }
+
+  .partner-venue-address {
+    grid-column: 2;
+    border-top: 1px solid var(--ink);
+  }
+
+  .partner-venue > a {
+    grid-column: 1 / -1;
+    align-items: center;
+    flex-direction: row;
+    border-left: 1px solid var(--ink);
+  }
+
+  .partner-venue > a span {
+    align-self: center;
+  }
+
+  .partner-story {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .partner-story h2,
+  .partner-section-heading h2 {
+    font-size: clamp(3.2rem, 15vw, 5.25rem);
+  }
+
+  .partner-fact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .partner-fact {
+    min-height: 165px;
+    padding: 1.25rem;
+  }
+
+  .partner-fact strong {
+    margin-bottom: 2.5rem;
+    font-size: clamp(1.7rem, 8vw, 2.6rem);
+  }
+
+  .partner-space-list {
+    margin-left: 0;
+  }
+
+  .partner-space-list article {
+    grid-template-columns: 2rem 1fr;
+  }
+
+  .partner-space-list article p {
+    grid-column: 2;
+  }
+
+  .partner-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .partner-gallery-grid figure + figure {
+    border-top: 1px solid var(--ink);
+    border-left: 0;
+  }
+
+  .episode-preview-copy {
+    min-height: 580px;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .episode-preview-copy h1 {
+    font-size: clamp(3.75rem, 18vw, 6rem);
+  }
+
+  .episode-preview-poster {
+    min-height: 105vw;
+  }
+
+  .episode-preview-details,
+  .episode-preview-participants-heading,
+  .episode-preview-update {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .episode-preview-details h2,
+  .episode-preview-participants-heading h2,
+  .episode-preview-venue-copy h2 {
+    font-size: clamp(3.2rem, 15vw, 5.25rem);
+  }
+
+  .episode-preview-participant-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .episode-preview-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .episode-preview-facts > div {
+    min-height: 145px;
+  }
+
+  .episode-preview-venue-logo {
+    min-height: 70vw;
+  }
+
+  .weekly-show-hero-copy {
+    min-height: 560px;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .weekly-show-hero-copy h1 {
+    font-size: clamp(3.25rem, 11vw, 4rem);
+  }
+
+  .weekly-show-poster {
+    min-height: 82vw;
+  }
+
+  .weekly-show-overview,
+  .weekly-show-section-heading {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .weekly-show-facts,
+  .weekly-show-host-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .weekly-show-facts article {
+    min-height: 190px;
+  }
+
+  .weekly-show-host-grid article {
+    display: grid;
+    grid-template-columns: 0.86fr 1.14fr;
+  }
+
+  .weekly-show-host-copy {
+    min-height: 0;
+    border-top: 0;
+    border-left: 1px solid var(--ink);
+  }
+
+  .weekly-show-upcoming {
+    grid-template-columns: 1fr auto;
+  }
+
+  .weekly-show-upcoming p,
+  .weekly-show-upcoming > span:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .episode-detail-image {
+    min-height: 78vw;
+  }
+
+  .episode-detail-hero-copy {
+    min-height: 620px;
+    padding: 2rem var(--gutter) 3rem;
+  }
+
+  .episode-detail-content,
+  .episode-detail-heading {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .episode-detail-participant-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .episode-detail-participant-grid article {
+    display: grid;
+    grid-template-columns: 0.86fr 1.14fr;
+  }
+
+  .episode-detail-participant-grid article > div:last-child {
+    min-height: 0;
+    border-top: 0;
+    border-left: 1px solid var(--ink);
+  }
+
+  .transcript-hero {
+    padding-top: 1.25rem;
+  }
+
+  .transcript-back {
+    margin-bottom: 1.5rem;
+  }
+
+  .transcript-hero h1 {
+    --reading-title-size: clamp(2.15rem, 9.5vw, 3rem);
+  }
+
+  .transcript-hero-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .transcript-hero-meta > p {
+    grid-column: 1;
+  }
+
+  .transcript-layout {
+    gap: 2rem;
+    padding-top: 2rem;
+  }
+
+  .transcript-chapter > header {
+    grid-template-columns: 2.5rem 1fr;
+    gap: 0.75rem;
+  }
+
+  .transcript-chapter h2 {
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+  }
+
+  .transcript-turn {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    padding-left: 0.9rem;
+  }
+
+  .transcript-speaker {
+    padding-top: 0;
+  }
+
+  .transcript-paragraphs p {
+    font-size: 1.04rem;
+    line-height: 1.9;
+  }
+}
+}

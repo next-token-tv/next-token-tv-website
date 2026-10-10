@@ -63,8 +63,11 @@ const date = new Intl.DateTimeFormat(en ? "en-US" : "zh-Hans", {
 </main>
 
 <style>
-  .episode-preview-artwork { display: flex; align-items: center; min-width: 0; padding: 2rem 0 2rem 2rem; }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.episode-preview-artwork { display: flex; align-items: center; min-width: 0; padding: 2rem 0 2rem 2rem; }
   .episode-preview-artwork img { width: 100%; height: auto; object-fit: contain; }
   .episode-preview-copy h1 { font-size: clamp(2.5rem, 10cqi, 4.25rem); overflow-wrap: anywhere; }
   @media (max-width: 1000px) { .episode-preview-artwork { padding: 0 0 2rem; } }
+}
 </style>

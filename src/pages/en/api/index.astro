@@ -85,7 +85,9 @@ const endpoints = [
 </BaseLayout>
 
 <style>
-  .api-docs { padding-bottom: 7rem; }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.api-docs { padding-bottom: 7rem; }
   .api-hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr); gap: 4rem; align-items: start; padding-block: 3rem 4rem; border-bottom: 0.0625rem solid var(--ink); }
   .api-hero h1 { margin: 1rem 0 0; font-family: var(--display); font-size: 4.25rem; line-height: 1.05; }
   .api-hero h1 span { color: var(--signal); }
@@ -118,4 +120,5 @@ const endpoints = [
     .api-collections, .api-contract-grid { grid-template-columns: 1fr; }
     .api-collections a { min-height: 10rem; }
   }
+}
 </style>

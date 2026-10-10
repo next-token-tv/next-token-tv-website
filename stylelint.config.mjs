@@ -1,4 +1,5 @@
 export default {
+  plugins: ["./scripts/stylelint/design-contract.mjs"],
   overrides: [
     {
       files: ["**/*.astro"],
@@ -6,6 +7,7 @@ export default {
     },
   ],
   rules: {
+    "next-token/design-contract": true,
     "declaration-property-unit-disallowed-list": {
       "font-size": ["px"],
     },

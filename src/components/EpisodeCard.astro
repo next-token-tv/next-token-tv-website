@@ -40,7 +40,9 @@ const href = `${locale === "en" ? "/en" : ""}/weekly/${episode.data.number}`;
   </div>
 </article>
 <style>
-  .weekly-card + .weekly-card { margin-top: 2rem; }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.weekly-card + .weekly-card { margin-top: 2rem; }
   .weekly-image { display: block; }
   .weekly-image.is-artwork { display: block; align-self: start; width: 100%; min-height: 0; padding: 0; border: 0; }
   .weekly-image.is-artwork img { display: block; width: 100%; height: auto; object-fit: contain; }
@@ -55,4 +57,5 @@ const href = `${locale === "en" ? "/en" : ""}/weekly/${episode.data.number}`;
   @media (max-width: 79.999rem) {
     .weekly-card.has-artwork { grid-template-columns: 1fr; }
   }
+}
 </style>

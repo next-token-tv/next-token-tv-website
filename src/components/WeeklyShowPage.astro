@@ -207,8 +207,11 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
 <ConditionalImagePan />
 
 <style>
-  .show-shortcuts { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; margin-top: 1.5rem; font-size: .9rem; font-weight: 700; }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.show-shortcuts { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; margin-top: 1.5rem; font-size: .9rem; font-weight: 700; }
   .show-shortcuts a:hover { color: var(--signal); }
   #episodes, #about-show, #subscribe { scroll-margin-top: 6rem; }
   .latest-episode-title { flex-basis: 100%; margin: 0; font-size: 1rem; line-height: 1.5; }
+}
 </style>

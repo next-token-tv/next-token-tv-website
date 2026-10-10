@@ -29,7 +29,9 @@ const en = locale === "en";
   </>}
 </section>}
 <style>
-  .entity-people-relations { padding-block: 2.5rem; }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.entity-people-relations { padding-block: 2.5rem; }
   h2 { margin-bottom: 1.5rem; }
   ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2rem; list-style: none; margin: 0; padding: 0; }
   li { border-top: 0.0625rem solid var(--ink); padding-block: 1rem; min-width: 0; }
@@ -58,4 +60,5 @@ const en = locale === "en";
     .relations-table td::before { content: attr(data-label); color: var(--muted); font-size: .75rem; }
   }
   @media (max-width: 40rem) { ul { grid-template-columns: 1fr; } }
+}
 </style>

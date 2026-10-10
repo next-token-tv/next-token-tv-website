@@ -105,7 +105,9 @@ const productTypes = [
 </main>
 
 <style>
-  .wiki-home-hero { display: grid; grid-template-columns: minmax(0, 1.06fr) minmax(26rem, .94fr); gap: 3rem; padding-block: 4rem 4.5rem; border-bottom: .0625rem solid var(--ink); }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.wiki-home-hero { display: grid; grid-template-columns: minmax(0, 1.06fr) minmax(26rem, .94fr); gap: 3rem; padding-block: 4rem 4.5rem; border-bottom: .0625rem solid var(--ink); }
   .wiki-home-heading { display: flex; flex-direction: column; align-items: start; }
   .wiki-home-heading .eyebrow { margin: 0 0 2.25rem; }
   .wiki-home-heading h1 { margin: 0; font-size: 3.9rem; line-height: 1.12; }
@@ -152,4 +154,5 @@ const productTypes = [
   @media (min-width: 80rem) { .wiki-home-heading h1 { font-size: 4.35rem; } }
   @media (max-width: 60rem) { .wiki-home-hero { grid-template-columns: 1fr; gap: 2.5rem; } .wiki-home-section-head { grid-template-columns: 1fr 2fr; } .wiki-home-section-head > p:last-child { grid-column: 2; } }
   @media (max-width: 45rem) { .wiki-home-hero { padding-block: 2.5rem; } .wiki-home-heading h1 { font-size: 2.8rem; } .wiki-home-overview strong { font-size: 2.8rem; } .wiki-home-discover, .wiki-home-index { padding-block: 3.5rem; } .wiki-home-section-head { grid-template-columns: 1fr; gap: .6rem; } .wiki-home-section-head > p:last-child { grid-column: auto; } .wiki-home-columns, .wiki-home-index-grid { grid-template-columns: 1fr; } .wiki-home-columns > section + section { border-left: 0; border-top: .0625rem solid var(--ink); } .wiki-home-column-heading { min-height: 0; } .wiki-home-index-grid { gap: 2rem; } }
+}
 </style>

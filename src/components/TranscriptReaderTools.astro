@@ -156,7 +156,9 @@ const en = locale === "en";
   }
 </script>
 <style is:global>
-  @media (min-width: 62.5625rem) {
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+@media (min-width: 62.5625rem) {
     .transcript-sidebar { max-height: calc(100svh - 8rem); overflow-y: auto; }
   }
   .transcript-search { margin-bottom: 1rem; font-size: 0.85rem; }
@@ -198,4 +200,5 @@ const en = locale === "en";
   .transcript-paragraph-feedback { margin-inline-start: 0.4em; color: var(--muted); font-size: 0.75em; }
   .transcript-paragraph-feedback input { max-width: min(100%, 28rem); font: inherit; }
   @media (hover: none) { .transcript-paragraphs > p > .transcript-paragraph-link { opacity: 0.55; } }
+}
 </style>

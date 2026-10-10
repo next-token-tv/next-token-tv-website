@@ -73,7 +73,9 @@ const episodes = (await getEpisodesForShow("next-token-weekly")).filter(episode 
   }
 </script>
 <style>
-  .blog-filters { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) auto; gap: 1rem 1.5rem; align-items: end; margin-bottom: 2rem; }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.blog-filters { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) auto; gap: 1rem 1.5rem; align-items: end; margin-bottom: 2rem; }
   .blog-filters label { display: block; margin-bottom: .5rem; font-size: .85rem; font-weight: 700; }
   .blog-filters input, .blog-filters button { min-height: 2.75rem; padding: .65rem .85rem; border: .0625rem solid var(--line); background: transparent; color: var(--ink); font: inherit; }
   .blog-filters input, .blog-filters select { width: 100%; min-width: 0; }
@@ -98,4 +100,5 @@ const episodes = (await getEpisodesForShow("next-token-weekly")).filter(episode 
   .blog-empty a { text-decoration: underline; }
   @media (min-width: 48rem) { h1 { font-size: 3.75rem; } }
   @media (max-width: 47.999rem) { .blog-row { grid-template-columns: minmax(0, 1fr); gap: 1rem; } .blog-meta { flex-direction: row; align-items: center; flex-wrap: wrap; } }
+}
 </style>

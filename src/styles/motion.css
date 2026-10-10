@@ -1,0 +1,30 @@
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+@media (prefers-reduced-motion: reduce) {
+  .wordmark img {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .pan-if-cropped {
+    animation: none;
+    object-position: center;
+  }
+}
+}

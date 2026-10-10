@@ -1,3 +1,5 @@
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
 /* Shared section geometry for brand, product and person articles. */
 .has-wiki-article > .wiki-support-section.shell {
   display: grid;
@@ -19,3 +21,5 @@
   text-decoration: none;
 }
 .has-wiki-article > .wiki-support-section.shell .wiki-support-link:hover { color: var(--signal); }
+
+}

@@ -59,6 +59,10 @@ const spaces = ["--space-1", "--space-2", "--space-3", "--space-4", "--space-6",
     </div>
     <div class="type-specimens">
       <article>
+        <div><strong>{en ? "Reading title" : "长篇阅读标题"}</strong><code>heading-reading-title · 1.25</code></div>
+        <p class="heading-reading-title">{en ? "From a long conversation to a readable article: give every line room to breathe." : "从一段长对谈到一篇可读的文章：让多行标题保持清晰的阅读节奏。"}</p>
+      </article>
+      <article>
         <div><strong>{copy.display}</strong><code>heading-section-display</code></div>
         <h2 class="heading-section-display">{copy.displaySample}</h2>
       </article>
@@ -105,7 +109,9 @@ const spaces = ["--space-1", "--space-2", "--space-3", "--space-4", "--space-6",
 </main>
 
 <style>
-  .design-system { padding-block: clamp(4rem, 8vw, 8rem); }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.design-system { padding-block: clamp(4rem, 8vw, 8rem); }
   .design-system-intro { max-width: 58rem; padding-bottom: clamp(4rem, 8vw, 7rem); }
   .design-system-intro h1 { margin-bottom: 1.5rem; font-size: clamp(3rem, 7vw, 6rem); }
   .design-system-intro > p:last-child { max-width: 46rem; color: var(--muted); font-size: 1.2rem; }
@@ -130,4 +136,5 @@ const spaces = ["--space-1", "--space-2", "--space-3", "--space-4", "--space-6",
     .design-system-section-heading { grid-template-columns: 1fr; gap: 1rem; }
     .color-specimens { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
+}
 </style>

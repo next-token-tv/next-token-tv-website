@@ -188,7 +188,10 @@ const labels = locale === "en" ? {
 <ConditionalImagePan />
 
 <style>
-  .episode-detail-image.is-artwork { display: block; align-self: start; width: 100%; min-height: 0; padding: 0; border: 0; }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.episode-detail-image.is-artwork { display: block; align-self: start; width: 100%; min-height: 0; padding: 0; border: 0; }
   .episode-detail-image.is-artwork img { display: block; width: 100%; height: auto; object-fit: contain; }
   .episode-guest-names { margin-top: 1.5rem; }
+}
 </style>

@@ -12,6 +12,9 @@ const icon = platforms[platform as keyof typeof platforms]?.icon;
   <span>{name}</span>
 </span>
 <style>
-  .platform-brand { display: inline-flex; align-items: center; gap: .65rem; min-width: 0; }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.platform-brand { display: inline-flex; align-items: center; gap: .65rem; min-width: 0; }
   .platform-logo { display: block; flex: 0 0 1.75rem; width: 1.75rem; height: 1.75rem; object-fit: contain; }
+}
 </style>

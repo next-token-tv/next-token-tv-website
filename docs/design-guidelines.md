@@ -2,7 +2,8 @@
 
 ## CSS architecture
 
-- Shared design values live in `src/styles/tokens.css`; shared typography roles live in `src/styles/typography.css`; page and component composition remains in `src/styles/global.css` or the owning Astro component.
+- Shared design values live in `src/styles/tokens.css`; shared typography roles live in `src/styles/typography.css`; the global entrypoint imports domain stylesheets and owning Astro components keep their local composition. `global.css` contains only layer order and imports. `base.css` owns reset, base elements and `.shell`; `foundation.css` owns shared navigation and primitives; home, partners, weekly, episode, footer and transcript styles have separate modules. `responsive.css` preserves cross-template breakpoint rules and `motion.css` owns reduced-motion behavior.
+- Every standalone CSS file and Astro style block declares the same layer-order prelude before any layer block; Astro may emit component styles before the global import. Unlayered declarations are rejected.
 - The cascade order is `reset`, `tokens`, `base`, `layouts`, `components`, `utilities`, then `overrides`. Shared role classes own their font family, size, and line height; component styles may control layout and spacing but must not redefine those properties.
 - Promote a value to a global token only when the same semantic role occurs across page templates. Keep genuinely page-specific display treatments scoped to their owning page.
 - Homepage, show, and episode viewing-platform lists share `PlatformList.astro`, including numbered rows, colored logos, localized actions, and unavailable states. Platform metadata remains the source of names, destinations, and actions; pages control the surrounding section layout.
@@ -36,7 +37,7 @@
 
 ## Section heading scale and line height
 
-- Transcript topic H1 titles use `--section-heading-leading` (1.25) at every breakpoint, including short desktop viewports. Multi-line reading titles must not use compact display-heading leading.
+- Transcript and Blog article H1 titles use `.heading-reading-title`, with `--reading-title-leading: 1.25` at every breakpoint, including short desktop viewports. Page composition sets `--reading-title-size`; the shared role owns the resulting font properties. Display titles retain their separate roles.
 
 - Large repeated editorial sections use `.heading-section-display`: `3.1rem` below `48rem`, `4.25rem` from `48rem`, and `5.25rem` from `80rem`.
 - Repeated content sections use `.heading-section-content`: `2.25rem` below `48rem`, `2.65rem` from `48rem`, and `3rem` from `80rem`. This role includes episode mentions, participants, viewing platforms, entity facts, entity links, and related episodes.
@@ -70,7 +71,8 @@
 - Shared role sizes must match their documented breakpoint values and remain unchanged above the desktop breakpoint.
 - Featured-episode numbers and titles must be no larger than their enclosing section H2 on both the homepage and Weekly landing page.
 - Inspect multiline headings visually for readable spacing, unintended word breaks, clipping, and overlap with adjacent content.
-- `npm run lint:styles` rejects pixel-based font sizes. `npm run check` includes this rule.
+- `npm run lint:styles` rejects pixel-based font sizes, unlayered declarations, missing layer-order preludes, shared heading role redefinitions (including nested selectors, selector lists and media queries), incompatible explicit H2 leading and layout/typography `!important`. `scripts/stylelint/design-contract.mjs` owns these checks; mutation fixtures test both CSS and Astro input. `npm run check` includes the lint gate and its tests.
+- `tests/visual/design-contract.spec.ts` checks actual bilingual page templates at seven viewports, including 1210×887 and short desktop 1280×720. It asserts shell alignment, heading overflow, reading/H2 leading, shared role sizes and transcript action alignment. Heading text must remain inside its own and ancestor `overflow: hidden/clip` containers; vertical clipping and line clamping are checked as well as horizontal overflow. Scrollable containers and content below the viewport remain valid. Nested scrollports constrain the geometry passed to outer clipping checks; clipping of the scrollport itself still fails. Border and client dimensions are converted to viewport coordinates for axis-aligned scaling, including nonuniform scaling. `heading-clipping.spec.ts` supplies positive and negative clipping fixtures. These are assertions independent of screenshot approval and run in the release visual gate.
 - `npm run test:visual` is the required geometry and screenshot regression check. It covers Chinese and English pages at 390, 768, 1280, 1440, 1920, and 2560 CSS pixels; screenshot baselines are stored for mobile and wide layouts.
 - Snapshot baselines represent an approved visual outcome. Update them only when the rendered change is intentional and has been inspected.
 

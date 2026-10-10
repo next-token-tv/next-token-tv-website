@@ -23,7 +23,9 @@ const targetLanguage = locale === "zh-Hans" ? "en" : "zh-Hans";
 </script>
 
 <style>
-  .language-suggestion[hidden] { display: none; }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.language-suggestion[hidden] { display: none; }
   .language-suggestion {
     position: fixed;
     z-index: 30;
@@ -49,4 +51,5 @@ const targetLanguage = locale === "zh-Hans" ? "en" : "zh-Hans";
   button { padding: 0; border: 0; background: none; font: inherit; cursor: pointer; }
   button:hover { text-decoration: underline; text-underline-offset: 0.2em; }
   a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+}
 </style>

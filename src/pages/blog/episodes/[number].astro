@@ -33,7 +33,9 @@ const hasTranscript = (await getPublishedTranscriptEpisodes("zh-Hans")).some(ent
   </main>
 </BaseLayout>
 <style>
-  .episode-blog { padding-block: 3rem 5rem; min-height: 65vh; }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.episode-blog { padding-block: 3rem 5rem; min-height: 65vh; }
   header { padding-bottom: 3rem; }
   .section-kicker { margin-top: 2rem; }
   h1 { font-size: clamp(2rem, 4vw, 3.75rem); margin-block: 1.5rem; }
@@ -46,4 +48,5 @@ const hasTranscript = (await getPublishedTranscriptEpisodes("zh-Hans")).some(ent
   article p { line-height: 1.8; }
   a:hover { color: var(--signal); }
   @media (max-width: 47.999rem) { article { grid-template-columns: minmax(0, 1fr); gap: 1rem; } }
+}
 </style>

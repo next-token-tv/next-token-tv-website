@@ -171,8 +171,11 @@ const copy = locale === "zh-Hans"
 </main>
 
 <style>
-  .episode-preview-map {
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.episode-preview-map {
     margin-top: 2rem;
     border: 1px solid var(--line);
   }
+}
 </style>

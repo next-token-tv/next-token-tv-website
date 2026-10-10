@@ -52,7 +52,9 @@ const home = en ? "/en" : "/";
 </main>
 
 <style>
-  .host-profile { padding-block: clamp(2rem, 5vw, 5rem) clamp(4rem, 8vw, 8rem); }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.host-profile { padding-block: clamp(2rem, 5vw, 5rem) clamp(4rem, 8vw, 8rem); }
   .profile-back { display: inline-block; margin-bottom: 3rem; font-weight: 700; }
   .profile-hero { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(2rem, 6vw, 6rem); align-items: center; }
   .profile-hero .host-photo { width: 100%; max-width: 400px; box-shadow: 0 0 14px rgba(17, 17, 17, 0.12); }
@@ -89,4 +91,5 @@ const home = en ? "/en" : "/";
     .profile-episode-list > a { grid-template-columns: 3.5rem minmax(0, 1fr) 1rem; gap: 0.75rem; }
     .profile-episode-number { font-size: 1.6rem; }
   }
+}
 </style>

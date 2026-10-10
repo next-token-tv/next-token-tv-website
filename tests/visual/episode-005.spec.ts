@@ -1,5 +1,8 @@
 import {test,expect} from '@playwright/test';
-for(const width of [390,1440])for(const prefix of ['','/en'])test(`005 published audio page ${prefix || 'zh'} ${width}`,async({page})=>{
+import {readFileSync} from 'node:fs';
+import {load} from 'js-yaml';
+const {community} = load(readFileSync('src/content/data/shows/next-token-weekly.yaml','utf8')) as {community: {qrImage: string}};
+for(const width of [390,1440])for(const prefix of ['','/en'])test(`005 published media page ${prefix || 'zh'} ${width}`,async({page})=>{
  await page.setViewportSize({width,height:900});
  await page.goto(`${prefix}/weekly/005`);
  const cover=page.locator('.episode-detail-image img');
@@ -7,11 +10,15 @@ for(const width of [390,1440])for(const prefix of ['','/en'])test(`005 published
  const size=await cover.evaluate((img:HTMLImageElement)=>({width:img.naturalWidth,height:img.naturalHeight,rect:img.getBoundingClientRect().toJSON()}));
  expect(size.width).toBe(size.height);
  expect(size.rect.width/size.rect.height).toBeCloseTo(1,2);
- await expect(page.locator('h1')).toContainText(prefix?'personal agent':'PA');
+ await expect(page.locator('main h1')).toContainText(prefix?'personal agent':'PA');
  await expect(page.locator('.episode-detail-meta')).toContainText(prefix?'Wenyu River Park':'温榆河公园');
  await expect(page.locator('.episode-show-notes')).toContainText('1:12:54');
  await expect(page.locator('.episode-detail-platforms a[href*="xiaoyuzhoufm.com/episode/"]')).toHaveAttribute('href','https://www.xiaoyuzhoufm.com/episode/6ac6dabe195d838e2aee61a0');
- await expect(page.locator('img[src*="community-qr"]')).toHaveAttribute('src','/assets/weekly-005/community-qr-20261008.webp');
+ await expect(page.locator('main .community-qr')).toHaveAttribute('src',community.qrImage);
+ for (const host of ['xiaoyuzhoufm.com/episode/', 'open.spotify.com/episode/']) await expect(page.locator(`.episode-detail-platforms a[href*="${host}"]`)).toContainText(prefix ? 'Listen / watch' : '收听 / 观看');
+ await expect(page.locator('.episode-detail-platforms a[href*="youtube.com/watch"]')).toHaveAttribute('href','https://www.youtube.com/watch?v=rvMDDqqkiaM');
+ await expect(page.locator('.episode-detail-platforms a[href*="podcasts.apple.com"]')).toContainText(prefix ? 'Listen now' : '立即收听');
+ await expect(page.locator('.episode-detail-platforms a[href*="xhslink"], .episode-detail-platforms a[href*="xiaohongshu"]')).toHaveCount(0);
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  await page.screenshot({path:`/tmp/weekly005-${prefix?'en':'zh'}-${width}.png`,fullPage:true});
 });

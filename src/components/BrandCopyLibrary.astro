@@ -76,7 +76,9 @@ const groups = await Promise.all(([{type:"brand", id:"next-token"}, {type:"show"
   });
 </script>
 <style>
-  .copy-library { padding-block: clamp(2.5rem, 5vw, 5rem); border-top: 1px solid var(--ink); scroll-margin-top: 6rem; }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.copy-library { padding-block: clamp(2.5rem, 5vw, 5rem); border-top: 1px solid var(--ink); scroll-margin-top: 6rem; }
   .copy-library > .eyebrow { margin-bottom: 1.5rem; }
   h2 { margin: 0; }
   .copy-lede { max-width: 52rem; margin: 1rem 0 2.5rem; color: var(--muted); }
@@ -96,4 +98,5 @@ const groups = await Promise.all(([{type:"brand", id:"next-token"}, {type:"show"
   button:hover { background: var(--signal); color: var(--ink); }
   .copy-controls [role="status"] { font-size: .875rem; }
   @media(max-width: 900px) { .copy-groups { grid-template-columns: 1fr; gap: 3rem; } }
+}
 </style>

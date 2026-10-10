@@ -22,7 +22,9 @@ const { backHref, backLabel, name, summary, aliases = [], aliasesLabel, person =
   </div>
 </header>
 <style>
-  .wiki-detail-back { padding-block: 1.5rem; border-bottom: 1px solid var(--ink); }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.wiki-detail-back { padding-block: 1.5rem; border-bottom: 1px solid var(--ink); }
   .wiki-detail-back a { display: inline-flex; align-items: center; gap: .75rem; font-weight: 750; }
   .wiki-detail-back a:hover { color: var(--signal); }
   .wiki-detail-hero { display: grid; grid-template-columns: var(--wiki-hero-columns); gap: var(--wiki-column-gap); align-items: center; padding-block: var(--wiki-hero-padding); }
@@ -34,4 +36,5 @@ const { backHref, backLabel, name, summary, aliases = [], aliasesLabel, person =
   .wiki-aliases { margin-top: 2.5rem; }
   .wiki-aliases-label { color: var(--muted); font-size: .9rem; font-weight: 700; margin-right: .5rem; }
   .wiki-aliases-value { display: inline; margin: 0; font-size: .9rem; font-weight: 400; color: var(--muted); }
+}
 </style>

@@ -1,3 +1,4 @@
+@layer reset, tokens, base, layouts, components, utilities, overrides;
 @layer base {
   @font-face {
     font-family: "League Spartan";
@@ -11,8 +12,12 @@
   h2,
   h3 {
     margin-top: 0;
-    line-height: var(--headline-leading);
     letter-spacing: var(--display-tracking);
+  }
+
+  h1,
+  h3 {
+    line-height: var(--headline-leading);
   }
 
   h2 {
@@ -21,6 +26,14 @@
 }
 
 @layer utilities {
+  .heading-reading-title {
+    font-family: var(--display);
+    font-size: var(--reading-title-size, 2.25rem);
+    line-height: var(--reading-title-leading);
+    letter-spacing: var(--display-tracking);
+    text-wrap: balance;
+  }
+
   .heading-section-display,
   .heading-section-content,
   .heading-section-compact,

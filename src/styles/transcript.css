@@ -1,0 +1,392 @@
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.transcript-page {
+  overflow: clip;
+}
+
+.transcript-review-banner {
+  padding: 0.7rem var(--shell-gutter);
+  background: var(--signal);
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+.transcript-hero {
+  padding-top: clamp(1.5rem, 3vw, 2.75rem);
+  padding-bottom: clamp(2rem, 4vw, 3.5rem);
+  border-bottom: 1px solid var(--ink);
+}
+
+.transcript-back {
+  display: inline-block;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: 0.8rem;
+  font-weight: 850;
+}
+
+.transcript-back:hover,
+.transcript-back:focus-visible {
+  color: var(--signal);
+}
+
+.transcript-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(14rem, 18rem);
+  gap: clamp(2rem, 3.5vw, 4rem);
+  align-items: end;
+}
+
+.transcript-hero h1 {
+  margin: 0.75rem 0 0;
+  --reading-title-size: clamp(2.35rem, 3.8vw, 4.25rem);
+}
+
+.transcript-hero h1 > span {
+  display: block;
+}
+
+.transcript-hero h1 > span:first-child:not(:only-child) {
+  margin-bottom: 0.45rem;
+  color: var(--signal);
+  font-size: clamp(1rem, 1.35vw, 1.3rem);
+  line-height: 1.2;
+}
+
+.transcript-hero-meta {
+  display: grid;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ink);
+}
+
+.transcript-meta-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  font-size: 0.75rem;
+}
+
+.transcript-meta-summary > span {
+  color: var(--muted);
+}
+
+.transcript-meta-actions {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+
+.transcript-format-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.65rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.transcript-format-link > span:last-child {
+  color: var(--signal);
+}
+
+.transcript-format-link:hover,
+.transcript-format-link:focus-visible {
+  color: var(--signal);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.transcript-hero-meta > p {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+.transcript-hero-meta .transcript-notice {
+  margin-top: 0;
+  font-size: 0.82rem;
+}
+
+.transcript-layout {
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.44fr) minmax(0, 1.56fr);
+  gap: clamp(3rem, 6vw, 7rem);
+  align-items: start;
+  padding-top: clamp(2.5rem, 4vw, 4.5rem);
+  padding-bottom: clamp(5rem, 8vw, 9rem);
+}
+
+.transcript-sidebar {
+  position: sticky;
+  top: 6.75rem;
+}
+
+.transcript-toc {
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.transcript-toc summary {
+  padding: 1rem 0;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  list-style-position: inside;
+}
+
+.transcript-toc ol {
+  max-height: min(62vh, 40.625rem);
+  margin: 0;
+  padding: 0 0 1rem 0.5rem;
+  overflow: auto;
+  list-style: none;
+  scrollbar-width: thin;
+}
+
+.transcript-toc li {
+  border-top: 1px solid var(--line);
+}
+
+.transcript-toc a {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: 0.6rem;
+  padding: 0.75rem 0;
+  color: var(--muted);
+  font-size: 0.74rem;
+  line-height: 1.45;
+}
+
+.transcript-toc a span {
+  color: var(--signal);
+  font-weight: 850;
+}
+
+.transcript-toc a:hover,
+.transcript-toc a:focus-visible {
+  color: var(--ink);
+}
+
+.transcript-toc a[aria-current="location"] {
+  color: var(--ink);
+  font-weight: 750;
+  position: relative;
+}
+
+.transcript-toc a[aria-current="location"]::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  left: -0.5rem;
+  width: 0.1875rem;
+  background: var(--signal);
+}
+
+.transcript-body {
+  width: 100%;
+  max-width: 58.75rem;
+}
+
+.transcript-quote-paragraph { position: relative; }
+.transcript-paragraph-time {
+  position: absolute;
+  inset-inline-end: 0;
+  bottom: 100%;
+  padding: 0.125rem 0.375rem;
+  background: var(--paper);
+  color: var(--muted);
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+}
+.transcript-quote-paragraph:hover .transcript-paragraph-time,
+.transcript-quote-paragraph:focus-within .transcript-paragraph-time { opacity: 1; }
+
+.transcript-chapter {
+  scroll-margin-top: 6.875rem;
+  padding: 0 0 clamp(3.5rem, 6vw, 6rem);
+}
+
+.transcript-chapter + .transcript-chapter {
+  padding-top: clamp(3.5rem, 6vw, 6rem);
+  border-top: 1px solid var(--ink);
+}
+
+.transcript-chapter > header {
+  display: grid;
+  grid-template-columns: 2.75rem 1fr;
+  gap: 1rem;
+  align-items: start;
+  margin-bottom: clamp(1.75rem, 3vw, 3rem);
+}
+
+.transcript-chapter > header > span {
+  padding-top: 0.35rem;
+  color: var(--signal);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.transcript-chapter h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(1.75rem, 2.5vw, 2.8rem);
+  line-height: var(--section-heading-leading);
+}
+
+.transcript-turns {
+  display: grid;
+  gap: 2.25rem;
+}
+
+.transcript-turn {
+  --speaker-accent: rgba(17, 17, 17, 0.42);
+  display: grid;
+  grid-template-columns: minmax(8rem, 0.32fr) minmax(0, 1.68fr);
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--speaker-accent);
+}
+
+.transcript-turn[data-speaker="yangpan"] { --speaker-accent: #318fbd; }
+.transcript-turn[data-speaker="guizang"] { --speaker-accent: #a96a00; }
+.transcript-turn[data-speaker="orange"] { --speaker-accent: #f06a31; }
+.transcript-turn[data-speaker="xiangyang-qiaomu"] { --speaker-accent: #171717; }
+
+.transcript-speaker {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  align-self: start;
+  gap: 0.55rem;
+  padding-top: 0.22rem;
+  color: var(--speaker-accent);
+  font-size: 0.8rem;
+}
+
+.transcript-speaker a {
+  flex: 0 0 auto;
+}
+
+.transcript-speaker img {
+  width: 1.75rem;
+  height: 1.75rem;
+  object-fit: cover;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  border-radius: 50%;
+  outline: 0;
+  box-shadow: none;
+}
+
+.transcript-speaker strong {
+  min-width: 0;
+  color: var(--speaker-accent);
+  line-height: 1.3;
+}
+
+.transcript-speaker-mark {
+  width: 1.75rem;
+  height: 0.22rem;
+  flex: 0 0 auto;
+  background: var(--speaker-accent);
+}
+
+.transcript-candidate {
+  color: var(--signal);
+  font-weight: 900;
+}
+
+.transcript-paragraphs p {
+  margin: 0;
+  color: #2d2b27;
+  font-size: clamp(1.04rem, 1.2vw, 1.16rem);
+  line-height: 1.92;
+}
+
+.transcript-paragraphs p + p {
+  margin-top: 1.2rem;
+}
+
+.transcript-turn.is-narration,
+.transcript-turn.is-editor-note {
+  padding: 1.5rem;
+  border-left-width: 4px;
+  background: rgba(255, 75, 24, 0.07);
+}
+
+.transcript-turn.is-narration .transcript-paragraphs p {
+  font-size: clamp(0.93rem, 1vw, 1.02rem);
+  line-height: 1.8;
+}
+
+.transcript-turn.is-editor-note {
+  background: rgba(17, 17, 17, 0.055);
+}
+
+.transcript-paragraphs > p > a:not(.transcript-entity-link) {
+  text-decoration: underline;
+  text-decoration-color: var(--signal);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+}
+
+.transcript-page {
+  --entity-opacity: 0.08;
+  --entity-hover-opacity: 0.16;
+}
+
+.transcript-page[data-entity-highlight="true"] {
+  --entity-opacity: 0.22;
+  --entity-hover-opacity: 0.3;
+}
+
+.transcript-entity-link,
+.transcript-entity-key {
+  --entity-tint: 125, 105, 165;
+
+  color: inherit;
+  text-decoration: none;
+  background-color: rgba(var(--entity-tint), var(--entity-opacity));
+  border-radius: 0.25rem;
+  padding: 0.1875rem 0.25rem;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.transcript-entity-link[data-entity-type="brand"],
+.transcript-entity-key[data-entity-type="brand"] {
+  --entity-tint: 190, 120, 50;
+}
+
+.transcript-entity-link[data-entity-type="product"],
+.transcript-entity-link[data-entity-type="show"],
+.transcript-entity-key[data-entity-type="product"] {
+  --entity-tint: 55, 130, 175;
+}
+
+.transcript-entity-link:focus-visible {
+  background-color: rgba(var(--entity-tint), var(--entity-hover-opacity));
+  text-decoration: underline;
+  text-decoration-color: rgba(var(--entity-tint), 0.6);
+  text-decoration-thickness: 0.0625rem;
+  text-underline-offset: 0.18em;
+}
+
+.transcript-paragraphs > p > a:not(.transcript-entity-link):hover,
+.transcript-paragraphs > p > a:not(.transcript-entity-link):focus-visible {
+  color: var(--signal);
+}
+}

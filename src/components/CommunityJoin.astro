@@ -34,7 +34,9 @@ const en = locale === "en";
   document.addEventListener('visibilitychange', refreshCommunityCodes);
 </script>
 <style>
-  .community-join { margin-top: 2rem; max-width: 28rem; scroll-margin-top: 7rem; }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.community-join { margin-top: 2rem; max-width: 28rem; scroll-margin-top: 7rem; }
   .community-card { display: grid; grid-template-columns: clamp(9rem, 40vw, 11rem) minmax(0, 1fr); gap: 1.5rem; align-items: center; }
   .community-image-link { display: block; }
   .community-qr { display: block; width: 100%; height: auto; }
@@ -46,4 +48,5 @@ const en = locale === "en";
   .community-discord { display: inline-block; margin-top: .75rem; font-size: .8rem; color: var(--muted); }
   .community-join a:hover { color: var(--signal); }
   .community-join [hidden] { display: none; }
+}
 </style>

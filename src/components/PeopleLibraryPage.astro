@@ -53,7 +53,9 @@ const mentions = catalog.episodes.filter(episode => episode.data.mentions.people
   <RelatedEpisodes episodes={mentions} locale={locale} compact contained={!hasArticle} chapterLinks={chapterLinks} />
 </main>
 <style>
-  .people-library:not(.has-wiki-article) { padding-block: 3rem 5rem; }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.people-library:not(.has-wiki-article) { padding-block: 3rem 5rem; }
   .people-library:has(.person-detail-back) { padding-top: 0; }
   .person-detail-back { padding-block: 1.5rem; border-bottom: 1px solid var(--ink); }
   .person-detail-back a { display: inline-flex; align-items: center; gap: .75rem; font-weight: 750; }
@@ -66,4 +68,5 @@ const mentions = catalog.episodes.filter(episode => episode.data.mentions.people
   a:hover { color: var(--signal); }
   small { color: var(--muted); }
   .has-wiki-article .person-source-item { padding-block: .5rem; }
+}
 </style>

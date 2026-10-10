@@ -105,7 +105,9 @@ const copy = locale === "zh-Hans" ? {
 </main>
 
 <style>
-  .brand-kit { padding-block: clamp(4rem, 8vw, 8rem); }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.brand-kit { padding-block: clamp(4rem, 8vw, 8rem); }
   .kit-intro { padding-bottom: clamp(3rem, 6vw, 6rem); }
   .kit-intro .eyebrow { margin-bottom: 2rem; }
   .kit-intro h1 { margin: 0; font-size: clamp(3rem, 7vw, 6rem); }
@@ -155,4 +157,5 @@ const copy = locale === "zh-Hans" ? {
     .kit-palette { grid-template-columns: 1fr; }
     .kit-swatch { min-height: 10rem; }
   }
+}
 </style>

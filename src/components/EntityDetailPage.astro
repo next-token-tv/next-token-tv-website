@@ -207,7 +207,9 @@ const connectionsLabel = entityType === "brand" ? copy.brandConnections : copy.c
 </main>
 
 <style>
-  .entity-detail-back { padding-block: 1.5rem; border-bottom: 1px solid var(--ink); }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.entity-detail-back { padding-block: 1.5rem; border-bottom: 1px solid var(--ink); }
   .entity-detail-back a { display: inline-flex; align-items: center; gap: .75rem; font-weight: 750; }
   .entity-detail-hero { display: grid; grid-template-columns: minmax(18rem, .58fr) minmax(0, 1.42fr); gap: clamp(3rem, 7vw, 8rem); min-height: clamp(560px, calc(100svh - 126px), 680px); align-items: stretch; }
   .entity-detail-poster { display: flex; min-height: 100%; flex-direction: column; justify-content: space-between; padding: clamp(2rem, 4vw, 3.5rem); color: var(--paper); background: var(--ink); overflow: hidden; }
@@ -267,4 +269,5 @@ const connectionsLabel = entityType === "brand" ? copy.brandConnections : copy.c
     .entity-detail-facts, .entity-detail-links { grid-template-columns: 1fr; gap: 2.5rem; }
     .entity-detail-facts dl { grid-template-columns: 1fr; }
   }
+}
 </style>

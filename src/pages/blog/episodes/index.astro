@@ -17,7 +17,9 @@ const episodes = (await getEpisodesForShow("next-token-weekly")).filter(episode 
   </main>
 </BaseLayout>
 <style>
-  .episode-index { padding-block: 3rem 5rem; min-height: 65vh; }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.episode-index { padding-block: 3rem 5rem; min-height: 65vh; }
   header { padding-bottom: 3rem; }
   .section-kicker { margin-top: 2rem; }
   h1 { font-size: clamp(2rem, 4vw, 3.75rem); margin-block: 1.5rem; }
@@ -27,4 +29,5 @@ const episodes = (await getEpisodesForShow("next-token-weekly")).filter(episode 
   article p { color: var(--muted); }
   a:hover { color: var(--signal); }
   @media (max-width: 47.999rem) { article { grid-template-columns: minmax(0, 1fr); gap: 1rem; } }
+}
 </style>

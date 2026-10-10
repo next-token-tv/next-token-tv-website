@@ -172,7 +172,9 @@ const filterOptions = entityType === "people"
 </script>
 
 <style>
-  .entity-index-hero { padding-block: 2.5rem 2.25rem; border-bottom: 1px solid var(--ink); }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.entity-index-hero { padding-block: 2.5rem 2.25rem; border-bottom: 1px solid var(--ink); }
   .entity-index-hero > .eyebrow { margin: 0 0 1.5rem; }
   .entity-index-hero > .eyebrow a:hover { color: var(--signal); }
   .entity-index-hero > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, .8fr); gap: 2rem; align-items: end; }
@@ -232,4 +234,5 @@ const filterOptions = entityType === "people"
     .entity-directory-row > .entity-directory-summary { grid-column: 1 / -1; display: block; border-top: .0625rem solid var(--line); border-left: 0; }
     .entity-directory-open { grid-column: 3; grid-row: 1; }
   }
+}
 </style>

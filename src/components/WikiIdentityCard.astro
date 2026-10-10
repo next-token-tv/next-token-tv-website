@@ -10,7 +10,9 @@ const { label, title, square = false, photo, name, class: className } = Astro.pr
   </>}
 </div>
 <style>
-  .wiki-identity-card { container-type: inline-size; display: flex; flex-direction: column; justify-content: space-between; min-width: 0; height: var(--wiki-visual-height); padding: 1.25rem 1.5rem; background: var(--ink); color: var(--paper); }
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.wiki-identity-card { container-type: inline-size; display: flex; flex-direction: column; justify-content: space-between; min-width: 0; height: var(--wiki-visual-height); padding: 1.25rem 1.5rem; background: var(--ink); color: var(--paper); }
   .square { width: var(--wiki-visual-height); }
   .masthead { display: flex; justify-content: space-between; align-items: center; gap: .75rem; font-size: 1rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
   .masthead i { flex: 0 0 .5rem; height: .5rem; background: var(--signal); }
@@ -27,4 +29,5 @@ const { label, title, square = false, photo, name, class: className } = Astro.pr
     .square { padding-inline: 1rem; }
     .has-photo { padding: 0; }
   }
+}
 </style>
