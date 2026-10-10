@@ -3,7 +3,6 @@ import type { CollectionEntry } from "astro:content";
 import { getPeopleByIds } from "../data/catalog";
 import type { Locale } from "../data/types";
 import TranscriptSegments from "./TranscriptSegments.astro";
-import EpisodeArticleLink from "./EpisodeArticleLink.astro";
 import TranscriptReaderTools from "./TranscriptReaderTools.astro";
 import { getParagraphAnchorIds } from "../data/transcript-paragraph-anchors";
 
@@ -71,7 +70,7 @@ const copy = locale === "en" ? {
         </strong>
         <span>{String(transcript.data.chapterCount).padStart(2, "0")} {copy.chapters}</span>
         <p>{transcript.data.byline}</p>
-        <EpisodeArticleLink episodeId={transcript.data.episodeId} locale={locale} />
+        {!isReviewDraft && <a class="transcript-format-link" href={`/blog/episodes/${episodeNumber}`}>{locale === "en" ? "Related blog posts (中文)" : "本期相关博客"} <span aria-hidden="true">→</span></a>}
         {transcript.data.notices.map((notice) => <p class="transcript-notice">{notice}</p>)}
       </div>
     </div>

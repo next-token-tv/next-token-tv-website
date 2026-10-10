@@ -2,9 +2,10 @@
 import { getShowPageData } from "../data/catalog";
 import type { Locale } from "../data/types";
 import PlatformList from "./PlatformList.astro";
-interface Props { locale: Locale; reveal?: boolean }
-const { locale, reveal = false } = Astro.props;
+interface Props { locale: Locale; reveal?: boolean; includeRss?: boolean }
+const { locale, reveal = false, includeRss = false } = Astro.props;
 const show = await getShowPageData("next-token-weekly", locale);
 const platforms = show.data.subscriptions.map(p => ({ ...p, label: p.label[locale], action: locale === "en" ? "Follow show" : "订阅 / 关注" }));
+if (includeRss && show.data.rssUrl) platforms.push({ platform: "rss", label: locale === "en" ? "Episode RSS" : "节目 RSS", href: show.data.rssUrl, action: locale === "en" ? "Subscribe via RSS" : "RSS 订阅" });
 ---
 <PlatformList platforms={platforms} label={locale === "en" ? "Follow the show" : "订阅节目"} comingSoon={locale === "en" ? "Coming soon" : "即将开放"} reveal={reveal} />

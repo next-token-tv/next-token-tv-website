@@ -1,0 +1,49 @@
+---
+import { getEntry } from "astro:content";
+import type { Locale } from "../data/types";
+interface Props { locale: Locale; showId?: string; id?: string; showDiscord?: boolean }
+const { locale, showId = "next-token-weekly", id, showDiscord = true } = Astro.props;
+const community = (await getEntry("shows", showId))?.data.community;
+const en = locale === "en";
+---
+{community && <aside class="community-join" id={id} aria-label={en ? "Join the community" : "加入听友社群"} data-community-expiry={community.qrValidBefore}>
+  <div class="community-card" data-community-active>
+    <a class="community-image-link" href={community.qrPngImage ?? community.qrImage} aria-label={en ? "Open the WeChat invitation image" : "打开微信群二维码图片"}>
+      <img class="community-qr" src={community.qrImage} width={community.width} height={community.height} loading="lazy" decoding="async" alt={community.imageAlt[locale]} />
+    </a>
+    <div class="community-label">
+      <h3>{en ? "Join us on WeChat" : "加入微信群"}</h3>
+      {community.qrValidBefore && <p class="community-validity"><time datetime={community.qrValidBefore}>{community.qrValidBefore}</time><br />{en ? "Scan before this date" : "前扫码有效"}</p>}
+      <div class="community-actions"><a href={community.qrPngImage ?? community.qrImage} download>{en ? "Save image ↓" : "保存二维码 ↓"}</a></div>
+    </div>
+  </div>
+  <p class="community-expired" data-community-expired hidden>{en ? "WeChat invitation expired. New code coming soon." : "微信群二维码已到期，等待更新。"}</p>
+  {showDiscord && <a class="community-discord" href={community.discordUrl}>Discord ↗</a>}
+</aside>}
+<script>
+  function refreshCommunityCodes() {
+    const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+    document.querySelectorAll<HTMLElement>('[data-community-expiry]').forEach(card => {
+      const expiry = card.dataset.communityExpiry;
+      const expired = !!expiry && today >= expiry;
+      card.querySelector<HTMLElement>('[data-community-active]')!.hidden = expired;
+      card.querySelector<HTMLElement>('[data-community-expired]')!.hidden = !expired;
+    });
+  }
+  refreshCommunityCodes();
+  document.addEventListener('visibilitychange', refreshCommunityCodes);
+</script>
+<style>
+  .community-join { margin-top: 2rem; max-width: 28rem; scroll-margin-top: 7rem; }
+  .community-card { display: grid; grid-template-columns: clamp(9rem, 40vw, 11rem) minmax(0, 1fr); gap: 1.5rem; align-items: center; }
+  .community-image-link { display: block; }
+  .community-qr { display: block; width: 100%; height: auto; }
+  .community-label h3 { margin: 0 0 .75rem; font-size: 1.125rem; }
+  .community-label h3::before { content: ""; display: block; width: .5rem; height: .5rem; margin-bottom: .75rem; background: var(--signal); }
+  .community-validity { margin: 0; font-size: .8rem; line-height: 1.6; color: var(--muted); }
+  .community-actions { margin-top: .85rem; font-size: .8rem; }
+  .community-actions a { text-decoration: underline; text-underline-offset: .25em; }
+  .community-discord { display: inline-block; margin-top: .75rem; font-size: .8rem; color: var(--muted); }
+  .community-join a:hover { color: var(--signal); }
+  .community-join [hidden] { display: none; }
+</style>

@@ -18,6 +18,7 @@ interface Props {
   hasLocaleAlternate?: boolean;
   ogType?: "website" | "article";
   markdownPath?: string;
+  showRssUrl?: string;
 }
 
 const {
@@ -30,6 +31,7 @@ const {
   hasLocaleAlternate = true,
   ogType = "website",
   markdownPath,
+  showRssUrl,
 } = Astro.props;
 const normalizedCanonicalPath = withoutTrailingSlash(canonicalPath);
 const normalizedAlternatePath = withoutTrailingSlash(alternatePath);
@@ -71,6 +73,8 @@ const socialImage = new URL(socialCard.image, Astro.site);
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="application/rss+xml" title="Next Token 博客" href={absoluteSiteUrl("/blog/rss.xml", Astro.site!)} />
+    {showRssUrl && <link rel="alternate" type="application/rss+xml" title="Next Token Weekly" href={absoluteSiteUrl(showRssUrl, Astro.site!)} />}
     <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
     <link rel="describedby" href="/llms.txt" />
     {markdownPath && <link rel="alternate" type="text/markdown" title="Markdown" href={absoluteSiteUrl(markdownPath, Astro.site!)} />}

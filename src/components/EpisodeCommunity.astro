@@ -1,4 +1,5 @@
 ---
+import CommunityJoin from "./CommunityJoin.astro";
 import { getEntry } from "astro:content";
 import type { Locale } from "../data/types";
 interface Props { showId: string; locale: Locale }
@@ -7,7 +8,5 @@ const community = (await getEntry("shows", showId))?.data.community;
 ---
 {community && <section aria-labelledby="episode-community-title">
   <h2 id="episode-community-title">{locale === "en" ? "Community" : "社群"}</h2>
-  <p>{community.description[locale]}</p>
-  <img src={community.qrImage} width={community.width} height={community.height} loading="lazy" decoding="async" alt={community.imageAlt[locale]} />
-  <p>{locale === "en" ? "Join " : "欢迎加入 "}<a href={community.discordUrl}>Next Token Discord</a>{locale === "en" ? " to share your experiences and perspectives." : "，分享你的使用体验和不同判断。"}</p>
+  <CommunityJoin showId={showId} locale={locale} />
 </section>}

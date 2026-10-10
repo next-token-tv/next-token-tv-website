@@ -1,3 +1,4 @@
+import { getBlogPosts } from "../data/blog";
 import { announcementCopy } from "../data/announcement-copy.mjs";
 import type { APIRoute } from "astro";
 import { getEpisodesForShow, getPublishedTranscriptEpisodes } from "../data/catalog";
@@ -45,6 +46,10 @@ export const GET: APIRoute = async ({ site }) => {
     "## 节目与文字稿",
     "",
     ...episodeLines,
+    "",
+    "## 博客", "",
+    `- [博客](${absolute("/blog", site!)}): 按主题整理的节目文章`,
+    ...(await getBlogPosts()).map(post => `- [${post.data.title}](${absolute(`/blog/${post.id}.md`, site!)}): ${post.data.description}`),
     "",
     "## Wiki",
     "",

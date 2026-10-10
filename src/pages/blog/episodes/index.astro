@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getSiteContent } from "../../../data/site";
+import { getEpisodesForShow } from "../../../data/catalog";
+import { getBlogPosts } from "../../../data/blog";
+const content = await getSiteContent("zh-Hans");
+const posts = await getBlogPosts();
+const episodes = (await getEpisodesForShow("next-token-weekly")).filter(episode => episode.data.status === "published").reverse();
+---
+<BaseLayout content={content} pageTitle="按期浏览博客" description="按节目期数阅读 Next Token 的相关主题文章。" canonicalPath="/blog/episodes" hasLocaleAlternate={false}>
+  <main id="main" class="episode-index shell">
+    <header><a href="/blog">← 所有博客文章</a><p class="section-kicker">NEXT TOKEN / 博客</p><h1>按期浏览博客</h1></header>
+    <section aria-label="节目期数">{episodes.map(episode => {
+      const count = posts.filter(post => post.data.episodes.includes(episode.id)).length;
+      return <article><span class="number">#{episode.data.number}</span><div><h2><a href={`/blog/episodes/${episode.data.number}`}>{episode.data.title["zh-Hans"]}</a></h2><p>{count ? `${count} 篇相关文章` : "文章正在准备中"}</p></div></article>;
+    })}</section>
+  </main>
+</BaseLayout>
+<style>
+  .episode-index { padding-block: 3rem 5rem; min-height: 65vh; }
+  header { padding-bottom: 3rem; }
+  .section-kicker { margin-top: 2rem; }
+  h1 { font-size: clamp(2rem, 4vw, 3.75rem); margin-block: 1.5rem; }
+  article { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: 2rem; padding-block: 2rem; border-top: .0625rem solid var(--line); }
+  .number { color: var(--signal); font-family: var(--display); font-size: 2rem; }
+  h2 { font-size: 1.75rem; margin: 0 0 1rem; }
+  article p { color: var(--muted); }
+  a:hover { color: var(--signal); }
+  @media (max-width: 47.999rem) { article { grid-template-columns: minmax(0, 1fr); gap: 1rem; } }
+</style>

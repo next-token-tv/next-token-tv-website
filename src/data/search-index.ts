@@ -1,3 +1,4 @@
+import { getBlogPosts } from "./blog";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 import { getContentCatalog } from './catalog';
@@ -37,6 +38,9 @@ export async function createSearchIndex(locale: Locale): Promise<SearchDocument[
     data.chapters.forEach((chapter,i)=>chapter.turns.forEach((turn,j)=>turn.paragraphs.forEach((paragraph,k)=>{
       documents.push({kind:'transcript',aliases:[turn.speaker],title:`${episode.data.title[locale]} · ${chapter.title} · ${turn.speaker}`,text:paragraph.map(s=>s.value).join(''),href:`${prefix}/weekly/${episode.data.number}/transcript#${anchors[i]![j]![k]}`});
     })));
+  }
+  if (locale === 'zh-Hans') for (const post of await getBlogPosts()) {
+    documents.push({kind:'blog',title:post.data.title,href:`/blog/${post.id}`,text:`${post.data.description} ${proseText(post.body ?? '')}`});
   }
   return documents;
 }

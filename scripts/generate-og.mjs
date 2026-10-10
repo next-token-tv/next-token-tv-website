@@ -44,6 +44,16 @@ for (const name of await readdir(resolve(root, 'src/content/imported/transcripts
   if (!episode) throw new Error(`Unknown transcript episode ${t.episodeId}`);
   cards.push({ route: `${t.locale === 'en' ? '/en' : ''}/weekly/${episode.number}/transcript`, locale: t.locale, label: `WEEKLY #${episode.number} · ${t.locale === 'en' ? 'TRANSCRIPT' : '文字稿'}`, title: t.title.replace(/^.*?[｜|]/, '').trim(), subtitle: t.locale === 'en' ? `${t.chapters.length} chapters · Read & search` : `${t.chapters.length} 个章节 · 完整对谈 · 全文搜索` });
 }
+cards.push({ route: '/blog', locale: 'zh-Hans', label: 'NEXT TOKEN / 博客', title: '从对谈出发，\n把一个问题聊透。', subtitle: 'AI 产品、技术与真实使用体验' });
+for (const name of await readdir(resolve(root, 'src/content/prose/blog'))) {
+  if (!name.endsWith('.md')) continue;
+  const markdown = await readFile(resolve(root, 'src/content/prose/blog', name), 'utf8');
+  const frontmatter = markdown.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/)?.[1];
+  if (!frontmatter) throw new Error(`Missing Blog frontmatter: ${name}`);
+  const post = load(frontmatter);
+  if (post.status !== 'published') continue;
+  cards.push({ route: `/blog/${name.slice(0, -3)}`, locale: post.locale, label: 'NEXT TOKEN / 博客', title: post.title, subtitle: post.description });
+}
 const font = (await readFile(resolve(root, 'public/assets/league-spartan-black.ttf'))).toString('base64');
 const version = await readFile(resolve(root, 'scripts/lib/standard-og.mjs'));
 const entityTemplate = await readFile(resolve(root, 'scripts/lib/entity-og.mjs'));

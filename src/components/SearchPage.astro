@@ -10,7 +10,7 @@ const en=locale==='en';
     <label for="search-query">{en ? 'Keywords' : '关键词'}</label>
     <div class="search-input-row"><input id="search-query" name="q" type="search" maxlength="120" placeholder={en ? 'Try Muse, Codex or a guest name' : '试试 Muse、Codex 或嘉宾名字'} autocomplete="off" /><button type="submit">{en ? 'Search' : '搜索'}</button></div>
     <label for="search-kind">{en ? 'Content type' : '内容类型'}</label>
-    <select id="search-kind" name="type"><option value="all">{en ? 'All' : '全部'}</option><option value="entity">{en ? 'Wiki' : '资料库'}</option><option value="episode">{en ? 'Episodes' : '节目'}</option><option value="transcript">{en ? 'Transcript passages' : '文字稿段落'}</option></select>
+    <select id="search-kind" name="type"><option value="all">{en ? 'All' : '全部'}</option><option value="entity">{en ? 'Wiki' : '资料库'}</option><option value="episode">{en ? 'Episodes' : '节目'}</option><option value="transcript">{en ? 'Transcript passages' : '文字稿段落'}</option><option value="blog">{en ? 'Blog' : '博客'}</option></select>
   </form>
   <p class="search-status" role="status" aria-live="polite">{en ? 'Enter a keyword to begin.' : '输入关键词开始搜索。'}</p>
   <ol class="search-results"></ol>
@@ -28,7 +28,11 @@ const en=locale==='en';
   const more=root.querySelector<HTMLButtonElement>('.search-more')!;
   const params=new URLSearchParams(location.search);
   input.value=(params.get('q') ?? '').slice(0,120);
-  select.value=['all','entity','episode','transcript'].includes(params.get('type') ?? '') ? params.get('type')! : 'all';
+  select.value=['all','entity','episode','transcript','blog'].includes(params.get('type') ?? '') ? params.get('type')! : 'all';
+  if (location.hash === '#search-query') {
+    input.focus();
+    input.select();
+  }
   let index: Promise<SearchDocument[]> | undefined;
   let generation=0;
   let matches:SearchDocument[]=[];
@@ -37,7 +41,7 @@ const en=locale==='en';
     for(const result of matches.slice(count,count+30)) {
       const li=document.createElement('li');const a=document.createElement('a');const p=document.createElement('p');const small=document.createElement('small');
       a.href=result.href;a.textContent=result.title;
-      small.textContent=({entity:en?'Wiki':'资料库',episode:en?'Episode':'节目',transcript:en?'Transcript':'文字稿'})[result.kind];
+      small.textContent=({blog:en?'Blog':'博客',entity:en?'Wiki':'资料库',episode:en?'Episode':'节目',transcript:en?'Transcript':'文字稿'})[result.kind];
       p.textContent=searchSnippet(result.text,input.value);
       li.append(small,a,p);results.append(li);
     }

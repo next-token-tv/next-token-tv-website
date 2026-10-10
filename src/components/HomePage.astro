@@ -1,4 +1,5 @@
 ---
+import CommunityJoin from "./CommunityJoin.astro";
 import EpisodeCard from "./EpisodeCard.astro";
 import LatestTranscriptLink from "./LatestTranscriptLink.astro";
 import UpcomingEpisodeLink from "./UpcomingEpisodeLink.astro";
@@ -107,6 +108,7 @@ const latestEpisodePath = `${content.locale === "en" ? "/en" : ""}/weekly/${late
       <p class="section-index">04 / Follow the Signal</p>
       <h2 class="heading-follow-display home-section-heading">{content.subscribe.heading[0]}<br />{content.subscribe.heading[1]}</h2>
       <p>{content.subscribe.copy}</p>
+      <CommunityJoin locale={content.locale} id="community" showDiscord={false} />
     </div>
     <ShowSubscriptions locale={content.locale} reveal />
   </section>

@@ -195,7 +195,7 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
       <p class="section-index">{labels.followIndex}</p>
       <h2 class="heading-follow-display">{labels.followHeading[0]}<br />{labels.followHeading[1]}</h2>
     </div>
-    <ShowSubscriptions locale={locale}  />
+    <ShowSubscriptions locale={locale} includeRss />
   </section>
 </main>
 

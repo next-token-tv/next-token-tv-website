@@ -82,13 +82,16 @@ const shows = defineCollection({
     cadence: z.enum(["weekly", "biweekly", "monthly", "irregular"]),
     defaultLocale: locale,
     community: z.object({
-      qrImage: z.string().regex(/^\/assets\/.+\.(png|webp)$/),
+      qrImage: z.string().regex(/^\/assets\/.+\.(png|webp|svg)$/),
+      qrPngImage: assetPath.optional(),
+      qrValidBefore: z.iso.date().optional(),
       width: z.number().int().positive(),
       height: z.number().int().positive(),
       description: localizedText,
       imageAlt: localizedText,
       discordUrl: z.url(),
     }).optional(),
+    rssUrl: z.string().regex(/^\/[a-z0-9/-]+\.xml$/).optional(),
     subscriptions: z.array(z.object({ platform: z.string(), label: localizedText, href: z.url() })).default([]),
     page: z.object({ "zh-Hans": showPage, en: showPage }),
   }),
@@ -382,7 +385,7 @@ const transcriptImports = defineCollection({
 });
 
 const prose = defineCollection({
-  loader: glob({ pattern: ["**/*.md", "!episode-articles/**/*.md"], base: "./src/content/prose", generateId: ({ entry }) => entry.replace(/\.md$/i, "") }),
+  loader: glob({ pattern: ["**/*.md", "!episode-articles/**/*.md", "!blog/**/*.md"], base: "./src/content/prose", generateId: ({ entry }) => entry.replace(/\.md$/i, "") }),
   schema: z.object({
     entityType: z.enum(["brand", "product", "person", "partner", "venue", "show", "episode"]),
     entity: z.string(),
@@ -407,6 +410,19 @@ const episodeArticles = defineCollection({
   }).refine(data => data.status !== "published" || !!data.publishedAt, "Published articles require publishedAt"),
 });
 
+const blog = defineCollection({
+  loader: markdownLoader("./src/content/prose/blog"),
+  schema: z.object({
+    locale: z.literal("zh-Hans"),
+    episodes: z.array(z.string()).min(1).refine(ids => new Set(ids).size === ids.length, "Duplicate source episodes"),
+    title: z.string().min(1),
+    description: z.string().min(1),
+    status: z.enum(["draft", "published"]),
+    updatedAt: z.iso.date(),
+    publishedAt: z.iso.date().optional(),
+  }).refine(data => data.status !== "published" || !!data.publishedAt, "Published blog posts require publishedAt"),
+});
+
 const brandCopy = defineCollection({
   loader: markdownLoader("./src/content/brand-copy"),
   schema: z.object({
@@ -419,6 +435,7 @@ const brandCopy = defineCollection({
 });
 
 export const collections = {
+  blog,
   brandCopy,
   people,
   shows,

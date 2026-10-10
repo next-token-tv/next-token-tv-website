@@ -1,12 +1,17 @@
 ---
+import { getBlogPosts } from "../data/blog";
+import { getEpisode } from "../data/catalog";
 import { getEpisodeArticle } from "../data/episode-articles";
 import type { Locale } from "../data/types";
 interface Props { episodeId: string; locale: Locale; }
 const { episodeId, locale } = Astro.props;
 const entry = await getEpisodeArticle(episodeId, locale);
+const posts = locale === "zh-Hans" ? (await getBlogPosts()).filter(post => post.data.episodes.includes(episodeId)) : [];
+const episode = await getEpisode(episodeId);
 const label = locale === "en" ? "Read the article" : "阅读精读文章";
 ---
 {entry?.article.data.status === "published" && <a class="episode-article-link" href={`${locale === "en" ? "/en" : ""}/weekly/${entry.number}/article`}>{label} <span aria-hidden="true">→</span></a>}
+{posts.length > 0 && <a class="episode-article-link" href={`/blog/episodes/${episode.data.number}`}>本期相关博客 <span aria-hidden="true">→</span></a>}
 <style>
   .episode-article-link { display: inline-flex; align-items: center; gap: .75rem; margin-block: 1rem; font-size: .9rem; font-weight: 700; text-decoration: underline; text-underline-offset: .3em; }
   .episode-article-link:hover { color: var(--signal); }

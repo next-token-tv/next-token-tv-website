@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getSiteContent } from "../../data/site";
+import { getBlogPosts } from "../../data/blog";
+const content = await getSiteContent("zh-Hans");
+const posts = await getBlogPosts();
+---
+<BaseLayout content={content} pageTitle="博客｜Next Token 词元之外" description="从 Next Token 对谈出发，深入阅读 AI 产品、技术与真实使用体验。" canonicalPath="/blog" hasLocaleAlternate={false}>
+  <main id="main" class="blog-page shell">
+    <header class="blog-intro">
+      <p class="section-kicker">NEXT TOKEN / 博客</p>
+      <h1>从对谈出发，<br />把一个问题聊透。</h1>
+      <p>AI 产品、技术与真实使用体验。值得展开的话题，值得留下的细节。</p>
+      <a class="blog-read" href="/blog/episodes">按期浏览博客 <span aria-hidden="true">→</span></a>
+    </header>
+    <section aria-label="博客文章" class="blog-list">
+      {posts.length ? posts.map((post, index) => <article class="blog-row">
+        <div class="blog-meta"><span>{String(posts.length - index).padStart(2, "0")}</span><time datetime={post.data.publishedAt ?? post.data.updatedAt}>{post.data.publishedAt ?? post.data.updatedAt}</time>{post.data.status === "draft" && <span>审阅稿</span>}</div>
+        <div><h2><a href={`/blog/${post.id}`}>{post.data.title}</a></h2><p>{post.data.description}</p><a class="blog-read" href={`/blog/${post.id}`}>阅读全文 <span aria-hidden="true">→</span></a></div>
+      </article>) : <p class="blog-empty">文章正在准备中。先从 <a href="/weekly">Weekly 对谈</a> 开始阅读。</p>}
+    </section>
+  </main>
+</BaseLayout>
+<style>
+  .blog-page { padding-block: 3rem 5rem; min-height: 65vh; }
+  .blog-intro { padding-bottom: 3rem; }
+  h1 { font-size: 2.75rem; margin-block: 1.5rem; }
+  .blog-intro > p:not(.section-kicker) { font-size: 1.125rem; color: var(--muted); max-width: 38rem; }
+  .blog-row { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 46rem); gap: 4rem; padding-block: 2.5rem; border-top: .0625rem solid var(--ink); }
+  .blog-meta { display: flex; flex-direction: column; gap: .75rem; font-size: .85rem; color: var(--muted); }
+  .blog-meta > span:first-child { font-family: var(--display); font-size: 2rem; color: var(--signal); }
+  h2 { text-wrap: balance; font-size: 1.75rem; margin: 0 0 1rem; }
+  .blog-row p { color: var(--muted); line-height: 1.8; }
+  .blog-read { display: inline-flex; gap: 2rem; margin-top: 1.5rem; font-weight: 700; }
+  a:hover { color: var(--signal); }
+  .blog-empty { border-top: .0625rem solid var(--line); padding-block: 2rem; }
+  .blog-empty a { text-decoration: underline; }
+  @media (min-width: 48rem) { h1 { font-size: 3.75rem; } }
+  @media (max-width: 47.999rem) { .blog-row { grid-template-columns: minmax(0, 1fr); gap: 1rem; } .blog-meta { flex-direction: row; align-items: center; flex-wrap: wrap; } }
+</style>

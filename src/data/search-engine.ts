@@ -1,4 +1,4 @@
-export type SearchDocument = { title: string; text: string; href: string; kind: 'entity' | 'episode' | 'transcript'; aliases?: string[] };
+export type SearchDocument = { title: string; text: string; href: string; kind: 'entity' | 'episode' | 'transcript' | 'blog'; aliases?: string[] };
 export function normalizeSearch(value: string) {
   return value.normalize('NFKC').toLocaleLowerCase().replace(/\s+/gu, ' ').trim();
 }
