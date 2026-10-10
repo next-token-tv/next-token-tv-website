@@ -11,7 +11,7 @@ for (const [name, css] of [
   ['ancestor clipped overflow', '.frame {max-height: 32px; overflow: clip;}'],
   ['ancestor horizontal clipping', '.frame {width: 100px; overflow: hidden;} h1 {width: 260px;}'],
   ['line clamp', 'h1 {display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; overflow: hidden;}'],
-]) test(`clipping gate catches ${name}`, async ({page}) => {
+] as const) test(`clipping gate catches ${name}`, async ({page}) => {
   await page.setContent(fixture(css));
   expect(await page.evaluate(headingClippingViolations)).toHaveLength(1);
 });
@@ -20,7 +20,7 @@ for (const [name, css] of [
   ['below viewport', '.frame {margin-top: 2000px;}'],
   ['scrollable ancestor', '.frame {height: 32px; overflow: auto;}'],
   ['overflow remains visible', 'h1 {height: 32px; overflow: visible;}'],
-]) test(`clipping gate allows ${name}`, async ({page}) => {
+] as const) test(`clipping gate allows ${name}`, async ({page}) => {
   await page.setContent(fixture(css));
   expect(await page.evaluate(headingClippingViolations)).toEqual([]);
 });
