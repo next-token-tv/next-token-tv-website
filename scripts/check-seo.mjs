@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFile, stat } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import sharp from 'sharp';
+import { readSitemapDates } from './lib/sitemap-dates.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const manifest = JSON.parse(await readFile(resolve(root, 'public/assets/og/manifest.json'), 'utf8'));
@@ -40,3 +41,32 @@ for (const prefix of ['', '/en']) {
   }
 }
 console.log(`SEO checks passed: bilingual homepage metadata and ${checked} dedicated entity cards.`);
+
+const dates = await readSitemapDates(root);
+const sitemap = await readFile(resolve(root, 'dist/sitemap-0.xml'), 'utf8');
+const sitemapEntries = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(match => match[1]);
+let dated = 0;
+let articles = 0;
+for (const entry of sitemapEntries) {
+  const url = entry.match(/<loc>(.*?)<\/loc>/)?.[1];
+  const path = new URL(url).pathname;
+  const expected = dates.get(path);
+  const actual = entry.match(/<lastmod>(.*?)<\/lastmod>/)?.[1];
+  assert.equal(actual?.slice(0, 10), expected, `Incorrect sitemap lastmod: ${path}`);
+  if (expected) dated++;
+  if (!/^\/(?:en\/)?blog\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(path) || path.endsWith('/episodes')) continue;
+  const html = await readPage(path);
+  const schemas = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
+  const article = schemas.find(schema => schema['@type'] === 'Article');
+  assert.ok(article, `Missing Article: ${path}`);
+  const authorPath = `${path.startsWith('/en/') ? '/en' : ''}/blog#editorial`;
+  assert.equal(article.author?.['@type'], 'Organization');
+  assert.equal(article.author?.['@id'], 'https://nexttoken.tv/blog#editorial');
+  assert.equal(article.author?.url, `https://nexttoken.tv${authorPath}`);
+  assert.ok(html.includes(`href="${authorPath}" rel="author"`), `Missing visible author link: ${path}`);
+  assert.ok((await readPage(authorPath.split('#')[0])).includes('id="editorial"'));
+  articles++;
+}
+assert.ok(dated > 0, 'Expected editorial dates in sitemap');
+assert.ok(articles > 0, 'Expected published blog authors');
+console.log(`Editorial SEO checks passed: ${dated} dated routes and ${articles} blog authors.`);

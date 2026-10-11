@@ -1,10 +1,26 @@
+/**
+ * Attach canonical hints only to successful, known Markdown exports.
+ * @param {Response} response
+ * @param {URL} url
+ */
+function withMarkdownCanonical(response, url) {
+  if (response.status !== 200 ||
+    !response.headers.get('Content-Type')?.startsWith('text/markdown') ||
+    !/^\/(?:en\/)?(?:blog\/[a-z0-9]+(?:-[a-z0-9]+)*|weekly\/\d{3}\/(?:article|transcript))\.md$/.test(url.pathname)) {
+    return response;
+  }
+  const headers = new Headers(response.headers);
+  headers.append('Link', `<https://nexttoken.tv${url.pathname.slice(0, -3)}>; rel="canonical"`);
+  return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
+}
+
 /** @type {ExportedHandler<Env>} */
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     // Local preview retains the asset router's behavior.
     if (url.hostname !== 'nexttoken.tv') {
-      return env.ASSETS.fetch(request);
+      return withMarkdownCanonical(await env.ASSETS.fetch(request), url);
     }
     if (url.protocol === 'https:') {
       const response = await env.ASSETS.fetch(request);
@@ -18,7 +34,7 @@ export default {
           return new Response(response.body, { status: 308, headers: response.headers });
         }
       }
-      return response;
+      return withMarkdownCanonical(response, url);
     }
 
     url.protocol = 'https:';

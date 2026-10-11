@@ -19,12 +19,14 @@ const number = episode.data.number;
 const episodePath = `/en/weekly/${number}`;
 const path = `/en/blog/${article.id}`;
 const draft = article.data.status === "draft";
+const authorPath = "/en/blog#editorial";
 const schema = {
   "@context": "https://schema.org", "@type": "Article", headline: article.data.title,
   description: article.data.description, inLanguage: "en",
   datePublished: article.data.publishedAt, dateModified: article.data.updatedAt,
   mainEntityOfPage: new URL(path, Astro.site).href,
   isBasedOn: episodes.map(entry => new URL(`/weekly/${entry.data.number}/transcript`, Astro.site).href),
+  author: { "@type": "Organization", "@id": new URL("/blog#editorial", Astro.site).href, name: "Next Token", url: new URL(authorPath, Astro.site).href },
   publisher: { "@type": "Organization", name: "Next Token｜词元之外", url: Astro.site?.href },
 };
 ---
@@ -36,7 +38,7 @@ const schema = {
       <p class="section-kicker">Blog / WEEKLY #{number}{draft && " · Under review"}</p>
       <h1 class="article-title heading-reading-title">{article.data.title}</h1>
       <p class="article-deck">{article.data.description}</p>
-      <div class="article-meta"><span>Next Token Editorial</span><time datetime={article.data.publishedAt ?? article.data.updatedAt}>{article.data.publishedAt ?? article.data.updatedAt}</time>{draft && <span>Under review · Not yet published</span>}</div>
+      <div class="article-meta"><a href={authorPath} rel="author">Next Token Editorial</a><time datetime={article.data.publishedAt ?? article.data.updatedAt}>{article.data.publishedAt ?? article.data.updatedAt}</time>{draft && <span>Under review · Not yet published</span>}</div>
       <nav class="article-actions" aria-label="Article formats and sources">
         <a href={`${path}.md`} type="text/markdown">Markdown version ↗</a>
         <a href={`${episodePath}/transcript`}>Read the full transcript →</a>

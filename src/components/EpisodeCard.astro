@@ -9,10 +9,14 @@ const episode = await getPublishedEpisode(episodeId);
 const copy = episode.data.homepage[locale];
 const images = episode.data.images;
 const dimensions = episode.data.imageDimensions;
+const mediaLabel = locale === "en"
+  ? (episode.data.media.video ? (episode.data.media.audio ? "Audio & video" : "Video") : "Audio")
+  : (episode.data.media.video ? (episode.data.media.audio ? "音频 / 视频" : "视频") : "音频");
+const releaseLabel = (episode.data.media.audio || episode.data.media.video) ? `${episode.data.releaseDate} · ${mediaLabel}` : "";
 const href = `${locale === "en" ? "/en" : ""}/weekly/${episode.data.number}`;
 ---
 <article class:list={["weekly-card", { "has-artwork": episode.data.imageKind === "artwork" }]} data-episode-number={episode.data.number}>
-  <a class:list={["weekly-image", { "is-artwork": episode.data.imageKind === "artwork" }]} href={href} aria-label={episode.data.title[locale]}>
+  <a class:list={["weekly-image", { "is-artwork": episode.data.imageKind === "artwork" }]} href={href} aria-label={[episode.data.title[locale], releaseLabel].filter(Boolean).join(" · ")}>
     <img
       src={images["960"]}
       srcset={episodeImageSrcset(images)}
@@ -23,7 +27,7 @@ const href = `${locale === "en" ? "/en" : ""}/weekly/${episode.data.number}`;
       decoding="async"
       alt={copy.imageAlt}
     />
-    {(episode.data.media.audio || episode.data.media.video) && <span class="label">{episode.data.releaseDate} · {locale === "en" ? (episode.data.media.video ? (episode.data.media.audio ? "Audio & video" : "Video") : "Audio") : (episode.data.media.video ? (episode.data.media.audio ? "音频 / 视频" : "视频") : "音频")}</span>}
+    {releaseLabel && <span class="label">{releaseLabel}</span>}
   </a>
   <div class="weekly-copy">
     <div class="episode-number">#{episode.data.number}</div>

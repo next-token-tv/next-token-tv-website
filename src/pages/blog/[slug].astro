@@ -19,12 +19,14 @@ const episodePath = `/weekly/${number}`;
 const path = `/blog/${article.id}`;
 const draft = article.data.status === "draft";
 const hasEnglish = (await getCollection("blogEn")).some(post => post.id === article.id);
+const authorPath = "/blog#editorial";
 const schema = {
   "@context": "https://schema.org", "@type": "Article", headline: article.data.title,
   description: article.data.description, inLanguage: "zh-Hans",
   datePublished: article.data.publishedAt, dateModified: article.data.updatedAt,
   mainEntityOfPage: new URL(path, Astro.site).href,
   isBasedOn: episodes.map(entry => new URL(`/weekly/${entry.data.number}/transcript`, Astro.site).href),
+  author: { "@type": "Organization", "@id": new URL("/blog#editorial", Astro.site).href, name: "Next Token", url: new URL(authorPath, Astro.site).href },
   publisher: { "@type": "Organization", name: "Next Token｜词元之外", url: Astro.site?.href },
 };
 ---
@@ -39,7 +41,7 @@ const schema = {
       <p class="section-kicker">博客 / WEEKLY #{number}{draft && " · 审阅稿"}</p>
       <h1 class="article-title heading-reading-title">{article.data.title}</h1>
       <p class="article-deck">{article.data.description}</p>
-      <div class="article-meta"><span>Next Token 编辑整理</span><time datetime={article.data.publishedAt ?? article.data.updatedAt}>{article.data.publishedAt ?? article.data.updatedAt}</time>{draft && <span>待审核 · 尚未发布</span>}</div>
+      <div class="article-meta"><a href={authorPath} rel="author">Next Token 编辑整理</a><time datetime={article.data.publishedAt ?? article.data.updatedAt}>{article.data.publishedAt ?? article.data.updatedAt}</time>{draft && <span>待审核 · 尚未发布</span>}</div>
       <nav class="article-actions" aria-label="文章格式与原文">
         <a href={`${path}.md`} type="text/markdown">Markdown 格式 ↗</a>
         <a href={`${episodePath}/transcript`}>阅读完整文字稿 →</a>

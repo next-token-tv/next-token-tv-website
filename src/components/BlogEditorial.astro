@@ -1,0 +1,19 @@
+---
+import type { Locale } from "../data/types";
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+---
+<section id="editorial" class="blog-editorial" aria-labelledby="editorial-title">
+  <h2 id="editorial-title">{locale === "en" ? "Next Token Editorial" : "Next Token 编辑整理"}</h2>
+  <p>{locale === "en"
+    ? "Next Token publishes articles on AI products, technology, and first-hand experience, drawing on its conversations and independent research. Each article links to its source episodes and supporting references."
+    : "Next Token 围绕 AI 产品、技术与真实使用体验，结合节目讨论和独立研究整理主题文章。每篇文章提供来源节目与相关资料链接。"}</p>
+</section>
+<style>
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+  .blog-editorial { padding-block: 2rem; border-top: .0625rem solid var(--line); scroll-margin-top: 7rem; }
+  .blog-editorial h2 { font-size: 1.25rem; margin-block: 0 1rem; }
+  .blog-editorial p { max-width: 46rem; color: var(--muted); line-height: 1.8; }
+}
+</style>

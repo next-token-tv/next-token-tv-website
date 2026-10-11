@@ -74,3 +74,31 @@ test('unrelated redirects, root, files, missing paths and local preview remain u
     assert.equal(await worker.fetch(new Request(url), { ASSETS: { fetch: async () => asset } }), asset);
   }
 });
+
+test('Markdown exports expose localized HTML canonicals and preserve other headers', async () => {
+  for (const host of ['https://nexttoken.tv', 'http://127.0.0.1:4197']) {
+    for (const path of ['/blog/example.md', '/en/blog/example.md', '/weekly/005/transcript.md', '/en/weekly/005/transcript.md', '/weekly/001/article.md']) {
+      for (const method of ['GET', 'HEAD']) {
+        const asset = new Response(method === 'HEAD' ? null : '# Content', { headers: {
+          'Content-Type': 'text/markdown; charset=utf-8', Link: '</llms.txt>; rel="describedby"', ETag: '"asset"',
+        } });
+        const response = await worker.fetch(new Request(`${host}${path}?utm_source=test`, { method }), { ASSETS: { fetch: async () => asset } });
+        assert.equal(response.status, 200);
+        assert.equal(response.headers.get('Link'), `</llms.txt>; rel="describedby", <https://nexttoken.tv${path.slice(0, -3)}>; rel="canonical"`);
+        assert.equal(response.headers.get('ETag'), '"asset"');
+        assert.equal(await response.text(), method === 'HEAD' ? '' : '# Content');
+      }
+    }
+  }
+});
+
+test('missing, redirected and unrelated Markdown resources are not canonicalized', async () => {
+  for (const [path, status, type] of [
+    ['/blog/missing.md', 404, 'text/markdown'], ['/blog/moved.md', 301, 'text/markdown'],
+    ['/blog/cached.md', 304, 'text/markdown'], ['/blog/example.md', 200, 'text/html'],
+    ['/download.md', 200, 'text/markdown'],
+  ]) {
+    const asset = new Response(null, { status, headers: { 'Content-Type': type } });
+    assert.equal(await worker.fetch(new Request(`https://nexttoken.tv${path}`), { ASSETS: { fetch: async () => asset } }), asset);
+  }
+});

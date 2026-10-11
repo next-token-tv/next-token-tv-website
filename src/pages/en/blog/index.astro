@@ -1,4 +1,5 @@
 ---
+import BlogEditorial from "../../../components/BlogEditorial.astro";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { getSiteContent } from "../../../data/site";
 import { getBlogPosts } from "../../../data/blog";
@@ -29,6 +30,7 @@ const episodes = (await getEpisodesForShow("next-token-weekly")).filter(episode 
         <div><h2><a href={`/en/blog/${post.id}`}>{post.data.title}</a></h2><p>{post.data.description}</p><a class="blog-read" href={`/en/blog/${post.id}`}>Read more <span aria-hidden="true">→</span></a></div>
       </article>) : <p class="blog-empty">Articles are on the way. Start with the <a href="/en/weekly">Weekly conversations</a>.</p>}
     </section>
+    <BlogEditorial locale="en" />
   </main>
 </BaseLayout>
 <script>

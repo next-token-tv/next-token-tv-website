@@ -20,7 +20,7 @@
     "preview": "wrangler dev --local --ip 127.0.0.1 --port 4174",
     "check": "npm run check:chapters && npm run test:transcript && npm run test:community && npm run test:article && npm run test:release && npm run lint:styles && npm run check:worker && astro check && npm run check:redirects && npm run test:maintenance && npm run check:artwork",
     "test:article": "node --experimental-strip-types --test tests/article-markdown.test.mjs tests/blog-content.test.mjs tests/blog-rss.test.mjs",
-    "test:release": "node --test tests/design-contract.test.mjs tests/announcement-schedule.test.mjs tests/episode-release.test.mjs tests/platform-release.test.mjs tests/https-redirect.test.mjs tests/og-retention.test.mjs tests/browser-test-runner.test.mjs",
+    "test:release": "node --test tests/sitemap-dates.test.mjs tests/design-contract.test.mjs tests/announcement-schedule.test.mjs tests/episode-release.test.mjs tests/platform-release.test.mjs tests/https-redirect.test.mjs tests/og-retention.test.mjs tests/browser-test-runner.test.mjs",
     "test:transcript": "node --experimental-strip-types --test tests/transcript-converter.test.mjs tests/transcript-paragraph-anchors.test.mjs tests/transcript-timing.test.mjs",
     "lint:styles": "stylelint \"src/**/*.{css,astro}\" --allow-empty-input",
     "test:visual": "node scripts/run-browser-tests.mjs visual",
