@@ -114,3 +114,5 @@
 - Native select controls share `src/styles/form-controls.css`, imported by the global stylesheet. It owns the border, background, arrow, padding, minimum height, typography, focus and disabled states.
 - Pages may set select width and surrounding layout, but must not duplicate its visual styles. Keep native keyboard and mobile picker behavior; expanded option menus may follow operating-system rendering.
 - Search input anchor positioning leaves clearance below the sticky header. Global search shortcuts reveal and focus the input without losing the existing query.
+
+- The large homepage H1 accent uses `--signal-display` (`#f24816`) for at least 3:1 contrast on `--paper`. The brand signal color remains unchanged for other roles. Episode cover links include their visible release date and media label in the accessible name.

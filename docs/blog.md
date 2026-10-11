@@ -15,3 +15,7 @@
 - Episode RSS is generated at `/weekly/rss.xml` from published website episodes. Each item contains the episode title and summary, with its link and stable GUID pointing to the official `/weekly/{number}` page. The earliest known release or transcript publication date sets pubDate. Announcements are excluded. The show metadata `rssUrl` supplies the Weekly landing page subscription link and autodiscovery link. This feed has no audio enclosures. Blog and episode feeds update with each static build.
 
 - `/blog/episodes` groups blog posts by published Weekly episode. `/blog/episodes/{number}` lists that episode’s related posts, using each post’s `episodes` metadata. Drafts remain visible only in local development. Transcript pages link to the aggregation page through one compact link; article lists are not rendered inside transcript headers.
+
+- Blog Article structured data identifies Next Token as the editorial organization. Visible bylines link to the localized channel’s `#editorial` explanation; both locales share the stable organization ID `https://nexttoken.tv/blog#editorial`. Source speakers remain separate from the editorial author.
+- Blog publication dates remain stable after release. Each locale records substantive edits in its own `updatedAt`; shared sitemap date rules and validation are defined in [Technical SEO](seo-technical.md).
+- Markdown exports follow the shared [HTTP canonical contract](url-conventions.md#markdown-canonical).

@@ -22,3 +22,5 @@ This website is metadata-driven.
 - Metadata refactors must preserve the existing rendered design unless a design change is explicitly requested.
 
 - For Blog writing and editing, use [.agents/skills/next-token-blog/SKILL.md](.agents/skills/next-token-blog/SKILL.md) and follow [the editorial standard](docs/blog-editorial.zh-Hans.md) and [the content contract](docs/blog.md).
+
+- For technical SEO audits or fixes, use [.agents/skills/next-token-seo/SKILL.md](.agents/skills/next-token-seo/SKILL.md) and follow [the technical SEO contract](docs/seo-technical.md).

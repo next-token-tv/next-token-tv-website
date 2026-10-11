@@ -4,7 +4,7 @@
 
 A production release is a complete website snapshot: episode pages, published transcripts, Wiki entries and their saved articles, navigation, APIs, and generated assets ship together. Episode or platform-link updates must not silently omit current Wiki content. Explicitly unpublished drafts remain excluded by their publication status.
 
-`npm run check:release` audits the existing `dist` output. Run a fresh build first when using it separately.
+`npm run check:release` audits the existing `dist` output. Run a fresh build first when using it separately. SEO metadata and audit evidence follow [Technical SEO](seo-technical.md); Markdown response headers follow the [URL contract](url-conventions.md#markdown-canonical). Local checks establish artifact behavior; verify the public routes, sitemap and response headers separately after deployment.
 
 `npm run test:performance` runs serial mobile cold-load checks against a fresh local production build. Each representative route (home, episode, transcript and brand directory) receives three fresh-browser samples at 390 × 844, 2× density, 4× CPU slowdown, 150 ms latency and 1.6 Mbps download throughput. Budgets are median LCP ≤ 2.5 seconds, initial-load CLS ≤ 0.1 in every sample, and each initially loaded image ≤ 200 KiB. The three-second post-load observation includes font readiness but not later user interaction. Reports stay in ignored `test-results/performance`. These checks exclude production-only analytics and Internet/CDN latency; they are local regression checks, not official PageSpeed scores or real-user Core Web Vitals. Use `PERFORMANCE_PORT` to override the default local port 4178.
 
