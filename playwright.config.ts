@@ -6,7 +6,7 @@ const baseURL = `http://127.0.0.1:${port}`;
 export default defineConfig({
   testDir: "./tests/visual",
   fullyParallel: true,
-  workers: 4,
+  workers: 1,
   reporter: [["line"], ["html", { open: "never" }]],
   expect: {
     toHaveScreenshot: {
