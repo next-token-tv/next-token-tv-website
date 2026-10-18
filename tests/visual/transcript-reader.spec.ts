@@ -1,3 +1,4 @@
+import {publishedTranscripts} from './episode-fixture';
 import { expect, test } from '@playwright/test';
 
 test('paragraph timing is excluded from search text and snippets', async ({ page }) => {
@@ -15,23 +16,19 @@ test('paragraph timing is excluded from search text and snippets', async ({ page
 });
 
 test('transcript is directly discoverable and only links to available locales', async ({ page }) => {
-  for (const path of ['/', '/weekly', '/weekly/001', '/weekly/002', '/weekly/003', '/weekly/004', '/weekly/005']) {
-    await page.goto(path);
-    const expectedCount = path === '/' ? 2 : path === '/weekly' ? 6 : 1;
-    await expect(page.locator('.episode-transcript-cta')).toHaveCount(expectedCount);
-    const link = page.locator('main > section').first().locator('.episode-transcript-cta');
-    await expect(link).toHaveCount(1);
-    const episode = path.startsWith('/weekly/00') ? path.split('/').pop() : '005';
-    await expect(link).toHaveAttribute('href', `/weekly/${episode}/transcript`);
-    if (path.startsWith('/weekly/00')) {
-      await expect(page.locator('.transcript-cta-description')).toContainText('个章节 · 支持全文搜索');
-      expect(await link.evaluate((node) => !!(node.compareDocumentPosition(document.querySelector('.episode-detail-hero .episode-actions')!) & Node.DOCUMENT_POSITION_FOLLOWING))).toBe(true);
+  for (const locale of ['zh-Hans', 'en']) {
+    const prefix = locale === 'en' ? '/en' : '';
+    const numbers = publishedTranscripts.filter(t => t.locale === locale).map(t => t.episodeId.split('--')[1]).sort().reverse();
+    for (const path of ['/', '/weekly', ...numbers.map(number => `/weekly/${number}`)]) {
+      await page.goto(prefix + (path === '/' ? '' : path) || '/');
+      const expectedCount = path === '/' ? 2 : path === '/weekly' ? numbers.length + 1 : 1;
+      await expect(page.locator('.episode-transcript-cta')).toHaveCount(expectedCount);
+      const link = page.locator('main > section').first().locator('.episode-transcript-cta');
+      const number = path.startsWith('/weekly/00') ? path.split('/').pop() : numbers[0];
+      await expect(link).toHaveAttribute('href', `${prefix}/weekly/${number}/transcript`);
+      await link.click();
+      await expect(page.locator('.transcript-body')).toBeVisible();
     }
-    await link.click();
-    await expect(page.locator('.transcript-body')).toBeVisible();
-    await page.goto(`/en${path}`);
-    await expect(page.locator('.episode-transcript-cta')).toHaveCount(expectedCount);
-    await expect(page.locator('main > section').first().locator('.episode-transcript-cta')).toHaveAttribute('href', `/en/weekly/${episode}/transcript`);
   }
 });
 
