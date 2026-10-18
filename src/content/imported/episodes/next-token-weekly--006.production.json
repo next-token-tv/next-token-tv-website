@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 2,
+  "episodeId": "next-token-weekly--006",
+  "number": "006",
+  "show": "next-token-weekly",
+  "status": "published",
+  "language": "zh-Hans",
+  "recordedAt": "2026-10-16",
+  "releaseDate": "2026-10-19",
+  "recordingMode": "in-person",
+  "recordingLocation": {
+    "zh-Hans": "北京",
+    "en": "Beijing"
+  },
+  "imageKind": "artwork",
+  "imageDimensions": {
+    "width": 3000,
+    "height": 3000
+  },
+  "participants": [
+    {
+      "person": "xiangyang-qiaomu",
+      "role": "duty-host"
+    },
+    {
+      "person": "guizang",
+      "role": "co-host"
+    },
+    {
+      "person": "orange",
+      "role": "co-host"
+    },
+    {
+      "person": "yangpan",
+      "role": "co-host"
+    }
+  ],
+  "guestNames": [],
+  "images": {
+    "480": "/assets/weekly-006-cover-square-480.webp",
+    "720": "/assets/weekly-006-cover-square-720.webp",
+    "960": "/assets/weekly-006-cover-square-960.webp",
+    "1440": "/assets/weekly-006-cover-square-1440.webp",
+    "1920": "/assets/weekly-006-cover-square-1920.webp"
+  },
+  "provenance": {
+    "productionCommit": "111bd7e44aeab8f78b6b75094f6ef842645bfe7c",
+    "sources": [
+      {
+        "path": "shows/weekly/episodes/006/credits.json",
+        "sha256": "9132984bcda892f6d8fe07022c8d1211fa8fe736c769387ad653dbe8c32358f5"
+      },
+      {
+        "path": "shows/weekly/episodes/006/04-release/artwork/cover-square.jpg",
+        "sha256": "a5656ced7fa18901233fc007b42abdee3a585d862c0b0d02f3ffb965a2281a28"
+      },
+      {
+        "path": "shows/weekly/episodes/006/04-release/copy/website-release.json",
+        "sha256": "561a28cc0e2dfef8455216da5ff28cf648269bd3e5f1336b2e6753f2164b15d6"
+      }
+    ]
+  }
+}

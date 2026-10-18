@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 2,
+  "episodeId": "next-token-weekly--006",
+  "number": "006",
+  "show": "next-token-weekly",
+  "status": "published",
+  "language": "zh-Hans",
+  "recordedAt": "2026-10-16",
+  "releaseDate": "2026-10-19",
+  "recordingMode": "in-person",
+  "recordingLocation": {
+    "zh-Hans": "北京",
+    "en": "Beijing"
+  },
+  "imageKind": "artwork",
+  "imageDimensions": {
+    "width": 3000,
+    "height": 3000
+  },
+  "creditsSource": "shows/weekly/episodes/006/credits.json",
+  "cover": "shows/weekly/episodes/006/04-release/artwork/cover-square.jpg",
+  "sources": [
+    "shows/weekly/episodes/006/credits.json",
+    "shows/weekly/episodes/006/04-release/artwork/cover-square.jpg",
+    "shows/weekly/episodes/006/04-release/copy/website-release.json"
+  ]
+}
