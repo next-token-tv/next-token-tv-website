@@ -13,3 +13,9 @@ test('media release still needs a media release date even with an approved trans
  assert.equal(episodeReleaseErrors(media,{},true,now).length,1);
  assert.deepEqual(episodeReleaseErrors(media,{releaseDate:'2026-09-27'},true,now),[]);
 });
+
+test('publication day begins at midnight in Asia/Shanghai, before the UTC date changes', () => {
+ const episode = {...text, transcriptPublishedAt: '2026-10-19'};
+ assert.deepEqual(episodeReleaseErrors(episode, {}, true, Date.parse('2026-10-18T16:00:00Z')), []);
+ assert.equal(episodeReleaseErrors(episode, {}, true, Date.parse('2026-10-18T15:59:59Z')).length, 1);
+});
