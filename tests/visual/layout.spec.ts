@@ -192,7 +192,7 @@ for (const viewport of viewports) {
         for (const ratio of geometry.headingRatios) expect(ratio).toBeCloseTo(1.25, 2);
 
         if (viewport.name === "mobile" || viewport.name === "wide") {
-          if (route.path === "/weekly") {
+          if (route.path === "/weekly" || route.path === "/en/weekly") {
             await page.locator(".site-header").evaluate((header) => {
               header.style.visibility = "hidden";
             });
