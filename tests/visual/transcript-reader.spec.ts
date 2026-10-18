@@ -1,4 +1,4 @@
-import {publishedTranscripts} from './episode-fixture';
+import {publishedTranscripts, latestEpisode} from './episode-fixture';
 import { expect, test } from '@playwright/test';
 
 test('paragraph timing is excluded from search text and snippets', async ({ page }) => {
@@ -21,7 +21,7 @@ test('transcript is directly discoverable and only links to available locales', 
     const numbers = publishedTranscripts.filter(t => t.locale === locale).map(t => t.episodeId.split('--')[1]).sort().reverse();
     for (const path of ['/', '/weekly', ...numbers.map(number => `/weekly/${number}`)]) {
       await page.goto(prefix + (path === '/' ? '' : path) || '/');
-      const expectedCount = path === '/' ? 2 : path === '/weekly' ? numbers.length + 1 : 1;
+      const expectedCount = path === '/' ? 1 + Number(numbers.includes(latestEpisode.number)) : path === '/weekly' ? numbers.length + 1 : 1;
       await expect(page.locator('.episode-transcript-cta')).toHaveCount(expectedCount);
       const link = page.locator('main > section').first().locator('.episode-transcript-cta');
       const number = path.startsWith('/weekly/00') ? path.split('/').pop() : numbers[0];
