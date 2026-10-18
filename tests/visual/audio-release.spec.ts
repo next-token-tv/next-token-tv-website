@@ -4,13 +4,16 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { load } from 'js-yaml';
 const episodes = readdirSync('src/content/data/episodes').filter(n=>n.endsWith('.yaml')).map(n=>load(readFileSync('src/content/data/episodes/'+n,'utf8')) as any).filter(e=>e.status==='published').sort((a,b)=>Number(b.number)-Number(a.number));
 const latest=episodes[0];
-const transcriptPath='src/content/imported/transcripts/next-token-weekly--'+latest.number+'.zh-Hans.json';
-const hasTranscript=existsSync(transcriptPath) && JSON.parse(readFileSync(transcriptPath,'utf8')).publicationStatus==='published';
+const hasPublishedTranscript = (locale: string) => {
+  const transcriptPath = `src/content/imported/transcripts/next-token-weekly--${latest.number}.${locale}.json`;
+  return existsSync(transcriptPath) && JSON.parse(readFileSync(transcriptPath, 'utf8')).publicationStatus === 'published';
+};
 const latestSnapshot=JSON.parse(readFileSync('src/content/imported/episodes/'+latest.productionImport+'.json','utf8'));
 
 for (const width of [390, 768, 1280, 1320, 1440, 1920, 2560]) {
   for (const prefix of ['', '/en']) {
     test(`published audio and video ${prefix || 'zh'} at ${width}`, async ({ page }) => {
+      const hasTranscript = hasPublishedTranscript(prefix ? 'en' : 'zh-Hans');
       await page.setViewportSize({ width, height: 1000 });
       for (const path of ['/', '/weekly']) {
         await page.goto(path === '/' ? (prefix || '/') : `${prefix}${path}`);
