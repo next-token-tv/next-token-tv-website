@@ -17780,7 +17780,23 @@
               {
                 "type": "text",
                 "value": "对啊。"
-              },
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-28",
+      "title": "彩蛋：一起抢苹果手机，谁能先下单？",
+      "turns": [
+        {
+          "kind": "speech",
+          "speaker": "歸藏",
+          "speakerId": "guizang",
+          "candidate": false,
+          "paragraphs": [
+            [
               {
                 "type": "entity-link",
                 "value": "苹果",
@@ -19528,11 +19544,11 @@
   ],
   "provenance": {
     "sourceRepository": "next-token",
-    "sourceRevision": "111bd7e44aeab8f78b6b75094f6ef842645bfe7c",
+    "sourceRevision": "598a4eff67a71e143025eb2e2b9b8c337f0086d2",
     "sourceState": "committed",
     "sourcePath": "shows/weekly/episodes/006/04-release/copy/transcript.zh-Hans.md",
-    "sourceSha256": "8b19451a192b358c7b85925ec1aee97d233e1669c34c32197389e939489ac9c1"
+    "sourceSha256": "6db0c90036a326075ceae782a3bf31167636f86a3f72e54552ab3ab01369dd8f"
   },
-  "chapterCount": 27,
+  "chapterCount": 28,
   "publicationStatus": "published"
 }
