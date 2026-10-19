@@ -12389,7 +12389,7 @@
               },
               {
                 "type": "text",
-                "value": "不是是发了一个说他们质量还挺好的嘛，二点儿 2.6 Pro 那个之前发的"
+                "value": "不是是发了一个说他们质量还挺好的嘛 2.6 Pro 那个之前发的"
               }
             ]
           ]
@@ -17012,7 +17012,7 @@
             [
               {
                 "type": "text",
-                "value": "丧师傅直接插队了。"
+                "value": "藏师傅直接插队了。"
               }
             ]
           ]
@@ -18507,10 +18507,10 @@
   ],
   "provenance": {
     "sourceRepository": "next-token",
-    "sourceRevision": "01d477d934bfb6db012ee2faffde0c71bd149bc1",
+    "sourceRevision": "03ba014a0757e47bdd3faa3e4b7b2e46cb42825f",
     "sourceState": "committed",
     "sourcePath": "shows/weekly/episodes/006/04-release/copy/transcript.zh-Hans.md",
-    "sourceSha256": "8aa95696cf78d0a40873cb5bb5a69d2c5c84971adddb5c97316b612c4ca6eea3"
+    "sourceSha256": "21169a0488775af3c7ecde02866e70609f2680fed328d37baa25bcd2a6f543b7"
   },
   "chapterCount": 28,
   "publicationStatus": "published"
