@@ -2161,159 +2161,6 @@
               }
             ]
           ]
-        },
-        {
-          "kind": "speech",
-          "speaker": "橘子",
-          "speakerId": "orange",
-          "candidate": false,
-          "paragraphs": [
-            [
-              {
-                "type": "text",
-                "value": "对，现在很搞笑是，有人把那个 "
-              },
-              {
-                "type": "entity-link",
-                "value": "WorkBuddy",
-                "entityType": "product",
-                "entityId": "workbuddy",
-                "href": "/wiki/products/workbuddy"
-              },
-              {
-                "type": "text",
-                "value": " 那个海外版逆向了一下，然后发现它里边儿那内核是 "
-              },
-              {
-                "type": "entity-link",
-                "value": "Claude Code",
-                "entityType": "product",
-                "entityId": "claude-code",
-                "href": "/wiki/products/claude-code"
-              },
-              {
-                "type": "text",
-                "value": "，那个东西。然后说代码什么的，一样，不知道能不能播，但是反正就很搞笑。"
-              }
-            ]
-          ]
-        },
-        {
-          "kind": "speech",
-          "speaker": "杨攀",
-          "speakerId": "yangpan",
-          "candidate": false,
-          "paragraphs": [
-            [
-              {
-                "type": "text",
-                "value": "我看到，这不是之前那个 "
-              },
-              {
-                "type": "entity-link",
-                "value": "Claude Code",
-                "entityType": "product",
-                "entityId": "claude-code",
-                "href": "/wiki/products/claude-code"
-              },
-              {
-                "type": "text",
-                "value": " 泄露过一次源代码吗，"
-              }
-            ]
-          ]
-        },
-        {
-          "kind": "speech",
-          "speaker": "歸藏",
-          "speakerId": "guizang",
-          "candidate": false,
-          "paragraphs": [
-            [
-              {
-                "type": "text",
-                "value": "对，应该就是类似参考。"
-              }
-            ]
-          ]
-        },
-        {
-          "kind": "speech",
-          "speaker": "杨攀",
-          "speakerId": "yangpan",
-          "candidate": false,
-          "paragraphs": [
-            [
-              {
-                "type": "text",
-                "value": "但我估计也是有大量参考吧，因为 "
-              },
-              {
-                "type": "entity-link",
-                "value": "WorkBuddy",
-                "entityType": "product",
-                "entityId": "workbuddy",
-                "href": "/wiki/products/workbuddy"
-              },
-              {
-                "type": "text",
-                "value": " 应该在那个事件之前就做，海外的。"
-              }
-            ]
-          ]
-        },
-        {
-          "kind": "speech",
-          "speaker": "橘子",
-          "speakerId": "orange",
-          "candidate": false,
-          "paragraphs": [
-            [
-              {
-                "type": "text",
-                "value": "海外版，海外。"
-              }
-            ]
-          ]
-        },
-        {
-          "kind": "speech",
-          "speaker": "向阳乔木",
-          "speakerId": "xiangyang-qiaomu",
-          "candidate": false,
-          "paragraphs": [
-            [
-              {
-                "type": "text",
-                "value": "那国内版应该是用参考那个 "
-              },
-              {
-                "type": "entity-link",
-                "value": "OpenCode",
-                "entityType": "product",
-                "entityId": "opencode",
-                "href": "/wiki/products/opencode"
-              },
-              {
-                "type": "text",
-                "value": " 多一些。"
-              }
-            ]
-          ]
-        },
-        {
-          "kind": "speech",
-          "speaker": "杨攀",
-          "speakerId": "yangpan",
-          "candidate": false,
-          "paragraphs": [
-            [
-              {
-                "type": "text",
-                "value": "对，好像之前说。"
-              }
-            ]
-          ]
         }
       ]
     },
@@ -3675,7 +3522,7 @@
             [
               {
                 "type": "text",
-                "value": "你不要，加个 Beep，加个 Beep。"
+                "value": "你不要，加个 Bleep，加个 Bleep。"
               }
             ]
           ]
@@ -3689,7 +3536,7 @@
             [
               {
                 "type": "text",
-                "value": "加个 Beep。"
+                "value": "加个 Bleep。"
               }
             ]
           ]
@@ -3703,7 +3550,7 @@
             [
               {
                 "type": "text",
-                "value": "加个 Beep。"
+                "value": "加个 Bleep。"
               }
             ]
           ]
@@ -18507,10 +18354,10 @@
   ],
   "provenance": {
     "sourceRepository": "next-token",
-    "sourceRevision": "03ba014a0757e47bdd3faa3e4b7b2e46cb42825f",
+    "sourceRevision": "be5e9046d1041e33f570997416806c665a908c43",
     "sourceState": "committed",
     "sourcePath": "shows/weekly/episodes/006/04-release/copy/transcript.zh-Hans.md",
-    "sourceSha256": "21169a0488775af3c7ecde02866e70609f2680fed328d37baa25bcd2a6f543b7"
+    "sourceSha256": "acf79b0ccd8d8e933e8e444b209ec64455b58321d77ad0dc15959ebfcc66c7db"
   },
   "chapterCount": 28,
   "publicationStatus": "published"
