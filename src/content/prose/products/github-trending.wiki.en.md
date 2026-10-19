@@ -20,7 +20,7 @@ As a boundary, GitHub does not publish the exact ranking rules behind Trending. 
 
 ## In the show
 
-In Weekly #006's chapter on multi-agent meetings, 向阳乔木 (Xiangyang Qiaomu) gave an example of agents collaborating: [having a group of agents pull the daily GitHub Trending and Product Hunt lists to make a live podcast](/weekly/006/transcript#quote-7ce559ebe3a5ab8b4d34), observing that the division of labor looked clean but execution took very long. 杨攀 (Yangpan) compared this kind of multi-agent collaboration to the plays people ran when [OpenClaw](/en/wiki/products/openclaw) took off. See the [Chinese transcript](/weekly/006/transcript#chapter-13).
+In Weekly #006's chapter on multi-agent meetings, 向阳乔木 (Xiangyang Qiaomu) gave an example of agents collaborating: [having a group of agents pull the daily GitHub Trending and Product Hunt lists to make a live podcast](/weekly/006/transcript#quote-7ce559ebe3a5ab8b4d34), observing that the division of labor looked clean but execution took very long. 杨攀 (Yang Pan) compared this kind of multi-agent collaboration to the plays people ran when [OpenClaw](/en/wiki/products/openclaw) took off. See the [Chinese transcript](/weekly/006/transcript#chapter-13).
 
 ## FAQ
 

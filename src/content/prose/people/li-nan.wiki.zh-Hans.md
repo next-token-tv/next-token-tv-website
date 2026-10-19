@@ -5,7 +5,7 @@ locale: zh-Hans
 slot: wiki
 updatedAt: '2026-10-19'
 seoTitle: '李楠：怒喵科技创始人与魅族经历｜Next Token Wiki'
-seoDescription: '了解怒喵科技（Angry Miao）创始人李楠：魅蓝品牌与魅族 CMO 经历、2020 年创业与 Cyberboard 等产品，以及节目中的相关提及。'
+seoDescription: '了解怒喵科技（Angry Miao）创始人李楠：魅蓝品牌与魅族 CMO 经历、2019 年创立怒喵与 Cyberboard 等产品，以及节目中的相关提及。'
 ---
 
 ## 李楠（Li Nan）

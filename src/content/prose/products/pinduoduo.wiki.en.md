@@ -20,7 +20,7 @@ Platform rules, promotions, and after-sales policies keep changing, so purchase 
 
 ## Discussion in the show
 
-In the chapter “用代码做宣传片和配乐” (making promo videos and soundtracks with code) of Weekly #003, the discussion moved from Taobao blocking the Doubao phone to platform ecosystems. [Juzi invokes the precedent of Taobao blocking WeChat before Pinduoduo rose to rival Taobao](/weekly/003/transcript#quote-60e705d4d3e2a5890689), using it as an analogy for how mutual blocking between platforms can reshape competition. This is a participant's analogy drawn from Pinduoduo's history, not an assessment of the company's current business.
+In the chapter “用代码做宣传片和配乐” (making promo videos and soundtracks with code) of Weekly #003, the discussion moved from Taobao blocking the Doubao phone to platform ecosystems. [Orange invokes the precedent of Taobao blocking WeChat before Pinduoduo rose to rival Taobao](/weekly/003/transcript#quote-60e705d4d3e2a5890689), using it as an analogy for how mutual blocking between platforms can reshape competition. This is a participant's analogy drawn from Pinduoduo's history, not an assessment of the company's current business.
 
 ## Frequently asked questions
 

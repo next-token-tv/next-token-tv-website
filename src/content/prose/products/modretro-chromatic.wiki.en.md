@@ -31,7 +31,7 @@ After Chromatic, ModRetro released the M64, its recreation of the Nintendo 64: t
 
 ## Mentioned on the show
 
-In Weekly #005's chapter "ModRetro、AI Passport 与 ESP32 改造" (ModRetro, AI Passport and ESP32 modding), [Yangpan mentioned that OpenAI gave every attendee a small game console called ModRetro at its developer conference, and that the new twist was developing games with Codex and deploying them to the handheld](/weekly/005/transcript#quote-4b1ad6b3128f67e47d87) — Chinese transcript, no English transcript is available for this episode. The discussion names the ModRetro brand and "a small game console", not the Chromatic model specifically, and the giveaway details have not been confirmed through official channels. For the brand and its full product line, see the [ModRetro entry](/en/wiki/brands/modretro).
+In Weekly #005's chapter "ModRetro、AI Passport 与 ESP32 改造" (ModRetro, AI Passport and ESP32 modding), [Yang Pan mentioned that OpenAI gave every attendee a small game console called ModRetro at its developer conference, and that the new twist was developing games with Codex and deploying them to the handheld](/weekly/005/transcript#quote-4b1ad6b3128f67e47d87) — Chinese transcript, no English transcript is available for this episode. The discussion names the ModRetro brand and "a small game console", not the Chromatic model specifically, and the giveaway details have not been confirmed through official channels. For the brand and its full product line, see the [ModRetro entry](/en/wiki/brands/modretro).
 
 ## FAQ
 

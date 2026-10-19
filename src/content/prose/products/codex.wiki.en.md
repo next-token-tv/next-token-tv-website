@@ -20,7 +20,7 @@ Codex output still needs diff review and project checks. For general conversatio
 
 ## Discussion in the show
 
-In Weekly #001, Yangpan described researching the co-hosts’ backgrounds for the show. He gave the same request to Codex and DeepSeek Harness and felt that the latter found more material. He also said he had not examined the search mechanism closely. This is an account of one task, without controlled model, search-tool, or runtime settings; it does not establish a general ranking for research work.
+In Weekly #001, Yang Pan described researching the co-hosts’ backgrounds for the show. He gave the same request to Codex and DeepSeek Harness and felt that the latter found more material. He also said he had not examined the search mechanism closely. This is an account of one task, without controlled model, search-tool, or runtime settings; it does not establish a general ranking for research work.
 
 Read the [research discussion in the Chinese transcript](/weekly/001/transcript#quote-dd5cd61bdd72b4d6d45f), then visit [Weekly #001](/en/weekly/001) for the episode overview.
 

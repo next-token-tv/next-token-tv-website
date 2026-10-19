@@ -18,7 +18,7 @@ The official [Benchmarks page](https://www.tbench.ai/benchmarks) lists: Terminal
 
 ## Discussion in the show
 
-In Weekly #002's chapter "Astra 会用电脑，就算 AGI 了吗？" ("If Astra can use a computer, is that AGI?"), the panel discussed benchmark gaming. Yang Pan described a benchmark that keeps releasing new versions: models score well on 2.0 and 3.0 but drop sharply on 4.0, with only Anthropic's models stable across all three. Juzi (orange) recalled, ["I think it's Terminal-Bench"](/weekly/002/transcript#quote-141316712c8728029369). The 2.0/3.0/4.0 version sequence matches the official releases, but the speaker's naming was a recollection, and the score claims are participants' observations rather than official leaderboard data. See the [episode 002 chapter](/weekly/002/transcript#chapter-06) in the Chinese transcript; an English transcript is not available.
+In Weekly #002's chapter "Astra 会用电脑，就算 AGI 了吗？" ("If Astra can use a computer, is that AGI?"), the panel discussed benchmark gaming. Yang Pan described a benchmark that keeps releasing new versions: models score well on 2.0 and 3.0 but drop sharply on 4.0, with only Anthropic's models stable across all three. Orange recalled, ["I think it's Terminal-Bench"](/weekly/002/transcript#quote-141316712c8728029369). The 2.0/3.0/4.0 version sequence matches the official releases, but the speaker's naming was a recollection, and the score claims are participants' observations rather than official leaderboard data. See the [episode 002 chapter](/weekly/002/transcript#chapter-06) in the Chinese transcript; an English transcript is not available.
 
 ## Frequently asked questions
 

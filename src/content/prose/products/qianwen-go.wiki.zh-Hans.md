@@ -20,7 +20,7 @@ seoDescription: '了解阿里千问 Personal Agent 产品千问 Go 的定位、�
 
 ## 节目中的讨论
 
-Weekly #006 的"国内 Agent 的落点：生活助理做不起来，先给商家干活？"章节中，橘子在盘点国内大厂的个人 Agent 时说，[阿里出来两个嘛，一个是叫千问 Go，一个叫灵光预告](/weekly/006/transcript#quote-5c01b585a38d1a256982)——后者即蚂蚁的灵光。随后杨攀提到千问同期还有面向商家的电商店铺管理 Agent。可阅读[第 006 期对应章节](/weekly/006/transcript#chapter-15)。
+Weekly #006 的"国内 Agent 的落点：生活助理做不起来，先给商家干活？"章节中，橘子在盘点国内大厂的个人 Agent 时说，[阿里出来两个嘛，一个是叫千问 Go，一个叫灵光预告](/weekly/006/transcript#quote-5c01b585a38d1a256982)——后者按节目语境即蚂蚁的灵光（该说法未见官方印证）。随后杨攀提到千问同期还有面向商家的电商店铺管理 Agent。可阅读[第 006 期对应章节](/weekly/006/transcript#chapter-15)。
 
 ## 常见问题
 

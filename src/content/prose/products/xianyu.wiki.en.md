@@ -18,7 +18,7 @@ Listings span phones and electronics, clothing, appliances, books, collectibles 
 
 ## Discussion in the show
 
-In Weekly #002's chapter "健康数据与日常记录：有用与隐私的边界" ("Health data and daily logging: usefulness versus privacy"), while discussing how he purchased a recording device, Juzi (orange) said that [if you use the Luyindou daily, you can buy a brand-new one on Xianyu that comes with six months of Feishu membership](/weekly/002/transcript#quote-1267667e7f5a16dfbcf3) — a personal note on Xianyu as a channel for buying new electronics, not an official statement. See the [episode 002 chapter](/weekly/002/transcript#chapter-21) in the Chinese transcript; an English transcript is not available.
+In Weekly #002's chapter "健康数据与日常记录：有用与隐私的边界" ("Health data and daily logging: usefulness versus privacy"), while discussing how he purchased a recording device, Orange said that [if you use the Luyindou daily, you can buy a brand-new one on Xianyu that comes with six months of Feishu membership](/weekly/002/transcript#quote-1267667e7f5a16dfbcf3) — a personal note on Xianyu as a channel for buying new electronics, not an official statement. See the [episode 002 chapter](/weekly/002/transcript#chapter-21) in the Chinese transcript; an English transcript is not available.
 
 ## Frequently asked questions
 

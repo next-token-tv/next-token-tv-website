@@ -20,7 +20,7 @@ For platforms, the official page offers downloads for macOS (Apple Silicon) and 
 
 ## In the show
 
-In Weekly #006's chapter on where Chinese agents land, the conversation turned to [Manus Cue](/en/wiki/products/manus-cue), and 杨攀 (Yangpan) noted Manus had a dedicated Studio, ["a Game Studio, a Video Studio"](/weekly/006/transcript#quote-063d3a60e49c2fb36e04). 歸藏 (Guizang) added that [it is in Manus, not in Cue](/weekly/006/transcript#quote-821bd29835ee678c86f9), 橘子 (Orange) agreed they were two different things and noted that Manus's cloud computer was billed separately. See the [Chinese transcript](/weekly/006/transcript#chapter-15).
+In Weekly #006's chapter on where Chinese agents land, the conversation turned to [Manus Cue](/en/wiki/products/manus-cue), and 杨攀 (Yang Pan) noted Manus had a dedicated Studio, ["a Game Studio, a Video Studio"](/weekly/006/transcript#quote-063d3a60e49c2fb36e04). 歸藏 (Guizang) added that [it is in Manus, not in Cue](/weekly/006/transcript#quote-821bd29835ee678c86f9), 橘子 (Orange) agreed they were two different things and noted that Manus's cloud computer was billed separately. See the [Chinese transcript](/weekly/006/transcript#chapter-15).
 
 ## FAQ
 

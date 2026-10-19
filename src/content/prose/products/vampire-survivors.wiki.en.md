@@ -18,7 +18,7 @@ Per [poncle's website](https://poncle.games/), the game is available on Steam, X
 
 ## Discussion in the show
 
-In Weekly #002's chapter "GPT-6 Astra：从 3D 建模聊起" ("GPT-6 Astra: starting from 3D modeling"), Guicang (guizang) described building a game with AI coding tools: he said he had [extended a Roguelike mini-game into an infinite map in the style of Vampire Survivors, with enemies continuously spawning while the player keeps leveling up and choosing weapons](/weekly/002/transcript#quote-e2b230a736b6cc9275f2). The reference uses Vampire Survivors as a touchstone for that style of play; it is a description of his own project, not a review of the game. See the [episode 002 chapter](/weekly/002/transcript#chapter-03) in the Chinese transcript; an English transcript is not available.
+In Weekly #002's chapter "GPT-6 Astra：从 3D 建模聊起" ("GPT-6 Astra: starting from 3D modeling"), Guizang described building a game with AI coding tools: he said he had [extended a Roguelike mini-game into an infinite map in the style of Vampire Survivors, with enemies continuously spawning while the player keeps leveling up and choosing weapons](/weekly/002/transcript#quote-e2b230a736b6cc9275f2). The reference uses Vampire Survivors as a touchstone for that style of play; it is a description of his own project, not a review of the game. See the [episode 002 chapter](/weekly/002/transcript#chapter-03) in the Chinese transcript; an English transcript is not available.
 
 ## Frequently asked questions
 

@@ -18,7 +18,7 @@ AMC's official page calls it the network's critically acclaimed original series 
 
 ## In the show
 
-In Weekly #006's chapter on building a bot team out of film and TV characters, 杨攀 (Yangpan) described his first weeks with [Grok Bot](/en/wiki/products/grok-bot): he had the main bot recruit characters known for copywriting and marketing from science-fiction films and dramas, among them [Mad Men, bringing in Draper to write ad copy](/weekly/006/transcript#quote-66ad9f6f1ed8bee0446b), with the main bot routing writing tasks to that persona. See the [Chinese transcript](/weekly/006/transcript#chapter-12).
+In Weekly #006's chapter on building a bot team out of film and TV characters, 杨攀 (Yang Pan) described his first weeks with [Grok Bot](/en/wiki/products/grok-bot): he had the main bot recruit characters known for copywriting and marketing from science-fiction films and dramas, among them [Mad Men, bringing in Draper to write ad copy](/weekly/006/transcript#quote-66ad9f6f1ed8bee0446b), with the main bot routing writing tasks to that persona. See the [Chinese transcript](/weekly/006/transcript#chapter-12).
 
 ## FAQ
 

@@ -20,9 +20,9 @@ Terminal access can expose source code, environment variables, and external serv
 
 ## Discussion in the show
 
-In Weekly #001, Yangpan relayed an observation from the Harness Eval discussion that the same model could incur different costs across agent tools. Orange offered his interpretation of Claude Code’s prompts and tool architecture. This passage does not provide a complete, reproducible test setup, so these remarks should not be treated as a general claim about Claude Code’s current costs. A comparison needs the task, model, tool configuration, and test date—not only the model name.
+In Weekly #001, Yang Pan relayed an observation from the Harness Eval discussion that the same model could incur different costs across agent tools. Orange offered his interpretation of Claude Code’s prompts and tool architecture. This passage does not provide a complete, reproducible test setup, so these remarks should not be treated as a general claim about Claude Code’s current costs. A comparison needs the task, model, tool configuration, and test date—not only the model name.
 
-See [Yangpan’s cost observation](/weekly/001/transcript#quote-6f90037550cc0e8992e2) and [Orange’s interpretation](/weekly/001/transcript#quote-adbfd09f2a22e4ed4430) in the Chinese transcript, or visit [Weekly #001](/en/weekly/001) for the episode overview.
+See [Yang Pan’s cost observation](/weekly/001/transcript#quote-6f90037550cc0e8992e2) and [Orange’s interpretation](/weekly/001/transcript#quote-adbfd09f2a22e4ed4430) in the Chinese transcript, or visit [Weekly #001](/en/weekly/001) for the episode overview.
 
 ## Frequently asked questions
 

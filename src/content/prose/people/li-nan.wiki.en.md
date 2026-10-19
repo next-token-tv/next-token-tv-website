@@ -5,7 +5,7 @@ locale: en
 slot: wiki
 updatedAt: '2026-10-19'
 seoTitle: 'Li Nan: Angry Miao Founder and His Meizu Years | Next Token Wiki'
-seoDescription: 'Learn about Li Nan, founder of Angry Miao: his Meizu career as CMO and Mblue founder, the 2020 startup and Cyberboard products, and his mention on the show.'
+seoDescription: 'Learn about Li Nan, founder of Angry Miao: his Meizu career as CMO and Meilan (魅蓝) founder, the 2019 founding of Angry Miao and Cyberboard products, and his mention on the show.'
 ---
 
 ## Li Nan

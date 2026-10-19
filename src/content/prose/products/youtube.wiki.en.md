@@ -30,7 +30,7 @@ Regional availability varies by surface; official pages are authoritative.
 
 In Weekly #001, in the chapter "国内模型为什么突然加速发布" (Why Chinese models suddenly accelerated their releases), Guizang used YouTube's creator ecosystem to describe overseas anti-AI sentiment: [he said that when a YouTube creator from outside the AI scene takes an AI ad, no matter which one, the comment section has nothing nice to say](/weekly/001/transcript#quote-56367e4256494d92bb88). This is a participant's observation about the platform's community climate.
 
-In Weekly #002, in the chapter "我们如何用 Agent 制作和发布播客" (How we use agents to produce and publish a podcast), Yangpan listed YouTube [alongside Xiaoyuzhou, Bilibili, Spotify, and Apple Podcast as one of the platforms the show publishes to, saying the publishing flow on all of them was handled by Codex](/weekly/002/transcript#quote-b5e05844e49beeb8d62b) — the show's own operating experience. Both discussions are in the Chinese transcript; an English transcript is not available.
+In Weekly #002, in the chapter "我们如何用 Agent 制作和发布播客" (How we use agents to produce and publish a podcast), Yang Pan listed YouTube [alongside Xiaoyuzhou, Bilibili, Spotify, and Apple Podcast as one of the platforms the show publishes to, saying the publishing flow on all of them was handled by Codex](/weekly/002/transcript#quote-b5e05844e49beeb8d62b) — the show's own operating experience. Both discussions are in the Chinese transcript; an English transcript is not available.
 
 ## FAQ
 

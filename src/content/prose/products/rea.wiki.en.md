@@ -4,7 +4,7 @@ entity: rea
 locale: en
 slot: wiki
 updatedAt: '2026-10-19'
-seoTitle: 'REA (Reverse Engineer Anything): Reverse-Engineering Tools for AI Agents｜Next Token Wiki'
+seoTitle: 'REA (Reverse Engineer Anything): Reverse-Engineering Tools for AI Agents | Next Token Wiki'
 seoDescription: 'What REA is, which targets and AI coding agents it supports, how to install it, and the Next Token Weekly #006 discussion of REA and AI reverse engineering.'
 ---
 

@@ -4,7 +4,7 @@ entity: lingguang
 locale: en
 slot: wiki
 updatedAt: '2026-10-19'
-seoTitle: 'Lingguang: Ant Group’s Multimodal AI Assistant｜Next Token Wiki'
+seoTitle: 'Lingguang: Ant Group’s Multimodal AI Assistant | Next Token Wiki'
 seoDescription: 'What Lingguang is, when Ant Group released it, its three launch features (Lingguang Chat, Flash Apps, Lingguang Open Eyes), download entry points, and the Next Token Weekly #006 discussion.'
 ---
 

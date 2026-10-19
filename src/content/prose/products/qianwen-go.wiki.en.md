@@ -20,7 +20,7 @@ Access: at announcement the product was in an experience-application stage, with
 
 ## In the show
 
-In Weekly #006's chapter on where Chinese agents land, 橘子 (Orange) said while surveying personal agents from Chinese giants that [Alibaba had shipped two: Qianwen Go and Lingguang](/weekly/006/transcript#quote-5c01b585a38d1a256982). 杨攀 (Yangpan) added that Qianwen also had an agent for merchants' e-commerce store management around the same time. See the [Chinese transcript](/weekly/006/transcript#chapter-15).
+In Weekly #006's chapter on where Chinese agents land, 橘子 (Orange) said while surveying personal agents from Chinese giants that [Alibaba had shipped two: Qianwen Go and Lingguang](/weekly/006/transcript#quote-5c01b585a38d1a256982). 杨攀 (Yang Pan) added that Qianwen also had an agent for merchants' e-commerce store management around the same time. See the [Chinese transcript](/weekly/006/transcript#chapter-15).
 
 ## FAQ
 

@@ -30,7 +30,7 @@ Search results for "UU Remote official site" or "UU Remote download" include man
 
 ## Mentioned on the podcast
 
-In Weekly #002, in the chapter "语音输入：准确率之外的使用摩擦" (Voice input: friction beyond accuracy), Yangpan mentioned a new free voice-input product from NetEase Youdao and [said "NetEase's UU reputation took off a while back", adding that the new product was not from the same team as UU](/weekly/002/transcript#quote-d55f5ee52262b97c51ae). This is a participant's secondhand remark about UU Remote's reputation, not a hands-on review or an official statement. This discussion is in the Chinese transcript; an English transcript is not available.
+In Weekly #002, in the chapter "语音输入：准确率之外的使用摩擦" (Voice input: friction beyond accuracy), Yang Pan mentioned a new free voice-input product from NetEase Youdao and [said "NetEase's UU reputation took off a while back", adding that the new product was not from the same team as UU](/weekly/002/transcript#quote-d55f5ee52262b97c51ae). This is a participant's secondhand remark about UU Remote's reputation, not a hands-on review or an official statement. This discussion is in the Chinese transcript; an English transcript is not available.
 
 ## FAQ
 

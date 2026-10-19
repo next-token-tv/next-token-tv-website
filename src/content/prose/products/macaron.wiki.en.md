@@ -18,7 +18,7 @@ By its official description, Macaron emphasizes building real, usable tools (min
 
 ## In the show
 
-Weekly #006's chapter on email phishing and agent permission boundaries discussed jailbroken agents, and 杨攀 (Yangpan) quipped while mentioning other companies' agents that [Macaron could be next to get jailbroken](/weekly/006/transcript#quote-e3315587537c175658fa). It is a joke, not a judgment about the product's security; see the [Chinese transcript](/weekly/006/transcript#chapter-06).
+Weekly #006's chapter on email phishing and agent permission boundaries discussed jailbroken agents, and 杨攀 (Yang Pan) quipped while mentioning other companies' agents that [Macaron could be next to get jailbroken](/weekly/006/transcript#quote-e3315587537c175658fa). It is a joke, not a judgment about the product's security; see the [Chinese transcript](/weekly/006/transcript#chapter-06).
 
 ## FAQ
 

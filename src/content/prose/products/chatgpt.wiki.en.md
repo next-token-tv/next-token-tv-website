@@ -20,9 +20,9 @@ ChatGPT is useful for thinking and organizing, while important facts and decisio
 
 ## Discussion in the show
 
-In Weekly #002, Yangpan described a Pocket camera settings question. He might normally have asked DeepSeek or ChatGPT, but used WeChat’s Xiaowei because it was readily accessible in an app he was already using. He described the answer as adequate. The example concerns how convenience can shape the choice of assistant for an everyday question; it is not a controlled comparison of ChatGPT’s and Xiaowei’s answer quality.
+In Weekly #002, Yang Pan described a Pocket camera settings question. He might normally have asked DeepSeek or ChatGPT, but used WeChat’s Xiaowei because it was readily accessible in an app he was already using. He described the answer as adequate. The example concerns how convenience can shape the choice of assistant for an everyday question; it is not a controlled comparison of ChatGPT’s and Xiaowei’s answer quality.
 
-Read [Yangpan’s account in the Chinese transcript](/weekly/002/transcript#quote-dc7d0bbb900981555418), or visit [Weekly #002](/en/weekly/002) for the episode overview.
+Read [Yang Pan’s account in the Chinese transcript](/weekly/002/transcript#quote-dc7d0bbb900981555418), or visit [Weekly #002](/en/weekly/002) for the episode overview.
 
 ## Frequently asked questions
 

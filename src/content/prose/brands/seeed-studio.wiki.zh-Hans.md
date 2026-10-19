@@ -26,7 +26,7 @@ Seeed 也是深圳开源硬件社区的重要参与者：2011 年起运营柴火
 
 ## 节目中的讨论
 
-Weekly #001 的“Microduck 为什么一夜走红”章节讨论 Hugging Face 发布的 MicroDuck 小型机器人。杨攀在介绍时说“[大家看看这个 MicroDuck，一下就火起来了，但其实是中国厂商生产的，叫 Seeed](/weekly/001/transcript#quote-ef668720aacb7871ed55)”。需要说明的是，"Seeed 生产"是节目参与者的说法：Microduck 项目官方页面（Pollen Robotics）与 Seeed 官方资料均未提及这一生产关系，截至本文写作没有官方来源支持该说法。可阅读[第 001 期对应章节](/weekly/001/transcript#chapter-19)，详见 [Microduck](/wiki/products/microduck) 条目。
+Weekly #001 的“Microduck 为什么一夜走红”章节讨论 Hugging Face 发布的 MicroDuck 小型机器人。杨攀在介绍时说“[大家看看这个 MicroDuck，一下就火起来了，但其实是中国厂商生产的，叫 Seeed](/weekly/001/transcript#quote-ef668720aacb7871ed55)”。需要说明的是，"Seeed 生产"是节目参与者的说法：Microduck 项目官方页面（Pollen Robotics）与 Seeed 官方资料均未提及这一生产关系，该说法未见官方渠道印证。可阅读[第 001 期对应章节](/weekly/001/transcript#chapter-19)，详见 [Microduck](/wiki/products/microduck) 条目。
 
 ## 常见问题
 

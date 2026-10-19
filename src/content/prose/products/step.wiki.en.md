@@ -20,7 +20,7 @@ The Preview in the name marks it as a preview release: capabilities and deployme
 
 ## In the show
 
-In Weekly #006's chapter on polarized model experiences, 向阳乔木 (Xiangyang Qiaomu) cited OpenRouter usage-rank data (82 trillion tokens a week from Chinese models) and said [StepFun ranked near the top](/weekly/006/transcript#quote-3a8ee430783398f4121e), with 杨攀 (Yangpan) confirming it was [Step 5 Preview](/weekly/006/transcript#quote-2b5c207315bdc63fdec5). This is a participant's retelling of a usage ranking; see the [Chinese transcript](/weekly/006/transcript#chapter-22).
+In Weekly #006's chapter on polarized model experiences, 向阳乔木 (Xiangyang Qiaomu) cited OpenRouter usage-rank data (82 trillion tokens a week from Chinese models) and said [StepFun ranked near the top](/weekly/006/transcript#quote-3a8ee430783398f4121e), with 杨攀 (Yang Pan) confirming it was [Step 5 Preview](/weekly/006/transcript#quote-2b5c207315bdc63fdec5). This is a participant's retelling of a usage ranking; see the [Chinese transcript](/weekly/006/transcript#chapter-22).
 
 ## FAQ
 

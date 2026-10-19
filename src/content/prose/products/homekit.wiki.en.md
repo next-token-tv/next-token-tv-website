@@ -4,7 +4,7 @@ entity: homekit
 locale: en
 slot: wiki
 updatedAt: '2026-10-19'
-seoTitle: 'HomeKit: Apple’s Smart Home Framework and Accessory Certification｜Next Token Wiki'
+seoTitle: 'HomeKit: Apple’s Smart Home Framework and Accessory Certification | Next Token Wiki'
 seoDescription: 'What HomeKit is, how developers integrate with it, accessory certification and Matter support, and the Next Token Weekly #006 discussion of smart home pain points.'
 ---
 

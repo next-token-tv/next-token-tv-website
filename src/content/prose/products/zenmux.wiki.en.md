@@ -14,11 +14,11 @@ ZenMux is an AI service platform providing unified API access to models from mul
 
 ## Uses and boundaries
 
-By its official pages, the ZenMux API is compatible with the OpenAI, Anthropic and Google Vertex AI protocols, alongside a GUI for chat, image and video generation. The platform advertises multi-provider failover (automatic switching when one provider hits rate limits or goes down), ZenMux Auto for prompt-based model routing, and automatic compensation when outputs are hallucinated, latency is excessive or throughput is low, with dashboards tracing every request's tokens and cost. Compensation rules, rates and the model catalog follow the [official site](https://zenmux.ai/) and its pricing page; the compensation promise is the platform's own, and its terms govern actual settlement.
+By its official pages, the ZenMux API is compatible with the OpenAI, Anthropic and Google Vertex AI protocols, alongside a GUI for chat, image and video generation. The platform advertises multi-provider failover (automatic switching when one provider hits rate limits or goes down), ZenMux Auto for prompt-based model routing, and automatic compensation when outputs are hallucinated, latency is excessive or throughput is low, with dashboards tracing every request's tokens and cost. Compensation rules, rates and the model catalog follow the [official site](https://zenmux.ai/) and [its pricing page](https://zenmux.ai/pricing); the compensation promise is the platform's own, and its terms govern actual settlement.
 
 ## In the show
 
-In Weekly #006's chapter on polarized model experiences, the participants discussed which entry points could serve a newly released model: 杨攀 (Yangpan) said [the first place he saw it usable was on ZenMux](/weekly/006/transcript#quote-12050cf8ee5571077bb1), while the official client was not available at the time. This is a participant's observation; see the [Chinese transcript](/weekly/006/transcript#chapter-22).
+In Weekly #006's chapter on polarized model experiences, the participants discussed which entry points could serve a newly released model: 杨攀 (Yang Pan) said [the first place he saw it usable was on ZenMux](/weekly/006/transcript#quote-12050cf8ee5571077bb1), while the official client was not available at the time. This is a participant's observation; see the [Chinese transcript](/weekly/006/transcript#chapter-22).
 
 ## FAQ
 

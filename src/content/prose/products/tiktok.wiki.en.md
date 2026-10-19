@@ -18,7 +18,7 @@ According to [Wikipedia's TikTok article](https://en.wikipedia.org/wiki/TikTok):
 
 ## Discussion in the show
 
-In Weekly #001's chapter "AI 短剧把 Token 消费带进新的内容市场" ("AI short dramas bring token consumption into a new content market"), the panel discussed global distribution of AI-generated short dramas. Guicang noted overseas audiences were still resistant to the format, Juzi (orange) said ["overseas, it mainly lives on TikTok right now"](/weekly/001/transcript#quote-6714e76905b1e1670cb8), and Yang Pan predicted overseas acceptance would follow. The discussion treats TikTok as a primary overseas channel for AI short dramas, in contrast to domestic platforms such as [Hongguo](/en/wiki/products/hongguo); these are the participants' industry observations and predictions. See the [episode 001 chapter](/weekly/001/transcript#chapter-30) in the Chinese transcript; an English transcript is not available.
+In Weekly #001's chapter "AI 短剧把 Token 消费带进新的内容市场" ("AI short dramas bring token consumption into a new content market"), the panel discussed global distribution of AI-generated short dramas. Guizang noted overseas audiences were still resistant to the format, Orange said ["overseas, it mainly lives on TikTok right now"](/weekly/001/transcript#quote-6714e76905b1e1670cb8), and Yang Pan predicted overseas acceptance would follow. The discussion treats TikTok as a primary overseas channel for AI short dramas, in contrast to domestic platforms such as [Hongguo](/en/wiki/products/hongguo); these are the participants' industry observations and predictions. See the [episode 001 chapter](/weekly/001/transcript#chapter-30) in the Chinese transcript; an English transcript is not available.
 
 ## Frequently asked questions
 

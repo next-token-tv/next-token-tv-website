@@ -16,7 +16,7 @@ ChatGPT Atlas was a web browser from [OpenAI](/en/wiki/brands/openai) with ChatG
 
 Features at launch included: calling ChatGPT on the page you are viewing, with ChatGPT memory so chats can draw on past conversations; Agent mode (in preview for Plus, Pro, and Business users), which could research, carry out tasks, and book appointments but — per OpenAI’s own boundaries — could not run code in the browser, download files, or install extensions, could not access other apps or the file system, and paused on sensitive sites such as financial institutions; and optional browser memories that the user could view, archive, or delete. On privacy, browsing content was not used for model training by default, and visibility could be controlled per site from the address bar.
 
-OpenAI’s official announcement page now carries a notice that the product "has since been deprecated" and points users to [ChatGPT Work](/en/wiki/products/chatgpt-work) and the release notes. At launch, Windows, iOS, and Android experiences were listed as "coming soon."
+As of October 2026, OpenAI’s official announcement page carries a notice that the product "has since been deprecated" and points users to [ChatGPT Work](/en/wiki/products/chatgpt-work) and the release notes. At launch, Windows, iOS, and Android experiences were listed as "coming soon."
 
 ## Discussion in the show
 

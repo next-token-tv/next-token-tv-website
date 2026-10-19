@@ -37,7 +37,7 @@ Clients cover phones, tablets, computers, smart TVs, browsers, and mini-programs
 
 ## Mentioned on the podcast
 
-In Weekly #001, in the chapter "NAS 会不会成为个人 AI 上下文的家" (Will a NAS become the home of personal AI context?), Yangpan mentioned UGREEN while comparing home NAS options, [asking "what about UGREEN — and what was that other brand called?"](/weekly/001/transcript#quote-1d900eb6162f76d3ed0b); Guizang confirmed the name. The discussion then moved to the Xiaomi NAS's lack of Docker and modest specs, and to Synology being "the one tinkerers play with" while Orange found it too hard to use. UGREEN itself was not reviewed on the show. This discussion is in the Chinese transcript; an English transcript is not available.
+In Weekly #001, in the chapter "NAS 会不会成为个人 AI 上下文的家" (Will a NAS become the home of personal AI context?), Yang Pan mentioned UGREEN while comparing home NAS options, [asking "what about UGREEN — and what was that other brand called?"](/weekly/001/transcript#quote-1d900eb6162f76d3ed0b); Guizang confirmed the name. The discussion then moved to the Xiaomi NAS's lack of Docker and modest specs, and to Synology being "the one tinkerers play with" while Orange found it too hard to use. UGREEN itself was not reviewed on the show. This discussion is in the Chinese transcript; an English transcript is not available.
 
 ## FAQ
 

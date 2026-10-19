@@ -26,7 +26,7 @@ In Weekly #002's chapter “我们如何用 Agent 制作和发布播客” (how 
 
 In “iPhone Duo 发布：折叠屏与交互的新问题” (the iPhone Duo launch), [Guizang remarks that routine iOS updates are often seen as cosmetic “tinkering” — glass effects adjusted back and forth — while the interaction and adaptation design on Duo deserves the word “inspired”](/weekly/002/transcript#quote-0a034d649d6923ec63af). These are participant opinions about system design. More from the same discussion appears in the [iPhone](/en/wiki/products/iphone) article.
 
-In “语音输入：准确率之外的使用摩擦” (voice input: friction beyond accuracy), [Juzi says the new iOS changed how third-party voice input runs and he finds the change unacceptable](/weekly/002/transcript#quote-bdead5b333a662f83c0b), while Yang Pan describes permission switching for voice input on iPhone. Those are combined app-plus-OS-version experiences that vary by user and system version. All quotes come from the Chinese transcript.
+In “语音输入：准确率之外的使用摩擦” (voice input: friction beyond accuracy), [Orange says the new iOS changed how third-party voice input runs and he finds the change unacceptable](/weekly/002/transcript#quote-bdead5b333a662f83c0b), while Yang Pan describes permission switching for voice input on iPhone. Those are combined app-plus-OS-version experiences that vary by user and system version. All quotes come from the Chinese transcript.
 
 ## Frequently asked questions
 
