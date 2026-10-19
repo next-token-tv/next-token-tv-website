@@ -20,10 +20,35 @@
   "transcriptPublishedAt": "2026-10-19",
   "productionImport": "next-token-weekly--006.production",
   "media": {
-    "audio": false,
-    "video": false
+    "audio": true,
+    "video": true
   },
-  "platforms": [],
+  "platforms": [
+    {
+      "platform": "xiaoyuzhou",
+      "label": {
+        "zh-Hans": "小宇宙",
+        "en": "Xiaoyuzhou"
+      },
+      "href": "https://www.xiaoyuzhoufm.com/episode/6ad50a05641ef406308d957a",
+      "action": {
+        "zh-Hans": "立即收听",
+        "en": "Listen now"
+      }
+    },
+    {
+      "platform": "bilibili",
+      "label": {
+        "zh-Hans": "哔哩哔哩",
+        "en": "Bilibili"
+      },
+      "href": "https://www.bilibili.com/video/BV1g8nj6JEWE/",
+      "action": {
+        "zh-Hans": "立即观看",
+        "en": "Watch now"
+      }
+    }
+  ],
   "homepage": {
     "zh-Hans": {
       "eyebrow": "第 006 期",
@@ -40,7 +65,7 @@
         "AI 逆向",
         "Memory"
       ],
-      "listenAction": "阅读逐字稿",
+      "listenAction": "立即收听",
       "watchAction": "查看本期"
     },
     "en": {
@@ -58,7 +83,7 @@
         "Reverse engineering",
         "Memory"
       ],
-      "listenAction": "Read transcript",
+      "listenAction": "Listen now",
       "watchAction": "Explore episode"
     }
   }
