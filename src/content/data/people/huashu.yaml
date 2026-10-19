@@ -1,0 +1,14 @@
+kind: creator-community
+name:
+  zh-Hans: 花叔
+  en: Huashu
+bio:
+  zh-Hans: 分享 AI 编程实践、开源技能与产品创作的创作者。
+  en: A creator sharing AI coding practices, open-source skills and product building.
+aliases: []
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or author source
+    href: https://github.com/alchaincyf
+lastVerifiedAt: '2026-10-19'

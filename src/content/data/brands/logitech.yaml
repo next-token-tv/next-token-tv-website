@@ -1,0 +1,25 @@
+{
+  "kind": "hardware-brand",
+  "name": {
+    "zh-Hans": "罗技",
+    "en": "Logitech"
+  },
+  "summary": {
+    "zh-Hans": "提供鼠标、键盘、摄像头等电脑外设及配套软件的品牌。",
+    "en": "A brand providing mice, keyboards, webcams and related software."
+  },
+  "aliases": [],
+  "official": {
+    "website": "https://www.logitech.com/en-us/about"
+  },
+  "sources": [
+    {
+      "label": {
+        "zh-Hans": "官方资料",
+        "en": "Official information"
+      },
+      "href": "https://www.logitech.com/en-us/about"
+    }
+  ],
+  "lastVerifiedAt": "2026-10-19"
+}

@@ -1,0 +1,19 @@
+name:
+  zh-Hans: 计算机操作能力
+  en: Computer Use
+summary:
+  zh-Hans: Computer use 指让模型像人一样操作计算机图形界面的能力——看屏幕、移动光标、点击、打字，从而跨应用完成任务。Anthropic 和 OpenAI 都提供了相应的计算机操作工具或模型能力。
+  en: Computer use is the ability of a model to operate a computer's graphical interface the way a person does — reading the screen, moving the cursor, clicking and typing — to complete tasks across applications. Anthropic and OpenAI both ship computer-use tools or model capabilities.
+aliases:
+  - computer use agent
+status: published
+sources:
+  - label:
+      zh-Hans: Anthropic：Computer use tool 文档
+      en: "Anthropic: Computer use tool documentation"
+    href: https://docs.claude.com/en/docs/agents-and-tools/computer-use
+  - label:
+      zh-Hans: OpenAI：Computer use 指南
+      en: "OpenAI: Computer use guide"
+    href: https://platform.openai.com/docs/guides/tools-computer-use
+lastVerifiedAt: '2026-10-11'

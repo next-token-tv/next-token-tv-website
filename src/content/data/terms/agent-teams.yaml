@@ -1,0 +1,21 @@
+name:
+  zh-Hans: 多智能体协作
+  en: Agent Teams
+summary:
+  zh-Hans: 多个智能体通过分工、通信与协调，共同完成单个智能体难以独立完成的复杂任务的系统组织方式。
+  en: An arrangement in which multiple agents divide work, communicate and coordinate to complete complex tasks that a single agent would struggle with alone.
+aliases:
+  - Multi-Agent System
+  - MAS
+  - 多智能体系统
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：多智能体系统
+      en: 'Wikipedia: Multi-agent system'
+    href: https://en.wikipedia.org/wiki/Multi-agent_system
+  - label:
+      zh-Hans: Anthropic：多智能体研究系统
+      en: 'Anthropic: How we built our multi-agent research system'
+    href: https://www.anthropic.com/engineering/multi-agent-research-system
+lastVerifiedAt: '2026-10-11'

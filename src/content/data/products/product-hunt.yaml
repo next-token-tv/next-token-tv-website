@@ -1,0 +1,16 @@
+kind: platform
+name:
+  zh-Hans: Product Hunt
+  en: Product Hunt
+summary:
+  zh-Hans: 用于发布、发现和讨论新产品的社区平台。
+  en: A community platform for launching, discovering and discussing new products.
+aliases: []
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or author source
+    href: https://www.producthunt.com/
+lastVerifiedAt: '2026-10-19'
+official:
+  website: https://www.producthunt.com/

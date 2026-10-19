@@ -1,0 +1,21 @@
+name:
+  zh-Hans: 智能体技能
+  en: Agent Skills
+summary:
+  zh-Hans: 将指令、脚本与资源打包成文件夹（如包含 SKILL.md 的目录），让智能体在需要时按需加载对应能力的机制。
+  en: A mechanism that packages instructions, scripts and resources into folders (such as a directory containing a SKILL.md file) so an agent can load the right capability on demand.
+aliases:
+  - Skill
+  - Skills
+  - Agent Skill
+status: published
+sources:
+  - label:
+      zh-Hans: Anthropic 文档：智能体技能概览
+      en: 'Anthropic docs: Agent Skills overview'
+    href: https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview
+  - label:
+      zh-Hans: Agent Skills 开放文档
+      en: Agent Skills documentation
+    href: https://agentskills.io
+lastVerifiedAt: '2026-10-11'

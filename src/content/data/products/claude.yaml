@@ -17,6 +17,8 @@ aliases:
   - Mythos 5.1
   - Claude Opus 4.8
   - Opus 4.8
+  - Haiku
+  - Claude Haiku
 status: available
 official:
   website: https://www.anthropic.com/claude

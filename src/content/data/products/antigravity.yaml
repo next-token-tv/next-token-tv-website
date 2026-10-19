@@ -1,0 +1,28 @@
+{
+  "kind": "agent",
+  "name": {
+    "zh-Hans": "Google Antigravity",
+    "en": "Google Antigravity"
+  },
+  "summary": {
+    "zh-Hans": "Google 的智能体开发工具，用于委派编程任务并协作构建软件。",
+    "en": "Google’s agent development tool for delegating coding tasks and building software."
+  },
+  "aliases": [
+    "Antigravity"
+  ],
+  "official": {
+    "website": "https://antigravity.google/"
+  },
+  "sources": [
+    {
+      "label": {
+        "zh-Hans": "官方资料",
+        "en": "Official information"
+      },
+      "href": "https://antigravity.google/"
+    }
+  ],
+  "lastVerifiedAt": "2026-10-19",
+  "brand": "google"
+}

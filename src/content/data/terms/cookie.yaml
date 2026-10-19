@@ -1,0 +1,19 @@
+name:
+  zh-Hans: Cookie
+  en: Cookie
+summary:
+  zh-Hans: Cookie 是网站通过 Set-Cookie 响应头存放在浏览器中的少量键值数据，浏览器在后续请求中将其带回服务器，用于会话保持、个性化与状态记录，由 RFC 6265 规范定义。
+  en: A cookie is a small piece of key-value data that a website stores in the browser via the Set-Cookie response header; the browser sends it back with subsequent requests, enabling sessions, personalization and state. It is defined by RFC 6265.
+aliases:
+  - HTTP Cookie
+status: published
+sources:
+  - label:
+      zh-Hans: MDN：HTTP Cookie
+      en: "MDN Web Docs: HTTP cookies"
+    href: https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
+  - label:
+      zh-Hans: IETF：RFC 6265（HTTP State Management Mechanism）
+      en: "IETF: RFC 6265 (HTTP State Management Mechanism)"
+    href: https://datatracker.ietf.org/doc/html/rfc6265
+lastVerifiedAt: '2026-10-11'

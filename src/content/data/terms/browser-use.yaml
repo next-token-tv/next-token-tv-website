@@ -1,0 +1,19 @@
+name:
+  zh-Hans: 浏览器操作能力
+  en: Browser Use
+summary:
+  zh-Hans: Browser use 指让 AI 智能体通过浏览器完成任务的能力：读取网页、点击、填表、导航。Browser Use 也是同名开源项目的名字，它把浏览器自动化接到大模型智能体上。
+  en: "Browser use is the ability of AI agents to complete tasks through a web browser: reading pages, clicking, filling forms and navigating. Browser Use is also the name of an open-source project that connects browser automation to LLM agents."
+aliases:
+  - browser automation
+status: published
+sources:
+  - label:
+      zh-Hans: Browser Use（GitHub 开源项目）
+      en: Browser Use (GitHub project)
+    href: https://github.com/browser-use/browser-use
+  - label:
+      zh-Hans: Browser Use 官方文档
+      en: Browser Use official documentation
+    href: https://docs.browser-use.com
+lastVerifiedAt: '2026-10-11'

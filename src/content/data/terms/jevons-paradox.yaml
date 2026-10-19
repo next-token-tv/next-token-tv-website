@@ -1,0 +1,18 @@
+name:
+  zh-Hans: 杰文斯悖论
+  en: Jevons Paradox
+summary:
+  zh-Hans: 杰文斯悖论是经济学中的观察：当技术进步提高资源使用效率、降低单位成本时，该资源的总消耗量往往不降反升。威廉·斯坦利·杰文斯在 1865 年以蒸汽机效率提高反而带动煤耗增长为例提出；如今常被用来分析 AI 算力与模型成本下降后的需求扩张。
+  en: 'The Jevons paradox is an observation in economics: when technological progress makes a resource more efficient and cheaper per unit, total consumption of that resource often rises rather than falls. William Stanley Jevons raised it in 1865 with the example of more efficient steam engines increasing coal use; today it is often applied to AI compute and to demand expanding as model costs fall.'
+aliases: []
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：杰文斯悖论
+      en: 'Wikipedia: Jevons paradox'
+    href: https://en.wikipedia.org/wiki/Jevons_paradox
+  - label:
+      zh-Hans: Next Token Weekly 第 001 期逐字稿
+      en: Next Token Weekly #001 transcript
+    href: https://nexttoken.tv/weekly/001/transcript
+lastVerifiedAt: '2026-10-11'

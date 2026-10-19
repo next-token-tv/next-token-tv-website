@@ -1,0 +1,20 @@
+name:
+  zh-Hans: 嵌入式 SIM
+  en: eSIM
+summary:
+  zh-Hans: eSIM（嵌入式 SIM）是直接焊接到设备内部的 SIM 卡形态，运营商配置文件可以远程下载和激活，无需插拔实体卡。它由 GSMA 制定的远程 SIM 配置规范定义，已被手机、手表和物联网设备广泛采用。
+  en: eSIM (embedded SIM) is a form of SIM that is soldered directly into a device, with carrier profiles downloaded and activated remotely instead of inserting a physical card. Defined by GSMA remote SIM provisioning specifications, it has been widely adopted in phones, watches, and IoT devices.
+aliases:
+  - embedded SIM
+  - 嵌入式SIM卡
+status: published
+sources:
+  - label:
+      zh-Hans: GSMA：What is an eSIM?
+      en: 'GSMA: What is an eSIM?'
+    href: https://www.gsma.com/solutions-and-impact/technologies/esim/
+  - label:
+      zh-Hans: Apple 支持：Using Dual SIM with an eSIM
+      en: 'Apple Support: Using Dual SIM with an eSIM'
+    href: https://support.apple.com/en-us/109317
+lastVerifiedAt: '2026-10-11'

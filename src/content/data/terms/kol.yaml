@@ -1,0 +1,19 @@
+name:
+  zh-Hans: 关键意见领袖
+  en: Key Opinion Leader
+summary:
+  zh-Hans: '关键意见领袖（KOL）指在特定领域拥有专业知识或影响力、其观点能显著影响目标受众态度与决策的人物。该词多用于营销语境，涵盖行业专家、学者与创作者等角色。'
+  en: 'A key opinion leader (KOL) is a person with recognized expertise in a specific field whose views materially influence the attitudes and decisions of a target audience. The term is common in marketing and covers experts, academics and creators.'
+aliases:
+  - KOL
+status: published
+sources:
+  - label:
+      zh-Hans: '维基百科：网红营销'
+      en: 'Wikipedia: Influencer marketing'
+    href: https://en.wikipedia.org/wiki/Influencer_marketing
+  - label:
+      zh-Hans: '维基百科：意见领袖'
+      en: 'Wikipedia: Opinion leader'
+    href: https://en.wikipedia.org/wiki/Opinion_leader
+lastVerifiedAt: '2026-10-11'

@@ -1,0 +1,19 @@
+name:
+  zh-Hans: 用户体验
+  en: User Experience
+summary:
+  zh-Hans: 用户体验（UX）指用户使用一个产品的全过程与总体感受，包括可用性、效率和情感反应，这一术语由认知科学家 Don Norman 在 1990 年代推广。UI 关注界面的呈现与操作，UX 关注从入口到结果的整体体验。
+  en: User experience (UX) describes the entire process and overall feeling a person has when using a product, including usability, efficiency and emotional response; the term was popularized in the 1990s by cognitive scientist Don Norman. UI concerns how an interface looks and behaves, while UX concerns the whole journey and its outcomes.
+aliases:
+  - UX
+status: published
+sources:
+  - label:
+      zh-Hans: Nielsen Norman Group：用户体验的定义
+      en: "Nielsen Norman Group: The Definition of User Experience (UX)"
+    href: https://www.nngroup.com/articles/definition-user-experience/
+  - label:
+      zh-Hans: MDN 术语表：UX
+      en: "MDN Web Docs Glossary: UX"
+    href: https://developer.mozilla.org/en-US/docs/Glossary/UX
+lastVerifiedAt: '2026-10-11'

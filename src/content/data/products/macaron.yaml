@@ -1,0 +1,17 @@
+kind: agent
+name:
+  zh-Hans: Macaron
+  en: Macaron
+summary:
+  zh-Hans: 面向日常生活的个人 AI 智能体，可结合个人偏好提供帮助。
+  en: A personal AI agent for everyday life, offering help informed by personal preferences.
+aliases:
+  - 马卡龙
+official:
+  website: https://macaron.im/
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://macaron.im/
+lastVerifiedAt: '2026-10-19'

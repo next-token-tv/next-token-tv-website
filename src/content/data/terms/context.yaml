@@ -1,0 +1,18 @@
+name:
+  zh-Hans: 上下文
+  en: Context
+summary:
+  zh-Hans: 上下文是语言模型在一次处理中能看到的所有信息，包括用户输入、对话历史和附带的文档或工具结果。其容量上限以词元数计，称为上下文窗口。
+  en: Context is everything a language model can see while handling one request — the user's input, conversation history, and attached documents or tool results. Its capacity limit, measured in tokens, is called the context window.
+aliases: []
+status: published
+lastVerifiedAt: '2026-10-11'
+sources:
+  - label:
+      zh-Hans: Anthropic 文档：上下文窗口
+      en: 'Anthropic docs: Context windows'
+    href: https://docs.claude.com/en/docs/build-with-claude/context-windows
+  - label:
+      zh-Hans: 维基百科：大语言模型（上下文窗口部分）
+      en: 'Wikipedia: Large language model (context window)'
+    href: https://en.wikipedia.org/wiki/Large_language_model

@@ -1,0 +1,18 @@
+kind: application
+name:
+  zh-Hans: 微信读书
+  en: WeRead
+summary:
+  zh-Hans: 腾讯提供的电子书阅读与听书应用。
+  en: Tencent’s app for reading ebooks and listening to books.
+aliases:
+  - WeChat Read
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or author source
+    href: https://weread.qq.com/
+lastVerifiedAt: '2026-10-19'
+official:
+  website: https://weread.qq.com/
+brand: tencent

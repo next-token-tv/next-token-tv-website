@@ -1,0 +1,19 @@
+name:
+  zh-Hans: Web 2.0
+  en: Web 2.0
+summary:
+  zh-Hans: Web 2.0 是 2004 年前后由 O'Reilly Media 推广的概念，指以用户生成内容、参与式社区和网站间开放协作为特征的互联网阶段。网页从静态文档转变为用户读写与互动的平台。
+  en: Web 2.0 is a concept popularized by O'Reilly Media around 2004 for the phase of the web marked by user-generated content, participatory communities and open collaboration between sites. The web shifted from static documents to platforms that users read from and write to.
+aliases:
+  - Web2.0
+status: published
+sources:
+  - label:
+      zh-Hans: "O'Reilly：What Is Web 2.0（2005）"
+      en: "O'Reilly: What Is Web 2.0 (2005)"
+    href: https://www.oreilly.com/pub/a/web2/archive/what-is-web-20.html
+  - label:
+      zh-Hans: 维基百科：Web 2.0
+      en: "Wikipedia: Web 2.0"
+    href: https://en.wikipedia.org/wiki/Web_2.0
+lastVerifiedAt: '2026-10-11'

@@ -1,0 +1,20 @@
+name:
+  zh-Hans: 系统提示词
+  en: System Prompt
+summary:
+  zh-Hans: 系统提示词（system prompt）是开发者或产品在对话开始前注入的指令，用来设定模型的角色、规则与输出约束，通常对终端用户不可见。
+  en: A system prompt is an instruction injected by the developer or product before a conversation begins, setting the model's role, rules and output constraints; it is typically invisible to end users.
+aliases:
+  - System Message
+  - 系统指令
+status: published
+sources:
+  - label:
+      zh-Hans: OpenAI：文本生成指南（system 消息）
+      en: "OpenAI: Text generation guide (system messages)"
+    href: https://platform.openai.com/docs/guides/text
+  - label:
+      zh-Hans: Anthropic：系统提示词最佳实践
+      en: "Anthropic: System prompts (prompting best practices)"
+    href: https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/system-prompts
+lastVerifiedAt: '2026-10-11'

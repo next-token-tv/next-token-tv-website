@@ -1,0 +1,19 @@
+name:
+  zh-Hans: 每分钟节拍数
+  en: Beats per Minute
+summary:
+  zh-Hans: 每分钟节拍数（BPM）是音乐速度的度量单位，表示每分钟包含的节拍数量，数值越高节奏越快。BPM 是描述音乐速度的通用量化指标，常出现在音乐制作与播放软件中。
+  en: Beats per minute (BPM) is a unit for measuring musical tempo—the number of beats occurring in one minute; higher values mean a faster pace. It is the standard way to quantify tempo and appears throughout music production and playback software.
+aliases:
+  - BPM
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：每分钟节拍数
+      en: "Wikipedia: Beats per minute"
+    href: https://en.wikipedia.org/wiki/Beats_per_minute
+  - label:
+      zh-Hans: 维基百科：速度（音乐）
+      en: "Wikipedia: Tempo"
+    href: https://en.wikipedia.org/wiki/Tempo
+lastVerifiedAt: '2026-10-11'

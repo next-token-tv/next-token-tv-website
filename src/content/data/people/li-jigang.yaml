@@ -1,0 +1,14 @@
+kind: creator-community
+name:
+  zh-Hans: 李继刚
+  en: Li Jigang
+bio:
+  zh-Hans: 分享提示词与 AI 思考工具的创作者。
+  en: A creator sharing prompts and AI thinking tools.
+aliases: []
+sources:
+  - label:
+      zh-Hans: 本人发布的提示词
+      en: Author-published prompts
+    href: https://gist.github.com/lijigang
+lastVerifiedAt: '2026-10-19'

@@ -1,0 +1,20 @@
+name:
+  zh-Hans: NAND 闪存
+  en: NAND Flash
+summary:
+  zh-Hans: NAND 闪存是一种非易失性存储技术，断电后仍能保留数据，因存储单元以串联方式布线形似 NAND 门而得名。它以电荷方式在浮栅或类似结构中保存比特，是 SSD、存储卡和 U 盘等设备的基础存储介质。
+  en: NAND flash is a non-volatile storage technology that retains data without power, named for the series wiring of its memory cells that resembles a NAND gate. It stores bits as electrical charge in floating-gate or similar cell structures and serves as the underlying media for SSDs, memory cards, and USB drives.
+aliases:
+  - NAND
+  - NAND flash memory
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：Flash memory
+      en: 'Wikipedia: Flash memory'
+    href: https://en.wikipedia.org/wiki/Flash_memory
+  - label:
+      zh-Hans: 美光科技：NAND flash
+      en: 'Micron Technology: NAND flash'
+    href: https://www.micron.com/products/nand
+lastVerifiedAt: '2026-10-11'

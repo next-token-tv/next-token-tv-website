@@ -1,0 +1,25 @@
+{
+  "kind": "platform",
+  "name": {
+    "zh-Hans": "Fish Audio",
+    "en": "Fish Audio"
+  },
+  "summary": {
+    "zh-Hans": "提供文本转语音、声音克隆及语音 API 的音频生成平台。",
+    "en": "An audio generation platform offering text to speech, voice cloning and speech APIs."
+  },
+  "aliases": [],
+  "official": {
+    "website": "https://fish.audio/"
+  },
+  "sources": [
+    {
+      "label": {
+        "zh-Hans": "官方资料",
+        "en": "Official information"
+      },
+      "href": "https://fish.audio/"
+    }
+  ],
+  "lastVerifiedAt": "2026-10-19"
+}

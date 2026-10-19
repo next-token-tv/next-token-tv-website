@@ -1,0 +1,19 @@
+name:
+  zh-Hans: 个人智能体
+  en: Personal Agent
+summary:
+  zh-Hans: 面向单个用户、逐步了解其偏好与上下文，并代表其处理日常事务的智能体。
+  en: An agent that serves a single individual, builds up knowledge of that person's preferences and context, and handles everyday tasks on their behalf.
+aliases:
+  - Personal AI
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：软件智能体
+      en: 'Wikipedia: Software agent'
+    href: https://en.wikipedia.org/wiki/Software_agent
+  - label:
+      zh-Hans: 维基百科：智能个人助理
+      en: 'Wikipedia: Intelligent personal assistant'
+    href: https://en.wikipedia.org/wiki/Intelligent_personal_assistant
+lastVerifiedAt: '2026-10-11'

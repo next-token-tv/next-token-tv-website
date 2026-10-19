@@ -1,0 +1,16 @@
+name:
+  zh-Hans: 新型云服务商
+  en: Neocloud
+summary:
+  zh-Hans: 新型云（Neocloud）是 AI 时代出现的新词，指专注 GPU 算力、面向 AI 训练与推理的新一代云服务商；相比传统超大规模云，更强调裸机与 GPU 集群租赁和精简的运营开销。该词由行业研究机构 SemiAnalysis 在 2024 年的报告中推广。
+  en: Neocloud is a term popularized by the industry research firm SemiAnalysis in 2024 reports for a new generation of cloud providers focused on GPU capacity for AI training and inference; compared with hyperscale clouds, they emphasize bare-metal and GPU cluster rentals with lean operations.
+aliases:
+  - Neo-cloud
+  - 新型算力云
+status: published
+sources:
+  - label:
+      zh-Hans: "SemiAnalysis：AI Neocloud Playbook and Anatomy（2024）"
+      en: "SemiAnalysis: AI Neocloud Playbook and Anatomy (2024)"
+    href: https://semianalysis.substack.com/p/ai-neocloud-playbook-and-anatomy
+lastVerifiedAt: '2026-10-11'

@@ -1,0 +1,18 @@
+kind: agent
+name:
+  zh-Hans: 千问 Go
+  en: Qianwen Go
+summary:
+  zh-Hans: 阿里千问面向个人事务的 AI 助理。
+  en: An AI assistant from Alibaba Qianwen for personal tasks.
+aliases:
+  - 千问Go
+  - 千问Go!
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or author source
+    href: https://www.qianwen.com/
+lastVerifiedAt: '2026-10-19'
+official:
+  website: https://www.qianwen.com/

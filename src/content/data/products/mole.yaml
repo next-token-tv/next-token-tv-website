@@ -1,4 +1,4 @@
-kind: developer-tool
+kind: application
 name:
   zh-Hans: Mole
   en: Mole
@@ -8,7 +8,7 @@ summary:
 aliases: []
 official:
   website: https://github.com/Tw93/Mole
-lastVerifiedAt: '2026-09-21'
+lastVerifiedAt: '2026-10-19'
 sources:
   - label:
       zh-Hans: 官方资料

@@ -1,0 +1,16 @@
+name:
+  zh-Hans: 基础设施
+  en: Infrastructure
+summary:
+  zh-Hans: 基础设施指支撑上层应用与业务运行的底层软硬件与服务的总和，包括计算、存储、网络、机房设施及相关运维体系，口语和技术语境中常简称为 infra。
+  en: Infrastructure is the combined foundation of hardware, software and services that supports applications and business operations, including compute, storage, networking, facilities and the surrounding operational practices. It is often shortened to infra.
+aliases:
+  - Infra
+  - IT 基础设施
+status: published
+sources:
+  - label:
+      zh-Hans: "IBM：什么是 IT 基础设施"
+      en: "IBM: What is IT infrastructure"
+    href: https://www.ibm.com/think/topics/it-infrastructure
+lastVerifiedAt: '2026-10-11'

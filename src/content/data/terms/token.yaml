@@ -1,0 +1,22 @@
+name:
+  zh-Hans: 词元
+  en: Token
+summary:
+  zh-Hans: 词元是语言模型读入和生成文本的基本单位，由分词器把原始文本切分而成，可能对应一个词、子词、字或符号。模型的输入输出与用量都按词元计数。
+  en: A token is the basic unit of text that a language model reads and generates. A tokenizer splits raw text into tokens, each corresponding to a word, subword, character, or symbol; model input, output, and usage are all measured in tokens.
+aliases: []
+status: published
+lastVerifiedAt: '2026-10-11'
+sources:
+  - label:
+      zh-Hans: Hugging Face Transformers 文档：分词器
+      en: 'Hugging Face Transformers docs: Tokenizers'
+    href: https://huggingface.co/docs/transformers/en/main_classes/tokenizer
+  - label:
+      zh-Hans: Anthropic 文档：词元计数
+      en: 'Anthropic docs: Counting tokens'
+    href: https://docs.claude.com/en/docs/build-with-claude/token-counting
+  - label:
+      zh-Hans: 维基百科：大语言模型（词元化部分）
+      en: 'Wikipedia: Large language model (tokenization)'
+    href: https://en.wikipedia.org/wiki/Large_language_model

@@ -1,0 +1,15 @@
+name:
+  zh-Hans: 生成式引擎优化
+  en: Generative Engine Optimization
+summary:
+  zh-Hans: '生成式引擎优化（GEO）指调整与组织内容，使其更容易被生成式引擎检索、引用并呈现在 AI 生成的回答中的新兴实践。该概念因 2023 年 11 月发表的研究论文 GEO: Generative Engine Optimization 而广为传播。'
+  en: 'Generative engine optimization (GEO) is an emerging practice of organizing and adjusting content so that generative engines are more likely to retrieve, cite and surface it in AI-generated answers. The concept spread from the research paper GEO: Generative Engine Optimization, published in November 2023.'
+aliases:
+  - GEO
+status: published
+sources:
+  - label:
+      zh-Hans: 'arXiv 论文 GEO: Generative Engine Optimization（2023 年 11 月）'
+      en: 'arXiv: GEO: Generative Engine Optimization (November 2023)'
+    href: https://arxiv.org/abs/2311.09735
+lastVerifiedAt: '2026-10-11'

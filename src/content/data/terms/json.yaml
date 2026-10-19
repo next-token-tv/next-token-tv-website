@@ -1,0 +1,19 @@
+name:
+  zh-Hans: JSON
+  en: JSON
+summary:
+  zh-Hans: JSON（JavaScript Object Notation）是一种基于文本的数据交换格式，用对象、数组、字符串、数字、布尔值和 null 表示结构化数据，由 RFC 8259 定义。它是 Web API 与配置文件中最常用的数据格式之一。
+  en: JSON (JavaScript Object Notation) is a text-based data interchange format defined by RFC 8259, expressing structured data with objects, arrays, strings, numbers, booleans and null. It is one of the most common formats for web APIs and configuration files.
+aliases:
+  - JavaScript Object Notation
+status: published
+lastVerifiedAt: '2026-10-11'
+sources:
+  - label:
+      zh-Hans: RFC 8259：JSON 数据交换格式
+      en: 'RFC 8259: The JavaScript Object Notation (JSON) Data Interchange Format'
+    href: https://www.rfc-editor.org/rfc/rfc8259
+  - label:
+      zh-Hans: json.org 官方站点
+      en: json.org (official site)
+    href: https://www.json.org/json-en.html

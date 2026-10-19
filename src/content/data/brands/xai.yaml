@@ -1,21 +1,23 @@
 kind: ai-brand
 name:
-  zh-Hans: SpaceXAI
-  en: SpaceXAI
+  zh-Hans: SpaceXSI
+  en: SpaceXSI
 summary:
   zh-Hans: SpaceX 旗下的人工智能品牌，前身为 xAI，研发 Grok 模型及相关个人与企业人工智能产品。
   en: SpaceX's AI brand, formerly xAI, developing the Grok model family and related consumer and enterprise AI products.
 aliases:
   - xAI
   - X.AI
+  - SpaceXAI
+  - SpaceX Super Intelligence
 official:
   website: https://x.ai/
   documentation: https://docs.x.ai/
-lastVerifiedAt: "2026-09-10"
+lastVerifiedAt: '2026-10-19'
 sources:
   - label:
-      zh-Hans: SpaceXAI 官网
-      en: SpaceXAI official website
+      zh-Hans: SpaceXSI 官网
+      en: SpaceXSI official website
     href: https://x.ai/
   - label:
       zh-Hans: SpaceX 收购 xAI 公告

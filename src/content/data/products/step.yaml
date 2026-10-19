@@ -1,0 +1,19 @@
+kind: model-family
+name:
+  zh-Hans: Step
+  en: Step
+summary:
+  zh-Hans: 阶跃星辰的通用 AI 模型家族，用于推理、编程与智能体任务。
+  en: StepFun’s general-purpose AI model family for reasoning, coding and agent tasks.
+aliases:
+  - Step 5 Preview
+  - StepFun 5 Preview
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or author source
+    href: https://www.stepfun.com/
+lastVerifiedAt: '2026-10-19'
+official:
+  website: https://www.stepfun.com/
+brand: stepfun

@@ -1,0 +1,25 @@
+{
+  "kind": "hardware-brand",
+  "name": {
+    "zh-Hans": "西门子家电",
+    "en": "Siemens Home Appliances"
+  },
+  "summary": {
+    "zh-Hans": "提供冰箱、洗衣机、洗碗机和厨房电器的家电品牌。",
+    "en": "A home appliance brand offering refrigerators, washing machines, dishwashers and kitchen appliances."
+  },
+  "aliases": [],
+  "official": {
+    "website": "https://www.siemens-home.bsh-group.com/"
+  },
+  "sources": [
+    {
+      "label": {
+        "zh-Hans": "官方资料",
+        "en": "Official information"
+      },
+      "href": "https://www.siemens-home.bsh-group.com/"
+    }
+  ],
+  "lastVerifiedAt": "2026-10-19"
+}

@@ -1,0 +1,19 @@
+name:
+  zh-Hans: 插件
+  en: Plugin
+summary:
+  zh-Hans: 在 AI 编程工具语境中，指把命令、子智能体、MCP 服务器、钩子等组件打包成单一单元分发安装的扩展机制；在通用软件语境中，指为主程序增加功能而不改动其核心的组件。
+  en: In AI coding tools, an extension mechanism that bundles commands, subagents, MCP servers and hooks into a single installable unit; more generally, a component that adds features to a host program without modifying its core.
+aliases:
+  - Plug-in
+status: published
+sources:
+  - label:
+      zh-Hans: Claude Code 文档：插件
+      en: 'Claude Code docs: Plugins'
+    href: https://code.claude.com/docs/en/plugins
+  - label:
+      zh-Hans: 维基百科：插件
+      en: 'Wikipedia: Plug-in (computing)'
+    href: https://en.wikipedia.org/wiki/Plug-in_(computing)
+lastVerifiedAt: '2026-10-11'

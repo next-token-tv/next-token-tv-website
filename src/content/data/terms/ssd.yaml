@@ -1,0 +1,20 @@
+name:
+  zh-Hans: 固态硬盘
+  en: Solid-State Drive
+summary:
+  zh-Hans: 固态硬盘（SSD）是使用 NAND 闪存芯片而非旋转磁盘来保存数据的存储设备，通过主控芯片管理读写与磨损。由于没有机械部件，它比机械硬盘提供更低的访问延迟和更强的抗振动能力。
+  en: A solid-state drive (SSD) is a storage device that keeps data in NAND flash memory chips rather than on spinning magnetic platters, with a controller managing reads, writes, and wear. With no mechanical parts, it offers lower access latency and better shock resistance than a hard disk drive.
+aliases:
+  - SSD
+  - solid state drive
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：Solid-state drive
+      en: 'Wikipedia: Solid-state drive'
+    href: https://en.wikipedia.org/wiki/Solid-state_drive
+  - label:
+      zh-Hans: TechTarget：What is an SSD?
+      en: 'TechTarget: What is an SSD?'
+    href: https://www.techtarget.com/searchstorage/definition/SSD-solid-state-drive
+lastVerifiedAt: '2026-10-11'

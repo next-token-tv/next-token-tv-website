@@ -1,0 +1,15 @@
+name:
+  zh-Hans: 注意缺陷多动障碍
+  en: Attention-Deficit/Hyperactivity Disorder
+summary:
+  zh-Hans: '注意缺陷多动障碍（ADHD）是一种常见的神经发育障碍，主要特征为持续的注意力不集中、多动与冲动，通常始于儿童期，可能延续至成年。诊断与干预须由专业人员依据标准化标准进行。'
+  en: 'Attention-deficit/hyperactivity disorder (ADHD) is a common neurodevelopmental disorder marked by persistent inattention, hyperactivity and impulsivity that usually begins in childhood and can continue into adulthood. Diagnosis and treatment belong to qualified professionals working from standardized criteria.'
+aliases:
+  - ADHD
+status: published
+sources:
+  - label:
+      zh-Hans: '美国国家精神卫生研究所：ADHD 专题'
+      en: 'NIMH: Attention-Deficit/Hyperactivity Disorder'
+    href: https://www.nimh.nih.gov/health/topics/attention-deficit-hyperactivity-disorder-adhd
+lastVerifiedAt: '2026-10-11'

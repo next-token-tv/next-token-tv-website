@@ -1,0 +1,19 @@
+name:
+  zh-Hans: Vibe Coding
+  en: Vibe Coding
+summary:
+  zh-Hans: Vibe coding 由 Andrej Karpathy 于 2025 年 2 月提出，指主要用自然语言向大模型描述需求、由模型生成代码、开发者凭对话迭代而不逐行审读代码的编程方式。它适合快速出原型，但带来可维护性与安全方面的争议。
+  en: Vibe coding, coined by Andrej Karpathy in February 2025, describes a way of building software where you state what you want in natural language, let a large model generate the code, and iterate through conversation without reading every line. It speeds up prototyping but is debated for maintainability and security.
+aliases:
+  - 氛围编程
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：Vibe coding
+      en: "Wikipedia: Vibe coding"
+    href: https://en.wikipedia.org/wiki/Vibe_coding
+  - label:
+      zh-Hans: Andrej Karpathy 提出该词的帖子
+      en: Andrej Karpathy's post coining the term
+    href: https://x.com/karpathy/status/1886192184808149383
+lastVerifiedAt: '2026-10-11'

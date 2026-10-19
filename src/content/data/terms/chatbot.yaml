@@ -1,0 +1,15 @@
+name:
+  zh-Hans: 聊天机器人
+  en: Chatbot
+summary:
+  zh-Hans: 聊天机器人是通过对话界面与人交互、以文本问答为主要形式的程序，从规则脚本发展到大语言模型驱动。它通常围绕单轮或单会话对话设计，这一点也是它与智能体的常见分界。
+  en: A chatbot is a program that interacts with people through a conversational interface, mainly in the form of text Q&A, evolving from rule-based scripts to large-language-model-driven systems. It is usually built around a single turn or session of dialogue, which is also the common dividing line from agents.
+aliases:
+  - Chat Bot
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：聊天机器人
+      en: 'Wikipedia: Chatbot'
+    href: https://en.wikipedia.org/wiki/Chatbot
+lastVerifiedAt: '2026-10-11'

@@ -1,0 +1,16 @@
+name:
+  zh-Hans: AI 原生
+  en: AI Native
+summary:
+  zh-Hans: 形容产品、公司或工作流从架构设计之初就把 AI 作为核心能力来构建，而不是在既有系统上事后叠加 AI 功能。
+  en: Describes a product, company or workflow designed from the ground up with AI as a core capability, rather than bolting AI onto existing systems afterward.
+aliases:
+  - AI-Native
+  - AI 原生应用
+status: published
+sources:
+  - label:
+      zh-Hans: IBM Think：什么是 AI 原生
+      en: 'IBM Think: What is AI native?'
+    href: https://www.ibm.com/think/topics/ai-native
+lastVerifiedAt: '2026-10-11'

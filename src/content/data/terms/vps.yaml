@@ -1,0 +1,20 @@
+name:
+  zh-Hans: 虚拟专用服务器
+  en: Virtual Private Server
+summary:
+  zh-Hans: VPS 是通过虚拟化技术在物理服务器上划分出的、专属单个用户的虚拟机，拥有独立操作系统、资源配额与管理员权限，但物理硬件与其他租户共享。
+  en: A VPS is a virtual machine carved out of a physical server and dedicated to a single user, with its own operating system, resource quota and administrator access, while the physical hardware is shared with other tenants.
+aliases:
+  - VPS
+  - VPS 主机
+status: published
+sources:
+  - label:
+      zh-Hans: "维基百科：虚拟专用服务器"
+      en: "Wikipedia: Virtual private server"
+    href: https://en.wikipedia.org/wiki/Virtual_private_server
+  - label:
+      zh-Hans: "Microsoft Azure：什么是虚拟机"
+      en: "Microsoft Azure: What is a virtual machine"
+    href: https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-a-virtual-machine
+lastVerifiedAt: '2026-10-11'

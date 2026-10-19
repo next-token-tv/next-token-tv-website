@@ -5,7 +5,8 @@ name:
 summary:
   zh-Hans: 任天堂的游戏主机系列，提供便携式游戏体验。
   en: Nintendo’s game console family with portable gaming experiences.
-aliases: []
+aliases:
+  - Switch
 official:
   website: https://www.nintendo.com/us/gaming-systems/switch/
 sources:

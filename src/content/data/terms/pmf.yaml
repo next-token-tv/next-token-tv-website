@@ -1,0 +1,20 @@
+name:
+  zh-Hans: 产品与市场契合
+  en: Product-Market Fit
+summary:
+  zh-Hans: 产品与市场契合（PMF）指产品切实满足了一个真实且足够大的市场需求、由需求拉动增长的状态。这一概念因投资人马克·安德森的文章而广为流传。
+  en: Product-market fit (PMF) is the state in which a product genuinely satisfies a real, sizable market need, so that demand pulls the product forward. The concept was popularized by investor Marc Andreessen.
+aliases:
+  - PMF
+  - 产品市场契合
+status: published
+sources:
+  - label:
+      zh-Hans: "维基百科：产品—市场契合"
+      en: "Wikipedia: Product–market fit"
+    href: https://en.wikipedia.org/wiki/Product/market_fit
+  - label:
+      zh-Hans: "Pmarchive：唯一重要的事（马克·安德森）"
+      en: "Pmarchive: The only thing that matters (Marc Andreessen)"
+    href: https://pmarchive.com/guide_to_startups_part4.html
+lastVerifiedAt: '2026-10-11'

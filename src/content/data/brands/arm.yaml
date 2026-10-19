@@ -1,0 +1,17 @@
+kind: hardware-brand
+name:
+  zh-Hans: Arm
+  en: Arm
+summary:
+  zh-Hans: 设计处理器架构与半导体 IP 的计算技术公司。
+  en: A computing technology company designing processor architectures and semiconductor IP.
+aliases:
+  - ARM
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or author source
+    href: https://www.arm.com/company
+lastVerifiedAt: '2026-10-19'
+official:
+  website: https://www.arm.com/company

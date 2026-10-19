@@ -1,0 +1,20 @@
+name:
+  zh-Hans: 运行时
+  en: Runtime
+summary:
+  zh-Hans: 运行时（runtime）指程序实际执行时所处的环境与支撑系统，涵盖内存管理、调度、标准库以及与操作系统的交互。它也常指承载某种语言执行的具体软件，例如 Node.js 或浏览器中的 JavaScript 引擎。
+  en: A runtime is the environment and supporting system in which a program actually executes, covering memory management, scheduling, standard libraries and interaction with the operating system. The word also refers to the concrete software that hosts a language's execution, such as Node.js or a browser's JavaScript engine.
+aliases:
+  - 运行时环境
+  - runtime environment
+status: published
+lastVerifiedAt: '2026-10-11'
+sources:
+  - label:
+      zh-Hans: Node.js 官网：关于 Node.js
+      en: 'Node.js: About Node.js'
+    href: https://nodejs.org/en/about
+  - label:
+      zh-Hans: MDN：JavaScript 技术概览
+      en: 'MDN: JavaScript technologies overview'
+    href: https://developer.mozilla.org/en-US/docs/Web/JavaScript/JavaScript_technologies_overview

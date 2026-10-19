@@ -1,0 +1,24 @@
+name:
+  zh-Hans: 智能体
+  en: Agent
+summary:
+  zh-Hans: 能够感知环境、自主决策并调用工具以完成目标的软件系统，在 AI 语境下通常以大语言模型作为推理与规划的核心。
+  en: A software system that perceives its environment, makes decisions and uses tools to pursue goals, often with an LLM serving as its reasoning core.
+aliases:
+  - AI Agent
+  - AI 智能体
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：软件智能体
+      en: 'Wikipedia: Software agent'
+    href: https://en.wikipedia.org/wiki/Software_agent
+  - label:
+      zh-Hans: 维基百科：智能体
+      en: 'Wikipedia: Intelligent agent'
+    href: https://en.wikipedia.org/wiki/Intelligent_agent
+  - label:
+      zh-Hans: Anthropic：构建高效的智能体
+      en: 'Anthropic: Building effective agents'
+    href: https://www.anthropic.com/research/building-effective-agents
+lastVerifiedAt: '2026-10-11'

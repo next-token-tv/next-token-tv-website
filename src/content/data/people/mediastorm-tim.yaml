@@ -1,0 +1,15 @@
+kind: creator-community
+name:
+  zh-Hans: 影视飓风 Tim
+  en: Mediastorm Tim
+bio:
+  zh-Hans: 影视飓风创始人，创作影像、科技与科普视频。
+  en: Founder of Mediastorm, creating videos about filmmaking, technology and science.
+aliases:
+  - 影视飓风Tim
+sources:
+  - label:
+      zh-Hans: 北京国际电影节对谈
+      en: Beijing International Film Festival interview
+    href: https://www.bilibili.com/video/BV1tu4m1c753/
+lastVerifiedAt: '2026-10-19'

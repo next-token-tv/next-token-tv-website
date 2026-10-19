@@ -1,0 +1,19 @@
+name:
+  zh-Hans: RSS
+  en: RSS
+summary:
+  zh-Hans: 'RSS 是一种基于 XML 的内容订阅格式：网站把标题、摘要、链接等元数据组织成 feed 文件，订阅者用阅读器定期拉取该文件来获取更新。RSS 2.0 规范由 RSS Advisory Board 维护。'
+  en: 'RSS is an XML-based format for syndicating web content: a site publishes titles, summaries and links in a feed file that subscribers poll with a feed reader to pick up updates. The RSS 2.0 specification is maintained by the RSS Advisory Board.'
+aliases:
+  - Really Simple Syndication
+status: published
+sources:
+  - label:
+      zh-Hans: 'RSS Advisory Board：RSS 2.0 规范'
+      en: 'RSS Advisory Board: RSS 2.0 Specification'
+    href: https://www.rssboard.org/rss-specification
+  - label:
+      zh-Hans: 'IETF RFC 4287：Atom 联合格式'
+      en: 'IETF RFC 4287: The Atom Syndication Format'
+    href: https://www.rfc-editor.org/rfc/rfc4287
+lastVerifiedAt: '2026-10-11'

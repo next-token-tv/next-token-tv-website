@@ -1,0 +1,23 @@
+name:
+  zh-Hans: 提示词
+  en: Prompt
+summary:
+  zh-Hans: 提示词（prompt）是提供给生成式模型的输入，用自然语言、示例或约束告诉模型要完成什么任务、以什么形式回答。围绕如何写好提示词的实践称为提示工程（prompt engineering）。
+  en: A prompt is the input given to a generative model — natural language, examples or constraints that state what task to perform and in what form to answer. The practice of writing effective prompts is called prompt engineering.
+aliases:
+  - 提示
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：Prompt engineering
+      en: "Wikipedia: Prompt engineering"
+    href: https://en.wikipedia.org/wiki/Prompt_engineering
+  - label:
+      zh-Hans: OpenAI：Prompt engineering 指南
+      en: "OpenAI: Prompt engineering guide"
+    href: https://platform.openai.com/docs/guides/prompt-engineering
+  - label:
+      zh-Hans: Anthropic：Prompt engineering 概述
+      en: "Anthropic: Prompt engineering overview"
+    href: https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview
+lastVerifiedAt: '2026-10-11'

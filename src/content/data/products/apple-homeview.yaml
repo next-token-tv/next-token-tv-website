@@ -1,0 +1,18 @@
+kind: hardware
+name:
+  zh-Hans: Apple HomeView
+  en: Apple HomeView
+summary:
+  zh-Hans: Apple 的家用智能显示设备，用于家庭娱乐、视频通话和智能家居控制。
+  en: Apple’s smart home display for entertainment, video calls and home control.
+aliases:
+  - HomeView
+official:
+  website: https://www.apple.com/apple-homeview/
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://www.apple.com/apple-homeview/
+lastVerifiedAt: '2026-10-19'
+brand: apple

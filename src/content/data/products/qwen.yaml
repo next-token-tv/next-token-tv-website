@@ -4,7 +4,9 @@ name:
   en: Qwen
 summary:
   zh-Hans: Qwen 的基础模型家族，覆盖语言、视觉及其他模态，通过开放权重和 API 支持聊天、创作、翻译、总结、代码与多模态理解等场景。
-  en: Qwen's foundation-model family across language, vision, and other modalities, available through open weights and APIs for chat, creation, translation, summarization, coding, and multimodal understanding.
+  en: >-
+    Qwen's foundation-model family across language, vision, and other modalities, available through open weights and
+    APIs for chat, creation, translation, summarization, coding, and multimodal understanding.
 aliases:
   - 通义千问
   - 千问
@@ -17,6 +19,8 @@ aliases:
   - Qwen 3.8 Max
   - Qwen3.8-Max
   - Tongyi Qianwen
+  - Qwen 3.8
+  - Qwen 3.8 8B
 status: available
 official:
   website: https://qwen.ai/
@@ -34,7 +38,6 @@ sources:
       zh-Hans: Qwen 3.8 Max 官方资料
       en: Qwen 3.8 Max official information
     href: https://www.alibabacloud.com/help/en/model-studio/vision-model
-
 socialSummary:
   zh-Hans: 覆盖语言、视觉等多模态的基础模型家族
   en: A foundation-model family for language, vision, and other modalities.

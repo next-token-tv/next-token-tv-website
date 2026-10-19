@@ -1,0 +1,14 @@
+kind: creator-community
+name:
+  zh-Hans: 赵纯想
+  en: Zhao Chunxiang
+bio:
+  zh-Hans: 开发 AI 产品并分享创作与编程实践的独立创作者。
+  en: An independent creator developing AI products and sharing creative and coding practices.
+aliases: []
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or author source
+    href: https://chunxiang.ai/
+lastVerifiedAt: '2026-10-19'

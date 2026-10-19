@@ -1,0 +1,20 @@
+name:
+  zh-Hans: 云计算
+  en: Cloud Computing
+summary:
+  zh-Hans: 云计算是 NIST SP 800-145 定义的按需、自助获取可配置计算资源（网络、服务器、存储、应用与服务）的模型，资源可快速供给与释放，管理开销极小，通常按使用量计费。
+  en: Cloud computing, as defined by NIST SP 800-145, is a model for on-demand, self-service access to configurable computing resources (networks, servers, storage, applications and services) that can be rapidly provisioned and released with minimal management effort, usually billed by usage.
+aliases:
+  - Cloud
+  - 云服务
+status: published
+sources:
+  - label:
+      zh-Hans: "NIST SP 800-145：云计算定义（正式发布页）"
+      en: "NIST SP 800-145: The NIST Definition of Cloud Computing (final publication)"
+    href: https://csrc.nist.gov/pubs/sp/800/145/final
+  - label:
+      zh-Hans: "NIST SP 800-145 全文 PDF"
+      en: "NIST SP 800-145 full-text PDF"
+    href: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf
+lastVerifiedAt: '2026-10-11'

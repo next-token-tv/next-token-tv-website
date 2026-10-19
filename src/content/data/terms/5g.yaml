@@ -1,0 +1,24 @@
+name:
+  zh-Hans: 第五代移动通信
+  en: 5G
+summary:
+  zh-Hans: 5G 是第五代移动通信技术，由 3GPP 标准化，在 4G 之上提供更高的数据速率、更低的延迟和更强的连接密度。它引入了新的空口（5G NR）与更灵活的核心网架构，同时支持增强移动宽带和面向物联网的场景。
+  en: 5G is the fifth generation of mobile network technology, standardized by 3GPP to deliver higher data rates, lower latency, and greater connection density than 4G. It introduces a new radio interface (5G NR) and a more flexible core network, supporting both enhanced mobile broadband and internet-of-things use cases.
+aliases:
+  - 第五代移动通信技术
+  - 5G NR
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：5G
+      en: 'Wikipedia: 5G'
+    href: https://en.wikipedia.org/wiki/5G
+  - label:
+      zh-Hans: 3GPP：5G System Overview
+      en: '3GPP: 5G System Overview'
+    href: https://www.3gpp.org/technologies/5g-system-overview
+  - label:
+      zh-Hans: 高通：What is 5G?
+      en: 'Qualcomm: What is 5G?'
+    href: https://www.qualcomm.com/research/5g/what-is-5g
+lastVerifiedAt: '2026-10-11'

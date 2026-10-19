@@ -1,0 +1,17 @@
+kind: agent
+name:
+  zh-Hans: 灵光
+  en: Lingguang
+summary:
+  zh-Hans: 蚂蚁旗下的全模态 AI 助手。
+  en: A multimodal AI assistant from Ant Group.
+aliases:
+  - 蚂蚁灵光
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or author source
+    href: https://www.lingguang.com/
+lastVerifiedAt: '2026-10-19'
+official:
+  website: https://www.lingguang.com/

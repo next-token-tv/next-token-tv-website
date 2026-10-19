@@ -1,0 +1,15 @@
+name:
+  zh-Hans: 虚拟现实
+  en: Virtual Reality
+summary:
+  zh-Hans: 虚拟现实（VR）是用计算机构造并呈现完全虚拟环境的技术，用户通常借助头戴显示器等设备沉浸其中，视野随头部与身体动作实时变化。它以替换真实感官输入为特征。
+  en: Virtual Reality (VR) is a technology that builds and presents an entirely synthetic environment, usually experienced through a head-mounted display, with the view changing in real time as the head and body move. Its hallmark is replacing the user's real sensory input.
+aliases:
+  - VR
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：虚拟现实
+      en: "Wikipedia: Virtual reality"
+    href: https://en.wikipedia.org/wiki/Virtual_reality
+lastVerifiedAt: '2026-10-11'

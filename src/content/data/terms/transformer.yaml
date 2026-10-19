@@ -1,0 +1,22 @@
+name:
+  zh-Hans: Transformer
+  en: Transformer
+summary:
+  zh-Hans: Transformer 是一种以自注意力机制为核心的神经网络架构，由论文《Attention Is All You Need》提出，用于处理文本等序列数据，是大语言模型的基础架构。
+  en: The transformer is a neural network architecture built on self-attention, introduced in the paper "Attention Is All You Need" for processing sequences such as text; it is the architecture underlying large language models.
+aliases: []
+status: published
+lastVerifiedAt: '2026-10-11'
+sources:
+  - label:
+      zh-Hans: arXiv 论文《Attention Is All You Need》
+      en: arXiv paper "Attention Is All You Need"
+    href: https://arxiv.org/abs/1706.03762
+  - label:
+      zh-Hans: 维基百科：Transformer（深度学习架构）
+      en: 'Wikipedia: Transformer (deep learning architecture)'
+    href: https://en.wikipedia.org/wiki/Transformer_(deep_learning_architecture)
+  - label:
+      zh-Hans: Google Research 博客：Transformer 架构介绍
+      en: 'Google Research blog: Introducing the Transformer architecture'
+    href: https://research.google/blog/transformer-a-novel-neural-network-architecture-for-language-understanding/

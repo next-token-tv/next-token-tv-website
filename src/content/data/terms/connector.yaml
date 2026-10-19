@@ -1,0 +1,19 @@
+name:
+  zh-Hans: 连接器
+  en: Connector
+summary:
+  zh-Hans: 把智能体或 AI 助手接入外部工具、数据源与服务的集成配置；在 Claude 中，连接器大多基于 MCP 构建，可从官方目录安装。
+  en: A configured integration that links an agent or AI assistant to external tools, data sources and services; in Claude, connectors are largely built on MCP and can be installed from the official directory.
+aliases:
+  - Integration
+status: published
+sources:
+  - label:
+      zh-Hans: Anthropic：连接器目录
+      en: 'Anthropic: Connectors directory'
+    href: https://www.anthropic.com/news/connectors-directory
+  - label:
+      zh-Hans: Claude 平台文档：连接器
+      en: 'Claude platform docs: Connectors'
+    href: https://docs.claude.com/en/docs/agents-and-tools/connectors
+lastVerifiedAt: '2026-10-11'

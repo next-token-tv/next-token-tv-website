@@ -34,7 +34,8 @@
     "正文保留节目字幕原文，合并字幕断行并按发言分段；章节标题由编辑添加。"
   ],
   "excludedEntities": [
-    "product:diandian"
+    "product:diandian",
+    "brand:netease-youdao"
   ],
   "scopedAliases": [
     {
@@ -141,6 +142,81 @@
       "entityType": "product",
       "id": "artificial-analysis",
       "alias": "AA"
+    },
+    {
+      "entityType": "brand",
+      "id": "siemens-home",
+      "alias": "西门子"
+    },
+    {
+      "entityType": "product",
+      "id": "muse",
+      "alias": "Wonder"
+    },
+    {
+      "entityType": "product",
+      "id": "muse",
+      "alias": "Wonder Full"
+    },
+    {
+      "entityType": "product",
+      "id": "muse",
+      "alias": "Open Spark"
+    },
+    {
+      "entityType": "person",
+      "id": "li-jigang",
+      "alias": "继刚"
+    },
+    {
+      "entityType": "brand",
+      "id": "xai",
+      "alias": "SpaceX"
+    },
+    {
+      "entityType": "product",
+      "id": "claude",
+      "alias": "Fable 5.5"
+    },
+    {
+      "entityType": "product",
+      "id": "grok",
+      "alias": "Grok Voice 3"
+    },
+    {
+      "entityType": "product",
+      "id": "gemini",
+      "alias": "Argon"
+    },
+    {
+      "entityType": "product",
+      "id": "gemini",
+      "alias": "Gemini 4 Argon"
+    },
+    {
+      "entityType": "product",
+      "id": "step",
+      "alias": "阶跃 5 Preview"
+    },
+    {
+      "entityType": "product",
+      "id": "step",
+      "alias": "5 Preview"
+    },
+    {
+      "entityType": "product",
+      "id": "apple-health",
+      "alias": "Health"
+    },
+    {
+      "entityType": "product",
+      "id": "anatomy-skill",
+      "alias": "Anatomy"
+    },
+    {
+      "entityType": "person",
+      "id": "mediastorm-tim",
+      "alias": "Tim"
     }
   ]
 }

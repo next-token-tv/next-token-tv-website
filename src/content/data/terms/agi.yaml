@@ -1,0 +1,19 @@
+name:
+  zh-Hans: 通用人工智能
+  en: Artificial General Intelligence
+summary:
+  zh-Hans: 通用人工智能指能在广泛认知任务上达到人类水平、并把能力迁移到陌生领域的假想 AI 系统。它是研究界追求的目标，尚无公认已实现的系统。
+  en: Artificial general intelligence is a hypothetical AI system that matches human performance across a broad range of cognitive tasks and transfers its skills to unfamiliar domains. It remains a research goal with no widely acknowledged implementation.
+aliases:
+  - AGI
+status: published
+lastVerifiedAt: '2026-10-11'
+sources:
+  - label:
+      zh-Hans: 维基百科：通用人工智能
+      en: 'Wikipedia: Artificial general intelligence'
+    href: https://en.wikipedia.org/wiki/Artificial_general_intelligence
+  - label:
+      zh-Hans: arXiv 论文《Levels of AGI》（Google DeepMind）
+      en: arXiv paper "Levels of AGI" (Google DeepMind)
+    href: https://arxiv.org/abs/2311.02462

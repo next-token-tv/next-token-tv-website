@@ -1,0 +1,16 @@
+name:
+  zh-Hans: 游戏模组
+  en: Mod
+summary:
+  zh-Hans: Mod 是玩家或第三方对游戏本体做出的修改，可调整内容、机制或画面，从小的道具改动到整体玩法重制都属此类。安装模组的行为与产物都常被称为 mod。
+  en: A mod is a player- or third-party-made modification of a video game, adjusting its content, mechanics or presentation, ranging from small item tweaks to full overhauls. Both the practice of modifying and its output are commonly called mods.
+aliases:
+  - Mods
+  - 模组
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：电子游戏模组
+      en: "Wikipedia: Video game modding"
+    href: https://en.wikipedia.org/wiki/Video_game_modding
+lastVerifiedAt: '2026-10-11'

@@ -1,0 +1,18 @@
+kind: agent
+name:
+  zh-Hans: CatPaw
+  en: CatPaw
+summary:
+  zh-Hans: 美团的 AI 智能体工具，覆盖编程与办公、商家经营等任务。
+  en: Meituan’s AI agent tools for coding, office work and merchant operations.
+aliases:
+  - 妙手
+  - Meituan CatPaw
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or author source
+    href: https://tech.meituan.com/2026/07/28/CatPaw-LongCat.html
+lastVerifiedAt: '2026-10-19'
+official:
+  website: https://tech.meituan.com/2026/07/28/CatPaw-LongCat.html

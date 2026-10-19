@@ -1,0 +1,19 @@
+name:
+  zh-Hans: 智能体记忆
+  en: Agent Memory
+summary:
+  zh-Hans: 智能体记忆指 AI 系统跨会话持久保存并复用信息的机制，使模型在对话结束后仍能记住用户的事实、偏好与工作内容。在智能体语境中，它常以文件或数据库的形式存在，与单次对话内的上下文相区分。
+  en: Agent memory is the mechanism by which an AI system persists and reuses information across sessions, so the model still knows a user's facts, preferences, and ongoing work after a conversation ends. In the agent context it often lives in files or databases, distinct from the context of a single conversation.
+aliases:
+  - Memory
+status: published
+sources:
+  - label:
+      zh-Hans: LangGraph 文档：记忆（Memory）
+      en: 'LangGraph docs: Memory'
+    href: https://docs.langchain.com/oss/python/concepts/memory
+  - label:
+      zh-Hans: Anthropic 文档：Claude 的记忆
+      en: 'Anthropic docs: Claude''s memory'
+    href: https://docs.anthropic.com/en/docs/build-with-claude/memory
+lastVerifiedAt: '2026-10-11'

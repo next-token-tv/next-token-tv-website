@@ -1,0 +1,15 @@
+name:
+  zh-Hans: AI 垃圾内容
+  en: AI Slop
+summary:
+  zh-Hans: 用生成式 AI 大量生产、缺乏投入与意义的低质量数字内容，通常以获利、博取流量或欺骗为目的。
+  en: Low-quality digital content mass-produced with generative AI, typically created at volume to gain traffic, earn money or deceive people.
+aliases:
+  - Slop
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：AI slop
+      en: 'Wikipedia: AI slop'
+    href: https://en.wikipedia.org/wiki/AI_slop
+lastVerifiedAt: '2026-10-11'

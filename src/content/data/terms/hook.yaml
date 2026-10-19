@@ -1,0 +1,15 @@
+name:
+  zh-Hans: 钩子
+  en: Hook
+summary:
+  zh-Hans: 钩子（hook）是软件在事件或生命周期特定阶段预留的扩展点，允许外部代码在不修改主体程序的情况下插入自定义逻辑。Git、前端框架与 AI Agent 工具链中都大量使用这一机制。
+  en: A hook is an extension point a program reserves at specific events or lifecycle stages, letting external code inject custom logic without modifying the main program. The mechanism is widely used in Git, front-end frameworks and AI agent toolchains.
+aliases:
+  - 钩子函数
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：钩子编程
+      en: "Wikipedia: Hooking"
+    href: https://en.wikipedia.org/wiki/Hooking
+lastVerifiedAt: '2026-10-11'

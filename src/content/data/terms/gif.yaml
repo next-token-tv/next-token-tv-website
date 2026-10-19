@@ -1,0 +1,19 @@
+name:
+  zh-Hans: GIF
+  en: GIF
+summary:
+  zh-Hans: GIF（Graphics Interchange Format）是一种位图图像格式，由 CompuServe 于 1987 年发布，使用 LZW 无损压缩，每帧最多 256 色，并支持逐帧动画。当前通行的版本由 1989 年的 GIF89a 规范定义。
+  en: GIF (Graphics Interchange Format) is a bitmap image format released by CompuServe in 1987, using lossless LZW compression, at most 256 colors per frame, with support for frame-by-frame animation. The version in common use is defined by the 1989 GIF89a specification.
+aliases:
+  - Graphics Interchange Format
+status: published
+sources:
+  - label:
+      zh-Hans: W3C 托管：GIF89a 图形交换格式规范
+      en: GIF89a Graphics Interchange Format specification (hosted by W3C)
+    href: https://www.w3.org/Graphics/GIF/spec-gif89a.txt
+  - label:
+      zh-Hans: 维基百科：GIF
+      en: "Wikipedia: GIF"
+    href: https://en.wikipedia.org/wiki/GIF
+lastVerifiedAt: '2026-10-11'

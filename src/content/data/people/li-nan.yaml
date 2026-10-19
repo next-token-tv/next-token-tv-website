@@ -1,0 +1,14 @@
+kind: business
+name:
+  zh-Hans: 李楠
+  en: Li Nan
+bio:
+  zh-Hans: 怒喵科技创始人。
+  en: Founder of Angry Miao.
+aliases: []
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or author source
+    href: https://www.reddit.com/r/angrymiao/comments/1w0l0gl/were_angry_miao_li_nan_and_the_team_are_here_ask/
+lastVerifiedAt: '2026-10-19'

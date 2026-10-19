@@ -29,6 +29,10 @@ mentions:
     - lego
     - seamate
     - plantower
+    - next-token
+    - tencent
+    - cxmt
+    - apple
   products:
     - dots
     - instinct
@@ -114,6 +118,9 @@ mentions:
     - hyperxiaoai
     - apple-tv-remote
     - jimeng
+    - doubao
+    - minimax
+    - mimo
   people:
     - tao-fangbo
     - kazike
@@ -123,6 +130,7 @@ mentions:
     - lenny-rachitsky
     - wang-le
     - zhang-xiaolong
+    - luo-fuli
 transcriptPublishedAt: '2026-10-08'
 productionImport: next-token-weekly--005.production
 media:
@@ -175,8 +183,12 @@ homepage:
     heading:
       - 国庆补课：PA 大战白热化；
       - 游戏、软件、硬件，一切都将开源？
-    lede: 国庆假期，Personal Agent 成了我们的共同话题。我们从 Dots 放进 Codex 后的上手体验、记忆与云电脑权限聊起，讨论 Agent 应该是助理还是数字分身；再聊 Instinct 的订房和商旅模式，以及邮箱、微信与 RSS 的信息开放差异。
-    copy: 国庆假期，Personal Agent 成了我们的共同话题。我们从 Dots 放进 Codex 后的上手体验、记忆与云电脑权限聊起，讨论 Agent 应该是助理还是数字分身；再聊 Instinct 的订房和商旅模式，以及邮箱、微信与 RSS 的信息开放差异。
+    lede: >-
+      国庆假期，Personal Agent 成了我们的共同话题。我们从 Dots 放进 Codex 后的上手体验、记忆与云电脑权限聊起，讨论 Agent 应该是助理还是数字分身；再聊 Instinct
+      的订房和商旅模式，以及邮箱、微信与 RSS 的信息开放差异。
+    copy: >-
+      国庆假期，Personal Agent 成了我们的共同话题。我们从 Dots 放进 Codex 后的上手体验、记忆与云电脑权限聊起，讨论 Agent 应该是助理还是数字分身；再聊 Instinct
+      的订房和商旅模式，以及邮箱、微信与 RSS 的信息开放差异。
     imageAlt: '#005 国庆补课：PA 大战白热化；游戏、软件、硬件，一切都将开源？'
     topicsLabel: 本期议题
     topics:
@@ -190,8 +202,12 @@ homepage:
     heading:
       - The personal agent race heats up.
       - Will everything go open source?
-    lede: 'From Dots and Instinct to games, software rewrites and small hardware: four co-hosts share hands-on experiences with personal agents, memory, permissions, open ecosystems and multi-model workflows.'
-    copy: 'From Dots and Instinct to games, software rewrites and small hardware: four co-hosts share hands-on experiences with personal agents, memory, permissions, open ecosystems and multi-model workflows.'
+    lede: >-
+      From Dots and Instinct to games, software rewrites and small hardware: four co-hosts share hands-on experiences
+      with personal agents, memory, permissions, open ecosystems and multi-model workflows.
+    copy: >-
+      From Dots and Instinct to games, software rewrites and small hardware: four co-hosts share hands-on experiences
+      with personal agents, memory, permissions, open ecosystems and multi-model workflows.
     imageAlt: '#005 Holiday catch-up: the personal agent race heats up; will games, software and hardware all go open source?'
     topicsLabel: Episode topics
     topics:

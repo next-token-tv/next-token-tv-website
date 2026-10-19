@@ -1,0 +1,16 @@
+name:
+  zh-Hans: 视觉特效
+  en: Visual Effects
+summary:
+  zh-Hans: 视觉特效（VFX）指在实拍之外，通过合成、计算机生成图像（CGI）等手段在后期制作中创造或改变影像的技术，广泛用于影视与广告。3D 计算机图形是 VFX 的核心工具之一。
+  en: Visual effects (VFX) refers to creating or altering imagery in post-production through compositing, computer-generated imagery (CGI) and related techniques beyond what was captured on set, widely used in film and advertising. 3D computer graphics are one of its core tools.
+aliases:
+  - VFX
+  - 视效
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：视觉特效
+      en: "Wikipedia: Visual effects"
+    href: https://en.wikipedia.org/wiki/Visual_effects
+lastVerifiedAt: '2026-10-11'

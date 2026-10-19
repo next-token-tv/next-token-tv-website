@@ -1,0 +1,35 @@
+{
+  "kind": "developer-tool",
+  "name": {
+    "zh-Hans": "Google AI Studio",
+    "en": "Google AI Studio"
+  },
+  "summary": {
+    "zh-Hans": "用于试验 Gemini 模型、调试提示词和构建 AI 应用的开发工具。",
+    "en": "A developer tool for experimenting with Gemini models, testing prompts and building AI applications."
+  },
+  "aliases": [
+    "AI Studio"
+  ],
+  "official": {
+    "website": "https://aistudio.google.com/"
+  },
+  "sources": [
+    {
+      "label": {
+        "zh-Hans": "官方资料",
+        "en": "Official information"
+      },
+      "href": "https://aistudio.google.com/"
+    },
+    {
+      "label": {
+        "zh-Hans": "官方开发文档",
+        "en": "Official developer documentation"
+      },
+      "href": "https://ai.google.dev/gemini-api/docs/ai-studio-quickstart"
+    }
+  ],
+  "lastVerifiedAt": "2026-10-19",
+  "brand": "google"
+}

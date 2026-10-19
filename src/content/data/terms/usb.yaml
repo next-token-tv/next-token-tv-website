@@ -1,0 +1,15 @@
+name:
+  zh-Hans: 通用串行总线
+  en: Universal Serial Bus
+summary:
+  zh-Hans: 通用串行总线（USB）是由 USB 开发者论坛（USB-IF）制定的外设连接标准，用于在计算机与外部设备之间传输数据并供电。它统一了键鼠、存储、显示等多种设备的接口方式，常见形态包括 USB Type-A 与 USB Type-C 连接器。
+  en: Universal Serial Bus (USB) is a standard for connecting peripherals, defined by the USB Implementers Forum (USB-IF), carrying both data and power between computers and external devices. It unified how keyboards, storage, displays and more attach to a host, with USB Type-A and USB Type-C as familiar connector shapes.
+aliases:
+  - USB
+status: published
+sources:
+  - label:
+      zh-Hans: "USB 开发者论坛（USB-IF）官方站点"
+      en: "USB Implementers Forum (USB-IF) official site"
+    href: https://www.usb.org/
+lastVerifiedAt: '2026-10-11'

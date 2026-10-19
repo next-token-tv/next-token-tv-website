@@ -1,0 +1,17 @@
+kind: developer-tool
+name:
+  zh-Hans: REA
+  en: REA
+summary:
+  zh-Hans: 为 AI 编程智能体提供软件行为分析与二进制逆向工具的开源项目。
+  en: An open-source project providing software behavior analysis and binary reverse-engineering tools to coding agents.
+aliases:
+  - Reverse Engineer Anything
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or author source
+    href: https://github.com/morluto/rea
+lastVerifiedAt: '2026-10-19'
+official:
+  website: https://github.com/morluto/rea

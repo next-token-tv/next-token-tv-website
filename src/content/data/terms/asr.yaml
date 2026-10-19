@@ -1,0 +1,21 @@
+name:
+  zh-Hans: 自动语音识别
+  en: Automatic Speech Recognition
+summary:
+  zh-Hans: 自动语音识别（ASR）是把语音音频自动转写成文本的技术，也常称语音转文字（Speech-to-Text）。它是字幕生成、语音输入与会议转写等应用的核心。
+  en: Automatic speech recognition (ASR) is the technology that transcribes spoken audio into text automatically, also known as speech-to-text. It powers captioning, voice input and meeting transcription.
+aliases:
+  - ASR
+  - Speech-to-Text
+  - 语音识别
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：Speech recognition
+      en: "Wikipedia: Speech recognition"
+    href: https://en.wikipedia.org/wiki/Speech_recognition
+  - label:
+      zh-Hans: OpenAI Whisper（开源 ASR 模型）
+      en: OpenAI Whisper (open-source ASR model)
+    href: https://github.com/openai/whisper
+lastVerifiedAt: '2026-10-11'

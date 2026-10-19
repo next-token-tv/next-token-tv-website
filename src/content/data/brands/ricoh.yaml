@@ -1,0 +1,25 @@
+{
+  "kind": "hardware-brand",
+  "name": {
+    "zh-Hans": "理光",
+    "en": "Ricoh"
+  },
+  "summary": {
+    "zh-Hans": "业务涵盖办公设备、数字服务及影像产品的企业集团。",
+    "en": "A corporate group providing office equipment, digital services and imaging products."
+  },
+  "aliases": [],
+  "official": {
+    "website": "https://www.ricoh.com/about"
+  },
+  "sources": [
+    {
+      "label": {
+        "zh-Hans": "官方资料",
+        "en": "Official information"
+      },
+      "href": "https://www.ricoh.com/about"
+    }
+  ],
+  "lastVerifiedAt": "2026-10-19"
+}

@@ -1,0 +1,14 @@
+kind: research-engineering
+name:
+  zh-Hans: 陶哲轩
+  en: Terence Tao
+bio:
+  zh-Hans: 加州大学洛杉矶分校数学家。
+  en: A mathematician at the University of California, Los Angeles.
+aliases: []
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or author source
+    href: https://www.math.ucla.edu/~tao/
+lastVerifiedAt: '2026-10-19'

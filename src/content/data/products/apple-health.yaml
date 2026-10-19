@@ -1,0 +1,17 @@
+kind: application
+name:
+  zh-Hans: Apple Health
+  en: Apple Health
+summary:
+  zh-Hans: Apple 用于汇总健康与健身数据的应用。
+  en: Apple’s app for bringing together health and fitness data.
+aliases: []
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or author source
+    href: https://www.apple.com/health/
+lastVerifiedAt: '2026-10-19'
+official:
+  website: https://www.apple.com/health/
+brand: apple

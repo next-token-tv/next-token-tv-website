@@ -1,0 +1,14 @@
+kind: creator-community
+name:
+  zh-Hans: 宝玉
+  en: Baoyu
+bio:
+  zh-Hans: 分享 AI、软件开发与技术翻译的博主。
+  en: A blogger sharing AI, software development and technology translations.
+aliases: []
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or author source
+    href: https://baoyu.io/
+lastVerifiedAt: '2026-10-19'

@@ -1,0 +1,16 @@
+kind: agent
+name:
+  zh-Hans: Today AI
+  en: Today AI
+summary:
+  zh-Hans: 面向日常生活、结合记忆和主动任务执行的个人 AI 智能体。
+  en: A personal AI agent combining memory and proactive tasks for everyday life.
+aliases: []
+official:
+  website: https://today.ai/articles/blog/what-is-today
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://today.ai/articles/blog/what-is-today
+lastVerifiedAt: '2026-10-19'

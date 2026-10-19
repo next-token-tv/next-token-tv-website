@@ -47,3 +47,5 @@ sources:
     href: https://dhh.dk/
 
 kind: research-engineering
+additionalKinds:
+  - business

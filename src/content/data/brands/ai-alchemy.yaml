@@ -1,0 +1,17 @@
+kind: media-community-brand
+name:
+  zh-Hans: AI 炼金术
+  en: AI Alchemy
+summary:
+  zh-Hans: 讨论人工智能、产品与创业实践的中文播客。
+  en: A Chinese-language podcast discussing AI, products and entrepreneurship.
+aliases:
+  - AI炼金术
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or author source
+    href: https://podcasts.apple.com/cn/podcast/ai%E7%82%BC%E9%87%91%E6%9C%AF/id1671502201
+lastVerifiedAt: '2026-10-19'
+official:
+  website: https://podcasts.apple.com/cn/podcast/ai%E7%82%BC%E9%87%91%E6%9C%AF/id1671502201

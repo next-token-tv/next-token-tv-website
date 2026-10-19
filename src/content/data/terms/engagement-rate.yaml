@@ -1,0 +1,14 @@
+name:
+  zh-Hans: 互动率
+  en: Engagement Rate
+summary:
+  zh-Hans: '互动率是衡量受众与内容互动程度的指标，通常以点赞、评论、分享等互动行为数量除以曝光量、触达人数或粉丝数计算，常以百分比表示。'
+  en: 'Engagement rate measures how much an audience interacts with content, usually computed as the number of interactions such as likes, comments and shares divided by impressions, reach or followers, and expressed as a percentage.'
+aliases: []
+status: published
+sources:
+  - label:
+      zh-Hans: 'Sprout Social 术语表：互动率'
+      en: 'Sprout Social Glossary: Engagement Rate'
+    href: https://sproutsocial.com/glossary/engagement-rate/
+lastVerifiedAt: '2026-10-11'

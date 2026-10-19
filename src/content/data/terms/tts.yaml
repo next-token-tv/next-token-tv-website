@@ -1,0 +1,21 @@
+name:
+  zh-Hans: 文本转语音
+  en: Text-to-Speech
+summary:
+  zh-Hans: 文本转语音（TTS），又称语音合成（Speech Synthesis），是把书面文本转换为可听语音的技术。现代神经 TTS 能生成接近真人的声音，并支持用少量样本克隆音色。
+  en: Text-to-speech (TTS), also called speech synthesis, is the technology that converts written text into audible speech. Modern neural TTS can produce near-human voices and clone a voice from a short sample.
+aliases:
+  - TTS
+  - Speech Synthesis
+  - 语音合成
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：Speech synthesis
+      en: "Wikipedia: Speech synthesis"
+    href: https://en.wikipedia.org/wiki/Speech_synthesis
+  - label:
+      zh-Hans: MDN：Web Speech API SpeechSynthesis
+      en: "MDN: Web Speech API SpeechSynthesis"
+    href: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
+lastVerifiedAt: '2026-10-11'

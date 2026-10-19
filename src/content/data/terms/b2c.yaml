@@ -1,0 +1,17 @@
+name:
+  zh-Hans: 面向消费者
+  en: Business-to-Consumer
+summary:
+  zh-Hans: 面向消费者（B2C）指企业直接把产品或服务卖给个人消费者的商业模式，典型如电商、流媒体订阅与连锁零售。中文语境也常说"C 端""To C"。
+  en: Business-to-consumer (B2C) describes companies that sell products or services directly to individual consumers, as in e-commerce, streaming subscriptions and retail chains.
+aliases:
+  - C 端
+  - To C
+  - B2C
+status: published
+sources:
+  - label:
+      zh-Hans: "维基百科：企业对消费者"
+      en: "Wikipedia: Business-to-consumer"
+    href: https://en.wikipedia.org/wiki/Business-to-consumer
+lastVerifiedAt: '2026-10-11'

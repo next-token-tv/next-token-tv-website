@@ -1,0 +1,19 @@
+name:
+  zh-Hans: Markdown
+  en: Markdown
+summary:
+  zh-Hans: Markdown 是一种轻量级标记语言，用纯文本符号（如 #、*、>）表示标题、列表、链接等结构，可转换为 HTML 等格式。广泛用于 README、技术文档、笔记与博客写作。
+  en: Markdown is a lightweight markup language that uses plain-text symbols (such as #, * and >) to express headings, lists, links and other structures, and can be converted to HTML. It is widely used for READMEs, technical docs, notes and blog writing.
+aliases:
+  - md
+status: published
+lastVerifiedAt: '2026-10-11'
+sources:
+  - label:
+      zh-Hans: CommonMark 规范
+      en: CommonMark Spec
+    href: https://spec.commonmark.org/
+  - label:
+      zh-Hans: Daring Fireball：Markdown 语法文档
+      en: 'Daring Fireball: Markdown Syntax Documentation'
+    href: https://daringfireball.net/projects/markdown/

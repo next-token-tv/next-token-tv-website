@@ -1,0 +1,15 @@
+name:
+  zh-Hans: 应用服务器
+  en: Application Server
+summary:
+  zh-Hans: 应用服务器是承载应用业务逻辑、向客户端提供应用层服务的软件环境，例如 Tomcat 或 Node.js 运行时，通常在 Web 服务器之后处理动态请求。
+  en: An application server is a software environment that hosts an application's business logic and serves application-level requests to clients, such as Tomcat or a Node.js runtime, typically handling dynamic requests behind a web server.
+aliases:
+  - App Server
+status: published
+sources:
+  - label:
+      zh-Hans: "MDN：服务器端网站编程入门"
+      en: "MDN: Getting started with server-side programming"
+    href: https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/First_steps/Introduction
+lastVerifiedAt: '2026-10-11'

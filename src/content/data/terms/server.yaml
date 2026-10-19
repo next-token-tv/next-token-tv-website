@@ -1,0 +1,18 @@
+name:
+  zh-Hans: 服务器
+  en: Server
+summary:
+  zh-Hans: 服务器是为其他程序或设备（客户端）提供服务的计算机或软件。硬件语境指数据中心里承载计算与存储的设备，软件语境指监听并响应请求的进程，如 Web 服务器。
+  en: A server is a computer or program that provides services to other programs or devices (clients). In a hardware sense it refers to the computing equipment in data centers; in a software sense it is a process that listens for and answers requests, such as a web server.
+aliases: []
+status: published
+sources:
+  - label:
+      zh-Hans: "MDN：什么是 Web 服务器"
+      en: "MDN: What is a web server"
+    href: https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_web_server
+  - label:
+      zh-Hans: "MDN：服务器端网站编程入门"
+      en: "MDN: Getting started with server-side programming"
+    href: https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/First_steps/Introduction
+lastVerifiedAt: '2026-10-11'

@@ -1,0 +1,15 @@
+name:
+  zh-Hans: 互联网
+  en: Internet
+summary:
+  zh-Hans: 互联网是全球性的计算机网络系统，通过 TCP/IP 协议族把不同的网络互连在一起，承载万维网、电子邮件等众多服务。中国大陆标准译名为"互联网"。
+  en: The internet is a global system of interconnected computer networks that communicate using the TCP/IP protocol suite, carrying services such as the web and email.
+aliases:
+  - 因特网
+status: published
+sources:
+  - label:
+      zh-Hans: "互联网协会：What is the internet?"
+      en: "Internet Society: What is the internet?"
+    href: https://www.internetsociety.org/internet/
+lastVerifiedAt: '2026-10-11'

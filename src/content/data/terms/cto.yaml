@@ -1,0 +1,15 @@
+name:
+  zh-Hans: 首席技术官
+  en: Chief Technology Officer
+summary:
+  zh-Hans: 首席技术官（CTO）是公司负责技术战略与工程组织的高管，决定技术路线、带领研发团队把产品做出来，通常向 CEO 汇报。
+  en: The chief technology officer (CTO) is the executive in charge of a company's technology strategy and engineering organization, setting the technical direction and leading the R&D team that builds the product, usually reporting to the CEO.
+aliases:
+  - CTO
+status: published
+sources:
+  - label:
+      zh-Hans: "维基百科：首席技术官"
+      en: "Wikipedia: Chief technology officer"
+    href: https://en.wikipedia.org/wiki/Chief_technology_officer
+lastVerifiedAt: '2026-10-11'

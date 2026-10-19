@@ -1,0 +1,15 @@
+name:
+  zh-Hans: 搜索引擎优化
+  en: Search Engine Optimization
+summary:
+  zh-Hans: '搜索引擎优化（SEO）指通过改进内容质量、网站技术结构与外部链接，使网页在搜索引擎的自然（非付费）结果中获得更好收录与排名的实践。'
+  en: 'Search engine optimization (SEO) is the practice of improving content, technical structure and backlinks so that pages get indexed and ranked better in the organic (non-paid) results of search engines.'
+aliases:
+  - SEO
+status: published
+sources:
+  - label:
+      zh-Hans: 'Google 搜索中心：搜索引擎优化（SEO）新手指南'
+      en: 'Google Search Central: SEO Starter Guide'
+    href: https://developers.google.com/search/docs/fundamentals/seo-starter-guide
+lastVerifiedAt: '2026-10-11'

@@ -1,0 +1,15 @@
+name:
+  zh-Hans: 操作系统
+  en: Operating System
+summary:
+  zh-Hans: 操作系统（OS）是管理计算机硬件资源并为应用程序提供运行环境的系统软件，负责进程调度、内存管理、文件系统与设备驱动等基础工作。Windows、macOS、Linux 都是常见的操作系统。
+  en: An operating system (OS) is system software that manages a computer's hardware resources and provides the environment in which applications run, handling process scheduling, memory management, file systems and device drivers. Windows, macOS and Linux are common examples.
+aliases:
+  - OS
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：操作系统
+      en: "Wikipedia: Operating system"
+    href: https://en.wikipedia.org/wiki/Operating_system
+lastVerifiedAt: '2026-10-11'

@@ -1,0 +1,17 @@
+kind: platform
+name:
+  zh-Hans: 比特币
+  en: Bitcoin
+summary:
+  zh-Hans: 基于点对点网络运行的开源数字货币系统。
+  en: An open-source digital currency system operating on a peer-to-peer network.
+aliases:
+  - BTC
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or author source
+    href: https://bitcoin.org/en/
+lastVerifiedAt: '2026-10-19'
+official:
+  website: https://bitcoin.org/en/

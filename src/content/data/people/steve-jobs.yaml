@@ -1,0 +1,15 @@
+kind: business
+name:
+  zh-Hans: 史蒂夫·乔布斯
+  en: Steve Jobs
+bio:
+  zh-Hans: Apple 联合创始人。
+  en: Co-founder of Apple.
+aliases:
+  - 乔布斯
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or author source
+    href: https://www.apple.com/stevejobs/
+lastVerifiedAt: '2026-10-19'

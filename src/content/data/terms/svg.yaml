@@ -1,0 +1,19 @@
+name:
+  zh-Hans: 可缩放矢量图形
+  en: Scalable Vector Graphics
+summary:
+  zh-Hans: 可缩放矢量图形（SVG）是 W3C 制定的基于 XML 的矢量图像格式，用数学描述形状、路径与文字，可无损缩放到任意尺寸。与按像素存储的位图格式（如 GIF）相对，SVG 常用于图标与插图。
+  en: Scalable Vector Graphics (SVG) is an XML-based vector image format defined by the W3C, describing shapes, paths and text mathematically so images scale to any size without loss. Unlike pixel-based bitmap formats such as GIF, SVG is commonly used for icons and illustrations.
+aliases:
+  - SVG
+status: published
+sources:
+  - label:
+      zh-Hans: W3C：SVG 图形页面
+      en: "W3C: SVG (Graphics page)"
+    href: https://www.w3.org/Graphics/SVG/
+  - label:
+      zh-Hans: W3C：SVG 1.1 规范
+      en: "W3C: SVG 1.1 Specification"
+    href: https://www.w3.org/TR/SVG11/
+lastVerifiedAt: '2026-10-11'

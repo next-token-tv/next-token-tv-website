@@ -1,0 +1,19 @@
+name:
+  zh-Hans: 关键绩效指标
+  en: Key Performance Indicator
+summary:
+  zh-Hans: 关键绩效指标（KPI）指组织为衡量某项目标达成程度而选定的可量化核心指标，如月度活跃用户、客户流失率、毛利率。好的 KPI 与战略目标直接挂钩，数量通常很少。
+  en: A key performance indicator (KPI) is a quantifiable measure an organization selects to gauge progress toward an important objective, such as monthly active users, customer churn rate or gross margin. Good KPIs tie directly to strategy and are few in number.
+aliases:
+  - KPI
+status: published
+sources:
+  - label:
+      zh-Hans: "KPI.org：KPI 基础"
+      en: "KPI.org: KPI Basics"
+    href: https://kpi.org/KPI-Basics
+  - label:
+      zh-Hans: "维基百科：绩效指标"
+      en: "Wikipedia: Performance indicator"
+    href: https://en.wikipedia.org/wiki/Performance_indicator
+lastVerifiedAt: '2026-10-11'

@@ -1,0 +1,19 @@
+name:
+  zh-Hans: 工作流
+  en: Workflow
+summary:
+  zh-Hans: 按预定义步骤编排任务的技术流程；在 AI 语境中，工作流指由开发者预先编排、模型沿固定路径执行的自动化方式，与自主决定步骤的智能体相对。
+  en: A process orchestrated through predefined steps; in the AI context, a workflow has developers prescribe the path and the LLM follow it, as opposed to an agent that decides its own steps.
+aliases:
+  - Workflow Automation
+status: published
+sources:
+  - label:
+      zh-Hans: Anthropic：构建高效的智能体（工作流与智能体之辨）
+      en: 'Anthropic: Building effective agents (workflows vs agents)'
+    href: https://www.anthropic.com/research/building-effective-agents
+  - label:
+      zh-Hans: 维基百科：工作流
+      en: 'Wikipedia: Workflow'
+    href: https://en.wikipedia.org/wiki/Workflow
+lastVerifiedAt: '2026-10-11'

@@ -1,0 +1,19 @@
+name:
+  zh-Hans: 会话
+  en: Session
+summary:
+  zh-Hans: 用户与系统之间一段有边界的连续交互过程，期间相关的状态与上下文被保持；在 AI 助手语境中指一次完整的对话及其携带的上下文。
+  en: A bounded period of continuous interaction between a user and a system, during which related state and context are preserved; in AI assistant contexts, one complete conversation and the context it carries.
+aliases:
+  - 会话期
+status: published
+sources:
+  - label:
+      zh-Hans: MDN Web 文档：使用 HTTP Cookies
+      en: "MDN Web Docs: Using HTTP cookies"
+    href: https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
+  - label:
+      zh-Hans: "Wikipedia：Session（computer science）"
+      en: "Wikipedia: Session (computer science)"
+    href: https://en.wikipedia.org/wiki/Session_(computer_science)
+lastVerifiedAt: '2026-10-11'

@@ -1,0 +1,14 @@
+name:
+  zh-Hans: 分叉
+  en: Fork
+summary:
+  zh-Hans: 在软件开发中，分叉指在既有项目或代码仓库基础上复制出一份独立副本，以便自由修改、独立演进。在 GitHub 等托管平台上，fork 是对他人仓库的个人副本，改动可通过 pull request 贡献回原项目。
+  en: In software development, a fork is an independent copy of an existing project or repository that can be modified and evolved on its own. On platforms like GitHub, a fork is a personal copy of someone else's repository, and changes can be contributed back through pull requests.
+aliases: []
+status: published
+sources:
+  - label:
+      zh-Hans: "GitHub 文档：关于 Fork"
+      en: "GitHub Docs: About forks"
+    href: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks
+lastVerifiedAt: '2026-10-11'

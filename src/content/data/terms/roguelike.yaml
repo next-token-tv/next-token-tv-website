@@ -1,0 +1,15 @@
+name:
+  zh-Hans: Roguelike
+  en: Roguelike
+summary:
+  zh-Hans: Roguelike（类 Rogue 游戏）是源自 1980 年游戏 Rogue 的电子游戏类型，通常以回合制、网格地图、程序随机生成关卡与永久死亡为判定要素。玩家每次游玩的地图与遭遇都不同，死亡后需从头开始。
+  en: Roguelike is a video game genre descended from the 1980 game Rogue, commonly identified by turn-based play, grid-based maps, procedurally generated levels and permadeath. Each run offers different maps and encounters, and death means starting over.
+aliases:
+  - 类 Rogue 游戏
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：Roguelike
+      en: "Wikipedia: Roguelike"
+    href: https://en.wikipedia.org/wiki/Roguelike
+lastVerifiedAt: '2026-10-11'

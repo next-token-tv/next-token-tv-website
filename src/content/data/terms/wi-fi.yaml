@@ -1,0 +1,21 @@
+name:
+  zh-Hans: Wi-Fi
+  en: Wi-Fi
+summary:
+  zh-Hans: Wi-Fi 是基于 IEEE 802.11 标准系列的无线局域网技术，由 Wi-Fi 联盟负责商标与认证。它让手机、电脑等设备通过无线路由器接入网络，是家庭与公共场所最常用的上网方式之一。
+  en: Wi-Fi is a wireless local area network technology based on the IEEE 802.11 family of standards, with the Wi-Fi Alliance handling trademark and certification. It lets phones, laptops, and other devices connect through wireless routers and is among the most common ways to access networks at home and in public spaces.
+aliases:
+  - WiFi
+  - IEEE 802.11
+  - 无线局域网
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：Wi-Fi
+      en: 'Wikipedia: Wi-Fi'
+    href: https://en.wikipedia.org/wiki/Wi-Fi
+  - label:
+      zh-Hans: Wi-Fi 联盟：Discover Wi-Fi
+      en: 'Wi-Fi Alliance: Discover Wi-Fi'
+    href: https://www.wi-fi.org/discover-wi-fi
+lastVerifiedAt: '2026-10-11'

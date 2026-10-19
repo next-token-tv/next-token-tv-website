@@ -4,17 +4,28 @@ name:
   zh-Hans: Muse
   en: Muse
 summary:
-  zh-Hans: Meta Superintelligence Labs 开发的人工智能模型家族，Muse Spark 是该家族首个模型；与同名个人智能体产品分开收录。
-  en: The AI model family developed by Meta Superintelligence Labs, beginning with Muse Spark; distinct from the personal agent product of the same name.
+  zh-Hans: Meta Superintelligence Labs 开发的 AI 模型家族，包括 Muse Spark、Muse Wonder 等模型。
+  en: An AI model family developed by Meta Superintelligence Labs, including Muse Spark and Muse Wonder.
 aliases:
   - Muse Spark 1.3
   - Muse Voice Transcribe
   - Muse Spark
+  - Muse Wonder
+  - Muse Wonder Full
+  - Muse Spark Open
 official:
   website: https://ai.meta.com/blog/introducing-muse-spark-msl/
-lastVerifiedAt: '2026-09-27'
+lastVerifiedAt: '2026-10-19'
 sources:
   - label:
       zh-Hans: Meta 官方模型家族说明
       en: Meta model family announcement
     href: https://ai.meta.com/blog/introducing-muse-spark-msl/
+  - label:
+      zh-Hans: Muse Wonder 官方说明
+      en: Muse Wonder official announcement
+    href: https://research.meta.ai/blog/muse-wonder
+  - label:
+      zh-Hans: Meta 模型目录
+      en: Meta model catalog
+    href: https://dev.meta.ai/docs/models

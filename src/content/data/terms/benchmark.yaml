@@ -1,0 +1,18 @@
+name:
+  zh-Hans: 基准测试
+  en: Benchmark
+summary:
+  zh-Hans: 基准测试是用固定数据集和统一评分规则衡量系统表现的方法。在 AI 领域，它通常是成套的题目加自动评分标准，用来给模型能力打分并做横向比较。
+  en: A benchmark measures a system's performance using a fixed dataset and a uniform scoring rule. In AI, it is typically a set of tasks plus automatic scoring, used to grade model capability and compare models against each other.
+aliases: []
+status: published
+lastVerifiedAt: '2026-10-11'
+sources:
+  - label:
+      zh-Hans: 维基百科：基准测试（计算机）
+      en: 'Wikipedia: Benchmark (computing)'
+    href: https://en.wikipedia.org/wiki/Benchmark_(computing)
+  - label:
+      zh-Hans: MLCommons：MLPerf 推理基准
+      en: 'MLCommons: MLPerf Inference'
+    href: https://mlcommons.org/benchmarks/inference/

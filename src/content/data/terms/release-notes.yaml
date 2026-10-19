@@ -1,0 +1,21 @@
+name:
+  zh-Hans: 版本说明
+  en: Release Notes
+summary:
+  zh-Hans: 版本说明（release notes）是随每次软件发布向用户说明新增功能、变更、修复与已知事项的文档，常见形式包括 changelog 与 GitHub Release 页面。
+  en: Release notes are documents shipped with each software release telling users what was added, changed, fixed and still broken. Common forms include a changelog and GitHub Release pages.
+aliases:
+  - release notes
+  - changelog
+  - 更新日志
+status: published
+lastVerifiedAt: '2026-10-11'
+sources:
+  - label:
+      zh-Hans: Keep a Changelog
+      en: Keep a Changelog
+    href: https://keepachangelog.com/en/1.1.0/
+  - label:
+      zh-Hans: Semantic Versioning 2.0.0 规范（semver.org）
+      en: Semantic Versioning 2.0.0 spec (semver.org)
+    href: https://semver.org/spec/v2.0.0.html

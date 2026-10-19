@@ -1,0 +1,19 @@
+name:
+  zh-Hans: System One
+  en: System One
+summary:
+  zh-Hans: System One 是 TypeSafe AI 提出的模型类别，官方定义为"构建用来做快速、结构化决策、供软件直接使用的一类前沿模型"，命名借自卡尼曼《思考，快与慢》中 System 1/System 2 的区分。官方称其 Jev 是第一款公开的 System One 模型。
+  en: System One is a model category proposed by TypeSafe AI, officially defined as "a new class of frontier models built to make fast, structured decisions that software can use directly"; the name borrows the System 1/System 2 distinction from Kahneman's Thinking, Fast and Slow. TypeSafe calls its Jev the first publicly announced System One model.
+aliases:
+  - System One Model
+status: published
+sources:
+  - label:
+      zh-Hans: TypeSafe AI 官方博客：Introducing System One Models & Jev
+      en: 'TypeSafe AI blog: Introducing System One Models & Jev'
+    href: https://typesafe.ai/blog/introducing-system-one-models-and-jev
+  - label:
+      zh-Hans: TypeSafe AI 文档
+      en: TypeSafe AI documentation
+    href: https://docs.typesafe.ai/
+lastVerifiedAt: '2026-10-11'

@@ -1,0 +1,17 @@
+kind: platform
+name:
+  zh-Hans: GitHub Trending
+  en: GitHub Trending
+summary:
+  zh-Hans: 展示 GitHub 上热门开源仓库与开发者的发现页面。
+  en: A discovery page for trending repositories and developers on GitHub.
+aliases: []
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or author source
+    href: https://github.com/trending
+lastVerifiedAt: '2026-10-19'
+official:
+  website: https://github.com/trending
+parent: github

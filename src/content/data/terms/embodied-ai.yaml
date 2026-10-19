@@ -1,0 +1,16 @@
+name:
+  zh-Hans: 具身智能
+  en: Embodied AI
+summary:
+  zh-Hans: 具身智能（embodied AI）指通过身体与环境直接交互来感知、行动和学习的 AI 智能体，强调智能来自"感知—决策—行动"的闭环，而不只是脱离实体的计算。机器人是其最典型的载体。
+  en: Embodied AI refers to AI agents that perceive, act and learn through a physical body interacting directly with their environment, stressing that intelligence emerges from a perceive-decide-act loop rather than disembodied computation. Robots are its most typical carrier.
+aliases:
+  - Embodied Intelligence
+  - 具身人工智能
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：Embodied agent
+      en: "Wikipedia: Embodied agent"
+    href: https://en.wikipedia.org/wiki/Embodied_agent
+lastVerifiedAt: '2026-10-11'

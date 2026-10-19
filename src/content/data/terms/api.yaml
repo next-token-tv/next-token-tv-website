@@ -1,0 +1,21 @@
+name:
+  zh-Hans: 应用程序编程接口
+  en: Application Programming Interface
+summary:
+  zh-Hans: 应用程序编程接口（API）是一套约定，规定软件组件之间如何调用功能与交换数据。调用方按约定的方法、参数和返回格式使用另一段程序的能力，无需了解其内部实现。
+  en: An application programming interface (API) is a contract that specifies how software components call each other's functions and exchange data. Callers follow the documented methods, parameters and response formats without needing to know the internals behind them.
+aliases:
+  - API
+  - Web API
+  - 接口
+status: published
+lastVerifiedAt: '2026-10-11'
+sources:
+  - label:
+      zh-Hans: MDN 术语表：API
+      en: 'MDN Web Docs Glossary: API'
+    href: https://developer.mozilla.org/en-US/docs/Glossary/API
+  - label:
+      zh-Hans: RFC 9110：HTTP 语义
+      en: 'RFC 9110: HTTP Semantics'
+    href: https://www.rfc-editor.org/rfc/rfc9110

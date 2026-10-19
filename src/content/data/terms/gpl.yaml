@@ -1,0 +1,21 @@
+name:
+  zh-Hans: GNU 通用公共许可证
+  en: GNU General Public License
+summary:
+  zh-Hans: GPL 是自由软件基金会发布的 Copyleft 许可证，允许任何人自由使用、修改和再发布软件，但要求分发衍生作品时以相同许可证授权并提供源代码。常见版本为 GPLv2 与 GPLv3。
+  en: "The GPL is a copyleft license published by the Free Software Foundation: anyone may use, modify and redistribute the software, but derivative works must be distributed under the same license with source code available. Common versions are GPLv2 and GPLv3."
+aliases:
+  - GPL
+  - GPLv2
+  - GPLv3
+status: published
+sources:
+  - label:
+      zh-Hans: "GNU 官方：GPL 许可证全文"
+      en: "GNU Project: GPL license text"
+    href: https://www.gnu.org/licenses/gpl-3.0.en.html
+  - label:
+      zh-Hans: "GNU 官方：许可证列表"
+      en: "GNU Project: Licenses list"
+    href: https://www.gnu.org/licenses/licenses.en.html
+lastVerifiedAt: '2026-10-11'

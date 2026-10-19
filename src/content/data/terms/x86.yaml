@@ -1,0 +1,18 @@
+name:
+  zh-Hans: x86
+  en: x86
+summary:
+  zh-Hans: x86 是源于 Intel 8086 处理器、以可变长度指令为特征的指令集体系结构家族，长期主导个人计算机与服务器市场。其后续扩展（如 64 位的 x86-64）在保持软件兼容性的同时不断扩大地址空间与指令集。
+  en: x86 is a family of instruction set architectures originating from Intel's 8086 processor, characterized by variable-length instructions and long dominance of personal computers and servers. Later extensions, such as the 64-bit x86-64, grew the address space and instruction set while preserving software compatibility.
+aliases:
+  - x86-64
+  - AMD64
+  - IA-32
+  - x86 架构
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：x86
+      en: 'Wikipedia: x86'
+    href: https://en.wikipedia.org/wiki/X86
+lastVerifiedAt: '2026-10-11'

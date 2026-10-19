@@ -1,0 +1,15 @@
+name:
+  zh-Hans: 节目说明
+  en: Show Notes
+summary:
+  zh-Hans: '节目说明（Show Notes）是随单集播客发布的文字材料，通常包括单集要点、嘉宾信息、时间戳与相关链接，帮助听众了解、检索与回顾单集内容。'
+  en: 'Show notes are text materials published alongside a podcast episode, typically covering key points, guest information, timestamps and related links that help listeners understand, search and revisit the episode.'
+aliases:
+  - 节目笔记
+status: published
+sources:
+  - label:
+      zh-Hans: 'Buzzsprout 博客：播客节目说明'
+      en: 'Buzzsprout Blog: Podcast Show Notes'
+    href: https://www.buzzsprout.com/blog/podcast-show-notes
+lastVerifiedAt: '2026-10-11'

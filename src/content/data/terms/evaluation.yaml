@@ -1,0 +1,25 @@
+name:
+  zh-Hans: 评估
+  en: Evaluation
+summary:
+  zh-Hans: 在 AI 语境下，评估（evaluation，常简称 eval）指用测试数据、指标或人工与自动化评判来衡量模型输出质量与任务表现的过程。它是模型选型、版本对比与回归测试的基础。
+  en: In AI, evaluation (often shortened to eval) is the process of measuring model output quality and task performance using test data, metrics, and human or automated judging. It underpins model selection, version comparison and regression testing.
+aliases:
+  - eval
+  - evals
+  - LLM evaluation
+status: published
+sources:
+  - label:
+      zh-Hans: OpenAI：Evals 指南
+      en: "OpenAI: Evals guide"
+    href: https://platform.openai.com/docs/guides/evals
+  - label:
+      zh-Hans: Hugging Face Evaluate 文档
+      en: Hugging Face Evaluate documentation
+    href: https://huggingface.co/docs/evaluate/index
+  - label:
+      zh-Hans: OpenAI Evals（开源评估框架）
+      en: OpenAI Evals (open-source evaluation framework)
+    href: https://github.com/openai/evals
+lastVerifiedAt: '2026-10-11'

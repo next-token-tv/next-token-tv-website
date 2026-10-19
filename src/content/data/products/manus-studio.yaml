@@ -1,0 +1,17 @@
+kind: agent
+name:
+  zh-Hans: Manus Studio
+  en: Manus Studio
+summary:
+  zh-Hans: Manus 的桌面工作区，可结合本地文件和工具创建、编辑网站、视频与游戏。
+  en: Manus’s desktop workspace for creating and editing websites, videos and games using local files and tools.
+aliases: []
+official:
+  website: https://manus.im/desktop
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://manus.im/desktop
+lastVerifiedAt: '2026-10-19'
+parent: manus

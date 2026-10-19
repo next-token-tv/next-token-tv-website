@@ -1,0 +1,20 @@
+name:
+  zh-Hans: 投资回报率
+  en: Return on Investment
+summary:
+  zh-Hans: 投资回报率（ROI）是衡量某笔投入赚回多少的比率指标，通常用收益与成本之差除以成本、以百分比表示。它的口径灵活，可用于一笔广告投放、一台设备，也可用于整体项目。
+  en: Return on investment (ROI) is a ratio that expresses how much a given outlay earned back, usually computed as net gain divided by cost and quoted as a percentage. Its scope is flexible — it can be applied to a single ad campaign, a piece of equipment, or an entire project.
+aliases:
+  - ROI
+  - 投资回报
+status: published
+sources:
+  - label:
+      zh-Hans: "维基百科：投资回报率"
+      en: "Wikipedia: Return on investment"
+    href: https://en.wikipedia.org/wiki/Return_on_investment
+  - label:
+      zh-Hans: "Corporate Finance Institute：投资回报率（ROI）"
+      en: "Corporate Finance Institute: Return on Investment (ROI)"
+    href: https://corporatefinanceinstitute.com/resources/valuation/return-on-investment-roi/
+lastVerifiedAt: '2026-10-11'

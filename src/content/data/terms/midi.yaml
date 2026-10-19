@@ -1,0 +1,19 @@
+name:
+  zh-Hans: 乐器数字接口
+  en: Musical Instrument Digital Interface
+summary:
+  zh-Hans: 乐器数字接口（MIDI）是电子乐器、计算机与其他设备之间交换音符、力度、控制指令等演奏信息的协议，1983 年发布，由 MIDI 协会维护。MIDI 传输的是指令而非音频本身，音色由接收设备决定。
+  en: Musical Instrument Digital Interface (MIDI) is a protocol for electronic instruments, computers and other devices to exchange performance data such as notes, velocity and control messages, released in 1983 and maintained by the MIDI Association. MIDI carries instructions, not audio itself; the sound is produced by the receiving device.
+aliases:
+  - MIDI
+status: published
+sources:
+  - label:
+      zh-Hans: MIDI 协会官网
+      en: MIDI Association website
+    href: https://midi.org/
+  - label:
+      zh-Hans: MIDI 协会：MIDI 1.0 详细规范
+      en: "MIDI Association: MIDI 1.0 Detailed Specification"
+    href: https://midi.org/midi-1-0-detailed-specification
+lastVerifiedAt: '2026-10-11'

@@ -1,0 +1,16 @@
+name:
+  zh-Hans: 子智能体
+  en: Subagent
+summary:
+  zh-Hans: 由主智能体派生、代表其执行特定子任务的智能体，通常拥有独立的上下文与工具，只把结果摘要返回给主智能体。
+  en: An agent spawned by a main agent to carry out a specific subtask, usually running with its own context and tools and returning only a summary of results.
+aliases:
+  - Sub Agents
+  - Sub-agent
+status: published
+sources:
+  - label:
+      zh-Hans: Claude Code 文档：子智能体
+      en: 'Claude Code docs: Subagents'
+    href: https://code.claude.com/docs/en/sub-agents
+lastVerifiedAt: '2026-10-11'

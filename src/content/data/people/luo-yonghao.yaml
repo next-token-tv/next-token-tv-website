@@ -1,0 +1,15 @@
+kind: business
+name:
+  zh-Hans: 罗永浩
+  en: Luo Yonghao
+bio:
+  zh-Hans: 科技创业者与《罗永浩的十字路口》主持人。
+  en: A technology entrepreneur and host of Luo Yonghao’s Crossroads.
+aliases:
+  - 老罗
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or author source
+    href: https://weibo.com/luoyonghaoniuhulu
+lastVerifiedAt: '2026-10-19'

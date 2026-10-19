@@ -1,0 +1,27 @@
+{
+  "kind": "hardware-brand",
+  "name": {
+    "zh-Hans": "LG 电子",
+    "en": "LG Electronics"
+  },
+  "summary": {
+    "zh-Hans": "生产家用电器、电视及其他消费电子产品的企业。",
+    "en": "A company producing home appliances, televisions and other consumer electronics."
+  },
+  "aliases": [
+    "LG"
+  ],
+  "official": {
+    "website": "https://www.lg.com/global/"
+  },
+  "sources": [
+    {
+      "label": {
+        "zh-Hans": "官方资料",
+        "en": "Official information"
+      },
+      "href": "https://www.lg.com/global/"
+    }
+  ],
+  "lastVerifiedAt": "2026-10-19"
+}

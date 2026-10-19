@@ -1,90 +1,178 @@
-{
-  "schemaVersion": 2,
-  "number": "006",
-  "show": "next-token-weekly",
-  "status": "published",
-  "title": {
-    "zh-Hans": "#006 AI 逆向挡不住，Grok Bot、Muse 用上头：干活还是过家家？",
-    "en": "#006 AI reverse engineering is unstoppable; hooked on Grok Bot and Muse: real work or playing house?"
-  },
-  "mentions": {
-    "brands": [],
-    "products": [
-      "grok-bot",
-      "muse-agent",
-      "codex",
-      "dots"
-    ],
-    "people": []
-  },
-  "transcriptPublishedAt": "2026-10-19",
-  "productionImport": "next-token-weekly--006.production",
-  "media": {
-    "audio": true,
-    "video": true
-  },
-  "platforms": [
-    {
-      "platform": "xiaoyuzhou",
-      "label": {
-        "zh-Hans": "小宇宙",
-        "en": "Xiaoyuzhou"
-      },
-      "href": "https://www.xiaoyuzhoufm.com/episode/6ad50a05641ef406308d957a",
-      "action": {
-        "zh-Hans": "立即收听",
-        "en": "Listen now"
-      }
-    },
-    {
-      "platform": "bilibili",
-      "label": {
-        "zh-Hans": "哔哩哔哩",
-        "en": "Bilibili"
-      },
-      "href": "https://www.bilibili.com/video/BV1g8nj6JEWE/",
-      "action": {
-        "zh-Hans": "立即观看",
-        "en": "Watch now"
-      }
-    }
-  ],
-  "homepage": {
-    "zh-Hans": {
-      "eyebrow": "第 006 期",
-      "heading": [
-        "AI 逆向挡不住，Grok Bot、Muse 用上头：",
-        "干活还是过家家？"
-      ],
-      "lede": "让 AI 给鼠标写一个 macOS 驱动，把手机录好的视频交给 Bot 剪辑、配素材、做封面，再拉几个影视角色组成自己的“AI 公司”——这一期，我们继续聊 Personal Agent，不过这次有了更多真正用起来的故事。",
-      "copy": "让 AI 给鼠标写一个 macOS 驱动，把手机录好的视频交给 Bot 剪辑、配素材、做封面，再拉几个影视角色组成自己的“AI 公司”——这一期，我们继续聊 Personal Agent，不过这次有了更多真正用起来的故事。",
-      "imageAlt": "#006 AI 逆向挡不住，Grok Bot、Muse 用上头：干活还是过家家？",
-      "topicsLabel": "本期议题",
-      "topics": [
-        "Personal Agent",
-        "AI 逆向",
-        "Memory"
-      ],
-      "listenAction": "立即收听",
-      "watchAction": "查看本期"
-    },
-    "en": {
-      "eyebrow": "Episode #006",
-      "heading": [
-        "AI reverse engineering, Grok Bot and Muse:",
-        "Real work or playing house?"
-      ],
-      "lede": "Hands-on stories about AI reverse engineering, Grok Bot, Muse, multi-agent collaboration, skills, memory and the value of original creative work.",
-      "copy": "Four co-hosts discuss what personal agents can deliver, where they fail, and what remains worth building.",
-      "imageAlt": "#006 AI reverse engineering is unstoppable; hooked on Grok Bot and Muse: real work or playing house?",
-      "topicsLabel": "Episode topics",
-      "topics": [
-        "Personal Agent",
-        "Reverse engineering",
-        "Memory"
-      ],
-      "listenAction": "Listen now",
-      "watchAction": "Explore episode"
-    }
-  }
-}
+schemaVersion: 2
+number: '006'
+show: next-token-weekly
+status: published
+title:
+  zh-Hans: '#006 AI 逆向挡不住，Grok Bot、Muse 用上头：干活还是过家家？'
+  en: '#006 AI reverse engineering is unstoppable; hooked on Grok Bot and Muse: real work or playing house?'
+mentions:
+  brands:
+    - angry-miao
+    - logitech
+    - ricoh
+    - lg-electronics
+    - siemens-home
+    - arm
+    - ted
+    - ai-alchemy
+    - bytedance
+    - xai
+    - next-token
+    - nintendo
+    - anthropic
+    - sony
+    - deepseek
+    - zhipu
+    - openai
+    - tencent
+    - seeed-studio
+    - apple
+    - xiaomi
+    - meta
+    - vercel
+    - stepfun
+    - microsoft
+    - google
+  products:
+    - grok-bot
+    - muse-agent
+    - codex
+    - dots
+    - fish-audio
+    - antigravity
+    - zenmux
+    - google-ai-studio
+    - today-ai
+    - apple-homeview
+    - manus-cue
+    - manus-studio
+    - muse
+    - ideashell
+    - silicon-valley
+    - mad-men
+    - rea
+    - step
+    - wechat-read
+    - apple-health
+    - qianwen-go
+    - catpaw
+    - anatomy-skill
+    - lingguang
+    - product-hunt
+    - github-trending
+    - bitcoin
+    - homekit
+    - nintendo-switch
+    - qwen
+    - claude
+    - grok
+    - gemini
+    - macaron
+    - xiaoyuzhou
+    - bilibili
+    - windows
+    - macos
+    - iphone
+    - apple-tv
+    - icloud
+    - jianying
+    - ffmpeg
+    - playstation-5
+    - cursor
+    - x
+    - workbuddy
+    - claude-code
+    - opencode
+    - codepilot
+    - gmail
+    - pinduoduo
+    - ai-passport
+    - xiaohongshu
+    - esp32
+    - chatgpt
+    - gpt
+    - youtube
+    - facebook
+    - app-store
+    - wechat
+    - instagram
+    - doubao
+    - openclaw
+    - manus
+    - meituan
+    - amazon
+    - mac-studio
+    - mimo
+    - openrouter
+    - deepseek
+    - jev
+    - taobao
+    - douyin
+  people:
+    - li-jigang
+    - huashu
+    - steve-jobs
+    - li-nan
+    - terence-tao
+    - zhao-chunxiang
+    - luo-yonghao
+    - baoyu
+    - mediastorm-tim
+    - elon-musk
+    - wang-le
+    - xiaohu
+transcriptPublishedAt: '2026-10-19'
+productionImport: next-token-weekly--006.production
+media:
+  audio: true
+  video: true
+platforms:
+  - platform: xiaoyuzhou
+    label:
+      zh-Hans: 小宇宙
+      en: Xiaoyuzhou
+    href: https://www.xiaoyuzhoufm.com/episode/6ad50a05641ef406308d957a
+    action:
+      zh-Hans: 立即收听
+      en: Listen now
+  - platform: bilibili
+    label:
+      zh-Hans: 哔哩哔哩
+      en: Bilibili
+    href: https://www.bilibili.com/video/BV1g8nj6JEWE/
+    action:
+      zh-Hans: 立即观看
+      en: Watch now
+homepage:
+  zh-Hans:
+    eyebrow: 第 006 期
+    heading:
+      - AI 逆向挡不住，Grok Bot、Muse 用上头：
+      - 干活还是过家家？
+    lede: 让 AI 给鼠标写一个 macOS 驱动，把手机录好的视频交给 Bot 剪辑、配素材、做封面，再拉几个影视角色组成自己的“AI 公司”——这一期，我们继续聊 Personal Agent，不过这次有了更多真正用起来的故事。
+    copy: 让 AI 给鼠标写一个 macOS 驱动，把手机录好的视频交给 Bot 剪辑、配素材、做封面，再拉几个影视角色组成自己的“AI 公司”——这一期，我们继续聊 Personal Agent，不过这次有了更多真正用起来的故事。
+    imageAlt: '#006 AI 逆向挡不住，Grok Bot、Muse 用上头：干活还是过家家？'
+    topicsLabel: 本期议题
+    topics:
+      - Personal Agent
+      - AI 逆向
+      - Memory
+    listenAction: 立即收听
+    watchAction: 查看本期
+  en:
+    eyebrow: 'Episode #006'
+    heading:
+      - 'AI reverse engineering, Grok Bot and Muse:'
+      - Real work or playing house?
+    lede: >-
+      Hands-on stories about AI reverse engineering, Grok Bot, Muse, multi-agent collaboration, skills, memory and the
+      value of original creative work.
+    copy: Four co-hosts discuss what personal agents can deliver, where they fail, and what remains worth building.
+    imageAlt: '#006 AI reverse engineering is unstoppable; hooked on Grok Bot and Muse: real work or playing house?'
+    topicsLabel: Episode topics
+    topics:
+      - Personal Agent
+      - Reverse engineering
+      - Memory
+    listenAction: Listen now
+    watchAction: Explore episode

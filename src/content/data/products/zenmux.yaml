@@ -1,0 +1,25 @@
+{
+  "kind": "platform",
+  "name": {
+    "zh-Hans": "ZenMux",
+    "en": "ZenMux"
+  },
+  "summary": {
+    "zh-Hans": "通过统一 API 接入多个供应商模型的 AI 服务平台。",
+    "en": "An AI service platform providing unified API access to models from multiple providers."
+  },
+  "aliases": [],
+  "official": {
+    "website": "https://zenmux.ai/"
+  },
+  "sources": [
+    {
+      "label": {
+        "zh-Hans": "官方资料",
+        "en": "Official information"
+      },
+      "href": "https://zenmux.ai/"
+    }
+  ],
+  "lastVerifiedAt": "2026-10-19"
+}

@@ -1,0 +1,22 @@
+kind: agent
+name:
+  zh-Hans: Cue
+  en: Cue
+summary:
+  zh-Hans: Manus 推出的个人智能体应用，可通过移动设备与智能体协作。
+  en: A personal agent app by Manus for working with agents from mobile devices.
+aliases:
+  - Manus Cue
+official:
+  website: https://cue.im/
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://cue.im/
+  - label:
+      zh-Hans: Manus 官方介绍
+      en: Manus official information
+    href: https://manus.im/desktop
+lastVerifiedAt: '2026-10-19'
+parent: manus

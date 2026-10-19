@@ -1,0 +1,15 @@
+name:
+  zh-Hans: 智能体运行框架
+  en: Agent Harness
+summary:
+  zh-Hans: 包围模型的运行框架层，负责工具接入、上下文管理、循环控制与结果核验等能力，把模型变成能实际执行任务的智能体。
+  en: The runtime layer around a model that provides tool access, context management, loop control and result verification, turning the model into an agent that can actually execute tasks.
+aliases:
+  - Harness
+status: published
+sources:
+  - label:
+      zh-Hans: Anthropic：用 Claude Agent SDK 构建智能体
+      en: 'Anthropic: Building agents with the Claude Agent SDK'
+    href: https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk
+lastVerifiedAt: '2026-10-11'

@@ -1,0 +1,20 @@
+name:
+  zh-Hans: 张量处理单元
+  en: Tensor Processing Unit
+summary:
+  zh-Hans: 张量处理单元（TPU）是 Google 为机器学习工作负载设计的专用集成电路（ASIC），用于加速神经网络中的张量运算。它以矩阵乘法等核心计算为设计中心，主要经由 Google Cloud 以云服务形式提供。
+  en: A tensor processing unit (TPU) is an application-specific integrated circuit (ASIC) designed by Google for machine learning workloads, built to accelerate tensor operations in neural networks. Centered on computations such as matrix multiplication, it is offered primarily as a service through Google Cloud.
+aliases:
+  - TPU
+  - 张量处理器
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：Tensor Processing Unit
+      en: 'Wikipedia: Tensor Processing Unit'
+    href: https://en.wikipedia.org/wiki/Tensor_Processing_Unit
+  - label:
+      zh-Hans: Google Cloud 文档：Introduction to Cloud TPU
+      en: 'Google Cloud Docs: Introduction to Cloud TPU'
+    href: https://cloud.google.com/tpu/docs/tpus
+lastVerifiedAt: '2026-10-11'

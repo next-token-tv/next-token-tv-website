@@ -1,0 +1,24 @@
+name:
+  zh-Hans: 扩散模型
+  en: Diffusion Model
+summary:
+  zh-Hans: 扩散模型是一类生成模型，训练时逐步给数据加噪声，生成时从纯噪声出发一步步"去噪"，重建出图像、音频等新样本。它以生成质量高、训练稳定著称，代价是推理需要多步迭代。
+  en: "A diffusion model is a generative model trained to reverse a gradual noising process: at generation time it starts from pure noise and denoises step by step to produce images, audio and other samples. It is known for high output quality and stable training, at the cost of multi-step inference."
+aliases:
+  - Diffusion
+  - 去噪扩散模型
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：Diffusion model
+      en: "Wikipedia: Diffusion model"
+    href: https://en.wikipedia.org/wiki/Diffusion_model
+  - label:
+      zh-Hans: 原始论文：Denoising Diffusion Probabilistic Models
+      en: "Original paper: Denoising Diffusion Probabilistic Models"
+    href: https://arxiv.org/abs/2006.11239
+  - label:
+      zh-Hans: Hugging Face Diffusers 文档
+      en: Hugging Face Diffusers documentation
+    href: https://huggingface.co/docs/diffusers/index
+lastVerifiedAt: '2026-10-11'

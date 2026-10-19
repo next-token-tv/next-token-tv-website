@@ -1,0 +1,16 @@
+name:
+  zh-Hans: 人在回路
+  en: Human in the Loop
+summary:
+  zh-Hans: 人在回路（HITL）指在自动化或 AI 工作流中保留人工参与的机制：机器执行任务，人在关键节点进行审核、决策或纠错。它把人的判断嵌入自动化流程，而不是让人替代机器完成全部工作。
+  en: "Human in the Loop (HITL) is a mechanism that keeps a person involved in an automated or AI workflow: the machine executes tasks while a human reviews, decides or corrects at key checkpoints. Human judgment is embedded in the automated process rather than replacing it."
+aliases:
+  - HITL
+  - 人机协同
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：人在回路
+      en: "Wikipedia: Human-in-the-loop"
+    href: https://en.wikipedia.org/wiki/Human-in-the-loop
+lastVerifiedAt: '2026-10-11'

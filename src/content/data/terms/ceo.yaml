@@ -1,0 +1,15 @@
+name:
+  zh-Hans: 首席执行官
+  en: Chief Executive Officer
+summary:
+  zh-Hans: 首席执行官（CEO）是公司最高级别的经营管理者，负责制定并执行战略，由董事会任命并对其负责。C 系高管（CTO、CFO 等）通常向 CEO 汇报。
+  en: The chief executive officer (CEO) is a company's top-ranking operating manager, responsible for setting and executing strategy, appointed by and answerable to the board of directors. Other C-suite officers (CTO, CFO and so on) typically report to the CEO.
+aliases:
+  - CEO
+status: published
+sources:
+  - label:
+      zh-Hans: "维基百科：首席执行官"
+      en: "Wikipedia: Chief executive officer"
+    href: https://en.wikipedia.org/wiki/Chief_executive_officer
+lastVerifiedAt: '2026-10-11'

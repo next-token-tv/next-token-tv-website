@@ -1,0 +1,25 @@
+{
+  "kind": "hardware-brand",
+  "name": {
+    "zh-Hans": "怒喵",
+    "en": "Angry Miao"
+  },
+  "summary": {
+    "zh-Hans": "设计机械键盘、游戏鼠标等桌面外设的硬件品牌。",
+    "en": "A hardware brand designing mechanical keyboards, gaming mice and desktop peripherals."
+  },
+  "aliases": [],
+  "official": {
+    "website": "https://store.angrymiao.com/"
+  },
+  "sources": [
+    {
+      "label": {
+        "zh-Hans": "官方资料",
+        "en": "Official information"
+      },
+      "href": "https://store.angrymiao.com/"
+    }
+  ],
+  "lastVerifiedAt": "2026-10-19"
+}

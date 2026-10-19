@@ -1,0 +1,16 @@
+name:
+  zh-Hans: 语义化版本
+  en: Semantic Versioning
+summary:
+  zh-Hans: 语义化版本（SemVer）是版本号规范，格式为"主版本号.次版本号.修订号"（如 2.4.1）：主版本号变更表示不兼容的 API 变更，次版本号表示向后兼容的新功能，修订号表示向后兼容的问题修复。
+  en: 'Semantic Versioning (SemVer) is a versioning scheme with the format major.minor.patch (for example 2.4.1): a major bump signals an incompatible API change, a minor bump adds backward-compatible functionality, and a patch bump fixes backward-compatible bugs.'
+aliases:
+  - SemVer
+  - 语义化版本号
+status: published
+lastVerifiedAt: '2026-10-11'
+sources:
+  - label:
+      zh-Hans: Semantic Versioning 2.0.0 规范（semver.org）
+      en: Semantic Versioning 2.0.0 spec (semver.org)
+    href: https://semver.org/spec/v2.0.0.html

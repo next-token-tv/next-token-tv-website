@@ -1,0 +1,18 @@
+name:
+  zh-Hans: Token Maxxing
+  en: Token Maxxing
+summary:
+  zh-Hans: Token Maxxing 是 Next Token 节目参与者使用的说法，指把 AI 用到极致、大规模消耗 token 的做法。节目第 001 期讨论 AI 原生组织时提到这一说法，并认为单靠它不一定带来整体提效；它不是通用词典词汇，定义依附节目语境。
+  en: Token Maxxing is a phrase used by Next Token participants for pushing AI usage to the max and consuming tokens at massive scale. It came up in Weekly #001 during the discussion of AI-native organizations, with the caveat that it alone does not guarantee overall productivity gains; it is not a dictionary term, and its definition follows the show's context.
+aliases: []
+status: published
+sources:
+  - label:
+      zh-Hans: Next Token Weekly 第 001 期逐字稿
+      en: Next Token Weekly #001 transcript
+    href: https://nexttoken.tv/weekly/001/transcript
+  - label:
+      zh-Hans: 维基百科：Looksmaxxing（-maxxing 后缀的来源）
+      en: 'Wikipedia: Looksmaxxing (origin of the "-maxxing" suffix)'
+    href: https://en.wikipedia.org/wiki/Looksmaxxing
+lastVerifiedAt: '2026-10-11'

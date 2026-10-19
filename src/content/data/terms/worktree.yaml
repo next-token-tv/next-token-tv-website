@@ -1,0 +1,16 @@
+name:
+  zh-Hans: 工作树
+  en: Worktree
+summary:
+  zh-Hans: 工作树（worktree）是 Git 中一个检出分支的工作目录。通过 git worktree 命令，同一个仓库可以在不同目录同时检出多个分支，各目录独立工作、共享同一份对象库。
+  en: A worktree is a working directory in Git with a branch checked out. With the git worktree command, one repository can have several branches checked out in different directories at the same time, each working independently while sharing the same object store.
+aliases:
+  - git worktree
+  - 工作目录
+status: published
+sources:
+  - label:
+      zh-Hans: "Git 官方文档：git-worktree"
+      en: "Git official docs: git-worktree"
+    href: https://git-scm.com/docs/git-worktree
+lastVerifiedAt: '2026-10-11'

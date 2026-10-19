@@ -1,0 +1,19 @@
+name:
+  zh-Hans: 质量保证
+  en: Quality Assurance
+summary:
+  zh-Hans: "QA（质量保证）指软件工程中为防止缺陷、保证产品质量而建立的一系列活动与流程，也常指承担这一职能的岗位或团队。在第 001 期节目中，QA 出现在岗位语境（与设计、前端、后端并列），指质量保证（Quality Assurance）而非问答（Q&A）。"
+  en: "QA (quality assurance) covers the activities and processes in software engineering meant to prevent defects and assure product quality; it also names the role or team that does this. In Weekly #001, QA appears in the job-role sense (listed alongside design, front-end, and back-end), referring to quality assurance rather than question answering (Q&A)."
+aliases:
+  - QA
+status: published
+sources:
+  - label:
+      zh-Hans: 维基百科：质量保证
+      en: 'Wikipedia: Quality assurance'
+    href: https://en.wikipedia.org/wiki/Quality_assurance
+  - label:
+      zh-Hans: 维基百科：软件测试
+      en: 'Wikipedia: Software testing'
+    href: https://en.wikipedia.org/wiki/Software_testing
+lastVerifiedAt: '2026-10-11'

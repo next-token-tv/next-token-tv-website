@@ -1,0 +1,14 @@
+name:
+  zh-Hans: 网络
+  en: Network
+summary:
+  zh-Hans: 网络是通过通信链路与协议连接起来、用于共享资源和交换数据的计算机与设备集合，按覆盖范围可分为局域网、城域网与广域网。
+  en: A network is a set of computers and devices connected by communication links and protocols to share resources and exchange data, classified by reach into LANs, MANs and WANs.
+aliases: []
+status: published
+sources:
+  - label:
+      zh-Hans: "IBM：什么是计算机网络"
+      en: "IBM: What is computer networking"
+    href: https://www.ibm.com/think/topics/networking
+lastVerifiedAt: '2026-10-11'

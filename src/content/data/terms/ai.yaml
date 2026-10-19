@@ -1,0 +1,19 @@
+name:
+  zh-Hans: 人工智能
+  en: Artificial Intelligence
+summary:
+  zh-Hans: 人工智能是让计算机系统执行通常需要人类智能的任务的技术总称，涵盖学习、推理、感知和语言处理等能力。它是领域级的统称，不指某一种具体算法或产品。
+  en: Artificial intelligence is an umbrella term for computer systems that perform tasks typically associated with human intelligence, such as learning, reasoning, perception, and language processing. It names a whole field of techniques, not one specific algorithm or product.
+aliases:
+  - AI
+status: published
+lastVerifiedAt: '2026-10-11'
+sources:
+  - label:
+      zh-Hans: 维基百科：人工智能
+      en: 'Wikipedia: Artificial intelligence'
+    href: https://en.wikipedia.org/wiki/Artificial_intelligence
+  - label:
+      zh-Hans: 斯坦福哲学百科全书：人工智能
+      en: 'Stanford Encyclopedia of Philosophy: Artificial Intelligence'
+    href: https://plato.stanford.edu/entries/artificial-intelligence/

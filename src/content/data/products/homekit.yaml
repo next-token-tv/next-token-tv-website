@@ -1,0 +1,17 @@
+kind: framework
+name:
+  zh-Hans: HomeKit
+  en: HomeKit
+summary:
+  zh-Hans: Apple 用于连接和控制兼容智能家居设备的开发框架。
+  en: Apple’s framework for connecting and controlling compatible smart home devices.
+aliases: []
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or author source
+    href: https://developer.apple.com/apple-home/
+lastVerifiedAt: '2026-10-19'
+official:
+  website: https://developer.apple.com/apple-home/
+brand: apple
