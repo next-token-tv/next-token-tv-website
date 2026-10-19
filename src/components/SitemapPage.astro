@@ -1,4 +1,5 @@
 ---
+import { getTerms } from "../data/terms";
 import { getBlogPosts } from "../data/blog";
 import { getBrandDirectory, getProductDirectory, getEpisodesForShow, getPublishedTranscriptEpisodes } from "../data/catalog";
 import { getPartners } from "../data/partners";
@@ -14,6 +15,7 @@ const [brands, products, episodes, transcripts, partners] = await Promise.all([
   getEpisodesForShow("next-token-weekly"), getPublishedTranscriptEpisodes(locale), getPartners(),
 ]);
 const blogPosts = await getBlogPosts(locale);
+const terms = await getTerms(locale);
 const groups = [
   { id: "explore", title: en ? "Explore" : "主要入口", links: [
     { label: en ? "Home" : "首页", href: prefix || "/" },
@@ -25,6 +27,7 @@ const groups = [
     { label: en ? "Community & Subscriptions" : "社群与订阅", href: `${prefix}/community` },
     { label: en ? "Wiki" : "AI 资料库", href: `${prefix}/wiki` },
     { label: en ? "Brands" : "品牌库", href: `${prefix}/wiki/brands` },
+    { label: en ? "Terms" : "术语", href: `${prefix}/wiki/terms` },
     { label: en ? "Products" : "产品库", href: `${prefix}/wiki/products` },
     { label: en ? "People" : "人物库", href: `${prefix}/wiki/people` },
     { label: en ? "Data API" : "资料库 API", href: `${prefix}/api` },
@@ -37,6 +40,7 @@ const groups = [
   { id: "partners", title: en ? "Partner profiles" : "合作伙伴资料", links: partners.map(p => ({ label: en ? p.englishName : p.name, href: `${prefix}/partners/${p.slug}` })) },
   { id: "brands", title: en ? "Brands" : "品牌", links: brands.map(({brand}) => ({ label: brand.data.name[locale], href: `${prefix}/wiki/brands/${brand.id}` })) },
   { id: "products", title: en ? "Products" : "产品", links: products.map(({product}) => ({ label: product.data.name[locale], href: `${prefix}/wiki/products/${product.id}` })) },
+  { id: "terms", title: en ? "Terms" : "术语", links: terms.map(term => ({ label: term.data.name[locale], href: `${prefix}/wiki/terms/${term.id}` })) },
 ].filter(group => group.links.length);
 const episodeRows = episodes.slice().sort((a, b) => Number(b.data.number) - Number(a.data.number));
 const transcriptNumbers = new Set(transcripts.map(e => e.data.number));

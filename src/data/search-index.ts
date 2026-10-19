@@ -1,3 +1,4 @@
+import { getTerms, getTermArticle } from "./terms";
 import { getBlogPosts } from "./blog";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
@@ -24,6 +25,10 @@ export async function createSearchIndex(locale: Locale): Promise<SearchDocument[
       const summary = 'summary' in entry.data ? entry.data.summary[locale] : entry.data.bio[locale];
       documents.push({kind:'entity',title:entry.data.name[locale],aliases:entry.data.aliases,href:`${prefix}/wiki/${collection}/${entry.id}`,text:`${summary} ${proseText(article?.body ?? '')}`});
     }
+  }
+  for (const term of await getTerms(locale)) {
+    const article = await getTermArticle(term.id, locale);
+    documents.push({kind:'entity',title:term.data.name[locale],aliases:term.data.aliases,href:`${prefix}/wiki/terms/${term.id}`,text:`${term.data.summary[locale]} ${proseText(article.body ?? '')}`});
   }
   for (const episode of catalog.episodes) {
     if (episode.data.status!=='published') continue;

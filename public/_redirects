@@ -208,6 +208,7 @@
 /en/brands/openai-devday /en/wiki/products/openai-devday 301
 /en/brands/openai-devday/ /en/wiki/products/openai-devday 301
 # END ENTITY MIGRATIONS
+/sitemap.xml /sitemap-index.xml 301
 /brands /wiki/brands 301
 /products /wiki/products 301
 /people /wiki/people 301

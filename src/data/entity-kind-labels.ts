@@ -21,7 +21,8 @@ export const productKind = {
   platform: { "zh-Hans": "平台", en: "Platform" },
   "api-service": { "zh-Hans": "API 服务", en: "API service" },
   hardware: { "zh-Hans": "硬件", en: "Hardware" },
-  framework: { "zh-Hans": "框架", en: "Framework" },
+  framework: { "zh-Hans": "框架与库", en: "Frameworks & libraries" },
+  benchmark: { "zh-Hans": "评测基准", en: "Benchmark" },
 } as const;
 
 export const peopleKind = {

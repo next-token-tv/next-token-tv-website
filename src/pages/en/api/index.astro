@@ -6,6 +6,7 @@ import { createWikiApi } from "../../../data/wiki-api";
 const content = await getSiteContent("en");
 const collections = await createWikiApi(Astro.site!);
 const endpoints = [
+  { label: "Terms", id: "terms", count: collections.terms.length },
   { label: "Brands", id: "brands", count: collections.brands.length },
   { label: "Products", id: "products", count: collections.products.length },
   { label: "People", id: "people", count: collections.people.length },
@@ -15,7 +16,7 @@ const endpoints = [
 <BaseLayout
   content={content}
   pageTitle="Data API | Next Token"
-  description="Access brands, products, people, and their relationships from the Next Token wiki through a public, read-only, versioned JSON API."
+  description="Access brands, products, people, terms, and their relationships from the Next Token wiki through a public, read-only, versioned JSON API."
   canonicalPath="/en/api"
   alternatePath="/api"
 >
@@ -26,7 +27,7 @@ const endpoints = [
         <h1>Structured data<br /><span>from the wiki.</span></h1>
       </div>
       <div class="api-intro">
-        <p>Public, read-only, no authentication. Retrieve brands, products, people, and their relationships, with list queries and per-entity details.</p>
+        <p>Public, read-only, no authentication. Retrieve brands, products, people, terms, and their relationships, with list queries and per-entity details.</p>
         <a class="button button-dark" href="/api/v1/wiki.json">Open the API entry point <span aria-hidden="true">↗</span></a>
       </div>
     </header>
@@ -34,7 +35,7 @@ const endpoints = [
     <section class="api-section" aria-labelledby="collections-title">
       <div class="api-section-heading">
         <p class="section-kicker">01 / COLLECTIONS</p>
-        <h2 id="collections-title" class="heading-section-compact">Three collections, one contract.</h2>
+        <h2 id="collections-title" class="heading-section-compact">Four collections, one contract.</h2>
       </div>
       <div class="api-collections">
         {endpoints.map((endpoint, index) => (
@@ -65,13 +66,14 @@ const endpoints = [
         </div>
         <div>
           <h3>Shared entity fields</h3>
-          <p><code>id</code> is the stable reference key; <code>url</code> points to the wiki page; <code>apiUrl</code> points to the per-entity JSON. Records carry bilingual names and summaries, kinds, aliases, sources, verification dates, and <code>relationships</code>.</p>
+          <p><code>id</code> is the stable reference key; <code>url</code> points to the wiki page; <code>apiUrl</code> points to the per-entity JSON. Records carry bilingual names and summaries, kinds, aliases, sources, verification dates, ; brand, product and person records also provide <code>relationships</code>.</p>
         </div>
         <div>
           <h3>Per-entity paths</h3>
           <code>/api/v1/wiki/brands/&lt;id&gt;.json</code>
           <code>/api/v1/wiki/products/&lt;id&gt;.json</code>
           <code>/api/v1/wiki/people/&lt;id&gt;.json</code>
+          <code>/api/v1/wiki/terms/&lt;id&gt;.json</code>
         </div>
         <div>
           <h3>Filtering and CORS</h3>

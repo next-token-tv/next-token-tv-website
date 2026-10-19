@@ -1,21 +1,29 @@
 ---
 import { getBrandDirectory, getProductDirectory, getPeopleDirectory } from "../data/catalog";
+import { getTerms } from "../data/terms";
 import type { Locale } from "../data/types";
-import { brandKind, productKind, peopleKind } from "../data/entity-kind-labels";
+import { brandKind, productKind, peopleKind, personKind } from "../data/entity-kind-labels";
 import { displayAliases } from "../data/entity-aliases";
 
 interface Props {
-  entityType: "brands" | "products" | "people";
+  entityType: "brands" | "products" | "people" | "terms";
   locale: Locale;
 }
 
 const { entityType, locale } = Astro.props;
 const prefix = locale === "en" ? "/en" : "";
-const entries = entityType === "people"
+const entries = entityType === "terms"
+  ? (await getTerms(locale)).map(term => ({
+      id: term.id, name: term.data.name[locale], kindId: "term",
+      kind: locale === "en" ? "Term" : "术语", summary: term.data.summary[locale],
+      aliases: displayAliases(term.data.name, term.data.aliases), relation: "",
+    }))
+  : entityType === "people"
   ? (await getPeopleDirectory(locale)).map(({ person, isHost, episodesCount }) => ({
       id: person.id, name: person.data.name[locale],
       kindId: isHost ? "co-host" : "mentioned",
-      kind: peopleKind[isHost ? "co-host" : "mentioned"][locale],
+      categoryIds: [...new Set([person.data.kind, ...(person.data.additionalKinds ?? [])])],
+      kind: `${peopleKind[isHost ? "co-host" : "mentioned"][locale]} · ${[...new Set([person.data.kind, ...(person.data.additionalKinds ?? [])])].map(kind => personKind[kind][locale]).join(" · ")}`,
       summary: person.data.bio[locale], aliases: person.data.aliases,
       relation: locale === "en" ? `${episodesCount} related episode${episodesCount === 1 ? "" : "s"}` : `${episodesCount} 期相关节目`,
     }))
@@ -43,7 +51,16 @@ const entries = entityType === "people"
         : `${brand ? `${brand.data.name["zh-Hans"]} · ` : ""}${episodesCount} 期节目`,
     }));
 
-const copy = entityType === "people" ? (locale === "en" ? {
+const copy = entityType === "terms" ? {
+  eyebrow: locale === "en" ? "Next Token / Wiki" : "Next Token / AI 资料库",
+  title: locale === "en" ? "Terms" : "术语",
+  lede: locale === "en" ? "Understand the concepts and technical vocabulary in our conversations." : "理解节目中的概念、技术用语与常见缩写。",
+  count: locale === "en" ? `${entries.length} terms` : `${entries.length} 个术语`,
+  brands: locale === "en" ? "Brands" : "品牌", products: locale === "en" ? "Products" : "产品",
+  aliases: locale === "en" ? "Also known as" : "别名",
+  open: locale === "en" ? "Term details" : "术语详情",
+  filterLabel: locale === "en" ? "Terms" : "术语", all: locale === "en" ? "All" : "全部",
+} : entityType === "people" ? (locale === "en" ? {
   eyebrow: "Next Token / Wiki", title: "People",
   lede: "The co-hosts, builders and researchers in our conversations.",
   count: `${entries.length} people`, brands: "Brands", products: "Products", aliases: "Also known as",
@@ -83,9 +100,9 @@ const copy = entityType === "people" ? (locale === "en" ? {
       all: "全部",
     };
 
-const filterOptions = entityType === "people"
-  ? (Object.keys(peopleKind) as Array<keyof typeof peopleKind>)
-      .map(id => ({ id, label: peopleKind[id][locale], count: entries.filter(entry => entry.kindId === id).length }))
+const filterOptions = entityType === "terms" ? [] : entityType === "people"
+  ? Object.entries({ ...peopleKind, ...personKind })
+      .map(([id, labels]) => ({ id, label: labels[locale], count: entries.filter(entry => entry.kindId === id || ("categoryIds" in entry && Array.isArray(entry.categoryIds) && entry.categoryIds.includes(id as keyof typeof personKind))).length }))
       .filter(({ count }) => count > 0)
   : entityType === "brands"
   ? (Object.keys(brandKind) as Array<keyof typeof brandKind>)
@@ -112,6 +129,7 @@ const filterOptions = entityType === "people"
     <a href={`${prefix}/wiki/brands`} aria-current={entityType === "brands" ? "page" : undefined}>{copy.brands}</a>
     <a href={`${prefix}/wiki/products`} aria-current={entityType === "products" ? "page" : undefined}>{copy.products}</a>
     <a href={`${prefix}/wiki/people`} aria-current={entityType === "people" ? "page" : undefined}>{locale === "en" ? "People" : "人物"}</a>
+    <a href={`${prefix}/wiki/terms`} aria-current={entityType === "terms" ? "page" : undefined}>{locale === "en" ? "Terms" : "术语"}</a>
   </nav>
 
   <div class="entity-secondary-filters shell" data-entity-filters>
@@ -129,8 +147,9 @@ const filterOptions = entityType === "people"
   </div>
 
   <section id="entity-directory-list" class="entity-directory shell" aria-label={copy.title} aria-live="polite">
+    {entries.length === 0 && <p>{locale === "en" ? "No terms published yet." : "暂无已发布的术语。"}</p>}
     {entries.map((entry, index) => (
-      <a class="entity-directory-row" href={`${prefix}/wiki/${entityType}/${entry.id}`} data-entity-kind={entry.kindId}>
+      <a class="entity-directory-row" href={`${prefix}/wiki/${entityType}/${entry.id}`} data-entity-kind={entry.kindId} data-person-category={"categoryIds" in entry && Array.isArray(entry.categoryIds) ? entry.categoryIds.join(" ") : undefined}>
         <span class="entity-directory-index">{String(index + 1).padStart(2, "0")}</span>
         <div class="entity-directory-identity">
           <span>{entry.kind}</span>
@@ -154,7 +173,7 @@ const filterOptions = entityType === "people"
   function setFilter(requestedFilter: string | null, updateUrl = false) {
     const filter = requestedFilter && validFilters.has(requestedFilter) ? requestedFilter : "all";
     buttons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.entityFilter === filter)));
-    rows.forEach((row) => { row.hidden = filter !== "all" && row.dataset.entityKind !== filter; });
+    rows.forEach((row) => { row.hidden = filter !== "all" && row.dataset.entityKind !== filter && !row.dataset.personCategory?.split(" ").includes(filter); });
     const visibleRows = rows.filter((row) => !row.hidden);
     rows.forEach((row) => row.classList.toggle("is-last-visible", row === visibleRows.at(-1)));
 
@@ -182,7 +201,7 @@ const filterOptions = entityType === "people"
   .entity-index-intro { display: flex; align-items: end; justify-content: space-between; gap: 1.5rem; padding-bottom: .25rem; }
   .entity-index-lede { max-width: 28rem; margin: 0; color: var(--muted); font-size: .95rem; line-height: 1.6; }
   .entity-index-count { flex: 0 0 auto; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
-  .entity-library-switch { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding-block: 1rem; }
+  .entity-library-switch { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding-block: 1rem; }
   .entity-library-switch a { min-width: 0; padding: .65rem .5rem; border: 0.0625rem solid var(--ink); font-family: var(--display); font-size: 1.2rem; text-align: center; white-space: nowrap; }
   .entity-library-switch a + a { border-left: 0; }
   .entity-library-switch a[aria-current="page"] { color: var(--paper); background: var(--ink); }

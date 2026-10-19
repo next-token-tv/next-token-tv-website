@@ -1,5 +1,6 @@
 ---
 import { getBrandDirectory, getProductDirectory, getPeopleDirectory } from "../data/catalog";
+import { getTerms } from "../data/terms";
 import type { Locale } from "../data/types";
 
 interface Props { locale: Locale }
@@ -16,6 +17,7 @@ function pickFeatured<T extends { id: string }>(items: T[], ids: string[]) {
     return item;
   });
 }
+const terms = await getTerms(locale);
 const sections = [
   {
     id: "brands", number: "01", title: en ? "Brands" : "品牌库", count: brands.length,
@@ -36,6 +38,12 @@ const sections = [
     unit: en ? "people" : "位人物",
     description: en ? "Meet the co-hosts and the people mentioned in our conversations." : "认识联合主理人，以及节目中提及的创业者、开发者与研究者。",
     entries: people.slice(0, 4).map(({ person }) => ({ id: person.id, name: person.data.name[locale], meta: person.data.bio[locale] })),
+  },
+  {
+    id: "terms", number: "04", title: en ? "Terms" : "术语", count: terms.length,
+    unit: en ? "terms" : "个术语",
+    description: en ? "Concepts, technical vocabulary and abbreviations from our conversations." : "理解对谈中的概念、技术用语与常见缩写。",
+    entries: terms.slice(0, 4).map(term => ({ id: term.id, name: term.data.name[locale], meta: term.data.summary[locale] })),
   },
 ];
 const brandTypes = [
@@ -58,8 +66,8 @@ const productTypes = [
   <section class="wiki-home-hero shell" aria-labelledby="wiki-home-title">
     <div class="wiki-home-heading">
       <p class="eyebrow">NEXT TOKEN / {en ? "WIKI" : "AI 资料库"}</p>
-      <h1 id="wiki-home-title">{en ? "AI brands, products and people." : <>AI 世界的品牌、<br />产品与人物。</>}</h1>
-      <p>{en ? "A connected index of the brands, products and people in Next Token conversations. Start with a name, then follow its relationships to other entries and episodes." : "从节目中的一个名字出发，找到背后的品牌、具体的产品和相关的人。这里把分散在对话中的线索，整理成可以继续探索的资料。"}</p>
+      <h1 id="wiki-home-title">{en ? "AI brands, products, people and terms." : <>AI 世界的品牌、<br />产品、人物与术语。</>}</h1>
+      <p>{en ? "A connected index of the brands, products, people and terms in Next Token conversations. Start with a name, then follow its relationships to other entries and episodes." : "从节目中的一个名字出发，找到背后的品牌、具体的产品、相关的人与术语释义。这里把分散在对话中的线索，整理成可以继续探索的资料。"}</p>
     </div>
     <div class="wiki-home-overview" aria-label={en ? "Wiki collections" : "资料库分类与条目数量"}>
       {sections.map(section => <a href={`${prefix}/wiki/${section.id}`}>
@@ -73,7 +81,7 @@ const productTypes = [
   <section class="wiki-home-discover shell" aria-labelledby="wiki-home-discover-title">
     <div class="wiki-home-section-head">
       <p class="eyebrow">01 / {en ? "EXPLORE" : "开始探索"}</p>
-      <h2 id="wiki-home-discover-title">{en ? "Three ways in." : "从三个入口开始。"}</h2>
+      <h2 id="wiki-home-discover-title">{en ? "Explore the collections." : "从四个入口开始。"}</h2>
       <p>{en ? "A few entries from each collection. Every name leads to its own profile." : "从每类资料中选几个名字，进入条目后可继续查看相关资料与节目。"}</p>
     </div>
     <div class="wiki-home-columns">
@@ -84,6 +92,7 @@ const productTypes = [
           <p>{section.description}</p>
         </a>
         <div class="wiki-home-entry-list">
+          {section.id === "terms" && section.entries.length === 0 && <p class="wiki-home-empty">{en ? "No terms published yet." : "暂无已发布的术语。"}</p>}
           {section.entries.map(entry => <a href={`${prefix}/wiki/${section.id}/${entry.id}`}><strong>{entry.name}</strong><span>{entry.meta}</span><b aria-hidden="true">↗</b></a>)}
         </div>
         <a class="wiki-home-all" href={`${prefix}/wiki/${section.id}`}>{en ? `All ${section.title.toLowerCase()}` : `查看全部${section.title}`} <span aria-hidden="true">→</span></a>
@@ -126,7 +135,7 @@ const productTypes = [
   .wiki-home-section-head .eyebrow { margin: 0 0 .5rem; }
   .wiki-home-section-head h2 { margin: 0; font-size: var(--heading-section-content-size); line-height: var(--section-heading-leading); }
   .wiki-home-section-head > p:last-child { margin: 0 0 .15rem; color: var(--muted); font-size: .9rem; line-height: 1.6; }
-  .wiki-home-columns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: .0625rem solid var(--ink); }
+  .wiki-home-columns { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: .0625rem solid var(--ink); }
   .wiki-home-columns > section { min-width: 0; display: flex; flex-direction: column; }
   .wiki-home-columns > section + section { border-left: .0625rem solid var(--ink); }
   .wiki-home-column-heading { position: relative; display: block; min-height: 13rem; padding: 1.5rem; border-bottom: .0625rem solid var(--ink); transition: background .18s ease; }
@@ -137,6 +146,7 @@ const productTypes = [
   .wiki-home-column-heading h3 { margin: .8rem 0 .4rem; font-size: 2rem; line-height: 1.2; }
   .wiki-home-column-heading p { max-width: 25rem; margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.6; }
   .wiki-home-entry-list { flex: 1; }
+  .wiki-home-empty { padding: 1rem 1.5rem; color: var(--muted); }
   .wiki-home-entry-list a { position: relative; display: grid; gap: .15rem; min-height: 5.8rem; padding: .9rem 2.1rem .9rem 1.5rem; border-bottom: .0625rem solid var(--line); }
   .wiki-home-entry-list a:hover { background: var(--white); }
   .wiki-home-entry-list strong { font-size: 1.1rem; line-height: 1.35; }

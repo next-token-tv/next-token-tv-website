@@ -1,3 +1,4 @@
+import { getTerms } from "./terms";
 import { getCatalogRelations } from "./catalog-relations";
 import { getContentCatalog } from "./catalog";
 import { absoluteSiteUrl } from "./internal-url";
@@ -96,10 +97,17 @@ export async function createWikiApi(site: URL) {
     },
   }));
 
-  return { brands, products, people };
+  const terms = byId(await getTerms()).map(term => ({
+    schemaVersion, entityType: "term" as const, id: term.id,
+    url: absolute(`/wiki/terms/${term.id}`, site),
+    apiUrl: absolute(`/api/v1/wiki/terms/${term.id}.json`, site),
+    name: term.data.name, summary: term.data.summary, aliases: term.data.aliases,
+    sources: term.data.sources, lastVerifiedAt: term.data.lastVerifiedAt,
+  }));
+  return { brands, products, people, terms };
 }
 
-export function collectionResponse(collection: "brands" | "products" | "people", data: unknown[]) {
+export function collectionResponse(collection: "brands" | "products" | "people" | "terms", data: unknown[]) {
   return { schemaVersion, collection, count: data.length, data };
 }
 
@@ -117,9 +125,9 @@ export function wikiIndex(site: URL, collections: Awaited<ReturnType<typeof crea
   return {
     schemaVersion,
     name: "Next Token Wiki API",
-    description: "Public, read-only brand, product and person data from Next Token｜词元之外.",
+    description: "Public, read-only brand, product, person and term data from Next Token｜词元之外.",
     documentation: absolute("/api", site),
-    collections: (["brands", "products", "people"] as const).map((id) => ({
+    collections: (["brands", "products", "people", "terms"] as const).map((id) => ({
       id,
       count: collections[id].length,
       url: absolute(`/api/v1/wiki/${id}.json`, site),

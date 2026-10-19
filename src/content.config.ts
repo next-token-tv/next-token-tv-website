@@ -47,6 +47,7 @@ const people = defineCollection({
     name: localizedText,
     bio: localizedText,
     kind: z.enum(Object.keys(personKind) as [keyof typeof personKind, ...(keyof typeof personKind)[]]).default("other"),
+    additionalKinds: z.array(z.enum(Object.keys(personKind) as [keyof typeof personKind, ...(keyof typeof personKind)[]])).default([]),
     aliases: z.array(z.string()).default([]),
     sources: z.array(source).default([]),
     relations: z.array(z.object({
@@ -386,7 +387,7 @@ const transcriptImports = defineCollection({
 });
 
 const prose = defineCollection({
-  loader: glob({ pattern: ["**/*.md", "!episode-articles/**/*.md", "!blog/**/*.md"], base: "./src/content/prose", generateId: ({ entry }) => entry.replace(/\.md$/i, "") }),
+  loader: glob({ pattern: ["**/*.md", "!episode-articles/**/*.md", "!blog/**/*.md", "!terms/**/*.md"], base: "./src/content/prose", generateId: ({ entry }) => entry.replace(/\.md$/i, "") }),
   schema: z.object({
     entityType: z.enum(["brand", "product", "person", "partner", "venue", "show", "episode"]),
     entity: z.string(),
@@ -447,7 +448,35 @@ const brandCopy = defineCollection({
   }),
 });
 
+const terms = defineCollection({
+  loader: yamlLoader("./src/content/data/terms"),
+  schema: z.object({
+    name: localizedText,
+    summary: localizedText,
+    aliases: z.array(z.string()).default([]),
+    status: z.enum(["draft", "published"]).default("draft"),
+    sources: z.array(source).default([]),
+    lastVerifiedAt: z.iso.date().optional(),
+  }).superRefine((data, ctx) => {
+    if (data.status !== "published") return;
+    if (!data.sources.length || !data.lastVerifiedAt || !data.summary.en.trim() || !data.summary["zh-Hans"].trim()) {
+      ctx.addIssue({ code: "custom", message: "Published terms require bilingual summaries, sources and lastVerifiedAt" });
+    }
+  }),
+});
+
+const termArticles = defineCollection({
+  loader: markdownLoader("./src/content/prose/terms"),
+  schema: z.object({
+    term: z.string(),
+    locale,
+    updatedAt: z.iso.date(),
+  }),
+});
+
 export const collections = {
+  terms,
+  termArticles,
   blog,
   blogEn,
   brandCopy,

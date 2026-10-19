@@ -1,0 +1,14 @@
+---
+import { getTerms } from "../../../../data/terms";
+import { getSiteContent } from "../../../../data/site";
+import TermDetailPage from "../../../../components/TermDetailPage.astro";
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+export async function getStaticPaths() {
+  return (await getTerms()).map(term => ({ params: { slug: term.id }, props: { term } }));
+}
+const { term } = Astro.props;
+const content = await getSiteContent("en");
+---
+<BaseLayout content={content} pageTitle={`${term.data.name["en"]}｜Terms｜Next Token`} description={term.data.summary["en"]} canonicalPath={`/en/wiki/terms/${term.id}`} alternatePath={`/wiki/terms/${term.id}`}>
+  <TermDetailPage term={term} locale="en" />
+</BaseLayout>

@@ -33,3 +33,7 @@ API 只发布网站资料库的公开实体数据。`src/content/imported/` 中�
 curl https://nexttoken.tv/api/v1/wiki/products/chatgpt.json
 curl https://nexttoken.tv/api/v1/wiki/brands.json | jq '.data[] | select(.kind == "ai-brand")'
 ```
+
+## 术语集合
+
+`/api/v1/wiki/terms.json` 与 `/api/v1/wiki/terms/<id>.json` 提供已发布术语；草稿不公开。字段包括 `schemaVersion`、`entityType: term`、`id`、`url`、`apiUrl`、双语 `name` 与 `summary`、`aliases`、`sources`、`lastVerifiedAt`。术语暂不提供 `kind` 或 `relationships`。

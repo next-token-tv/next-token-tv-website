@@ -1,0 +1,9 @@
+---
+import EntityDirectoryPage from "../../../../components/EntityDirectoryPage.astro";
+import { getSiteContent } from "../../../../data/site";
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+const content = await getSiteContent("en");
+---
+<BaseLayout content={content} pageTitle="Terms｜Next Token" description="Explore concepts, technical vocabulary and abbreviations from Next Token." canonicalPath="/en/wiki/terms" alternatePath="/wiki/terms">
+  <EntityDirectoryPage entityType="terms" locale="en" />
+</BaseLayout>

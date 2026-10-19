@@ -104,7 +104,7 @@ for (const name of await readdir(transcriptDirectory)) {
 }
 
 const apiPayloads = new Map();
-for (const collection of ['brands', 'products', 'people']) {
+for (const collection of ['brands', 'products', 'people', 'terms']) {
   const collectionPath = resolve(dist, `api/v1/wiki/${collection}.json`);
   let payload;
   try {
@@ -119,7 +119,7 @@ for (const collection of ['brands', 'products', 'people']) {
     continue;
   }
   for (const record of payload.data) {
-    if (!record.id || !record.name?.['zh-Hans'] || !record.name?.en || !record.relationships) {
+    if (!record.id || !record.name?.['zh-Hans'] || !record.name?.en || (collection !== "terms" && !record.relationships)) {
       errors.push(`/api/v1/wiki/${collection}.json: incomplete record ${record.id ?? '(missing id)'}`);
       continue;
     }
@@ -140,7 +140,7 @@ for (const collection of ['brands', 'products', 'people']) {
 }
 try {
   const index = JSON.parse(await readFile(resolve(dist, 'api/v1/wiki.json'), 'utf8'));
-  if (index.schemaVersion !== 1 || index.collections?.map((entry) => entry.id).join(',') !== 'brands,products,people') {
+  if (index.schemaVersion !== 1 || index.collections?.map((entry) => entry.id).join(',') !== 'brands,products,people,terms') {
     errors.push('/api/v1/wiki.json: invalid API index');
   }
   if (index.documentation !== 'https://nexttoken.tv/api') errors.push('/api/v1/wiki.json: invalid documentation URL');

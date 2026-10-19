@@ -56,6 +56,12 @@ Fireworks AI、硅基流动的品牌条目介绍公司主体及业务；两者�
 
 开发者工具 `developer-tool` 包括主要用于构建、调试、测试软件或管理软件研发流程的产品。ColaMD 与 Linear 归入开发者工具。
 
+供程序集成的框架、库和组件统一归入 `framework`，界面显示“框架与库”，包括 Electron、HomeKit、Ruby on Rails、Three.js、Milkdown、Tailwind CSS、CodeMirror 与 PixiJS。独立编辑器、开发环境和命令行工具不因用于开发就归入框架与库。
+
+评估模型或智能体任务能力的基准归入 `benchmark`，包括 Terminal-Bench 与 DeepSWE；评测结果展示服务仍可归入平台，例如 Artificial Analysis。
+
+Mole 按系统维护用途归入应用；采用命令行界面不代表开发者工具。Bloome、YouWare、Tabbit 按任务委派、自主执行或 Agent 协作工作流归入 Agent。
+
 闪电说作为语音输入与沟通应用，归入 `application`；不因官方使用 Agent 的营销称谓而自动归入 `agent`，也不归入开发者工具。
 
 操作系统使用独立分类 `operating-system`，包括 iOS、macOS、Linux 与 Omarchy；Linux 的摘要明确其内核与系统生态范围。
@@ -96,4 +102,8 @@ Apple WWDC 与 OpenAI DevDay 同为活动产品，归入 `event`。完整硬件�
 
 ## 分期提及分组
 
-每期的提及列表保留人物、品牌、产品三个大类，各类内部按资料库类型分组。人物使用 `kind` 按主要介绍的身份归入创业者与企业管理者、研究者与工程师、创作者与社区主理人或其他人物；每人只展示一次。人物目录的主理人筛选仍由节目成员关系决定。品牌与产品沿用各自的 `kind`，分类名称与资料库目录共用。空分组不显示，组内保留分期提及顺序。
+每期的提及列表保留人物、品牌、产品三个大类，各类内部按资料库类型分组。人物使用 `kind` 按主要介绍的身份归入创业者与企业管理者、研究者与工程师、创作者与社区主理人或其他人物；每人只展示一次。人物的 `kind` 为主要身份，`additionalKinds` 保存其他身份；人物目录按两者的并集筛选，分期提及仍按主要身份分组，避免重复展示。人物目录的主理人筛选仍由节目成员关系决定；同时提供按 `kind` 的身份分类筛选，与主理人／节目提及入口共存。身份分类筛选使用 `type=business`、`type=research-engineering`、`type=creator-community` 或 `type=other`，人物行显示节目关系与身份分类。品牌与产品沿用各自的 `kind`，分类名称与资料库目录共用。空分组不显示，组内保留分期提及顺序。
+
+## 术语
+
+通用概念、方法、技术用语与缩写收录为独立的术语，不作为品牌或产品。数据、正文和发布规则见 [术语库](terms-library.md)。

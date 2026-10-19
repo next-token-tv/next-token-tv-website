@@ -1,0 +1,9 @@
+---
+import EntityDirectoryPage from "../../../components/EntityDirectoryPage.astro";
+import { getSiteContent } from "../../../data/site";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+const content = await getSiteContent("zh-Hans");
+---
+<BaseLayout content={content} pageTitle="术语｜Next Token" description="理解 Next Token 节目中的概念、技术用语与常见缩写。" canonicalPath="/wiki/terms" alternatePath="/en/wiki/terms">
+  <EntityDirectoryPage entityType="terms" locale="zh-Hans" />
+</BaseLayout>

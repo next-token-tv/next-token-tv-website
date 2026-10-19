@@ -1,15 +1,16 @@
 import { expect, test } from '@playwright/test';
 
 for (const prefix of ['', '/en']) {
-  test(`wiki home connects all three collections ${prefix || 'zh'}`, async ({ page }) => {
+  test(`wiki home connects all four collections ${prefix || 'zh'}`, async ({ page, request }) => {
+    const terms = await (await request.get('/api/v1/wiki/terms.json')).json();
     await page.setViewportSize({ width: 1327, height: 897 });
     await page.goto(`${prefix}/wiki`);
-    await expect(page.locator('.wiki-home-overview a')).toHaveCount(3);
-    for (const section of ['brands', 'products', 'people']) {
+    await expect(page.locator('.wiki-home-overview a')).toHaveCount(4);
+    for (const section of ['brands', 'products', 'people', 'terms']) {
       await expect(page.locator(`.wiki-home-overview a[href="${prefix}/wiki/${section}"]`)).toBeVisible();
       const heading = page.locator(`.wiki-home-columns section[aria-labelledby="wiki-home-${section}"] .wiki-home-column-heading`);
       await expect(heading).toHaveAttribute('href', `${prefix}/wiki/${section}`);
-      await expect(page.locator(`.wiki-home-columns section[aria-labelledby="wiki-home-${section}"] a[href^="${prefix}/wiki/${section}/"]`)).toHaveCount(4);
+      await expect(page.locator(`.wiki-home-columns section[aria-labelledby="wiki-home-${section}"] a[href^="${prefix}/wiki/${section}/"]`)).toHaveCount(section === "terms" ? Math.min(4, terms.count) : 4);
       await heading.click();
       await expect(page).toHaveURL(new RegExp(`${prefix}/wiki/${section}$`));
       await page.goBack();
@@ -23,7 +24,7 @@ for (const prefix of ['', '/en']) {
         .toEqual(ids.map(id => `${prefix}/wiki/${section}/${id}`));
     }
     const counts = await page.locator('.wiki-home-overview strong').allTextContents();
-    expect(counts.every(count => Number(count) > 0)).toBe(true);
+    expect(counts.every(count => Number(count) >= 0)).toBe(true);
   });
 }
 

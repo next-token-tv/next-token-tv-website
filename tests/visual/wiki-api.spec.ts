@@ -7,7 +7,7 @@ test('Wiki API publishes collections and stable entity details', async ({ reques
   const index = await indexResponse.json();
   expect(index.schemaVersion).toBe(1);
   expect(index.documentation).toBe('https://nexttoken.tv/api');
-  expect(index.collections.map((entry: { id: string }) => entry.id)).toEqual(['brands', 'products', 'people']);
+  expect(index.collections.map((entry: { id: string }) => entry.id)).toEqual(['brands', 'products', 'people', 'terms']);
 
   const documentation = await request.get('/api');
   expect(documentation.ok()).toBe(true);
@@ -48,7 +48,7 @@ test('Wiki API documentation exposes the contract and collection links', async (
   await page.goto('/api');
   await expect(page.locator('h1')).toContainText('获取资料库');
   await expect(page.getByRole('link', { name: /打开 API 入口/ })).toHaveAttribute('href', '/api/v1/wiki.json');
-  await expect(page.locator('.api-collections a')).toHaveCount(3);
+  await expect(page.locator('.api-collections a')).toHaveCount(4);
   await expect(page.locator('body')).toContainText('单实体路径');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
