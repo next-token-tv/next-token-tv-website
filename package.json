@@ -43,7 +43,7 @@
     "entity:migrate": "node --experimental-strip-types scripts/entity-migrate.mjs",
     "generate:redirects": "node scripts/generate-entity-redirects.mjs",
     "check:redirects": "node scripts/generate-entity-redirects.mjs --check",
-    "test:maintenance": "node --experimental-strip-types --test tests/maintenance.test.mjs tests/search.test.mjs tests/catalog-relations.test.mjs tests/performance-workflow.test.mjs tests/release-checkpoint.test.mjs tests/episode-artwork.test.mjs",
+    "test:maintenance": "node --experimental-strip-types --test tests/maintenance.test.mjs tests/search.test.mjs tests/catalog-relations.test.mjs tests/performance-workflow.test.mjs tests/release-checkpoint.test.mjs tests/release-retention.test.mjs tests/episode-artwork.test.mjs",
     "community:qr": "node scripts/generate-community-qr.mjs",
     "test:community": "node --test tests/community-qr.test.mjs"
   },

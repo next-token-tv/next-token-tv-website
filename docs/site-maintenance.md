@@ -10,6 +10,8 @@
 
 `npm run release:publish -- <bundle-directory>` verifies that hash again and deploys the same bundle without rebuilding. The deployment version, commit and digest are retained in `.releases/history.jsonl`. `npm run deploy` prepares the current commit and then publishes that verified bundle; use it only when deployment is intended. Run Wrangler-backed commands in the authorized host context.
 
+Successful publishing automatically removes obsolete local release bundles. It retains the two most recent distinct successfully deployed bundles and the newest unpublished attempt (for resume or publish). Release history and performance reports remain intact. Failed checks or deployment attempts do not trigger cleanup. Release CLI operations are serialized with a process lock so cleanup cannot remove another active preparation; a lock left by a forcibly terminated process blocks further operations with an explicit recovery message. Cleanup errors are reported separately and do not turn a successful deployment into a deployment failure.
+
 `npm run release:rollback -- <Cloudflare-version-id>` restores a previously deployed Cloudflare version and records the rollback locally. Rollback does not modify source files or Git commits. A successful CLI result still requires checking the live pages. Release bundles and history are local ignored files; preserve the selected bundle when moving machines.
 
 ## Independent mobile performance

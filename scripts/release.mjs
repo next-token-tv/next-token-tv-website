@@ -1,6 +1,7 @@
 import { spawnSync } from 'node:child_process';
 import { readFile, writeFile, mkdir, appendFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
+import {withReleaseLock, cleanReleaseBundles} from './lib/release-retention.mjs';
 import { artifactDigest } from './lib/release-artifact.mjs';
 import {readHistory,performanceStatus} from './lib/performance-status.mjs';
 
@@ -17,6 +18,9 @@ const run = (cmd, args, cwd = root, capture = false) => {
 };
 const directory = resolve(root, '.releases');
 await mkdir(directory, { recursive: true });
+await withReleaseLock(directory, () => release(command, argument));
+
+async function release(command, argument) {
 if (command === 'prepare' || command === 'deploy') {
   const revision = run('git', ['rev-parse', '--verify', `${argument ?? 'HEAD'}^{commit}`], root, true);
   const bundle = resolve(directory, `${revision.slice(0, 12)}-${Date.now()}`);
@@ -27,7 +31,7 @@ if (command === 'prepare' || command === 'deploy') {
   run('npm', ['ci'], bundle);
   await writeFile(resolve(bundle,'release-attempt.json'),JSON.stringify({schemaVersion:1,revision})+'\n');
   await verifyBundle(bundle, revision, false);
-  if (command === 'deploy') run(process.execPath, [resolve(root, 'scripts/release.mjs'), 'publish', bundle]);
+  if (command === 'deploy') await release('publish', bundle);
 } else if (command === 'resume') {
   if (!argument) throw new Error('Usage: npm run release:resume -- <failed-bundle>');
   const bundle=resolve(argument);
@@ -47,11 +51,18 @@ if (command === 'prepare' || command === 'deploy') {
   await appendFile(resolve(directory, 'history.jsonl'), JSON.stringify({ ...manifest, performance, bundle, deployedAt: new Date().toISOString(), version: version ?? null }) + '\n');
   console.log(`Mobile performance for this release: ${performance.status}`);
   if (!version) throw new Error('Deployment command succeeded but version could not be parsed; inspect Cloudflare before retrying');
+  try {
+    const removed = await cleanReleaseBundles(directory);
+    console.log(`Release cleanup: removed ${removed.length} obsolete bundles`);
+  } catch (error) {
+    console.warn(`Deployment succeeded; local cleanup skipped: ${error.message}`);
+  }
 } else if (command === 'rollback') {
   if (!/^[a-f0-9-]{36}$/.test(argument ?? '')) throw new Error('Usage: npm run release:rollback -- <Cloudflare-version-id>');
   run('npx', ['wrangler', 'rollback', argument]);
   await appendFile(resolve(directory, 'history.jsonl'), JSON.stringify({ rolledBackAt: new Date().toISOString(), version: argument }) + '\n');
 } else throw new Error('Expected prepare, resume, publish, deploy or rollback');
+}
 
 async function verifyBundle(bundle,revision,resume) {
   let resumable=false;
