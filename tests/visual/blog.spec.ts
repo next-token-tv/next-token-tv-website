@@ -4,13 +4,14 @@ import { load } from "js-yaml";
 
 const reviewDrafts = process.env.PLAYWRIGHT_BLOG_DRAFTS === "1";
 const slugs = ["jev-structured-decisions", "agent-browser-ultrawide"];
-const posts = readdirSync("src/content/prose/blog").filter(file => file.endsWith(".md") && !file.endsWith(".en.md")).map(file => {
+const readPosts = (english = false) => readdirSync("src/content/prose/blog").filter(file => file.endsWith(".md") && file.endsWith(".en.md") === english).map(file => {
   const source = readFileSync(`src/content/prose/blog/${file}`, "utf8");
   const frontmatter = source.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!frontmatter?.[1]) throw new Error(`Missing frontmatter: ${file}`);
   const data = load(frontmatter[1]) as { status: "draft" | "published" };
-  return { slug: file.slice(0, -3), status: data.status };
+  return { slug: file.replace(/(?:\.en)?\.md$/, ""), status: data.status };
 });
+const posts = readPosts();
 const visiblePosts = posts.filter(post => post.status === "published" || reviewDrafts);
 for (const width of [390, 768, 1280, 1440, 1920, 2560]) {
   for (const path of ["/community", "/en/community", "/en/blog", "/en/blog/episodes", "/en/blog/episodes/003", "/en/blog/jev-structured-decisions", "/blog", "/blog/episodes", "/blog/episodes/003", ...visiblePosts.filter(post => slugs.includes(post.slug)).map(post => `/blog/${post.slug}`), "/en"]) {
@@ -90,8 +91,9 @@ test('Published blog feeds include every article in their locale', async ({ requ
   expect(response.status()).toBe(200);
   expect(response.headers()['content-type']).toContain('xml');
   const xml = await response.text();
-  expect((xml.match(/<item>/g) ?? []).length).toBe(posts.filter(post => post.status === 'published').length);
-  for (const post of posts.filter(post => post.status === 'published')) {
+  const published = readPosts(locale === '/en').filter(post => post.status === 'published');
+  expect((xml.match(/<item>/g) ?? []).length).toBe(published.length);
+  for (const post of published) {
    expect(xml).toContain(`https://nexttoken.tv${locale}/blog/${post.slug}</guid>`);
   }
  }
