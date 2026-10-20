@@ -133,6 +133,22 @@ platforms:
       en: Xiaoyuzhou
     href: https://www.xiaoyuzhoufm.com/episode/6ad50a05641ef406308d957a
     action:
+      zh-Hans: 收听 / 收看
+      en: Listen / watch
+  - platform: apple-podcasts
+    label:
+      zh-Hans: Apple Podcasts
+      en: Apple Podcasts
+    href: https://podcasts.apple.com/us/podcast/006-ai-%E9%80%86%E5%90%91%E6%8C%A1%E4%B8%8D%E4%BD%8F-grok-bot-muse-%E7%94%A8%E4%B8%8A%E5%A4%B4-%E5%B9%B2%E6%B4%BB%E8%BF%98%E6%98%AF%E8%BF%87%E5%AE%B6%E5%AE%B6/id6809305832?i=1000797012404&uo=4
+    action:
+      zh-Hans: 立即收听
+      en: Listen now
+  - platform: spotify
+    label:
+      zh-Hans: Spotify
+      en: Spotify
+    href: https://open.spotify.com/episode/2dvvP3QjYnNVt5Af546xCd
+    action:
       zh-Hans: 立即收听
       en: Listen now
   - platform: bilibili
