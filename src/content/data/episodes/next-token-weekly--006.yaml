@@ -149,13 +149,21 @@ platforms:
       en: Spotify
     href: https://open.spotify.com/episode/2dvvP3QjYnNVt5Af546xCd
     action:
-      zh-Hans: 立即收听
-      en: Listen now
+      zh-Hans: 收听 / 收看
+      en: Listen / watch
   - platform: bilibili
     label:
       zh-Hans: 哔哩哔哩
       en: Bilibili
     href: https://www.bilibili.com/video/BV1g8nj6JEWE/
+    action:
+      zh-Hans: 立即观看
+      en: Watch now
+  - platform: youtube
+    label:
+      zh-Hans: YouTube
+      en: YouTube
+    href: https://www.youtube.com/watch?v=YLNqlY6Ut38
     action:
       zh-Hans: 立即观看
       en: Watch now
