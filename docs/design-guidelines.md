@@ -10,6 +10,11 @@
 - Homepage, show, and episode participant cards share `PersonCard.astro`. Portrait and name link to the same localized person profile; page composition controls spacing and supplies either the biography or episode role. `HostCard.astro` adds homepage social accounts through the shared card slot.
 - `/design-system` and `/en/design-system` are non-indexed reference pages for inspecting shared typography, color, and spacing tokens. They are not part of public navigation or the sitemap.
 
+## Scrolling
+
+- The document remains the native scroll container. Apply `overscroll-behavior-y: none` to `html` and `body` to suppress vertical boundary bounce where supported. Keep horizontal gestures, normal wheel/touch/keyboard scrolling, zoom, sticky navigation and hash navigation native; do not fix the body or globally cancel wheel/touch events.
+- Unsupported browsers gracefully retain native bounce. Safari added overscroll support in version 16, with short-page fixes in 16.4; browser- or app-owned pull-to-refresh may still differ. Chrome viewport emulation does not verify physical iOS gestures. See [Safari 16](https://webkit.org/blog/13152/webkit-features-in-safari-16-0/), [Safari 16.4](https://developer.apple.com/documentation/safari-release-notes/safari-16_4-release-notes), and [WebKit pull-to-refresh limitation](https://bugs.webkit.org/show_bug.cgi?id=275947).
+
 ## Content width and alignment
 
 - Shared page containers use `.shell` with `--site-max-width: 100rem`, including responsive inline padding from `--gutter`. Containers are centered; the maximum width includes padding.
