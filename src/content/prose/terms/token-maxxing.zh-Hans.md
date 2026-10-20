@@ -18,4 +18,4 @@ Token Maxxing 是节目参与者使用的说法，不是通用词典词汇：指
 
 ## 易混概念
 
-与[杰文斯悖论](/wiki/terms/jevons-paradox)相关但层次不同：杰文斯悖论是关于效率与总消耗的宏观经济学观察，Token Maxxing 是使用者主动拉满用量的行为——前者解释后者所处的环境，不是同一类概念。它也与节目品牌 [Next Token](/wiki/terms/next-token) 无关——虽然共享 token 一词，所指完全不同。
+与[杰文斯悖论](/wiki/terms/jevons-paradox)相关但层次不同：杰文斯悖论是关于效率与总消耗的宏观经济学观察，Token Maxxing 是使用者主动拉满用量的行为——前者解释后者所处的环境，不是同一类概念。它也与节目品牌 [Next Token](/wiki/brands/next-token) 无关——虽然共享 token 一词，所指完全不同。

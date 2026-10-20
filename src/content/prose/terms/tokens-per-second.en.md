@@ -17,4 +17,4 @@ TPS is used to compare inference services and hardware options and to estimate u
 
 ## Related and confusable terms
 
-TPS describes the speed at which the model emits one [next token](/en/wiki/terms/next-token) after another, and the [KV cache](/en/wiki/terms/kv-cache) is a key optimization behind that speed. Unlike [benchmark](/en/wiki/terms/benchmark) capability scores, TPS measures speed, not answer quality.
+TPS describes the speed at which the model emits one next token after another, and the [KV cache](/en/wiki/terms/kv-cache) is a key optimization behind that speed. Unlike [benchmark](/en/wiki/terms/benchmark) capability scores, TPS measures speed, not answer quality.

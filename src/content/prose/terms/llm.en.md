@@ -9,7 +9,7 @@ A large language model (LLM) is a deep neural network trained on massive amounts
 
 ## How it works
 
-The model works in [tokens](/en/wiki/terms/token): pretraining teaches it to predict the [next token](/en/wiki/terms/next-token), and generation proceeds the same way, producing text autoregressively one token at a time. Everything the model can use to shape its answer is carried in the [context](/en/wiki/terms/context).
+The model works in [tokens](/en/wiki/terms/token): pretraining teaches it to predict the next token, and generation proceeds the same way, producing text autoregressively one token at a time. Everything the model can use to shape its answer is carried in the [context](/en/wiki/terms/context).
 
 ## Usage
 

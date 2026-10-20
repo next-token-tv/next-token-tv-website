@@ -17,4 +17,4 @@ RLHF 及其变体被广泛用于让语言模型遵循指令、提供更有帮助
 
 ## 易混概念
 
-RLHF 是作用于模型之上的训练方法，不改变 [Transformer](/wiki/terms/transformer) 等架构和[下一个词元](/wiki/terms/next-token)的生成机制，改变的是模型选择生成什么内容的倾向。
+RLHF 是作用于模型之上的训练方法，不改变 [Transformer](/wiki/terms/transformer) 等架构和下一个词元的生成机制，改变的是模型选择生成什么内容的倾向。

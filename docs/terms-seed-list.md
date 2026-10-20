@@ -8,7 +8,7 @@
 
 ## 完成状态（2026-10-11）
 
-131 个术语已全部完成并发布：YAML 补齐双语摘要、来源（每条 1–3 个权威页面，URL 均经验证可达）与核验日期；双语正文按"定义、工作方式、使用场景、易混概念"四节撰写，术语间以站内互链关联。特殊条目的处理：`session-base`、`role-base`、`agent-ready` 经编辑决定不收录（2026-10-11 移除已建条目）；`qa` 经语境核验为质量保证；`agent-ready` 核验为通用行业用语（Cloudflare 博客为来源）；`system-one` 依附 TypeSafe AI 官方口径；`token-maxxing` 如实标注为节目参与者使用的说法；`next-token` 与节目品牌明确区分。
+131 个术语已全部完成并发布：YAML 补齐双语摘要、来源（每条 1–3 个权威页面，URL 均经验证可达）与核验日期；双语正文按"定义、工作方式、使用场景、易混概念"四节撰写，术语间以站内互链关联。特殊条目的处理：`session-base`、`role-base`、`agent-ready` 经编辑决定不收录（2026-10-11 移除已建条目）；`qa` 经语境核验为质量保证；`agent-ready` 核验为通用行业用语（Cloudflare 博客为来源）；`system-one` 依附 TypeSafe AI 官方口径；`token-maxxing` 如实标注为节目参与者使用的说法；`next-token` 不单独收录，相关技术解释保留在词元与大语言模型正文中。
 
 ## 草稿名单
 
@@ -85,7 +85,6 @@
 | transformer | Transformer | Transformer | Transformer |
 | virtual-machine | 虚拟机 | Virtual Machine | VM |
 | ssd | 固态硬盘 | Solid-State Drive | SSD |
-| next-token | 下一个词元 | Next Token | next token |
 | midi | 乐器数字接口 | Musical Instrument Digital Interface | MIDI |
 | cookie | Cookie | Cookie | Cookie |
 | esim | 嵌入式 SIM | eSIM | eSIM |
@@ -157,7 +156,7 @@ TPS、QA、Harness、DIY、Browser Use、System One、Token Maxxing 和 OPC 均�
 - `qa`：暂按质量保证准备名称，补内容前确认原语境是否为问答。
 - `harness`、`memory`、`agent-skills`：以智能体语境为范围，需核验 Harness、Memory、Skill 在节目中的实际用法。
 - `agent-ready`：需核验这是通用用语还是特定产品的宣传标签；2026-10-11 经编辑决定不收录，已移除对应条目。
-- `next-token`：指技术语境的下一个词元，与 Next Token 节目品牌区分；不自动用于逐字稿链接。
+- `next-token`：不单独收录为术语；Next Token 作为节目品牌保留，预测下一个词元的技术解释见词元与大语言模型条目。
 - 中文名与英文全称均为草稿编辑名称，补内容时可根据权威资料修订；ID 保持稳定。
 
 ## 普通词汇与日常表达

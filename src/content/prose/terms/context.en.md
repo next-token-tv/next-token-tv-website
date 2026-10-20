@@ -17,4 +17,4 @@ Long-document question answering, multi-turn conversation, codebase understandin
 
 ## Related and confusable terms
 
-Predicting the [next token](/en/wiki/terms/next-token) is done from the context; the [KV cache](/en/wiki/terms/kv-cache) stores intermediate computations of that context to speed up repeated prefixes, but is not the context itself. All of this is machinery inside a [large language model](/en/wiki/terms/llm).
+Predicting the next token is done from the context; the [KV cache](/en/wiki/terms/kv-cache) stores intermediate computations of that context to speed up repeated prefixes, but is not the context itself. All of this is machinery inside a [large language model](/en/wiki/terms/llm).

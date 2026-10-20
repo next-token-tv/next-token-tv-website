@@ -18,4 +18,4 @@ This usage appears in Next Token's discussions: in Weekly #001's segment on AI-n
 
 ## Related and confusable terms
 
-It often comes up next to the [Jevons paradox](/en/wiki/terms/jevons-paradox): total token consumption rising as efficiency improves and costs fall is the macro observation, while Token Maxxing is the user's deliberate behavior of maxing out usage. It is likewise unrelated to the show's brand, [Next Token](/en/wiki/terms/next-token) — the shared word "token" does not imply any connection.
+It often comes up next to the [Jevons paradox](/en/wiki/terms/jevons-paradox): total token consumption rising as efficiency improves and costs fall is the macro observation, while Token Maxxing is the user's deliberate behavior of maxing out usage. It is likewise unrelated to the show's brand, [Next Token](/en/wiki/brands/next-token) — the shared word "token" does not imply any connection.

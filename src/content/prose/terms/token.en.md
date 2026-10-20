@@ -17,4 +17,4 @@ Developers watch token counts when managing cost, sizing requests, and planning 
 
 ## Related and confusable terms
 
-The model emits one [next token](/en/wiki/terms/next-token) at a time, at a rate expressed in [tokens per second](/en/wiki/terms/tokens-per-second); how many tokens a request can hold is bounded by the [context](/en/wiki/terms/context) window. All of this happens inside a [large language model](/en/wiki/terms/llm).
+The model emits one next token at a time, at a rate expressed in [tokens per second](/en/wiki/terms/tokens-per-second); how many tokens a request can hold is bounded by the [context](/en/wiki/terms/context) window. All of this happens inside a [large language model](/en/wiki/terms/llm).

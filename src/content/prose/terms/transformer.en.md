@@ -9,7 +9,7 @@ The transformer is a neural network architecture built around self-attention, in
 
 ## How it works
 
-Self-attention lets every position in a sequence attend directly to every other position, weighting them by relevance — a structure that, unlike earlier recurrent designs, lends itself to parallel training. The model transforms the sequence's representations layer by layer, and pretraining usually targets [next-token](/en/wiki/terms/next-token) prediction to learn language from text.
+Self-attention lets every position in a sequence attend directly to every other position, weighting them by relevance — a structure that, unlike earlier recurrent designs, lends itself to parallel training. The model transforms the sequence's representations layer by layer, and pretraining usually targets next-token prediction to learn language from text.
 
 ## Usage
 

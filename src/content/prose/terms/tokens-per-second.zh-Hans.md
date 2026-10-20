@@ -17,4 +17,4 @@ TPS 常用于比较推理服务与硬件方案的性能，也用于估算用户�
 
 ## 易混概念
 
-TPS 描述的是模型逐个生成[下一个词元](/wiki/terms/next-token)的速度，而[键值缓存](/wiki/terms/kv-cache)是影响这一速度的关键优化手段。它与[基准测试](/wiki/terms/benchmark)中的能力评分不同：TPS 衡量速度，不衡量答得好不好。
+TPS 描述的是模型逐个生成下一个词元的速度，而[键值缓存](/wiki/terms/kv-cache)是影响这一速度的关键优化手段。它与[基准测试](/wiki/terms/benchmark)中的能力评分不同：TPS 衡量速度，不衡量答得好不好。

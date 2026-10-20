@@ -17,4 +17,4 @@ updatedAt: "2026-10-11"
 
 ## 易混概念
 
-模型逐个生成[下一个词元](/wiki/terms/next-token)，其快慢以[每秒词元数](/wiki/terms/tokens-per-second)衡量；一次请求能容纳多少词元，则受[上下文](/wiki/terms/context)窗口约束。这些都发生在[大语言模型](/wiki/terms/llm)内部。
+模型逐个生成下一个词元，其快慢以[每秒词元数](/wiki/terms/tokens-per-second)衡量；一次请求能容纳多少词元，则受[上下文](/wiki/terms/context)窗口约束。这些都发生在[大语言模型](/wiki/terms/llm)内部。

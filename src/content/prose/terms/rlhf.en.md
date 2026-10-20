@@ -17,4 +17,4 @@ RLHF and its variants are widely used to make language models follow instruction
 
 ## Related and confusable terms
 
-RLHF is a method applied on top of a model: it leaves the [transformer](/en/wiki/terms/transformer) architecture and the [next-token](/en/wiki/terms/next-token) generation mechanism intact, and instead shifts the model's tendency in what it chooses to generate.
+RLHF is a method applied on top of a model: it leaves the [transformer](/en/wiki/terms/transformer) architecture and the next-token generation mechanism intact, and instead shifts the model's tendency in what it chooses to generate.
