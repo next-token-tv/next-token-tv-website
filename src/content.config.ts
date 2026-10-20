@@ -387,7 +387,7 @@ const transcriptImports = defineCollection({
 });
 
 const prose = defineCollection({
-  loader: glob({ pattern: ["**/*.md", "!episode-articles/**/*.md", "!blog/**/*.md", "!terms/**/*.md"], base: "./src/content/prose", generateId: ({ entry }) => entry.replace(/\.md$/i, "") }),
+  loader: glob({ pattern: ["**/*.md", "!episode-articles/**/*.md", "!wechat/**/*.md", "!blog/**/*.md", "!terms/**/*.md"], base: "./src/content/prose", generateId: ({ entry }) => entry.replace(/\.md$/i, "") }),
   schema: z.object({
     entityType: z.enum(["brand", "product", "person", "partner", "venue", "show", "episode"]),
     entity: z.string(),
@@ -396,6 +396,16 @@ const prose = defineCollection({
     updatedAt: z.iso.date().optional(),
     seoTitle: z.string().optional(),
     seoDescription: z.string().optional(),
+  }),
+});
+
+const wechatArticles = defineCollection({
+  loader: markdownLoader("./src/content/prose/wechat"),
+  schema: z.object({
+    number: z.string().regex(/^\d{3}$/),
+    title: z.string().min(1),
+    description: z.string().min(1),
+    recordedAt: z.iso.date(),
   }),
 });
 
@@ -475,6 +485,7 @@ const termArticles = defineCollection({
 });
 
 export const collections = {
+  wechatArticles,
   terms,
   termArticles,
   blog,

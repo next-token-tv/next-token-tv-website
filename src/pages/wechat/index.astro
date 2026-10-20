@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+import WechatLayout from "../../layouts/WechatLayout.astro";
+const articles = (await getCollection("wechatArticles")).sort((a, b) => b.data.number.localeCompare(a.data.number));
+---
+<WechatLayout title="对话，词元之外" description="把每一期值得留下的对话，慢慢读完。">
+  <main id="main" class="channel">
+    <header class="channel-header">
+      <p class="wordmark">NEXT TOKEN <span>词元之外</span></p>
+      <p class="eyebrow">THE CONVERSATIONS</p>
+      <h1>对话，<br />词元之外。</h1>
+      <p class="channel-intro">关于 AI，也关于使用它的人。<br />把每一期值得留下的对话，慢慢读完。</p>
+      <p class="channel-note">杨攀 · 歸藏 · 向阳乔木 · 橘子</p>
+    </header>
+    <section class="issue-list" aria-label="各期对话">
+      {articles.map(({ data }) => <a class="issue-card" href={`/wechat/${data.number}`}>
+        <div class="issue-meta"><span>对话 {data.number}</span><span>{data.recordedAt} 录制</span></div>
+        <img src={`/assets/weekly-${data.number}-cover-square-720.webp`} alt={`第 ${data.number} 期节目封面`} width="720" height="720" />
+        <h2>{data.title}</h2><p>{data.description}</p>
+        <span class="read-link">读这期对话 <span aria-hidden="true">↗</span></span>
+      </a>)}
+    </section>
+    <footer class="channel-footer">NEXT TOKEN / 每一次对话，留下一个新的视角。</footer>
+  </main>
+</WechatLayout>

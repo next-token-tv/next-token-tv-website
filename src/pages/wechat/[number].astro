@@ -1,0 +1,72 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import WechatLayout from "../../layouts/WechatLayout.astro";
+export async function getStaticPaths() {
+  return (await getCollection("wechatArticles")).map(article => ({ params: { number: article.data.number }, props: { article } }));
+}
+interface Props { article: CollectionEntry<"wechatArticles">; }
+const { article } = Astro.props;
+const { Content, headings } = await render(article);
+const { number, title, description, recordedAt } = article.data;
+---
+<WechatLayout title={title} description={description}>
+  <nav class="reading-nav" aria-label="文章工具"><a href="/wechat">← 对话首页</a><button id="copy-article" type="button">复制公众号排版</button></nav>
+  <p id="copy-status" class="copy-status" role="status" aria-live="polite"></p>
+  <main id="main">
+    <article id="wechat-article">
+      <header class="letter-header">
+        <p class="eyebrow">NEXT TOKEN · 对话 {number}</p>
+        <h1>{title}</h1>
+        <p class="byline">词元之外 <span>· {recordedAt} 录制</span></p>
+        <p class="editor-note">第 {Number(number)} 期对谈精编 · 发言经删节整理，保留各自经历与观点。</p>
+      </header>
+      <nav class="article-guide" aria-label="本期导读">
+        <p>这期聊什么</p>
+        <ol>{headings.filter(h => h.depth === 2).map(h => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+      </nav>
+      <div class="conversation"><Content /></div>
+      <footer class="letter-footer">
+        <p class="eyebrow">对话还在继续</p>
+        <p>你把哪些事情交给了 Agent？<br />哪些真的省了事，哪些只是玩得很开心？</p>
+        <p class="source-links"><a href={`https://nexttoken.tv/weekly/${number}`}>收听 / 观看第 {number} 期</a> · <a href={`https://nexttoken.tv/weekly/${number}/transcript`}>完整文字稿</a></p>
+        <p class="signature">NEXT TOKEN<br /><span>词元之外</span></p>
+      </footer>
+    </article>
+  </main>
+  <script>
+    const button = document.querySelector<HTMLButtonElement>("#copy-article");
+    button?.addEventListener("click", async () => {
+      const article = document.querySelector<HTMLElement>("#wechat-article")!;
+      const status = document.querySelector<HTMLElement>("#copy-status")!;
+      const clone = article.cloneNode(true) as HTMLElement;
+      const originals = [article, ...article.querySelectorAll<HTMLElement>("*")];
+      const copies = [clone, ...clone.querySelectorAll<HTMLElement>("*")];
+      const properties = ["color", "background-color", "font-family", "font-size", "font-weight", "line-height", "letter-spacing", "text-align", "margin-top", "margin-bottom", "padding-top", "padding-bottom", "padding-left", "padding-right", "border-top", "border-bottom", "border-left", "border-radius", "display", "max-width", "text-decoration"];
+      originals.forEach((original, index) => {
+        const copy = copies[index]!;
+        const style = getComputedStyle(original);
+        for (const property of properties) copy.style.setProperty(property, style.getPropertyValue(property));
+        copy.removeAttribute("id"); copy.removeAttribute("class");
+      });
+      clone.querySelectorAll('nav[aria-label="本期导读"] a').forEach(link => {
+        const text = document.createElement("span");
+        text.textContent = link.textContent;
+        text.setAttribute("style", link.getAttribute("style") ?? "");
+        link.replaceWith(text);
+      });
+      clone.style.width = "100%"; clone.style.maxWidth = "677px";
+      clone.querySelectorAll("img").forEach(img => { img.src = new URL(img.getAttribute("src")!, "https://nexttoken.tv").href; img.style.width = "100%"; img.style.height = "auto"; });
+      try {
+        await navigator.clipboard.write([new ClipboardItem({
+          "text/html": new Blob([clone.outerHTML], { type: "text/html" }),
+          "text/plain": new Blob([article.innerText], { type: "text/plain" }),
+        })]);
+        status.textContent = "已复制正文与排版。粘贴到公众号编辑器后，请确认图片和段落效果。";
+      } catch {
+        const range = document.createRange(); range.selectNodeContents(article);
+        const selection = window.getSelection(); selection?.removeAllRanges(); selection?.addRange(range);
+        status.textContent = "浏览器未允许自动复制。正文已选中，请按 ⌘C 或 Ctrl+C 复制。";
+      }
+    });
+  </script>
+</WechatLayout>
