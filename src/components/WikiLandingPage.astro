@@ -43,7 +43,7 @@ const sections = [
     id: "terms", number: "04", title: en ? "Terms" : "术语", count: terms.length,
     unit: en ? "terms" : "个术语",
     description: en ? "Concepts, technical vocabulary and abbreviations from our conversations." : "理解对谈中的概念、技术用语与常见缩写。",
-    entries: terms.slice(0, 4).map(term => ({ id: term.id, name: term.data.name[locale], meta: term.data.summary[locale] })),
+    entries: pickFeatured(terms, ["token", "personal-agent", "recursive-self-improvement", "ai-slop"]).map(term => ({ id: term.id, name: term.data.name[locale], meta: term.data.summary[locale] })),
   },
 ];
 const brandTypes = [
