@@ -1,11 +1,13 @@
 name:
-  zh-Hans: 国内生产总值
-  en: Gross Domestic Product
+  zh-Hans: 国内生产总值（GDP）
+  en: Gross Domestic Product (GDP)
 summary:
   zh-Hans: 国内生产总值（GDP）衡量一个经济体在一定时期（通常为一季或一年）内生产的全部最终产品与服务的市场价值，是最常用的宏观经济总量指标，常用来比较各国经济体量与增速。
   en: Gross domestic product (GDP) measures the market value of all final goods and services produced by an economy in a given period, usually a quarter or a year. It is the most widely used aggregate gauge of macroeconomic size and growth.
 aliases:
-  - GDP
+  - "GDP"
+  - "国内生产总值"
+  - "Gross Domestic Product"
 status: published
 sources:
   - label:

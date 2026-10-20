@@ -1,11 +1,13 @@
 name:
-  zh-Hans: 模型上下文协议
-  en: Model Context Protocol
+  zh-Hans: 模型上下文协议（MCP）
+  en: Model Context Protocol (MCP)
 summary:
   zh-Hans: 一个开放协议，为 AI 应用连接外部数据源与工具提供标准化接口，解决模型与各类系统对接的碎片化问题。
   en: An open protocol that gives AI applications a standardized interface for connecting to external data sources and tools, replacing fragmented point-to-point integrations.
 aliases:
-  - MCP
+  - "MCP"
+  - "模型上下文协议"
+  - "Model Context Protocol"
 status: published
 sources:
   - label:

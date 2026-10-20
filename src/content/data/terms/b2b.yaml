@@ -1,13 +1,15 @@
 name:
-  zh-Hans: 面向企业
-  en: Business-to-Business
+  zh-Hans: 面向企业（B2B）
+  en: Business-to-Business (B2B)
 summary:
   zh-Hans: 面向企业（B2B）指企业把产品或服务卖给其他企业或组织的商业模式，客户是公司而非个人消费者，典型如企业软件、云服务与工业品。中文语境也常说"B 端""To B"。
   en: Business-to-business (B2B) describes companies that sell products or services to other companies or organizations rather than to individual consumers — think enterprise software, cloud services and industrial goods.
 aliases:
-  - B 端
-  - To B
-  - B2B
+  - "B 端"
+  - "To B"
+  - "B2B"
+  - "面向企业"
+  - "Business-to-Business"
 status: published
 sources:
   - label:

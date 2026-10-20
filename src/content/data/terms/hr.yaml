@@ -1,11 +1,13 @@
 name:
-  zh-Hans: 人力资源
-  en: Human Resources
+  zh-Hans: 人力资源（HR）
+  en: Human Resources (HR)
 summary:
   zh-Hans: 人力资源（HR）指组织中负责招聘、培训、薪酬绩效与员工关系的职能，也常用来指代这一职能部门及其从业者。其工作覆盖员工在组织内的全生命周期。
   en: Human resources (HR) is the organizational function responsible for hiring, training, compensation, performance and employee relations; the term also refers to the department and the people who work in it. Its remit spans the whole life cycle of employees in the organization.
 aliases:
-  - HR
+  - "HR"
+  - "人力资源"
+  - "Human Resources"
 status: published
 sources:
   - label:

@@ -1,11 +1,13 @@
 name:
-  zh-Hans: 基于人类反馈的强化学习
-  en: Reinforcement Learning from Human Feedback
+  zh-Hans: 基于人类反馈的强化学习（RLHF）
+  en: Reinforcement Learning from Human Feedback (RLHF)
 summary:
   zh-Hans: 基于人类反馈的强化学习（RLHF）是一种训练方法：先让人类对模型的不同输出做比较或排序，训练出奖励模型，再用强化学习优化模型，使其输出更符合人类偏好。
   en: Reinforcement learning from human feedback (RLHF) is a training method in which humans compare or rank a model's outputs, a reward model is trained from those judgments, and reinforcement learning then optimizes the model to produce outputs that better match human preferences.
 aliases:
-  - RLHF
+  - "RLHF"
+  - "基于人类反馈的强化学习"
+  - "Reinforcement Learning from Human Feedback"
 status: published
 lastVerifiedAt: '2026-10-11'
 sources:

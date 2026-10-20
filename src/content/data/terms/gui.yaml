@@ -1,12 +1,14 @@
 name:
-  zh-Hans: 图形用户界面
-  en: Graphical User Interface
+  zh-Hans: 图形用户界面（GUI）
+  en: Graphical User Interface (GUI)
 summary:
   zh-Hans: 图形用户界面（GUI）是让用户通过窗口、图标、菜单和指针等可视元素操作计算机的界面，取代了需要记忆命令的纯文本命令行。它以"看与点"的方式降低了计算机的使用门槛。
   en: A graphical user interface (GUI) lets people operate a computer through visual elements such as windows, icons, menus and a pointer, replacing text-only command lines that had to be memorized.
 aliases:
-  - GUI
-  - 图形界面
+  - "GUI"
+  - "图形界面"
+  - "图形用户界面"
+  - "Graphical User Interface"
 status: published
 sources:
   - label:

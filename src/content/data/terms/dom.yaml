@@ -1,11 +1,13 @@
 name:
-  zh-Hans: 文档对象模型
-  en: Document Object Model
+  zh-Hans: 文档对象模型（DOM）
+  en: Document Object Model (DOM)
 summary:
   zh-Hans: 文档对象模型（DOM）是浏览器把 HTML 或 XML 文档解析成的对象树，节点对应元素、文本与属性。程序通过标准接口读写这棵树，从而动态查询和修改页面。
   en: The Document Object Model (DOM) is the tree of objects a browser builds when parsing an HTML or XML document, with nodes representing elements, text and attributes. Programs read and write this tree through standard interfaces to inspect and change the page dynamically.
 aliases:
-  - DOM
+  - "DOM"
+  - "文档对象模型"
+  - "Document Object Model"
 status: published
 lastVerifiedAt: '2026-10-11'
 sources:

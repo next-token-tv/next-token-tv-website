@@ -1,12 +1,14 @@
 name:
-  zh-Hans: 年度经常性收入
-  en: Annual Recurring Revenue
+  zh-Hans: 年度经常性收入（ARR）
+  en: Annual Recurring Revenue (ARR)
 summary:
   zh-Hans: 年度经常性收入（ARR）指订阅制业务把当前活跃订阅合同的收入年化后得到的规模指标，代表收入"按现有速度跑满一年"的水平。它只计入可重复发生的合同收入，一次性收费通常不计入。
   en: Annual recurring revenue (ARR) is the annualized value of the recurring revenue a subscription business currently books from active contracts — the run rate that income would reach if it stayed constant for a year. It counts only recurring contract revenue and normally excludes one-time charges.
 aliases:
-  - ARR
-  - 年化经常性收入
+  - "ARR"
+  - "年化经常性收入"
+  - "年度经常性收入"
+  - "Annual Recurring Revenue"
 status: published
 sources:
   - label:

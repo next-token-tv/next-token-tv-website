@@ -1,11 +1,13 @@
 name:
-  zh-Hans: 有限责任公司
-  en: Limited Liability Company
+  zh-Hans: 有限责任公司（LLC）
+  en: Limited Liability Company (LLC)
 summary:
   zh-Hans: '有限责任公司（LLC）是一种企业法律结构：成员对公司债务的责任以出资为限，个人资产通常不受牵连，同时在税务处理与内部管理上保留较大弹性。这一形式主要见于美国及采用类似制度的法域。'
   en: 'A limited liability company (LLC) is a business structure, mainly used in the United States, that keeps member liability limited to their investment while leaving room for flexible taxation and internal management.'
 aliases:
-  - LLC
+  - "LLC"
+  - "有限责任公司"
+  - "Limited Liability Company"
 status: published
 sources:
   - label:

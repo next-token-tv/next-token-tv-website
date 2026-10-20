@@ -1,13 +1,15 @@
 name:
-  zh-Hans: 当前最佳水平
-  en: State of the Art
+  zh-Hans: 当前最佳水平（SOTA）
+  en: State of the Art (SOTA)
 summary:
   zh-Hans: SOTA（state of the art）指某一任务上公开已知的最佳成绩或最先进方法。说某模型"达到 SOTA"，通常意味着它在公认基准上刷新或持平了已公开的最好纪录。
   en: SOTA (state of the art) refers to the best publicly known result or the most advanced method on a given task. Saying a model "achieves SOTA" usually means it matches or beats the best publicly reported score on recognized benchmarks.
 aliases:
-  - SOTA
-  - state-of-the-art
-  - 最先进水平
+  - "SOTA"
+  - "state-of-the-art"
+  - "最先进水平"
+  - "当前最佳水平"
+  - "State of the Art"
 status: published
 sources:
   - label:

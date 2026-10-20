@@ -1,13 +1,15 @@
 name:
-  zh-Hans: 中央处理器
-  en: Central Processing Unit
+  zh-Hans: 中央处理器（CPU）
+  en: Central Processing Unit (CPU)
 summary:
   zh-Hans: 中央处理器（CPU）是计算机中负责执行程序指令、完成运算和系统控制的核心芯片。它通过取指、译码、执行的循环逐条处理指令，性能取决于核心数量、时钟频率与体系结构设计。
   en: A central processing unit (CPU) is the core chip that executes program instructions and carries out the computation and control of a computer. It processes instructions through a fetch-decode-execute cycle, with performance shaped by core count, clock speed, and architecture design.
 aliases:
-  - CPU
-  - 处理器
-  - processor
+  - "CPU"
+  - "处理器"
+  - "processor"
+  - "中央处理器"
+  - "Central Processing Unit"
 status: published
 sources:
   - label:

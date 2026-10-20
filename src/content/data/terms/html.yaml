@@ -1,11 +1,13 @@
 name:
-  zh-Hans: 超文本标记语言
-  en: HyperText Markup Language
+  zh-Hans: 超文本标记语言（HTML）
+  en: HyperText Markup Language (HTML)
 summary:
   zh-Hans: 超文本标记语言（HTML）是定义网页结构与内容的标记语言，用元素和属性描述标题、段落、链接、图片等，由 WHATWG 维护为 HTML Living Standard。所有网页都以 HTML 为基础。
   en: HyperText Markup Language (HTML) is the markup language that defines the structure and content of web pages, using elements and attributes to describe headings, paragraphs, links, images and more. It is maintained by WHATWG as the HTML Living Standard and underpins every web page.
 aliases:
-  - HTML
+  - "HTML"
+  - "超文本标记语言"
+  - "HyperText Markup Language"
 status: published
 lastVerifiedAt: '2026-10-11'
 sources:

@@ -1,12 +1,14 @@
 name:
-  zh-Hans: 网络附加存储
-  en: Network-Attached Storage
+  zh-Hans: 网络附加存储（NAS）
+  en: Network-Attached Storage (NAS)
 summary:
   zh-Hans: 网络附加存储（NAS）是通过标准网络协议向多台设备提供文件级存储服务的专用设备。它通常是一台带有多块硬盘、运行专用操作系统的独立主机，让家庭或团队可以集中存放和共享文件。
   en: Network-attached storage (NAS) is a dedicated device that provides file-level storage services to multiple clients over a standard network. Typically a standalone box with multiple drives running its own operating system, it lets a home or team store and share files centrally.
 aliases:
-  - NAS
-  - 网络存储
+  - "NAS"
+  - "网络存储"
+  - "网络附加存储"
+  - "Network-Attached Storage"
 status: published
 sources:
   - label:

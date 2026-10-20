@@ -1,11 +1,13 @@
 name:
-  zh-Hans: 便携式文档格式
-  en: Portable Document Format
+  zh-Hans: 便携式文档格式（PDF）
+  en: Portable Document Format (PDF)
 summary:
   zh-Hans: PDF 是一种固定版式的文档格式，由 Adobe 于 1993 年推出，现已成为 ISO 标准（ISO 32000）。它把文字、字体、图像与版面封装在同一文件中，保证在不同设备与平台上呈现一致。
   en: PDF is a fixed-layout document format introduced by Adobe in 1993 and now an ISO standard (ISO 32000). It packs text, fonts, images and layout into one file so the document renders consistently across devices and platforms.
 aliases:
-  - PDF
+  - "PDF"
+  - "便携式文档格式"
+  - "Portable Document Format"
 status: published
 sources:
   - label:

@@ -1,10 +1,12 @@
 name:
-  zh-Hans: 键值缓存
+  zh-Hans: 键值缓存（KV Cache）
   en: KV Cache
 summary:
   zh-Hans: 键值缓存（KV Cache）是 Transformer 推理时缓存注意力层键值向量的技术，使生成每个新词元时不必重复计算先前词元的注意力中间结果。它是提升生成速度的关键优化。
   en: The KV cache stores the key and value vectors of attention layers during transformer inference, so generating each new token does not require recomputing attention over earlier tokens. It is a key optimization for generation speed.
-aliases: []
+aliases:
+  - "键值缓存"
+
 status: published
 lastVerifiedAt: '2026-10-11'
 sources:

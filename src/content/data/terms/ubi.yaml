@@ -1,11 +1,13 @@
 name:
-  zh-Hans: 全民基本收入
-  en: Universal Basic Income
+  zh-Hans: 全民基本收入（UBI）
+  en: Universal Basic Income (UBI)
 summary:
   zh-Hans: '全民基本收入（UBI）指由政府或公共机构向某个共同体的全体成员定期、无条件发放相同金额现金的公共政策构想，不设资产审查与工作要求。'
   en: 'Universal basic income (UBI) is a policy proposal under which a government or public institution pays every member of a community the same amount of cash on a regular, unconditional basis, with no means test and no work requirement.'
 aliases:
-  - UBI
+  - "UBI"
+  - "全民基本收入"
+  - "Universal Basic Income"
 status: published
 sources:
   - label:

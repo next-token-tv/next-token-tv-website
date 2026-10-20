@@ -1,11 +1,13 @@
 name:
-  zh-Hans: 低秩适应
-  en: Low-Rank Adaptation
+  zh-Hans: 低秩适应（LoRA）
+  en: Low-Rank Adaptation (LoRA)
 summary:
   zh-Hans: LoRA（Low-Rank Adaptation）是一种参数高效微调方法：冻结原模型权重，只训练注入到部分层旁路中的低秩矩阵，用很小的可训练参数量把模型适配到特定任务或风格。训练产物体积小，便于分发和合并。
   en: "LoRA (Low-Rank Adaptation) is a parameter-efficient fine-tuning method: the model's original weights stay frozen, and only small low-rank matrices injected alongside selected layers are trained, adapting the model to a task or style with a fraction of the trainable parameters. The resulting artifacts are small and easy to distribute and merge."
 aliases:
-  - LoRA
+  - "LoRA"
+  - "低秩适应"
+  - "Low-Rank Adaptation"
 status: published
 sources:
   - label:

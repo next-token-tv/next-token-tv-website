@@ -1,11 +1,13 @@
 name:
-  zh-Hans: 增强现实
-  en: Augmented Reality
+  zh-Hans: 增强现实（AR）
+  en: Augmented Reality (AR)
 summary:
   zh-Hans: 增强现实（AR）是把虚拟内容叠加到用户所见的真实环境上的技术，叠加内容实时交互并与真实场景对位。手机相机滤镜与透视眼镜是常见的 AR 载体。
   en: Augmented Reality (AR) is a technology that overlays virtual content on the user's view of the real environment, with the overlay interactive in real time and aligned to the physical scene. Phone camera effects and see-through glasses are common AR carriers.
 aliases:
-  - AR
+  - "AR"
+  - "增强现实"
+  - "Augmented Reality"
 status: published
 sources:
   - label:

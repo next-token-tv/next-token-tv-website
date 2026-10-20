@@ -1,11 +1,12 @@
 name:
-  zh-Hans: 二维
+  zh-Hans: 二维（2D）
   en: 2D
 summary:
   zh-Hans: 二维（2D）指只有长和宽两个维度的平面。2D 计算机图形直接在平面上处理像素或矢量形状，不构造立体模型，常见于插画、界面图标与动画。
   en: 2D refers to a plane with only two dimensions, length and width. 2D computer graphics work directly with pixels or vector shapes on a flat surface rather than building solid models, common in illustration, interface icons and animation.
 aliases:
-  - 二维图形
+  - "二维图形"
+  - "二维"
 status: published
 sources:
   - label:

@@ -1,12 +1,14 @@
 name:
-  zh-Hans: 用户界面
-  en: User Interface
+  zh-Hans: 用户界面（UI）
+  en: User Interface (UI)
 summary:
   zh-Hans: 用户界面（UI）是人与机器交互的接触面，涵盖屏幕上的按钮、菜单、图标、文字等可视与可操作元素。图形用户界面只是 UI 的一种形态，命令行、语音界面同样属于 UI。
   en: A user interface (UI) is the surface where a human interacts with a machine, covering visible and operable elements such as buttons, menus, icons and text. A graphical user interface is one form of UI; command lines and voice interfaces are also UIs.
 aliases:
-  - UI
-  - 界面
+  - "UI"
+  - "界面"
+  - "用户界面"
+  - "User Interface"
 status: published
 sources:
   - label:

@@ -1,11 +1,13 @@
 name:
-  zh-Hans: 人工超级智能
-  en: Artificial Superintelligence
+  zh-Hans: 人工超级智能（ASI）
+  en: Artificial Superintelligence (ASI)
 summary:
   zh-Hans: 人工超级智能指智能水平在几乎所有领域都大幅超越人类的假想 AI 系统。它只存在于理论讨论与风险预测中，没有公认的实现路径。
   en: Artificial superintelligence is a hypothetical AI system whose intelligence greatly exceeds human intelligence in virtually every domain. It exists only in theory and forecasting discussions, with no accepted path to building it.
 aliases:
-  - ASI
+  - "ASI"
+  - "人工超级智能"
+  - "Artificial Superintelligence"
 status: published
 lastVerifiedAt: '2026-10-11'
 sources:

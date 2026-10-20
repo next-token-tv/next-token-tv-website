@@ -1,11 +1,13 @@
 name:
-  zh-Hans: 大语言模型
-  en: Large Language Model
+  zh-Hans: 大语言模型（LLM）
+  en: Large Language Model (LLM)
 summary:
   zh-Hans: 大语言模型是在海量文本上训练、以词元为单位预测文本序列的深度神经网络模型。它能完成生成、问答、翻译和代码等广泛的语言任务。
   en: A large language model is a deep neural network trained on massive amounts of text to predict sequences of tokens. It handles a broad range of language tasks, from generation and question answering to translation and coding.
 aliases:
-  - LLM
+  - "LLM"
+  - "大语言模型"
+  - "Large Language Model"
 status: published
 lastVerifiedAt: '2026-10-11'
 sources:

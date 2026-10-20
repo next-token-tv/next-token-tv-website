@@ -1,12 +1,14 @@
 name:
-  zh-Hans: 互联网数据中心
-  en: Internet Data Center
+  zh-Hans: 互联网数据中心（IDC）
+  en: Internet Data Center (IDC)
 summary:
   zh-Hans: IDC 指集中放置服务器、存储与网络设备，并提供电力、制冷、带宽与运维保障的设施，是互联网服务和云计算的物理承载基础。
   en: An IDC (Internet Data Center) is a facility that centrally houses servers, storage and network equipment with reliable power, cooling, bandwidth and operations support; it is the physical foundation of internet services and cloud computing.
 aliases:
-  - IDC
-  - 数据中心
+  - "IDC"
+  - "数据中心"
+  - "互联网数据中心"
+  - "Internet Data Center"
 status: published
 sources:
   - label:

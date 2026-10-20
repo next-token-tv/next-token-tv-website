@@ -1,11 +1,13 @@
 name:
-  zh-Hans: 一人公司
-  en: One-Person Company
+  zh-Hans: 一人公司（OPC）
+  en: One-Person Company (OPC)
 summary:
   zh-Hans: 一人公司（OPC）指由一个人独立创办和运营、通常不雇或极少雇员工的公司或工作方式，强调一个人借助工具与外包完成从产品到增长的全部环节。节目第 001 期称 AI 原生组织中"每个人都是 OPC"，第 004 期提到以一人公司著称的独立开发者。
   en: A one-person company (OPC) is a company or way of working founded and run by a single person, usually with no or very few employees, with one person covering everything from product to growth using tools and outsourcing. In Weekly #001 it was said that in an AI-native organization "everyone is an OPC," and Weekly #004 mentioned an independent developer known for running one.
 aliases:
-  - OPC
+  - "OPC"
+  - "一人公司"
+  - "One-Person Company"
 status: published
 sources:
   - label:

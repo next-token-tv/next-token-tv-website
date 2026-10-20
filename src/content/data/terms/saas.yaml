@@ -1,11 +1,13 @@
 name:
-  zh-Hans: 软件即服务
-  en: Software as a Service
+  zh-Hans: 软件即服务（SaaS）
+  en: Software as a Service (SaaS)
 summary:
   zh-Hans: 软件即服务（SaaS）指软件由服务商托管在云端、用户按月或按年订阅付费并通过网络使用的软件交付模式，无需自行安装和维护。它是云计算的一种主要服务形态。
   en: Software as a service (SaaS) is a software delivery model in which applications are hosted by the vendor in the cloud and used over the network on a monthly or annual subscription, with no local installation or maintenance. It is one of the main service models of cloud computing.
 aliases:
-  - SaaS
+  - "SaaS"
+  - "软件即服务"
+  - "Software as a Service"
 status: published
 sources:
   - label:

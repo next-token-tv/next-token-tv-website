@@ -1,12 +1,13 @@
 name:
-  zh-Hans: WebAssembly
-  en: WebAssembly
+  zh-Hans: WebAssembly（Wasm）
+  en: WebAssembly (Wasm)
 summary:
   zh-Hans: WebAssembly（缩写 Wasm）是一种面向栈式虚拟机的二进制指令格式，可在浏览器等沙箱环境中以接近原生的速度执行。它让 C、C++、Rust 等语言的代码能够编译后在网页与服务器等运行环境中使用。
   en: WebAssembly (Wasm) is a binary instruction format for a stack-based virtual machine that runs in sandboxed environments such as browsers at near-native speed. It lets code written in languages like C, C++ and Rust be compiled and used on the web and in server-side runtimes.
 aliases:
-  - WASM
-  - Wasm
+  - "WASM"
+  - "Wasm"
+  - "WebAssembly"
 status: published
 sources:
   - label:

@@ -1,12 +1,14 @@
 name:
-  zh-Hans: 虚拟机
-  en: Virtual Machine
+  zh-Hans: 虚拟机（VM）
+  en: Virtual Machine (VM)
 summary:
   zh-Hans: 虚拟机（VM）是通过虚拟化层（Hypervisor）在一台物理计算机上模拟出的、拥有独立操作系统和应用环境的软件计算机。多台虚拟机可以共享同一物理硬件的资源，同时保持相互隔离。
   en: A virtual machine (VM) is a software-based computer emulated by a virtualization layer (hypervisor) on a physical machine, running its own operating system and applications. Multiple VMs can share the resources of the same physical hardware while remaining isolated from one another.
 aliases:
-  - VM
-  - 虚拟机器
+  - "VM"
+  - "虚拟机器"
+  - "虚拟机"
+  - "Virtual Machine"
 status: published
 sources:
   - label:

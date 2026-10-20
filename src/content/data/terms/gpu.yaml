@@ -1,13 +1,15 @@
 name:
-  zh-Hans: 图形处理器
-  en: Graphics Processing Unit
+  zh-Hans: 图形处理器（GPU）
+  en: Graphics Processing Unit (GPU)
 summary:
   zh-Hans: 图形处理器（GPU）是一种以大规模并行计算为设计目标的处理器，最初用于加速图形渲染，如今也广泛用于 AI 训练与推理等通用并行计算。它由数千个轻量计算核心组成，擅长同时处理大量相似的算术任务。
   en: A graphics processing unit (GPU) is a processor designed for massively parallel computation, originally built to accelerate graphics rendering and now widely used for general-purpose parallel workloads such as AI training and inference. It combines thousands of lightweight cores that excel at running many similar arithmetic tasks at once.
 aliases:
-  - GPU
-  - 显卡
-  - graphics card
+  - "GPU"
+  - "显卡"
+  - "graphics card"
+  - "图形处理器"
+  - "Graphics Processing Unit"
 status: published
 sources:
   - label:

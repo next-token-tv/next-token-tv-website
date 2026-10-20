@@ -1,11 +1,12 @@
 name:
-  zh-Hans: 三维
+  zh-Hans: 三维（3D）
   en: 3D
 summary:
   zh-Hans: 三维（3D）指具有长、宽、高三个维度的空间。在计算机图形中，3D 指用数学模型描述立体物体，再经渲染生成平面图像的技术，广泛用于影视、游戏与工业设计。
   en: 3D refers to space with three dimensions—length, width and height. In computer graphics, 3D describes techniques that model solid objects mathematically and render them into planar images, widely used in film, games and industrial design.
 aliases:
-  - 三维图形
+  - "三维图形"
+  - "三维"
 status: published
 sources:
   - label:

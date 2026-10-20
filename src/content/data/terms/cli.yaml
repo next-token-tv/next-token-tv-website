@@ -1,13 +1,15 @@
 name:
-  zh-Hans: 命令行界面
-  en: Command-Line Interface
+  zh-Hans: 命令行界面（CLI）
+  en: Command-Line Interface (CLI)
 summary:
   zh-Hans: 命令行界面（CLI）是通过文本命令与程序交互的方式：用户在终端中输入命令与参数，程序执行后返回文本结果。它是脚本化与自动化操作的基础。
   en: 'A command-line interface (CLI) is a way to interact with programs through text commands: the user types commands and arguments in a terminal, and the program responds with text output. It is the foundation of scripting and automation.'
 aliases:
-  - CLI
-  - 命令行
-  - command line
+  - "CLI"
+  - "命令行"
+  - "command line"
+  - "命令行界面"
+  - "Command-Line Interface"
 status: published
 lastVerifiedAt: '2026-10-11'
 sources:

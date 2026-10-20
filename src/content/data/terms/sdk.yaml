@@ -1,12 +1,14 @@
 name:
-  zh-Hans: 软件开发工具包
-  en: Software Development Kit
+  zh-Hans: 软件开发工具包（SDK）
+  en: Software Development Kit (SDK)
 summary:
   zh-Hans: 软件开发工具包（SDK）是面向特定平台或服务的开发资源集合，通常包含类库、API、文档、示例代码与构建调试工具。开发者借助 SDK 在目标平台上更快地构建应用或接入服务。
   en: A software development kit (SDK) is a bundle of resources for building on a specific platform or service, typically including libraries, APIs, documentation, sample code and build or debugging tools. It helps developers build apps or integrate services on a target platform faster.
 aliases:
-  - SDK
-  - devkit
+  - "SDK"
+  - "devkit"
+  - "软件开发工具包"
+  - "Software Development Kit"
 status: published
 lastVerifiedAt: '2026-10-11'
 sources:

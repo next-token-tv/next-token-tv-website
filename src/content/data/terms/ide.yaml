@@ -1,12 +1,14 @@
 name:
-  zh-Hans: 集成开发环境
-  en: Integrated Development Environment
+  zh-Hans: 集成开发环境（IDE）
+  en: Integrated Development Environment (IDE)
 summary:
   zh-Hans: 集成开发环境（IDE）把代码编辑、构建、调试和运行等开发流程集成在同一图形界面中的软件。常见例子包括 Xcode、Android Studio 与 Visual Studio Code。
   en: An integrated development environment (IDE) is software that brings code editing, building, debugging and running together in one graphical application. Well-known examples include Xcode, Android Studio and Visual Studio Code.
 aliases:
-  - IDE
-  - 开发环境
+  - "IDE"
+  - "开发环境"
+  - "集成开发环境"
+  - "Integrated Development Environment"
 status: published
 lastVerifiedAt: '2026-10-11'
 sources:

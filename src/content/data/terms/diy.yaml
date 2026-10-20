@@ -1,11 +1,12 @@
 name:
   zh-Hans: DIY
-  en: Do It Yourself
+  en: Do It Yourself (DIY)
 summary:
   zh-Hans: 'DIY（Do It Yourself，自己动手做）指不依赖专业服务商，由个人自行完成制作、修理或改装的行为，强调自主完成的过程而非结果的专业水准。'
   en: 'Do it yourself (DIY) refers to building, repairing or modifying things on your own instead of hiring professionals, with the emphasis on doing it yourself rather than on professional-grade results.'
 aliases:
-  - 自己动手做
+  - "自己动手做"
+  - "Do It Yourself"
 status: published
 sources:
   - label:

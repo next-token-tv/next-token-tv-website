@@ -1,13 +1,14 @@
 name:
-  zh-Hans: 独立磁盘冗余阵列
+  zh-Hans: 独立磁盘冗余阵列（RAID）
   en: RAID
 summary:
   zh-Hans: RAID（独立磁盘冗余阵列）是将多块物理磁盘组合为一个逻辑存储单元的技术，通过数据分布与冗余来提升性能、容量或容错能力。常见级别如 RAID 0、RAID 1、RAID 5、RAID 6 和 RAID 10 在速度、冗余与容量之间做出不同权衡。
   en: RAID (redundant array of independent disks) is a technique that combines multiple physical drives into one logical storage unit, using data distribution and redundancy to improve performance, capacity, or fault tolerance. Common levels such as RAID 0, 1, 5, 6, and 10 make different trade-offs between speed, redundancy, and capacity.
 aliases:
-  - 磁盘阵列
-  - 冗余磁盘阵列
-  - redundant array of independent disks
+  - "磁盘阵列"
+  - "冗余磁盘阵列"
+  - "redundant array of independent disks"
+  - "独立磁盘冗余阵列"
 status: published
 sources:
   - label:

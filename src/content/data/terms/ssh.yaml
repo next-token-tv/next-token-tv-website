@@ -1,12 +1,14 @@
 name:
-  zh-Hans: 安全外壳协议
-  en: Secure Shell
+  zh-Hans: 安全外壳协议（SSH）
+  en: Secure Shell (SSH)
 summary:
   zh-Hans: SSH 是为在不安全网络上安全运行网络服务而设计的协议（RFC 4251），提供加密与认证，最常用于远程登录和命令行管理，也可用于安全文件传输与端口转发。
   en: SSH is a protocol for securely operating network services over an unsecured network (RFC 4251), providing encryption and authentication. It is best known for remote login and command-line administration, and is also used for secure file transfer and port forwarding.
 aliases:
-  - SSH
-  - Secure Shell Protocol
+  - "SSH"
+  - "Secure Shell Protocol"
+  - "安全外壳协议"
+  - "Secure Shell"
 status: published
 sources:
   - label:

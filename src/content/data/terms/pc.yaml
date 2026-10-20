@@ -1,12 +1,14 @@
 name:
-  zh-Hans: 个人计算机
-  en: Personal Computer
+  zh-Hans: 个人计算机（PC）
+  en: Personal Computer (PC)
 summary:
   zh-Hans: 个人计算机（PC）指为单人使用而设计的计算机，典型组成包括处理器、内存、显示器与键盘等。狭义语境中 PC 常特指 IBM PC 兼容机（多以 Windows 为主），与 Mac 相对；广义上两者都属于个人计算机。
   en: A personal computer (PC) is a computer designed for use by one person at a time, typically built around a processor, memory, a display and a keyboard. In a narrower sense, "PC" often refers specifically to IBM PC compatibles (mostly running Windows), contrasted with the Mac; broadly, both are personal computers.
 aliases:
-  - PC
-  - 个人电脑
+  - "PC"
+  - "个人电脑"
+  - "个人计算机"
+  - "Personal Computer"
 status: published
 sources:
   - label:

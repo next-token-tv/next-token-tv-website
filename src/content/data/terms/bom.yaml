@@ -1,11 +1,13 @@
 name:
-  zh-Hans: 物料清单
-  en: Bill of Materials
+  zh-Hans: 物料清单（BOM）
+  en: Bill of Materials (BOM)
 summary:
   zh-Hans: '物料清单（BOM）是制造一个产品所需的全部零件、材料及其数量的结构化列表，常以层级结构描述零件之间的装配关系，是采购、库存与生产排程的依据。'
   en: 'A bill of materials (BOM) is a structured list of all parts, materials and quantities required to manufacture a product, often organized hierarchically to describe how components fit together; it underpins purchasing, inventory and production planning.'
 aliases:
-  - BOM
+  - "BOM"
+  - "物料清单"
+  - "Bill of Materials"
 status: published
 sources:
   - label:

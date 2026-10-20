@@ -1,12 +1,14 @@
 name:
-  zh-Hans: 风险投资
-  en: Venture Capital
+  zh-Hans: 风险投资（VC）
+  en: Venture Capital (VC)
 summary:
   zh-Hans: 风险投资（VC）指专业投资机构向高成长潜力但同时伴随高失败风险的早期公司投入资金、换取股权的投资方式，常按种子轮、A 轮等阶段进入。
   en: Venture capital (VC) is a form of financing in which professional investment firms put money into early-stage companies that have high growth potential — and a high risk of failure — in exchange for equity, often entering at stages such as seed or Series A.
 aliases:
-  - VC
-  - 创投
+  - "VC"
+  - "创投"
+  - "风险投资"
+  - "Venture Capital"
 status: published
 sources:
   - label:
