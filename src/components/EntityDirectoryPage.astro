@@ -156,7 +156,7 @@ const filterOptions = entityType === "terms" ? [] : entityType === "people"
           <h2 class="entity-directory-name">{entry.name}</h2>
           {entry.aliases.length > 0 && <p class="entity-directory-aliases"><span class="entity-directory-aliases-label">{copy.aliases}</span>{entry.aliases.join(" · ")}</p>}
         </div>
-        <p class="entity-directory-summary">{entry.summary}</p>
+        <p class="entity-directory-summary"><span>{entry.summary}</span></p>
         <span class="entity-directory-relation">{entry.relation}</span>
         <span class="entity-directory-open"><span>{copy.open}</span><b aria-hidden="true">→</b></span>
       </a>
@@ -227,7 +227,8 @@ const filterOptions = entityType === "terms" ? [] : entityType === "people"
   .entity-directory-name { margin: 0; font-size: 1.65rem; line-height: var(--section-heading-leading); }
   .entity-directory-aliases { overflow: hidden; margin: .4rem 0 0; color: var(--muted); font-size: .82rem; line-height: 1.5; text-overflow: ellipsis; white-space: nowrap; }
   .entity-directory-aliases-label { display: inline; margin-right: .4rem; font-size: .68rem; font-weight: 800; text-transform: uppercase; }
-  .entity-directory-summary { align-self: center; display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 2; margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.55; }
+  .entity-directory-summary { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.55; }
+  .entity-directory-summary > span { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
   .entity-directory-relation { display: flex; align-items: center; font-size: .78rem; font-weight: 700; }
   .entity-directory-open { display: flex; flex-direction: column; justify-content: center; background: var(--ink); color: var(--paper); }
   .entity-directory-open > span { display: none; }
@@ -247,10 +248,11 @@ const filterOptions = entityType === "terms" ? [] : entityType === "people"
     .entity-secondary-filters > p { margin: 0; }
     .entity-secondary-filters > div { flex-wrap: nowrap; overflow-x: auto; padding-bottom: .35rem; scrollbar-width: thin; }
     .entity-secondary-filters button { flex: 0 0 auto; }
-    .entity-directory-row { grid-template-columns: 2.5rem minmax(0, 1fr) 3rem; min-height: 0; }
+    .entity-directory-row { grid-template-columns: 3.5rem minmax(0, 1fr) 3rem; min-height: 0; }
     .entity-directory-row > * { padding: .8rem; }
     .entity-directory-identity { grid-column: 2; }
     .entity-directory-row > .entity-directory-summary { grid-column: 1 / -1; display: block; border-top: .0625rem solid var(--line); border-left: 0; }
+    .entity-directory-summary > span { display: block; }
     .entity-directory-open { grid-column: 3; grid-row: 1; }
   }
 }
