@@ -1,0 +1,17 @@
+name:
+  zh-Hans: '美少女游戏（Galgame）'
+  en: 'Galgame'
+summary:
+  zh-Hans: 'Galgame 通常指以与美少女角色互动为核心的游戏，常见形式包括对话、角色关系与分支叙事。'
+  en: 'Galgame commonly refers to games centered on interactions with female characters, often using dialogue, relationships and branching stories.'
+aliases:
+  - '美少女游戏'
+  - 'Bishōjo game'
+  - 'Gal Game'
+status: 'published'
+lastVerifiedAt: '2026-10-20'
+sources:
+  - label:
+      zh-Hans: 'Wikipedia: Bishōjo game'
+      en: 'Wikipedia: Bishōjo game'
+    href: 'https://en.wikipedia.org/wiki/Bish%C5%8Djo_game'

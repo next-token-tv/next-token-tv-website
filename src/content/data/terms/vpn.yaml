@@ -1,0 +1,16 @@
+name:
+  zh-Hans: '虚拟专用网络（VPN）'
+  en: 'Virtual Private Network (VPN)'
+summary:
+  zh-Hans: 'VPN 通过公共网络建立逻辑上的专用连接，常以加密隧道连接设备与远程网络或出口服务器。'
+  en: 'A VPN establishes a private logical connection over a public network, commonly using an encrypted tunnel to a remote network or gateway.'
+aliases:
+  - 'VPN'
+  - '虚拟专用网络'
+status: 'published'
+lastVerifiedAt: '2026-10-20'
+sources:
+  - label:
+      zh-Hans: 'Cloudflare: What is a VPN?'
+      en: 'Cloudflare: What is a VPN?'
+    href: 'https://www.cloudflare.com/en-gb/learning/access-management/what-is-a-vpn/'

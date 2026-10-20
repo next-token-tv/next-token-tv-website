@@ -1,0 +1,16 @@
+name:
+  zh-Hans: '高清多媒体接口（HDMI）'
+  en: 'High-Definition Multimedia Interface (HDMI)'
+summary:
+  zh-Hans: 'HDMI 是在设备间传输数字视频与音频的接口，常见于电脑、电视、显示器及影音设备。'
+  en: 'HDMI is an interface for carrying digital video and audio between devices such as computers, televisions and displays.'
+aliases:
+  - 'HDMI'
+  - '高清多媒体接口'
+status: 'published'
+lastVerifiedAt: '2026-10-20'
+sources:
+  - label:
+      zh-Hans: 'HDMI: Specifications and programs'
+      en: 'HDMI: Specifications and programs'
+    href: 'https://www.hdmi.org/spec/index'

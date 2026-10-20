@@ -1,0 +1,15 @@
+name:
+  zh-Hans: '回调（Callback）'
+  en: 'Callback'
+summary:
+  zh-Hans: '回调是把一个函数交给其他代码，由后者在适当时机调用的编程方式。它可以用于事件处理或操作完成后的处理。'
+  en: 'A callback is a function passed to other code so that the receiving code can invoke it at an appropriate point.'
+aliases:
+  - '回调'
+status: 'published'
+lastVerifiedAt: '2026-10-20'
+sources:
+  - label:
+      zh-Hans: 'MDN: Callback function'
+      en: 'MDN: Callback function'
+    href: 'https://developer.mozilla.org/en-US/docs/Glossary/Callback_function'

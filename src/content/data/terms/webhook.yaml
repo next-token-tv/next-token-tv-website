@@ -1,0 +1,15 @@
+name:
+  zh-Hans: '事件通知（Webhook）'
+  en: 'Webhook'
+summary:
+  zh-Hans: 'Webhook 是事件发生时由发送方主动向预先配置的 URL 发送 HTTP 请求的通知方式，常用于连接两个系统。'
+  en: 'A webhook sends an HTTP request to a configured URL when an event occurs, allowing one system to notify another.'
+aliases:
+  - '网络钩子'
+status: 'published'
+lastVerifiedAt: '2026-10-20'
+sources:
+  - label:
+      zh-Hans: 'GitHub Docs: About webhooks'
+      en: 'GitHub Docs: About webhooks'
+    href: 'https://docs.github.com/en/webhooks/about-webhooks'

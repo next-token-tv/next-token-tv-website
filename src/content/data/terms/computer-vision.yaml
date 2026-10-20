@@ -1,0 +1,17 @@
+name:
+  zh-Hans: '计算机视觉（CV）'
+  en: 'Computer Vision (CV)'
+summary:
+  zh-Hans: '计算机视觉让计算机从图像或视频中提取和解释信息，可用于识别对象、检测位置或划分图像区域。'
+  en: 'Computer vision extracts and interprets information from images or video, supporting tasks such as recognition, detection and segmentation.'
+aliases:
+  - 'CV'
+  - '计算机视觉'
+  - 'Computer Vision'
+status: 'published'
+lastVerifiedAt: '2026-10-20'
+sources:
+  - label:
+      zh-Hans: 'IBM: Computer vision'
+      en: 'IBM: Computer vision'
+    href: 'https://www.ibm.com/think/topics/computer-vision'

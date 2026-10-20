@@ -6,6 +6,7 @@ summary:
   en: Computer use is the ability of a model to operate a computer's graphical interface the way a person does — reading the screen, moving the cursor, clicking and typing — to complete tasks across applications. Anthropic and OpenAI both ship computer-use tools or model capabilities.
 aliases:
   - computer use agent
+  - CUA
 status: published
 sources:
   - label:

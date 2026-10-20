@@ -1,0 +1,16 @@
+name:
+  zh-Hans: '递归自我改进（RSI）'
+  en: 'Recursive Self-Improvement (RSI)'
+summary:
+  zh-Hans: 'RSI 指系统改进自身，而改进后的能力又用于推动下一轮改进的循环，是 AI 自我改进研究中的概念。'
+  en: 'RSI describes a loop in which a system improves itself and uses the resulting capability to support further improvement.'
+aliases:
+  - 'RSI'
+  - '递归自我改进'
+status: 'published'
+lastVerifiedAt: '2026-10-20'
+sources:
+  - label:
+      zh-Hans: 'Yampolskiy: Recursively Self-Improving Software'
+      en: 'Yampolskiy: Recursively Self-Improving Software'
+    href: 'https://arxiv.org/abs/1502.06512'

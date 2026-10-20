@@ -1,0 +1,16 @@
+name:
+  zh-Hans: '了解你的客户（KYC）'
+  en: 'Know Your Customer (KYC)'
+summary:
+  zh-Hans: 'KYC 指机构了解和核实客户身份及相关背景的流程，常见于金融服务的客户尽职调查。'
+  en: 'KYC refers to processes for understanding and verifying a customer’s identity and background, commonly within financial customer due diligence.'
+aliases:
+  - 'KYC'
+  - '客户身份核验'
+status: 'published'
+lastVerifiedAt: '2026-10-20'
+sources:
+  - label:
+      zh-Hans: 'Swift: Risk and compliance'
+      en: 'Swift: Risk and compliance'
+    href: 'https://www.swift.com/risk-and-compliance'

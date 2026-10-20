@@ -1,0 +1,17 @@
+name:
+  zh-Hans: '一次完成（One Shot）'
+  en: 'One Shot'
+summary:
+  zh-Hans: 'One Shot 在本节目 AI 创作与编程语境中指一次提出需求后就得到可用结果，而不是经过多轮追问和修改。'
+  en: 'In the show’s AI creation and coding discussions, one shot means obtaining a usable result from an initial request rather than through repeated follow-up revisions.'
+aliases:
+  - 'one shot'
+  - 'One-Shot'
+  - '一次完成'
+status: 'published'
+lastVerifiedAt: '2026-10-20'
+sources:
+  - label:
+      zh-Hans: 'Next Token Weekly #002 transcript'
+      en: 'Next Token Weekly #002 transcript'
+    href: 'https://nexttoken.tv/weekly/002/transcript'

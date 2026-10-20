@@ -1,0 +1,18 @@
+name:
+  zh-Hans: '主体与补充素材（A-Roll / B-Roll）'
+  en: 'A-Roll and B-Roll'
+summary:
+  zh-Hans: 'A-Roll 是承载主要叙事的素材，B-Roll 是补充、说明或丰富叙事的画面。两者描述剪辑中的用途，而非画质等级。'
+  en: 'A-roll carries the main narrative, while B-roll supplies supporting or illustrative footage. The labels describe editorial roles, not image quality.'
+aliases:
+  - 'A-Roll'
+  - 'B-Roll'
+  - '主体素材'
+  - '补充素材'
+status: 'published'
+lastVerifiedAt: '2026-10-20'
+sources:
+  - label:
+      zh-Hans: 'Adobe: B-roll footage'
+      en: 'Adobe: B-roll footage'
+    href: 'https://www.adobe.com/creativecloud/video/discover/b-roll.html'

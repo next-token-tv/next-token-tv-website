@@ -1,0 +1,16 @@
+name:
+  zh-Hans: '首次公开募股（IPO）'
+  en: 'Initial Public Offering (IPO)'
+summary:
+  zh-Hans: 'IPO 通常指公司首次向公众出售股票，是公司融资与进入公开资本市场的一种方式。'
+  en: 'An IPO generally refers to a company’s first sale of shares to the public.'
+aliases:
+  - 'IPO'
+  - '首次公开募股'
+status: 'published'
+lastVerifiedAt: '2026-10-20'
+sources:
+  - label:
+      zh-Hans: 'Investor.gov: Initial public offering'
+      en: 'Investor.gov: Initial public offering'
+    href: 'https://www.investor.gov/introduction-investing/investing-basics/glossary/initial-public-offering-ipo'

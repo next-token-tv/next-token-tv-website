@@ -1,0 +1,16 @@
+name:
+  zh-Hans: '日常随身物品（EDC）'
+  en: 'Everyday Carry (EDC)'
+summary:
+  zh-Hans: 'EDC 指一个人日常经常随身携带的实用物品，也指围绕这些物品进行选择和搭配的习惯。'
+  en: 'EDC refers to useful items a person routinely carries, and to the practice of selecting that everyday kit.'
+aliases:
+  - 'EDC'
+  - 'Everyday Carry'
+status: 'published'
+lastVerifiedAt: '2026-10-20'
+sources:
+  - label:
+      zh-Hans: 'Everyday Carry: Beginner’s guide'
+      en: 'Everyday Carry: Beginner’s guide'
+    href: 'https://everydaycarry.com/what-is-edc-everyday-carry-guide/'

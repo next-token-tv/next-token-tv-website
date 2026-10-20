@@ -1,0 +1,16 @@
+name:
+  zh-Hans: '顿悟时刻（Aha Moment）'
+  en: 'Aha Moment'
+summary:
+  zh-Hans: 'Aha Moment 指突然理解某件事或切身体会到产品价值的时刻；产品讨论中常用它描述“原来它能帮我做到这个”的体验。'
+  en: 'An aha moment is a sudden realization or experience of a product’s value: the point at which its usefulness becomes clear.'
+aliases:
+  - '顿悟时刻'
+  - '啊哈时刻'
+status: 'published'
+lastVerifiedAt: '2026-10-20'
+sources:
+  - label:
+      zh-Hans: 'Amplitude: The Aha Moment'
+      en: 'Amplitude: The Aha Moment'
+    href: 'https://amplitude.com/blog/aha-moment'
