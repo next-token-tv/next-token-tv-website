@@ -23,4 +23,6 @@ This website is metadata-driven.
 
 - For Blog writing and editing, use [.agents/skills/next-token-blog/SKILL.md](.agents/skills/next-token-blog/SKILL.md) and follow [the editorial standard](docs/blog-editorial.zh-Hans.md) and [the content contract](docs/blog.md).
 
+- For WeChat articles and full-episode conversation editing, use [.agents/skills/next-token-wechat/SKILL.md](.agents/skills/next-token-wechat/SKILL.md) and follow [the WeChat editorial standard](docs/wechat-editorial.zh-Hans.md) and [channel contract](docs/wechat.md). Preserve the full-episode scope and fixed speaker emojis; do not default to the Blog's single-topic structure.
+
 - For technical SEO audits or fixes, use [.agents/skills/next-token-seo/SKILL.md](.agents/skills/next-token-seo/SKILL.md) and follow [the technical SEO contract](docs/seo-technical.md).
