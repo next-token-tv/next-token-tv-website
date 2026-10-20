@@ -1,50 +1,43 @@
 ---
-import { render, type CollectionEntry } from "astro:content";
-import { getTermArticle } from "../data/terms";
+import "../styles/wiki-detail.css";
+import WikiDetailHeader from "./WikiDetailHeader.astro";
+import WikiIdentityCard from "./WikiIdentityCard.astro";
+import WikiArticle from "./WikiArticle.astro";
 import { displayAliases } from "../data/entity-aliases";
 import type { Locale } from "../data/types";
+import type { CollectionEntry } from "astro:content";
+
 interface Props { term: CollectionEntry<"terms">; locale: Locale }
 const { term, locale } = Astro.props;
 const en = locale === "en";
 const prefix = en ? "/en" : "";
-const article = await getTermArticle(term.id, locale);
-const { Content, headings } = await render(article);
-if (headings.some(heading => heading.depth === 1)) throw new Error(`Term article must not contain H1: ${article.id}`);
 const aliases = displayAliases(term.data.name, term.data.aliases);
-const schema = {
+// The card carries the name in the other language, mirroring how entity cards show the category.
+const cardTitle = en ? term.data.name["zh-Hans"] : term.data.name.en;
+const definedTerm = {
   "@context": "https://schema.org", "@type": "DefinedTerm",
   name: term.data.name[locale], description: term.data.summary[locale], alternateName: aliases,
   url: new URL(`${prefix}/wiki/terms/${term.id}`, Astro.site).href,
   inDefinedTermSet: new URL(`${prefix}/wiki/terms`, Astro.site).href,
 };
 ---
-<main id="main" class="term-detail shell">
-  <a href={`${prefix}/wiki/terms`}>← {en ? "Terms" : "术语"}</a>
-  <header>
-    <p class="eyebrow">NEXT TOKEN / {en ? "TERM" : "术语"}</p>
-    <h1 class="heading-reading-title">{term.data.name[locale]}</h1>
-    <p>{term.data.summary[locale]}</p>
-    {aliases.length > 0 && <p>{en ? "Also known as" : "别名"}：{aliases.join(" · ")}</p>}
-  </header>
-  <nav aria-label={en ? "On this page" : "本页目录"}>
-    {headings.filter(heading => heading.depth === 2).map(heading => <a href={`#${heading.slug}`}>{heading.text}</a>)}
-  </nav>
-  <article><Content /></article>
-  <section aria-labelledby="term-sources">
-    <h2 id="term-sources">{en ? "Sources" : "参考资料"}</h2>
-    <ul>{term.data.sources.map(source => <li><a href={source.href}>{source.label[locale]}</a></li>)}</ul>
-    <p>{en ? "Updated" : "正文更新"}：<time datetime={article.data.updatedAt}>{article.data.updatedAt}</time> · {en ? "Verified" : "资料核验"}：<time datetime={term.data.lastVerifiedAt}>{term.data.lastVerifiedAt}</time></p>
+<main id="main" class="term-detail has-wiki-article">
+  <WikiDetailHeader backHref={`${prefix}/wiki/terms`} backLabel={en ? "All terms" : "全部术语"}
+    name={term.data.name[locale]} summary={term.data.summary[locale]} aliases={aliases} aliasesLabel={en ? "Also known as" : "别名"}>
+    <WikiIdentityCard label={en ? "Term" : "术语"} title={cardTitle} />
+  </WikiDetailHeader>
+  <WikiArticle entityType="term" entityId={term.id} name={term.data.name[locale]} locale={locale} lastVerifiedAt={term.data.lastVerifiedAt} />
+  <section class="wiki-support-section shell" aria-labelledby="term-sources">
+    <h2 class="wiki-support-heading" id="term-sources">{en ? "Sources" : "参考资料"}</h2>
+    <div><ul class="term-source-list">{term.data.sources.map(source => <li class="wiki-support-item"><a class="wiki-support-link" href={source.href} target="_blank" rel="noopener noreferrer">{source.label[locale]} ↗</a></li>)}</ul></div>
   </section>
 </main>
-<script is:inline type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, "\u003c")} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(definedTerm).replace(/</g, "\\u003c")} />
 <style>
 @layer reset, tokens, base, layouts, components, utilities, overrides;
 @layer components {
-  .term-detail { padding-block: 2rem 4rem; }
-  .term-detail header { margin-block: 2rem; }
-  .term-detail h1 { --reading-title-size: clamp(2.5rem, 5vw, 3.5rem); }
-  .term-detail nav { display: flex; flex-wrap: wrap; gap: 1rem; padding-block: 1rem; border-block: 1px solid var(--line); }
-  .term-detail article, .term-detail section { max-width: 48rem; margin-block: 2rem; overflow-wrap: anywhere; }
-  .term-detail :global(h2) { font-size: 1.5rem; }
+  main.term-detail { padding-bottom: 2.5rem; }
+  .term-source-list { list-style: none; margin: 0; padding: 0; }
+  .term-source-list li { padding-block: .5rem; }
 }
 </style>

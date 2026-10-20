@@ -103,7 +103,7 @@
 
 ## Wiki detail layout ownership
 
-- Brand, product and person pages with articles use `WikiDetailHeader.astro` for the return navigation, hero grid, title, summary and always-visible aliases. `WikiIdentityCard.astro` owns the visual card.
+- Brand, product, person and term detail pages use `WikiDetailHeader.astro` for the return navigation, hero grid, title, summary and always-visible aliases. `WikiIdentityCard.astro` owns the visual card; term cards carry the term's name in the other language as the main text.
 - Each top-level block has its own `.shell`; do not wrap the whole person article page in another padded shell. Return-navigation and article/support section dividers span the shell border box, while text uses the shared shell gutters.
 - `src/styles/wiki-detail.css` owns support-section columns, gaps, vertical padding, dividers and heading sizes. Shared Wiki dimensions live in `tokens.css`. Local entity templates only control their specific content.
 - Geometry checks compare divider bounds and gutters against the hero shell, and compare title/support content starts with the article column in both languages at all six test widths.

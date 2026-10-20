@@ -1,6 +1,6 @@
 @layer reset, tokens, base, layouts, components, utilities, overrides;
 @layer components {
-/* Shared section geometry for brand, product and person articles. */
+/* Shared section geometry for brand, product, person and term articles. */
 .has-wiki-article > .wiki-support-section.shell {
   display: grid;
   grid-template-columns: var(--wiki-hero-columns);

@@ -1,10 +1,11 @@
 ---
 import { render } from "astro:content";
 import { getWikiArticle } from "../data/catalog";
+import { getTermArticle } from "../data/terms";
 import type { Locale } from "../data/types";
 
 interface Props {
-  entityType: "brand" | "product" | "person";
+  entityType: "brand" | "product" | "person" | "term";
   entityId: string;
   name: string;
   locale: Locale;
@@ -12,15 +13,22 @@ interface Props {
   lastVerifiedAt?: string;
 }
 const { entityType, entityId, name, locale, contained = false, lastVerifiedAt } = Astro.props;
-const article = await getWikiArticle(entityType, entityId, locale);
+let article, updatedAt, headline;
+if (entityType === "term") {
+  article = await getTermArticle(entityId, locale);
+  updatedAt = article.data.updatedAt; headline = name;
+} else {
+  article = await getWikiArticle(entityType, entityId, locale);
+  updatedAt = article?.data.updatedAt; headline = article?.data.seoTitle ?? name;
+}
 const rendered = article ? await render(article) : null;
 if (rendered?.headings.some(({ depth }) => depth === 1)) throw new Error(`Wiki prose ${article!.id} must not add a second H1`);
 const headings = rendered?.headings.filter(({ depth }) => depth === 2) ?? [];
 const Content = rendered?.Content;
 const en = locale === "en";
 const prefix = en ? "/en" : "";
-const directory = { brand: "brands", product: "products", person: "people" }[entityType];
-const label = { brand: en ? "Brands" : "品牌库", product: en ? "Products" : "产品库", person: en ? "People" : "人物库" }[entityType];
+const directory = { brand: "brands", product: "products", person: "people", term: "terms" }[entityType];
+const label = { brand: en ? "Brands" : "品牌库", product: en ? "Products" : "产品库", person: en ? "People" : "人物库", term: en ? "Terms" : "术语" }[entityType];
 const url = new URL(`${prefix}/wiki/${directory}/${entityId}`, Astro.site).href;
 const schema = {
   "@context": "https://schema.org",
@@ -30,8 +38,8 @@ const schema = {
       { "@type": "ListItem", position: 2, name: label, item: new URL(`${prefix}/wiki/${directory}`, Astro.site).href },
       { "@type": "ListItem", position: 3, name, item: url },
     ] },
-    { "@type": "Article", "@id": `${url}#wiki-article`, headline: article?.data.seoTitle ?? name,
-      inLanguage: locale, dateModified: article?.data.updatedAt, mainEntityOfPage: url,
+    { "@type": "Article", "@id": `${url}#wiki-article`, headline,
+      inLanguage: locale, dateModified: updatedAt, mainEntityOfPage: url,
       about: { "@type": entityType === "person" ? "Person" : entityType === "brand" ? "Organization" : "Thing", name },
       publisher: { "@type": "Organization", name: "Next Token", url: new URL("/", Astro.site).href },
     },
@@ -53,7 +61,7 @@ const schema = {
           <ol>{headings.map(({ slug, text }) => <li><a href={`#${slug}`}>{text}</a></li>)}</ol>
         </nav>
         <dl class="wiki-updated">
-          <div><dt>{en ? "Article updated" : "正文更新"}</dt><dd><time datetime={article.data.updatedAt}>{article.data.updatedAt}</time></dd></div>
+          <div><dt>{en ? "Article updated" : "正文更新"}</dt><dd><time datetime={updatedAt}>{updatedAt}</time></dd></div>
           {lastVerifiedAt && <div><dt>{en ? "Facts verified" : "资料核验"}</dt><dd><time datetime={lastVerifiedAt}>{lastVerifiedAt}</time></dd></div>}
         </dl>
       </aside>

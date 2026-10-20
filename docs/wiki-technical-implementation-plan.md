@@ -11,6 +11,7 @@
 | schema 与读取 | `src/content.config.ts`、`src/data/catalog.ts` 的 `getWikiArticle` | 已校验重复实体／语言正文、实体引用、允许类型和必需更新日期；不再新建一套契约。 |
 | 产品／品牌页面 | `EntityDetailPage.astro` | 有当前语言正文时使用共享内容型布局；无正文时保留原展示。 |
 | 普通人物页面 | `PeopleLibraryPage.astro` | 有正文时共用页头与资料区布局；人物目录独立保留分类切换。 |
+| 术语详情页 | `TermDetailPage.astro` | 2026-10-11 起与实体正文页共用共享详情页结构：`WikiDetailHeader`（身份卡主文字为另一语言全称）、`WikiArticle`（term 类型）与紧凑资料区；发布条件为双语摘要、来源与核验日期。 |
 | 主理人页面 | `HostProfilePage.astro` | 由人物路由按 host membership 分流，当前未接入 `WikiArticle`；新增主理人正文不会自动显示。 |
 | SEO 与路由 | 六个中英文实体详情路由、`BaseLayout.astro` | 使用正文 SEO 字段，缺少时回退实体摘要；保留既有 canonical、hreflang 和路由。 |
 | 公开数据 | `src/data/wiki-api.ts` | API v1 保持原数据契约；Wiki 正文、FAQ 和逐字稿不自动加入 API。 |
