@@ -23,6 +23,14 @@ community:
   qrValidBefore: "2026-10-26"
 rssUrl: '/weekly/rss.xml'
 subscriptions:
+  - platform: wechat
+    label: { zh-Hans: 微信公众号, en: WeChat Official Account }
+    accountName: Next Token 词元之外
+    qr: { image: /assets/follow/wechat-official.jpg, width: 344, height: 344 }
+  - platform: wechat-channels
+    label: { zh-Hans: 视频号, en: WeChat Channels }
+    accountName: NextToken词元之外
+    qr: { image: /assets/follow/wechat-channels.jpg, width: 994, height: 1290 }
   - platform: xiaoyuzhou
     label: { zh-Hans: 小宇宙, en: Xiaoyuzhou }
     href: https://www.xiaoyuzhoufm.com/podcast/6a9956fafbb9512fc83ddbb5

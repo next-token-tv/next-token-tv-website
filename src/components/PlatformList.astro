@@ -2,14 +2,16 @@
 import PlatformBrand from "./PlatformBrand.astro";
 
 interface Props {
-  platforms: { platform: string; label: string; href?: string; action?: string }[];
+  platforms: { platform: string; label: string; href?: string; action?: string; accountName?: string; qr?: { image: string; width: number; height: number } }[];
+  qrLabel?: string;
+  qrHint?: string;
   label?: string;
   available?: string;
   comingSoon: string;
   reveal?: boolean;
 }
 
-const { platforms, label, available, comingSoon, reveal = false } = Astro.props;
+const { platforms, label, available, comingSoon, reveal = false, qrLabel = "查看二维码", qrHint = "用微信扫一扫，或长按图片识别关注" } = Astro.props;
 ---
 
 <div class="platform-list" aria-label={label} data-reveal={reveal || undefined}>
@@ -21,12 +23,29 @@ const { platforms, label, available, comingSoon, reveal = false } = Astro.props;
         href={platform.href} target={platform.href ? "_blank" : undefined}
         rel={platform.href ? "noopener noreferrer" : undefined}>
         <span class="index">{String(index + 1).padStart(2, "0")}</span>
-        <strong><PlatformBrand platform={platform.platform} name={platform.label} /></strong>
+        <strong><PlatformBrand platform={platform.platform} name={platform.label} />
+          {platform.accountName && <span class="platform-account-name">{platform.accountName}</span>}
+        </strong>
         <span class="coming">
-          {platform.href ? platform.action ?? available : comingSoon}
+          {platform.href ? platform.action ?? available : platform.action ?? comingSoon}
           {platform.href && <> <span aria-hidden="true">↗</span></>}
         </span>
+        {platform.qr && !platform.href && <details class="platform-qr">
+          <summary>{qrLabel}<span class="visually-hidden"> · {platform.label}</span></summary>
+          <img src={platform.qr.image} width={platform.qr.width} height={platform.qr.height} alt={`${platform.label} · ${platform.accountName ?? platform.label}`} loading="lazy" />
+          <p>{qrHint}</p>
+        </details>}
       </Tag>
     );
   })}
 </div>
+<style>
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+  .platform-account-name { display: block; margin-top: .35rem; font-size: .9rem; font-weight: 400; overflow-wrap: anywhere; }
+  .platform-qr { grid-column: 2 / -1; min-width: 0; padding-bottom: 1rem; }
+  .platform-qr summary { width: fit-content; cursor: pointer; font-size: .875rem; font-weight: 700; }
+  .platform-qr img { display: block; width: min(100%, 21.5rem); height: auto; margin-top: 1rem; }
+  .platform-qr p { margin: .75rem 0 0; color: var(--muted); font-size: .8125rem; line-height: 1.6; }
+}
+</style>

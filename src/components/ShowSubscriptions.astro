@@ -5,7 +5,11 @@ import PlatformList from "./PlatformList.astro";
 interface Props { locale: Locale; reveal?: boolean; includeRss?: boolean }
 const { locale, reveal = false, includeRss = false } = Astro.props;
 const show = await getShowPageData("next-token-weekly", locale);
-const platforms = show.data.subscriptions.map(p => ({ ...p, label: p.label[locale], action: locale === "en" ? "Follow show" : "订阅 / 关注" }));
+const platforms = show.data.subscriptions.map(p => ({ ...p, label: p.label[locale], action: p.href
+  ? (locale === "en" ? "Follow show" : "订阅 / 关注")
+  : (locale === "en" ? "Search this name in WeChat" : "在微信搜索此名称") }));
 if (includeRss && show.data.rssUrl) platforms.push({ platform: "rss", label: locale === "en" ? "Episode RSS" : "节目 RSS", href: show.data.rssUrl, action: locale === "en" ? "Subscribe via RSS" : "RSS 订阅" });
 ---
-<PlatformList platforms={platforms} label={locale === "en" ? "Follow the show" : "订阅节目"} comingSoon={locale === "en" ? "Coming soon" : "即将开放"} reveal={reveal} />
+<PlatformList platforms={platforms} label={locale === "en" ? "Follow the show" : "订阅节目"} comingSoon={locale === "en" ? "Coming soon" : "即将开放"} reveal={reveal}
+  qrLabel={locale === "en" ? "Show QR code" : "查看二维码"}
+  qrHint={locale === "en" ? "Scan with WeChat, or long-press the image in WeChat to follow." : "用微信扫一扫，或在微信内长按图片识别关注"} />

@@ -93,7 +93,13 @@ const shows = defineCollection({
       discordUrl: z.url(),
     }).optional(),
     rssUrl: z.string().regex(/^\/[a-z0-9/-]+\.xml$/).optional(),
-    subscriptions: z.array(z.object({ platform: z.string(), label: localizedText, href: z.url() })).default([]),
+    subscriptions: z.array(z.object({
+      platform: z.string(), label: localizedText, href: z.url().optional(),
+      accountName: z.string().min(1).optional(),
+      qr: z.object({ image: assetPath, width: z.number().int().positive(), height: z.number().int().positive() }).optional(),
+    }).refine(entry => !!entry.href || (["wechat", "wechat-channels"].includes(entry.platform) && !!entry.accountName), {
+      message: "A subscription needs a URL or a searchable WeChat account name",
+    })).default([]),
     page: z.object({ "zh-Hans": showPage, en: showPage }),
   }),
 });
