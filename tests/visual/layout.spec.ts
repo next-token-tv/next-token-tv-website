@@ -42,7 +42,7 @@ test("platform lists share localized labels, logos and destinations", async ({ p
       await page.goto(path === "/" ? (prefix || "/") : `${prefix}${path}`);
       const list = page.locator(".platform-list");
       await expect(list.locator("a.platform.is-live")).toHaveCount(path === "/weekly/001" ? 5 : path === "/weekly" ? 7 : 6);
-      await expect(list.locator("img.platform-logo")).toHaveCount(path === "/weekly/001" ? 5 : 6);
+      await expect(list.locator("img.platform-logo")).toHaveCount(path === "/weekly/001" ? 5 : 8);
       const entries = await list.locator(".platform").evaluateAll((rows) => rows.map((row) => ({
         text: row.textContent?.replace(/\s+/g, " ").trim(),
         href: row.getAttribute("href"),
@@ -54,6 +54,12 @@ test("platform lists share localized labels, logos and destinations", async ({ p
         await expect(list.locator('a[href*="spotify.com"]')).toHaveAttribute('href', /\/episode\//);
         await expect(list.locator('a[href*="spotify.com"] .coming')).toContainText(prefix ? "Listen / watch" : "收听 / 收看");
       } else {
+        expect(await list.locator('.platform-logo').evaluateAll(images => images.map(image => image.getAttribute('src')))).toEqual([
+          '/assets/platforms/wechat-official.png', '/assets/platforms/wechat-channels.svg',
+          '/assets/platforms/xiaoyuzhou.svg', '/assets/platforms/bilibili.svg',
+          '/assets/platforms/xiaohongshu.svg', '/assets/platforms/youtube.svg',
+          '/assets/platforms/spotify.svg', '/assets/platforms/apple-podcasts.svg',
+        ]);
         await expect(list.locator('a[href*="xiaohongshu.com"]')).toHaveAttribute("href", "https://www.xiaohongshu.com/user/profile/661ba04100000000030307b0");
         if (path === '/weekly') await expect(list.locator('a[href$="/weekly/rss.xml"]')).toHaveCount(1);
         if (expected) expect(entries.filter(entry => !entry.href?.endsWith('/weekly/rss.xml'))).toEqual(expected);
