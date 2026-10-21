@@ -8,7 +8,7 @@ test('branded QR preserves the invitation at mobile and full resolution', async 
   const community = load(await readFile('src/content/data/shows/next-token-weekly.yaml', 'utf8')).community;
   const original = await decodeQr(await readFile('public/assets/weekly-005/community-qr-20261008.webp'));
   const generated = createCommunitySvg(original, {groupName: 'Test group', validBefore: '2026-10-15'});
-  assert.ok(generated.includes('data-wechat-logo="true"'));
+  assert.ok(generated.includes('data-hosts-grid="true"'));
   await verifyCommunitySvg(generated, original);
   const svg = await readFile(`public${community.qrImage}`, 'utf8');
   const currentPayload = await decodeQr(await readFile(`public${community.qrPngImage}`));
