@@ -34,21 +34,21 @@ subscriptions:
   - platform: xiaoyuzhou
     label: { zh-Hans: 小宇宙, en: Xiaoyuzhou }
     href: https://www.xiaoyuzhoufm.com/podcast/6a9956fafbb9512fc83ddbb5
-  - platform: apple-podcasts
-    label: { zh-Hans: Apple Podcasts, en: Apple Podcasts }
-    href: https://podcasts.apple.com/us/podcast/id6809305832
-  - platform: spotify
-    label: { zh-Hans: Spotify, en: Spotify }
-    href: https://open.spotify.com/show/2xCECrt8be0mcGmnlpL9Au
   - platform: bilibili
     label: { zh-Hans: 哔哩哔哩, en: Bilibili }
     href: https://space.bilibili.com/3745066753461159
-  - platform: youtube
-    label: { zh-Hans: YouTube, en: YouTube }
-    href: https://www.youtube.com/channel/UC_9pr_usdNG29RauPFwIFQw
   - platform: xiaohongshu
     label: { zh-Hans: 小红书, en: RedNote }
     href: https://www.xiaohongshu.com/user/profile/661ba04100000000030307b0
+  - platform: youtube
+    label: { zh-Hans: YouTube, en: YouTube }
+    href: https://www.youtube.com/channel/UC_9pr_usdNG29RauPFwIFQw
+  - platform: spotify
+    label: { zh-Hans: Spotify, en: Spotify }
+    href: https://open.spotify.com/show/2xCECrt8be0mcGmnlpL9Au
+  - platform: apple-podcasts
+    label: { zh-Hans: Apple Podcasts, en: Apple Podcasts }
+    href: https://podcasts.apple.com/us/podcast/id6809305832
 page:
   zh-Hans:
     eyebrow: Next Token 的旗舰周播

@@ -16,6 +16,20 @@ const { platforms, label, available, comingSoon, reveal = false, qrLabel = "查�
 
 <div class="platform-list" aria-label={label} data-reveal={reveal || undefined}>
   {platforms.map((platform, index) => {
+    if (platform.qr && !platform.href) return (
+      <div class="platform-qr-row">
+        <button class="platform is-live platform-qr-trigger" type="button" aria-expanded="false" aria-controls={`follow-qr-${platform.platform}`}>
+          <span class="index">{String(index + 1).padStart(2, "0")}</span>
+          <strong><PlatformBrand platform={platform.platform} name={platform.label} /></strong>
+          <span class="coming">{platform.action ?? qrLabel} <span aria-hidden="true">↗</span></span>
+        </button>
+        <div class="platform-qr" id={`follow-qr-${platform.platform}`} popover="manual" role="region" aria-label={`${platform.label} · ${platform.accountName}`}>
+          <p class="platform-qr-name">{platform.accountName}</p>
+          <img src={platform.qr.image} width={platform.qr.width} height={platform.qr.height} alt={`${platform.label} · ${platform.accountName}`} />
+          <p class="platform-qr-hint">{qrHint}</p>
+        </div>
+      </div>
+    );
     const Tag = platform.href ? "a" : "div";
     return (
       <Tag class:list={["platform", { "is-live": !!platform.href }]}
@@ -30,22 +44,61 @@ const { platforms, label, available, comingSoon, reveal = false, qrLabel = "查�
           {platform.href ? platform.action ?? available : platform.action ?? comingSoon}
           {platform.href && <> <span aria-hidden="true">↗</span></>}
         </span>
-        {platform.qr && !platform.href && <details class="platform-qr">
-          <summary>{qrLabel}<span class="visually-hidden"> · {platform.label}</span></summary>
-          <img src={platform.qr.image} width={platform.qr.width} height={platform.qr.height} alt={`${platform.label} · ${platform.accountName ?? platform.label}`} loading="lazy" />
-          <p>{qrHint}</p>
-        </details>}
+
       </Tag>
     );
   })}
 </div>
+<script>
+  document.querySelectorAll<HTMLElement>(".platform-qr-row").forEach(row => {
+    const button = row.querySelector<HTMLButtonElement>("button")!;
+    const panel = row.querySelector<HTMLElement>(".platform-qr")!;
+    // Older in-app browsers can still open the original QR image.
+    if (typeof panel.showPopover !== "function") {
+      panel.hidden = true;
+      button.removeAttribute("aria-expanded");
+      button.addEventListener("click", () => { window.location.href = panel.querySelector("img")!.src; });
+      return;
+    }
+    let timer: ReturnType<typeof setTimeout>;
+    let pinned = false;
+    const close = () => { clearTimeout(timer); panel.hidePopover(); button.setAttribute("aria-expanded", "false"); pinned = false; };
+    const position = () => {
+      const rect = button.getBoundingClientRect();
+      const gap = 8, margin = 12;
+      const width = panel.offsetWidth, height = panel.offsetHeight;
+      panel.style.left = `${Math.max(margin, Math.min(rect.right - width, innerWidth - width - margin))}px`;
+      const below = rect.bottom + gap;
+      panel.style.top = `${Math.max(margin, Math.min(below + height <= innerHeight - margin ? below : rect.top - height - gap, innerHeight - height - margin))}px`;
+    };
+    const open = () => {
+      clearTimeout(timer);
+      document.querySelectorAll<HTMLElement>(".platform-qr:popover-open").forEach(other => {
+        if (other !== panel) { other.hidePopover(); other.parentElement?.querySelector("button")?.setAttribute("aria-expanded", "false"); }
+      });
+      panel.showPopover(); button.setAttribute("aria-expanded", "true"); position();
+    };
+    panel.addEventListener("toggle", () => { if (!panel.matches(":popover-open")) { pinned = false; button.setAttribute("aria-expanded", "false"); } });
+    button.addEventListener("pointerenter", event => { if (event.pointerType === "mouse") open(); });
+    button.addEventListener("pointerleave", () => { if (!pinned) timer = setTimeout(close, 180); });
+    panel.addEventListener("pointerenter", () => clearTimeout(timer));
+    panel.addEventListener("pointerleave", () => { if (!pinned) timer = setTimeout(close, 180); });
+    button.addEventListener("focus", () => { if (button.matches(":focus-visible")) open(); });
+    document.addEventListener("focusin", event => { if (!row.contains(event.target as Node)) close(); });
+    button.addEventListener("click", () => { if (pinned) close(); else { open(); pinned = true; } });
+    document.addEventListener("pointerdown", event => { if (!row.contains(event.target as Node)) close(); });
+    document.addEventListener("keydown", event => { if (event.key === "Escape") close(); });
+    window.addEventListener("resize", close);
+    window.addEventListener("scroll", () => { if (panel.matches(":popover-open")) position(); }, { passive: true });
+  });
+</script>
 <style>
 @layer reset, tokens, base, layouts, components, utilities, overrides;
 @layer components {
-  .platform-account-name { display: block; margin-top: .35rem; font-size: .9rem; font-weight: 400; overflow-wrap: anywhere; }
-  .platform-qr { grid-column: 2 / -1; min-width: 0; padding-bottom: 1rem; }
-  .platform-qr summary { width: fit-content; cursor: pointer; font-size: .875rem; font-weight: 700; }
-  .platform-qr img { display: block; width: min(100%, 21.5rem); height: auto; margin-top: 1rem; }
-  .platform-qr p { margin: .75rem 0 0; color: var(--muted); font-size: .8125rem; line-height: 1.6; }
+  .platform-qr-trigger { width: 100%; padding: 0; border: 0; border-bottom: 1px solid var(--ink); border-radius: 0; background: transparent; font: inherit; text-align: left; cursor: pointer; }
+  .platform-qr { position: fixed; inset: auto; margin: 0; width: min(19rem, calc(100vw - 1.5rem)); max-height: calc(100dvh - 1.5rem); overflow: auto; padding: 1rem; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); box-shadow: 0 .5rem 1.5rem rgb(0 0 0 / 16%); }
+  .platform-qr img { display: block; width: 100%; height: auto; }
+  .platform-qr-name { margin: 0 0 .75rem; font-size: .9rem; font-weight: 700; }
+  .platform-qr-hint { margin: .75rem 0 0; color: var(--muted); font-size: .75rem; line-height: 1.6; }
 }
 </style>

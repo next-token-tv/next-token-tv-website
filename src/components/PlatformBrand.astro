@@ -5,7 +5,11 @@ interface Props {
   name: string;
 }
 const { platform, name } = Astro.props;
-const icon = platforms[platform as keyof typeof platforms]?.icon;
+const followIcons: Record<string, string> = {
+  wechat: "/assets/platforms/wechat-official.png",
+  "wechat-channels": "/assets/platforms/wechat-channels.svg",
+};
+const icon = platforms[platform as keyof typeof platforms]?.icon ?? followIcons[platform];
 ---
 <span class="platform-brand">
   {icon && <img class="platform-logo" src={icon} width="28" height="28" alt="" aria-hidden="true" />}
