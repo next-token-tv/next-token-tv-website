@@ -29,9 +29,11 @@ for (const width of [390, 768, 1280, 1320, 1440, 1920, 2560]) {
         const cover = page.locator(`[data-episode-number="${number}"] .weekly-image img`);
         await expect(cover).toHaveAttribute('src', latestSnapshot.images['960']);
         await expect(cover).toHaveAttribute('srcset', /-1440\.webp 1440w/);
-        const coverRect = await cover.boundingBox();
+        const {coverRect, frameRect} = await cover.evaluate(image => ({
+          coverRect: image.getBoundingClientRect().toJSON(),
+          frameRect: image.parentElement!.getBoundingClientRect().toJSON(),
+        }));
         expect(coverRect!.width / coverRect!.height).toBeCloseTo(1, 2);
-        const frameRect = await page.locator(`[data-episode-number="${number}"] .weekly-image`).boundingBox();
         expect(frameRect!.width / frameRect!.height).toBeCloseTo(1, 2);
         expect(Math.abs(frameRect!.height - coverRect!.height)).toBeLessThan(1);
         expect(Math.abs(frameRect!.y - coverRect!.y)).toBeLessThan(1);
@@ -67,9 +69,11 @@ for (const width of [390, 768, 1280, 1320, 1440, 1920, 2560]) {
       await expect(detailCover).toHaveAttribute('src', '/assets/weekly-002-cover-square-960.webp');
       await expect(detailCover).toHaveAttribute('width', '3000');
       await expect(detailCover).toHaveAttribute('height', '3000');
-      const coverBox = await detailCover.boundingBox();
+      const {coverBox, detailFrame} = await detailCover.evaluate(image => ({
+        coverBox: image.getBoundingClientRect().toJSON(),
+        detailFrame: image.parentElement!.getBoundingClientRect().toJSON(),
+      }));
       expect(coverBox!.width / coverBox!.height).toBeCloseTo(1, 2);
-      const detailFrame = await page.locator('.episode-detail-image').boundingBox();
       expect(detailFrame!.width / detailFrame!.height).toBeCloseTo(1, 2);
       expect(Math.abs(detailFrame!.height - coverBox!.height)).toBeLessThan(1);
       expect(Math.abs(detailFrame!.y - coverBox!.y)).toBeLessThan(1);
