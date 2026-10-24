@@ -1,0 +1,11 @@
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+  .tag-list { display: flex; flex-wrap: wrap; align-items: center; gap: .375rem; }
+  .tag { display: inline-flex; align-items: center; gap: .5rem; max-width: 100%; padding: .125rem .5rem; border: var(--stroke-thin) solid var(--line); border-radius: var(--control-radius); background: var(--surface); color: var(--muted); font-family: var(--sans); font-size: var(--type-caption); font-weight: 500; line-height: 1.5; overflow-wrap: anywhere; }
+  .tag--filter { min-height: var(--control-height); padding: .375rem .625rem; border-color: var(--line-control); background: transparent; color: var(--ink); font-size: var(--type-ui); cursor: pointer; transition: background-color var(--duration), border-color var(--duration), color var(--duration); }
+  .tag-count { color: var(--muted); font-size: var(--type-caption); font-weight: 600; }
+  .tag--filter:hover:not(:disabled):not([aria-pressed="true"]) { background: var(--surface); border-color: var(--ink); }
+  .tag--filter[aria-pressed="true"] { background: var(--signal-soft); border-color: var(--signal-text); color: var(--signal-text); }
+  .tag--filter[aria-pressed="true"] .tag-count { color: inherit; }
+  .tag--filter:disabled { background: var(--surface); border-color: var(--line); color: var(--muted); cursor: not-allowed; }
+}

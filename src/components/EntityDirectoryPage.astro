@@ -1,4 +1,5 @@
 ---
+import Tag from "./Tag.astro";
 import { getBrandDirectory, getProductDirectory, getPeopleDirectory } from "../data/catalog";
 import { getTerms } from "../data/terms";
 import type { Locale } from "../data/types";
@@ -135,13 +136,9 @@ const filterOptions = entityType === "terms" ? [] : entityType === "people"
   <div class="entity-secondary-filters shell" data-entity-filters>
     <p>{copy.filterLabel}</p>
     <div role="group" aria-label={copy.filterLabel}>
-      <button type="button" data-entity-filter="all" aria-pressed="true" aria-controls="entity-directory-list">
-        <span>{copy.all}</span><strong>{entries.length}</strong>
-      </button>
+      <Tag label={copy.all} count={entries.length} filter="all" selected controls="entity-directory-list" />
       {filterOptions.map((option) => (
-        <button type="button" data-entity-filter={option.id} aria-pressed="false" aria-controls="entity-directory-list">
-          <span>{option.label}</span><strong>{option.count}</strong>
-        </button>
+        <Tag label={option.label} count={option.count} filter={option.id} controls="entity-directory-list" />
       ))}
     </div>
   </div>
@@ -208,12 +205,6 @@ const filterOptions = entityType === "terms" ? [] : entityType === "people"
   .entity-secondary-filters { display: grid; grid-template-columns: 1fr; gap: .5rem; align-items: start; padding-block: 1rem 1.5rem; }
   .entity-secondary-filters > p { margin: 0; color: var(--muted); font-size: var(--type-caption); font-weight: 500; }
   .entity-secondary-filters > div { display: flex; flex-wrap: wrap; gap: .375rem; }
-  .entity-secondary-filters button { border-radius: var(--control-radius); display: inline-flex; min-height: var(--control-height); align-items: center; gap: .75rem; padding: .375rem .625rem; border: 1px solid transparent; color: var(--ink); background: transparent; font: inherit; font-size: var(--type-ui); font-weight: 500; cursor: pointer; }
-  .entity-secondary-filters button strong { color: var(--muted); font-size: var(--type-caption); }
-  .entity-secondary-filters button:hover { color: var(--ink); background: var(--surface); }
-  .entity-secondary-filters button:hover strong { color: var(--muted); }
-  .entity-secondary-filters button[aria-pressed="true"] { color: var(--signal-text); border-color: transparent; background: var(--signal-soft); }
-  .entity-secondary-filters button[aria-pressed="true"] strong { color: var(--ink); }
   .entity-directory { padding-bottom: var(--section-space); }
   .entity-directory-row { display: grid; grid-template-columns: 3.5rem minmax(13rem, .9fr) minmax(17rem, 1.25fr) minmax(10rem, .5fr) 3.5rem; min-height: 0; border: 0; border-bottom: 0; transition: color 180ms ease, background 180ms ease; border-top: 1px solid var(--line); align-items: center; }
   .entity-directory-row[hidden] { display: none; }
@@ -245,8 +236,7 @@ const filterOptions = entityType === "terms" ? [] : entityType === "people"
     .entity-index-lede { max-width: 24rem; }
     .entity-secondary-filters { grid-template-columns: 1fr; gap: .5rem; padding-bottom: 1.5rem; padding-block: 1rem 1.5rem; }
     .entity-secondary-filters > p { margin: 0; font-size: var(--type-caption); font-weight: 500; }
-    .entity-secondary-filters > div { flex-wrap: nowrap; overflow-x: auto; padding-bottom: .35rem; scrollbar-width: thin; gap: .375rem; }
-    .entity-secondary-filters button { flex: 0 0 auto; min-height: var(--control-height); gap: .75rem; padding: .375rem .625rem; border: 1px solid transparent; font-weight: 500; }
+    .entity-secondary-filters > div { flex-wrap: wrap; gap: .375rem; }
     .entity-directory-row { grid-template-columns: 3.5rem minmax(0, 1fr) 3rem; min-height: 0; border: 0; border-top: 1px solid var(--line); align-items: center; }
     .entity-directory-row > * { padding: 1rem .75rem; }
     .entity-directory-identity { grid-column: 2; }

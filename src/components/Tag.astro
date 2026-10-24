@@ -1,0 +1,12 @@
+---
+interface Props {
+  label: string;
+  count?: number;
+  filter?: string;
+  selected?: boolean;
+  disabled?: boolean;
+  controls?: string;
+}
+const { label, count, filter, selected = false, disabled = false, controls } = Astro.props;
+---
+{filter === undefined ? <span class="tag">{label}</span> : <button class="tag tag--filter" type="button" data-entity-filter={filter} aria-pressed={selected} aria-controls={controls} disabled={disabled}><span>{label}</span>{count !== undefined && <strong class="tag-count">{count}</strong>}</button>}

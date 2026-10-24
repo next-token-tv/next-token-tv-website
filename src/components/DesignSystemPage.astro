@@ -1,4 +1,5 @@
 ---
+import Tag from "./Tag.astro";
 import { colorNames, standardColorNames, colorHex, type NamedColorToken } from "../data/design-colors";
 import { typeMetric } from "../data/design-typography";
 import type { Locale } from "../data/types";
@@ -171,6 +172,13 @@ const spaces: [string, number][] = [["1",4],["2",8],["3",12],["4",16],["6",24],[
      <label>{t("错误状态示例","Error state example")}<input class="control-input" aria-invalid="true" aria-describedby="ds-error-hint" placeholder={t("填写标题","Enter a title")} /><small class="ds-error" id="ds-error-hint">{t("请填写标题。","Please enter a title.")}</small></label>
     </div>
     <div class="ds-control-row"><label class="control-choice"><input type="checkbox" checked />{t("显示辅助信息","Show supporting information")}</label><label class="control-choice"><input type="radio" name="ds-order" checked />{t("最新","Newest")}</label><label class="control-choice"><input type="radio" name="ds-order" />{t("最早","Oldest")}</label></div>
+    <div id="tags" class="ds-tags">
+     <h3>{t("标签", "Tags")}</h3>
+     <p class="ds-description">{t("静态标签展示分类与身份，使用 0.75rem 字号、纸影底色、淡墨文字、1px 细边框与微圆角。多个标签逐个排列，空间不足时换行。", "Static tags identify categories and roles using 0.75rem type, Paper Shadow surfaces, Soft Ink text, and 1px borders and corners. Multiple tags wrap onto new lines as needed.")}</p>
+     <div class="tag-list"><Tag label={t("AI 模型", "AI model")} /><Tag label={t("联合主理人", "Co-host")} /><Tag label={t("创作者", "Creator")} /></div>
+     <p class="ds-description">{t("筛选标签使用 0.875rem 字号，可附带数量；最小高度桌面 2.5rem、触屏 2.75rem。选中时使用信号橙浅底、文字色边框与文字，并通过 aria-pressed 表达状态。静态标签不提供点击或悬停反馈。", "Filter tags use 0.875rem type and optional counts, with minimum heights of 2.5rem on desktop and 2.75rem on touch screens. Selection uses the Signal Orange soft surface and text variant, exposed through aria-pressed. Static tags have no click or hover feedback.")}</p>
+     <div class="tag-list" role="group" aria-label={t("筛选标签示例", "Filter tag examples")} data-demo-toggle><Tag label={t("全部", "All")} filter="all" count={12} selected /><Tag label={t("模型", "Models")} filter="models" count={8} /><Tag label={t("工具", "Tools")} filter="tools" count={4} /><Tag label={t("暂不可用", "Unavailable")} filter="disabled" disabled /></div>
+    </div>
     <DesignSystemControlStates locale={locale} />
    </section>
    <section id="reading" class="ds-section">

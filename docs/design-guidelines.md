@@ -128,6 +128,12 @@ Border tokens follow a separate functional scale described under Units, rules an
 - `platformIcon()` in `src/data/platforms.mjs` resolves platform assets for both production rows and the specimen. Platform marks occupy `1.75rem` square slots with `0.65rem` text spacing and retain their aspect ratio. `platformAssets` records source, provenance category and optical size: Spotify and Apple Podcasts use `1.5rem`, WeChat Channels uses `2rem` and RedNote uses `2rem` including their built-in whitespace, and the other marks use `1.75rem`. The specimen links each asset to its source and distinguishes official deliveries from adapted official artwork. Prefer official assets; preserve brand shapes and colors. Sources and local treatments are recorded in `ASSET-LICENSES.md` and `docs/platform-icons.md`.
 - Brand and partner marks preserve their full composition, backgrounds and clear space. Interface stroke rules do not apply to them. Decorative SVGs are hidden from assistive technology; the enclosing control supplies its accessible name.
 
+## Tags
+
+- `Tag.astro` and `tags.css` own static category tags and interactive filter tags in both locales. Wiki directory filters share these specimens with the design system; entry classifications use plain metadata text.
+- Static tags use 0.75rem text, Paper Shadow surfaces, Soft Ink text, a 1px divider border, 1px corners and 0.125rem × 0.5rem padding. Separate roles have separate tags. Tag groups wrap without clipping.
+- Filter tags use 0.875rem text, optional counts and the shared minimum control height. Default boundaries use `--line-control`; selected tags use `--signal-soft` with `--signal-text` for text and borders and expose `aria-pressed`. Disabled filters cannot activate. Static tags have no independent interaction states.
+
 ## Controls and motion
 
 - Controls use `--control-height: 2.5rem` on fine pointers and `2.75rem` on coarse pointers. Buttons may grow for wrapping labels. Primary actions use ink; secondary actions use a light surface; ordinary text links remain lightweight.
