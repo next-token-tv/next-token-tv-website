@@ -53,20 +53,5 @@ const mentions = catalog.episodes.filter(episode => episode.data.mentions.people
   <RelatedEpisodes episodes={mentions} locale={locale} compact contained={!hasArticle} chapterLinks={chapterLinks} />
 </main>
 <style>
-@layer reset, tokens, base, layouts, components, utilities, overrides;
-@layer components {
-.people-library:not(.has-wiki-article) { padding-block: 3rem 5rem; }
-  .people-library:has(.person-detail-back) { padding-top: 0; }
-  .person-detail-back { padding-block: 1.5rem; border-bottom: 1px solid var(--ink); }
-  .person-detail-back a { display: inline-flex; align-items: center; gap: .75rem; font-weight: 750; }
-  .people-library:not(.has-wiki-article) > header { max-width: 55rem; margin-bottom: 3rem; }
-  .people-library:not(.has-wiki-article) h1 { margin-block: 1rem; }
-  .people-library:not(.has-wiki-article) > header > p:last-child { color: var(--muted); }
-  .people-library:not(.has-wiki-article) > section { border-top: var(--stroke-thin) solid var(--ink); padding-block: 2rem; }
-  .person-source-list { list-style: none; padding: 0; margin-block: 1rem; }
-  .person-source-item { padding-block: 0.75rem; border-bottom: var(--stroke-thin) solid var(--line); }
-  a:hover { color: var(--signal-text); }
-  small { color: var(--muted); }
-  .has-wiki-article .person-source-item { padding-block: .5rem; }
-}
+@import "../styles/components/people-library-page.css";
 </style>

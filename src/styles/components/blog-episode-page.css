@@ -1,0 +1,16 @@
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.episode-blog { padding-block: 3rem 5rem; min-height: 65vh; }
+  header { padding-bottom: 3rem; }
+  .section-kicker { margin-top: 2rem; }
+  h1 { margin-block: 1.5rem; }
+  .episode-title, article p, .meta { color: var(--muted); }
+  nav, .meta { display: flex; flex-wrap: wrap; gap: 1rem 2rem; }
+  nav { margin-top: 1.5rem; }
+  article { display: grid; grid-template-columns: minmax(0, 12rem) minmax(0, 46rem); gap: 3rem; padding-block: 2rem; border-top: var(--stroke-thin) solid var(--line); }
+  .meta { align-content: start; font-size: var(--type-ui); }
+  h2 { font-size: 1.75rem; margin: 0 0 1rem; }
+  article p { line-height: 1.8; }
+  a:hover { color: var(--signal-text); }
+  @media (max-width: 47.999rem) { article { grid-template-columns: minmax(0, 1fr); gap: 1rem; } }
+}

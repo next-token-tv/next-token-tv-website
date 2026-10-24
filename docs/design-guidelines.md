@@ -13,14 +13,15 @@ Next Token is an editorial media site grounded in first-hand conversations. Its 
 ## Shared architecture
 
 - `src/styles/tokens.css` owns reusable semantic values. `typography.css` owns typography roles. `form-controls.css` owns shared input, button and native select styling. `.button` links and `.control-button` controls share the same geometry, type and primary/secondary state rules; episode actions retain their documented dark-surface variants. `tables.css` owns reusable data tables and prose-table styles. Domain stylesheets own composition.
-- `global.css` contains layer order and imports only. Every stylesheet and Astro style block declares the layer order before its rules: `reset`, `tokens`, `base`, `layouts`, `components`, `utilities`, `overrides`.
+- `Tag.astro` imports `tags.css` on demand. Tag changes do not alter the global stylesheet used by unrelated article and entity-detail routes.
+- `global.css` contains layer order and imports only. Every stylesheet declares the layer order before its rules: `reset`, `tokens`, `base`, `layouts`, `components`, `utilities`, `overrides`.
 - Shared role classes own font family, size and line height; components control their spacing and placement. Page-specific typography remains local only when it has a distinct semantic purpose.
 - `/design-system` and `/en/design-system` are public, indexable reference pages linked from the footer's About group. Their specimens use production tokens, controls and the real episode card. Type specimens show declared rem ranges, baseline px equivalents at a 16px root, unitless leading and weights. Live fractional viewport measurements are not specification labels. Color values are read from the shared token source and displayed as six-digit HEX with opacity separate.
 - `PlatformList.astro` owns platform rows; metadata owns names, destinations and availability. `PersonCard.astro` owns shared participant cards; `HostCard.astro` adds social accounts. `EpisodeCard.astro` owns episode cards. Published episodes share `EpisodeDetailPage.astro`.
 
 ### Localized page ownership
 
-- Localized routes select a locale and resolve static paths; shared page components own markup, interaction and scoped styles. `ApiPage`, `BlogIndexPage`, `BlogEpisodeIndexPage`, `BlogEpisodePage` and `BlogArticlePage` serve both Chinese and English routes.
+- Localized routes select a locale and resolve static paths; shared page components own markup and interaction. Styles live in `src/styles/components/`; component `<style>` blocks contain only an `@import`, retaining Astro selector scoping and dependency tracking. Fixed declarations do not live in templates. Data-driven inline values (color specimens, identity aliases, icon dimensions and grid positions) remain template inputs. `ApiPage`, `BlogIndexPage`, `BlogEpisodeIndexPage`, `BlogEpisodePage` and `BlogArticlePage` serve both Chinese and English routes.
 - `ArticleReadingLayout` owns the article header, format links, outline, prose container and footer. Blog and episode articles supply their contextual navigation, attribution and source links through named slots. `article-reading.css` scopes shared reading styles to `.episode-article-page`, including slotted content.
 - Locale differences belong in content and explicit template variants. Blog filtering uses one implementation with a localized count label. Avoid copying page CSS or client scripts into language-specific routes.
 - Domain components keep their own composition when geometry differs. Shared ownership does not require one universal card, a new utility-class framework or identical navigation across languages.
@@ -159,7 +160,7 @@ Border tokens follow a separate functional scale described under Units, rules an
 - Show Notes retain opening context, questions, timeline, references, people/products/terms and credits. Generated chapter markers remain authoritative; no page-only shortened timeline.
 - Latest episode links and cards derive from metadata, ordered by descending episode number. Announcements remain separate. Transcript availability is localized and independent of audio/video availability; an older transcript link shows its own episode number.
 - Cover links include visible date and media label in their accessible names. Delivery assets use 480, 720, 960, 1440 and 1920-width WebP variants with truthful `srcset` descriptors and responsive `sizes`.
-- Wiki directories share the primary entity switch. Filters use actual taxonomy categories and the `type` query parameter. Narrow screens scroll filters within the shell.
+- Wiki directories share the primary entity switch. Filters use actual taxonomy categories and the `type` query parameter. Narrow screens wrap filters within the shell.
 - Wiki identity panels are 10rem high on desktop and 9rem below 760px.
 - `WikiDetailHeader.astro`, `WikiIdentityCard.astro` and `wiki-detail.css` own the shared Wiki header, identity card and support-section geometry. Hero, reading and supporting sections each have their own shell. Sidebars and main content align across sections.
 - Wiki article FAQs remain expanded. Aliases are visible. Article-updated and fact-verification dates remain distinct, quiet metadata. Supporting relationships use grouped rows without decorative inner boxes.

@@ -80,30 +80,5 @@ const episodes = (await getEpisodesForShow("next-token-weekly")).filter(episode 
   }
 </script>
 <style>
-@layer reset, tokens, base, layouts, components, utilities, overrides;
-@layer components {
-.blog-filters { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) auto; gap: 1rem 1.5rem; align-items: end; margin-bottom: 2rem; }
-  .blog-filters label { display: block; margin-bottom: .5rem; font-size: var(--type-ui); font-weight: 700; }
-  .blog-filters input, .blog-filters select { width: 100%; min-width: 0; }
-  .blog-filters button { cursor: pointer; }
-  .filter-count { grid-column: 1 / -1; color: var(--muted); font-size: var(--type-ui); }
-  .blog-no-results { padding-block: 2rem; color: var(--muted); }
-  .blog-page [hidden] { display: none; }
-  @media (max-width: 47.999rem) { .blog-filters { grid-template-columns: minmax(0, 1fr); } }
-
-  .blog-page { padding-block: 3rem 5rem; min-height: 65vh; }
-  .blog-intro { padding-bottom: 1.75rem; }
-  h1 { margin-block: 1.5rem; }
-  .blog-intro > p:not(.section-kicker) { font-size: var(--type-label); color: var(--muted); max-width: 38rem; }
-  .blog-row { display: grid; grid-template-columns: minmax(0, 9rem) minmax(0, 46rem); gap: 2rem; padding-block: 1.5rem; border-top: var(--stroke-thin) solid var(--line); }
-  .blog-meta { display: flex; flex-direction: column; gap: .75rem; font-size: var(--type-ui); color: var(--muted); }
-  h2 { text-wrap: balance; font-size: var(--type-entry); margin: 0 0 1rem; }
-  .blog-row p { color: var(--muted); line-height: 1.8; }
-  .blog-read { display: inline-flex; gap: 2rem; margin-top: .75rem; font-weight: 600; }
-  a:hover { color: var(--signal-text); }
-  .blog-feed { margin-inline-start: 2rem; }
-  .blog-empty { border-top: var(--stroke-thin) solid var(--line); padding-block: 2rem; }
-  .blog-empty a { text-decoration: underline; }
-  @media (max-width: 47.999rem) { .blog-row { grid-template-columns: minmax(0, 1fr); gap: 1rem; } .blog-meta { flex-direction: row; align-items: center; flex-wrap: wrap; } }
-}
+@import "../styles/components/blog-index-page.css";
 </style>

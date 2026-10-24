@@ -1,0 +1,12 @@
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+ .ds-layers { margin-top: 2rem; scroll-margin-top: 6rem; }
+ .ds-layers h3 { font-family: var(--sans); font-size: var(--type-label); margin-bottom: .75rem; }
+ .ds-layers p { font-size: var(--type-ui); color: var(--muted); line-height: 1.75; }
+ .ds-layer-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,14rem),1fr)); gap: 1.5rem; margin-block: 1.5rem; }
+ .ds-layer-demo { padding: 1.75rem; background: var(--surface); }
+ .ds-layer-demo > span { display: block; padding: 1rem; background: var(--paper); font-size: var(--type-ui); }
+ .ds-menu-demo { box-shadow: var(--shadow-menu); } .ds-popover-demo { box-shadow: var(--shadow-floating); }
+ .ds-layers h4 { font-size: var(--type-ui); margin-block: 1rem .5rem; }
+ .ds-layer-grid p { margin-bottom: .25rem; } .ds-layers code { font-size: var(--type-meta); color: var(--muted); overflow-wrap: anywhere; }
+}

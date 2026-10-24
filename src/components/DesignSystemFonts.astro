@@ -15,13 +15,5 @@ const fonts=[
 </article>)}</div>
 <p class="ds-font-note">{t('中文与英文采用相同的字号层级，中文正文行高为 1.8–1.85，标题为 1.25；品牌展示行高为 1.15。正文不额外增加字距；短英文大写标签可使用正字距。英文单词自然换行，中文按字形断行。','Chinese and English share the same size scale. Body leading is 1.8–1.85, headings 1.25 and brand display 1.15. Body copy has no extra tracking; short uppercase labels may use positive tracking. English wraps at word boundaries and Chinese at character boundaries.')}</p>
 <style>
-@layer reset, tokens, base, layouts, components, utilities, overrides;
-@layer components {
- .ds-fonts { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,20rem),1fr)); gap: 1.5rem; margin-bottom: 2rem; }
- .ds-fonts article { min-width: 0; padding-top: 1rem; border-top: var(--stroke-thin) solid var(--line); }
- .ds-fonts h3 { font-family: var(--sans); font-size: var(--type-label); margin: 0 0 1rem; }
- .ds-fonts p, .ds-font-note { font-size: var(--type-ui); color: var(--muted); line-height: 1.75; }
- .ds-fonts .ds-font-sample { font-size: 1.375rem; color: var(--ink); }
- .ds-fonts code { display: block; margin-bottom: 1rem; font-size: var(--type-caption); overflow-wrap: anywhere; }
-}
+@import "../styles/components/design-system-fonts.css";
 </style>

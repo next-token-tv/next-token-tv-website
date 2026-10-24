@@ -4,7 +4,11 @@ interface Props { name: InterfaceIconName }
 const { name } = Astro.props;
 const icon = interfaceIcons[name];
 ---
-<svg data-interface-icon={name} width={icon.size * 16} height={icon.size * 16} style={{ width: `${icon.size}rem`, height: `${icon.size}rem`, flexShrink: 0 }} viewBox={icon.viewBox} fill="none" stroke="currentColor" stroke-width={icon.stroke} stroke-linecap="butt" stroke-linejoin="miter" aria-hidden="true" focusable="false">
+<svg data-interface-icon={name} width={icon.size * 16} height={icon.size * 16} class="interface-icon" style={`--icon-size: ${icon.size}rem`} viewBox={icon.viewBox} fill="none" stroke="currentColor" stroke-width={icon.stroke} stroke-linecap="butt" stroke-linejoin="miter" aria-hidden="true" focusable="false">
   {name === "search" && <circle cx="10" cy="10" r="6" />}
   <path d={icon.path} />
 </svg>
+
+<style>
+@import "../styles/components/interface-icon.css";
+</style>

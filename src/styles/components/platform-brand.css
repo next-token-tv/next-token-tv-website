@@ -1,0 +1,6 @@
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.platform-brand { display: inline-flex; align-items: center; gap: .65rem; min-width: 0; }
+  .platform-logo-slot { display: flex; align-items: center; justify-content: center; flex: 0 0 1.75rem; width: 1.75rem; height: 1.75rem; }
+  .platform-logo { display: block; flex: none; width: var(--platform-mark-size); height: var(--platform-mark-size); max-width: none; object-fit: contain; }
+}

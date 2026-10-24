@@ -1,0 +1,19 @@
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.search-page { padding-block: 3rem 5rem; min-height: 65vh; }
+  header { max-width: 55rem; margin-bottom: 2rem; }
+  form { max-width: 50rem; display: grid; gap: .75rem; }
+  label { font-weight: 600; font-size: var(--type-ui); }
+  .search-input-row { display: flex; gap: .5rem; }
+  input { flex: 1; min-width: 0; }
+  select { width: min(100%, 18rem); }
+  #search-query { scroll-margin-top: 8rem; }
+  button { cursor: pointer; }
+  .search-status { margin-block: 1.5rem; }
+  .search-results { list-style: none; padding: 0; max-width: 60rem; }
+  .search-results :global(li) { border-top: 1px solid var(--line); padding-block: 1.25rem; overflow-wrap: anywhere; }
+  .search-results :global(a) { display: block; font-weight: 750; margin-block: .3rem; }
+  .search-results :global(p) { margin: 0; }
+  .search-results :global(small) { opacity: .65; }
+  [hidden] { display: none; }
+}

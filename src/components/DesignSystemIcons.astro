@@ -51,22 +51,5 @@ const platforms = show.data.subscriptions.filter(item => platformIcon(item.platf
   <div class="ds-symbol-note"><h3>{t("文字符号", "Text symbols")}</h3><p><span aria-hidden="true">→ ↗ ↘ ↓ × ✓</span></p><p>{t("箭头、关闭符号和状态符号由字体绘制，不属于 SVG 图标。二维码属于内容图片，不纳入图标库。", "Arrows, close symbols and status symbols are font glyphs, not SVG icons. QR codes are content images and are not part of the icon library.")}</p></div>
 </div>
 <style>
-@layer reset, tokens, base, layouts, components, utilities, overrides;
-@layer components {
-  .ds-icons > h3, .ds-symbol-note h3 { margin: 2rem 0 .75rem; font-family: var(--sans); font-size: var(--type-label); }
-  .ds-icon-note, .ds-symbol-note p { font-size: var(--type-ui); color: var(--muted); line-height: 1.75; }
-  .ds-icon-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,14rem),1fr)); gap: 1.5rem; margin-block: 1.5rem; }
-  .ds-icon-item { display: flex; flex-direction: column; align-items: flex-start; gap: .5rem; min-width: 0; padding-block: 1rem; border-top: var(--stroke-thin) solid var(--line); }
-  .ds-icon-item h4 { margin: 0; font-size: var(--type-ui); font-family: var(--sans); }
-  .ds-icon-item p { margin: 0; font-size: var(--type-meta); color: var(--muted); }
-  .ds-icon-item code { font-family: var(--mono); font-size: var(--type-caption); color: var(--muted); }
-  .ds-icon-item .text-link { font-size: var(--type-meta); }
-  .ds-icon-preview { display: flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; margin-bottom: .5rem; background: var(--surface); }
-  .ds-icon-item dl { width: 100%; margin: .5rem 0 0; font-size: var(--type-caption); }
-  .ds-icon-item dl > div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .25rem 1rem; padding-block: .25rem; }
-  .ds-icon-item dt { color: var(--muted); } .ds-icon-item dd { margin: 0; font-variant-numeric: tabular-nums; }
-  .ds-platform-preview { display: flex; align-items: center; min-height: 3rem; font-size: var(--type-ui); font-weight: 600; }
-  .ds-symbol-note { border-top: var(--stroke-thin) solid var(--line); margin-top: 2rem; }
-  .ds-symbol-note span { font-size: var(--type-entry); color: var(--ink); word-spacing: .75rem; }
-}
+@import "../styles/components/design-system-icons.css";
 </style>

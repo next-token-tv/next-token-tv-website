@@ -22,17 +22,5 @@ const episodes = (await getEpisodesForShow("next-token-weekly")).filter(episode 
   </main>
 </BaseLayout>
 <style>
-@layer reset, tokens, base, layouts, components, utilities, overrides;
-@layer components {
-.episode-index { padding-block: 3rem 5rem; min-height: 65vh; }
-  header { padding-bottom: 3rem; }
-  .section-kicker { margin-top: 2rem; }
-  h1 { margin-block: 1.5rem; }
-  article { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: 2rem; padding-block: 2rem; border-top: var(--stroke-thin) solid var(--line); }
-  .number { color: var(--signal-text); font-family: var(--display); font-size: 2rem; }
-  h2 { font-size: 1.75rem; margin: 0 0 1rem; }
-  article p { color: var(--muted); }
-  a:hover { color: var(--signal-text); }
-  @media (max-width: 47.999rem) { article { grid-template-columns: minmax(0, 1fr); gap: 1rem; } }
-}
+@import "../styles/components/blog-episode-index-page.css";
 </style>

@@ -26,19 +26,5 @@ const peopleById = new Map(people.map(person => [person.id, person]));
  <p>{t('注释侧线为 4px。普通注释使用', 'Annotation rules are 4px. Ordinary notes use ')} <ColorUse locale={locale} token="--note-surface" />{t('；重点注释使用', '; highlighted notes use ')} <ColorUse locale={locale} token="--annotation-surface" />{t('，搭配同色系文字色侧线。', ' with a rule in the same family’s text variant.')}</p>
 </div>
 <style>
-@layer reset, tokens, base, layouts, components, utilities, overrides;
-@layer components {
- .ds-annotations h3 { font-family: var(--sans); font-size: var(--type-label); margin: 2rem 0 .75rem; }
- .ds-annotations > p { color: var(--muted); font-size: var(--type-ui); line-height: 1.75; }
- .ds-identities, .ds-annotation-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,13rem),1fr)); gap: 1.5rem; margin-block: 1.5rem; }
- .ds-identities .identity-marker { display: grid; align-content: start; gap: .5rem; font-size: var(--type-ui); }
-
- .ds-person-identity { display: flex; align-items: center; gap: .5rem; }
- .ds-person-identity img, .ds-person-placeholder { width: 1.75rem; height: 1.75rem; flex: 0 0 auto; border-radius: 50%; object-fit: cover; }
- .ds-person-placeholder { background: var(--surface); }
- .ds-identities span, .ds-category-examples p { font-size: var(--type-meta); color: var(--muted); }
- .ds-annotations [id] { scroll-margin-top: 6rem; }
- .ds-category-examples { display: flex; flex-wrap: wrap; gap: 1rem; margin-block: 1.5rem; }
- .ds-annotation-grid { font-size: var(--type-ui); line-height: 1.8; } .ds-annotation-grid p:last-child { margin-bottom: 0; }
-}
+@import "../styles/components/design-system-annotations.css";
 </style>

@@ -1,0 +1,10 @@
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+ .ds-input-selection { display: flex; flex-wrap: wrap; align-items: end; gap: 1rem; padding: .5rem; }
+ .ds-input-selection label { display: grid; gap: .75rem; flex: 1 1 15rem; font-size: var(--type-ui); }
+ .ds-state-controls h3 { font-family: var(--sans); font-size: var(--type-label); margin: 2rem 0 .75rem; }
+ .ds-state-controls p { color: var(--muted); font-size: var(--type-ui); line-height: 1.75; }
+ .ds-disclosure { border-block: var(--stroke-thin) solid var(--line); margin-top: 1rem; padding-block: .75rem; font-size: var(--type-ui); }
+ .ds-disclosure summary { cursor: pointer; } .ds-disclosure p { margin-block: 1rem 0; }
+ .ds-copy { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; font-size: var(--type-ui); } .ds-copy input { width: 100%; }
+}

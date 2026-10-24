@@ -1,0 +1,32 @@
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.entity-people-relations { padding-block: 2.5rem; }
+  h2 { margin-bottom: 1.5rem; }
+  ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2rem; list-style: none; margin: 0; padding: 0; }
+  li { border-top: var(--stroke-thin) solid var(--ink); padding-block: 1rem; min-width: 0; }
+  .relation-target { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem 1rem; overflow-wrap: anywhere; }
+  strong { font-size: 1.2rem; }
+  span { color: var(--muted); font-size: var(--type-ui); }
+  .relation-sources { display: flex; gap: 1rem; margin-top: .75rem; color: var(--muted); font-size: var(--type-caption); }
+  a:hover { color: var(--signal-text); }
+  .relations-table { width: 100%; table-layout: fixed; border-collapse: collapse; text-align: left; }
+  .relations-table th, .relations-table td { padding: .6rem 1.25rem .6rem 0; vertical-align: top; overflow-wrap: anywhere; border: 0; }
+  .relations-table th:last-child, .relations-table td:last-child { padding-right: 0; }
+  .relations-table thead th { padding-top: 0; padding-bottom: .75rem; font-size: var(--type-caption); font-weight: 500; color: var(--muted); }
+  .relations-table thead th:first-child { width: 40%; }
+  .relations-table thead th:nth-child(2) { width: 22%; }
+  .relations-table tbody th { font-size: var(--type-base); font-weight: 700; }
+  .relation-role { font-size: var(--type-ui); }
+  .relation-references a { display: block; font-size: var(--type-ui); color: var(--muted); }
+  .relation-references a + a { margin-top: .5rem; }
+  @media (max-width: 760px) {
+    .relations-table, .relations-table tbody { display: block; }
+    .relations-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    .relations-table tr { display: grid; grid-template-columns: 1fr; gap: .35rem; }
+    .relations-table tr + tr { margin-top: 1.5rem; }
+    .relations-table th, .relations-table td { padding: 0; }
+    .relations-table td { display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem .75rem; }
+    .relations-table td::before { content: attr(data-label); color: var(--muted); font-size: var(--type-caption); }
+  }
+  @media (max-width: 40rem) { ul { grid-template-columns: 1fr; } }
+}

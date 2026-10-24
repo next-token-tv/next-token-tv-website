@@ -68,27 +68,5 @@ const groups = [
 )}
 
 <style>
-@layer reset, tokens, base, layouts, components, utilities, overrides;
-@layer components {
-.episode-mentions { padding-block: var(--section-space); border-top: 1px solid var(--ink); }
-  .episode-mentions > div:first-child { display: grid; grid-template-columns: minmax(10rem, .42fr) minmax(0, 1.58fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: end; margin-bottom: clamp(1.5rem, 3vw, 3rem); }
-  .episode-mentions h2 { margin: 0; }
-  .episode-mention-groups { display: grid; gap: clamp(1.5rem, 3vw, 3rem); }
-  .episode-mention-group-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; padding-bottom: .75rem; border-bottom: 1px solid var(--line); }
-  .episode-mention-group-heading h3 { margin: 0; font-family: var(--sans); font-size: var(--type-caption); font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
-  .episode-mention-group-heading span { color: var(--muted); font-size: var(--type-caption); font-weight: 750; }
-  .episode-mention-subgroups { display: grid; gap: 1rem; }
-  .episode-mention-subgroup { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 1rem; align-items: start; }
-  .episode-mention-subgroup h4 { margin: 0; padding-block: .75rem; color: var(--muted); font-family: var(--sans); font-size: var(--type-caption); font-weight: 500; line-height: 1.5; }
-  .episode-mention-list { display: flex; flex-wrap: wrap; gap: .65rem; }
-  .episode-mention-list a { display: inline-flex; max-width: 100%; min-height: 2.75rem; align-items: center; gap: .7rem; padding: .65rem .85rem; border: 1px solid var(--ink); transition: color 180ms ease, background 180ms ease; }
-  .episode-mention-list strong { font-size: var(--type-ui); line-height: 1.2; overflow-wrap: anywhere; }
-  .episode-mention-list b { font-size: var(--type-ui); line-height: 1; }
-  .episode-mention-list a:hover { color: var(--paper); background: var(--ink); }
-  @media (max-width: 47.5rem) {
-    .episode-mentions > div:first-child { grid-template-columns: 1fr; gap: 1rem; }
-    .episode-mention-subgroup { grid-template-columns: minmax(0, 1fr); gap: .5rem; }
-    .episode-mention-subgroup h4 { padding-block: 0; }
-  }
-}
+@import "../styles/components/episode-mentions.css";
 </style>

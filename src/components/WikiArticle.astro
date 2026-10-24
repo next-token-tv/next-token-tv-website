@@ -72,32 +72,5 @@ const schema = {
   </div>
 </>}
 <style>
-@layer reset, tokens, base, layouts, components, utilities, overrides;
-@layer components {
-.wiki-reading { padding-block: 1.5rem 2rem; border-top: 1px solid var(--line); }
-  .wiki-breadcrumbs { display: flex; flex-wrap: wrap; gap: .65rem; color: var(--muted); font-size: var(--type-ui); margin-bottom: 1.5rem; }
-  .wiki-reading-grid { display: grid; grid-template-columns: var(--wiki-hero-columns); gap: 1.5rem var(--wiki-column-gap); }
-  .wiki-outline { min-width: 0; }
-  .wiki-outline nav > p { margin: 0 0 1rem; font-weight: 750; }
-  .wiki-outline ol { margin: 0; padding-left: 1.25rem; }
-  .wiki-outline li { padding-block: .4rem; line-height: 1.6; }
-  .wiki-updated { margin-top: 2rem; font-size: var(--type-meta); line-height: 1.8; color: var(--muted); }
-  .wiki-updated > div + div { margin-top: .75rem; }
-  .wiki-updated dd { margin: 0; }
-  .wiki-prose { min-width: 0; max-width: var(--reading-width); font-size: var(--type-body); line-height: 1.85; overflow-wrap: anywhere; }
-  .wiki-prose :global(h2) { font-size: var(--heading-section-content-size); margin: 2.5rem 0 1rem; scroll-margin-top: 6rem; }
-  .wiki-prose :global(h2:first-child) { margin-top: 0; }
-  .wiki-prose :global(h3) { margin: 1.75rem 0 .75rem; font-size: var(--type-entry); }
-  .wiki-prose :global(p), .wiki-prose :global(ul), .wiki-prose :global(ol) { margin: 0 0 1.25rem; }
-  .wiki-prose :global(ul), .wiki-prose :global(ol) { padding-left: 1.5rem; }
-  .wiki-prose :global(li) { margin-bottom: .5rem; }
-
-
-  .wiki-outline a:hover, .wiki-breadcrumbs a:hover { color: var(--signal-text); }
-  @media (max-width: 760px) {
-    .wiki-reading-grid { grid-template-columns: 1fr; }
-    .wiki-outline { padding-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
-    .wiki-updated { margin-top: 1rem; }
-  }
-}
+@import "../styles/components/wiki-article.css";
 </style>

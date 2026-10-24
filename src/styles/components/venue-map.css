@@ -1,0 +1,10 @@
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.venue-map { margin: 0; background: var(--paper); }
+  iframe { display: block; width: 100%; height: clamp(300px, 32vw, 400px); border: 0; }
+  figcaption { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.25rem; border-top: 1px solid var(--line); font-size: var(--type-ui); }
+  figcaption > span { color: var(--muted); }
+  a { font-weight: 750; }
+  a:hover { text-decoration: underline; text-underline-offset: calc(0.2em + var(--link-underline-gap)); }
+  a:focus-visible { outline: 2px solid var(--signal-text); outline-offset: 4px; }
+}

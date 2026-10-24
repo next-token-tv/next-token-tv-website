@@ -1,0 +1,9 @@
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+ .ds-fonts { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,20rem),1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+ .ds-fonts article { min-width: 0; padding-top: 1rem; border-top: var(--stroke-thin) solid var(--line); }
+ .ds-fonts h3 { font-family: var(--sans); font-size: var(--type-label); margin: 0 0 1rem; }
+ .ds-fonts p, .ds-font-note { font-size: var(--type-ui); color: var(--muted); line-height: 1.75; }
+ .ds-fonts .ds-font-sample { font-size: 1.375rem; color: var(--ink); }
+ .ds-fonts code { display: block; margin-bottom: 1rem; font-size: var(--type-caption); overflow-wrap: anywhere; }
+}

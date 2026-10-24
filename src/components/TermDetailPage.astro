@@ -34,10 +34,5 @@ const definedTerm = {
 </main>
 <script is:inline type="application/ld+json" set:html={JSON.stringify(definedTerm).replace(/</g, "\\u003c")} />
 <style>
-@layer reset, tokens, base, layouts, components, utilities, overrides;
-@layer components {
-  main.term-detail { padding-bottom: 2.5rem; }
-  .term-source-list { list-style: none; margin: 0; padding: 0; }
-  .term-source-list li { padding-block: .5rem; }
-}
+@import "../styles/components/term-detail-page.css";
 </style>

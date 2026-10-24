@@ -1,0 +1,35 @@
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.api-docs { padding-bottom: 7rem; }
+  .api-hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr); gap: 4rem; align-items: start; padding-block: 3rem 4rem; border-bottom: var(--stroke-thin) solid var(--line-strong); }
+  .api-hero h1 { margin: 1rem 0 0; }
+  .api-hero h1 span { color: var(--signal-text); }
+  .api-intro { max-width: 31rem; }
+  .api-intro p { margin: 0 0 1.5rem; color: var(--muted); line-height: 1.8; }
+  .api-section { padding-block: 4rem; border-bottom: var(--stroke-thin) solid var(--line-strong); }
+  .api-section-heading { display: grid; grid-template-columns: minmax(11rem, 0.45fr) minmax(0, 1.55fr); gap: 3rem; margin-bottom: 2rem; }
+  .api-section-heading h2 { margin: 0; }
+  .api-collections { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: var(--stroke-thin) solid var(--line); border-left: var(--stroke-thin) solid var(--line); }
+  .api-collections a { position: relative; display: flex; min-width: 0; min-height: 14rem; flex-direction: column; gap: 1.25rem; padding: 1.5rem; border-right: var(--stroke-thin) solid var(--line); border-bottom: var(--stroke-thin) solid var(--line); }
+  .api-collections a > span:first-child { color: var(--signal-text); font-size: var(--type-caption); font-weight: 800; }
+  .api-collections a > span:last-child { position: absolute; top: 1.5rem; right: 1.5rem; color: var(--signal-text); }
+  .api-collections strong { margin-top: auto; font-family: var(--display); font-size: 2rem; }
+  code { font-family: var(--mono); }
+  .api-collections code { overflow-wrap: anywhere; color: var(--muted); font-size: var(--type-meta); }
+  .api-contract-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: var(--stroke-thin) solid var(--line); border-left: var(--stroke-thin) solid var(--line); }
+  .api-contract-grid > div { min-width: 0; padding: 2rem; border-right: var(--stroke-thin) solid var(--line); border-bottom: var(--stroke-thin) solid var(--line); }
+  .api-contract-grid h3 { margin: 0 0 1.25rem; font-size: var(--type-base); }
+  .api-contract-grid p { max-width: 40rem; margin: 0; color: var(--muted); line-height: 1.8; }
+  .api-contract-grid > div > code { display: block; overflow-x: auto; white-space: pre; font-size: var(--type-meta); line-height: 1.7; }
+  @media (max-width: 60rem) {
+    .api-hero { grid-template-columns: 1fr; min-height: 0; gap: 2.5rem; }
+    .api-section-heading { grid-template-columns: 1fr; gap: 1.5rem; }
+  }
+  @media (max-width: 40rem) {
+    .api-docs { padding-bottom: 4rem; }
+    .api-hero { padding-block: 3rem; }
+    .api-section { padding-block: 3rem; }
+    .api-collections, .api-contract-grid { grid-template-columns: 1fr; }
+    .api-collections a { min-height: 10rem; }
+  }
+}

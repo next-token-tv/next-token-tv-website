@@ -1,0 +1,4 @@
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.interface-icon { width: var(--icon-size); height: var(--icon-size); flex-shrink: 0; }
+}
