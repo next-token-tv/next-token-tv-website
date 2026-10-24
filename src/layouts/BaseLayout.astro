@@ -4,7 +4,6 @@ import { readFileSync } from "node:fs";
 import type { SiteContent } from "../data/site";
 import SiteFooter from "../components/SiteFooter.astro";
 import SiteHeader from "../components/SiteHeader.astro";
-import LanguageSuggestion from "../components/LanguageSuggestion.astro";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 import { absoluteSiteUrl, withoutTrailingSlash } from "../data/internal-url";
 
@@ -87,7 +86,6 @@ const socialImage = new URL(socialCard.image, Astro.site);
   <body>
     <a class="skip-link" href="#main">{content.skipLink}</a>
     <SiteHeader content={content} currentPath={normalizedCanonicalPath} alternatePath={normalizedAlternatePath} />
-    {!noIndex && hasLocaleAlternate && <LanguageSuggestion locale={content.locale} alternatePath={normalizedAlternatePath} />}
     <slot />
     <SiteFooter locale={content.locale} />
   </body>

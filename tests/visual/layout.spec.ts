@@ -145,23 +145,12 @@ for (const deviceScaleFactor of [1, 2]) {
   });
 }
 
-test("language suggestion does not shift page content", async ({ page }) => {
+test("language switching stays manual and preserves the current location", async ({ page }) => {
   await page.goto("/wiki/brands");
   await page.evaluate(() => window.localStorage.setItem("next-token-language", "en"));
-  await page.reload();
-  const suggestion = page.locator("[data-language-suggestion]");
-  await expect(suggestion).toBeVisible();
-  const positions = await page.evaluate(() => {
-    const main = document.querySelector("main")!;
-    const suggestion = document.querySelector<HTMLElement>("[data-language-suggestion]")!;
-    const before = main.getBoundingClientRect().top;
-    suggestion.hidden = true;
-    const hidden = main.getBoundingClientRect().top;
-    suggestion.hidden = false;
-    return { before, hidden, position: getComputedStyle(suggestion).position };
-  });
-  expect(positions.position).toBe("fixed");
-  expect(positions.before).toBe(positions.hidden);
+  await page.goto("/wiki/brands?q=ai#main");
+  await expect(page.locator("[data-language-suggestion]")).toHaveCount(0);
+  await expect(page.locator('[data-language="en"]').first()).toHaveAttribute("href", /\/en\/wiki\/brands\?q=ai#main$/);
 });
 
 for (const viewport of viewports) {
