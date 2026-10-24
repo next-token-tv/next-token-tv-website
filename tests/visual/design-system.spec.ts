@@ -184,6 +184,11 @@ for (const prefix of ['', '/en']) test(`action buttons share specimen styles ${p
     });
     const normal = await read();
     await button.hover();
+    await expect.poll(() => button.evaluate(node => node.matches(':hover'))).toBe(true);
+    await expect.poll(async () => (await read()).at(-1)).not.toBe(normal.at(-1));
+    await button.evaluate(async node => {
+      await Promise.all(node.getAnimations().map(animation => animation.finished.catch(() => {})));
+    });
     const hover = await read();
     await page.mouse.move(0, 0);
     await button.focus();
