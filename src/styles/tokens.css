@@ -55,7 +55,7 @@
     --reading-width: 46rem;
     --section-space: clamp(3rem, 5vw, 5rem);
     --control-height: 2.5rem;
-    --control-radius: .125rem;
+    --control-radius: 1px;
     --duration: 160ms;
     --wiki-visual-height: 10rem;
     --wiki-column-gap: 3rem;

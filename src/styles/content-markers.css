@@ -54,6 +54,6 @@
 .identity-marker { border-left: var(--stroke-emphasis) solid var(--identity-color, var(--identity-neutral)); padding-left: .75rem; }
 .content-note { padding: 1rem; border-left: 4px solid var(--ink); background: var(--note-surface); }
 .content-note--accent { border-color: var(--sky-text); background: var(--annotation-surface); }
-.search-match { background: var(--highlight-match); color: var(--ink); }
-.content-target { background: var(--highlight-target); outline: var(--stroke-emphasis) solid var(--signal); outline-offset: .3rem; }
+.search-match, .transcript-search mark { background: var(--highlight-match); color: var(--ink); padding: .125em .2em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.content-target, .transcript-quote-paragraph:target { background: var(--highlight-target); box-shadow: 0 0 0 .375rem var(--highlight-target); outline: var(--stroke-emphasis) solid var(--signal); outline-offset: calc(.375rem + 3px); }
 }

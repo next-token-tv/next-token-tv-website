@@ -6,8 +6,14 @@ const {locale}=Astro.props;
 const t=(zh:string,en:string)=>locale==='en'?en:zh;
 ---
 <div class="ds-state-controls" data-state-controls data-copied={t('链接已复制','Link copied')} data-fallback={t('复制下方链接','Copy the link below')}>
+ <h3>{t('输入焦点与文字选择','Input focus and text selection')}</h3>
+ <p>{t('文本框圆角为 1px；聚焦时使用 2px 信号橙文字色轮廓，外偏移为 1px。选中文字使用远空蓝底色与墨黑文字。','Inputs have a 1px corner radius. Focus uses a 2px outline in the Signal Orange text variant, offset by 1px. Selected text uses Distant Sky with Ink Black text.')}</p>
+ <div class="ds-input-selection">
+  <label for="ds-focus-input">{t('焦点状态示例','Focus appearance example')}<input id="ds-focus-input" class="control-input" data-focus-preview value="Next Token" /></label>
+  <button type="button" class="control-button" data-select-input>{t('聚焦并全选','Focus and select all')}</button>
+ </div>
  <h3>{t('开关与展开','Switches and disclosure')}</h3>
- <p>{t('开关直接改变一个设置，并用文字和位置表达当前状态。展开控件显示或隐藏同一组内容，不改变页面位置。','Switches change one setting, with text and position indicating state. Disclosure controls show or hide grouped content without navigating away.')}</p>
+ <p>{t('开关控制单个设置，状态由文字和滑块位置共同表示。展开控件控制同组内容的显示与隐藏。','Switches control one setting, with labels and thumb position indicating state. Disclosure controls show or hide a group of content.')}</p>
  <button type="button" class="control-switch" role="switch" aria-checked="false" data-highlight-switch><span class="control-switch-track" aria-hidden="true"></span>{t('强调分类链接','Emphasize category links')}</button>
  <p>{t('关闭轨道：','Inactive track: ')}<ColorUse locale={locale} token="--switch-track" />{t('；开启轨道：','; active track: ')}<ColorUse locale={locale} token="--signal-text" />{t('。','.')}</p>
  <details class="ds-disclosure"><summary>{t('补充信息','Additional information')}</summary><p>{t('展开状态保留标题、键盘焦点和完整内容。','The expanded state retains the heading, keyboard focus and complete content.')}</p></details>
@@ -17,6 +23,7 @@ const t=(zh:string,en:string)=>locale==='en'?en:zh;
 </div>
 <script>
  document.querySelectorAll<HTMLElement>('[data-state-controls]').forEach(root=>{
+  root.querySelector('[data-select-input]')?.addEventListener('click',()=>{const input=root.querySelector<HTMLInputElement>('#ds-focus-input')!;input.focus();input.select();});
   const toggle=root.querySelector<HTMLButtonElement>('[data-highlight-switch]')!;
   toggle.addEventListener('click',()=>{const on=toggle.getAttribute('aria-checked')!=='true';toggle.setAttribute('aria-checked',String(on));document.querySelector('[data-annotation-specimen]')?.setAttribute('data-entity-highlight',String(on));});
   root.querySelector('[data-copy-example]')?.addEventListener('click',async()=>{
@@ -29,6 +36,8 @@ const t=(zh:string,en:string)=>locale==='en'?en:zh;
 <style>
 @layer reset, tokens, base, layouts, components, utilities, overrides;
 @layer components {
+ .ds-input-selection { display: flex; flex-wrap: wrap; align-items: end; gap: 1rem; padding: .5rem; }
+ .ds-input-selection label { display: grid; gap: .75rem; flex: 1 1 15rem; font-size: var(--type-ui); }
  .ds-state-controls h3 { font-family: var(--sans); font-size: var(--type-label); margin: 2rem 0 .75rem; }
  .ds-state-controls p { color: var(--muted); font-size: var(--type-ui); line-height: 1.75; }
  .ds-disclosure { border-block: var(--stroke-thin) solid var(--line); margin-top: 1rem; padding-block: .75rem; font-size: var(--type-ui); }

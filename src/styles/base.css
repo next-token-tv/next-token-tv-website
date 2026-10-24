@@ -47,9 +47,18 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+button, summary, textarea, select,
+input:not([type="radio"]):not([type="checkbox"]) {
+  border-radius: var(--control-radius);
+}
+
 :focus-visible {
   outline: var(--stroke-emphasis) solid var(--signal-text);
   outline-offset: 3px;
+}
+
+:is(button, summary, textarea, select, input:not([type="radio"]):not([type="checkbox"]), .button, .control-button, .episode-listen, .episode-transcript-cta):focus-visible {
+  outline-offset: 1px;
 }
 
 }

@@ -1,21 +1,26 @@
 ---
 import type { Locale } from '../data/types';
 import ColorUse from './DesignSystemColorUse.astro';
+import { getPeopleByIds } from '../data/catalog';
 interface Props { locale: Locale }
 const {locale}=Astro.props;
 const t=(zh:string,en:string)=>locale==='en'?en:zh;
 const prefix=locale==='en'?'/en':'';
+const people = await getPeopleByIds(['yangpan', 'guizang', 'orange', 'xiangyang-qiaomu']);
+const peopleById = new Map(people.map(person => [person.id, person]));
 ---
 <div class="ds-annotations content-markers" data-annotation-specimen>
  <h3>{t('身份标记','Identity markers')}</h3>
  <p>{t('人物用色是标准色的固定别名，配合姓名、头像与 2px 侧线识别身份。姓名使用墨黑，未指定身份使用淡墨。','Identity colors are fixed aliases of standard colors, accompanied by names, avatars and 2px rules. Names use Ink Black; unassigned identities use Soft Ink.')}</p>
- <div class="ds-identities" id="identity-colors">{[['blue','杨攀','Yang Pan'],['gold','歸藏','Guizang'],['orange','橘子','Orange'],['ink','向阳乔木','Xiangyang Qiaomu'],['neutral','未指定身份','Unassigned']].map(([color,zh,en])=><div class="identity-marker" style={`--identity-color:var(--identity-${color})`}><strong>{t(zh!,en!)}</strong><span><ColorUse locale={locale} token={`--identity-${color}`} /></span></div>)}</div>
+ <div class="ds-identities" id="identity-colors">{[['blue','杨攀','Yang Pan','yangpan'],['gold','歸藏','Guizang','guizang'],['orange','橘子','Orange','orange'],['ink','向阳乔木','Xiangyang Qiaomu','xiangyang-qiaomu'],['neutral','未指定身份','Unassigned','']].map(([color,zh,en,id])=><div class="identity-marker" style={`--identity-color:var(--identity-${color})`}><div class="ds-person-identity">{id && peopleById.get(id)?.data.photo ? <img src={peopleById.get(id)!.data.photo} width="28" height="28" alt="" loading="lazy" /> : <span class="ds-person-placeholder" aria-hidden="true"></span>}<strong>{t(zh!,en!)}</strong></div><span><ColorUse locale={locale} token={`--identity-${color}`} /></span></div>)}</div>
+ <p>{t('人物标识由头像与姓名组成，身份色用于辅助区分。静态标识用于署名；链接形式用于访问人物页面，并提供悬停与键盘焦点状态。','Person identity combines an avatar and name, with identity color as a secondary cue. Static identities label authors or speakers; linked identities open profiles and provide hover and keyboard-focus states.')}</p>
  <h3 id="category-colors">{t('分类链接','Category links')}</h3>
  <p>{t('分类使用不同底色，文字保持墨黑。默认不透明度 8%，强调模式 22%；键盘聚焦分别为 16% 和 30%，同时显示下划线与轮廓。','Categories use distinct backgrounds with Ink Black text: 8% opacity by default, 22% in emphasis mode, and 16% / 30% on keyboard focus with an underline and outline.')}</p>
  <div class="ds-category-examples">{[['brand','品牌','Brand','OpenAI','brands/openai'],['product','产品／节目','Product / show','Codex','products/codex'],['person','人物','Person','DHH','people/dhh']].map(([type,zh,en,label,path])=><div><a class="category-link" data-entity-type={type} href={`${prefix}/wiki/${path}`}>{label}</a><p>{t(zh!,en!)} · <ColorUse locale={locale} token={`--category-${type}`} /></p></div>)}</div>
  <h3 id="state-colors">{t('文本状态','Text states')}</h3>
  <div class="ds-annotation-grid"><p>{t('搜索命中：','Search match: ')}<mark class="search-match">Next Token</mark></p><p class="content-target">{t('定位目标：当前跳转到的段落。','Navigation target: the paragraph reached by a link.')}</p></div>
  <p>{t('搜索命中与定位目标共用', 'Search matches and navigation targets share ')} <ColorUse locale={locale} token="--highlight-match" />{t('；定位目标另加 2px 信号橙轮廓。', '; navigation targets add a 2px Signal Orange outline.')}</p>
+ <p>{t('搜索词使用 0.125em × 0.2em 内边距，换行时逐行保留底色留白。定位目标底色外扩 0.375rem，轮廓与底色边缘间距为 3px。高亮范围独立于段落布局。','Search matches use 0.125em × 0.2em padding, retained on each wrapped line. Target backgrounds extend outward by 0.375rem, with a 3px gap between the background edge and the outline. Highlight bounds are independent of paragraph layout.')}</p>
  <h3>{t('注释块','Annotation blocks')}</h3>
  <div class="ds-annotation-grid"><aside class="content-note"><strong>{t('补充说明','Additional context')}</strong><p>{t('用于来源、背景与说明性文字，和正文保持清晰区分。','For sources, background and explanatory text, clearly distinguished from the body.')}</p></aside><aside class="content-note content-note--accent"><strong>{t('重点说明','Highlighted note')}</strong><p>{t('用侧线与浅底提示需要关注的信息，不代表错误或警告。','A side rule and tinted surface draw attention without implying an error or warning.')}</p></aside></div>
  <p>{t('注释侧线为 4px。普通注释使用', 'Annotation rules are 4px. Ordinary notes use ')} <ColorUse locale={locale} token="--note-surface" />{t('；重点注释使用', '; highlighted notes use ')} <ColorUse locale={locale} token="--annotation-surface" />{t('，搭配同色系文字色侧线。', ' with a rule in the same family’s text variant.')}</p>
@@ -28,6 +33,9 @@ const prefix=locale==='en'?'/en':'';
  .ds-identities, .ds-annotation-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,13rem),1fr)); gap: 1.5rem; margin-block: 1.5rem; }
  .ds-identities .identity-marker { display: grid; align-content: start; gap: .5rem; font-size: var(--type-ui); }
 
+ .ds-person-identity { display: flex; align-items: center; gap: .5rem; }
+ .ds-person-identity img, .ds-person-placeholder { width: 1.75rem; height: 1.75rem; flex: 0 0 auto; border-radius: 50%; object-fit: cover; }
+ .ds-person-placeholder { background: var(--surface); }
  .ds-identities span, .ds-category-examples p { font-size: var(--type-meta); color: var(--muted); }
  .ds-annotations [id] { scroll-margin-top: 6rem; }
  .ds-category-examples { display: flex; flex-wrap: wrap; gap: 1rem; margin-block: 1.5rem; }

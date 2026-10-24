@@ -95,7 +95,7 @@ const { platforms, label, available, comingSoon, reveal = false, qrLabel = "æŸ¥ç
 <style>
 @layer reset, tokens, base, layouts, components, utilities, overrides;
 @layer components {
-  .platform-qr-trigger { width: 100%; padding: 0; border-top: 0; border-inline: 0; border-radius: 0; background: transparent; font: inherit; text-align: left; cursor: pointer; }
+  .platform-qr-trigger { width: 100%; padding: 0; border-top: 0; border-inline: 0; border-radius: var(--control-radius); background: transparent; font: inherit; text-align: left; cursor: pointer; }
   .platform-qr { position: fixed; inset: auto; margin: 0; width: min(19rem, calc(100vw - 1.5rem)); max-height: calc(100dvh - 1.5rem); overflow: auto; padding: 1rem; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); box-shadow: var(--shadow-floating); }
   .platform-qr img { display: block; width: 100%; height: auto; }
   .platform-qr-name { margin: 0 0 .75rem; font-size: var(--type-ui); font-weight: 700; }

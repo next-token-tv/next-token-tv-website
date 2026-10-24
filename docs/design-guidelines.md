@@ -8,7 +8,7 @@ Next Token is an editorial media site grounded in first-hand conversations. Its 
 - The homepage brand photograph remains the original Weekly #001 recording, with its monochrome treatment, “Weekly” stamp, “AI signals / one open table” caption and “Since 2026.09.03” date. It is independent of the latest episode. The surrounding layout uses the shared layout tokens.
 - Episode artwork is shown intact, in its original square aspect ratio, using responsive WebP delivery assets. Never crop, stretch, pan or apply grayscale to designed covers. Legacy photographic episodes retain their photo treatment.
 - Signal orange is used for graphic accents and small square markers. Links and small accent text use the darker text token on paper and the lighter text token on inverse surfaces.
-- Rectilinear composition, fine rules and consistent alignment organize the site. Buttons, inputs and the mobile menu trigger use `--control-radius: 0.125rem`. Circular portraits and switches retain their semantic shapes. Avoid decorative enclosing grids where spacing and row dividers suffice.
+- Rectilinear composition, fine rules and consistent alignment organize the site. Buttons, inputs and the mobile menu trigger use `--control-radius: 1px`. Circular portraits and switches retain their semantic shapes. Avoid decorative enclosing grids where spacing and row dividers suffice.
 
 ## Shared architecture
 
@@ -17,6 +17,13 @@ Next Token is an editorial media site grounded in first-hand conversations. Its 
 - Shared role classes own font family, size and line height; components control their spacing and placement. Page-specific typography remains local only when it has a distinct semantic purpose.
 - `/design-system` and `/en/design-system` are public, indexable reference pages linked from the footer's About group. Their specimens use production tokens, controls and the real episode card. Type specimens show declared rem ranges, baseline px equivalents at a 16px root, unitless leading and weights. Live fractional viewport measurements are not specification labels. Color values are read from the shared token source and displayed as six-digit HEX with opacity separate.
 - `PlatformList.astro` owns platform rows; metadata owns names, destinations and availability. `PersonCard.astro` owns shared participant cards; `HostCard.astro` adds social accounts. `EpisodeCard.astro` owns episode cards. Published episodes share `EpisodeDetailPage.astro`.
+
+### Localized page ownership
+
+- Localized routes select a locale and resolve static paths; shared page components own markup, interaction and scoped styles. `ApiPage`, `BlogIndexPage`, `BlogEpisodeIndexPage`, `BlogEpisodePage` and `BlogArticlePage` serve both Chinese and English routes.
+- `ArticleReadingLayout` owns the article header, format links, outline, prose container and footer. Blog and episode articles supply their contextual navigation, attribution and source links through named slots. `article-reading.css` scopes shared reading styles to `.episode-article-page`, including slotted content.
+- Locale differences belong in content and explicit template variants. Blog filtering uses one implementation with a localized count label. Avoid copying page CSS or client scripts into language-specific routes.
+- Domain components keep their own composition when geometry differs. Shared ownership does not require one universal card, a new utility-class framework or identical navigation across languages.
 
 ## Color
 
@@ -90,7 +97,7 @@ Border tokens follow a separate functional scale described under Units, rules an
 - Text-link underlines include a shared `--link-underline-gap: 1px` in addition to their type-relative offset. Underline thickness and line height are independent of this gap.
 
 - Type, spacing, padding, control dimensions and reading widths use `rem`. A root size of 16px is an example conversion, not a forced root font size. The design-system type specimens show declared rem and baseline px equivalents.
-- Border thickness uses `--stroke-thin: 1px` and `--stroke-emphasis: 2px`; focus outlines use 2px with a 3px offset. CSS pixels are reference pixels, not necessarily physical device pixels. Page zoom still scales these lines; changing only the root font size does not change their CSS thickness.
+- Border thickness uses `--stroke-thin: 1px` and `--stroke-emphasis: 2px`; focus outlines use 2px with a 1px offset for buttons and form controls, and a 3px offset for ordinary links. CSS pixels are reference pixels, not necessarily physical device pixels. Page zoom still scales these lines; changing only the root font size does not change their CSS thickness.
 - `em` can size text-adjacent icons and underline offsets; `%` and `fr` size fluid columns; line height stays unitless.
 - `1px --line` (ink at 16%) separates table rows and secondary content. `1px --line-strong` (ink at 38%) defines headers and sections. These are decorative structure, not sufficient interactive boundaries.
 - `1px --line-control` (`#7b7770`) defines input and secondary-button boundaries on paper and white. `2px --signal-text` identifies focus; 2px ink or accent rules provide deliberate emphasis. Inverse surfaces use corresponding light colors.
@@ -125,6 +132,8 @@ Border tokens follow a separate functional scale described under Units, rules an
 
 - Controls use `--control-height: 2.5rem` on fine pointers and `2.75rem` on coarse pointers. Buttons may grow for wrapping labels. Primary actions use ink; secondary actions use a light surface; ordinary text links remain lightweight.
 - Native selects, `.control-input`, `.control-button` and `.control-choice` share type and state rules. Pages set widths and layout. Native keyboard and mobile picker behavior remains intact.
+- Inputs, selects, disclosure triggers and action buttons retain the shared 1px corner radius in resting and focused states. Their focus outline is 2px with a 1px offset.
+- Input text selection uses Distant Sky with Ink Black text. The controls specimen previews the shared focus outline and provides a button that focuses and selects the input contents.
 - Error borders remain visible during hover and focus. Focus uses an explicit offset outline. Disabled controls retain readable labels; errors include explanatory text. Inline prose links are underlined. Active navigation uses an underline; selected filters expose `aria-pressed`.
 - Search shortcuts reveal and focus the search input below the sticky header without losing the query. Mobile navigation supports Escape, outside-click dismissal and native details semantics.
 - Color and border transitions are brief. Reduced-motion preferences disable animation. The permanent brand photograph retains conditional panning.
@@ -137,7 +146,7 @@ Border tokens follow a separate functional scale described under Units, rules an
 - `tokens.css` defines `--identity-*`, `--highlight-*`, `--annotation-surface`, `--note-surface` and `--switch-track`. Production transcripts reference these tokens; they do not own a parallel palette. Body text uses `--ink` and `--type-body` on all screens.
 - Identity mapping uses standard-color aliases: Yang Pan → Distant Sky (`--sky`); Guizang → Warm Ginger (`--gold`); Orange → Signal Orange (`--signal`); Xiangyang Qiaomu → Ink Black (`--ink`); unassigned → Soft Ink (`--muted`). Names remain Ink Black; identity marks retain distinct colors.
 - Category aliases map brand → Warm Ginger, product/show → Distant Sky Text, person → Signal Orange Text. `content-markers.css` uses 8% / 16% opacity for normal / keyboard focus, and 22% / 30% in emphasis mode. Labels and destinations also identify categories. Keyboard focus adds an underline and outline.
-- Search matches and navigation targets share `--signal-soft`; navigation targets add an outline. Highlighted annotations reuse `--sky-soft`; ordinary notes reuse `--surface`. Semantic aliases reference existing colors rather than defining additional shades.
+- Search matches and navigation targets share `--signal-soft`. Matches use `0.125em 0.2em` padding with cloned decoration at line breaks. Targets extend their background by `0.375rem` without changing layout, with a 2px Signal Orange outline another 3px outside. Production transcripts and design specimens share these rules. Highlighted annotations reuse `--sky-soft`; ordinary notes reuse `--surface`. Semantic aliases reference existing colors rather than defining additional shades.
 - Annotation blocks use 4px side rules; identity markers use 2px. Color labels consistently use six-digit HEX; transparent overlays append a separate opacity percentage, never raw RGB channel tuples or RGBA expressions. Highlight and annotation colors are defined in the Color section and referenced by the Reading examples.
 
 - Published episode order is hero, production facts and Show Notes, mentions, participants, then platforms. Audio/video availability and content length do not change this sequence. `detailLayout: true` allows release preparation without asserting publication.

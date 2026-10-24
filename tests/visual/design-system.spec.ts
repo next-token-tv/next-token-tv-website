@@ -132,8 +132,8 @@ for (const prefix of ['', '/en']) {
       await page.addStyleTag({ content: 'html { font-size: 32px; }' });
       await page.evaluate(() => document.fonts.ready);
       await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width + 1);
-      await expect(page.locator('#controls .control-button').first()).toHaveCSS('border-radius', '4px');
-      await expect(page.locator('#components .episode-listen')).toHaveCSS('border-radius', '4px');
+      await expect(page.locator('#controls .control-button').first()).toHaveCSS('border-radius', '1px');
+      await expect(page.locator('#components .episode-listen')).toHaveCSS('border-radius', '1px');
     });
   }
 }
@@ -156,14 +156,17 @@ for (const prefix of ['', '/en']) test(`production primitives match specimens ${
   await expect(page.locator('.control-switch-track')).toHaveCSS('background-color', 'rgb(184, 50, 13)');
   await expect.poll(async () => (await switchStyle())[5]).toBe('matrix(1, 0, 0, 1, 12, 0)');
   const on = await switchStyle();
+  await page.keyboard.press('Tab');
   await page.locator('.ds-reading a').focus();
+  await expect(page.locator('.ds-reading a')).toHaveCSS('background-color', 'rgb(249, 223, 210)');
   const focused = await linkStyle('.ds-reading a');
   for (const [route, selector] of [['/wiki/products/workbuddy', '.wiki-prose'], ['/blog/agent-browser-ultrawide', '.episode-article-prose']]) {
     await page.goto(`${prefix}${route}`);
     await expect(page.locator(selector!)).toHaveCSS('font-size', '17px');
     expect(await linkStyle(`${selector} a`)).toEqual(prose);
+    await page.keyboard.press('Tab');
     await page.locator(`${selector} a`).first().focus();
-    expect(await linkStyle(`${selector} a`)).toEqual(focused);
+    await expect.poll(() => linkStyle(`${selector} a`)).toEqual(focused);
   }
   // Transcript locales follow their published availability, while its control primitive is shared.
   await page.goto('/weekly/005/transcript');

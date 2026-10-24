@@ -15,7 +15,7 @@ const platforms = show.data.subscriptions.filter(item => platformIcon(item.platf
 <div class="ds-icons">
 
   <h3>{t("功能图标", "Interface icons")}</h3>
-  <p class="ds-icon-note">{t("用色：继承所在控件的文字色。默认使用墨黑；浅底上的强调图标使用信号橙文字色，反色区域使用暖白。品牌基准橙用于 Logo 与图形，不直接替代小尺寸功能图标的文字色。", "Color: inherit the control's text color. Use Ink Black by default, the Signal Orange text variant for accents on light surfaces, and Warm White on inverse surfaces. The base orange belongs to the logo and graphics, rather than replacing small interface icons' text color.")} <a class="text-link" href="#color">{t("颜色规范", "Color specifications")} →</a></p>
+  <p class="ds-icon-note">{t("用色：继承所在控件的文字色。默认使用墨黑；浅底上的强调图标使用信号橙文字色，反色区域使用暖白。品牌基准橙用于 Logo 与图形。", "Color: inherit the control's text color. Use Ink Black by default, the Signal Orange text variant for accents on light surfaces, and Warm White on inverse surfaces. The base orange is used for the logo and graphics.")} <a class="text-link" href="#color">{t("颜色规范", "Color specifications")} →</a></p>
   <p class="ds-icon-note">{t("线形图标使用平直端点，颜色为 currentColor。尺寸使用 rem，描边随 SVG 视口等比缩放。图标作为装饰时隐藏于辅助技术；独立操作由按钮或链接提供可访问名称。", "Line icons use flat stroke ends and currentColor. Sizes use rem, with strokes scaling proportionally to the SVG viewport. Decorative icons are hidden from assistive technology; icon-only controls have an accessible name on their button or link.")}</p>
   <div class="ds-icon-grid" data-icon-group="interface">
     {(Object.keys(interfaceIcons) as InterfaceIconName[]).map(name => {
@@ -31,7 +31,7 @@ const platforms = show.data.subscriptions.filter(item => platformIcon(item.platf
   <p class="ds-icon-note">{t("尺寸中的 px 按根字号 16px 换算。搜索图标的实际描边为 1.5px，菜单图标为 1.5px；根字号变化时同步缩放。", "Pixel equivalents assume a 16px root. Search and menu strokes both render at 1.5px at that root size and scale with text preferences.")}</p>
 
   <h3>{t("媒体平台", "Media platforms")}</h3>
-  <p class="ds-icon-note">{t("平台颜色属于各平台品牌，不套用 Next Token 的橙色、蓝色或灰色。彩色标识保留素材自身配色，不使用 currentColor 覆盖。", "Platform colors belong to their respective brands, independently of Next Token's orange, blue and grey palette. Colored marks retain asset colors and are not overridden by currentColor.")}</p>
+  <p class="ds-icon-note">{t("媒体平台标识使用各平台的品牌颜色，保留素材自身配色。", "Media-platform marks use their respective brand colors and retain the colors defined in each asset.")}</p>
   <p class="ds-icon-note">{t("订阅入口使用 1.75rem × 1.75rem 图标区域，与名称间距为 0.65rem。各素材的光学尺寸见下方标注；图形居中，保留原始比例、配色与留白，不拉伸、不裁剪、不重绘。", "Subscription marks use a 1.75rem square slot and a 0.65rem name gap. Optical sizes are listed below. Marks are centered with their original proportions, colors and clear space, without stretching, cropping or redrawing.")}</p>
   <div class="ds-icon-grid" data-icon-group="platform">
     {platforms.map(item => {
@@ -46,7 +46,7 @@ const platforms = show.data.subscriptions.filter(item => platformIcon(item.platf
       </article>;
     })}
   </div>
-  <p class="ds-icon-note">{t("Spotify、YouTube 和微信公众号使用官方 SVG；Apple Podcasts 使用官方 PNG。视频号采用官方网站的矢量图形与平台橙色；小宇宙采用官方固定标签页矢量图形与官网蓝色。哔哩哔哩采用官网小电视矢量与平台粉色，小红书采用官网页头的 PNG 字标。格式按素材选择，统一的是视觉尺寸与排列方式。", "Spotify, YouTube and WeChat Official Accounts use official SVGs; Apple Podcasts uses an official PNG. WeChat Channels uses its official site's vector artwork and orange; Xiaoyuzhou uses its official pinned-tab vector and website blue. Bilibili uses the official site’s TV vector and pink; RedNote uses the official site’s header PNG wordmark. File format follows the asset; visual sizing and alignment provide consistency.")}</p>
+  <p class="ds-icon-note">{t("Spotify、YouTube 和微信公众号使用官方 SVG；Apple Podcasts 使用官方 PNG。视频号采用官方网站的矢量图形与平台橙色；小宇宙采用官方固定标签页矢量图形与官网蓝色。哔哩哔哩采用官网小电视矢量与平台粉色，小红书采用官网页头的 PNG 字标。素材按标注格式使用，展示尺寸与对齐方式遵循图标规范。", "Spotify, YouTube and WeChat Official Accounts use official SVGs; Apple Podcasts uses an official PNG. WeChat Channels uses its official site's vector artwork and orange; Xiaoyuzhou uses its official pinned-tab vector and website blue. Bilibili uses the official site’s TV vector and pink; RedNote uses the official site’s header PNG wordmark. Assets use their listed file formats and the specified display sizes and alignment.")}</p>
 
   <div class="ds-symbol-note"><h3>{t("文字符号", "Text symbols")}</h3><p><span aria-hidden="true">→ ↗ ↘ ↓ × ✓</span></p><p>{t("箭头、关闭符号和状态符号由字体绘制，不属于 SVG 图标。二维码属于内容图片，不纳入图标库。", "Arrows, close symbols and status symbols are font glyphs, not SVG icons. QR codes are content images and are not part of the icon library.")}</p></div>
 </div>

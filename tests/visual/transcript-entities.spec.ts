@@ -89,11 +89,11 @@ test('repeated keywords use pale type-colored backgrounds with visible focus', a
     const style = await entity.evaluate(el => ({
       background: getComputedStyle(el).backgroundColor,
       image: getComputedStyle(el).backgroundImage,
-      radius: parseFloat(getComputedStyle(el).borderRadius) / parseFloat(getComputedStyle(document.documentElement).fontSize),
+      radius: getComputedStyle(el).borderRadius,
     }));
     expect(style.background).toContain('0.08');
     expect(style.image).toBe('none');
-    expect(style.radius).toBeCloseTo(0.125, 3);
+    expect(style.radius).toBe('1px');
     colors.push(style.background);
   }
   expect(new Set(colors).size).toBe(3);

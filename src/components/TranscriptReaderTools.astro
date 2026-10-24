@@ -166,7 +166,7 @@ const en = locale === "en";
   .transcript-search label { display: block; margin-bottom: 0.5rem; font-weight: 700; }
   .transcript-search-input { border-radius: var(--control-radius); display: flex; align-items: center; border: var(--stroke-thin) solid var(--line-control); }
   .transcript-search-input:focus-within { border-color: var(--signal-text); outline: var(--stroke-emphasis) solid var(--signal-text); outline-offset: 3px; }
-  .transcript-search input { min-width: 0; width: 100%; min-height: var(--control-height); padding: 0.625rem; border: 0; border-radius: 0; background: transparent; font: inherit; appearance: none; }
+  .transcript-search input { min-width: 0; width: 100%; min-height: var(--control-height); padding: 0.625rem; border: 0; border-radius: var(--control-radius); background: transparent; font: inherit; appearance: none; }
   .transcript-search input:focus-visible { outline: none; }
   .transcript-search input::-webkit-search-cancel-button { appearance: none; }
   .transcript-search-input button { min-width: var(--control-height); min-height: var(--control-height); margin-inline-end: 0.5rem; flex-shrink: 0; }
@@ -177,14 +177,13 @@ const en = locale === "en";
   .transcript-search [role="status"] { margin: 0.5rem 0; color: var(--muted); }
   .transcript-search ol { max-height: 16rem; overflow: auto; padding: 0; list-style: none; }
   .transcript-search li { margin-bottom: 0.75rem; }
-  .transcript-search mark { background: var(--highlight-match); color: var(--ink); font-weight: 750; }
+  .transcript-search mark { font-weight: 750; }
   .transcript-search a:hover, .transcript-copy-link:hover { text-decoration: underline; }
   .transcript-share { grid-column: 2; font-size: var(--type-meta); color: var(--muted); }
   .transcript-share input { max-width: 100%; font: inherit; }
   .transcript-turn { scroll-margin-top: 7rem; }
   .transcript-turn:target { outline: var(--stroke-thin) solid var(--signal); outline-offset: 0.5rem; }
   .transcript-quote-paragraph { scroll-margin-top: 7rem; }
-  .transcript-quote-paragraph:target { background: var(--highlight-target); outline: var(--stroke-emphasis) solid var(--signal); outline-offset: 0.3rem; }
   .transcript-paragraphs > p > .transcript-paragraph-link {
     display: inline-block; margin-inline-start: 0.45em; color: var(--muted);
     font-size: 0.8em; font-weight: 700; opacity: 0; text-decoration: none;
