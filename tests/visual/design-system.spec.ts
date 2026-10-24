@@ -152,6 +152,9 @@ for (const prefix of ['', '/en']) test(`production primitives match specimens ${
   const prose = await linkStyle('.ds-reading a');
   const off = await switchStyle();
   await page.locator('.control-switch').click();
+  await expect(page.locator('.control-switch')).toHaveAttribute('aria-checked', 'true');
+  await expect(page.locator('.control-switch-track')).toHaveCSS('background-color', 'rgb(184, 50, 13)');
+  await expect.poll(async () => (await switchStyle())[5]).toBe('matrix(1, 0, 0, 1, 12, 0)');
   const on = await switchStyle();
   await page.locator('.ds-reading a').focus();
   const focused = await linkStyle('.ds-reading a');
@@ -166,7 +169,8 @@ for (const prefix of ['', '/en']) test(`production primitives match specimens ${
   await page.goto('/weekly/005/transcript');
   expect(await switchStyle()).toEqual(off);
   await page.locator('.control-switch').click();
-  expect(await switchStyle()).toEqual(on);
+  await expect(page.locator('.control-switch')).toHaveAttribute('aria-checked', 'true');
+  await expect.poll(switchStyle).toEqual(on);
 });
 
 for (const prefix of ['', '/en']) test(`action buttons share specimen styles ${prefix || 'zh'}`, async ({page}) => {
