@@ -138,8 +138,8 @@ const productTypes = [
   .wiki-home-columns { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 0; gap: 1.5rem; }
   .wiki-home-columns > section { min-width: 0; display: flex; flex-direction: column; }
   .wiki-home-columns > section + section { border-left: 0; }
-  .wiki-home-column-heading { position: relative; display: block; min-height: 10rem; padding: 1rem 0; border-bottom: 1px solid var(--line); transition: background .18s ease; border-top: 2px solid var(--ink); }
-  .wiki-home-column-heading::after { position: absolute; top: 1.2rem; right: 0; color: var(--signal-text); content: "↗"; font-size: 1.35rem; }
+  .wiki-home-column-heading { position: relative; display: block; min-height: 10rem; padding: 1rem; border-bottom: 1px solid var(--line); transition: background .18s ease; border-top: 2px solid var(--ink); }
+  .wiki-home-column-heading::after { position: absolute; top: 1.2rem; right: 1rem; color: var(--signal-text); content: "↗"; font-size: 1.35rem; }
   .wiki-home-column-heading:hover { background: var(--white); }
   .wiki-home-column-heading:hover h3 { text-decoration: underline; text-decoration-thickness: .08rem; text-underline-offset: calc(.3rem + var(--link-underline-gap)); }
   .wiki-home-column-heading > span { font-size: var(--type-caption); font-weight: 800; color: var(--signal-text); }
@@ -147,12 +147,12 @@ const productTypes = [
   .wiki-home-column-heading p { max-width: 25rem; margin: 0; color: var(--muted); font-size: var(--type-ui); line-height: 1.6; }
   .wiki-home-entry-list { flex: 1; }
   .wiki-home-empty { padding: 1rem 1.5rem; color: var(--muted); }
-  .wiki-home-entry-list a { position: relative; display: grid; gap: .15rem; min-height: 0; padding: .875rem 1.25rem .875rem 0; border-bottom: var(--stroke-thin) solid var(--line); }
+  .wiki-home-entry-list a { position: relative; display: grid; gap: .15rem; min-height: 0; padding: .875rem 2.75rem .875rem 1rem; border-bottom: var(--stroke-thin) solid var(--line); }
   .wiki-home-entry-list a:hover { background: var(--white); }
   .wiki-home-entry-list strong { font-size: var(--type-base); line-height: 1.35; }
   .wiki-home-entry-list span { overflow: hidden; color: var(--muted); font-size: var(--type-meta); text-overflow: ellipsis; white-space: nowrap; }
   .wiki-home-entry-list b { position: absolute; top: 1rem; right: 1rem; color: var(--signal-text); }
-  .wiki-home-all { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 0; font-weight: 800; font-size: var(--type-ui); }
+  .wiki-home-all { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem; font-weight: 800; font-size: var(--type-ui); }
   .wiki-home-all:hover { background: transparent; color: var(--signal-text); }
   .wiki-home-index { border-top: var(--stroke-thin) solid var(--ink); }
   .wiki-home-index-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
@@ -162,6 +162,6 @@ const productTypes = [
   .wiki-home-index-grid a span:last-child { color: var(--signal-text); }
   .wiki-home-index-grid a:hover span:first-child { text-decoration: underline; text-underline-offset: calc(.25rem + var(--link-underline-gap)); }
   @media (max-width: 60rem) { .wiki-home-hero { grid-template-columns: 1fr; gap: 3rem; padding-block: 2.5rem; } .wiki-home-section-head { grid-template-columns: 1fr 2fr; } .wiki-home-section-head > p:last-child { grid-column: 2; } }
-  @media (max-width: 45rem) { .wiki-home-hero { padding-block: 2.5rem; gap: 3rem; } .wiki-home-overview strong { font-size: 2rem; } .wiki-home-discover, .wiki-home-index { padding-block: var(--section-space); } .wiki-home-section-head { grid-template-columns: 1fr; gap: .6rem; } .wiki-home-section-head > p:last-child { grid-column: auto; } .wiki-home-columns, .wiki-home-index-grid { grid-template-columns: 1fr; } .wiki-home-columns > section + section { border-left: 0; border-top: var(--stroke-thin) solid var(--ink); } .wiki-home-column-heading { min-height: 10rem; padding: 1rem 0; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); } .wiki-home-index-grid { gap: 2rem; } }
+  @media (max-width: 45rem) { .wiki-home-hero { padding-block: 2.5rem; gap: 3rem; } .wiki-home-overview strong { font-size: 2rem; } .wiki-home-discover, .wiki-home-index { padding-block: var(--section-space); } .wiki-home-section-head { grid-template-columns: 1fr; gap: .6rem; } .wiki-home-section-head > p:last-child { grid-column: auto; } .wiki-home-columns, .wiki-home-index-grid { grid-template-columns: 1fr; } .wiki-home-columns > section + section { border-left: 0; border-top: var(--stroke-thin) solid var(--ink); } .wiki-home-column-heading { min-height: 10rem; padding: 1rem; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); } .wiki-home-index-grid { gap: 2rem; } }
 }
 </style>
