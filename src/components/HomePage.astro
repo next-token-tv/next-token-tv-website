@@ -68,7 +68,7 @@ const latestEpisodePath = `${content.locale === "en" ? "/en" : ""}/weekly/${late
       {content.about.cards.map((card, index) => (
         <article class:list={["manifesto-card", { featured: index === 0 }]}>
           <span class="number">{String(index + 1).padStart(2, "0")}</span>
-          <h3>{card.title}{card.titleSecondLine && <><br />{card.titleSecondLine}</>}</h3>
+          <h3>{card.title}</h3>
           <p>{card.copy}</p>
         </article>
       ))}
@@ -80,7 +80,7 @@ const latestEpisodePath = `${content.locale === "en" ? "/en" : ""}/weekly/${late
     <div class="section-heading" data-reveal>
       <p class="section-index">02 / The Flagship</p>
       <div>
-        <h2 class="heading-section-display home-section-heading">Next Token<br />Weekly</h2>
+        <h2 class="heading-section-display home-section-heading">Next Token Weekly</h2>
         <p class="section-lede">{content.weekly.lede}</p>
       </div>
     </div>

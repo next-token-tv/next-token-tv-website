@@ -62,7 +62,7 @@ export type SiteContent = {
   about: {
     heading: [string, string];
     lede: string;
-    cards: Array<{ title: string; titleSecondLine?: string; copy: string }>;
+    cards: Array<{ title: string; copy: string }>;
   };
   weekly: {
     lede: string;
@@ -134,8 +134,7 @@ const siteContentBase: Record<Locale, SiteContentBase> = {
           copy: "统一主品牌。以中英文连接中文世界的一手 AI 经验与全球对话，承载视频、音频和衍生内容。",
         },
         {
-          title: "Next Token",
-          titleSecondLine: "Weekly",
+          title: "Next Token Weekly",
           copy: "当前旗舰周播。四位联合主理人以开放圆桌形式，讨论过去一周真正值得关注的 AI 新闻。",
         },
       ],
@@ -192,8 +191,7 @@ const siteContentBase: Record<Locale, SiteContentBase> = {
           copy: "One brand in Chinese and English, bringing first-hand AI perspectives from the Chinese-speaking world into the global conversation across video, audio, and related formats.",
         },
         {
-          title: "Next Token",
-          titleSecondLine: "Weekly",
+          title: "Next Token Weekly",
           copy: "Our flagship weekly show. Four co-hosts gather at an open table to discuss the AI stories that genuinely matter each week.",
         },
       ],
