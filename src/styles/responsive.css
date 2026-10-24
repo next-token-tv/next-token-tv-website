@@ -10,13 +10,11 @@
     margin-bottom: 1rem;
   }
 
-  .transcript-hero h1 {
-    --reading-title-size: 3rem;
-  }
+
 
   .transcript-hero h1 > span:first-child:not(:only-child) {
     margin-bottom: 0.25rem;
-    font-size: 1rem;
+    font-size: var(--type-base);
   }
 
   .transcript-layout {
@@ -41,19 +39,22 @@
   transform: translateY(0);
 }
 
-@media (min-width: 1251px) and (max-width: 1320px) {
+@media (min-width: 901px) and (max-width: 1320px) {
   .nav-links { gap: 1rem; }
 }
 
 @media (max-width: 1250px) {
-  .wordmark-divider,
-  .wordmark-tagline,
   .status-pill {
     display: none;
   }
 }
 
 @media (max-width: 900px) {
+  .wordmark-divider,
+  .wordmark-tagline {
+    display: none;
+  }
+
   .nav-links > a {
     display: none;
   }
@@ -68,21 +69,27 @@
     height: auto;
     min-height: 0;
     grid-template-columns: 1fr;
+    gap: 0;
+    padding-block: 0;
   }
 
   .hero-copy {
-    min-height: 620px;
+    min-height: 0;
     padding-right: 0;
+    padding: 2.5rem 0;
   }
 
   .hero-visual {
-    min-height: min(78vw, 720px);
-    border-top: 1px solid var(--ink);
+    min-height: 0;
+    border-top: 0;
     border-left: 0;
+    aspect-ratio: 1.5;
+    margin-bottom: 2rem;
   }
 
   .host-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
   }
 
   .weekly-card,
@@ -93,11 +100,11 @@
   .weekly-image {
     min-height: min(62vw, 560px);
     border-right: 0;
-    border-bottom: 1px solid rgba(255, 253, 246, 0.35);
+    border-bottom: 1px solid var(--inverse-line-strong);
   }
 
   .episode-number {
-    margin-bottom: 3.5rem;
+    margin-bottom: 1.25rem;
   }
 
   .partner-row {
@@ -114,7 +121,9 @@
   }
 
   .partner-profile-copy {
-    min-height: 600px;
+    min-height: 0;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 
   .partner-profile-image {
@@ -139,7 +148,7 @@
   }
 
   .episode-preview-poster {
-    min-height: min(78vw, 650px);
+    min-height: 20rem;
     margin-inline: calc(-1 * var(--gutter));
     padding-inline: var(--gutter);
     border-top: 1px solid var(--ink);
@@ -147,9 +156,9 @@
   }
 
   .episode-preview-venue-logo {
-    min-height: 420px;
+    min-height: 14rem;
     border-right: 0;
-    border-bottom: 1px solid rgba(17, 17, 17, 0.35);
+    border-bottom: 1px solid var(--line-strong);
   }
 
   .episode-preview-participant-grid {
@@ -162,12 +171,14 @@
   }
 
   .weekly-show-hero-copy {
-    min-height: 620px;
+    min-height: 0;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   .weekly-show-poster {
-    min-height: min(72vw, 620px);
-    margin-inline: calc(-1 * var(--gutter));
+    min-height: 18rem;
+    margin-inline: 0;
     padding-inline: var(--gutter);
     border-top: 1px solid var(--ink);
     border-left: 0;
@@ -202,13 +213,14 @@
   }
 
   .episode-detail-image {
-    min-height: min(68vw, 650px);
+    min-height: 0;
     border-right: 0;
-    border-bottom: 1px solid rgba(255, 253, 246, 0.38);
+    border-bottom: 0;
   }
 
   .episode-detail-hero-copy {
-    min-height: 680px;
+    min-height: 0;
+    padding: 1.5rem 0;
   }
 
   .episode-detail-participant-grid {
@@ -264,16 +276,18 @@
   }
 
   .wordmark > span {
-    display: none;
+    display: inline-flex;
+    font-size: var(--type-entry);
   }
 
   .hero-copy {
-    min-height: 570px;
+    min-height: 0;
     padding-top: 4rem;
+    padding: 2.5rem 0;
   }
 
   h1 {
-    font-size: clamp(3.75rem, 20vw, 6.7rem);
+    font-size: var(--type-title);
   }
 
   .section-heading {
@@ -287,11 +301,11 @@
   }
 
   .manifesto-card {
-    min-height: 300px;
+    min-height: 0;
   }
 
   .manifesto-card .number {
-    margin-bottom: 4.5rem;
+    margin-bottom: 1.25rem;
   }
 
   .hosts-header {
@@ -309,7 +323,7 @@
 
   .host-info {
     min-height: 0;
-    padding: 1rem;
+    padding: 0 0 0 1rem;
   }
 
   .host-socials {
@@ -320,7 +334,7 @@
   .social-account {
     grid-template-columns: minmax(3.2rem, auto) minmax(0, 1fr) auto;
     gap: 0.4rem;
-    font-size: 0.64rem;
+    font-size: var(--type-caption);
   }
 
   .social-note {
@@ -345,7 +359,7 @@
 
   .platform {
     grid-template-columns: 2rem 1fr;
-    padding-block: 1rem;
+    padding-block: .75rem;
   }
 
   .platform .coming {
@@ -366,7 +380,7 @@
   }
 
   .partners-intro {
-    padding-top: 4rem;
+    padding-top: 2.5rem;
   }
 
   .partners-intro-grid,
@@ -378,7 +392,7 @@
   }
 
   .partners-intro h1 {
-    font-size: clamp(2.75rem, 12vw, 4.5rem);
+    font-size: var(--type-title);
   }
 
   .partner-directory {
@@ -391,7 +405,7 @@
     min-height: 0;
     grid-template-columns: 7.5rem minmax(0, 1fr);
     border-top: 0;
-    border-bottom: 1px solid var(--ink);
+    border-bottom: 1px solid var(--line);
   }
 
   .partner-row > * {
@@ -430,9 +444,9 @@
   }
 
   .partner-profile-copy {
-    min-height: 520px;
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+    min-height: 0;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 
   .partner-profile-logo {
@@ -440,7 +454,7 @@
   }
 
   .partner-profile-copy h1 {
-    font-size: clamp(3rem, 14cqi, 6rem);
+    font-size: var(--type-title);
   }
 
   .partner-profile-image {
@@ -482,7 +496,7 @@
 
   .partner-story h2,
   .partner-section-heading h2 {
-    font-size: clamp(3.2rem, 15vw, 5.25rem);
+    font-size: var(--heading-section-content-size);
   }
 
   .partner-fact-grid {
@@ -490,7 +504,7 @@
   }
 
   .partner-fact {
-    min-height: 165px;
+    min-height: 0;
     padding: 1.25rem;
   }
 
@@ -521,17 +535,17 @@
   }
 
   .episode-preview-copy {
-    min-height: 580px;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    min-height: 0;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   .episode-preview-copy h1 {
-    font-size: clamp(3.75rem, 18vw, 6rem);
+    font-size: var(--type-title);
   }
 
   .episode-preview-poster {
-    min-height: 105vw;
+    min-height: 20rem;
   }
 
   .episode-preview-details,
@@ -544,7 +558,7 @@
   .episode-preview-details h2,
   .episode-preview-participants-heading h2,
   .episode-preview-venue-copy h2 {
-    font-size: clamp(3.2rem, 15vw, 5.25rem);
+    font-size: var(--heading-section-content-size);
   }
 
   .episode-preview-participant-grid {
@@ -560,21 +574,22 @@
   }
 
   .episode-preview-venue-logo {
-    min-height: 70vw;
+    min-height: 14rem;
   }
 
   .weekly-show-hero-copy {
-    min-height: 560px;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    min-height: 0;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   .weekly-show-hero-copy h1 {
-    font-size: clamp(3.25rem, 11vw, 4rem);
+    font-size: var(--type-title);
   }
 
   .weekly-show-poster {
-    min-height: 82vw;
+    min-height: 18rem;
+    margin-inline: 0;
   }
 
   .weekly-show-overview,
@@ -589,7 +604,7 @@
   }
 
   .weekly-show-facts article {
-    min-height: 190px;
+    min-height: 9rem;
   }
 
   .weekly-show-host-grid article {
@@ -613,12 +628,13 @@
   }
 
   .episode-detail-image {
-    min-height: 78vw;
+    min-height: 0;
+    border-bottom: 0;
   }
 
   .episode-detail-hero-copy {
-    min-height: 620px;
-    padding: 2rem var(--gutter) 3rem;
+    min-height: 0;
+    padding: 1.5rem 0;
   }
 
   .episode-detail-content,
@@ -650,9 +666,7 @@
     margin-bottom: 1.5rem;
   }
 
-  .transcript-hero h1 {
-    --reading-title-size: clamp(2.15rem, 9.5vw, 3rem);
-  }
+
 
   .transcript-hero-meta {
     grid-template-columns: 1fr;
@@ -673,7 +687,7 @@
   }
 
   .transcript-chapter h2 {
-    font-size: clamp(1.6rem, 7vw, 2.2rem);
+    font-size: var(--heading-section-content-size);
   }
 
   .transcript-turn {
@@ -687,7 +701,7 @@
   }
 
   .transcript-paragraphs p {
-    font-size: 1.04rem;
+    font-size: var(--type-body);
     line-height: 1.9;
   }
 }

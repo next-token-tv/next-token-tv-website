@@ -20,20 +20,20 @@ const href = `${locale === "en" ? "/en" : ""}/weekly/${episode.data.number}`;
     <img
       src={images["960"]}
       srcset={episodeImageSrcset(images)}
-      sizes="(max-width: 31.25rem) calc(100vw - 2.5rem), (max-width: 79.999rem) 92vw, (min-width: 100rem) 49.68rem, 49.68vw"
+      sizes="(max-width: 31.25rem) calc(100vw - 2.5rem), (max-width: 62.5rem) 92vw, (min-width: 100rem) 43.2rem, (min-width: 88rem) calc(47.52rem - 4.32vw), 49.68vw"
       width={dimensions.width}
       height={dimensions.height}
       loading="lazy"
       decoding="async"
       alt={copy.imageAlt}
     />
-    {releaseLabel && <span class="label">{releaseLabel}</span>}
   </a>
   <div class="weekly-copy">
     <div class="episode-number">#{episode.data.number}</div>
     <div>
       <p class="eyebrow">{copy.eyebrow}</p>
       <h3>{copy.heading.join(locale === "en" ? " " : "")}</h3>
+      {releaseLabel && <p class="episode-release">{releaseLabel}</p>}
       <p>{copy.copy}</p>
       <div class="episode-meta" aria-label={copy.topicsLabel}>{copy.topics.map(topic => <span>{topic}</span>)}</div>
       <div class="episode-actions">
@@ -50,7 +50,7 @@ const href = `${locale === "en" ? "/en" : ""}/weekly/${episode.data.number}`;
   .weekly-image { display: block; }
   .weekly-image.is-artwork { display: block; align-self: start; width: 100%; min-height: 0; padding: 0; border: 0; }
   .weekly-image.is-artwork img { display: block; width: 100%; height: auto; object-fit: contain; }
-  .has-artwork .weekly-copy { padding: 2rem; justify-content: center; }
+  .has-artwork .weekly-copy { padding: clamp(1rem, 4vw, 2rem); justify-content: center; }
   .has-artwork .episode-number { margin-bottom: 1.5rem; }
   @media (min-width: 80rem) and (max-width: 89.999rem) {
     .has-artwork .weekly-copy { padding: 1.5rem; }
@@ -58,7 +58,7 @@ const href = `${locale === "en" ? "/en" : ""}/weekly/${episode.data.number}`;
     .has-artwork .weekly-copy h3 { margin-bottom: 0.5rem; }
     .has-artwork .episode-meta, .has-artwork .episode-actions { margin-top: 1rem; }
   }
-  @media (max-width: 79.999rem) {
+  @media (max-width: 62.5rem) {
     .weekly-card.has-artwork { grid-template-columns: 1fr; }
   }
 }

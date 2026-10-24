@@ -99,7 +99,7 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
     <div class="weekly-show-hero-inner shell">
       <div class="weekly-show-hero-copy">
         <p class="section-kicker">{page.eyebrow}</p>
-        <h1>{page.heading.map((line) => <span>{line}</span>)}</h1>
+        <h1 class="type-title">{page.heading.map((line) => <span>{line}</span>)}</h1>
         <p>{page.lede}</p>
         <div class="weekly-latest-actions">
           <strong>{locale === "en" ? "Latest episode" : "最新一期"} #{latestEpisode.data.number}</strong>
@@ -209,9 +209,9 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
 <style>
 @layer reset, tokens, base, layouts, components, utilities, overrides;
 @layer components {
-.show-shortcuts { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; margin-top: 1.5rem; font-size: .9rem; font-weight: 700; }
-  .show-shortcuts a:hover { color: var(--signal); }
+.show-shortcuts { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; margin-top: 1.5rem; font-size: var(--type-ui); font-weight: 700; }
+  .show-shortcuts a:hover { color: var(--signal-text); }
   #episodes, #about-show, #subscribe { scroll-margin-top: 6rem; }
-  .latest-episode-title { flex-basis: 100%; margin: 0; font-size: 1rem; line-height: 1.5; }
+  .latest-episode-title { flex-basis: 100%; margin: 0; font-size: var(--type-base); line-height: 1.5; }
 }
 </style>

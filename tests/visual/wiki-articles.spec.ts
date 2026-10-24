@@ -14,9 +14,7 @@ test("Wiki prose links stay subtle but show hover and keyboard focus", async ({ 
   const restingBox = await link.boundingBox();
 
   await link.hover();
-  const hoverBackground = await link.evaluate((element) => getComputedStyle(element).backgroundColor);
-  expect(hoverBackground).not.toBe(restingBackground);
-  await expect(link).not.toHaveCSS("box-shadow", "none");
+  await expect(link).toHaveCSS("background-color", "rgb(249, 223, 210)");
   expect(await link.boundingBox()).toEqual(restingBox);
 
   await link.focus();
@@ -81,7 +79,7 @@ for (const width of [390, 768, 1280, 1440, 1920, 2560]) {
         }
         const visual = page.locator(sample === "people/dhh" ? ".person-article-visual" : ".entity-article-poster");
         const frame = (await visual.boundingBox())!;
-        expect(frame.height).toBe(width <= 760 ? 144 : 192);
+        expect(frame.height).toBe(width <= 760 ? 144 : 160);
         if (sample === "people/dhh") {
           const square = (await page.locator(".person-article-placeholder, .person-article-portrait").boundingBox())!;
           expect(square.width).toBeCloseTo(square.height, 1);

@@ -9,7 +9,7 @@ const en = locale === "en";
 <main id="main" class="community-page shell">
   <header>
     <p class="section-kicker">NEXT TOKEN / {en ? "STAY CONNECTED" : "保持联系"}</p>
-    <h1>{en ? "Community & Subscriptions" : "社群与订阅"}</h1>
+    <h1 class="type-title">{en ? "Community & Subscriptions" : "社群与订阅"}</h1>
     <p>{en ? "Join the conversation, follow new episodes, or read our latest articles." : "加入讨论、订阅节目，或在阅读器里收到新文章。"}</p>
     <nav aria-label={en ? "On this page" : "本页导航"}><a href="#join">{en ? "Join the community" : "加入社群"} ↓</a><a href="#follow">{en ? "Follow episodes" : "订阅节目"} ↓</a><a href="#read">{en ? "Subscribe to the blog" : "订阅博客"} ↓</a></nav>
   </header>
@@ -31,13 +31,13 @@ const en = locale === "en";
 @layer components {
 .community-page { padding-block: 3rem 5rem; }
   header { padding-bottom: 3rem; }
-  h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-block: 1.5rem; }
+  h1 { margin-block: 1.5rem; }
   header > p:last-of-type, section p { color: var(--muted); line-height: 1.8; max-width: 36rem; }
   nav { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin-top: 2rem; }
-  section { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4rem; padding-block: 3rem; border-top: .0625rem solid var(--line); scroll-margin-top: 6rem; }
-  h2 { font-size: 2rem; margin: 0 0 1rem; }
+  section { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4rem; padding-block: 3rem; border-top: var(--stroke-thin) solid var(--line); scroll-margin-top: 6rem; }
+  h2 { font-size: var(--heading-section-content-size); margin: 0 0 1rem; }
   .reading-links { display: flex; flex-direction: column; align-items: flex-start; gap: 1.5rem; font-weight: 700; }
-  a:hover { color: var(--signal); }
+  a:hover { color: var(--signal-text); }
   @media (max-width: 47.999rem) { section { grid-template-columns: minmax(0, 1fr); gap: 1rem; } }
 }
 </style>

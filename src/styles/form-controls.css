@@ -1,31 +1,50 @@
 @layer reset, tokens, base, layouts, components, utilities, overrides;
 @layer components {
-  select {
-    appearance: none;
+  select, .control-input, .control-button {
     box-sizing: border-box;
     max-width: 100%;
     min-width: 0;
-    min-height: 2.75rem;
-    padding: .65rem 2.75rem .65rem .85rem;
-    border: .0625rem solid var(--line);
-    border-radius: 0;
-    background-color: var(--paper);
+    min-height: var(--control-height);
+    padding: .5rem .75rem;
+    border: var(--stroke-thin) solid var(--line-control);
+    border-radius: var(--control-radius);
+    background-color: var(--white);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: var(--type-ui);
+    line-height: 1.5;
+    transition: border-color var(--duration), background-color var(--duration), color var(--duration);
+  }
+  select {
+    appearance: none;
+    padding-inline-end: 2.5rem;
     background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%);
-    background-position: calc(100% - 1.15rem) 50%, calc(100% - .85rem) 50%;
+    background-position: calc(100% - 1.1rem) 50%, calc(100% - .8rem) 50%;
     background-size: .3rem .3rem;
     background-repeat: no-repeat;
-    color: var(--ink);
-    font: inherit;
-    line-height: 1.5;
     cursor: pointer;
   }
-
-  select:hover:not(:disabled) { border-color: var(--ink); }
-  select:focus-visible { outline: .125rem solid var(--signal); outline-offset: .1875rem; }
-  select:disabled { opacity: .5; cursor: not-allowed; }
-  select option { color: var(--ink); background: var(--paper); }
-
-  @media (forced-colors: active) {
-    select { appearance: auto; background-image: none; }
-  }
+  select option { color: var(--ink); background: var(--white); }
+  .control-input { width: 100%; }
+  .control-input::placeholder { color: var(--muted); }
+  .control-button { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; font-weight: 600; cursor: pointer; text-decoration: none; }
+  .control-button.primary { color: var(--white); background: var(--ink); border-color: var(--ink); }
+  .control-button.primary:hover:not(:disabled) { color: var(--ink); background: var(--signal); border-color: var(--signal); }
+  .control-button[aria-pressed="true"] { background: var(--signal-soft); border-color: var(--signal-text); color: var(--signal-text); }
+  select:hover:not(:disabled), .control-input:hover:not(:disabled):not([aria-invalid="true"]), .control-button:hover:not(:disabled) { border-color: var(--ink); }
+  select:focus-visible, .control-input:focus-visible, .control-button:focus-visible { outline: var(--stroke-emphasis) solid var(--signal-text); outline-offset: 3px; }
+  select:disabled, .control-input:disabled, .control-button:disabled { color: var(--muted); background-color: var(--surface); border-color: var(--line); cursor: not-allowed; }
+  .control-input[aria-invalid="true"] { border-color: var(--error); }
+  .control-choice { display: inline-flex; align-items: center; gap: .5rem; min-height: var(--control-height); font-size: var(--type-ui); }
+  .control-choice input { width: 1rem; height: 1rem; accent-color: var(--signal-text); }
+  .control-switch { display: inline-flex; align-items: center; gap: .5rem; min-height: var(--control-height); padding: 0; border: 0; background: transparent; color: var(--ink); font: inherit; font-size: var(--type-ui); cursor: pointer; }
+  .control-switch-track { display: inline-block; flex: 0 0 auto; width: 1.75rem; height: 1rem; padding: .125rem; border-radius: 1rem; background: var(--switch-track); }
+  .control-switch-track::before { content: ""; display: block; width: .75rem; height: .75rem; border-radius: 50%; background: var(--white); }
+  .control-switch[aria-checked="true"] .control-switch-track { background: var(--signal-text); }
+  .control-switch[aria-checked="true"] .control-switch-track::before { transform: translateX(.75rem); }
+  .control-switch:disabled { color: var(--muted); cursor: not-allowed; }
+  .signal-mark { display: inline-block; width: .5rem; height: .5rem; flex: 0 0 auto; background: var(--signal); }
+  .text-link { text-decoration: underline; text-underline-offset: calc(.2em + var(--link-underline-gap)); text-decoration-thickness: var(--stroke-thin); }
+  .text-link:hover { color: var(--signal-text); }
+  @media (forced-colors: active) { select { appearance: auto; background-image: none; } }
 }

@@ -32,6 +32,7 @@ const groups = [
     { label: en ? "People" : "人物库", href: `${prefix}/wiki/people` },
     { label: en ? "Data API" : "资料库 API", href: `${prefix}/api` },
     { label: en ? "Brand Kit" : "品牌素材", href: `${prefix}/brand-kit` },
+    { label: en ? "Design system" : "设计系统", href: `${prefix}/design-system` },
   ] },
   { id: "episodes", title: en ? "Episodes & previews" : "节目与预告", links: episodes.slice().sort((a,b) => Number(b.data.number)-Number(a.data.number)).map(e => ({ label: e.data.title[locale], href: `${prefix}/weekly/${e.data.number}` })) },
   { id: "transcripts", title: en ? "Transcripts" : "文字稿", links: transcripts.map(e => ({ label: `Weekly #${e.data.number} · ${en ? "Transcript" : "完整文字稿"}`, href: `${prefix}/weekly/${e.data.number}/transcript` })) },
@@ -53,7 +54,7 @@ const episodeDisplayTitle = (episode: (typeof episodeRows)[number]) => episode.d
 <main id="main" class="sitemap-page shell">
   <header class="sitemap-intro">
     <p class="section-kicker">NEXT TOKEN / {en ? "EXPLORE" : "全站导航"}</p>
-    <h1>{en ? "Sitemap" : "网站地图"}</h1>
+    <h1 class="type-title">{en ? "Sitemap" : "网站地图"}</h1>
     <p>{en ? "Find episodes, transcripts, people and the brands behind our conversations." : "从这里找到节目、文字稿、主理人，以及对谈中提到的品牌与产品。"}</p>
     <nav aria-label={en ? "Sitemap sections" : "网站地图分类"}>
       {groups.map(group => <a href={`#${group.id}`}>{group.title}</a>)}
@@ -102,24 +103,24 @@ const episodeDisplayTitle = (episode: (typeof episodeRows)[number]) => episode.d
 @layer components {
 .sitemap-page { padding-block: 4rem 6rem; }
   .sitemap-intro { margin-bottom: 3rem; }
-  h1 { font-family: var(--display); font-size: 3rem; line-height: 1.25; margin: 1rem 0; }
+  h1 { margin: 1rem 0; }
   .sitemap-intro > p:last-of-type { max-width: 42rem; color: var(--muted); }
   nav { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; margin-top: 1.5rem; }
-  nav a { text-decoration: underline; text-underline-offset: 0.25em; }
-  section { border-top: 0.0625rem solid var(--ink); padding-block: 2rem; scroll-margin-top: 7rem; }
+  nav a { text-decoration: underline; text-underline-offset: calc(0.25em + var(--link-underline-gap)); }
+  section { border-top: var(--stroke-thin) solid var(--ink); padding-block: 2rem; scroll-margin-top: 7rem; }
   .sitemap-section-heading { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem; }
-  .sitemap-section-heading > span { color: var(--muted); font-size: 0.85rem; }
+  .sitemap-section-heading > span { color: var(--muted); font-size: var(--type-ui); }
   ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem 2rem; list-style: none; padding: 0; margin: 0; }
-  li a { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.75rem; border-bottom: 0.0625rem solid #d3d0c8; overflow-wrap: anywhere; }
-  li a > span { color: var(--signal); flex-shrink: 0; }
-  a:hover { color: var(--signal); }
+  li a { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.75rem; border-bottom: var(--stroke-thin) solid var(--line); overflow-wrap: anywhere; }
+  li a > span { color: var(--signal-text); flex-shrink: 0; }
+  a:hover { color: var(--signal-text); }
   .sitemap-episodes { display: grid; grid-template-columns: minmax(0, 1fr); column-gap: 3rem; }
   .sitemap-episodes.has-transcripts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sitemap-episodes section { display: grid; grid-template-rows: subgrid; grid-row: span var(--episode-rows); }
   .sitemap-episodes ul { display: contents; }
   .sitemap-episodes li a { height: 100%; align-items: center; }
   li a > .episode-label { color: inherit; flex-shrink: 1; }
-  .episode-label small { display: block; color: var(--muted); font-size: 0.8rem; margin-bottom: 0.5rem; }
+  .episode-label small { display: block; color: var(--muted); font-size: var(--type-meta); margin-bottom: 0.5rem; }
   @media (max-width: 40rem) {
     .sitemap-episodes.has-transcripts { grid-template-columns: minmax(0, 1fr); }
     .sitemap-episodes section { display: block; grid-row: auto; }

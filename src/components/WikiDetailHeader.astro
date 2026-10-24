@@ -16,7 +16,7 @@ const { backHref, backLabel, name, summary, aliases = [], aliasesLabel, person =
 <header class="wiki-detail-hero shell">
   <div class:list={["wiki-detail-visual", { "person-article-visual": person }]}><slot /></div>
   <div class="wiki-detail-copy">
-    <h1 class="wiki-detail-title">{name}</h1>
+    <h1 class="type-title wiki-detail-title">{name}</h1>
     <p class="wiki-detail-summary">{summary}</p>
     {aliases.length > 0 && <div class="wiki-aliases"><span class="wiki-aliases-label">{aliasesLabel}</span><p class="wiki-aliases-value">{aliases.join(" · ")}</p></div>}
   </div>
@@ -24,17 +24,17 @@ const { backHref, backLabel, name, summary, aliases = [], aliasesLabel, person =
 <style>
 @layer reset, tokens, base, layouts, components, utilities, overrides;
 @layer components {
-.wiki-detail-back { padding-block: 1.5rem; border-bottom: 1px solid var(--ink); }
+.wiki-detail-back { padding-block: 1rem; border-bottom: 1px solid var(--ink); font-size: var(--type-meta); }
   .wiki-detail-back a { display: inline-flex; align-items: center; gap: .75rem; font-weight: 750; }
-  .wiki-detail-back a:hover { color: var(--signal); }
+  .wiki-detail-back a:hover { color: var(--signal-text); }
   .wiki-detail-hero { display: grid; grid-template-columns: var(--wiki-hero-columns); gap: var(--wiki-column-gap); align-items: center; padding-block: var(--wiki-hero-padding); }
   .wiki-detail-visual { display: grid; grid-template-columns: minmax(0, 1fr); align-items: center; height: var(--wiki-visual-height); min-width: 0; }
   .person-article-visual { justify-items: center; }
   .wiki-detail-copy { min-width: 0; }
-  .wiki-detail-title { font-size: clamp(2.5rem, 4.5vw, 3.5rem); line-height: 1.1; margin: 0 0 .75rem; overflow-wrap: anywhere; }
-  .wiki-detail-summary { font-size: 1.1rem; max-width: 48rem; color: var(--muted); margin: 0; }
-  .wiki-aliases { margin-top: 2.5rem; }
-  .wiki-aliases-label { color: var(--muted); font-size: .9rem; font-weight: 700; margin-right: .5rem; }
-  .wiki-aliases-value { display: inline; margin: 0; font-size: .9rem; font-weight: 400; color: var(--muted); }
+  .wiki-detail-title { margin: 0 0 .75rem; overflow-wrap: anywhere; }
+  .wiki-detail-summary { font-size: var(--type-label); max-width: 48rem; color: var(--muted); margin: 0; }
+  .wiki-aliases { margin-top: 1rem; }
+  .wiki-aliases-label { color: var(--muted); font-size: var(--type-ui); font-weight: 700; margin-right: .5rem; }
+  .wiki-aliases-value { display: inline; margin: 0; font-size: var(--type-ui); font-weight: 400; color: var(--muted); }
 }
 </style>

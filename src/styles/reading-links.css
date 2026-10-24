@@ -1,0 +1,20 @@
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+  :is(.wiki-prose, .episode-article-prose, .ds-reading) a {
+    color: inherit;
+    background: transparent;
+    border-radius: var(--control-radius);
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    text-decoration: underline dashed var(--line-strong);
+    text-decoration-thickness: var(--stroke-thin);
+    text-underline-offset: calc(.3em + var(--link-underline-gap));
+    transition: background-color var(--duration), text-decoration-color var(--duration);
+  }
+  :is(.wiki-prose, .episode-article-prose, .ds-reading) a:hover,
+  :is(.wiki-prose, .episode-article-prose, .ds-reading) a:focus-visible {
+    color: var(--ink);
+    background: var(--signal-soft);
+    text-decoration-color: var(--ink);
+  }
+}

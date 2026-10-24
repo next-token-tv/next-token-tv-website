@@ -17,7 +17,7 @@ export default defineConfig({
       },
       filter: (page) => {
         const path = new URL(page).pathname;
-        return !/^\/wechat(?:\/|$)/.test(path) && !path.endsWith(".md") && !path.endsWith(".txt") && !path.endsWith(".json") && !/\/(?:404|(?:en\/)?(?:design-system|search))(?:\.html|\/)?$/.test(path);
+        return !/^\/wechat(?:\/|$)/.test(path) && !path.endsWith(".md") && !path.endsWith(".txt") && !path.endsWith(".json") && !/\/(?:404|(?:en\/)?(?:search))(?:\.html|\/)?$/.test(path);
       },
       i18n: {
         defaultLocale: "zh-Hans",

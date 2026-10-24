@@ -1,0 +1,27 @@
+---
+import type { Locale } from '../data/types';
+interface Props { locale: Locale }
+const {locale}=Astro.props;
+const t=(zh:string,en:string)=>locale==='en'?en:zh;
+const fonts=[
+ {title:t('品牌拉丁字形','Brand Latin letterforms'),sample:'Next Token · 0123456789',family:'var(--display)',weight:900,stack:'League Spartan Black',usage:t('用于字标、品牌展示标题及指定数字。仅加载本地 900 字重；不用于长篇正文。标准 Logo 使用轮廓文件。','For the wordmark, brand display titles and selected numerals. Only the local 900 weight is loaded; it is not used for long-form reading. The official logo uses outlined artwork.'),fallback:t('League Spartan 不提供中文字形。混排中的中文使用下方的系统中文字体序列。','League Spartan has no Chinese glyphs. Chinese text in mixed display typography uses the Chinese fallback stack below.')},
+ {title:t('中文正文与界面','Chinese body and interface'),sample:'词元之外，正在发生的世界。',family:'var(--sans)',weight:400,stack:'PingFang SC → Hiragino Sans GB → Microsoft YaHei → Noto Sans CJK SC → Noto Sans SC → sans-serif',usage:t('用于中文标题、正文、按钮与元信息。macOS / iOS 通常使用苹方，Windows 通常使用微软雅黑；其他系统按已安装字体依次回退。','For Chinese headings, body copy, buttons and metadata. macOS / iOS typically use PingFang SC; Windows typically uses Microsoft YaHei. Other systems follow the installed fallback sequence.'),fallback:t('采用设备已有字体，不额外下载中文字体。正文 400，强调 600，标题 700；品牌展示可请求 900，实际粗细取决于系统字体可用字重。','Uses installed fonts without a separate Chinese font download. Body 400, emphasis 600, headings 700; brand display may request 900, with rendering depending on available system weights.')},
+ {title:t('英文正文与界面','English body and interface'),sample:'Ideas, grounded in experience. 0123456789',family:'var(--sans)',weight:400,stack:'-apple-system → BlinkMacSystemFont → Segoe UI → sans-serif',usage:t('用于英文正文、导航、按钮和中英混排中的拉丁字母。Apple 系统使用系统无衬线字体，Windows 优先 Segoe UI，其他平台使用系统 sans-serif。','For English body copy, navigation, controls and Latin text in mixed content. Apple uses its system sans-serif; Windows prioritizes Segoe UI; other platforms use the system sans-serif.'),fallback:t('中文与英文共享 --sans 字体栈，由字符覆盖范围选择字体。正文 400，强调 600，标题 700；条目标题使用 650，按字体可用字重匹配。','Chinese and English share --sans; glyph coverage determines font selection. Body 400, emphasis 600, headings 700; entry titles request 650, matched to the weights available.')},
+ {title:t('代码与技术标注','Code and technical labels'),sample:'--type-body: 1.0625rem;',family:'var(--mono)',weight:400,stack:'ui-monospace → SFMono-Regular → Consolas → monospace',usage:t('用于代码、token 名称和技术参数，不用于正文段落。表格数字通过等宽数字特性对齐，不必全部换用等宽字体。','For code, token names and technical values, not prose. Tables align numbers with tabular figures without replacing all text with a monospace font.'),fallback:t('字号遵循元信息层级；完整字体栈保留系统回退。','Use metadata sizing and preserve the system fallback stack.')},
+];
+---
+<div class="ds-fonts">{fonts.map(font=><article>
+ <h3>{font.title}</h3><p class="ds-font-sample" style={{fontFamily:font.family,fontWeight:font.weight}}>{font.sample}</p><code>{font.stack}</code><p>{font.usage}</p><p>{font.fallback}</p>
+</article>)}</div>
+<p class="ds-font-note">{t('中文与英文采用相同的字号层级，中文正文行高为 1.8–1.85，标题为 1.25；品牌展示行高为 1.15。正文不额外增加字距；短英文大写标签可使用正字距。英文单词自然换行，中文按字形断行。','Chinese and English share the same size scale. Body leading is 1.8–1.85, headings 1.25 and brand display 1.15. Body copy has no extra tracking; short uppercase labels may use positive tracking. English wraps at word boundaries and Chinese at character boundaries.')}</p>
+<style>
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+ .ds-fonts { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,20rem),1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+ .ds-fonts article { min-width: 0; padding-top: 1rem; border-top: var(--stroke-thin) solid var(--line); }
+ .ds-fonts h3 { font-family: var(--sans); font-size: var(--type-label); margin: 0 0 1rem; }
+ .ds-fonts p, .ds-font-note { font-size: var(--type-ui); color: var(--muted); line-height: 1.75; }
+ .ds-fonts .ds-font-sample { font-size: 1.375rem; color: var(--ink); }
+ .ds-fonts code { display: block; margin-bottom: 1rem; font-size: var(--type-caption); overflow-wrap: anywhere; }
+}
+</style>

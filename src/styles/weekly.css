@@ -1,13 +1,15 @@
 @layer reset, tokens, base, layouts, components, utilities, overrides;
 @layer components {
 .weekly-show-hero {
-  border-bottom: 1px solid var(--ink);
+  border-bottom: 1px solid var(--line);
 }
 
 .weekly-show-hero-inner {
   display: grid;
-  min-height: min(680px, calc(100svh - 76px));
-  grid-template-columns: minmax(0, 1.12fr) minmax(27rem, 0.88fr);
+  min-height: 0;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+  gap: 3rem;
+  padding-block: 2.5rem;
 }
 
 .weekly-show-hero-copy {
@@ -15,16 +17,16 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-block: clamp(3rem, 4vw, 4rem);
+  padding-block: 1rem;
+  min-height: 0;
 }
 
 .weekly-show-hero-copy .section-kicker {
-  margin-bottom: clamp(1.5rem, 2.5vw, 2.5rem);
+  margin-bottom: clamp(1.5rem, 3vw, 3rem);
 }
 
 .weekly-show-hero-copy h1 {
-  margin-bottom: clamp(1.75rem, 2.5vw, 2.5rem);
-  font-size: min(clamp(4.25rem, 5.8vw, 6rem), 13cqi);
+  margin-bottom: 1.5rem;
 }
 
 .weekly-show-hero-copy h1 > span {
@@ -34,7 +36,7 @@
 .weekly-show-hero-copy > p:not(.section-kicker) {
   max-width: 48rem;
   margin: 0;
-  font-size: clamp(1.08rem, 1.6vw, 1.4rem);
+  font-size: var(--type-body);
   line-height: 1.7;
 }
 
@@ -49,27 +51,29 @@
   min-width: 0;
   flex-direction: column;
   justify-content: space-between;
-  padding: clamp(2rem, 3vw, 3.25rem);
-  border-left: 1px solid var(--ink);
+  padding: 2rem;
+  border-left: 0;
   color: var(--white);
   background: var(--ink);
   text-transform: uppercase;
+  min-height: 22rem;
+  gap: 2rem;
 }
 
 .weekly-show-poster > span {
   font-family: var(--display);
-  font-size: clamp(1.6rem, 2.8vw, 3rem);
+  font-size: var(--type-entry);
   letter-spacing: var(--display-tracking);
 }
 
 .weekly-show-poster > strong {
-  color: var(--signal);
+  color: var(--signal-text);
   font-family: var(--display);
-  font-size: clamp(6.25rem, 15svh, 8rem);
-  line-height: 0.75;
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 1;
   letter-spacing: var(--display-tracking);
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
+  writing-mode: horizontal-tb;
+  transform: none;
 }
 
 .weekly-show-poster > div {
@@ -77,8 +81,8 @@
   justify-content: space-between;
   gap: 2rem;
   padding-top: 1.2rem;
-  border-top: 1px solid rgba(255, 253, 246, 0.4);
-  font-size: 0.72rem;
+  border-top: 1px solid var(--inverse-line-strong);
+  font-size: var(--type-caption);
   font-weight: 850;
   letter-spacing: 0.1em;
 }
@@ -86,16 +90,16 @@
 .weekly-show-overview {
   display: grid;
   grid-template-columns: minmax(10rem, 0.42fr) minmax(0, 1.58fr);
-  gap: clamp(3rem, 8vw, 10rem);
-  padding-top: clamp(6rem, 10vw, 10rem);
-  padding-bottom: clamp(6rem, 10vw, 10rem);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding-top: var(--section-space);
+  padding-bottom: var(--section-space);
 }
 
 .weekly-show-overview h2,
 .weekly-show-section-heading h2 {
-  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
-  font-family: var(--display);
-  font-size: var(--weekly-display-heading-size);
+  margin-bottom: 1.5rem;
+  font-family: var(--sans);
+  font-size: var(--heading-section-display-size);
 }
 
 .weekly-show-prose {
@@ -104,7 +108,7 @@
 
 .weekly-show-prose p {
   color: var(--muted);
-  font-size: clamp(1.05rem, 1.55vw, 1.35rem);
+  font-size: var(--type-body);
   line-height: 1.8;
 }
 
@@ -113,45 +117,45 @@
 }
 
 .weekly-show-format {
-  padding-top: clamp(4rem, 7vw, 7rem);
-  padding-bottom: clamp(4rem, 7vw, 7rem);
+  padding-top: clamp(1.5rem, 3vw, 3rem);
+  padding-bottom: clamp(1.5rem, 3vw, 3rem);
   color: var(--white);
   background: var(--ink);
 }
 
 .weekly-show-format .section-index {
-  color: rgba(255, 253, 246, 0.65);
+  color: var(--inverse-muted);
 }
 
 .weekly-show-facts {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin-top: clamp(2.5rem, 5vw, 4.5rem);
-  border-top: 1px solid rgba(255, 253, 246, 0.4);
-  border-left: 1px solid rgba(255, 253, 246, 0.4);
+  margin-top: 2rem;
+  border-top: 1px solid var(--inverse-line-strong);
+  border-left: 1px solid var(--inverse-line-strong);
 }
 
 .weekly-show-facts article {
   container-type: inline-size;
   display: flex;
-  min-height: 250px;
+  min-height: 10rem;
   flex-direction: column;
-  padding: clamp(1.4rem, 3vw, 2.5rem);
-  border-right: 1px solid rgba(255, 253, 246, 0.4);
-  border-bottom: 1px solid rgba(255, 253, 246, 0.4);
+  padding: 1.5rem;
+  border-right: 1px solid var(--inverse-line-strong);
+  border-bottom: 1px solid var(--inverse-line-strong);
 }
 
 .weekly-show-facts article > span {
   margin-bottom: auto;
-  color: rgba(255, 253, 246, 0.55);
-  font-size: 0.72rem;
+  color: var(--inverse-muted);
+  font-size: var(--type-caption);
   font-weight: 850;
   letter-spacing: 0.1em;
 }
 
 .weekly-show-facts strong {
   --fact-font-size: min(clamp(2rem, 3.8vw, 4.25rem), 18cqi);
-  color: var(--signal);
+  color: var(--signal-text);
   font-family: var(--sans);
   font-size: var(--fact-font-size);
   font-weight: 900;
@@ -170,22 +174,22 @@ html[lang="en"] .weekly-show-facts strong {
 
 .weekly-show-facts p {
   margin: 0.75rem 0 0;
-  color: rgba(255, 253, 246, 0.68);
-  font-size: 0.78rem;
+  color: var(--inverse-muted);
+  font-size: var(--type-meta);
 }
 
 .weekly-show-hosts,
 .weekly-show-follow {
-  padding-top: clamp(6rem, 10vw, 10rem);
-  padding-bottom: clamp(6rem, 10vw, 10rem);
+  padding-top: var(--section-space);
+  padding-bottom: var(--section-space);
 }
 
 .weekly-show-section-heading {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(18rem, 0.6fr);
-  gap: clamp(3rem, 8vw, 10rem);
+  gap: 2rem;
   align-items: end;
-  margin-bottom: clamp(3.5rem, 7vw, 7rem);
+  margin-bottom: 2rem;
 }
 
 .weekly-show-section-heading h2 {
@@ -208,7 +212,7 @@ html[lang="en"] .weekly-show-facts strong {
 .weekly-show-host-grid article {
   min-width: 0;
   border-right: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
+  border-bottom: 1px solid var(--line);
 }
 
 .weekly-show-host-grid .host-photo {
@@ -223,48 +227,48 @@ html[lang="en"] .weekly-show-facts strong {
 }
 
 .weekly-show-host-copy {
-  min-height: 240px;
-  padding: clamp(1rem, 2vw, 1.75rem);
+  min-height: 0;
+  padding: clamp(1.5rem, 3vw, 3rem);
   border-top: 1px solid var(--ink);
 }
 
 .weekly-show-host-grid span {
   display: block;
-  margin-bottom: clamp(2.25rem, 4vw, 4rem);
-  color: var(--signal);
+  margin-bottom: 1rem;
+  color: var(--signal-text);
   font-family: var(--display);
 }
 
 .weekly-show-host-grid h3 {
   margin-bottom: 0.6rem;
-  font-family: var(--display);
-  font-size: clamp(1.65rem, 2.6vw, 2.75rem);
+  font-family: var(--sans);
+  font-size: 1.375rem;
   line-height: 1.05;
 }
 
 .weekly-show-host-grid p {
   margin: 0;
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: var(--type-meta);
 }
 
 .weekly-show-episodes {
-  padding-top: clamp(6rem, 10vw, 10rem);
-  padding-bottom: clamp(6rem, 10vw, 10rem);
+  padding-top: var(--section-space);
+  padding-bottom: var(--section-space);
 }
 
 .weekly-show-section-heading-inverse > p {
-  color: rgba(255, 253, 246, 0.68);
+  color: var(--inverse-muted);
 }
 
 .weekly-show-upcoming {
   display: grid;
   grid-template-columns: 0.55fr 0.35fr 1.2fr 1fr auto;
-  gap: clamp(1rem, 2.5vw, 2.5rem);
+  gap: clamp(1.5rem, 3vw, 3rem);
   align-items: center;
   margin-top: 1.5rem;
-  padding: clamp(1.4rem, 2.5vw, 2.25rem);
-  border: 1px solid rgba(255, 253, 246, 0.4);
+  padding: clamp(1.5rem, 3vw, 3rem);
+  border: 1px solid var(--inverse-line-strong);
   transition:
     color 180ms ease,
     background 180ms ease;
@@ -277,14 +281,14 @@ html[lang="en"] .weekly-show-facts strong {
 }
 
 .weekly-show-upcoming > span {
-  font-size: 0.7rem;
+  font-size: var(--type-caption);
   font-weight: 850;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .weekly-show-upcoming strong {
-  color: var(--signal);
+  color: var(--signal-text);
   font-family: var(--display);
   font-size: clamp(2rem, 3vw, 3.25rem);
 }
@@ -296,13 +300,13 @@ html[lang="en"] .weekly-show-facts strong {
 
 .weekly-show-upcoming p {
   margin: 0;
-  font-size: 0.84rem;
+  font-size: var(--type-ui);
 }
 
 .weekly-show-follow {
   display: grid;
   grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
-  gap: clamp(3rem, 8vw, 9rem);
+  gap: clamp(1.5rem, 4vw, 3rem);
 }
 
 .weekly-show-follow h2 {

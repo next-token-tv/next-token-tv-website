@@ -12,8 +12,8 @@ const { locale } = Astro.props;
 <style>
 @layer reset, tokens, base, layouts, components, utilities, overrides;
 @layer components {
-  .blog-editorial { padding-block: 2rem; border-top: .0625rem solid var(--line); scroll-margin-top: 7rem; }
-  .blog-editorial h2 { font-size: 1.25rem; margin-block: 0 1rem; }
+  .blog-editorial { padding-block: 2rem; border-top: var(--stroke-thin) solid var(--line); scroll-margin-top: 7rem; }
+  .blog-editorial h2 { font-size: var(--type-entry); margin-block: 0 1rem; }
   .blog-editorial p { max-width: 46rem; color: var(--muted); line-height: 1.8; }
 }
 </style>

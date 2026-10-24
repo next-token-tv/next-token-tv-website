@@ -42,21 +42,14 @@ downloads:
     use:
       zh-Hans: 小尺寸图片
       en: Small image
+# Color names and values resolve from the shared website palette.
 colors:
-  - name:
-      zh-Hans: 纸色 · 主背景
-      en: Paper · background
-    hex: "#F1EEE5"
-    foreground: "#111111"
-  - name:
-      zh-Hans: 墨色 · 主前景
-      en: Ink · foreground
-    hex: "#111111"
-    foreground: "#F1EEE5"
-  - name:
-      zh-Hans: 橙色 · 强调色
-      en: Orange · accent
-    hex: "#FF4B18"
-    foreground: "#111111"
+  - --paper
+  - --ink
+  - --signal
+  - --sky
+  - --white
+  - --surface
+  - --muted
 typeface: League Spartan
 weight: Black / 900

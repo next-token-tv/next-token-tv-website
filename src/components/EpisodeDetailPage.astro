@@ -94,7 +94,7 @@ const labels = locale === "en" ? {
         data-pan-if-cropped={episode.data.imageKind === "photo" || undefined}
         src={episode.data.images["960"]}
         srcset={episodeImageSrcset(episode.data.images)}
-        sizes="(max-width: 31.25rem) calc(100vw - 2.5rem), (max-width: 62.5rem) 92vw, (min-width: 100rem) 48.3rem, 48.3vw"
+        sizes="(max-width: 31.25rem) calc(100vw - 2.5rem), (max-width: 62.5rem) 92vw, (min-width: 100rem) 35.1rem, (min-width: 88rem) calc(38.7rem - 3.6vw), calc(41.4vw - .9rem)"
         width={episode.data.imageDimensions.width}
         height={episode.data.imageDimensions.height}
         decoding="async"
@@ -108,7 +108,7 @@ const labels = locale === "en" ? {
       <strong class="episode-hero-number">#{episode.data.number}</strong>
       <div>
         <p class="eyebrow">{homepage.eyebrow}</p>
-        <h1 class="episode-hero-title">{homepage.heading[0]}<br />{homepage.heading[1]}</h1>
+        <h1 class="episode-hero-title type-title">{homepage.heading[0]}<br />{homepage.heading[1]}</h1>
         <p>{homepage.lede}</p>
         {episode.data.media.audio && !episode.data.media.video && <p>{locale === "en" ? "Audio out now · Video not yet available" : "音频已上线 · 视频版尚未上线"}</p>}
         {announcement && <p>{announcement.label} · {announcement.note}</p>}

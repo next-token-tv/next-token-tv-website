@@ -24,7 +24,7 @@ const endpoints = [
     <header class="api-hero">
       <div>
         <p class="section-kicker">NEXT TOKEN / DATA API</p>
-        <h1>获取资料库<br /><span>结构化数据。</span></h1>
+        <h1 class="type-title">获取资料库<br /><span>结构化数据。</span></h1>
       </div>
       <div class="api-intro">
         <p>公开、只读、无须鉴权。获取品牌、产品、人物、术语及其关联信息，支持列表查询与单条详情。</p>
@@ -90,26 +90,26 @@ const endpoints = [
 @layer reset, tokens, base, layouts, components, utilities, overrides;
 @layer components {
 .api-docs { padding-bottom: 7rem; }
-  .api-hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr); gap: 4rem; align-items: start; padding-block: 3rem 4rem; border-bottom: 0.0625rem solid var(--ink); }
-  .api-hero h1 { margin: 1rem 0 0; font-family: var(--display); font-size: 4.25rem; line-height: 1.05; }
-  .api-hero h1 span { color: var(--signal); }
+  .api-hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr); gap: 4rem; align-items: start; padding-block: 3rem 4rem; border-bottom: var(--stroke-thin) solid var(--ink); }
+  .api-hero h1 { margin: 1rem 0 0; }
+  .api-hero h1 span { color: var(--signal-text); }
   .api-intro { max-width: 31rem; }
   .api-intro p { margin: 0 0 1.5rem; color: var(--muted); line-height: 1.8; }
-  .api-section { padding-block: 4rem; border-bottom: 0.0625rem solid var(--ink); }
+  .api-section { padding-block: 4rem; border-bottom: var(--stroke-thin) solid var(--ink); }
   .api-section-heading { display: grid; grid-template-columns: minmax(11rem, 0.45fr) minmax(0, 1.55fr); gap: 3rem; margin-bottom: 2rem; }
   .api-section-heading h2 { margin: 0; }
-  .api-collections { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 0.0625rem solid var(--ink); border-left: 0.0625rem solid var(--ink); }
-  .api-collections a { position: relative; display: flex; min-width: 0; min-height: 14rem; flex-direction: column; gap: 1.25rem; padding: 1.5rem; border-right: 0.0625rem solid var(--ink); border-bottom: 0.0625rem solid var(--ink); }
-  .api-collections a > span:first-child { color: var(--signal); font-size: 0.75rem; font-weight: 800; }
-  .api-collections a > span:last-child { position: absolute; top: 1.5rem; right: 1.5rem; color: var(--signal); }
+  .api-collections { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: var(--stroke-thin) solid var(--ink); border-left: var(--stroke-thin) solid var(--ink); }
+  .api-collections a { position: relative; display: flex; min-width: 0; min-height: 14rem; flex-direction: column; gap: 1.25rem; padding: 1.5rem; border-right: var(--stroke-thin) solid var(--ink); border-bottom: var(--stroke-thin) solid var(--ink); }
+  .api-collections a > span:first-child { color: var(--signal-text); font-size: var(--type-caption); font-weight: 800; }
+  .api-collections a > span:last-child { position: absolute; top: 1.5rem; right: 1.5rem; color: var(--signal-text); }
   .api-collections strong { margin-top: auto; font-family: var(--display); font-size: 2rem; }
-  code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
-  .api-collections code { overflow-wrap: anywhere; color: var(--muted); font-size: 0.78rem; }
-  .api-contract-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 0.0625rem solid var(--ink); border-left: 0.0625rem solid var(--ink); }
-  .api-contract-grid > div { min-width: 0; padding: 2rem; border-right: 0.0625rem solid var(--ink); border-bottom: 0.0625rem solid var(--ink); }
-  .api-contract-grid h3 { margin: 0 0 1.25rem; font-size: 1rem; }
+  code { font-family: var(--mono); }
+  .api-collections code { overflow-wrap: anywhere; color: var(--muted); font-size: var(--type-meta); }
+  .api-contract-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: var(--stroke-thin) solid var(--ink); border-left: var(--stroke-thin) solid var(--ink); }
+  .api-contract-grid > div { min-width: 0; padding: 2rem; border-right: var(--stroke-thin) solid var(--ink); border-bottom: var(--stroke-thin) solid var(--ink); }
+  .api-contract-grid h3 { margin: 0 0 1.25rem; font-size: var(--type-base); }
   .api-contract-grid p { max-width: 40rem; margin: 0; color: var(--muted); line-height: 1.8; }
-  .api-contract-grid > div > code { display: block; overflow-x: auto; white-space: pre; font-size: 0.8rem; line-height: 1.7; }
+  .api-contract-grid > div > code { display: block; overflow-x: auto; white-space: pre; font-size: var(--type-meta); line-height: 1.7; }
   @media (max-width: 60rem) {
     .api-hero { grid-template-columns: 1fr; min-height: 0; gap: 2.5rem; }
     .api-section-heading { grid-template-columns: 1fr; gap: 1.5rem; }
@@ -117,7 +117,6 @@ const endpoints = [
   @media (max-width: 40rem) {
     .api-docs { padding-bottom: 4rem; }
     .api-hero { padding-block: 3rem; }
-    .api-hero h1 { font-size: 2.75rem; }
     .api-section { padding-block: 3rem; }
     .api-collections, .api-contract-grid { grid-template-columns: 1fr; }
     .api-collections a { min-height: 10rem; }

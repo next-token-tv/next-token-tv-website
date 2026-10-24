@@ -1,5 +1,16 @@
+export const platformAssets = {
+  wechat: { file: 'wechat-official.svg', kind: 'official', source: 'https://mp.weixin.qq.com/cgi-bin/registermidpage?action=index&lang=zh_CN', size: 1.75 },
+  'wechat-channels': { file: 'wechat-channels.svg', kind: 'official-adapted', source: 'https://channels.weixin.qq.com/', size: 2 },
+  xiaoyuzhou: { file: 'xiaoyuzhou.svg', kind: 'official-adapted', source: 'https://www.xiaoyuzhoufm.com/safari-pinned-tab.svg', size: 1.75 },
+  bilibili: { file: 'bilibili.svg', kind: 'official-adapted', source: 'https://app.bilibili.com/', size: 1.75 },
+  xiaohongshu: { file: 'xiaohongshu.png', kind: 'official', source: 'https://www.xiaohongshu.com/explore', size: 2 },
+  youtube: { file: 'youtube.svg', kind: 'official', source: 'https://developers.google.com/youtube/terms/branding-guidelines', size: 1.75 },
+  spotify: { file: 'spotify.svg', kind: 'official', source: 'https://developer.spotify.com/documentation/design', size: 1.5 },
+  'apple-podcasts': { file: 'apple-podcasts.png', kind: 'official', source: 'https://marketing.services.apple/apple-podcasts-identity-guidelines', size: 1.5 },
+};
+export const platformIcon = id => platformAssets[id] ? `/assets/platforms/${platformAssets[id].file}` : undefined;
 const define = (zh, en, icon, hosts, media) => ({
-  label: { 'zh-Hans': zh, en }, icon: `/assets/platforms/${icon}.svg`, hosts, media,
+  label: { 'zh-Hans': zh, en }, icon: platformIcon(icon), hosts, media,
 });
 
 export const platforms = {

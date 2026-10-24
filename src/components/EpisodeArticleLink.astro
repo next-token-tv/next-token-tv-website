@@ -15,7 +15,7 @@ const label = locale === "en" ? "Read the article" : "阅读精读文章";
 <style>
 @layer reset, tokens, base, layouts, components, utilities, overrides;
 @layer components {
-.episode-article-link { display: inline-flex; align-items: center; gap: .75rem; margin-block: 1rem; font-size: .9rem; font-weight: 700; text-decoration: underline; text-underline-offset: .3em; }
-  .episode-article-link:hover { color: var(--signal); }
+.episode-article-link { display: inline-flex; align-items: center; gap: .75rem; margin-block: 1rem; font-size: var(--type-ui); font-weight: 700; text-decoration: underline; text-underline-offset: calc(.3em + var(--link-underline-gap)); }
+  .episode-article-link:hover { color: var(--signal-text); }
 }
 </style>

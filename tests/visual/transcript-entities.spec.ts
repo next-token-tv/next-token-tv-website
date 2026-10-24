@@ -93,7 +93,7 @@ test('repeated keywords use pale type-colored backgrounds with visible focus', a
     }));
     expect(style.background).toContain('0.08');
     expect(style.image).toBe('none');
-    expect(style.radius).toBeCloseTo(0.25, 3);
+    expect(style.radius).toBeCloseTo(0.125, 3);
     colors.push(style.background);
   }
   expect(new Set(colors).size).toBe(3);
@@ -103,15 +103,15 @@ test('repeated keywords use pale type-colored backgrounds with visible focus', a
   await expect(toggle).toHaveAttribute('aria-checked', 'false');
   await toggle.click();
   await expect(toggle).toHaveAttribute('aria-checked', 'true');
-  await expect(link).toHaveCSS('background-color', 'rgba(55, 130, 175, 0.22)');
+  await expect(link).toHaveCSS('background-color', 'color(srgb 0.215686 0.509804 0.686275 / 0.22)');
   expect(await paragraph.evaluate(el => el.getBoundingClientRect().height)).toBe(height);
   await toggle.press('Space');
   await expect(toggle).toHaveAttribute('aria-checked', 'false');
-  await expect(link).toHaveCSS('background-color', 'rgba(55, 130, 175, 0.08)');
+  await expect(link).toHaveCSS('background-color', 'color(srgb 0.215686 0.509804 0.686275 / 0.08)');
   await link.hover();
   await expect(link).toHaveCSS('text-decoration-line', 'none');
   await expect(link).toHaveCSS('cursor', 'pointer');
-  await expect(link).toHaveCSS('background-color', 'rgba(55, 130, 175, 0.08)');
+  await expect(link).toHaveCSS('background-color', 'color(srgb 0.215686 0.509804 0.686275 / 0.08)');
   await link.focus();
   await expect(link).toHaveCSS('text-decoration-line', 'underline');
   for (const width of [390, 1440]) {

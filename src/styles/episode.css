@@ -1,22 +1,25 @@
 @layer reset, tokens, base, layouts, components, utilities, overrides;
 @layer components {
 .episode-detail-hero {
-  border-bottom: 1px solid var(--ink);
+  border-bottom: 1px solid var(--line);
   color: var(--white);
   background: var(--ink);
 }
 
 .episode-detail-hero-inner {
   display: grid;
-  min-height: min(50rem, calc(100svh - 4.75rem));
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  min-height: 0;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 2rem;
+  padding-block: 2rem;
 }
 
 .episode-detail-image {
   position: relative;
   min-width: 0;
   overflow: hidden;
-  border-right: 1px solid rgba(255, 253, 246, 0.38);
+  border-right: 0;
 }
 
 .episode-detail-image img {
@@ -32,7 +35,7 @@
   padding: 0.55rem 0.8rem;
   color: var(--ink);
   background: var(--signal);
-  font-size: 0.72rem;
+  font-size: var(--type-caption);
   font-weight: 900;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -42,37 +45,30 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: clamp(2rem, 4vw, 4.5rem);
+  padding: 1rem 0;
+  min-height: 0;
+  gap: 1.5rem;
+  --episode-number-size: 1.5rem;
 }
 
 .episode-detail-hero-copy > a {
   width: fit-content;
-  color: rgba(255, 253, 246, 0.72);
-  font-size: 0.78rem;
+  color: var(--inverse-muted);
+  font-size: var(--type-meta);
   font-weight: 800;
 }
 
 .episode-detail-hero-copy > a:hover,
 .episode-detail-hero-copy > a:focus-visible {
-  color: var(--signal);
+  color: var(--signal-text);
 }
 
-.episode-detail-hero-copy {
-  --episode-title-size: 2.65rem;
-  --episode-number-size: 2.5rem;
-}
 
-@media (min-width: 48rem) {
-  .episode-detail-hero-copy { --episode-title-size: 3.25rem; --episode-number-size: 3rem; }
-}
 
-@media (min-width: 80rem) {
-  .episode-detail-hero-copy { --episode-title-size: 3.75rem; --episode-number-size: 3.5rem; }
-}
 
 .episode-hero-number {
-  align-self: flex-end;
-  color: var(--signal);
+  align-self: flex-start;
+  color: var(--signal-text);
   font-family: var(--display);
   font-size: var(--episode-number-size);
   line-height: 1;
@@ -80,24 +76,23 @@
 }
 
 .episode-hero-title {
-  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
-  font-size: var(--episode-title-size);
+  margin-bottom: 1.25rem;
 }
 
 .episode-detail-hero-copy > div > p:not(.eyebrow) {
   max-width: 44rem;
-  color: rgba(255, 253, 246, 0.68);
-  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  color: var(--inverse-muted);
+  font-size: var(--type-base);
   line-height: 1.65;
 }
 
 .episode-detail-content {
   display: grid;
   grid-template-columns: minmax(15rem, 0.5fr) minmax(0, 1.5fr);
-  gap: clamp(3rem, 8vw, 10rem);
-  padding-top: clamp(6rem, 10vw, 10rem);
-  padding-bottom: clamp(6rem, 10vw, 10rem);
-  border-bottom: 1px solid var(--ink);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding-top: var(--section-space);
+  padding-bottom: var(--section-space);
+  border-bottom: 1px solid var(--line);
 }
 
 .episode-detail-meta {
@@ -111,13 +106,13 @@
 
 .episode-detail-meta dl > div {
   padding: 1.25rem 0;
-  border-bottom: 1px solid var(--ink);
+  border-bottom: 1px solid var(--line);
 }
 
 .episode-detail-meta dt {
   margin-bottom: 0.65rem;
   color: var(--muted);
-  font-size: 0.68rem;
+  font-size: var(--type-caption);
   font-weight: 850;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -134,18 +129,18 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 1.25rem 0;
-  border-bottom: 1px solid var(--ink);
-  font-size: 0.76rem;
+  border-bottom: 1px solid var(--line);
+  font-size: var(--type-caption);
   font-weight: 850;
 }
 
 .episode-detail-meta > a:hover,
 .episode-detail-meta > a:focus-visible {
-  color: var(--signal);
+  color: var(--signal-text);
 }
 
 .episode-show-notes {
-  max-width: 920px;
+  max-width: var(--reading-width);
 }
 
 .episode-show-notes img {
@@ -155,26 +150,26 @@
 }
 
 .episode-show-notes > .section-kicker {
-  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+  margin-bottom: 1.5rem;
 }
 
 .episode-show-notes > p:not(.section-kicker),
 .episode-show-notes > section[aria-labelledby="episode-community-title"] > p {
   color: var(--muted);
-  font-size: clamp(1.05rem, 1.45vw, 1.3rem);
+  font-size: var(--type-body);
   line-height: 1.8;
 }
 
 .episode-show-notes h2 {
-  margin: clamp(4rem, 7vw, 7rem) 0 1.5rem;
-  font-family: var(--display);
-  font-size: clamp(2.75rem, 5vw, 5.5rem);
+  margin: 2.5rem 0 1rem;
+  font-family: var(--sans);
+  font-size: var(--heading-section-content-size);
 }
 
 .episode-show-notes h3 {
-  margin: 3rem 0 1rem;
-  font-family: var(--display);
-  font-size: clamp(1.7rem, 2.8vw, 3rem);
+  margin: 1.75rem 0 1rem;
+  font-family: var(--sans);
+  font-size: var(--type-entry);
 }
 
 .episode-show-notes ul {
@@ -192,28 +187,28 @@
 
 .episode-show-notes a {
   text-decoration: underline;
-  text-decoration-color: var(--signal);
+  text-decoration-color: var(--signal-text);
   text-decoration-thickness: 2px;
-  text-underline-offset: 0.2em;
+  text-underline-offset: calc(0.2em + var(--link-underline-gap));
 }
 
 .episode-show-notes a:hover,
 .episode-show-notes a:focus-visible {
-  color: var(--signal);
+  color: var(--signal-text);
 }
 
 .episode-detail-participants {
-  padding-top: clamp(6rem, 10vw, 10rem);
-  padding-bottom: clamp(6rem, 10vw, 10rem);
-  border-bottom: 1px solid var(--ink);
+  padding-top: var(--section-space);
+  padding-bottom: var(--section-space);
+  border-bottom: 1px solid var(--line);
 }
 
 .episode-detail-heading {
   display: grid;
   grid-template-columns: minmax(10rem, 0.42fr) minmax(0, 1.58fr);
-  gap: clamp(3rem, 8vw, 10rem);
+  gap: clamp(1.5rem, 4vw, 3rem);
   align-items: end;
-  margin-bottom: clamp(3rem, 6vw, 6rem);
+  margin-bottom: clamp(1.5rem, 3vw, 3rem);
 }
 
 .episode-detail-heading h2,
@@ -231,7 +226,7 @@
 .episode-detail-participant-grid article {
   min-width: 0;
   border-right: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
+  border-bottom: 1px solid var(--line);
 }
 
 .episode-detail-participant-grid .host-photo img {
@@ -240,38 +235,38 @@
 }
 
 .episode-detail-participant-grid article > div:last-child {
-  min-height: 190px;
-  padding: clamp(1rem, 2vw, 1.75rem);
+  min-height: 0;
+  padding: 1rem;
   border-top: 1px solid var(--ink);
 }
 
 .episode-detail-participant-grid article > div:last-child > span {
   display: block;
-  margin-bottom: clamp(2rem, 4vw, 3.5rem);
-  color: var(--signal);
-  font-size: 0.72rem;
+  margin-bottom: 1rem;
+  color: var(--signal-text);
+  font-size: var(--type-caption);
   font-weight: 850;
 }
 
 .episode-detail-participant-grid h3 {
   margin-bottom: 0.5rem;
-  font-family: var(--display);
-  font-size: clamp(1.65rem, 2.6vw, 2.75rem);
+  font-family: var(--sans);
+  font-size: 1.375rem;
   line-height: 1.05;
 }
 
 .episode-detail-participant-grid p {
   margin: 0;
   color: var(--muted);
-  font-size: 0.8rem;
+  font-size: var(--type-meta);
 }
 
 .episode-detail-platforms {
   display: grid;
   grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
-  gap: clamp(3rem, 8vw, 9rem);
-  padding-top: clamp(6rem, 10vw, 10rem);
-  padding-bottom: clamp(6rem, 10vw, 10rem);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding-top: var(--section-space);
+  padding-bottom: var(--section-space);
 }
 
 .episode-detail-platforms .section-kicker {
@@ -283,13 +278,15 @@
 }
 
 .episode-preview-hero {
-  border-bottom: 1px solid var(--ink);
+  border-bottom: 1px solid var(--line);
 }
 
 .episode-preview-hero-inner {
   display: grid;
-  min-height: min(760px, calc(100svh - 76px));
+  min-height: 0;
   grid-template-columns: minmax(0, 1.08fr) minmax(28rem, 0.92fr);
+  gap: 2rem;
+  padding-block: 2rem;
 }
 
 .episode-preview-copy {
@@ -297,18 +294,19 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-block: clamp(4rem, 8vw, 8rem);
+  padding-block: 1.5rem;
+  min-height: 0;
 }
 
 .episode-preview-copy h1 {
-  margin-bottom: clamp(2rem, 4vw, 3.5rem);
-  font-size: min(clamp(4.5rem, 7.3vw, 8rem), 15cqi);
+  margin-bottom: clamp(1.5rem, 3vw, 3rem);
+  font-size: var(--type-title);
 }
 
 .episode-preview-copy > p:last-child {
   max-width: 42rem;
   margin: 0;
-  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+  font-size: var(--type-body);
   line-height: 1.65;
 }
 
@@ -332,7 +330,7 @@
 }
 
 .episode-preview-poster > strong {
-  color: var(--signal);
+  color: var(--signal-text);
   font-family: var(--display);
   font-size: min(clamp(8rem, 15vw, 16rem), 36cqi);
   line-height: 0.74;
@@ -344,8 +342,8 @@
   justify-content: space-between;
   gap: 2rem;
   padding-top: 1.2rem;
-  border-top: 1px solid rgba(255, 253, 246, 0.45);
-  font-size: 0.78rem;
+  border-top: 1px solid var(--inverse-line-strong);
+  font-size: var(--type-meta);
   font-weight: 850;
   letter-spacing: 0.1em;
 }
@@ -353,16 +351,16 @@
 .episode-preview-details {
   display: grid;
   grid-template-columns: minmax(10rem, 0.45fr) minmax(0, 1.55fr);
-  gap: clamp(3rem, 8vw, 10rem);
-  padding-top: clamp(5rem, 9vw, 9rem);
-  padding-bottom: clamp(5rem, 9vw, 9rem);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding-top: var(--section-space);
+  padding-bottom: var(--section-space);
 }
 
 .episode-preview-details h2,
 .episode-preview-venue-copy h2 {
-  margin-bottom: clamp(2.5rem, 5vw, 5rem);
+  margin-bottom: clamp(1.5rem, 3vw, 3rem);
   font-family: var(--display);
-  font-size: clamp(3.5rem, 7vw, 7.5rem);
+  font-size: var(--heading-section-content-size);
 }
 
 .episode-preview-facts {
@@ -378,13 +376,13 @@
   min-height: 180px;
   flex-direction: column;
   justify-content: space-between;
-  padding: clamp(1.25rem, 2.5vw, 2.25rem);
+  padding: clamp(1.5rem, 3vw, 3rem);
   border-right: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
+  border-bottom: 1px solid var(--line);
 }
 
 .episode-preview-facts dt {
-  font-size: 0.7rem;
+  font-size: var(--type-caption);
   font-weight: 850;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -399,21 +397,21 @@
 
 .episode-preview-participants {
   padding-top: clamp(1rem, 2vw, 2rem);
-  padding-bottom: clamp(5rem, 9vw, 9rem);
+  padding-bottom: var(--section-space);
 }
 
 .episode-preview-participants-heading {
   display: grid;
   grid-template-columns: minmax(10rem, 0.45fr) minmax(0, 1.55fr);
-  gap: clamp(3rem, 8vw, 10rem);
+  gap: clamp(1.5rem, 4vw, 3rem);
   align-items: end;
-  margin-bottom: clamp(2.5rem, 5vw, 5rem);
+  margin-bottom: clamp(1.5rem, 3vw, 3rem);
 }
 
 .episode-preview-participants-heading h2 {
   margin: 0;
   font-family: var(--display);
-  font-size: clamp(3.5rem, 7vw, 7.5rem);
+  font-size: var(--heading-section-content-size);
 }
 
 .episode-preview-participant-grid {
@@ -426,7 +424,7 @@
 .episode-preview-participant-grid article {
   min-width: 0;
   border-right: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
+  border-bottom: 1px solid var(--line);
 }
 
 .episode-preview-participant-grid img {
@@ -437,14 +435,14 @@
 }
 
 .episode-preview-participant-grid article > div:last-child {
-  padding: clamp(1rem, 2vw, 1.75rem);
+  padding: clamp(1.5rem, 3vw, 3rem);
   border-top: 1px solid var(--ink);
 }
 
 .episode-preview-participant-grid span {
   display: block;
-  margin-bottom: clamp(2.5rem, 5vw, 5rem);
-  font-size: 0.68rem;
+  margin-bottom: clamp(1.5rem, 3vw, 3rem);
+  font-size: var(--type-caption);
   font-weight: 850;
   letter-spacing: 0.1em;
 }
@@ -452,19 +450,19 @@
 .episode-preview-participant-grid h3 {
   margin-bottom: 0.65rem;
   font-family: var(--display);
-  font-size: clamp(1.65rem, 2.6vw, 2.75rem);
+  font-size: 1.375rem;
   line-height: 1.04;
 }
 
 .episode-preview-participant-grid p {
   margin: 0;
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: var(--type-meta);
 }
 
 .episode-preview-venue {
   border-top: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
+  border-bottom: 1px solid var(--line);
 }
 
 .episode-preview-venue-inner {
@@ -474,10 +472,10 @@
 
 .episode-preview-venue-logo {
   display: grid;
-  min-height: 620px;
+  min-height: 16rem;
   place-items: center;
   padding: var(--gutter);
-  border-right: 1px solid rgba(255, 253, 246, 0.4);
+  border-right: 1px solid var(--inverse-line-strong);
   background: var(--white);
 }
 
@@ -490,7 +488,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(4rem, 8vw, 8rem) var(--gutter);
+  padding: var(--section-space);
   color: var(--white);
   background: var(--ink);
 }
@@ -503,7 +501,7 @@
 .episode-preview-venue-copy > p:not(.section-kicker),
 .episode-preview-venue-copy address {
   max-width: 42rem;
-  color: rgba(255, 253, 246, 0.72);
+  color: var(--inverse-muted);
   font-size: clamp(1rem, 1.35vw, 1.2rem);
   line-height: 1.65;
 }
@@ -524,13 +522,13 @@
 .episode-preview-update {
   display: grid;
   grid-template-columns: minmax(10rem, 0.45fr) minmax(0, 1.55fr);
-  gap: clamp(3rem, 8vw, 10rem);
-  padding-top: clamp(3rem, 5vw, 5rem);
-  padding-bottom: clamp(3rem, 5vw, 5rem);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding-top: clamp(1.5rem, 3vw, 3rem);
+  padding-bottom: clamp(1.5rem, 3vw, 3rem);
 }
 
 .episode-preview-update span {
-  font-size: 0.72rem;
+  font-size: var(--type-caption);
   font-weight: 850;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -539,7 +537,7 @@
 .episode-preview-update p {
   max-width: 48rem;
   margin: 0;
-  font-size: clamp(1.15rem, 2vw, 1.65rem);
+  font-size: var(--type-body);
   line-height: 1.5;
 }
 }

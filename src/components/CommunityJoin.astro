@@ -40,13 +40,13 @@ const en = locale === "en";
   .community-card { display: grid; grid-template-columns: clamp(9rem, 40vw, 11rem) minmax(0, 1fr); gap: 1.5rem; align-items: center; }
   .community-image-link { display: block; }
   .community-qr { display: block; width: 100%; height: auto; }
-  .community-label h3 { margin: 0 0 .75rem; font-size: 1.125rem; }
+  .community-label h3 { margin: 0 0 .75rem; font-size: var(--type-label); }
   .community-label h3::before { content: ""; display: block; width: .5rem; height: .5rem; margin-bottom: .75rem; background: var(--signal); }
-  .community-validity { margin: 0; font-size: .8rem; line-height: 1.6; color: var(--muted); }
-  .community-actions { margin-top: .85rem; font-size: .8rem; }
-  .community-actions a { text-decoration: underline; text-underline-offset: .25em; }
-  .community-discord { display: inline-block; margin-top: .75rem; font-size: .8rem; color: var(--muted); }
-  .community-join a:hover { color: var(--signal); }
+  .community-validity { margin: 0; font-size: var(--type-meta); line-height: 1.6; color: var(--muted); }
+  .community-actions { margin-top: .85rem; font-size: var(--type-meta); }
+  .community-actions a { text-decoration: underline; text-underline-offset: calc(.25em + var(--link-underline-gap)); }
+  .community-discord { display: inline-block; margin-top: .75rem; font-size: var(--type-meta); color: var(--muted); }
+  .community-join a:hover { color: var(--signal-text); }
   .community-join [hidden] { display: none; }
 }
 </style>

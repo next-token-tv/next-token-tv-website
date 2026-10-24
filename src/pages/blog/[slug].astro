@@ -60,36 +60,32 @@ const schema = {
 <style>
 @layer reset, tokens, base, layouts, components, utilities, overrides;
 @layer components {
-.article-header { padding-block: 2rem 2.5rem; border-bottom: .0625rem solid var(--line); }
-  .article-context { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; margin-bottom: 2.5rem; font-size: .9rem; }
-  .article-context a:hover { color: var(--signal); }
-  .article-title { margin-block: 1.25rem; --reading-title-size: 2.25rem; text-wrap: balance; }
-  .article-deck { max-width: 48rem; margin-block: 1.5rem; font-size: 1.125rem; line-height: 1.8; color: var(--muted); }
-  .article-meta, .article-actions { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; font-size: .85rem; line-height: 1.6; }
+.article-header { padding-block: 2rem 2.5rem; border-bottom: var(--stroke-thin) solid var(--line); }
+  .article-context { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; margin-bottom: 2.5rem; font-size: var(--type-ui); }
+  .article-context a:hover { color: var(--signal-text); }
+  .article-title { margin-block: 1.25rem;  text-wrap: balance; }
+  .article-deck { max-width: 48rem; margin-block: 1.5rem; font-size: var(--type-label); line-height: 1.8; color: var(--muted); }
+  .article-meta, .article-actions { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; font-size: var(--type-ui); line-height: 1.6; }
   .article-meta { color: var(--muted); }
   .article-actions { margin-top: 1.25rem; font-weight: 700; }
   .article-layout { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 46rem); gap: 4rem; padding-block: 3rem 4rem; }
-  .article-outline { align-self: start; position: sticky; top: 7rem; max-height: calc(100dvh - 8rem); overflow-y: auto; font-size: .85rem; line-height: 1.7; }
+  .article-outline { align-self: start; position: sticky; top: 7rem; max-height: calc(100dvh - 8rem); overflow-y: auto; font-size: var(--type-ui); line-height: 1.7; }
   .article-outline-label { margin: 0 0 1rem; font-weight: 700; }
   .article-outline ol { margin: 0; padding-left: 1.25rem; }
   .article-outline li { padding-block: .4rem; }
   .article-source-note { margin-top: 2rem; color: var(--muted); }
-  .episode-article-prose { min-width: 0; font-size: 1.1rem; line-height: 1.9; overflow-wrap: anywhere; }
+  .episode-article-prose { min-width: 0; font-size: var(--type-body); line-height: 1.85; overflow-wrap: anywhere; }
   .episode-article-prose :global(h2) { margin: 3rem 0 1.25rem; font-size: 1.75rem; scroll-margin-top: 7rem; }
   .episode-article-prose :global(h2:first-child) { margin-top: 0; }
   .episode-article-prose :global(p) { margin: 0 0 1.5rem; }
-  .episode-article-prose :global(a) { color: inherit; text-decoration: underline dashed; text-decoration-color: color-mix(in srgb, var(--ink) 35%, transparent); text-underline-offset: .3em; }
-  .episode-article-prose :global(a:hover), .episode-article-prose :global(a:focus-visible) { background: color-mix(in srgb, var(--signal) 10%, transparent); }
-  .episode-article-prose :global(blockquote) { margin: 2rem 0; padding: .25rem 0 .25rem 1.5rem; border-left: .2rem solid var(--signal); }
+  .episode-article-prose :global(blockquote) { margin: 2rem 0; padding: .25rem 0 .25rem 1.5rem; border-left: var(--stroke-emphasis) solid var(--signal); }
   .episode-article-prose :global(blockquote p) { margin: 0; }
-  .article-footer { display: flex; flex-wrap: wrap; gap: 1.25rem 2rem; padding-block: 2rem; border-top: .0625rem solid var(--line); font-weight: 700; }
-  .article-actions a:hover, .article-outline a:hover, .article-footer a:hover { color: var(--signal); }
-  @media (min-width: 48rem) { .article-title { --reading-title-size: 3rem; } }
+  .article-footer { display: flex; flex-wrap: wrap; gap: 1.25rem 2rem; padding-block: 2rem; border-top: var(--stroke-thin) solid var(--line); font-weight: 700; }
+  .article-actions a:hover, .article-outline a:hover, .article-footer a:hover { color: var(--signal-text); }
   @media (max-width: 47.999rem) {
     .article-layout { grid-template-columns: minmax(0, 1fr); gap: 2rem; padding-top: 2rem; }
-    .article-outline { position: static; max-height: none; padding-bottom: 1.5rem; border-bottom: .0625rem solid var(--line); }
+    .article-outline { position: static; max-height: none; padding-bottom: 1.5rem; border-bottom: var(--stroke-thin) solid var(--line); }
     .article-source-note { margin-top: 1rem; }
-    .episode-article-prose { font-size: 1.05rem; }
     .episode-article-prose :global(h2) { font-size: 1.5rem; }
   }
 }

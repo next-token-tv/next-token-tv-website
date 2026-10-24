@@ -55,10 +55,10 @@ test("platform lists share localized labels, logos and destinations", async ({ p
         await expect(list.locator('a[href*="spotify.com"] .coming')).toContainText(prefix ? "Listen / watch" : "收听 / 收看");
       } else {
         expect(await list.locator('.platform-logo').evaluateAll(images => images.map(image => image.getAttribute('src')))).toEqual([
-          '/assets/platforms/wechat-official.png', '/assets/platforms/wechat-channels.svg',
+          '/assets/platforms/wechat-official.svg', '/assets/platforms/wechat-channels.svg',
           '/assets/platforms/xiaoyuzhou.svg', '/assets/platforms/bilibili.svg',
-          '/assets/platforms/xiaohongshu.svg', '/assets/platforms/youtube.svg',
-          '/assets/platforms/spotify.svg', '/assets/platforms/apple-podcasts.svg',
+          '/assets/platforms/xiaohongshu.png', '/assets/platforms/youtube.svg',
+          '/assets/platforms/spotify.svg', '/assets/platforms/apple-podcasts.png',
         ]);
         await expect(list.locator('a[href*="xiaohongshu.com"]')).toHaveAttribute("href", "https://www.xiaohongshu.com/user/profile/661ba04100000000030307b0");
         if (path === '/weekly') await expect(list.locator('a[href$="/weekly/rss.xml"]')).toHaveCount(1);
@@ -267,7 +267,7 @@ test.describe("entity metadata and links", () => {
     expect(sitemap).toContain("https://nexttoken.tv/weekly/001/transcript");
     expect(sitemap).toContain("https://nexttoken.tv/wiki/brands/zhipu");
     expect(sitemap).toContain("https://nexttoken.tv/en/wiki/products/glm");
-    expect(sitemap).not.toContain("/design-system");
+    expect(sitemap).toContain("/design-system");
   });
 
   test("published episode links to its structured transcript", async ({ page }) => {
@@ -296,10 +296,10 @@ test("shared heading roles keep their documented scales", async ({ page }) => {
     });
 
   const roleSteps = [
-    { width: 390, display: 3.1, content: 2.25, compact: 1.8 },
-    { width: 768, display: 4.25, content: 2.65, compact: 2.15 },
-    { width: 1440, display: 5.25, content: 3, compact: 2.5 },
-    { width: 1920, display: 5.25, content: 3, compact: 2.5 },
+    { width: 390, display: 1.75, content: 1.5, compact: 1.375 },
+    { width: 768, display: 2, content: 1.75, compact: 1.5 },
+    { width: 1440, display: 2, content: 1.75, compact: 1.5 },
+    { width: 1920, display: 2, content: 1.75, compact: 1.5 },
   ];
 
   for (const step of roleSteps) {
@@ -320,8 +320,8 @@ test("shared heading roles keep their documented scales", async ({ page }) => {
   await page.goto("/weekly/001");
   const episodeSizesInRem = await sizesInRem(".heading-section-content");
   expect(new Set(episodeSizesInRem).size).toBe(1);
-  expect(episodeSizesInRem[0]).toBeGreaterThanOrEqual(2.25);
-  expect(episodeSizesInRem[0]).toBeLessThanOrEqual(3.75);
+  expect(episodeSizesInRem[0]).toBeGreaterThanOrEqual(1.5);
+  expect(episodeSizesInRem[0]).toBeLessThanOrEqual(1.75);
   expect(displaySizes[0]!).toBeGreaterThan(episodeSizesInRem[0]!);
 
   await page.goto("/brand-kit");
@@ -331,13 +331,13 @@ test("shared heading roles keep their documented scales", async ({ page }) => {
   expect(episodeSizesInRem[0]!).toBeGreaterThan(compactSizes[0]!);
 
   await page.goto("/design-system");
-  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex");
+  await expect(page.locator('meta[name="robots"][content*="noindex"]')).toHaveCount(0);
   await expect(page.locator(".type-specimens .heading-section-display")).toBeVisible();
   await expect(page.locator(".type-specimens .heading-section-content")).toBeVisible();
   await expect(page.locator(".type-specimens .heading-section-compact")).toBeVisible();
 
   await page.goto("/en/design-system");
-  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex");
+  await expect(page.locator('meta[name="robots"][content*="noindex"]')).toHaveCount(0);
   await expect(page.getByRole("heading", { level: 1, name: "Interface standards" })).toBeVisible();
 });
 

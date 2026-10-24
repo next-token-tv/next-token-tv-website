@@ -1,0 +1,32 @@
+---
+import type { Locale } from '../data/types';
+interface Props { locale: Locale }
+const {locale}=Astro.props;
+const t=(zh:string,en:string)=>locale==='en'?en:zh;
+const prefix=locale==='en'?'/en':'';
+---
+<div class="ds-annotations content-markers" data-annotation-specimen>
+ <h3>{t('身份标记','Identity markers')}</h3>
+ <p>{t('身份由头像、姓名与 2px 侧线共同表达。颜色引用身份色，不随所在页面改变；未指定人物使用中性标记。','Identity combines an avatar, a name and a 2px side rule. Colors reference the identity palette and remain stable across pages; unassigned people use a neutral marker.')} <a class="text-link" href="#identity-colors">{t('身份色定义','Identity palette')} →</a></p>
+ <div class="ds-identities">{['blue','ochre','orange','ink'].map((color,i)=><div class="identity-marker" style={`--identity-color:var(--identity-${color})`}><span class="ds-avatar" aria-hidden="true">{String.fromCharCode(65+i)}</span><strong>{t('人物','Person')} {String.fromCharCode(65+i)}</strong></div>)}</div>
+ <h3>{t('分类链接','Category links')}</h3>
+ <p>{t('分类链接在连续正文中标记引用对象，文字保持可读，并保留键盘焦点下划线。强调开关只调整底色强度。','Category links identify references within prose, retain readable text and show an underline on keyboard focus. The emphasis switch changes only background strength.')} <a class="text-link" href="#category-colors">{t('分类色定义','Category palette')} →</a></p>
+ <div class="ds-category-examples"><a class="category-link" data-entity-type="brand" href={`${prefix}/wiki/brands/openai`}>OpenAI</a><a class="category-link" data-entity-type="product" href={`${prefix}/wiki/products/codex`}>Codex</a><a class="category-link" data-entity-type="person" href={`${prefix}/wiki/people/dhh`}>DHH</a></div>
+ <h3>{t('文本状态','Text states')}</h3>
+ <div class="ds-annotation-grid"><p>{t('搜索命中：','Search match: ')}<mark class="search-match">Next Token</mark></p><p class="content-target">{t('定位目标：当前跳转到的段落。','Navigation target: the paragraph reached by a link.')}</p></div>
+ <h3>{t('注释块','Annotation blocks')}</h3>
+ <div class="ds-annotation-grid"><aside class="content-note"><strong>{t('补充说明','Additional context')}</strong><p>{t('用于来源、背景与说明性文字，和正文保持清晰区分。','For sources, background and explanatory text, clearly distinguished from the body.')}</p></aside><aside class="content-note content-note--accent"><strong>{t('重点说明','Highlighted note')}</strong><p>{t('用侧线与浅底提示需要关注的信息，不代表错误或警告。','A side rule and tinted surface draw attention without implying an error or warning.')}</p></aside></div>
+ <p><a class="text-link" href="#state-colors">{t('高亮与注释色定义','Highlight and annotation palette')} →</a></p>
+</div>
+<style>
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+ .ds-annotations h3 { font-family: var(--sans); font-size: var(--type-label); margin: 2rem 0 .75rem; }
+ .ds-annotations > p { color: var(--muted); font-size: var(--type-ui); line-height: 1.75; }
+ .ds-identities, .ds-annotation-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,13rem),1fr)); gap: 1.5rem; margin-block: 1.5rem; }
+ .ds-identities .identity-marker { display: flex; align-items: center; gap: .5rem; font-size: var(--type-ui); }
+ .ds-avatar { display: inline-flex; align-items: center; justify-content: center; width: 1.75rem; height: 1.75rem; border-radius: 50%; background: var(--surface); font-size: var(--type-caption); }
+ .ds-category-examples { display: flex; flex-wrap: wrap; gap: 1rem; margin-block: 1.5rem; }
+ .ds-annotation-grid { font-size: var(--type-ui); line-height: 1.8; } .ds-annotation-grid p:last-child { margin-bottom: 0; }
+}
+</style>

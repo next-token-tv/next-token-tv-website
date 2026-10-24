@@ -78,25 +78,25 @@ const groups = await Promise.all(([{type:"brand", id:"next-token"}, {type:"show"
 <style>
 @layer reset, tokens, base, layouts, components, utilities, overrides;
 @layer components {
-.copy-library { padding-block: clamp(2.5rem, 5vw, 5rem); border-top: 1px solid var(--ink); scroll-margin-top: 6rem; }
+.copy-library { padding-block: clamp(1.5rem, 3vw, 3rem); border-top: 1px solid var(--ink); scroll-margin-top: 6rem; }
   .copy-library > .eyebrow { margin-bottom: 1.5rem; }
   h2 { margin: 0; }
   .copy-lede { max-width: 52rem; margin: 1rem 0 2.5rem; color: var(--muted); }
   .copy-groups { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: clamp(1.5rem,4vw,3rem); }
-  .copy-group-label { margin: 0 0 .5rem; color: var(--muted); font-size: .875rem; }
+  .copy-group-label { margin: 0 0 .5rem; color: var(--muted); font-size: var(--type-ui); }
   h3 { margin: 0 0 1.5rem; font-family: var(--sans); font-size: clamp(1.125rem,2.1vw,1.65rem); line-height: 1.5; }
-  .copy-card { padding: clamp(1rem,2.5vw,1.75rem); border: 1px solid var(--line); background: var(--white); }
+  .copy-card { padding: clamp(1.5rem, 3vw, 3rem); border: 1px solid var(--line); background: var(--white); }
   .copy-card + .copy-card { margin-top: 1rem; }
   .copy-card-header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: .5rem 1rem; }
-  h4 { margin: 0; font-size: 1rem; }
-  .copy-card-header > span { font-size: .8125rem; color: var(--muted); }
-  .copy-usage { margin: .5rem 0 1.25rem; font-size: .875rem; color: var(--muted); }
+  h4 { margin: 0; font-size: var(--type-base); }
+  .copy-card-header > span { font-size: var(--type-meta); color: var(--muted); }
+  .copy-usage { margin: .5rem 0 1.25rem; font-size: var(--type-ui); color: var(--muted); }
   .copy-text p { margin: 0; white-space: pre-line; line-height: 1.8; }
   .copy-text p + p { margin-top: 1rem; }
   .copy-controls { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem 1rem; margin-top: 1.25rem; }
-  button { min-height: 44px; padding: .5rem 1rem; border: 1px solid var(--ink); color: var(--paper); background: var(--ink); font: inherit; font-size: .875rem; cursor: pointer; }
+  button { min-height: 44px; padding: .5rem 1rem; border: 1px solid var(--ink); color: var(--paper); background: var(--ink); font: inherit; font-size: var(--type-ui); cursor: pointer; }
   button:hover { background: var(--signal); color: var(--ink); }
-  .copy-controls [role="status"] { font-size: .875rem; }
+  .copy-controls [role="status"] { font-size: var(--type-ui); }
   @media(max-width: 900px) { .copy-groups { grid-template-columns: 1fr; gap: 3rem; } }
 }
 </style>

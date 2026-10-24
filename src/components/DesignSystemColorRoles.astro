@@ -1,0 +1,40 @@
+---
+import type { Locale } from "../data/types";
+import { colorNotation } from "../data/design-colors";
+interface Props { locale: Locale }
+const {locale}=Astro.props;
+const t=(zh:string,en:string)=>locale === 'en' ? en : zh;
+const groups = [
+ {id:'identity-colors',title:t('身份色','Identity colors'),description:t('身份色稳定对应人物，用于头像旁标记、侧线和署名。姓名始终可见并使用墨黑，身份色用于识别标记、不表示状态；这些颜色不替代品牌主色。','Identity colors consistently identify people in avatar markers, side rules and attribution. Names remain visible in Ink Black; identity colors mark attribution, not status or replace brand accents.'),items:[
+ ['--identity-blue','身份蓝 · 杨攀','Identity Blue · Yang Pan'],['--identity-ochre','身份赭 · 歸藏','Identity Ochre · Guizang'],['--identity-orange','身份橙 · 橘子','Identity Orange · Orange'],['--identity-ink','身份墨 · 向阳乔木','Identity Ink · Xiangyang Qiaomu'],['--identity-neutral','未指定身份','Unassigned identity']]},
+ {id:'category-colors',title:t('分类色','Category colors'),description:t('分类色区分品牌、产品和人物。链接文字使用墨黑；底色使用对应分类色的 8% 不透明度，键盘聚焦为 16%，强调模式为 22% / 30%。节目沿用产品分类。','Category colors distinguish brands, products and people. Link text uses Ink Black. Background opacity is 8%, 16% on keyboard focus, and 22% / 30% in emphasis mode. Shows share the product category.'),items:[
+ ['--category-brand','品牌分类','Brand category'],['--category-product','产品 / 节目分类','Product / show category'],['--category-person','人物分类','Person category']]},
+ {id:'state-colors',title:t('高亮与注释','Highlights and annotations'),description:t('搜索命中、定位目标和补充说明各有明确用途。正文沿用墨黑；状态通过文字、轮廓或标记共同表达。','Search matches, navigation targets and supplementary notes have distinct roles. Body text uses Ink Black; labels, outlines or marks accompany state colors.'),items:[
+ ['--highlight-match','搜索命中底色','Search match surface'],['--highlight-target','定位目标底色','Target surface'],['--annotation-surface','强调注释底色','Accent annotation surface'],['--note-surface','普通注释底色','Neutral annotation surface'],['--switch-track','开关关闭底色','Inactive switch track']]},
+ {id:'inverse-colors',title:t('反色区域','Inverse surfaces'),description:t('深色背景上的辅助文字与强调文字使用浅色变体。','Supporting and accent text use light variants on dark surfaces.'),items:[['--inverse-muted','反色辅助文字','Inverse supporting text'],['--inverse-accent','反色强调文字','Inverse accent text'],['--inverse-line','反色内容分隔','Inverse content divider'],['--inverse-line-strong','反色结构分隔','Inverse structural divider'],['--inverse-line-control','反色控件边界','Inverse control boundary']]},
+ {id:'overlay-colors',title:t('叠层与投影','Overlays and shadows'),description:t('半透明暖纸用于固定导航，墨色渐变用于图片上的文字衬底。菜单使用轻投影，二维码等浮层使用浮层投影；普通内容不依赖投影分组。','Translucent paper supports sticky navigation; an ink gradient supports text over images. Menus use a soft shadow, popovers a floating shadow; ordinary content is grouped without shadows.'),items:[['--header-surface','导航底色','Navigation surface'],['--image-scrim','图片遮罩','Image scrim'],['--shadow-soft-color','轻投影颜色','Soft shadow color'],['--shadow-floating-color','浮层投影颜色','Floating shadow color']]},
+ {id:'boundary-colors',title:t('边界色','Boundary colors'),description:t('透明度叠加在所在背景上，不代表另一个固定色号。线宽与使用规则见「线条与边界」。','Opacity is composited over the underlying surface, not a separate solid color. Stroke widths and usage are defined in Rules & borders.'),items:[
+ ['--line','内容分隔','Content divider'],['--line-strong','结构分隔','Structural divider'],['--line-control','控件边界','Control boundary']]},
+];
+---
+<p class="ds-color-notation">{t('色值统一采用六位 HEX；有透明度时另标百分比，未标注即为 100%。色值为颜色定义，示例中的 token 名称表示引用。','All values use six-digit HEX. Opacity is shown separately as a percentage; omitted opacity means 100%. Values define colors; token names in specimens reference them.')}</p>
+{groups.map(group=><div class="ds-color-role-group" id={group.id}>
+ <h3>{group.title}</h3><p>{group.description}</p>
+ <div class="ds-role-colors">{group.items.map(([token,zh,en])=><article>
+  <span class="ds-role-swatch" style={{background:`var(${token})`}} aria-hidden="true"></span>
+  <div><strong>{t(zh!,en!)}</strong><code>{token}</code><span data-color-token={token}>{colorNotation(token!)}</span></div>
+ </article>)}</div>
+</div>)}
+<style>
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+ .ds-color-role-group { margin-top: 2rem; scroll-margin-top: 6rem; }
+ .ds-color-role-group h3 { font-family: var(--sans); font-size: var(--type-label); margin-bottom: .5rem; }
+ .ds-color-notation, .ds-color-role-group > p { font-size: var(--type-ui); color: var(--muted); line-height: 1.75; }
+ .ds-role-colors { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,16rem),1fr)); gap: .5rem 1.5rem; }
+ .ds-role-colors article { display: flex; align-items: flex-start; gap: .75rem; padding-block: .875rem; border-top: var(--stroke-thin) solid var(--line); min-width: 0; }
+ .ds-role-swatch { flex: 0 0 2rem; height: 2rem; border: var(--stroke-thin) solid var(--line); }
+ .ds-role-colors article > div { display: grid; gap: .25rem; min-width: 0; }
+ .ds-role-colors strong { font-size: var(--type-ui); } .ds-role-colors code, .ds-role-colors article span:last-child { font-size: var(--type-caption); color: var(--muted); overflow-wrap: anywhere; }
+}
+</style>

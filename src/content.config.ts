@@ -209,11 +209,7 @@ const brandKits = defineCollection({
       size: z.number().int().positive(),
       use: localizedText,
     })).min(1),
-    colors: z.array(z.object({
-      name: localizedText,
-      hex: z.string().regex(/^#[0-9A-F]{6}$/),
-      foreground: z.string().regex(/^#[0-9A-F]{6}$/),
-    })),
+    colors: z.array(z.enum(["--paper", "--ink", "--signal", "--sky", "--white", "--surface", "--muted"])),
     typeface: z.string(),
     weight: z.string(),
   }),

@@ -9,7 +9,7 @@
   border-top: 1px solid var(--line);
 }
 .has-wiki-article > .wiki-support-section.shell .wiki-support-heading {
-  font-size: 1.25rem;
+  font-size: var(--type-entry);
   margin: 0;
 }
 .has-wiki-article > .wiki-support-section.shell > :last-child { min-width: 0; }
@@ -20,6 +20,6 @@
   border: 0;
   text-decoration: none;
 }
-.has-wiki-article > .wiki-support-section.shell .wiki-support-link:hover { color: var(--signal); }
+.has-wiki-article > .wiki-support-section.shell .wiki-support-link:hover { color: var(--signal-text); }
 
 }

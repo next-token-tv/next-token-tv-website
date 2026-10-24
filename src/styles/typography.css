@@ -27,8 +27,9 @@
 
 @layer utilities {
   .heading-reading-title {
-    font-family: var(--display);
-    font-size: var(--reading-title-size, 2.25rem);
+    font-family: var(--sans);
+    font-size: var(--type-title);
+    font-weight: 700;
     line-height: var(--reading-title-leading);
     letter-spacing: var(--display-tracking);
     text-wrap: balance;
@@ -38,9 +39,10 @@
   .heading-section-content,
   .heading-section-compact,
   .heading-follow-display {
-    font-family: var(--display);
+    font-family: var(--sans);
     line-height: var(--section-heading-leading);
     text-wrap: balance;
+    font-weight: 700;
   }
 
   .heading-section-display {
@@ -58,4 +60,15 @@
   .heading-follow-display {
     font-size: var(--heading-follow-display-size);
   }
+}
+
+@layer utilities {
+  .type-hero { font-family: var(--display); font-size: var(--type-hero); font-weight: 900; line-height: 1.15; letter-spacing: var(--display-tracking); }
+  .type-title { font-family: var(--sans); font-size: var(--type-title); font-weight: 700; line-height: 1.25; text-wrap: balance; }
+  .type-entry { font-family: var(--sans); font-size: var(--type-entry); font-weight: 650; line-height: 1.25; }
+  .type-body { font-family: var(--sans); font-size: var(--type-body); line-height: 1.8; }
+  .type-ui { font-family: var(--sans); font-size: var(--type-ui); line-height: 1.5; }
+  .type-meta { font-family: var(--sans); font-size: var(--type-meta); line-height: 1.6; }
+  .text-muted { color: var(--muted); }
+  .text-signal { color: var(--signal-text); }
 }

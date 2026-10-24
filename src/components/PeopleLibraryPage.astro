@@ -37,7 +37,7 @@ const mentions = catalog.episodes.filter(episode => episode.data.mentions.people
   <div class="person-detail-back"><a href={`${prefix}/wiki/people`}><span aria-hidden="true">←</span>{en ? "All people" : "全部人物"}</a></div>
   <header>
     <p class="section-kicker">NEXT TOKEN / {en ? "PEOPLE" : "人物库"}</p>
-    <h1>{person.data.name[locale]}</h1>
+    <h1 class="type-title">{person.data.name[locale]}</h1>
     <p>{person.data.bio[locale]}</p>
   </header>
   </>}
@@ -60,12 +60,12 @@ const mentions = catalog.episodes.filter(episode => episode.data.mentions.people
   .person-detail-back { padding-block: 1.5rem; border-bottom: 1px solid var(--ink); }
   .person-detail-back a { display: inline-flex; align-items: center; gap: .75rem; font-weight: 750; }
   .people-library:not(.has-wiki-article) > header { max-width: 55rem; margin-bottom: 3rem; }
-  .people-library:not(.has-wiki-article) h1 { font-size: 3rem; margin-block: 1rem; }
+  .people-library:not(.has-wiki-article) h1 { margin-block: 1rem; }
   .people-library:not(.has-wiki-article) > header > p:last-child { color: var(--muted); }
-  .people-library:not(.has-wiki-article) > section { border-top: 0.0625rem solid var(--ink); padding-block: 2rem; }
+  .people-library:not(.has-wiki-article) > section { border-top: var(--stroke-thin) solid var(--ink); padding-block: 2rem; }
   .person-source-list { list-style: none; padding: 0; margin-block: 1rem; }
-  .person-source-item { padding-block: 0.75rem; border-bottom: 0.0625rem solid var(--line); }
-  a:hover { color: var(--signal); }
+  .person-source-item { padding-block: 0.75rem; border-bottom: var(--stroke-thin) solid var(--line); }
+  a:hover { color: var(--signal-text); }
   small { color: var(--muted); }
   .has-wiki-article .person-source-item { padding-block: .5rem; }
 }

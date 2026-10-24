@@ -2,11 +2,15 @@
 import { getCollection, getEntry, render } from "astro:content";
 import type { Locale } from "../data/site";
 import BrandCopyLibrary from "./BrandCopyLibrary.astro";
+import { namedColor, coreColorTokens } from "../data/design-colors";
 
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
+const t = (zh: string, en: string) => locale === "en" ? en : zh;
+const prefix = locale === "en" ? "/en" : "";
 const kit = await getEntry("brandKits", "next-token");
 if (!kit) throw new Error("Missing Next Token brand kit");
+const colors = kit.data.colors.map(namedColor);
 const brand = await getEntry("brands", kit.data.brand);
 if (!brand) throw new Error(`Unknown brand referenced by brand kit: ${kit.data.brand}`);
 const guidelines = await getCollection("prose", ({ data }) =>
@@ -33,7 +37,7 @@ const copy = locale === "zh-Hans" ? {
 <main id="main" class="brand-kit shell">
   <header class="kit-intro">
     <p class="eyebrow">{copy.eyebrow}</p>
-    <h1>{copy.title}</h1>
+    <h1 class="type-title">{copy.title}</h1>
     <p class="kit-lede">{kit.data.description[locale]}</p>
     <nav class="kit-shortcuts" aria-label={locale === "en" ? "On this page" : "本页导航"}>
       <a href="#kit-logo">{locale === "en" ? "Logo downloads" : "Logo 下载"} ↓</a>
@@ -85,13 +89,18 @@ const copy = locale === "zh-Hans" ? {
       <p class="eyebrow">04 / COLOR & TYPE</p>
       <h2 class="heading-section-compact" id="kit-colors">{copy.colors}</h2>
     </div>
-    <div class="kit-palette">
-      {kit.data.colors.map((color) => (
-        <article class="kit-swatch" style={{ background: color.hex, color: color.foreground }}>
-          <h3>{color.name[locale]}</h3><code>{color.hex}</code>
-        </article>
-      ))}
-    </div>
+    <p class="kit-color-note">{t("品牌素材与设计系统共用以下颜色名称和色号。Logo 固定使用暖纸、墨黑、信号橙；扩展色用于网站界面与辅助图形。", "The Brand Kit and design system share these color names and values. The logo uses Warm Paper, Ink Black and Signal Orange; extended colors support the website and editorial graphics.")}</p>
+    {[true, false].map(core => <div class="kit-color-group">
+      <h3>{core ? t("核心品牌色 · Logo", "Core brand colors · Logo") : t("扩展色 · 界面与辅助图形", "Extended colors · Interface and graphics")}</h3>
+      <div class="kit-palette">
+        {colors.filter(color => coreColorTokens.includes(color.token) === core).map(color => (
+          <article class="kit-swatch" data-kit-color={color.token} style={{ background: `var(${color.token})`, color: `var(${color.foreground})` }}>
+            <h4>{color.name[locale]}</h4><code>{color.hex}</code>
+          </article>
+        ))}
+      </div>
+    </div>)}
+    <p class="kit-color-note">{t("小字号文字使用对比度更高的文字色，浅色背景使用浅底色；这些是同一色系的用途变体，不替换 Logo 原色。", "Small text uses higher-contrast text variants; tinted panels use soft variants. These are purpose-specific shades of the same families and do not replace logo colors.")} <a class="text-link" href={`${prefix}/design-system#color`}>{t("查看完整色阶与用法", "View all color variants and usage")} →</a></p>
     <div class="kit-typeface"><span class="kit-label">{copy.typography}</span><strong>{kit.data.typeface}</strong><span>{kit.data.weight}</span></div>
   </section>
 
@@ -107,15 +116,15 @@ const copy = locale === "zh-Hans" ? {
 <style>
 @layer reset, tokens, base, layouts, components, utilities, overrides;
 @layer components {
-.brand-kit { padding-block: clamp(4rem, 8vw, 8rem); }
-  .kit-intro { padding-bottom: clamp(3rem, 6vw, 6rem); }
+.brand-kit { padding-block: 3rem; }
+  .kit-intro { padding-bottom: clamp(1.5rem, 3vw, 3rem); }
   .kit-intro .eyebrow { margin-bottom: 2rem; }
-  .kit-intro h1 { margin: 0; font-size: clamp(3rem, 7vw, 6rem); }
-  .kit-lede { max-width: 46rem; margin: 2rem 0 0; color: var(--muted); font-size: clamp(1.125rem, 2vw, 1.4rem); }
+  .kit-intro h1 { margin: 0; }
+  .kit-lede { max-width: 46rem; margin: 2rem 0 0; color: var(--muted); font-size: var(--type-body); }
   .kit-shortcuts { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin-top: 2rem; }
   #kit-logo { scroll-margin-top: 6rem; }
-  .kit-shortcuts a { min-height: 44px; padding-block: .5rem; text-decoration: underline; text-underline-offset: .25em; }
-  .kit-section { border-top: 1px solid var(--ink); padding-block: clamp(2.5rem, 5vw, 5rem); }
+  .kit-shortcuts a { min-height: 44px; padding-block: .5rem; text-decoration: underline; text-underline-offset: calc(.25em + var(--link-underline-gap)); }
+  .kit-section { border-top: 1px solid var(--ink); padding-block: clamp(1.5rem, 3vw, 3rem); }
   .kit-section:last-child { padding-bottom: 0; }
   .kit-section-heading { margin-bottom: 2rem; }
   .kit-section-heading .eyebrow { margin-bottom: 1.5rem; }
@@ -124,25 +133,28 @@ const copy = locale === "zh-Hans" ? {
   .kit-logo-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); border: 1px solid var(--ink); }
   .kit-logo-preview { display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0; padding: 2rem; border-right: 1px solid var(--ink); }
   .kit-logo-preview img { width: min(100%, 26rem); height: auto; }
-  .kit-logo-preview figcaption { margin-top: 1rem; color: var(--muted); font-size: .875rem; }
+  .kit-logo-preview figcaption { margin-top: 1rem; color: var(--muted); font-size: var(--type-ui); }
   .kit-downloads { list-style: none; padding: 0; margin: 0; }
   .kit-downloads li + li { border-top: 1px solid var(--line); }
   .kit-downloads a { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem clamp(1rem, 3vw, 2rem); }
   .kit-downloads a:hover { background: var(--white); }
   .kit-downloads a:focus-visible { outline-offset: -4px; }
   .kit-downloads strong { margin-right: .75rem; }
-  .kit-dimensions { display: inline-block; font-size: .875rem; }
-  .kit-download-use { display: block; color: var(--muted); font-size: .875rem; margin-top: .25rem; }
-  .kit-download-action { flex-shrink: 0; font-size: .875rem; font-weight: 700; }
+  .kit-dimensions { display: inline-block; font-size: var(--type-ui); }
+  .kit-download-use { display: block; color: var(--muted); font-size: var(--type-ui); margin-top: .25rem; }
+  .kit-download-action { flex-shrink: 0; font-size: var(--type-ui); font-weight: 700; }
   .kit-nameplate { padding: clamp(1.25rem, 4vw, 3rem); background: var(--ink); color: var(--paper); }
   .kit-nameplate p { margin: 0; }
-  .kit-label { font-size: .875rem; font-weight: 600; }
+  .kit-label { font-size: var(--type-ui); font-weight: 600; }
   .kit-nameplate .kit-brand-name { margin-block: 1.5rem; font-size: clamp(1.125rem, 3.4vw, 2.5rem); font-weight: 700; white-space: nowrap; }
-  .kit-show-name { display: flex; flex-wrap: wrap; gap: .75rem 2rem; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(241, 238, 229, .3); }
-  .kit-show-name a { text-decoration: underline; text-underline-offset: .25em; }
-  .kit-palette { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--ink); }
-  .kit-swatch { min-height: 13rem; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem; }
-  .kit-swatch h3 { margin: 0; font-family: var(--sans); font-size: 1rem; font-weight: 600; }
+  .kit-show-name { display: flex; flex-wrap: wrap; gap: .75rem 2rem; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--inverse-line-strong); }
+  .kit-show-name a { text-decoration: underline; text-underline-offset: calc(.25em + var(--link-underline-gap)); }
+  .kit-color-note { font-size: var(--type-ui); color: var(--muted); line-height: 1.75; margin-block: 1.25rem; max-width: 46rem; }
+  #kit-colors { scroll-margin-top: 5.5rem; }
+  .kit-color-group > h3 { font-size: var(--type-base); font-family: var(--sans); margin-block: 1.5rem .75rem; }
+  .kit-palette { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); border: 1px solid var(--line); }
+  .kit-swatch { min-height: 10rem; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem; }
+  .kit-swatch h4 { margin: 0; font-family: var(--sans); font-size: var(--type-base); font-weight: 600; }
   .kit-swatch code { font-size: clamp(1.25rem, 2.8vw, 2rem); }
   .kit-typeface { display: flex; align-items: baseline; flex-wrap: wrap; gap: .75rem 2rem; padding-top: 2rem; }
   .kit-typeface strong { font-family: var(--display); font-size: 2rem; letter-spacing: var(--display-tracking); }

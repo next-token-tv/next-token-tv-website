@@ -32,7 +32,7 @@ for (const prefix of ['', '/en']) for (const viewport of viewports) {
           const s = getComputedStyle(el), r = el.getBoundingClientRect();
           if (!r.width) continue;
           if (el.scrollWidth > el.clientWidth + 1) problems.push(`heading overflow: ${el.textContent?.slice(0,40)}`);
-          if (el.tagName === 'H2' || el.classList.contains('heading-reading-title')) {
+          if (el.tagName === 'H2' || el.classList.contains('heading-reading-title') || el.classList.contains('type-title')) {
             if (Math.abs(parseFloat(s.lineHeight) / parseFloat(s.fontSize) - 1.25) > .01) problems.push(`heading leading: ${el.className}`);
           }
         }

@@ -56,3 +56,10 @@ test('heading descendants, siblings and negative selectors are not heading overr
     '[data-kind="h2"] {line-height: 1;}',
   ]) assert.equal((await warnings(wrap(css))).length, 0, css);
 });
+
+test('literal colors belong to tokens, while relative colors can reference tokens', async () => {
+  for (const color of ['#ddd8ca', 'rgba(17, 17, 17, .16)', 'rgb(0 0 0 / 8%)']) {
+    assert.equal((await warnings(wrap(`.card { background: ${color}; }`))).length, 1);
+  }
+  assert.equal((await warnings(wrap('.card {color: var(--muted); background: rgb(from var(--category-brand) r g b / .08);}'))).length, 0);
+});

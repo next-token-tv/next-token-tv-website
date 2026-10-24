@@ -2,63 +2,102 @@
 @layer tokens {
   :root {
     color-scheme: light;
-
     --paper: #f1eee5;
     --ink: #111111;
     --signal: #ff4b18;
     --signal-display: #f24816;
+    --signal-text: #b8320d;
+    --signal-soft: #f9dfd2;
+    --sky: #caddee;
+    --sky-soft: #e8f1f8;
+    --sky-text: #285d7a;
     --muted: #635f58;
-    --line: rgba(17, 17, 17, 0.24);
+    --line: rgba(17, 17, 17, 0.16);
+    --line-strong: rgba(17, 17, 17, 0.38);
+    --line-control: #7b7770;
+    --stroke-thin: 1px;
+    --stroke-emphasis: 2px;
+    --link-underline-gap: 1px;
     --white: #fffdf6;
-
-    --gutter: clamp(1.25rem, 4vw, 4.5rem);
-    --site-max-width: 100rem;
-    --wiki-visual-height: 12rem;
+    --surface: #e8e4da;
+    --success: #356247;
+    --error: #a62d28;
+    --inverse-muted: #b7b3ac;
+    --inverse-accent: #ff9473;
+    --inverse-line: rgba(255, 253, 246, 0.2);
+    --inverse-line-strong: rgba(255, 253, 246, 0.4);
+    --inverse-line-control: rgba(255, 253, 246, 0.7);
+    --header-surface: rgba(241, 238, 229, 0.94);
+    --image-scrim: rgba(17, 17, 17, 0.75);
+    --shadow-soft-color: rgba(17, 17, 17, 0.08);
+    --shadow-floating-color: rgba(17, 17, 17, 0.16);
+    --shadow-menu: 0 .75rem 1.5rem var(--shadow-soft-color);
+    --shadow-floating: 0 .5rem 1.5rem var(--shadow-floating-color);
+    --identity-blue: #318fbd;
+    --identity-ochre: #a96a00;
+    --identity-orange: #f06a31;
+    --identity-ink: #171717;
+    --identity-neutral: rgba(17, 17, 17, 0.42);
+    --category-brand: #be7832;
+    --category-product: #3782af;
+    --category-person: #7d69a5;
+    --highlight-match: #ffd6a3;
+    --highlight-target: #fff1dd;
+    --annotation-surface: rgba(255, 75, 24, 0.07);
+    --note-surface: rgba(17, 17, 17, 0.055);
+    --switch-track: rgba(17, 17, 17, 0.18);
+    --gutter: clamp(1.25rem, 4vw, 4rem);
+    --site-max-width: 88rem;
+    --reading-width: 46rem;
+    --section-space: clamp(3rem, 5vw, 5rem);
+    --control-height: 2.5rem;
+    --control-radius: .125rem;
+    --duration: 160ms;
+    --wiki-visual-height: 10rem;
     --wiki-column-gap: 3rem;
     --wiki-hero-padding: 2rem;
     --wiki-section-padding: 1.5rem;
     --wiki-hero-columns: minmax(10rem, .55fr) minmax(0, 1.45fr);
-    --space-1: 0.25rem;
-    --space-2: 0.5rem;
-    --space-3: 0.75rem;
+    --space-1: .25rem;
+    --space-2: .5rem;
+    --space-3: .75rem;
     --space-4: 1rem;
     --space-6: 1.5rem;
     --space-8: 2rem;
     --space-12: 3rem;
     --space-16: 4rem;
-
-    --display: "League Spartan", Arial Black, Arial, sans-serif;
+    --display: "League Spartan", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", sans-serif;
     --display-tracking: 0em;
-    --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    --headline-leading: 1.1;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+    --headline-leading: 1.15;
     --reading-title-leading: 1.25;
     --section-heading-leading: 1.25;
-
-    --heading-section-display-size: 3.1rem;
-    --heading-section-content-size: 2.25rem;
-    --heading-section-compact-size: 1.8rem;
-    --heading-follow-display-size: 2.75rem;
+    --type-hero: clamp(2.25rem, 5vw, 4rem);
+    --type-title: 1.875rem;
+    --type-entry: 1.25rem;
+    --type-body: 1.0625rem;
+    --type-base: 1rem;
+    --type-label: 1.125rem;
+    --type-caption: .75rem;
+    --type-ui: .875rem;
+    --type-meta: .8125rem;
+    --heading-section-display-size: 1.75rem;
+    --heading-section-content-size: 1.5rem;
+    --heading-section-compact-size: 1.375rem;
+    --heading-follow-display-size: 1.75rem;
   }
-
   @media (max-width: 760px) {
     :root { --wiki-visual-height: 9rem; --wiki-column-gap: 1.5rem; --wiki-hero-padding: 1.5rem; --wiki-hero-columns: 1fr; }
   }
-
   @media (min-width: 48rem) {
     :root {
-      --heading-section-display-size: 4.25rem;
-      --heading-section-content-size: 2.65rem;
-      --heading-section-compact-size: 2.15rem;
-      --heading-follow-display-size: 3.5rem;
+      --type-title: 2.5rem;
+      --heading-section-display-size: 2rem;
+      --heading-section-content-size: 1.75rem;
+      --heading-section-compact-size: 1.5rem;
+      --heading-follow-display-size: 2rem;
     }
   }
-
-  @media (min-width: 80rem) {
-    :root {
-      --heading-section-display-size: 5.25rem;
-      --heading-section-content-size: 3rem;
-      --heading-section-compact-size: 2.5rem;
-      --heading-follow-display-size: 4.25rem;
-    }
-  }
+  @media (pointer: coarse) { :root { --control-height: 2.75rem; } }
 }

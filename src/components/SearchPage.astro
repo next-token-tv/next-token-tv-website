@@ -5,16 +5,16 @@ const {locale}=Astro.props;
 const en=locale==='en';
 ---
 <main id="main" class="search-page shell" data-search-locale={locale}>
-  <header><p class="section-kicker">NEXT TOKEN / {en ? 'SEARCH' : '全站搜索'}</p><h1>{en ? 'Search' : '搜索'}</h1><p>{en ? 'Find people, products, episodes and moments in our conversations.' : '找到人物、产品、相关节目，以及对谈中的具体段落。'}</p></header>
+  <header><p class="section-kicker">NEXT TOKEN / {en ? 'SEARCH' : '全站搜索'}</p><h1 class="type-title">{en ? 'Search' : '搜索'}</h1><p>{en ? 'Find people, products, episodes and moments in our conversations.' : '找到人物、产品、相关节目，以及对谈中的具体段落。'}</p></header>
   <form role="search" action={en ? '/en/search' : '/search'}>
     <label for="search-query">{en ? 'Keywords' : '关键词'}</label>
-    <div class="search-input-row"><input id="search-query" name="q" type="search" maxlength="120" placeholder={en ? 'Try Muse, Codex or a guest name' : '试试 Muse、Codex 或嘉宾名字'} autocomplete="off" /><button type="submit">{en ? 'Search' : '搜索'}</button></div>
+    <div class="search-input-row"><input class="control-input" id="search-query" name="q" type="search" maxlength="120" placeholder={en ? 'Try Muse, Codex or a guest name' : '试试 Muse、Codex 或嘉宾名字'} autocomplete="off" /><button class="control-button primary" type="submit">{en ? 'Search' : '搜索'}</button></div>
     <label for="search-kind">{en ? 'Content type' : '内容类型'}</label>
     <select id="search-kind" name="type"><option value="all">{en ? 'All' : '全部'}</option><option value="entity">{en ? 'Wiki' : '资料库'}</option><option value="episode">{en ? 'Episodes' : '节目'}</option><option value="transcript">{en ? 'Transcript passages' : '文字稿段落'}</option><option value="blog">{en ? 'Blog' : '博客'}</option></select>
   </form>
   <p class="search-status" role="status" aria-live="polite">{en ? 'Enter a keyword to begin.' : '输入关键词开始搜索。'}</p>
   <ol class="search-results"></ol>
-  <button class="search-more" type="button" hidden>{en ? 'Show more' : '显示更多'}</button>
+  <button class="search-more control-button" type="button" hidden>{en ? 'Show more' : '显示更多'}</button>
   <noscript><p>{en ? 'Search requires JavaScript. Browse the' : '搜索需要启用 JavaScript，也可以浏览'} <a href={en ? '/en/sitemap' : '/sitemap'}>{en ? 'sitemap' : '网站地图'}</a>。</p></noscript>
 </main>
 <script>
@@ -78,9 +78,8 @@ const en=locale==='en';
 .search-page { padding-block: 3rem 5rem; min-height: 65vh; }
   header { max-width: 55rem; margin-bottom: 2rem; }
   form { max-width: 50rem; display: grid; gap: .75rem; }
-  label { font-weight: 700; }
+  label { font-weight: 600; font-size: var(--type-ui); }
   .search-input-row { display: flex; gap: .5rem; }
-  input, button { border: 1px solid var(--ink); background: var(--paper); color: var(--ink); min-height: 2.75rem; padding: .65rem .85rem; font: inherit; }
   input { flex: 1; min-width: 0; }
   select { width: min(100%, 18rem); }
   #search-query { scroll-margin-top: 8rem; }

@@ -1,0 +1,17 @@
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+  .table-scroll { max-width: 100%; overflow-x: auto; }
+  .table-scroll:focus-visible { outline: var(--stroke-emphasis) solid var(--signal-text); outline-offset: 3px; }
+  :is(.data-table, .wiki-prose table, .episode-article-prose table) { width: 100%; border-collapse: collapse; color: var(--ink); font-size: var(--type-ui); line-height: 1.6; text-align: left; }
+  :is(.data-table, .wiki-prose table, .episode-article-prose table) caption { padding-block: 0 1rem; font-size: var(--type-ui); font-weight: 600; text-align: left; }
+  :is(.data-table, .wiki-prose table, .episode-article-prose table) th, :is(.data-table, .wiki-prose table, .episode-article-prose table) td { padding: .75rem 1rem; vertical-align: top; border: 0; border-bottom: var(--stroke-thin) solid var(--line); }
+  :is(.data-table, .wiki-prose table, .episode-article-prose table) thead th { color: var(--muted); font-size: var(--type-meta); font-weight: 600; border-bottom-color: var(--line-strong); }
+  :is(.data-table, .wiki-prose table, .episode-article-prose table) tbody th { font-weight: 600; }
+  :is(.data-table, .wiki-prose table, .episode-article-prose table) .numeric { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  :is(.data-table, .wiki-prose table, .episode-article-prose table) .is-highlighted { background: var(--sky-soft); }
+  :is(.data-table, .wiki-prose table, .episode-article-prose table) .is-highlighted th { color: var(--sky-text); }
+  :is(.data-table, .wiki-prose table, .episode-article-prose table) tfoot th, :is(.data-table, .wiki-prose table, .episode-article-prose table) tfoot td { font-weight: 600; border-top: var(--stroke-thin) solid var(--line-strong); }
+  .wiki-prose table, .episode-article-prose table { display: block; max-width: 100%; overflow-x: auto; margin-block: 1.5rem; }
+  .data-table--compact th, .data-table--compact td { padding: .5rem .75rem; }
+  .data-table--matrix th + th, .data-table--matrix td + td, .data-table--matrix th + td { border-left: var(--stroke-thin) solid var(--line); }
+}

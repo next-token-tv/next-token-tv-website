@@ -4,6 +4,7 @@ import { resolveNestedSelector } from '@csstools/selector-resolve-nested';
 
 const ruleName = 'next-token/design-contract';
 const messages = stylelint.utils.ruleMessages(ruleName, {
+  color: 'Define literal colors in src/styles/tokens.css and reference their semantic tokens.',
   order: 'Declare the canonical layer order before any layer block.',
   unknownLayer: 'Use a layer from the canonical design-system order.',
   layer: 'Place declarations inside an explicit design-system @layer.',
@@ -53,6 +54,7 @@ export default stylelint.createPlugin(ruleName, enabled => (root, result) => {
     const ownsRole = selector?.nodes.some(branch => targets(branch, node => node.type === 'class' && sharedRole.test(node.value)));
     const ownsH2 = selector?.nodes.some(branch => targets(branch, node => node.type === 'tag' && node.value.toLowerCase() === 'h2'));
     const file = decl.source?.input.file?.replaceAll('\\', '/') ?? '';
+    if (!file.endsWith('/src/styles/tokens.css') && /#[\da-f]{3,8}\b|\brgba?\((?!\s*from\b)/i.test(decl.value)) report('color');
     if (ownsRole && typography.has(decl.prop) && !file.endsWith('/src/styles/typography.css')) report('role');
     if (ownsH2 && (decl.prop === 'line-height' || decl.prop === 'font') &&
         !(decl.prop === 'line-height' && decl.value === 'var(--section-heading-leading)')) report('h2');

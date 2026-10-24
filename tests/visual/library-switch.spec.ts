@@ -8,10 +8,12 @@ for (const width of [390, 1440]) for (const prefix of ['', '/en']) for (const se
     await expect(tabs).toHaveCount(4);
     const boxes = await tabs.evaluateAll(nodes => nodes.map(n => {
       const r = n.getBoundingClientRect();
-      return { y: r.y, width: r.width, fits: n.scrollWidth <= n.clientWidth };
+      return { y: r.y, width: r.width, height: r.height, fits: n.scrollWidth <= n.clientWidth };
     }));
     expect(new Set(boxes.map(b => b.y)).size).toBe(1);
-    expect(Math.max(...boxes.map(b => b.width)) - Math.min(...boxes.map(b => b.width))).toBeLessThan(1);
+    // Content-width tabs retain aligned baselines and a full touch target.
+    expect(boxes.every(b => b.height >= 44)).toBe(true);
+    expect(await page.locator('.entity-library-switch').evaluate(el => el.scrollWidth <= el.clientWidth)).toBe(true);
     expect(boxes.every(b => b.fits)).toBe(true);
     await expect(page.locator('.entity-library-switch [aria-current="page"]')).toHaveAttribute('href', `${prefix}/wiki/${section}`);
     await expect(page.locator('.entity-library-switch')).toHaveScreenshot(`library-switch-${prefix ? 'en' : 'zh'}-${section}-${width}.png`);

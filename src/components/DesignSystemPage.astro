@@ -1,140 +1,267 @@
 ---
+import { colorNames, colorHex, type NamedColorToken } from "../data/design-colors";
+import { typeMetric } from "../data/design-typography";
 import type { Locale } from "../data/types";
-
-interface Props { locale: Locale; }
+import DesignSystemFonts from "./DesignSystemFonts.astro";
+import DesignSystemColorRoles from "./DesignSystemColorRoles.astro";
+import DesignSystemAnnotations from "./DesignSystemAnnotations.astro";
+import DesignSystemControlStates from "./DesignSystemControlStates.astro";
+import DesignSystemIcons from "./DesignSystemIcons.astro";
+import EpisodeCard from "./EpisodeCard.astro";
+import { getPublishedEpisode } from "../data/catalog";
+interface Props { locale: Locale }
 const { locale } = Astro.props;
 const en = locale === "en";
-const copy = en ? {
-  eyebrow: "Next Token / Design System",
-  title: "Interface standards",
-  intro: "A reference surface for the shared visual roles used across Next Token pages.",
-  typography: "Typography roles",
-  display: "Display section",
-  displaySample: "Ideas beyond the next token.",
-  content: "Content section",
-  contentSample: "Brands, products, and people in context.",
-  compact: "Compact section",
-  compactSample: "Useful details, clearly grouped.",
-  follow: "Follow section",
-  followSample: "Follow the show, stay in the loop.",
-  colors: "Core colors",
-  spacing: "Spacing scale",
-} : {
-  eyebrow: "Next Token / 设计系统",
-  title: "界面标准",
-  intro: "集中展示 Next Token 各页面共用的视觉角色，作为设计与开发的统一参照。",
-  typography: "排版角色",
-  display: "大型章节",
-  displaySample: "词元之外，是正在发生的世界。",
-  content: "内容章节",
-  contentSample: "品牌、产品与人物，放回真实语境。",
-  compact: "紧凑章节",
-  compactSample: "相关信息，清晰成组。",
-  follow: "订阅章节",
-  followSample: "订阅节目，不错过下一期。",
-  colors: "核心颜色",
-  spacing: "间距比例",
-};
-
-const colors = [
-  { name: "Paper", token: "--paper", value: "#f1eee5" },
-  { name: "Ink", token: "--ink", value: "#111111" },
-  { name: "Signal", token: "--signal", value: "#ff4b18" },
-  { name: "White", token: "--white", value: "#fffdf6" },
+const prefix = en ? "/en" : "";
+const t = (zh: string, english: string) => en ? english : zh;
+const colorName = (token: string) => colorNames[token as NamedColorToken][locale];
+const latest = await getPublishedEpisode();
+const sections: [string, string, string][] = [["identity","品牌识别","Identity"],["type","文字与排版","Typography"],["color","颜色与用途","Color"],["layout","布局与节奏","Layout"],["rules","线条与边界","Rules & borders"],["tables","表格","Tables"],["icons","图标与标识","Iconography"],["controls","链接与控件","Interaction"],["reading","阅读与内容","Reading"],["components","组合示例","Composition examples"]];
+const roles: [string, string, string, string, string][] = [
+ ["type-hero","品牌主标题","Brand display","不只预测，下一个词元。","Beyond the next token."],
+ ["type-title","页面标题","Page title","来自中文世界的 AI 现场观点","Perspectives from the AI front line"],
+ ["heading-reading-title","阅读标题","Reading title","从一段对谈，到一个新问题","A conversation opens a question"],
+ ["heading-section-display","展示章节","Editorial section","一张开放的圆桌。","One open table."],
+ ["heading-section-content","内容章节","Content section","这一期，聊了什么？","Inside this conversation"],
+ ["heading-section-compact","辅助章节","Supporting section","相关人物与产品","People and products"],
+ ["heading-follow-display","订阅章节","Follow section","继续聊下去。","Keep the conversation going."],
+ ["type-entry","条目标题","Entry title","把经验放回真实语境","Ideas, grounded in experience"],
+ ["type-body","正文","Body","从真实使用出发，讨论技术、产品、创业与创作。","Technology, products and creative work, through first-hand experience."],
+ ["type-ui","界面","Interface","搜索节目、人物与产品","Search episodes, people and products"],
+ ["type-meta","元信息","Metadata","Weekly #006 · 对谈 · 2026","Weekly #006 · Conversation · 2026"],
 ];
-const spaces = ["--space-1", "--space-2", "--space-3", "--space-4", "--space-6", "--space-8", "--space-12", "--space-16"];
+const typeMetrics = ["--type-hero", "--type-title", "--type-title", "--heading-section-display-size", "--heading-section-content-size", "--heading-section-compact-size", "--heading-follow-display-size", "--type-entry", "--type-body", "--type-ui", "--type-meta"].map(typeMetric);
+const typeLeading = [1.15,1.25,1.25,1.25,1.25,1.25,1.25,1.25,1.8,1.5,1.6];
+const typeWeights = [900,700,700,700,700,700,700,650,400,400,400];
+type ColorSpec = [string, string, string, string];
+const brandFamilies: {zh: string; en: string; colors: ColorSpec[]}[] = [
+ {zh: "主强调色 · 品牌识别与选中状态", en: "Primary accent · brand identity and selection", colors: [
+  ["--signal", "基准 / Base", "品牌方点与图形强调", "Brand marks and graphic accents"],
+  ["--signal-soft", "浅底 / Surface", "选中控件的背景", "Selected control backgrounds"],
+  ["--signal-text", "文字 / Text", "浅底上的强调文字与焦点", "Accent text and focus on light surfaces"],
+ ]},
+ {zh: "辅助色 · 信息承载与内容分组", en: "Supporting color · information and grouping", colors: [
+  ["--sky", "基准 / Base", "辅助色块与编辑图形", "Supporting fills and editorial graphics"],
+  ["--sky-soft", "浅底 / Surface", "信息面板与表格重点行", "Information panels and highlighted rows"],
+  ["--sky-text", "文字 / Text", "浅蓝底上的文字与图标", "Text and icons on pale blue"],
+ ]},
+];
+const neutrals: [NamedColorToken, string, string][] = [
+ ["--paper", "页面底色", "Page background"],
+ ["--white", "输入框与阅读表面", "Inputs and reading surfaces"],
+ ["--surface", "次级区域与禁用背景", "Secondary and disabled surfaces"],
+ ["--ink", "正文、主操作与反色背景", "Body text, primary actions and inverse surfaces"],
+ ["--muted", "辅助文字与元信息", "Supporting text and metadata"],
+];
+const statuses: ColorSpec[] = [
+ ["--sky-text", "信息 / Information", "i · 补充说明", "i · Additional information"],
+ ["--success", "成功 / Success", "✓ 已完成", "✓ Complete"],
+ ["--error", "错误 / Error", "! 请检查输入", "! Check your input"],
+];
+const colorLabel = (label: string, englishFirst = false) => { const [first, second] = label.split(" / "); return (en === englishFirst ? first : second) ?? first; };
+const spaces: [string, number][] = [["1",4],["2",8],["3",12],["4",16],["6",24],["8",32],["12",48],["16",64]];
 ---
-
 <main id="main" class="design-system shell">
-  <header class="design-system-intro">
-    <p class="eyebrow">{copy.eyebrow}</p>
-    <h1>{copy.title}</h1>
-    <p>{copy.intro}</p>
-  </header>
-
-  <section class="design-system-section" aria-labelledby="type-title">
-    <div class="design-system-section-heading">
-      <p class="section-index">01 / TYPE</p>
-      <h2 class="heading-section-content" id="type-title">{copy.typography}</h2>
+ <header class="ds-intro">
+  <div><p class="eyebrow">Next Token / Design system</p><h1 class="type-title">{t("设计系统","Interface standards")}</h1><p class="ds-deck">{t("品牌、排版、颜色与界面规范","Brand, typography, color and interface specifications")}</p><p class="text-muted">{t("适用于 Next Token 网站的视觉样式、组件和页面布局。","Visual styles, components and page layouts for the Next Token website.")}</p></div>
+  <figure class="ds-signature"><img src="/assets/logo-next-token.svg?v=3" width="1024" height="1024" alt="Next Token" /><figcaption>{t("标准 Logo","Official logo")}</figcaption></figure>
+ </header>
+ <div class="ds-layout">
+  <nav class="ds-nav" aria-label={t("设计系统目录","Design system contents")}><p class="type-meta text-muted">{t("目录","Contents")}</p>{sections.map(([id,zh,english],i)=><a href={`#${id}`}><span>{String(i+1).padStart(2,"0")}</span>{t(zh,english)}</a>)}<a class="ds-brand-link" href={`${prefix}/brand-kit`}>{t("下载品牌素材","Brand downloads")} ↗</a></nav>
+  <div class="ds-content">
+   <section id="identity" class="ds-section">
+    <header><p class="section-index">01 / Identity</p><h2>{t("品牌识别","Brand identity")}</h2></header>
+    <p class="ds-description">{t("品牌识别由字标、橙色方点、暖纸底色和录制现场摄影组成。","The brand identity consists of a wordmark, an orange square, a warm paper background and recording-session photography.")}</p>
+    <div class="ds-principles">{([["字标与标记","Wordmark and mark","字标使用 League Spartan Black，橙色方点的位置与比例固定。","The wordmark uses League Spartan Black. The orange square has fixed placement and proportions."],["界面构成","Interface structure","界面使用直线布局、统一对齐线和细分隔线。","The interface uses rectilinear layouts, shared alignment and fine dividers."],["摄影与封面","Photography and artwork","品牌摄影使用真实录制现场，节目封面按原始比例完整显示。","Brand photography depicts recording sessions. Episode artwork displays in its original aspect ratio." ]] as const).map(([zh,en,body,eng])=><article><span class="signal-mark" aria-hidden="true"></span><h3>{t(zh,en)}</h3><p>{t(body,eng)}</p></article>)}</div>
+    <p class="type-meta text-muted">{t("标准 Logo 使用官方轮廓文件，方点的位置与比例固定。品牌图像以真实录制摄影为主，节目封面完整展示。","Use the official outlined logo with fixed square placement. Documentary photography carries the brand; episode artwork is shown intact.")}</p>
+   </section>
+   <section id="type" class="ds-section">
+    <header><p class="section-index">02 / Typography</p><h2>{t("字体与层级","Fonts and type hierarchy")}</h2></header>
+    <p class="ds-description">{t("字体按品牌字形、中文、英文与代码分别定义。字号以 rem 为准；下列 px 按 16px 根字号换算。48rem 为移动与桌面层级的分界，流式字号标注上下限，行高使用比例。","Typography defines brand letterforms, Chinese, English and code separately. Sizes use rem; px equivalents assume a 16px root. The mobile / desktop breakpoint is 48rem. Fluid sizes show their range, and line height is expressed as a ratio.")}</p>
+    <DesignSystemFonts locale={locale} />
+    <div class="type-specimens">{roles.map(([role,zh,english,zhSample,enSample],i)=><article><div class="ds-spec-label"><strong>{t(zh,english)}</strong><code>{role}</code></div><p class={role} data-type-sample>{t(zhSample,enSample)}</p><span class="ds-metric type-meta text-muted" data-type-metric>{typeMetrics[i]} · {t("行高","leading")} {typeLeading[i]} · {t("字重","weight")} {typeWeights[i]}</span></article>)}</div>
+    <p class="type-meta text-muted">{t("补充字号：辅助说明", "Additional sizes: captions")} {typeMetric('--type-caption')}；{t("常规短文", "short copy")} {typeMetric('--type-base')}；{t("小标题", "minor headings")} {typeMetric('--type-label')}。{t("海报字标与装饰数字根据容器缩放；正文、控件和导航遵循固定字号层级。", "Poster wordmarks and decorative numerals scale with their container; prose, controls and navigation use the fixed type scale.")}</p>
+    <div class="ds-mixed"><p class="type-entry">Next Token｜词元之外</p><p>AI、Agent 与创作 · 0123456789 · #006</p><p class="type-meta text-muted">{t("中英文混排保留自然字距。标题使用完整列宽，长标题自然换行。","Mixed scripts retain natural spacing. Titles use their full column and wrap at word boundaries.")}</p></div>
+   </section>
+   <section id="color" class="ds-section">
+    <header><p class="section-index">03 / Color</p><h2>{t("颜色体系","Color system")}</h2></header>
+    <p class="ds-color-note">{t("Logo 固定使用暖纸、墨黑与信号橙，色号分别为", "The logo uses Warm Paper, Ink Black and Signal Orange, respectively:")} <code>{["--paper", "--ink", "--signal"].map(colorHex).join(" / ")}</code>{t("。以下扩展色与用途变体用于网站界面，不替换 Logo 原色。", ". Extended colors and purpose-specific variants below apply to the website, without replacing logo colors.")} <a class="text-link" href={`${prefix}/brand-kit#kit-colors`}>{t("品牌素材使用同一套名称与色号", "The Brand Kit uses the same names and values")} →</a></p>
+    <p class="ds-description">{t("基础色承载大部分界面，信号橙建立品牌识别，远空蓝辅助信息组织。语义色只表达明确的状态。","Neutrals carry the interface, Signal Orange establishes brand recognition, and Distant Sky supports information. Semantic colors communicate explicit states.")}</p>
+    <div class="ds-color-group" data-color-group="brand">
+     <h3>{t("强调色系","Accent families")}</h3><p>{t("信号橙为主强调色，远空蓝为辅助色；各包含基准色、浅底色和文字色。基准色用于图形，文字色用于浅底上的小字号文字与图标。","Signal Orange is the primary accent and Distant Sky the supporting accent. Each has base, surface and text variants. Base colors serve graphics; text variants serve small text and icons on light surfaces.")}</p>
+     <div class="ds-color-families">{brandFamilies.map(family=><article class="ds-color-family"><h4 data-color-name={family.colors[0]![0]}>{colorName(family.colors[0]![0])}</h4><p>{t(family.zh,family.en)}</p><div class="color-specimens">{family.colors.map(([token,name,zh,en])=><div class="ds-color-item"><div class="ds-swatch" style={{background:`var(${token})`}} aria-hidden="true"></div><strong>{colorLabel(name)}</strong><code>{token}</code><span class="type-meta text-muted" data-color-token={token}>{colorHex(token)}</span><p>{t(zh,en)}</p></div>)}</div></article>)}</div>
+     <p class="ds-color-note">{t("大字适配：","Display variant: ")}<code>--signal-display</code> <span data-color-token="--signal-display">{colorHex("--signal-display")}</span>{t("，仅用于暖纸底上的品牌大标题。"," is reserved for large brand headlines on paper.")}</p>
     </div>
-    <div class="type-specimens">
-      <article>
-        <div><strong>{en ? "Reading title" : "长篇阅读标题"}</strong><code>heading-reading-title · 1.25</code></div>
-        <p class="heading-reading-title">{en ? "From a long conversation to a readable article: give every line room to breathe." : "从一段长对谈到一篇可读的文章：让多行标题保持清晰的阅读节奏。"}</p>
-      </article>
-      <article>
-        <div><strong>{copy.display}</strong><code>heading-section-display</code></div>
-        <h2 class="heading-section-display">{copy.displaySample}</h2>
-      </article>
-      <article>
-        <div><strong>{copy.content}</strong><code>heading-section-content</code></div>
-        <h2 class="heading-section-content">{copy.contentSample}</h2>
-      </article>
-      <article>
-        <div><strong>{copy.compact}</strong><code>heading-section-compact</code></div>
-        <h2 class="heading-section-compact">{copy.compactSample}</h2>
-      </article>
-      <article>
-        <div><strong>{copy.follow}</strong><code>heading-follow-display</code></div>
-        <h2 class="heading-follow-display">{copy.followSample}</h2>
-      </article>
+    <div class="ds-color-group" data-color-group="neutral">
+     <h3>{t("基础色","Neutrals")}</h3><p>{t("基础色用于页面背景、内容表面、正文和辅助文字。","Neutrals define page backgrounds, content surfaces, body text and supporting text.")}</p>
+     <div class="ds-neutral-list">{neutrals.map(([token,zh,en])=><div class="ds-neutral-row"><span class="ds-neutral-swatch" style={{background:`var(${token})`}} aria-hidden="true"></span><strong data-color-name={token}>{colorName(token)}</strong><div><code>{token}</code><span class="type-meta text-muted" data-color-token={token}>{colorHex(token)}</span></div><p>{t(zh,en)}</p></div>)}</div>
+     <p class="ds-color-note">{t("边界颜色按功能另行定义：内容分隔、结构分隔、控件边界。见","Border colors follow their own roles: content, structure and controls. See ")} <a class="text-link" href="#rules">{t("线条与边界","Rules & borders")}</a>{t("。", ".")}</p>
     </div>
-  </section>
-
-  <section class="design-system-section" aria-labelledby="color-title">
-    <div class="design-system-section-heading">
-      <p class="section-index">02 / COLOR</p>
-      <h2 class="heading-section-content" id="color-title">{copy.colors}</h2>
+    <div class="ds-color-group" data-color-group="semantic">
+     <h3>{t("语义色","Semantic colors")}</h3><p>{t("信息、成功和错误分别使用深蓝、绿色和红色，并附带文字或符号。","Information, success and error states use deep blue, green and red respectively, with accompanying labels or symbols.")}</p>
+     <div class="ds-status-grid">{statuses.map(([token,name,zh,en])=><div class="ds-status-item"><strong>{colorLabel(name)}</strong><p style={{color:`var(${token})`}}>{t(zh,en)}</p><code>{token}</code><span class="type-meta text-muted" data-color-token={token}>{colorHex(token)}</span></div>)}</div>
     </div>
-    <div class="color-specimens">
-      {colors.map((color) => (
-        <article style={{ "--swatch": color.value }}>
-          <div aria-hidden="true"></div>
-          <strong>{color.name}</strong>
-          <code>{color.token}<br />{color.value}</code>
-        </article>
-      ))}
+    <div class="ds-color-pairings"><h3>{t("搭配规则","Color pairings")}</h3><div class="ds-pair-grid">
+     <div class="ds-pair"><strong>{t("默认阅读","Default reading")}</strong><p>{t("暖纸底 + 墨黑文字","Paper + ink text")}</p><code>--paper / --ink</code></div>
+     <div class="ds-pair ds-pair-sky"><strong>{t("辅助信息","Supporting information")}</strong><p>{t("浅蓝底 + 深蓝文字","Soft sky + deep blue text")}</p><code>--sky-soft / --sky-text</code></div>
+     <div class="ds-pair ds-pair-inverse"><strong>{t("重点内容","Featured content")}</strong><p>{t("墨黑底 + 暖白文字","Ink + warm white text")}</p><code>--ink / --white</code></div>
+    </div><p class="ds-color-note">{t("信号橙用于品牌强调与选中状态，远空蓝用于辅助信息。浅蓝底搭配墨黑或深蓝文字，深色背景搭配浅色文字。","Signal Orange identifies brand accents and selection; Distant Sky supports information. Pale blue surfaces pair with ink or deep blue text. Dark surfaces use light text.")}</p></div>
+    <p class="ds-color-note">{t("功能图标继承所在控件的文字色；Next Token 标识使用 Logo 固定色；媒体平台与合作伙伴标识保留各自品牌颜色，不套用本站色板。", "Interface icons inherit their control's text color. The Next Token mark uses fixed logo colors. Media-platform and partner marks retain their own brand colors and do not use this site's palette.")} <a class="text-link" href="#icons">{t("查看图标用色", "Icon color usage")} →</a></p>
+    <DesignSystemColorRoles locale={locale} />
+   </section>
+   <section id="layout" class="ds-section">
+    <header><p class="section-index">04 / Layout</p><h2>{t("尺寸与布局","Dimensions and layout")}</h2></header>
+    <p class="ds-description">{t("页面最大宽度 88rem，正文最大宽度 46rem。手机侧边距从 1.25rem 起，基础间距为 0.25rem。尺寸以 rem 定义并标注计算后的 px；根字号为 16px 时，侧边距和基础间距分别为 20px 与 4px。","Pages have an 88rem maximum width; reading columns up to 46rem. Mobile gutters start at 1.25rem with a 0.25rem spacing unit. Dimensions are defined in rem and labelled with computed pixels: 20px and 4px respectively at a 16px root.")}</p>
+    <dl class="ds-units"><div><dt>rem</dt><dd>{t("字号、间距、内边距、控件尺寸与阅读宽度，随根字号一起调整。","Type, spacing, padding, controls and reading widths follow the root font size.")}</dd></div><div><dt>px</dt><dd>{t("边框、分隔线与焦点轮廓使用 1px / 2px。px 是 CSS 像素，不等于固定的物理屏幕像素；浏览器页面缩放仍会放大线条。","Borders, dividers and focus outlines use 1px / 2px. CSS pixels are not fixed physical pixels; browser page zoom still enlarges them.")}</dd></div><div><dt>em · % · fr</dt><dd>{t("图标可跟随文字使用 em；列宽用百分比或 fr；行高用无单位数值。","Icons can follow text with em; columns use percentages or fr; line height stays unitless.")}</dd></div></dl>
+    <div class="spacing-specimens">{spaces.map(([step,size])=><div><code>space-{step}</code><span style={{width:`var(--space-${step})`}}></span><small><span>{size / 16}rem</span> · <span data-space-token={`--space-${step}`}>{size}px</span></small></div>)}</div>
+    <div class="ds-grid-example" aria-hidden="true"><span>01</span><span>02</span><span>03</span><span>04</span></div>
+    <p class="type-meta text-muted">{t("列表通过间距和轻分隔线分组；阅读页面采用目录与正文两列，在窄屏纵向排列。","Lists use space and light rules. Reading pages pair an outline with the article, stacked on narrow screens.")}</p>
+   </section>
+   <section id="rules" class="ds-section">
+    <header><p class="section-index">05 / Rules &amp; borders</p><h2>{t("线条规范","Rule specifications")}</h2></header>
+    <p class="ds-description">{t("线条分为内容分隔、结构分隔、控件边界和强调线。默认线型为实线，粗细为 1px 或 2px。","Rules are classified as content dividers, structural rules, control boundaries and emphasis. They use solid 1px or 2px strokes.")}</p>
+    <div class="ds-rule-list">
+     <article><div class="ds-rule-sample"></div><strong>{t("内容分隔","Content divider")}</strong><code>1px · --line</code><p>{t("表格行、列表项和次级内容；不作为唯一的控件边界。","Table rows, lists and supporting content; never the sole boundary of an input.")}</p></article>
+     <article><div class="ds-rule-sample structural"></div><strong>{t("结构分隔","Structural rule")}</strong><code>1px · --line-strong</code><p>{t("表头、章节和汇总区之间的结构分隔。","Headers, sections and summary boundaries.")}</p></article>
+     <article><div class="ds-rule-sample control"></div><strong>{t("控件边界","Control boundary")}</strong><code>1px · --line-control</code><p>{t("输入框与次级按钮；在纸色和白色背景上保持清晰。","Inputs and secondary buttons, clearly visible against paper and white.")}</p></article>
+     <article><div class="ds-rule-sample emphasis"></div><strong>{t("强调与焦点","Emphasis and focus")}</strong><code>2px · --signal-text / --ink</code><p>{t("当前项下划线、引用侧线与键盘焦点。焦点轮廓向外偏移 3px，不挤占布局。","Active underlines, quote rules and keyboard focus. Outlines sit 3px outside the element without shifting layout.")}</p></article>
     </div>
-  </section>
-
-  <section class="design-system-section" aria-labelledby="spacing-title">
-    <div class="design-system-section-heading">
-      <p class="section-index">03 / SPACE</p>
-      <h2 class="heading-section-content" id="spacing-title">{copy.spacing}</h2>
+    <p class="type-meta text-muted">{t("浅色线用于装饰性分隔。需要识别或操作的边界使用更强颜色；深色区域使用对应的浅色线。相邻区块共用一条分隔线，由其中一侧绘制。列表行的分隔线保持一致，不因链接或二维码等操作方式而改变。","Light rules are decorative separators. Interactive boundaries use stronger colors; inverse surfaces use light rules. Adjacent regions share one divider, drawn by one side only. List rows use consistent dividers regardless of whether they open a link or a QR code.")}</p>
+    <p class="type-meta text-muted">{t("投影仅用于叠层：菜单 0 0.75rem 1.5rem，浮层 0 0.5rem 1.5rem，分别引用轻投影与浮层投影颜色。", "Shadows are reserved for overlays: menus use 0 0.75rem 1.5rem; popovers use 0 0.5rem 1.5rem, referencing soft and floating shadow colors respectively.")}</p>
+   </section>
+   <section id="tables" class="ds-section">
+    <header><p class="section-index">06 / Tables</p><h2>{t("表格规范","Table specifications")}</h2></header>
+    <p class="ds-description">{t("表格文字默认 0.875rem，表头 0.8125rem；单元格内边距为 0.75rem × 1rem。默认只有水平细线，文字左对齐，数值右对齐并使用等宽数字。","Table text is 0.875rem, with 0.8125rem headers and 0.75rem × 1rem cell padding. Use horizontal rules, left-aligned text and right-aligned tabular numbers.")}</p>
+    <p id="ds-table-hint" class="type-meta text-muted">{t("宽表格支持横向滚动；表格区域支持 Tab 聚焦和左右方向键滚动。","Wide tables support horizontal scrolling. The table region supports Tab focus and left/right arrow-key scrolling.")}</p>
+    <div class="table-scroll" tabindex="0" role="region" aria-labelledby="ds-table-caption" aria-describedby="ds-table-hint">
+     <table class="data-table ds-sizing-table"><caption id="ds-table-caption">{t("尺寸对照 · 默认根字号 16px","Size reference · default root font size 16px")}</caption><thead><tr><th scope="col">{t("角色","Role")}</th><th scope="col" class="numeric">rem</th><th scope="col" class="numeric">px</th><th scope="col">{t("用途","Use")}</th></tr></thead><tbody>
+      <tr><th scope="row">{t("正文","Body")}</th><td class="numeric">1.0625</td><td class="numeric">17</td><td>{t("长文与说明","Articles and explanations")}</td></tr>
+      <tr><th scope="row">{t("界面","Interface")}</th><td class="numeric">0.875</td><td class="numeric">14</td><td>{t("按钮与表格","Buttons and tables")}</td></tr>
+      <tr><th scope="row">{t("桌面控件","Desktop controls")}</th><td class="numeric">2.5</td><td class="numeric">40</td><td>{t("最小高度","Minimum height")}</td></tr>
+      <tr class="is-highlighted"><th scope="row">{t("触屏控件 · 重点行","Touch controls · highlighted")}</th><td class="numeric">2.75</td><td class="numeric">44</td><td>{t("更大的触摸区域","Larger touch area")}</td></tr>
+     </tbody></table>
     </div>
-    <div class="spacing-specimens">
-      {spaces.map((space) => <div><code>{space}</code><span style={{ width: `var(${space})` }}></span></div>)}
+    <ul class="ds-table-notes"><li>{t("表头下方使用 1px 结构线，数据行使用 1px 轻分隔线。默认不画外框与竖线；多组数据的比较矩阵可增加必要的竖向分组线。","Use a 1px structural rule below the header and 1px light row dividers. Omit enclosing boxes and vertical rules by default; comparison matrices may add column dividers.")}</li><li>{t("高密度版本内边距为 0.5rem × 0.75rem，不缩小正文；重点行使用浅蓝底和文字标记。静态行不显示手形或可点击的悬停效果。","Compact tables use 0.5rem × 0.75rem padding without shrinking type. Highlighted rows pair pale blue with a written label. Static rows have no pointer cursor or clickable hover effect.")}</li><li>{t("保留表格标题、列标题和行标题。空值显示破折号并说明含义；宽表在容器内滚动，不压缩文字，也不撑宽整个页面。","Keep captions and scoped row and column headers. Explain dashes used for missing values. Wide tables scroll within their region without shrinking text or widening the page.")}</li></ul>
+   </section>
+   <section id="icons" class="ds-section">
+  <header><p class="section-index">07 / Iconography</p><h2>{t("图标与标识", "Icons and marks")}</h2></header>
+  <p class="ds-description">{t("图标按功能、媒体平台和品牌标识分类。功能图标继承文字颜色；平台与品牌标识保留各自的轮廓、比例和颜色，统一展示区域与对齐方式。", "Icons are grouped by function, media platform and brand identity. Interface icons inherit text color; platform and brand marks retain their shapes, proportions and colors within consistent display areas.")}</p>
+    <DesignSystemIcons locale={locale} />
+   </section>
+   <section id="controls" class="ds-section">
+    <header><p class="section-index">08 / Interaction</p><h2>{t("交互控件","Interface controls")}</h2></header>
+    <p class="ds-description">{t("桌面控件最小高度为 2.5rem，触屏为 2.75rem。根字号为 16px 时分别为 40px 和 44px。控件圆角为 0.125rem。控件支持键盘和触摸操作，键盘焦点使用外轮廓标识。","Controls have a minimum height of 2.5rem on desktop and 2.75rem on touch screens: 40px and 44px at a 16px root. Controls have a 0.125rem corner radius and support keyboard and touch input, with an outline indicating keyboard focus.")}</p>
+    <div class="ds-control-row"><a class="control-button primary" href={`${prefix}/weekly`}>{t("浏览节目","Explore episodes")} →</a><a class="control-button" href={`${prefix}/blog`}>{t("阅读博客","Read the blog")}</a><button class="control-button" disabled>{t("暂不可用","Unavailable")}</button><a class="text-link" href={`${prefix}/wiki`}>{t("查看资料库","Explore the Wiki")}</a></div>
+    <div class="ds-control-row" role="group" aria-label={t("选择示例","Selection example")} data-demo-toggle><button class="control-button" aria-pressed="true">{t("全部","All")}</button><button class="control-button" aria-pressed="false">{t("节目","Episodes")}</button><button class="control-button" aria-pressed="false">{t("文章","Articles")}</button></div>
+    <div class="ds-fields">
+     <div class="ds-search-field"><label for="ds-search">{t("搜索","Search")}</label><div class="ds-search-row"><input id="ds-search" class="control-input" type="search" placeholder={t("输入关键词","Enter keywords")} /><button class="control-button" type="button" data-search-clear aria-label={t("清除搜索","Clear search")} disabled>×</button></div></div>
+     <label>{t("内容类型","Content type")}<select><option>{t("全部内容","All content")}</option><option>{t("节目","Episodes")}</option><option>{t("文章","Articles")}</option></select></label>
+     <label>{t("只读","Read only")}<input class="control-input" value="Next Token" readonly /></label>
+     <label>{t("错误状态示例","Error state example")}<input class="control-input" aria-invalid="true" aria-describedby="ds-error-hint" placeholder={t("填写标题","Enter a title")} /><small class="ds-error" id="ds-error-hint">{t("请填写标题。","Please enter a title.")}</small></label>
     </div>
-  </section>
+    <div class="ds-control-row"><label class="control-choice"><input type="checkbox" checked />{t("显示辅助信息","Show supporting information")}</label><label class="control-choice"><input type="radio" name="ds-order" checked />{t("最新","Newest")}</label><label class="control-choice"><input type="radio" name="ds-order" />{t("最早","Oldest")}</label></div>
+    <DesignSystemControlStates locale={locale} />
+   </section>
+   <section id="reading" class="ds-section">
+    <header><p class="section-index">09 / Reading</p><h2>{t("正文排版","Reading typography")}</h2></header>
+    <article class="ds-reading"><p class="type-meta text-muted">NEXT TOKEN / FIELD NOTES</p><h3>{t("节目介绍","About the show")}</h3><p>{t("Next Token Weekly 是一档 AI 对谈节目，内容涉及技术、产品、创业与创作。节目页面包含内容简介、章节目录和参考资料。","Next Token Weekly is an AI conversation show covering technology, products, entrepreneurship and creative work. Episode pages include summaries, chapter navigation and references.")}</p><blockquote>{t("节目内容包括音频、视频和文字稿。","Episode content includes audio, video and transcripts.")}</blockquote><p>{t("重要的概念保留解释，提及的人物和产品链接到","People, products and ideas connect to the")} <a class="text-link" href={`${prefix}/wiki`}>{t("资料库","Wiki")}</a>{t("。节目详情页提供完整对谈的访问入口。",". Episode detail pages link to the full conversation.")}</p><ul><li>{t("清晰的章节与完整的上下文","Clear chapters and full context")}</li><li>{t("可访问的链接与可核对的来源","Accessible links and traceable sources")}</li></ul><p class="type-meta text-muted">{t("图注、日期与来源使用辅助文字角色；正文链接使用 1px 虚线，下划线间距为 0.3em + 1px；悬停与聚焦使用信号橙浅底。","Captions, dates and sources use metadata type. Inline links use a 1px dashed underline offset by 0.3em + 1px; hover and focus use the Signal Orange surface.")}</p></article>
+    <DesignSystemAnnotations locale={locale} />
+   </section>
+   <section id="components" class="ds-section"><header><p class="section-index">10 / Composition</p><h2>{t("组合示例","Composition examples")}</h2></header><p class="ds-description">{t("封面、标题、元信息、分类标签与操作入口组合为内容卡片。以下节目卡片展示这些规则的共同使用；卡片引用既有字号、颜色与控件，不建立独立规范。","Artwork, headings, metadata, category labels and actions compose a content card. This episode card demonstrates those rules together, using existing type, color and control definitions rather than a separate specification.")}</p><EpisodeCard episodeId={latest.id} locale={locale} /></section>
+  </div>
+ </div>
 </main>
+<script>
+ const updateMetrics = () => {
 
+  document.querySelectorAll<HTMLElement>("[data-space-token]").forEach(el=>{el.textContent=`${parseFloat(getComputedStyle(document.documentElement).getPropertyValue(el.dataset.spaceToken!)) * parseFloat(getComputedStyle(document.documentElement).fontSize)}px`;});
+
+ };
+ updateMetrics(); new ResizeObserver(updateMetrics).observe(document.documentElement);
+ const search=document.querySelector<HTMLInputElement>('#ds-search');
+ const clear=document.querySelector<HTMLButtonElement>('[data-search-clear]');
+ if(search && clear) { search.addEventListener('input',()=>{clear.disabled=!search.value;}); clear.addEventListener('click',()=>{search.value='';clear.disabled=true;search.focus();}); }
+ document.querySelectorAll("[data-demo-toggle] button").forEach(button=>button.addEventListener("click",()=>{button.parentElement?.querySelectorAll("button").forEach(item=>item.setAttribute("aria-pressed",String(item===button)));}));
+</script>
 <style>
 @layer reset, tokens, base, layouts, components, utilities, overrides;
 @layer components {
-.design-system { padding-block: clamp(4rem, 8vw, 8rem); }
-  .design-system-intro { max-width: 58rem; padding-bottom: clamp(4rem, 8vw, 7rem); }
-  .design-system-intro h1 { margin-bottom: 1.5rem; font-size: clamp(3rem, 7vw, 6rem); }
-  .design-system-intro > p:last-child { max-width: 46rem; color: var(--muted); font-size: 1.2rem; }
-  .design-system-section { padding-block: clamp(3rem, 6vw, 6rem); border-top: 1px solid var(--ink); }
-  .design-system-section-heading { display: grid; grid-template-columns: minmax(10rem, .42fr) minmax(0, 1.58fr); gap: clamp(2rem, 7vw, 8rem); align-items: end; margin-bottom: 3rem; }
-  .design-system-section-heading h2 { margin: 0; }
-  .type-specimens { display: grid; gap: 1px; border: 1px solid var(--ink); background: var(--ink); }
-  .type-specimens article { padding: clamp(1.5rem, 4vw, 3.5rem); background: var(--paper); }
-  .type-specimens article > div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem 2rem; margin-bottom: 2rem; }
-  .type-specimens strong { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
-  .type-specimens code, .color-specimens code, .spacing-specimens code { color: var(--muted); font-family: var(--sans); font-size: .75rem; }
-  .type-specimens h2 { max-width: 65rem; margin: 0; }
-  .color-specimens { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
-  .color-specimens article { display: grid; grid-template-columns: 1fr auto; gap: 1rem; padding: 1rem; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
-  .color-specimens article > div { grid-column: 1 / -1; aspect-ratio: 4 / 3; background: var(--swatch); border: 1px solid var(--line); }
-  .color-specimens strong { font-size: .85rem; }
-  .color-specimens code { text-align: right; }
-  .spacing-specimens { display: grid; gap: 1rem; }
-  .spacing-specimens > div { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 1.5rem; align-items: center; min-height: 2rem; }
-  .spacing-specimens span { display: block; min-width: .25rem; height: 1rem; background: var(--signal); }
-  @media (max-width: 47.5rem) {
-    .design-system-section-heading { grid-template-columns: 1fr; gap: 1rem; }
-    .color-specimens { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
+ .design-system { container-type: inline-size; padding-block: 3rem 5rem; }
+ .ds-intro { display: grid; grid-template-columns: minmax(0,1fr) 17rem; align-items: center; gap: 3rem; padding-bottom: 3rem; }
+ .ds-intro h1 { margin: 0 0 1.5rem; } .ds-intro p:last-child { max-width: 36rem; }
+ .ds-deck { font-size: 1.375rem; font-weight: 600; margin-bottom: .75rem; }
+ .ds-signature { display: grid; justify-items: center; gap: .5rem; margin: 0; padding: 1rem; border: var(--stroke-thin) solid var(--line); }
+ .ds-signature img { width: 12rem; height: auto; }
+ .ds-signature figcaption { font-size: var(--type-meta); color: var(--muted); }
+ .ds-layout { display: grid; grid-template-columns: 11rem minmax(0,1fr); gap: 3rem; }
+ .ds-nav { align-self: start; position: sticky; top: 6rem; padding-top: 1.5rem; border-top: 1px solid var(--ink); }
+ .ds-nav a { display: flex; align-items: center; gap: .75rem; min-height: 2.75rem; font-size: var(--type-meta); }
+ .ds-nav a span { color: var(--signal-text); font-variant-numeric: tabular-nums; } .ds-nav a:hover { color: var(--signal-text); }
+ .ds-nav .ds-brand-link { border-top: 1px solid var(--line); margin-top: 1rem; padding-top: 1rem; }
+ .ds-content { min-width: 0; overflow-wrap: anywhere; }
+ .ds-section { border-top: 1px solid var(--line-strong); padding-block: 2rem 3.5rem; scroll-margin-top: 5.5rem; }
+ .ds-section header { margin-bottom: 1.5rem; } .ds-section .section-index { margin-bottom: .75rem; }
+ .ds-section h2 { font-size: var(--heading-section-content-size); font-family: var(--sans); margin: 0; }
+ .ds-description { max-width: 44rem; color: var(--muted); margin-bottom: 2rem; }
+ .ds-principles { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.5rem; margin-block: 2rem; }
+ .ds-principles h3 { font-size: var(--type-label); margin: 1rem 0 .75rem; }
+ .ds-principles p { font-size: var(--type-ui); color: var(--muted); line-height: 1.75; }
+ .type-specimens article { padding-block: 1.5rem; border-top: 1px solid var(--line); }
+ .ds-spec-label { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; margin-bottom: 1rem; font-size: var(--type-meta); }
+ .design-system code { font-family: var(--mono); font-size: var(--type-caption); color: var(--muted); overflow-wrap: anywhere; }
+ .type-specimens article > p { margin-bottom: .75rem; overflow-wrap: anywhere; }
+ .ds-mixed { padding: 1.5rem; background: var(--surface); } .ds-mixed p:last-child { margin: 0; }
+ .ds-color-group { margin-top: 2rem; }
+ .ds-color-group > h3, .ds-color-pairings > h3 { font-family: var(--sans); font-size: var(--type-label); margin-bottom: .5rem; }
+ .ds-color-group > p, .ds-color-note { font-size: var(--type-ui); color: var(--muted); line-height: 1.75; }
+ .ds-color-families { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2rem; margin-top: 1.5rem; }
+ .ds-color-family h4 { margin: 0 0 .5rem; font-size: var(--type-base); } .ds-color-family > p { font-size: var(--type-meta); color: var(--muted); margin-bottom: 1rem; }
+ .color-specimens { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%, 6rem),1fr)); gap: .75rem; }
+ .ds-color-item { display: flex; flex-direction: column; gap: .35rem; min-width: 0; }
+ .ds-swatch { height: 4rem; border: var(--stroke-thin) solid var(--line); margin-bottom: .5rem; }
+ .ds-color-item strong, .ds-color-item p { font-size: var(--type-meta); } .ds-color-item p { color: var(--muted); margin-bottom: 0; }
+ .ds-color-note { margin-top: 1.25rem; }
+ .ds-neutral-row { display: grid; grid-template-columns: 2rem minmax(0,1fr) minmax(0,1fr) minmax(0,1.3fr); align-items: center; gap: 1rem; padding-block: .875rem; border-bottom: var(--stroke-thin) solid var(--line); }
+ .ds-neutral-swatch { width: 2rem; height: 2rem; border: var(--stroke-thin) solid var(--line); }
+ .ds-neutral-row strong, .ds-neutral-row p { font-size: var(--type-meta); } .ds-neutral-row p { margin: 0; color: var(--muted); } .ds-neutral-row > div { display: grid; gap: .25rem; }
+ .ds-status-grid, .ds-pair-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; }
+ .ds-status-item { display: grid; gap: .5rem; padding-block: 1rem; border-top: var(--stroke-thin) solid var(--line); } .ds-status-item strong { font-size: var(--type-meta); } .ds-status-item p { font-size: var(--type-ui); margin-bottom: .5rem; }
+ .ds-color-pairings { margin-top: 2rem; } .ds-pair-grid { margin-top: 1rem; } .ds-pair { padding: 1.25rem; border: var(--stroke-thin) solid var(--line); color: var(--ink); background: var(--paper); }
+ .ds-pair strong { font-size: var(--type-ui); } .ds-pair p { font-size: var(--type-meta); margin-block: .5rem; } .ds-pair code { color: inherit; }
+ .ds-pair-sky { color: var(--sky-text); background: var(--sky-soft); } .ds-pair-inverse { color: var(--white); background: var(--ink); }
+ .ds-control-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-block: 1.5rem; font-size: var(--type-ui); }
+ .ds-success { color: var(--success); } .ds-error { color: var(--error); }
+ .ds-units { margin-bottom: 2rem; } .ds-units > div { display: grid; grid-template-columns: 7rem minmax(0,1fr); gap: 1rem; border-bottom: var(--stroke-thin) solid var(--line); padding-block: 1rem; }
+ .ds-units dt { font-family: var(--mono); font-size: var(--type-ui); font-weight: 600; } .ds-units dd { margin: 0; font-size: var(--type-ui); color: var(--muted); }
+ .ds-rule-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.5rem; margin-bottom: 1.5rem; }
+ .ds-rule-list article { display: grid; align-content: start; gap: .75rem; } .ds-rule-list strong { font-size: var(--type-ui); } .ds-rule-list p { color: var(--muted); font-size: var(--type-ui); }
+ .ds-rule-sample { height: 1rem; border-bottom: var(--stroke-thin) solid var(--line); margin-bottom: .5rem; }
+ .ds-rule-sample.structural { border-color: var(--line-strong); } .ds-rule-sample.control { border-color: var(--line-control); } .ds-rule-sample.emphasis { border-width: var(--stroke-emphasis); border-color: var(--signal-text); }
+ .ds-sizing-table { min-width: 36rem; } .ds-table-notes { padding-left: 1.25rem; margin-top: 1.5rem; color: var(--muted); font-size: var(--type-ui); } .ds-table-notes li + li { margin-top: .75rem; }
+ @media (max-width: 47.999rem) { .ds-neutral-row { grid-template-columns: 2rem minmax(0,1fr) minmax(0,1fr); gap: .75rem; } .ds-neutral-row p { grid-column: 2 / -1; } .ds-status-grid, .ds-pair-grid { grid-template-columns: 1fr; } .ds-rule-list { grid-template-columns: 1fr; gap: .75rem; } .ds-units > div { grid-template-columns: 1fr; gap: .5rem; } }
+ .spacing-specimens { display: grid; gap: .75rem; } .spacing-specimens > div { display: grid; grid-template-columns: 4rem 4rem minmax(0,1fr); gap: .5rem; align-items: center; }
+ .spacing-specimens > div > span { display: block; height: .5rem; background: var(--signal); } .spacing-specimens small { color: var(--muted); }
+ .ds-grid-example { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; margin-block: 2rem 1rem; } .ds-grid-example span { padding: 1rem; background: var(--surface); border-top: 2px solid var(--signal); font-size: var(--type-meta); }
+ .ds-search-field { display: grid; align-content: start; gap: .5rem; min-width: 0; } .ds-search-row { display: flex; gap: .5rem; } .ds-search-row input { min-width: 0; flex: 1; }
+ .ds-fields { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.5rem; } .ds-fields label { display: grid; align-content: start; gap: .5rem; font-size: var(--type-ui); }
+ .ds-reading { max-width: var(--reading-width); padding: 2rem; background: var(--white); font-size: var(--type-body); line-height: 1.8; }
+ .ds-reading h3 { font-family: var(--sans); font-size: 1.375rem; line-height: 1.4; } .ds-reading blockquote { border-left: 2px solid var(--signal); margin: 1.5rem 0; padding-left: 1.25rem; } .ds-reading p:last-child { margin-bottom: 0; }
+ @media (max-width: 62.5rem) { .ds-layout { grid-template-columns: 9rem minmax(0,1fr); gap: 2rem; } .ds-color-families { grid-template-columns: 1fr; } .ds-principles { grid-template-columns: 1fr; gap: .5rem; } }
+ @media (max-width: 47.999rem) { .design-system { padding-top: 2rem; } .ds-intro { grid-template-columns: 1fr; gap: 1.5rem; } .ds-signature { display: none; } .ds-layout { grid-template-columns: 1fr; gap: 1.5rem; } .ds-nav { position: static; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 1rem; } .ds-nav > p { grid-column: 1 / -1; } .ds-nav .ds-brand-link { grid-column: 1 / -1; } .ds-fields { grid-template-columns: 1fr; } .ds-reading { padding: 1.25rem; } .ds-section { padding-bottom: 2.5rem; } }
+ @container (max-width: 48rem) {
+  .ds-intro { grid-template-columns: 1fr; gap: 1.5rem; }
+  .ds-signature { display: none; }
+  .ds-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+  .ds-nav { position: static; display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,10rem),1fr)); gap: 0 1rem; }
+  .ds-nav > p, .ds-nav .ds-brand-link { grid-column: 1 / -1; }
+  .ds-color-families, .ds-fields, .ds-rule-list, .ds-status-grid, .ds-pair-grid, .ds-principles { grid-template-columns: 1fr; }
+  .ds-units > div { grid-template-columns: 1fr; gap: .5rem; }
+ }
+ @container (max-width: 14rem) {
+  .ds-neutral-row { grid-template-columns: 2rem minmax(0,1fr); }
+  .ds-neutral-row > div, .ds-neutral-row > p { grid-column: 2; }
+  .spacing-specimens > div { grid-template-columns: minmax(0,1fr); }
+  .ds-grid-example { grid-template-columns: repeat(2,minmax(0,1fr)); }
+ }
 }
 </style>

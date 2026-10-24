@@ -1,123 +1,166 @@
-# Website Design Guidelines
+# Next Token design system
 
-## CSS architecture
+## Identity
 
-- Shared design values live in `src/styles/tokens.css`; shared typography roles live in `src/styles/typography.css`; the global entrypoint imports domain stylesheets and owning Astro components keep their local composition. `global.css` contains only layer order and imports. `base.css` owns reset, base elements and `.shell`; `foundation.css` owns shared navigation and primitives; home, partners, weekly, episode, footer and transcript styles have separate modules. `responsive.css` preserves cross-template breakpoint rules and `motion.css` owns reduced-motion behavior.
-- Every standalone CSS file and Astro style block declares the same layer-order prelude before any layer block; Astro may emit component styles before the global import. Unlayered declarations are rejected.
-- The cascade order is `reset`, `tokens`, `base`, `layouts`, `components`, `utilities`, then `overrides`. Shared role classes own their font family, size, and line height; component styles may control layout and spacing but must not redefine those properties.
-- Promote a value to a global token only when the same semantic role occurs across page templates. Keep genuinely page-specific display treatments scoped to their owning page.
-- Homepage, show, and episode viewing-platform lists share `PlatformList.astro`, including numbered rows, colored logos, localized actions, and unavailable states. Platform metadata remains the source of names, destinations, and actions; pages control the surrounding section layout.
-- Homepage, show, and episode participant cards share `PersonCard.astro`. Portrait and name link to the same localized person profile; page composition controls spacing and supplies either the biography or episode role. `HostCard.astro` adds homepage social accounts through the shared card slot.
-- `/design-system` and `/en/design-system` are non-indexed reference pages for inspecting shared typography, color, and spacing tokens. They are not part of public navigation or the sitemap.
+Next Token is an editorial media site grounded in first-hand conversations. Its visual identity combines warm paper, ink, signal orange, a square mark, the League Spartan wordmark and documentary photography. Large display type introduces the brand; browsing and reading use a compact, quiet hierarchy.
 
-## Scrolling
+- Official logo geometry, naming and source assets belong to the sibling `next-token` repository. Website files under `public/assets/` are delivery copies.
+- The homepage brand photograph remains the original Weekly #001 recording, with its monochrome treatment, “Weekly” stamp, “AI signals / one open table” caption and “Since 2026.09.03” date. It is independent of the latest episode. The surrounding layout uses the shared layout tokens.
+- Episode artwork is shown intact, in its original square aspect ratio, using responsive WebP delivery assets. Never crop, stretch, pan or apply grayscale to designed covers. Legacy photographic episodes retain their photo treatment.
+- Signal orange is used for graphic accents and small square markers. Links and small accent text use the darker text token on paper and the lighter text token on inverse surfaces.
+- Rectilinear composition, fine rules and consistent alignment organize the site. Buttons, inputs and the mobile menu trigger use `--control-radius: 0.125rem`. Circular portraits and switches retain their semantic shapes. Avoid decorative enclosing grids where spacing and row dividers suffice.
 
-- The document remains the native scroll container. Apply `overscroll-behavior-y: none` to `html` and `body` to suppress vertical boundary bounce where supported. Keep horizontal gestures, normal wheel/touch/keyboard scrolling, zoom, sticky navigation and hash navigation native; do not fix the body or globally cancel wheel/touch events.
-- Unsupported browsers gracefully retain native bounce. Safari added overscroll support in version 16, with short-page fixes in 16.4; browser- or app-owned pull-to-refresh may still differ. Chrome viewport emulation does not verify physical iOS gestures. See [Safari 16](https://webkit.org/blog/13152/webkit-features-in-safari-16-0/), [Safari 16.4](https://developer.apple.com/documentation/safari-release-notes/safari-16_4-release-notes), and [WebKit pull-to-refresh limitation](https://bugs.webkit.org/show_bug.cgi?id=275947).
+## Shared architecture
 
-## Content width and alignment
+- `src/styles/tokens.css` owns reusable semantic values. `typography.css` owns typography roles. `form-controls.css` owns shared input, button and native select styling. `tables.css` owns reusable data tables and prose-table styles. Domain stylesheets own composition.
+- `global.css` contains layer order and imports only. Every stylesheet and Astro style block declares the layer order before its rules: `reset`, `tokens`, `base`, `layouts`, `components`, `utilities`, `overrides`.
+- Shared role classes own font family, size and line height; components control their spacing and placement. Page-specific typography remains local only when it has a distinct semantic purpose.
+- `/design-system` and `/en/design-system` are public, indexable reference pages linked from the footer's About group. Their specimens use production tokens, controls and the real episode card. Type specimens show declared rem ranges, baseline px equivalents at a 16px root, unitless leading and weights. Live fractional viewport measurements are not specification labels. Color values are read from the shared token source and displayed as six-digit HEX with opacity separate.
+- `PlatformList.astro` owns platform rows; metadata owns names, destinations and availability. `PersonCard.astro` owns shared participant cards; `HostCard.astro` adds social accounts. `EpisodeCard.astro` owns episode cards. Published episodes share `EpisodeDetailPage.astro`.
 
-- Shared page containers use `.shell` with `--site-max-width: 100rem`, including responsive inline padding from `--gutter`. Containers are centered; the maximum width includes padding.
-- Navigation, homepage section headings, card grids, subscription content, and footer content share the same outer content edges in both languages. Internal columns and readable prose may be narrower.
-- Full-width backgrounds are independent of content width. The homepage Weekly section wraps its content in `.shell`; its background and the topic rail remain full bleed. Do not nest padded shells or add a second inline gutter to their parents.
-- The homepage hero uses the same shell: text aligns with its left content edge and the photograph ends at its right content edge. Neither column bleeds beyond the shared content area.
-- The homepage brand visual is owned by `BrandHeroVisual.astro` and deliberately retains the original Weekly #001 recording photograph, monochrome treatment, panning, “Weekly” stamp, “AI signals / one open table” caption and “Since 2026.09.03” start date. The homepage caption omits episode numbers, per-episode story counts and venue names. It is a long-term brand asset, not a latest-episode cover. Episode releases update the primary CTA and episode cards, never this visual; replacement requires explicit user approval.
-- The Weekly landing-page and episode-announcement heroes follow the same rule: their two-column blocks use `.shell`, and neither column extends beyond the shared desktop content area. At stacked breakpoints, a background panel may reach the shell edge while its text retains the shared gutter.
-- Published episode heroes use `.episode-detail-hero-inner.shell` for both image and copy; only the outer dark background spans the viewport.
-- Partner detail heroes and photo galleries use `.shell`; their copy and images align with the shared content edges. Full-width section backgrounds remain independent of these containers.
-- All published episodes use `EpisodeDetailPage.astro` and retain the same page sequence: hero, production facts and Show Notes, episode mentions, participants, then listening and viewing platforms. Audio/video availability and content length may differ, but release state must not select a different published-page composition.
-- An announced episode with `detailLayout: true` uses the same final detail-page composition for local release preparation. This flag does not assert publication or create a production snapshot. Unconfirmed media links, duration, release date and chapters remain absent; release metadata must be verified before deployment.
-- Published Show Notes use the same editorial skeleton in both languages: opening context, episode questions, timeline, references, people/products/terms, and production credits. The timeline is bounded by `chapters:website-<locale>` markers and must match the generated chapter snapshot; do not maintain a shortened page-only timeline.
-- On wide desktop screens, the Weekly landing hero stays within the first viewport below the header. Its vertical poster lettering scales with viewport height so it cannot force the hero taller; the copy H1 remains the dominant element in the left column.
-- The episode-announcement venue and map block also uses `.shell`. Preserve its two-column composition: the partner logo remains in the left panel, while the venue copy, actions, and embedded map stay together in the right panel. The full block shares the same outer edges as the announcement details and participant grid.
-- Display type inside a constrained hero column scales against that column, not the viewport. Changing a hero's container width requires checking every large display element for added wrapping or overflow.
-- Hero H1 sizing follows the available text column rather than the viewport: `clamp(3rem, 14cqi, 6rem)`. This prevents oversized headings after the layout reaches its maximum width. Other heading sizes remain unchanged.
-- Validate alignment and overflow at 390, 768, 1280, 1440, 1920, and 2560 CSS pixels. Background edges need not match content edges; navigation, section content, and footer content must align.
-- Brand and product directory heroes, directory rows, detail heroes, fact grids, related entities, and related episodes all use `.shell`. Their internal column ratios may differ, but their outer edges align with the header and footer.
-- Brands, products, people and terms share the primary library switch. The secondary filter row uses the entity `kind` taxonomy, displays only categories present in the current collection, and keeps the active category in the `type` query parameter. On narrow screens the filter row scrolls horizontally inside the shell without causing page overflow.
-- Brand and product detail heroes use an editorial identity panel: the entity class is the dominant graphic element, while the name, summary, and aliases remain readable content. Verification dates are provenance metadata, shown as one quiet line beneath the official links rather than as a primary fact card.
-- Entity pages with a localized Wiki article pair a compact black landscape identity card with the title, summary and always-visible aliases and place the article before the existing fact and relationship sections. The card emphasizes the localized subject category (such as Artificial intelligence or Model family), places the entity class (Brand or Product) in a 1rem top label beside an orange marker, and uses Next Token / Wiki as a quiet bottom signature. It aligns with the reading sidebar on desktop and stacks above the title on mobile. Their reading layout has a chapter outline beside a readable text column, stacked on narrow screens. Article-updated and fact-verification dates appear together below that outline; they remain separate metadata values. Article H2 headings retain the shared 1.25 line height. Entities without articles retain their existing layout.
-- Wiki article pages use compact supporting sections: 1.5rem block padding and 1.25rem headings for facts, links, related entities, and episodes. These headings have their own content-page role, not the display-page section roles. Omit numbered section kickers and fixed-height fact or relationship cards. FAQ answers stay expanded in the article, with H3 questions below a directory-linked H2. Site header and footer geometry remain unchanged.
-- Full-episode transcripts use a compact long-form editorial layout rather than chat bubbles. The article header and chapter headings use blog-scale typography so the first viewport reaches the table of contents and transcript body; the title should take the available horizontal space before wrapping, and the table of contents is open by default. Speaker portraits are 1.5–1.75rem circles with one subtle light-gray ring and no white inner ring or shadow. Speaker names and turn rules use stable accents sampled from their grid portraits: Yangpan sky blue (`#318fbd`), Guizang ochre (`#a96a00`), Orange orange (`#f06a31`), and Xiangyang Qiaomu deep black (`#171717`). Candidate attribution markers remain visible beside the name with one concise explanation in the article header; do not repeat that explanation beside the table of contents. Narration uses a quieter size than participant dialogue.
+## Color
 
-## Section heading scale and line height
+Color has three roles: brand accents, neutral foundations and semantic states. Paper and ink carry most of the interface. Signal is the primary brand accent; Sky is supporting color. Components use semantic tokens rather than adding local shades.
 
-- Transcript and Blog article H1 titles use `.heading-reading-title`, with `--reading-title-leading: 1.25` at every breakpoint, including short desktop viewports. Page composition sets `--reading-title-size`; the shared role owns the resulting font properties. Display titles retain their separate roles.
+- Website color values come from `src/styles/tokens.css`; public bilingual names come from `src/data/design-colors.ts`. The design system and Brand Kit share both sources. Brand Kit metadata references tokens rather than copying names or hex values.
+- Public names are 暖纸 / Warm Paper, 墨黑 / Ink Black, 信号橙 / Signal Orange, 远空蓝 / Distant Sky, 暖白 / Warm White, 纸影 / Paper Shadow and 淡墨 / Soft Ink. Token identifiers describe roles and remain stable when public names change.
+- Logo colors are fixed to paper, ink and base signal, matching the canonical exports. Website surface, text and display variants are purpose-specific colors, not replacements for logo colors. Interface icons inherit their control's text color; platform and partner marks retain their own asset colors.
 
-- Large repeated editorial sections use `.heading-section-display`: `3.1rem` below `48rem`, `4.25rem` from `48rem`, and `5.25rem` from `80rem`.
-- Repeated content sections use `.heading-section-content`: `2.25rem` below `48rem`, `2.65rem` from `48rem`, and `3rem` from `80rem`. This role includes episode mentions, participants, viewing platforms, entity facts, entity links, and related episodes.
-- Repeated compact sections use `.heading-section-compact`: `1.8rem` below `48rem`, `2.15rem` from `48rem`, and `2.5rem` from `80rem`. This role includes profile details and Brand Kit sections.
-- Homepage and Weekly subscription sections use `.heading-follow-display`: `2.75rem` below `48rem`, `3.5rem` from `48rem`, and `4.25rem` from `80rem`. Both pages must resolve to the same computed size at a given viewport; their surrounding spacing remains page-specific.
-- Shared section headings use discrete responsive steps and remain fixed between breakpoints. They stop growing after the `80rem` desktop breakpoint, regardless of viewport width.
-- Featured-episode cards on the homepage and Weekly landing page use the content-section size for both the episode number and episode title. Neither element may exceed the corresponding section H2 at any breakpoint.
-- Published episode hero H1 titles use the page-scoped `--episode-title-size` (2.65 / 3.25 / 3.75rem at the shared 48rem and 80rem breakpoints). The episode number uses the page-scoped `--episode-number-size` (2.5 / 3 / 3.5rem), slightly smaller than the H1. Both stop growing between breakpoints; preserve H1 headline leading and use 1 for the number.
-- Published episode titles explicitly use `.episode-hero-title`; episode numbers use `.episode-hero-number`. These semantic classes own their styles, rather than tag or child selectors. Their responsive variables are scoped to `.episode-detail-hero-copy`.
-- Page-specific display headings remain local to their page template. The Weekly landing page uses `--weekly-display-heading-size: clamp(2.75rem, 4.5vw, 4.75rem)` for its large editorial statements.
-- Card titles, transcript chapter titles, article subheadings, and large display slogans are separate typographic roles. Keep a page-only role in its component; promote it to a shared token only when the same semantic role appears across page templates.
-- Typography tokens and breakpoints use `rem`. Do not define font sizes in `px`; genuinely fluid, page-specific display treatments may use viewport- or container-relative units inside bounded `clamp()` values.
-- All H2 section headings use `--section-heading-leading: 1.25`, defined in `src/styles/tokens.css` and applied by the base typography layer.
-- This rule applies to both languages, all page templates, and all viewport sizes. Component styles and media queries must not override H2 line height.
-- Explicit line breaks follow the same line-height rule. Do not simulate line spacing with margins, padding, or empty lines between title fragments.
-- Eyebrow-to-heading spacing is separate from heading line height and must leave visible whitespace.
-- H1, H3, body text, and compact labels retain their own typography rules; consistency means shared rules for equivalent roles, not one line height for every text element.
+### Brand colors
+
+Both color families use the same three roles: base for graphics, soft for surfaces, text for readable foregrounds on light surfaces.
+
+| Family | Base | Soft surface | Text |
+| --- | --- | --- | --- |
+| Signal | `--signal: #ff4b18` | `--signal-soft: #f9dfd2` | `--signal-text: #b8320d` |
+| Sky | `--sky: #caddee` | `--sky-soft: #e8f1f8` | `--sky-text: #285d7a` |
+
+- Signal establishes brand recognition and selected controls. Sky supports information panels, highlighted table rows and occasional editorial graphics.
+- `--signal-display: #f24816` is a contrast-adjusted variant reserved for large brand headlines on paper, with at least 3:1 contrast. It belongs to the Signal family.
+- Orange and blue have distinct roles; avoid equal competing areas and small orange text on blue surfaces.
+
+### Neutral foundations
+
+| Token | Value | Use |
+| --- | --- | --- |
+| `--paper` | `#f1eee5` | Page background |
+| `--white` | `#fffdf6` | Input and reading surfaces |
+| `--surface` | `#e8e4da` | Secondary and disabled surfaces |
+| `--ink` | `#111111` | Primary text, primary actions and inverse surfaces |
+| `--muted` | `#635f58` | Supporting text and metadata on light surfaces |
+
+Border tokens follow a separate functional scale described under Units, rules and borders: content dividers, structural rules and control boundaries.
+
+### Semantic states and pairings
+
+- Information reuses `--sky-text`; success uses `--success: #356247`; errors use `--error: #a62d28`. Brand orange does not imply a warning. Status and selection include labels or symbols, never color alone.
+- Default reading pairs paper with ink. Information panels pair Sky soft with Sky text. Inverse sections pair ink with warm white.
+- Inverse sections use `#b7b3ac` for supporting text and `#ff9473` for accent text. Light-surface text tokens are not applied unchanged to inverse surfaces.
+
+## Typography
+
+- Brand Latin: local League Spartan Black, weight 900 only, for the wordmark, display headings and selected numerals. The font has no Chinese glyphs; Chinese display text falls back to system Chinese fonts. Official logos use outlined artwork.
+- Chinese: PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, Noto Sans SC, then sans-serif. The installed font and its supported weights determine rendering; no Chinese webfont is downloaded.
+- English body and interface: -apple-system, BlinkMacSystemFont, Segoe UI, then the shared stack’s sans-serif fallback. Apple uses its system sans-serif; Windows uses Segoe UI where available. Chinese and English share `--sans`, with selection by glyph coverage.
+- Code: ui-monospace, SFMono-Regular, Consolas, monospace. Tabular numbers in tables do not require a monospace font for all text.
+- Body weight is 400, emphasis 600, headings 700 and entry headings 650; system fonts match available weights. Brand display requests 900. Mixed-script body copy uses natural spacing.
+- Sizes use `rem`. The table below assumes the browser's default 16px root size; user font preferences remain supported.
+
+| Role | Below 48rem | From 48rem |
+| --- | --- | --- |
+| Brand hero | Bounded fluid size, 36–64px | Bounded fluid size, 36–64px |
+| Page / reading title | 30px | 40px |
+| Display section | 28px | 32px |
+| Content section | 24px | 28px |
+| Compact section | 22px | 24px |
+| Follow section | 28px | 32px |
+| Entry title | 20px | 20px |
+| Body | 17px | 17px |
+| UI / metadata | 14px / 13px | 14px / 13px |
+
+- All rendered H2s and `.heading-reading-title` use 1.25 line height. Body copy uses approximately 1.8–1.85. Display type retains zero letter spacing; short uppercase metadata may use positive tracking.
+- H1s use their full column width, balanced natural wrapping and intentional content line breaks. Reading-width restrictions apply to prose, not titles. Do not force long brand names into a clipped line.
+- Shared section sizes stop growing above the 48rem breakpoint. Featured episode titles and numbers do not exceed their enclosing section heading.
+- Published episode H1s use `--episode-title-size: var(--type-title)` and numbers use `1.5rem`, with explicit `.episode-hero-title` and `.episode-hero-number` classes.
+
+## Units, rules and borders
+
+- Adjacent regions share one divider; only one region owns the border at their shared edge. Platform lists use `1px solid var(--line)` for both the top edge and every row divider, whether a row opens a QR code or an external destination.
+- Text-link underlines include a shared `--link-underline-gap: 1px` in addition to their type-relative offset. Underline thickness and line height are independent of this gap.
+
+- Type, spacing, padding, control dimensions and reading widths use `rem`. A root size of 16px is an example conversion, not a forced root font size. The design-system type specimens show declared rem and baseline px equivalents.
+- Border thickness uses `--stroke-thin: 1px` and `--stroke-emphasis: 2px`; focus outlines use 2px with a 3px offset. CSS pixels are reference pixels, not necessarily physical device pixels. Page zoom still scales these lines; changing only the root font size does not change their CSS thickness.
+- `em` can size text-adjacent icons and underline offsets; `%` and `fr` size fluid columns; line height stays unitless.
+- `1px --line` (ink at 16%) separates table rows and secondary content. `1px --line-strong` (ink at 38%) defines headers and sections. These are decorative structure, not sufficient interactive boundaries.
+- `1px --line-control` (`#7b7770`) defines input and secondary-button boundaries on paper and white. `2px --signal-text` identifies focus; 2px ink or accent rules provide deliberate emphasis. Inverse surfaces use corresponding light colors.
+- Prefer solid rules and whitespace. Avoid 0.5px hairlines, ornamental dashed lines and enclosing grids without a grouping purpose.
+
+## Tables
+
+- `.data-table` uses 0.875rem text, 0.8125rem column headers, 1.6 line height and 0.75rem × 1rem cell padding. `.data-table--compact` reduces padding to 0.5rem × 0.75rem without reducing type or touch targets.
+- Default tables have horizontal 1px rules: `--line-strong` below headers and before summaries, `--line` between data rows. There is no enclosing frame or vertical grid. `.data-table--matrix` adds vertical rules when column comparisons require them.
+- Text aligns left; `.numeric` aligns numbers right with tabular figures and consistent units. Cells align at the top. Missing values use an explained dash.
+- Captions name the table; headers use `scope="col"` or `scope="row"`. `.is-highlighted` pairs `--sky-soft` with a written marker, not color alone. Static rows do not show click affordances.
+- Wide tables sit inside `.table-scroll`, a labelled, keyboard-focusable region with an overflow hint. Preserve column comparison through internal horizontal scrolling rather than smaller type or page overflow. Narrow relational summaries may retain their labelled stacked layout.
+
+## Layout and density
+
+- `.shell` has a maximum border-box width of `88rem`, centered with responsive `--gutter` padding. Header, footer, page heroes and content share the same outer edges. Do not nest padded shells.
+- Full-bleed backgrounds are independent of content alignment. Home, Weekly, episode and partner hero copy and images remain inside the shared shell.
+- `--section-space` is `clamp(3rem, 5vw, 5rem)`. The spacing scale is 4, 8, 12, 16, 24, 32, 48 and 64px at the default root size.
+- Main reading columns target at most `46rem`; transcript composition includes speaker identity and dialogue columns. Directories prioritize compact rows with light horizontal rules and quiet metadata.
+- Brand presentation, content browsing and long-form reading share foundations but use different compositions. Brand pages retain strong images; directories use filters and lists; articles pair an outline with readable prose.
+- Hero and information panels grow with content. Avoid fixed minimum heights that create empty mobile panels. Square artwork containers retain their source aspect ratio.
+- Footer branding is a compact signature followed by grouped navigation. The footer includes the design system and Brand Kit.
+
+## Icons and marks
+
+- `/design-system#icons` and `/en/design-system#icons` display current interface SVGs and platform marks. Partner identities remain on their own pages and are not part of the design-system icon library. PNG and SVG formats follow the official source assets. QR codes are content images; arrows and status characters remain text glyphs.
+- `InterfaceIcon.astro` renders the search and menu icons from `src/data/interface-icons.ts`. The header and specimens share this component. Search uses a 24-unit viewBox at `1.125rem`; menu uses a 20-unit viewBox at `1.25rem`. Both have a 1.5px rendered stroke at a 16px root, flat ends and `currentColor`.
+- `platformIcon()` in `src/data/platforms.mjs` resolves platform assets for both production rows and the specimen. Platform marks occupy `1.75rem` square slots with `0.65rem` text spacing and retain their aspect ratio. `platformAssets` records source, provenance category and optical size: Spotify and Apple Podcasts use `1.5rem`, WeChat Channels uses `2rem` and RedNote uses `2rem` including their built-in whitespace, and the other marks use `1.75rem`. The specimen links each asset to its source and distinguishes official deliveries from adapted official artwork. Prefer official assets; preserve brand shapes and colors. Sources and local treatments are recorded in `ASSET-LICENSES.md` and `docs/platform-icons.md`.
+- Brand and partner marks preserve their full composition, backgrounds and clear space. Interface stroke rules do not apply to them. Decorative SVGs are hidden from assistive technology; the enclosing control supplies its accessible name.
+
+## Controls and motion
+
+- Controls use `--control-height: 2.5rem` on fine pointers and `2.75rem` on coarse pointers. Buttons may grow for wrapping labels. Primary actions use ink; secondary actions use a light surface; ordinary text links remain lightweight.
+- Native selects, `.control-input`, `.control-button` and `.control-choice` share type and state rules. Pages set widths and layout. Native keyboard and mobile picker behavior remains intact.
+- Error borders remain visible during hover and focus. Focus uses an explicit offset outline. Disabled controls retain readable labels; errors include explanatory text. Inline prose links are underlined. Active navigation uses an underline; selected filters expose `aria-pressed`.
+- Search shortcuts reveal and focus the search input below the sticky header without losing the query. Mobile navigation supports Escape, outside-click dismissal and native details semantics.
+- Color and border transitions are brief. Reduced-motion preferences disable animation. The permanent brand photograph retains conditional panning.
+- The document remains the native scroll container. `overscroll-behavior-y: none` suppresses boundary bounce where supported; wheel, touch, keyboard, zoom and hash navigation remain native.
+
+## Content-specific rules
+
+- The public system has ten sections: identity, typography, color, layout, rules, tables, icons, controls, reading and composition examples. A production episode card is a composition example of the established primitives; page-type links and dedicated feature walkthroughs are not separate specification chapters.
+- `DesignSystemColorRoles.astro` documents shared identity, category, highlight, annotation, inverse and boundary colors. `DesignSystemAnnotations.astro` demonstrates those definitions in generic identity markers, category links, text states and annotation blocks. `DesignSystemControlStates.astro` demonstrates switches, disclosure and copy feedback independently of transcript behavior.
+- `tokens.css` defines `--identity-*`, `--category-*`, `--highlight-*`, `--annotation-surface`, `--note-surface` and `--switch-track`. Production transcripts reference these tokens; they do not own a parallel palette. Body text uses `--ink` and `--type-body` on all screens.
+- Identity mapping is stable: Yang Pan → blue `#318fbd`; Guizang → ochre `#a96a00`; Orange → orange `#f06a31`; Xiangyang Qiaomu → ink `#171717`. Unassigned identity uses `#111111` at 42%. Names use Ink Black and accompany all identity marks; identity colors are not status colors.
+- Category definitions use six-digit HEX: brand `#be7832`, product/show `#3782af`, person `#7d69a5`. `content-markers.css` shares category-link styling between the public specimen and production content. Background opacity is 8% / 16% for normal / keyboard focus, or 22% / 30% with emphasis enabled; hover retains the tint.
+- Color labels consistently use six-digit HEX; transparent overlays append a separate opacity percentage, never raw RGB channel tuples or RGBA expressions. Highlight and annotation colors are defined in the Color section and referenced by the Reading examples.
+
+- Published episode order is hero, production facts and Show Notes, mentions, participants, then platforms. Audio/video availability and content length do not change this sequence. `detailLayout: true` allows release preparation without asserting publication.
+- Show Notes retain opening context, questions, timeline, references, people/products/terms and credits. Generated chapter markers remain authoritative; no page-only shortened timeline.
+- Latest episode links and cards derive from metadata, ordered by descending episode number. Announcements remain separate. Transcript availability is localized and independent of audio/video availability; an older transcript link shows its own episode number.
+- Cover links include visible date and media label in their accessible names. Delivery assets use 480, 720, 960, 1440 and 1920-width WebP variants with truthful `srcset` descriptors and responsive `sizes`.
+- Wiki directories share the primary entity switch. Filters use actual taxonomy categories and the `type` query parameter. Narrow screens scroll filters within the shell.
+- Wiki identity panels are 10rem high on desktop and 9rem below 760px.
+- `WikiDetailHeader.astro`, `WikiIdentityCard.astro` and `wiki-detail.css` own the shared Wiki header, identity card and support-section geometry. Hero, reading and supporting sections each have their own shell. Sidebars and main content align across sections.
+- Wiki article FAQs remain expanded. Aliases are visible. Article-updated and fact-verification dates remain distinct, quiet metadata. Supporting relationships use grouped rows without decorative inner boxes.
+- Transcripts use editorial paragraphs with small circular speaker portraits and stable per-speaker accents defined by the transcript presentation configuration. Candidate attribution remains visible with one header explanation. Narration has quieter typography. The chapter outline opens by default.
+- Profile account order is Podcast, X, GitHub, Jike, WeChat official account, WeChat Channels, RedNote, Weibo, LinkedIn. Accounts without URLs show search guidance, never invented links.
+- HTML sitemap episode titles come from localized hero content, with the number once as metadata. Episode and transcript links remain paired on wide screens.
+
+## Shared primitive details
+
+- Small-text sizes share tokens: captions 12px, metadata 13px, interface 14px, short copy 16px, body 17px and minor headings 18px at a 16px root. Public type metrics derive from the CSS token values; poster lettering and decorative numerals may scale with their containers.
+- Inverse compositions use shared supporting text and three border roles (`--inverse-line`, `--inverse-line-strong`, `--inverse-line-control`). Navigation surfaces, image scrims and overlay shadows are defined in the Color section. Component CSS references color tokens instead of declaring local literal colors.
+- `.control-switch` and `.control-switch-track` provide the same switch geometry, state and touch target in production and specimens. Circular switch tracks are an explicit shape exception.
+- `reading-links.css` shares prose link rendering between Wiki, articles and the Reading specimen: 1px dashed structural-color underlines at `0.3em + 1px`, Signal Orange surface on hover/focus, no layout shift.
 
 ## Validation
 
-- Published audio-only and video episodes share the same detail and card components. Display audio/video availability independently; only link a transcript when that locale has an imported transcript. The latest available transcript may belong to an older episode and must display its episode number in homepage/channel hero links.
-- Weekly cards are ordered by descending episode number. Homepage primary actions and the global status link point to the latest published episode. Recording previews remain separate and disappear when no announced episode exists.
-- The HTML sitemap displays the episode number once as metadata and uses the localized hero heading as the visible episode title. It never exposes SEO/site-name suffixes in the episode list. Published and announced episodes share this row structure, and episode and transcript rows remain vertically paired on wide layouts.
-- Designed cover artwork is displayed intact with `object-fit: contain`, without photo panning or grayscale effects. The approved episode H1 and number classes also apply to audio-only episodes.
-- Homepage and Weekly artwork cards and episode detail heroes use the original square cover, delivered as responsive WebP variants without cropping or stretching. The image and its container retain the same source aspect ratio. The permanent Weekly #001 brand visual remains unchanged.
-- `check:artwork` blocks non-square originals/variants, incorrect width descriptors and non-WebP delivery covers for every published artwork episode and prepared detail page. The release gate also checks rendered bilingual hero/card image references. Audio imports reject a landscape original before copying or resizing. Legacy photo episodes and the permanent brand photograph retain their existing treatment.
-- Episode artwork imports generate 480, 720, 960, 1440 and 1920-width WebP delivery assets while retaining the original image. Episode cards and detail heroes share `episodeImageSrcset`; `sizes` follows the shell gutters, stacking breakpoint and desktop column width. Legacy snapshots without small variants remain supported. Mobile regression tests verify the selected asset at both 1× and 2× pixel density; hero images retain high fetch priority and below-the-fold cards remain lazy-loaded.
-
-- Check every rendered H2 on Chinese and English pages at desktop, tablet, and mobile widths. Its computed line height divided by font size must equal 1.25 (allowing browser rounding).
-- At the same viewport width, headings within each shared role must resolve to the same computed font size.
-- Shared role sizes must match their documented breakpoint values and remain unchanged above the desktop breakpoint.
-- Featured-episode numbers and titles must be no larger than their enclosing section H2 on both the homepage and Weekly landing page.
-- Inspect multiline headings visually for readable spacing, unintended word breaks, clipping, and overlap with adjacent content.
-- `npm run lint:styles` rejects pixel-based font sizes, unlayered declarations, missing layer-order preludes, shared heading role redefinitions (including nested selectors, selector lists and media queries), incompatible explicit H2 leading and layout/typography `!important`. `scripts/stylelint/design-contract.mjs` owns these checks; mutation fixtures test both CSS and Astro input. `npm run check` includes the lint gate and its tests.
-- `tests/visual/design-contract.spec.ts` checks actual bilingual page templates at seven viewports, including 1210×887 and short desktop 1280×720. It asserts shell alignment, heading overflow, reading/H2 leading, shared role sizes and transcript action alignment. Heading text must remain inside its own and ancestor `overflow: hidden/clip` containers; vertical clipping and line clamping are checked as well as horizontal overflow. Scrollable containers and content below the viewport remain valid. Nested scrollports constrain the geometry passed to outer clipping checks; clipping of the scrollport itself still fails. Border and client dimensions are converted to viewport coordinates for axis-aligned scaling, including nonuniform scaling. `heading-clipping.spec.ts` supplies positive and negative clipping fixtures. These are assertions independent of screenshot approval and run in the release visual gate.
-- `npm run test:visual` is the required geometry and screenshot regression check. It covers Chinese and English pages at 390, 768, 1280, 1440, 1920, and 2560 CSS pixels; screenshot baselines are stored for mobile and wide layouts.
-- Snapshot baselines represent an approved visual outcome. Update them only when the rendered change is intentional and has been inspected.
-
-## Display typography and letter spacing
-
-- League Spartan display text uses `--display-tracking: 0em`. H1, H2, and H3 inherit this shared rule; other display labels, wordmarks, captions, and numerals reference the same token.
-- The rule applies in both locales, including English words inside Chinese or mixed-language headings. Do not reintroduce per-page negative tracking to fit a title into a column.
-- Preserve the display font, font sizes, and heading line heights. Let headings wrap at word boundaries; adjust available layout space when an intentionally unbroken brand name needs more room.
-- Body copy, navigation, and non-display fact labels retain their own typography rules. Intentional positive tracking for eyebrows, tickers, and compact metadata labels is independent of display tracking.
-- Validate Chinese and English pages at mobile, tablet, and desktop widths. Headings and display text using the shared token must have zero computed tracking; H2 leading remains 1.25. Check glyph separation visually as well as overflow, including the shared footer and mixed-language profile names.
-
-## Compact captions and separators
-
-- Recording captions may wrap between the recording date and the combined partner-and-venue label. Keep the complete partner-and-venue label together, without splitting its words. Preserve the visual headline's existing line breaks and side-by-side caption layout on desktop.
-- At 1001–1300px, the English hero caption stacks below the visual headline so the complete venue label is not clipped. Chinese and wider desktop layouts retain the side-by-side arrangement.
-- Topic-rail separators are CSS squares centered by flex alignment, not font glyphs whose baselines vary between Chinese and Latin fonts.
-- Topic-rail labels preserve the display font and its Chinese fallback. Apply the optical adjustment only to the inner `.rail-label` text (`translateY(0.08em)`); the outer item, separator, and rail geometry remain unchanged.
-
-## Profile account order
-
-- Homepage cards and profile pages share the same account ordering: Podcast, X, GitHub, Jike, WeChat official account, WeChat Channels, RedNote, Weibo, LinkedIn. Omit platforms without account data.
-- Accounts without a supplied URL display their names and an in-app search hint, not a fabricated link. WeChat official accounts and Channels use the WeChat search hint.
-
-## Wiki detail layout ownership
-
-- Brand, product, person and term detail pages use `WikiDetailHeader.astro` for the return navigation, hero grid, title, summary and always-visible aliases. `WikiIdentityCard.astro` owns the visual card; term cards carry the term's name in the other language as the main text.
-- Each top-level block has its own `.shell`; do not wrap the whole person article page in another padded shell. Return-navigation and article/support section dividers span the shell border box, while text uses the shared shell gutters.
-- `src/styles/wiki-detail.css` owns support-section columns, gaps, vertical padding, dividers and heading sizes. Shared Wiki dimensions live in `tokens.css`. Local entity templates only control their specific content.
-- Geometry checks compare divider bounds and gutters against the hero shell, and compare title/support content starts with the article column in both languages at all six test widths.
-
-- Wiki article support sections retain their outer section dividers. Inner links and list rows have no decorative borders or underlines; spacing separates entries and hover color identifies links. Article prose citation links retain underlines.
-
-- Compact entity relationships use one row per relationship, with entry, person role and named reference columns. On narrow screens each row stacks as one group with visible role/reference labels. No inner decorative rules are added.
-
-- H1 titles use the full width of their layout column, without a separate fixed or character-based max-width. Keep `text-wrap: balance` and intentional line breaks. Reading-width limits apply to body copy, not page titles; the Blog introduction does not impose a narrower title container.
-
-## Form controls
-
-- Native select controls share `src/styles/form-controls.css`, imported by the global stylesheet. It owns the border, background, arrow, padding, minimum height, typography, focus and disabled states.
-- Pages may set select width and surrounding layout, but must not duplicate its visual styles. Keep native keyboard and mobile picker behavior; expanded option menus may follow operating-system rendering.
-- Search input anchor positioning leaves clearance below the sticky header. Global search shortcuts reveal and focus the input without losing the existing query.
-
-- The large homepage H1 accent uses `--signal-display` (`#f24816`) for at least 3:1 contrast on `--paper`. The brand signal color remains unchanged for other roles. Episode cover links include their visible release date and media label in the accessible name.
+- `npm run lint:styles` enforces token-owned colors, layers, rem typography, shared heading ownership, H2 leading and no layout/typography `!important`.
+- `npm run check` validates content contracts, styles, types and metadata. `npm run build` verifies the static output.
+- `npm run test:visual` covers real bilingual templates at 390, 768, 1280, 1440, 1920 and 2560 CSS pixels. Design contracts additionally cover 1210×887 and short desktop 1280×720.
+- Validate shell alignment, page overflow, horizontal and vertical heading clipping, reading/H2 line height, semantic type scales, intact artwork, keyboard controls and mobile navigation. Scrollable containers remain valid within their bounds.
+- Screenshot baselines reflect the inspected design. Update them only for intentional, visually reviewed changes.

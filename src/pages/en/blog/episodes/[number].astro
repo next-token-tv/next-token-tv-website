@@ -20,7 +20,7 @@ const hasTranscript = (await getPublishedTranscriptEpisodes("en")).some(entry =>
     <header>
       <a href="/en/blog/episodes">← Browse by episode</a>
       <p class="section-kicker">Blog / WEEKLY #{number}</p>
-      <h1>Blog for episode {number}</h1>
+      <h1 class="type-title">Blog for episode {number}</h1>
       <p class="episode-title">{episode.data.title["en"]}</p>
       <nav aria-label="In this episode"><a href={`/en/weekly/${number}`}>This episode →</a>{hasTranscript && <a href={`/en/weekly/${number}/transcript`}>Full transcript →</a>}</nav>
     </header>
@@ -38,15 +38,15 @@ const hasTranscript = (await getPublishedTranscriptEpisodes("en")).some(entry =>
 .episode-blog { padding-block: 3rem 5rem; min-height: 65vh; }
   header { padding-bottom: 3rem; }
   .section-kicker { margin-top: 2rem; }
-  h1 { font-size: clamp(2rem, 4vw, 3.75rem); margin-block: 1.5rem; }
+  h1 { margin-block: 1.5rem; }
   .episode-title, article p, .meta { color: var(--muted); }
   nav, .meta { display: flex; flex-wrap: wrap; gap: 1rem 2rem; }
   nav { margin-top: 1.5rem; }
-  article { display: grid; grid-template-columns: minmax(0, 12rem) minmax(0, 46rem); gap: 3rem; padding-block: 2rem; border-top: .0625rem solid var(--line); }
-  .meta { align-content: start; font-size: .85rem; }
+  article { display: grid; grid-template-columns: minmax(0, 12rem) minmax(0, 46rem); gap: 3rem; padding-block: 2rem; border-top: var(--stroke-thin) solid var(--line); }
+  .meta { align-content: start; font-size: var(--type-ui); }
   h2 { font-size: 1.75rem; margin: 0 0 1rem; }
   article p { line-height: 1.8; }
-  a:hover { color: var(--signal); }
+  a:hover { color: var(--signal-text); }
   @media (max-width: 47.999rem) { article { grid-template-columns: minmax(0, 1fr); gap: 1rem; } }
 }
 </style>

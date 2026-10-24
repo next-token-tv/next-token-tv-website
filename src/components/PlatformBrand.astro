@@ -1,24 +1,22 @@
 ---
-import { platforms } from "../data/platforms.mjs";
+import { platformAssets, platformIcon } from "../data/platforms.mjs";
 interface Props {
   platform: string;
   name: string;
 }
 const { platform, name } = Astro.props;
-const followIcons: Record<string, string> = {
-  wechat: "/assets/platforms/wechat-official.png",
-  "wechat-channels": "/assets/platforms/wechat-channels.svg",
-};
-const icon = platforms[platform as keyof typeof platforms]?.icon ?? followIcons[platform];
+const icon = platformIcon(platform);
+const size = platformAssets[platform as keyof typeof platformAssets]?.size ?? 1.75;
 ---
 <span class="platform-brand">
-  {icon && <img class="platform-logo" src={icon} width="28" height="28" alt="" aria-hidden="true" />}
+  {icon && <span class="platform-logo-slot" aria-hidden="true"><img class="platform-logo" src={icon} width="28" height="28" alt="" style={`--platform-mark-size: ${size}rem`} /></span>}
   <span>{name}</span>
 </span>
 <style>
 @layer reset, tokens, base, layouts, components, utilities, overrides;
 @layer components {
 .platform-brand { display: inline-flex; align-items: center; gap: .65rem; min-width: 0; }
-  .platform-logo { display: block; flex: 0 0 1.75rem; width: 1.75rem; height: 1.75rem; object-fit: contain; }
+  .platform-logo-slot { display: flex; align-items: center; justify-content: center; flex: 0 0 1.75rem; width: 1.75rem; height: 1.75rem; }
+  .platform-logo { display: block; flex: none; width: var(--platform-mark-size); height: var(--platform-mark-size); max-width: none; object-fit: contain; }
 }
 </style>
