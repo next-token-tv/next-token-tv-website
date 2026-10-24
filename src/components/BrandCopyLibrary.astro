@@ -46,7 +46,7 @@ const groups = await Promise.all(([{type:"brand", id:"next-token"}, {type:"show"
             <p class="copy-usage">{card.usage}</p>
             <div class="copy-text" id={`copy-${card.id}`}>{card.text.split(/\n\s*\n/).map(p => <p>{p}</p>)}</div>
             <div class="copy-controls">
-              <button type="button" hidden data-copy-text={card.text} data-copy-target={`copy-${card.id}`} data-copied={ui.copied} data-fallback={ui.fallback} aria-label={`${ui.copy} — ${group.name} · ${ui.labels[index]}`}>{ui.copy} <span aria-hidden="true">↗</span></button>
+              <button class="control-button primary" type="button" hidden data-copy-text={card.text} data-copy-target={`copy-${card.id}`} data-copied={ui.copied} data-fallback={ui.fallback} aria-label={`${ui.copy} — ${group.name} · ${ui.labels[index]}`}>{ui.copy} <span aria-hidden="true">↗</span></button>
               <span role="status" aria-live="polite"></span>
             </div>
           </article>
@@ -94,8 +94,7 @@ const groups = await Promise.all(([{type:"brand", id:"next-token"}, {type:"show"
   .copy-text p { margin: 0; white-space: pre-line; line-height: 1.8; }
   .copy-text p + p { margin-top: 1rem; }
   .copy-controls { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem 1rem; margin-top: 1.25rem; }
-  button { min-height: 44px; padding: .5rem 1rem; border: 1px solid var(--ink); color: var(--paper); background: var(--ink); font: inherit; font-size: var(--type-ui); cursor: pointer; }
-  button:hover { background: var(--signal); color: var(--ink); }
+  button[hidden] { display: none; }
   .copy-controls [role="status"] { font-size: var(--type-ui); }
   @media(max-width: 900px) { .copy-groups { grid-template-columns: 1fr; gap: 3rem; } }
 }

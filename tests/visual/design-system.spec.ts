@@ -168,3 +168,28 @@ for (const prefix of ['', '/en']) test(`production primitives match specimens ${
   await page.locator('.control-switch').click();
   expect(await switchStyle()).toEqual(on);
 });
+
+for (const prefix of ['', '/en']) test(`action buttons share specimen styles ${prefix || 'zh'}`, async ({page}) => {
+  const states = async (selector: string) => {
+    const button = page.locator(selector).first();
+    await expect(button).toBeVisible();
+    await page.mouse.move(0, 0);
+    const read = () => button.evaluate(node => {
+      const s = getComputedStyle(node);
+      return [s.minHeight,s.padding,s.borderRadius,s.borderTopWidth,s.borderTopColor,s.fontFamily,s.fontSize,s.fontWeight,s.lineHeight,s.color,s.backgroundColor];
+    });
+    const normal = await read();
+    await button.hover();
+    const hover = await read();
+    await page.mouse.move(0, 0);
+    await button.focus();
+    const focus = await button.evaluate(node => {const s=getComputedStyle(node);return [s.outlineColor,s.outlineWidth,s.outlineOffset];});
+    return {normal,hover,focus};
+  };
+  await page.goto(`${prefix}/design-system`);
+  const expected = await states('#controls .control-button.primary');
+  await page.goto(prefix || '/');
+  expect(await states('.hero .button.primary')).toEqual(expected);
+  await page.goto(`${prefix}/brand-kit`);
+  expect(await states('[data-copy-text]')).toEqual(expected);
+});

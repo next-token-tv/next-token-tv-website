@@ -46,10 +46,9 @@ const targetLanguage = locale === "zh-Hans" ? "en" : "zh-Hans";
   }
   p { margin: 0; }
   .language-suggestion-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
-  a, button { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 44px; color: inherit; }
+  a, button { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 2.75rem; color: inherit; }
   a { font-weight: 700; text-underline-offset: calc(0.2em + var(--link-underline-gap)); }
   button { padding: 0; border: 0; background: none; font: inherit; cursor: pointer; }
   button:hover { text-decoration: underline; text-underline-offset: calc(0.2em + var(--link-underline-gap)); }
-  a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 }
 </style>

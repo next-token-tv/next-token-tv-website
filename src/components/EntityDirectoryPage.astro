@@ -208,7 +208,7 @@ const filterOptions = entityType === "terms" ? [] : entityType === "people"
   .entity-secondary-filters { display: grid; grid-template-columns: 1fr; gap: .5rem; align-items: start; padding-block: 1rem 1.5rem; }
   .entity-secondary-filters > p { margin: 0; color: var(--muted); font-size: var(--type-caption); font-weight: 500; }
   .entity-secondary-filters > div { display: flex; flex-wrap: wrap; gap: .375rem; }
-  .entity-secondary-filters button { display: inline-flex; min-height: var(--control-height); align-items: center; gap: .75rem; padding: .375rem .625rem; border: 1px solid transparent; color: var(--ink); background: transparent; font: inherit; font-size: var(--type-ui); font-weight: 500; cursor: pointer; }
+  .entity-secondary-filters button { border-radius: var(--control-radius); display: inline-flex; min-height: var(--control-height); align-items: center; gap: .75rem; padding: .375rem .625rem; border: 1px solid transparent; color: var(--ink); background: transparent; font: inherit; font-size: var(--type-ui); font-weight: 500; cursor: pointer; }
   .entity-secondary-filters button strong { color: var(--muted); font-size: var(--type-caption); }
   .entity-secondary-filters button:hover { color: var(--ink); background: var(--surface); }
   .entity-secondary-filters button:hover strong { color: var(--muted); }

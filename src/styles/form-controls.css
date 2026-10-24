@@ -1,6 +1,6 @@
 @layer reset, tokens, base, layouts, components, utilities, overrides;
 @layer components {
-  select, .control-input, .control-button {
+  select, .control-input, .control-button, .button {
     box-sizing: border-box;
     max-width: 100%;
     min-width: 0;
@@ -27,12 +27,12 @@
   select option { color: var(--ink); background: var(--white); }
   .control-input { width: 100%; }
   .control-input::placeholder { color: var(--muted); }
-  .control-button { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; font-weight: 600; cursor: pointer; text-decoration: none; }
-  .control-button.primary { color: var(--white); background: var(--ink); border-color: var(--ink); }
-  .control-button.primary:hover:not(:disabled) { color: var(--ink); background: var(--signal); border-color: var(--signal); }
+  .control-button, .button { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; font-weight: 600; cursor: pointer; text-decoration: none; }
+  .control-button.primary, .button.primary { color: var(--white); background: var(--ink); border-color: var(--ink); }
+  .control-button.primary:hover:not(:disabled), .button.primary:hover { color: var(--ink); background: var(--signal); border-color: var(--signal); }
   .control-button[aria-pressed="true"] { background: var(--signal-soft); border-color: var(--signal-text); color: var(--signal-text); }
-  select:hover:not(:disabled), .control-input:hover:not(:disabled):not([aria-invalid="true"]), .control-button:hover:not(:disabled) { border-color: var(--ink); }
-  select:focus-visible, .control-input:focus-visible, .control-button:focus-visible { outline: var(--stroke-emphasis) solid var(--signal-text); outline-offset: 3px; }
+  select:hover:not(:disabled), .control-input:hover:not(:disabled):not([aria-invalid="true"]), .control-button:hover:not(:disabled), .button:hover { border-color: var(--ink); }
+  select:focus-visible, .control-input:focus-visible, .control-button:focus-visible, .button:focus-visible { outline: var(--stroke-emphasis) solid var(--signal-text); outline-offset: 3px; }
   select:disabled, .control-input:disabled, .control-button:disabled { color: var(--muted); background-color: var(--surface); border-color: var(--line); cursor: not-allowed; }
   .control-input[aria-invalid="true"] { border-color: var(--error); }
   .control-choice { display: inline-flex; align-items: center; gap: .5rem; min-height: var(--control-height); font-size: var(--type-ui); }

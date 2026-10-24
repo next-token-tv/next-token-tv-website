@@ -10,7 +10,7 @@ const { Content, headings } = await render(article);
 const { number, title, description, recordedAt } = article.data;
 ---
 <WechatLayout title={title} description={description}>
-  <nav class="reading-nav" aria-label="文章工具"><a href="/wechat">← 对话首页</a><button id="copy-article" type="button">复制公众号排版</button></nav>
+  <nav class="reading-nav" aria-label="文章工具"><a href="/wechat">← 对话首页</a><button class="control-button primary" id="copy-article" type="button">复制公众号排版</button></nav>
   <p id="copy-status" class="copy-status" role="status" aria-live="polite"></p>
   <main id="main">
     <article id="wechat-article">

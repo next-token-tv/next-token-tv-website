@@ -154,7 +154,7 @@
 
 .status-pill {
   display: inline-flex;
-  min-height: 38px;
+  min-height: 2.375rem;
   align-items: center;
   gap: 0.55rem;
   padding: .35rem 0;

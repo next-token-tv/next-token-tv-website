@@ -22,7 +22,6 @@
   .skip-link { position: absolute; top: -5rem; background: var(--paper); padding: .5rem; }
   .skip-link:focus { top: 0; }
   .reading-nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1.5rem; font-size: var(--type-meta); }
-  .reading-nav button { border: 1px solid var(--ink); background: var(--ink); color: var(--white); border-radius: var(--control-radius); min-height: var(--control-height); font: inherit; padding: .45rem .8rem; }
   .copy-status { font-size: var(--type-meta); color: var(--muted); margin: .5rem 0 0; }
   .copy-status:empty { display: none; }
   #wechat-article { background: var(--paper); }

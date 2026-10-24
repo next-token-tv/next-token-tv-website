@@ -12,7 +12,7 @@ Next Token is an editorial media site grounded in first-hand conversations. Its 
 
 ## Shared architecture
 
-- `src/styles/tokens.css` owns reusable semantic values. `typography.css` owns typography roles. `form-controls.css` owns shared input, button and native select styling. `tables.css` owns reusable data tables and prose-table styles. Domain stylesheets own composition.
+- `src/styles/tokens.css` owns reusable semantic values. `typography.css` owns typography roles. `form-controls.css` owns shared input, button and native select styling. `.button` links and `.control-button` controls share the same geometry, type and primary/secondary state rules; episode actions retain their documented dark-surface variants. `tables.css` owns reusable data tables and prose-table styles. Domain stylesheets own composition.
 - `global.css` contains layer order and imports only. Every stylesheet and Astro style block declares the layer order before its rules: `reset`, `tokens`, `base`, `layouts`, `components`, `utilities`, `overrides`.
 - Shared role classes own font family, size and line height; components control their spacing and placement. Page-specific typography remains local only when it has a distinct semantic purpose.
 - `/design-system` and `/en/design-system` are public, indexable reference pages linked from the footer's About group. Their specimens use production tokens, controls and the real episode card. Type specimens show declared rem ranges, baseline px equivalents at a 16px root, unitless leading and weights. Live fractional viewport measurements are not specification labels. Color values are read from the shared token source and displayed as six-digit HEX with opacity separate.
@@ -82,7 +82,7 @@ Border tokens follow a separate functional scale described under Units, rules an
 - All rendered H2s and `.heading-reading-title` use 1.25 line height. Body copy uses approximately 1.8–1.85. Display type retains zero letter spacing; short uppercase metadata may use positive tracking.
 - H1s use their full column width, balanced natural wrapping and intentional content line breaks. Reading-width restrictions apply to prose, not titles. Do not force long brand names into a clipped line.
 - Shared section sizes stop growing above the 48rem breakpoint. Featured episode titles and numbers do not exceed their enclosing section heading.
-- Published episode H1s use `--episode-title-size: var(--type-title)` and numbers use `1.5rem`, with explicit `.episode-hero-title` and `.episode-hero-number` classes.
+- Published episode H1s use `--type-title` through `.type-title` and numbers use `1.5rem`, with explicit `.episode-hero-title` and `.episode-hero-number` classes.
 
 ## Units, rules and borders
 

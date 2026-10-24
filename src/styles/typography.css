@@ -63,8 +63,8 @@
 }
 
 @layer utilities {
-  .type-hero { font-family: var(--display); font-size: var(--type-hero); font-weight: 900; line-height: 1.15; letter-spacing: var(--display-tracking); }
-  .type-title { font-family: var(--sans); font-size: var(--type-title); font-weight: 700; line-height: 1.25; text-wrap: balance; }
+  .type-hero { font-family: var(--display); font-size: var(--type-hero); font-weight: 900; line-height: var(--headline-leading); letter-spacing: var(--display-tracking); }
+  .type-title { font-family: var(--sans); font-size: var(--type-title); font-weight: 700; line-height: var(--reading-title-leading); text-wrap: balance; }
   .type-entry { font-family: var(--sans); font-size: var(--type-entry); font-weight: 650; line-height: 1.25; }
   .type-body { font-family: var(--sans); font-size: var(--type-body); line-height: 1.8; }
   .type-ui { font-family: var(--sans); font-size: var(--type-ui); line-height: 1.5; }

@@ -74,34 +74,6 @@ h1 .accent {
   gap: 0.75rem;
 }
 
-.button {
-  display: inline-flex;
-  min-height: var(--control-height);
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  padding: .5rem .875rem;
-  border: 1px solid var(--ink);
-  font-size: var(--type-ui);
-  font-weight: 600;
-  transition:
-    color 160ms ease,
-    background 160ms ease,
-    transform 160ms ease;
-  border-radius: var(--control-radius);
-}
-
-.button.primary {
-  color: var(--white);
-  background: var(--ink);
-}
-
-.button:hover {
-  color: var(--ink);
-  background: var(--signal);
-  transform: none;
-}
-
 .hero-visual {
   position: relative;
   min-height: 24rem;
