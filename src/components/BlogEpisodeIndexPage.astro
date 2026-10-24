@@ -1,0 +1,38 @@
+---
+import type { Locale } from "../data/types";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getSiteContent } from "../data/site";
+import { getEpisodesForShow } from "../data/catalog";
+import { getBlogPosts } from "../data/blog";
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const prefix = locale === "en" ? "/en" : "";
+const copy = (zh: string, en: string) => locale === "en" ? en : zh;
+const content = await getSiteContent(locale);
+const posts = await getBlogPosts(locale);
+const episodes = (await getEpisodesForShow("next-token-weekly")).filter(episode => episode.data.status === "published").reverse();
+---
+<BaseLayout content={content} pageTitle={copy("按期浏览博客", "Blog by episode")} description={copy("按节目期数阅读 Next Token 的相关主题文章。", "Read Next Token's topic articles organized by episode.")} canonicalPath={`${prefix}/blog/episodes`} alternatePath={locale === "en" ? "/blog/episodes" : "/en/blog/episodes"}>
+  <main id="main" class="episode-index shell">
+    <header><a href={`${prefix}/blog`}>{copy("← 所有博客文章", "← All blog articles")}</a><p class="section-kicker">{copy("NEXT TOKEN / 博客", "NEXT TOKEN / BLOG")}</p><h1 class="type-title">{copy("按期浏览博客", "Blog by episode")}</h1></header>
+    <section aria-label={copy("节目期数", "Episodes")}>{episodes.map(episode => {
+      const count = posts.filter(post => post.data.episodes.includes(episode.id)).length;
+      return <article><span class="number">#{episode.data.number}</span><div><h2><a href={`${prefix}/blog/episodes/${episode.data.number}`}>{episode.data.title[locale]}</a></h2><p>{count ? copy(`${count} 篇相关文章`, `${count} related ${count === 1 ? "article" : "articles"}`) : copy("文章正在准备中", "Articles in preparation")}</p></div></article>;
+    })}</section>
+  </main>
+</BaseLayout>
+<style>
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.episode-index { padding-block: 3rem 5rem; min-height: 65vh; }
+  header { padding-bottom: 3rem; }
+  .section-kicker { margin-top: 2rem; }
+  h1 { margin-block: 1.5rem; }
+  article { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: 2rem; padding-block: 2rem; border-top: var(--stroke-thin) solid var(--line); }
+  .number { color: var(--signal-text); font-family: var(--display); font-size: 2rem; }
+  h2 { font-size: 1.75rem; margin: 0 0 1rem; }
+  article p { color: var(--muted); }
+  a:hover { color: var(--signal-text); }
+  @media (max-width: 47.999rem) { article { grid-template-columns: minmax(0, 1fr); gap: 1rem; } }
+}
+</style>

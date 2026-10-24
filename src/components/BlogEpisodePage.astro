@@ -1,0 +1,51 @@
+---
+import type { Locale } from "../data/types";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getSiteContent } from "../data/site";
+import { getPublishedTranscriptEpisodes } from "../data/catalog";
+import { getBlogPosts } from "../data/blog";
+
+interface Props { locale: Locale; episode: import("astro:content").CollectionEntry<"episodes">; }
+const { locale, episode } = Astro.props;
+const prefix = locale === "en" ? "/en" : "";
+const copy = (zh: string, en: string) => locale === "en" ? en : zh;
+const content = await getSiteContent(locale);
+const posts = (await getBlogPosts(locale)).filter(post => post.data.episodes.includes(episode.id));
+const number = episode.data.number;
+const hasTranscript = (await getPublishedTranscriptEpisodes(locale)).some(entry => entry.id === episode.id);
+---
+<BaseLayout content={content} pageTitle={copy(`第 ${number} 期相关博客`, `Blog for episode ${number}`)} description={copy(`从 Next Token Weekly 第 ${number} 期延伸的主题文章。`, `Topic articles expanding on Next Token Weekly episode ${number}.`)} canonicalPath={`${prefix}/blog/episodes/${number}`} alternatePath={`${locale === "en" ? "" : "/en"}/blog/episodes/${number}`}>
+  <main id="main" class="episode-blog shell">
+    <header>
+      <a href={`${prefix}/blog/episodes`}>{copy("← 按期浏览", "← Browse by episode")}</a>
+      <p class="section-kicker">{copy("博客 / WEEKLY #", "Blog / WEEKLY #")}{number}</p>
+      <h1 class="type-title">{copy(`第 ${number} 期相关博客`, `Blog for episode ${number}`)}</h1>
+      <p class="episode-title">{episode.data.title[locale]}</p>
+      <nav aria-label={copy("本期内容", "In this episode")}><a href={`${prefix}/weekly/${number}`}>{copy("本期节目 →", "This episode →")}</a>{hasTranscript && <a href={`${prefix}/weekly/${number}/transcript`}>{copy("完整文字稿 →", "Full transcript →")}</a>}</nav>
+    </header>
+    <section aria-label={copy("本期相关博客", "Related articles")} class="posts">
+      {posts.length ? posts.map(post => <article>
+        <div class="meta"><time datetime={post.data.publishedAt ?? post.data.updatedAt}>{post.data.publishedAt ?? post.data.updatedAt}</time>{post.data.status === "draft" && <span>{copy("审阅稿", "Under review")}</span>}</div>
+        <div><h2><a href={`${prefix}/blog/${post.id}`}>{post.data.title}</a></h2><p>{post.data.description}</p></div>
+      </article>) : <p>{copy("本期相关博客正在准备中。", "Related articles for this episode are in preparation.")}</p>}
+    </section>
+  </main>
+</BaseLayout>
+<style>
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.episode-blog { padding-block: 3rem 5rem; min-height: 65vh; }
+  header { padding-bottom: 3rem; }
+  .section-kicker { margin-top: 2rem; }
+  h1 { margin-block: 1.5rem; }
+  .episode-title, article p, .meta { color: var(--muted); }
+  nav, .meta { display: flex; flex-wrap: wrap; gap: 1rem 2rem; }
+  nav { margin-top: 1.5rem; }
+  article { display: grid; grid-template-columns: minmax(0, 12rem) minmax(0, 46rem); gap: 3rem; padding-block: 2rem; border-top: var(--stroke-thin) solid var(--line); }
+  .meta { align-content: start; font-size: var(--type-ui); }
+  h2 { font-size: 1.75rem; margin: 0 0 1rem; }
+  article p { line-height: 1.8; }
+  a:hover { color: var(--signal-text); }
+  @media (max-width: 47.999rem) { article { grid-template-columns: minmax(0, 1fr); gap: 1rem; } }
+}
+</style>

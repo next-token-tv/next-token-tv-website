@@ -1,0 +1,32 @@
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+.episode-article-page .article-header { padding-block: 2rem 2.5rem; border-bottom: var(--stroke-thin) solid var(--line); }
+  .episode-article-page .article-context { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; margin-bottom: 2.5rem; font-size: var(--type-ui); }
+  .episode-article-page .article-context a:hover { color: var(--signal-text); }
+  .episode-article-page .article-back-spaced { display: inline-block; margin-bottom: 2.5rem; font-size: var(--type-ui); font-weight: 700; }
+  .episode-article-page .article-title { margin-block: 1.25rem; text-wrap: balance; }
+  .episode-article-page .article-deck { max-width: 48rem; margin-block: 1.5rem; font-size: var(--type-label); line-height: 1.8; color: var(--muted); }
+  .episode-article-page .article-meta, .episode-article-page .article-actions { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; font-size: var(--type-ui); line-height: 1.6; }
+  .episode-article-page .article-meta { color: var(--muted); }
+  .episode-article-page .article-actions { margin-top: 1.25rem; font-weight: 700; }
+  .episode-article-page .article-layout { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 46rem); gap: 4rem; padding-block: 3rem 4rem; }
+  .episode-article-page .article-outline { align-self: start; position: sticky; top: 7rem; max-height: calc(100dvh - 8rem); overflow-y: auto; font-size: var(--type-ui); line-height: 1.7; }
+  .episode-article-page .article-outline-label { margin: 0 0 1rem; font-weight: 700; }
+  .episode-article-page .article-outline ol { margin: 0; padding-left: 1.25rem; }
+  .episode-article-page .article-outline li { padding-block: .4rem; }
+  .episode-article-page .article-source-note { margin-top: 2rem; color: var(--muted); }
+  .episode-article-page .episode-article-prose { min-width: 0; font-size: var(--type-body); line-height: 1.85; overflow-wrap: anywhere; }
+  .episode-article-page .episode-article-prose h2 { margin: 3rem 0 1.25rem; font-size: 1.75rem; scroll-margin-top: 7rem; }
+  .episode-article-page .episode-article-prose h2:first-child { margin-top: 0; }
+  .episode-article-page .episode-article-prose p { margin: 0 0 1.5rem; }
+  .episode-article-page .episode-article-prose blockquote { margin: 2rem 0; padding: .25rem 0 .25rem 1.5rem; border-left: var(--stroke-emphasis) solid var(--signal); }
+  .episode-article-page .episode-article-prose blockquote p { margin: 0; }
+  .episode-article-page .article-footer { display: flex; flex-wrap: wrap; gap: 1.25rem 2rem; padding-block: 2rem; border-top: var(--stroke-thin) solid var(--line); font-weight: 700; }
+  .episode-article-page .article-actions a:hover, .episode-article-page .article-outline a:hover, .episode-article-page .article-footer a:hover { color: var(--signal-text); }
+  @media (max-width: 47.999rem) {
+    .episode-article-page .article-layout { grid-template-columns: minmax(0, 1fr); gap: 2rem; padding-top: 2rem; }
+    .episode-article-page .article-outline { position: static; max-height: none; padding-bottom: 1.5rem; border-bottom: var(--stroke-thin) solid var(--line); }
+    .episode-article-page .article-source-note { margin-top: 1rem; }
+    .episode-article-page .episode-article-prose h2 { font-size: 1.5rem; }
+  }
+}

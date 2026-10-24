@@ -1,0 +1,36 @@
+---
+import type { Locale } from "../data/types";
+import "../styles/article-reading.css";
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  path: string;
+  episodePath: string;
+  headings: { depth: number; slug: string; text: string }[];
+  footerLabel: string;
+}
+const { locale, title, description, path, episodePath, headings, footerLabel } = Astro.props;
+const en = locale === "en";
+---
+<main id="main" class="episode-article-page">
+  <header class="article-header shell">
+    <slot name="context" />
+    <p class="section-kicker"><slot name="kicker" /></p>
+    <h1 class="article-title heading-reading-title">{title}</h1>
+    <p class="article-deck">{description}</p>
+    <div class="article-meta"><slot name="meta" /></div>
+    <nav class="article-actions" aria-label={en ? "Article formats and sources" : "文章格式与原文"}>
+      <a href={`${path}.md`} type="text/markdown">{en ? "Markdown version ↗" : "Markdown 格式 ↗"}</a>
+      <a href={`${episodePath}/transcript`}>{en ? "Read the full transcript →" : "阅读完整文字稿 →"}</a>
+    </nav>
+  </header>
+  <div class="article-layout shell">
+    <aside class="article-outline">
+      <nav aria-label={en ? "On this page" : "文章目录"}><p class="article-outline-label">{en ? "On this page" : "本文目录"}</p><ol>{headings.filter(heading => heading.depth === 2).map(heading => <li><a href={`#${heading.slug}`}>{heading.text}</a></li>)}</ol></nav>
+      <p class="article-source-note"><slot name="source" /></p>
+    </aside>
+    <article class="episode-article-prose" aria-label={en ? "Article body" : "精读文章正文"}><slot /></article>
+  </div>
+  <nav class="article-footer shell" aria-label={footerLabel}><slot name="footer" /></nav>
+</main>
