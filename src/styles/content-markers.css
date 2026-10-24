@@ -49,9 +49,11 @@
 }
 
 
+:is(.wiki-prose, .episode-article-prose, .ds-reading) blockquote { margin: 1.5rem 0; padding: 1rem 1.5rem; border-left: var(--stroke-emphasis) solid var(--signal); background: var(--paper); }
+
 .identity-marker { border-left: var(--stroke-emphasis) solid var(--identity-color, var(--identity-neutral)); padding-left: .75rem; }
 .content-note { padding: 1rem; border-left: 4px solid var(--ink); background: var(--note-surface); }
-.content-note--accent { border-color: var(--signal); background: var(--annotation-surface); }
+.content-note--accent { border-color: var(--sky-text); background: var(--annotation-surface); }
 .search-match { background: var(--highlight-match); color: var(--ink); }
 .content-target { background: var(--highlight-target); outline: var(--stroke-emphasis) solid var(--signal); outline-offset: .3rem; }
 }

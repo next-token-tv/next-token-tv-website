@@ -61,5 +61,5 @@ test('literal colors belong to tokens, while relative colors can reference token
   for (const color of ['#ddd8ca', 'rgba(17, 17, 17, .16)', 'rgb(0 0 0 / 8%)']) {
     assert.equal((await warnings(wrap(`.card { background: ${color}; }`))).length, 1);
   }
-  assert.equal((await warnings(wrap('.card {color: var(--muted); background: rgb(from var(--category-brand) r g b / .08);}'))).length, 0);
+  assert.equal((await warnings(wrap('.card {color: var(--muted); background: rgb(from var(--sky) r g b / .08);}'))).length, 0);
 });

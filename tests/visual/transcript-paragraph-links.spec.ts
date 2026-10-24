@@ -8,7 +8,7 @@ test('paragraph link copies the canonical URL and highlights the target', async 
   expect(id).toMatch(/^quote-[0-9a-f]{20}$/);
   await paragraph.locator('[data-paragraph-copy]').click();
   await expect(page).toHaveURL(new RegExp(`#${id}$`));
-  await expect(paragraph).toHaveCSS('background-color', 'rgb(255, 241, 221)');
+  await expect(paragraph).toHaveCSS('background-color', 'rgb(249, 223, 210)');
   expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(`https://nexttoken.tv/weekly/001/transcript#${id}`);
 
   await page.evaluate(() => { navigator.clipboard.writeText = async () => { throw new Error('denied'); }; });
@@ -27,6 +27,6 @@ test.describe('without JavaScript', () => {
     await expect(link).toHaveAttribute('href', `/weekly/001/transcript#${id}`);
     await link.click();
     await expect(page).toHaveURL(new RegExp(`#${id}$`));
-    await expect(paragraph).toHaveCSS('background-color', 'rgb(255, 241, 221)');
+    await expect(paragraph).toHaveCSS('background-color', 'rgb(249, 223, 210)');
   });
 });

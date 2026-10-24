@@ -1,5 +1,6 @@
 ---
 import type { Locale } from '../data/types';
+import ColorUse from './DesignSystemColorUse.astro';
 interface Props { locale: Locale }
 const {locale}=Astro.props;
 const t=(zh:string,en:string)=>locale==='en'?en:zh;
@@ -8,6 +9,7 @@ const t=(zh:string,en:string)=>locale==='en'?en:zh;
  <h3>{t('开关与展开','Switches and disclosure')}</h3>
  <p>{t('开关直接改变一个设置，并用文字和位置表达当前状态。展开控件显示或隐藏同一组内容，不改变页面位置。','Switches change one setting, with text and position indicating state. Disclosure controls show or hide grouped content without navigating away.')}</p>
  <button type="button" class="control-switch" role="switch" aria-checked="false" data-highlight-switch><span class="control-switch-track" aria-hidden="true"></span>{t('强调分类链接','Emphasize category links')}</button>
+ <p>{t('关闭轨道：','Inactive track: ')}<ColorUse locale={locale} token="--switch-track" />{t('；开启轨道：','; active track: ')}<ColorUse locale={locale} token="--signal-text" />{t('。','.')}</p>
  <details class="ds-disclosure"><summary>{t('补充信息','Additional information')}</summary><p>{t('展开状态保留标题、键盘焦点和完整内容。','The expanded state retains the heading, keyboard focus and complete content.')}</p></details>
  <h3>{t('操作反馈','Action feedback')}</h3>
  <p>{t('复制操作在按钮旁反馈成功；剪贴板不可用时提供可选择的只读链接。反馈不只依赖颜色。','Copy actions confirm success beside the button. If clipboard access is unavailable, a selectable read-only link is provided. Feedback does not rely on color alone.')}</p>

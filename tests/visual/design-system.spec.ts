@@ -57,14 +57,28 @@ for (const prefix of ['', '/en']) {
     await page.goto(`${prefix}/design-system#controls`);
     await expect(page.locator('#transcripts, #patterns, [data-reader-specimen], [data-icon-group="brand"]')).toHaveCount(0);
     for (const text of await page.locator('[data-color-token]').allTextContents()) expect(text).toMatch(/^#[0-9a-f]{6}( · [\d.]+%)?$/);
-    await expect(page.locator('#identity-colors [data-color-token]')).toHaveCount(5);
+    await expect(page.locator('#identity-colors [data-color-alias]')).toHaveCount(5);
+    await expect(page.locator('#color [data-color-alias]')).toHaveCount(3);
+    await expect(page.locator('#reading #identity-colors')).toHaveCount(1);
+    await expect(page.locator('#rules #overlay-colors')).toHaveCount(1);
+    await expect(page.locator('#controls [data-color-alias="--switch-track"]')).toHaveCount(1);
+    const categoryColors = await page.locator('.category-link').evaluateAll(links => links.map(link => getComputedStyle(link).backgroundColor));
+    expect(new Set(categoryColors).size).toBe(3);
+    for (const reference of await page.locator('[data-color-alias] [data-color-source]').evaluateAll(links => links.map(link => ({href:link.getAttribute('href')!,source:link.getAttribute('data-color-source')!})))) {
+      await expect(page.locator(reference.href)).toHaveCount(1);
+      await expect(page.locator(reference.href)).toHaveAttribute('data-color-token', reference.source);
+    }
+    const identities = await page.locator('#identity-colors .identity-marker').evaluateAll(marks => marks.map(mark => getComputedStyle(mark).borderLeftColor));
+    expect(new Set(identities).size).toBe(5);
+    await expect(page.locator('[data-color-alias="--identity-gold"] [data-color-source]')).toHaveAttribute('data-color-source', '--gold');
+    await expect(page.locator('[data-color-alias="--identity-blue"] [data-color-source]')).toHaveAttribute('data-color-source', '--sky');
     const toggle = page.locator('[data-highlight-switch]');
     await expect(toggle).toHaveAttribute('aria-checked', 'false');
     const link = page.locator('.category-link[data-entity-type="product"]');
     const normal = await link.evaluate(el => getComputedStyle(el).backgroundColor);
     await toggle.click();
     await expect(toggle).toHaveAttribute('aria-checked', 'true');
-    expect(await link.evaluate(el => getComputedStyle(el).backgroundColor)).not.toBe(normal);
+    await expect(link).toHaveCSS('background-color', 'color(srgb 0.156863 0.364706 0.478431 / 0.22)');
     await toggle.click();
     await expect(link).toHaveCSS('background-color', normal);
     await page.locator('[data-copy-example]').click();
@@ -82,7 +96,7 @@ for (const prefix of ['', '/en']) {
       const token = label.getAttribute('data-color-name')!;
       return { token, name: label.textContent, hex: document.querySelector(`[data-color-token="${token}"]`)!.textContent!.trim(), css: getComputedStyle(label).getPropertyValue(token).trim() };
     }));
-    expect(palette).toHaveLength(7);
+    expect(palette).toHaveLength(8);
     await page.goto(`${prefix}/brand-kit`);
     await expect(page.locator('[data-kit-color]')).toHaveCount(palette.length);
     for (const color of palette) {

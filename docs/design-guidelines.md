@@ -20,10 +20,10 @@ Next Token is an editorial media site grounded in first-hand conversations. Its 
 
 ## Color
 
-Color has three roles: brand accents, neutral foundations and semantic states. Paper and ink carry most of the interface. Signal is the primary brand accent; Sky is supporting color. Components use semantic tokens rather than adding local shades.
+Standard colors are defined once; identity, category, inverse, border and overlay tokens must alias a standard token, with optional opacity. Usage specimens show the source name and a link to its definition. Public labels use the standard color plus its application or opacity, without displaying additional alias names or another color value. Color has three roles: brand accents, neutral foundations and semantic states. Paper and ink carry most of the interface. Signal is the primary brand accent; Sky is supporting color. Components use semantic tokens rather than adding local shades.
 
 - Website color values come from `src/styles/tokens.css`; public bilingual names come from `src/data/design-colors.ts`. The design system and Brand Kit share both sources. Brand Kit metadata references tokens rather than copying names or hex values.
-- Public names are 暖纸 / Warm Paper, 墨黑 / Ink Black, 信号橙 / Signal Orange, 远空蓝 / Distant Sky, 暖白 / Warm White, 纸影 / Paper Shadow and 淡墨 / Soft Ink. Token identifiers describe roles and remain stable when public names change.
+- Public names are 暖纸 / Warm Paper, 墨黑 / Ink Black, 信号橙 / Signal Orange, 远空蓝 / Distant Sky, 暖白 / Warm White, 纸影 / Paper Shadow, 淡墨 / Soft Ink and 暖姜 / Warm Ginger. Token identifiers describe roles and remain stable when public names change.
 - Logo colors are fixed to paper, ink and base signal, matching the canonical exports. Website surface, text and display variants are purpose-specific colors, not replacements for logo colors. Interface icons inherit their control's text color; platform and partner marks retain their own asset colors.
 
 ### Brand colors
@@ -35,6 +35,7 @@ Both color families use the same three roles: base for graphics, soft for surfac
 | Signal | `--signal: #ff4b18` | `--signal-soft: #f9dfd2` | `--signal-text: #b8320d` |
 | Sky | `--sky: #caddee` | `--sky-soft: #e8f1f8` | `--sky-text: #285d7a` |
 
+- Warm Ginger (`--gold: #d7a878`) supplies a soft ginger-brown identification accent. Signal Light (`--signal-light: #ff9473`), Soft Ink Light (`--muted-light: #b7b3ac`) and Soft Ink Border (`--muted-border: #7b7770`) are standard family variants.
 - Signal establishes brand recognition and selected controls. Sky supports information panels, highlighted table rows and occasional editorial graphics.
 - `--signal-display: #f24816` is a contrast-adjusted variant reserved for large brand headlines on paper, with at least 3:1 contrast. It belongs to the Signal family.
 - Orange and blue have distinct roles; avoid equal competing areas and small orange text on blue surfaces.
@@ -131,12 +132,13 @@ Border tokens follow a separate functional scale described under Units, rules an
 
 ## Content-specific rules
 
-- The public system has ten sections: identity, typography, color, layout, rules, tables, icons, controls, reading and composition examples. A production episode card is a composition example of the established primitives; page-type links and dedicated feature walkthroughs are not separate specification chapters.
-- `DesignSystemColorRoles.astro` documents shared identity, category, highlight, annotation, inverse and boundary colors. `DesignSystemAnnotations.astro` demonstrates those definitions in generic identity markers, category links, text states and annotation blocks. `DesignSystemControlStates.astro` demonstrates switches, disclosure and copy feedback independently of transcript behavior.
-- `tokens.css` defines `--identity-*`, `--category-*`, `--highlight-*`, `--annotation-surface`, `--note-surface` and `--switch-track`. Production transcripts reference these tokens; they do not own a parallel palette. Body text uses `--ink` and `--type-body` on all screens.
-- Identity mapping is stable: Yang Pan → blue `#318fbd`; Guizang → ochre `#a96a00`; Orange → orange `#f06a31`; Xiangyang Qiaomu → ink `#171717`. Unassigned identity uses `#111111` at 42%. Names use Ink Black and accompany all identity marks; identity colors are not status colors.
-- Category definitions use six-digit HEX: brand `#be7832`, product/show `#3782af`, person `#7d69a5`. `content-markers.css` shares category-link styling between the public specimen and production content. Background opacity is 8% / 16% for normal / keyboard focus, or 22% / 30% with emphasis enabled; hover retains the tint.
-- Color labels consistently use six-digit HEX; transparent overlays append a separate opacity percentage, never raw RGB channel tuples or RGBA expressions. Highlight and annotation colors are defined in the Color section and referenced by the Reading examples.
+- The public system has ten sections: identity, typography, color, layout, rules and layers, tables, icons, controls, reading and composition examples. A production episode card is a composition example of the established primitives; page-type links and dedicated feature walkthroughs are not separate specification chapters.
+- The Color section contains standard swatches, variants, semantic states and light/dark pairing examples. `DesignSystemColorUse.astro` renders source references within the relevant specimens: identity, categories, highlights and notes in `DesignSystemAnnotations.astro`; borders in Rules and layers; menus, popovers and scrims in `DesignSystemLayers.astro`; switches in `DesignSystemControlStates.astro`. Usage roles are not presented as additional palettes.
+- `tokens.css` defines `--identity-*`, `--highlight-*`, `--annotation-surface`, `--note-surface` and `--switch-track`. Production transcripts reference these tokens; they do not own a parallel palette. Body text uses `--ink` and `--type-body` on all screens.
+- Identity mapping uses standard-color aliases: Yang Pan → Distant Sky (`--sky`); Guizang → Warm Ginger (`--gold`); Orange → Signal Orange (`--signal`); Xiangyang Qiaomu → Ink Black (`--ink`); unassigned → Soft Ink (`--muted`). Names remain Ink Black; identity marks retain distinct colors.
+- Category aliases map brand → Warm Ginger, product/show → Distant Sky Text, person → Signal Orange Text. `content-markers.css` uses 8% / 16% opacity for normal / keyboard focus, and 22% / 30% in emphasis mode. Labels and destinations also identify categories. Keyboard focus adds an underline and outline.
+- Search matches and navigation targets share `--signal-soft`; navigation targets add an outline. Highlighted annotations reuse `--sky-soft`; ordinary notes reuse `--surface`. Semantic aliases reference existing colors rather than defining additional shades.
+- Annotation blocks use 4px side rules; identity markers use 2px. Color labels consistently use six-digit HEX; transparent overlays append a separate opacity percentage, never raw RGB channel tuples or RGBA expressions. Highlight and annotation colors are defined in the Color section and referenced by the Reading examples.
 
 - Published episode order is hero, production facts and Show Notes, mentions, participants, then platforms. Audio/video availability and content length do not change this sequence. `detailLayout: true` allows release preparation without asserting publication.
 - Show Notes retain opening context, questions, timeline, references, people/products/terms and credits. Generated chapter markers remain authoritative; no page-only shortened timeline.
@@ -153,9 +155,10 @@ Border tokens follow a separate functional scale described under Units, rules an
 ## Shared primitive details
 
 - Small-text sizes share tokens: captions 12px, metadata 13px, interface 14px, short copy 16px, body 17px and minor headings 18px at a 16px root. Public type metrics derive from the CSS token values; poster lettering and decorative numerals may scale with their containers.
-- Inverse compositions use shared supporting text and three border roles (`--inverse-line`, `--inverse-line-strong`, `--inverse-line-control`). Navigation surfaces, image scrims and overlay shadows are defined in the Color section. Component CSS references color tokens instead of declaring local literal colors.
-- `.control-switch` and `.control-switch-track` provide the same switch geometry, state and touch target in production and specimens. Circular switch tracks are an explicit shape exception.
-- `reading-links.css` shares prose link rendering between Wiki, articles and the Reading specimen: 1px dashed structural-color underlines at `0.3em + 1px`, Signal Orange surface on hover/focus, no layout shift.
+- Inverse compositions use shared supporting text and three border roles (`--inverse-line`, `--inverse-line-strong`, `--inverse-line-control`). Navigation surfaces, image scrims and overlay shadows are documented under Rules and layers and reference standard colors. Component CSS references color tokens instead of declaring local literal colors.
+- Blockquotes in Wiki, articles and the Reading specimen share 2px Signal Orange rules, paper backgrounds and 1rem × 1.5rem padding. Transcript annotation blocks share the standard annotation colors and 4px rule treatment.
+- `.control-switch` and `.control-switch-track` provide the same switch geometry, state and touch target in production and specimens. Inactive tracks use Ink Black at 18%; active tracks use Signal Orange Text. Circular switch tracks are an explicit shape exception.
+- `reading-links.css` shares prose link rendering between Wiki, articles, ordinary transcript links and the Reading specimen: 1px dashed structural-color underlines at `0.3em + 1px`, Signal Orange surface on hover/focus, no layout shift.
 
 ## Validation
 

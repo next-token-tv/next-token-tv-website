@@ -1,6 +1,7 @@
 @layer reset, tokens, base, layouts, components, utilities, overrides;
 @layer components {
-  :is(.wiki-prose, .episode-article-prose, .ds-reading) a {
+  :is(.wiki-prose, .episode-article-prose, .ds-reading) a,
+  .transcript-paragraphs > p > a:not(.transcript-entity-link) {
     color: inherit;
     background: transparent;
     border-radius: var(--control-radius);
@@ -12,7 +13,9 @@
     transition: background-color var(--duration), text-decoration-color var(--duration);
   }
   :is(.wiki-prose, .episode-article-prose, .ds-reading) a:hover,
-  :is(.wiki-prose, .episode-article-prose, .ds-reading) a:focus-visible {
+  :is(.wiki-prose, .episode-article-prose, .ds-reading) a:focus-visible,
+  .transcript-paragraphs > p > a:not(.transcript-entity-link):hover,
+  .transcript-paragraphs > p > a:not(.transcript-entity-link):focus-visible {
     color: var(--ink);
     background: var(--signal-soft);
     text-decoration-color: var(--ink);

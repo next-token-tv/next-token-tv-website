@@ -1,0 +1,8 @@
+---
+import type { Locale } from '../data/types';
+import { colorReference } from '../data/design-colors';
+interface Props { locale: Locale; token: string }
+const { locale, token } = Astro.props;
+const reference = colorReference(token);
+---
+<span data-color-alias={token}><a class="text-link" href={`#palette-${reference.source.slice(2)}`} data-color-source={reference.source}>{reference.name[locale]}</a>{reference.opacity < 1 && ` · ${reference.opacity * 100}%`}</span>

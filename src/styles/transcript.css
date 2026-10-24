@@ -262,7 +262,7 @@
 }
 
 .transcript-turn[data-speaker="yangpan"] { --speaker-accent: var(--identity-blue); }
-.transcript-turn[data-speaker="guizang"] { --speaker-accent: var(--identity-ochre); }
+.transcript-turn[data-speaker="guizang"] { --speaker-accent: var(--identity-gold); }
 .transcript-turn[data-speaker="orange"] { --speaker-accent: var(--identity-orange); }
 .transcript-turn[data-speaker="xiangyang-qiaomu"] { --speaker-accent: var(--identity-ink); }
 
@@ -332,19 +332,11 @@
   line-height: 1.8;
 }
 
+.transcript-turn.is-narration { border-left-color: var(--sky-text); }
+
 .transcript-turn.is-editor-note {
+  border-left-color: var(--ink);
   background: var(--note-surface);
 }
 
-.transcript-paragraphs > p > a:not(.transcript-entity-link) {
-  text-decoration: underline;
-  text-decoration-color: var(--signal-text);
-  text-decoration-thickness: 2px;
-  text-underline-offset: calc(0.18em + var(--link-underline-gap));
-}
-
-.transcript-paragraphs > p > a:not(.transcript-entity-link):hover,
-.transcript-paragraphs > p > a:not(.transcript-entity-link):focus-visible {
-  color: var(--signal-text);
-}
 }
