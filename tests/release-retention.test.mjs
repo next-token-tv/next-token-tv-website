@@ -47,7 +47,7 @@ test('publishing cleans only after confirmed deployment; failed publish retains 
  const {spawnSync}=await import('node:child_process');
  const {artifactDigest}=await import('../scripts/lib/release-artifact.mjs');
  for(const dir of ['scripts/lib','bin','.releases'])await mkdir(join(root,dir),{recursive:true});
- for(const file of ['release.mjs','lib/release-artifact.mjs','lib/release-retention.mjs','lib/performance-status.mjs'])await cp(new URL('../scripts/'+file,import.meta.url),join(root,'scripts',file));
+ for(const file of ['release.mjs','lib/release-artifact.mjs','lib/release-process.mjs','lib/release-retention.mjs','lib/performance-status.mjs'])await cp(new URL('../scripts/'+file,import.meta.url),join(root,'scripts',file));
  const releases=join(root,'.releases');
  for(let i=1;i<=4;i++)await mkdir(join(releases,name(i)));
  await writeFile(join(releases,'history.jsonl'),[1,2].map(i=>JSON.stringify({bundle:join(releases,name(i)),version:`v${i}`,deployedAt:'today'})).join('\n')+'\n');
@@ -62,8 +62,16 @@ test('publishing cleans only after confirmed deployment; failed publish retains 
  const invoke=()=>spawnSync(process.execPath,[join(root,'scripts/release.mjs'),'publish',bundle],{encoding:'utf8',env:{...process.env,PATH:join(root,'bin')+':'+process.env.PATH}});
  assert.notEqual(invoke().status,0);
  assert.ok((await readdir(releases)).includes(name(1)));
+ const failedAttempt=JSON.parse((await readFile(join(releases,'publish-attempts.jsonl'),'utf8')).trim());
+ assert.equal(failedAttempt.status,'unconfirmed');
+ assert.equal(failedAttempt.exitCode,1);
+ assert.equal((await readFile(join(releases,'history.jsonl'),'utf8')).trim().split('\n').length,2);
  await writeFile(executable,'#!/bin/sh\necho "Current Version ID: 12345678-1234-1234-1234-123456789abc"\n',{mode:0o755});
  const result=invoke();assert.equal(result.status,0,result.stderr);
+ const attempts=(await readFile(join(releases,'publish-attempts.jsonl'),'utf8')).trim().split('\n').map(JSON.parse);
+ assert.equal(attempts.at(-1).status,'passed');
+ assert.equal(typeof attempts.at(-1).seconds,'number');
+ assert.equal(attempts.at(-1).revision,'a'.repeat(40));
  assert.ok(!(await readdir(releases)).includes(name(1)));
  assert.ok((await readdir(releases)).includes(name(3)));
 }));

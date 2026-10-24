@@ -1,3 +1,4 @@
+import {streamCommand} from './lib/release-process.mjs';
 import { spawnSync } from 'node:child_process';
 import { readFile, writeFile, mkdir, appendFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
@@ -29,7 +30,7 @@ if (command === 'prepare' || command === 'deploy') {
   run('git', ['archive', revision, '-o', archive]);
   run('tar', ['-xf', archive, '-C', bundle]);
   run('npm', ['ci'], bundle);
-  await writeFile(resolve(bundle,'release-attempt.json'),JSON.stringify({schemaVersion:1,revision})+'\n');
+  await writeFile(resolve(bundle,'release-attempt.json'),JSON.stringify({schemaVersion:1,revision,preparationSeconds:(Date.now()-preparationStarted)/1000})+'\n');
   await verifyBundle(bundle, revision, false);
   if (command === 'deploy') await release('publish', bundle);
 } else if (command === 'resume') {
@@ -44,13 +45,16 @@ if (command === 'prepare' || command === 'deploy') {
   const manifest = JSON.parse(await readFile(resolve(bundle, 'release.json'), 'utf8'));
   if (manifest.schemaVersion !== 1 || manifest.checks !== 'passed' || !/^[a-f0-9]{40}$/.test(manifest.revision)) throw new Error('Invalid release manifest');
   if (await artifactDigest(bundle) !== manifest.digest) throw new Error('Release artifact changed after checks; prepare again');
-  const output = run('npx', ['wrangler', 'deploy'], bundle, true);
-  console.log(output);
-  const version = output.match(/Current Version ID:\s*([a-f0-9-]+)/)?.[1];
+  const timeoutMs = Number(process.env.NEXTTOKEN_PUBLISH_TIMEOUT_MS ?? 600_000);
+  console.log(`Publishing verified revision ${manifest.revision.slice(0,12)} (timeout ${timeoutMs / 1000}s)`);
+  const result = await streamCommand('npx', ['wrangler', 'deploy'], {cwd: bundle, timeoutMs});
+  const version = result.output.match(/Current Version ID:\s*([a-f0-9-]+)/)?.[1];
+  const confirmed = result.code === 0 && !result.timedOut && !result.interrupted && !!version;
+  await appendFile(resolve(directory, 'publish-attempts.jsonl'), JSON.stringify({revision: manifest.revision, digest: manifest.digest, bundle, at: new Date().toISOString(), seconds: result.seconds, status: confirmed ? 'passed' : 'unconfirmed', exitCode: result.code, timedOut: result.timedOut, interrupted: result.interrupted, version: version ?? null}) + '\n');
+  if (!confirmed) throw new Error(`Publish ${result.timedOut ? 'timed out' : 'was not confirmed'} after ${result.seconds.toFixed(1)}s. The verified bundle is reusable. Check npx wrangler deployments list in the bundle before retrying release:publish; do not rebuild or assume the site is unchanged.`);
   const performance=performanceStatus(manifest,await readHistory(resolve(directory,'performance-history.jsonl')));
-  await appendFile(resolve(directory, 'history.jsonl'), JSON.stringify({ ...manifest, performance, bundle, deployedAt: new Date().toISOString(), version: version ?? null }) + '\n');
+  await appendFile(resolve(directory, 'history.jsonl'), JSON.stringify({ ...manifest, performance, bundle, publishSeconds: result.seconds, deployedAt: new Date().toISOString(), version: version ?? null }) + '\n');
   console.log(`Mobile performance for this release: ${performance.status}`);
-  if (!version) throw new Error('Deployment command succeeded but version could not be parsed; inspect Cloudflare before retrying');
   try {
     const removed = await cleanReleaseBundles(directory);
     console.log(`Release cleanup: removed ${removed.length} obsolete bundles`);
@@ -80,7 +84,8 @@ async function verifyBundle(bundle,revision,resume) {
     if(gates.status!=='passed' || !Array.isArray(gates.stages) || gates.stages.length!==required.length || gates.stages.some((s,i)=>s.name!==required[i] || s.status!=='passed'))throw new Error('Release gates incomplete');
     // Historical full runs did not emit an artifact digest. Resume requires the modern protocol.
     if(!(legacy && !resume) && (gates.schemaVersion!==1 || gates.artifactDigest!==digest))throw new Error('Unsupported release report or artifact changed');
-    const manifest={schemaVersion:1,revision,verifiedAt:new Date().toISOString(),digest,checks:'passed',performance:{status:'not-run',policy:'separate-audit'},timing:{seconds:(Date.now()-preparationStarted)/1000,commands:timings,stages:gates.stages,attempts:gates.attempts}};
+    const preparation=JSON.parse(await readFile(resolve(bundle,'release-attempt.json'),'utf8'));
+    const manifest={schemaVersion:1,revision,verifiedAt:new Date().toISOString(),digest,checks:'passed',performance:{status:'not-run',policy:'separate-audit'},timing:{seconds:gates.attempts?.reduce((sum, attempt)=>sum+attempt.seconds,preparation.preparationSeconds ?? 0) ?? (Date.now()-preparationStarted)/1000,invocationSeconds:(Date.now()-preparationStarted)/1000,commands:timings,stages:gates.stages,attempts:gates.attempts}};
     await writeFile(resolve(bundle,'release.json'),JSON.stringify(manifest,null,2)+'\n');
     console.log(`Verified release: ${bundle}\nPublish: npm run release:publish -- ${bundle}`);
   } catch(error) {
