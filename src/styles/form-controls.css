@@ -28,7 +28,7 @@
   .control-input { width: 100%; }
   .control-input::placeholder { color: var(--muted); }
   .control-input::selection { background: var(--sky); color: var(--ink); }
-  .control-button, .button { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; font-weight: 600; cursor: pointer; text-decoration: none; }
+  .control-button, .button { min-width: var(--control-height); display: inline-flex; align-items: center; justify-content: center; gap: .6rem; font-weight: 600; cursor: pointer; text-decoration: none; }
   .control-button.primary, .button.primary { color: var(--white); background: var(--ink); border-color: var(--ink); }
   .control-button.primary:hover:not(:disabled), .button.primary:hover { color: var(--ink); background: var(--signal); border-color: var(--signal); }
   .control-button[aria-pressed="true"] { background: var(--signal-soft); border-color: var(--signal-text); color: var(--signal-text); }
