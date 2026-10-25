@@ -1,0 +1,14 @@
+name:
+  zh-Hans: 并发
+  en: Concurrency
+summary:
+  zh-Hans: 并发是让多个任务在重叠的时间段内推进的程序组织方式。
+  en: Concurrency organizes multiple tasks so they can make progress over overlapping periods of time.
+aliases: []
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: Go · Concurrency is not parallelism
+      en: Go · Concurrency is not parallelism
+    href: https://go.dev/blog/waza-talk

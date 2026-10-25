@@ -1,0 +1,20 @@
+kind: application
+name:
+  zh-Hans: iCloud 钥匙串
+  en: iCloud Keychain
+summary:
+  zh-Hans: Apple 用于在获准设备之间同步密码等凭据信息的功能。
+  en: >-
+    Apple’s feature for keeping passwords and related credentials in sync across
+    approved devices.
+aliases:
+  - Keychain
+official:
+  website: https://support.apple.com/en-us/109016
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official source
+    href: https://support.apple.com/en-us/109016
+brand: apple

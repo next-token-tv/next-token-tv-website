@@ -1,0 +1,17 @@
+kind: hardware
+name:
+  zh-Hans: Xbox
+  en: Xbox
+summary:
+  zh-Hans: 微软的游戏主机系列，并与数字游戏、订阅及跨设备游戏服务结合。
+  en: Microsoft’s console family, connected to digital games and cross-device gaming services.
+aliases: []
+official:
+  website: https://www.xbox.com/en-US/consoles
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://www.xbox.com/en-US/consoles
+brand: microsoft

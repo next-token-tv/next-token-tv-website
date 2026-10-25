@@ -1,0 +1,18 @@
+kind: api-service
+name:
+  zh-Hans: DeepSeek Search / Fetch API
+  en: DeepSeek Search / Fetch API
+summary:
+  zh-Hans: DeepSeek 提供的搜索与网页获取 API，可为应用和 Agent 提供外部信息。
+  en: DeepSeek’s search and page-fetching API for supplying applications and agents with external information.
+aliases:
+  - DeepSeek 搜索 API
+brand: deepseek
+official:
+  website: https://api-docs.deepseek.com/guides/search/
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal information
+    href: https://api-docs.deepseek.com/guides/search/
+lastVerifiedAt: '2026-10-25'

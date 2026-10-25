@@ -1,0 +1,18 @@
+name:
+  zh-Hans: 游戏制作规模（3A／2A）
+  en: Game production tiers (AAA / AA)
+summary:
+  zh-Hans: 3A（AAA）和 2A（AA）是游戏行业描述制作投入、团队规模与内容体量的非正式说法。
+  en: AAA and AA are informal game-industry labels for production investment, team scale, and content scope.
+aliases:
+  - 3A
+  - 2A
+  - AAA
+  - AA
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: MP1st · Interview with Remedy on AA and AAA
+      en: MP1st · Interview with Remedy on AA and AAA
+    href: https://mp1st.com/news/remedy-explains-difference-of-aa-to-aaa-games-to-the-studio

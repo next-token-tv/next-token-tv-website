@@ -1,0 +1,18 @@
+kind: platform
+name:
+  zh-Hans: 4399 小游戏
+  en: 4399 Games
+summary:
+  zh-Hans: 提供在线小游戏、游戏分类导航与玩家服务的网站。
+  en: A website for online casual games, game discovery and player services.
+aliases:
+  - 4399小游戏
+  - '4399'
+official:
+  website: https://www.4399.com/
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal information
+    href: https://www.4399.com/
+lastVerifiedAt: '2026-10-25'

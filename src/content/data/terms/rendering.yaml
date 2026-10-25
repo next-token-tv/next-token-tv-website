@@ -1,0 +1,14 @@
+name:
+  zh-Hans: 渲染
+  en: Rendering
+summary:
+  zh-Hans: 渲染是依据场景、素材和效果计算最终画面的过程，可生成静态图像或连续的视频帧。
+  en: Rendering computes final images from scenes, source media, and effects, producing still images or successive video frames.
+aliases: []
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: Adobe · 渲染与导出
+      en: Adobe · Rendering and exporting
+    href: https://helpx.adobe.com/after-effects/desktop/render-and-export/basics-of-rendering-and-exporting/basics-rendering-exporting.html

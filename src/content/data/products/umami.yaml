@@ -1,0 +1,16 @@
+kind: application
+name:
+  zh-Hans: Umami
+  en: Umami
+summary:
+  zh-Hans: 开源的网站与产品分析工具，用于查看流量来源、访问行为和转化。
+  en: Open-source web and product analytics for understanding traffic sources, behavior and conversions.
+aliases: []
+official:
+  website: https://umami.is/
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://umami.is/

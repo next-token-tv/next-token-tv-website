@@ -1,0 +1,17 @@
+kind: application
+name:
+  zh-Hans: Arc
+  en: Arc
+summary:
+  zh-Hans: The Browser Company 开发的网页浏览器，以空间、侧栏和标签组织为特色。
+  en: A web browser from The Browser Company organized around spaces, a sidebar and tabs.
+aliases:
+  - Arc 浏览器
+official:
+  website: https://arc.net/
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://arc.net/

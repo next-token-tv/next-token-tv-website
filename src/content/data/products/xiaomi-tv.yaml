@@ -1,0 +1,17 @@
+kind: hardware
+name:
+  zh-Hans: 小米电视
+  en: Xiaomi TV
+summary:
+  zh-Hans: 小米的智能电视产品系列，覆盖多种尺寸与配置。
+  en: Xiaomi’s smart television family across multiple screen sizes and configurations.
+aliases: []
+brand: xiaomi
+official:
+  website: https://www.mi.com/shop/category/list
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal information
+    href: https://www.mi.com/shop/category/list
+lastVerifiedAt: '2026-10-25'

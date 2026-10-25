@@ -1,0 +1,206 @@
+schemaVersion: 2
+number: '007'
+show: next-token-weekly
+status: announced
+phase: post-production
+detailLayout: true
+releasePreview: true
+scheduledAt: '2026-10-23'
+timeZone: Asia/Shanghai
+recordingMode: in-person
+recordingLocation:
+  zh-Hans: 万象空间
+  en: Wanxiang Space
+title:
+  zh-Hans: '#007 DeepSeek 极速狂飙，AI 游戏新机会，AI 改造老家电'
+  en: '#007 DeepSeek at full speed, new opportunities in AI games, and AI makeovers for old appliances'
+participants:
+  - person: guizang
+    role: duty-host
+  - person: xiangyang-qiaomu
+    role: co-host
+  - person: yangpan
+    role: co-host
+  - person: orange
+    role: co-host
+mentions:
+  brands:
+    - next-token
+    - deepseek
+    - huawei
+    - fireworks-ai
+    - google
+    - cloudflare
+    - pingcap
+    - vercel
+    - nvidia
+    - nintendo
+    - apple
+    - sony
+    - microsoft
+    - xiaomi
+    - openai
+    - aws
+    - anthropic
+    - hugging-face
+    - zhipu
+    - cognition
+    - adobe
+    - folotoy
+    - mediastorm
+    - tata
+    - watcha
+  products:
+    - javascript
+    - weixin-shops
+    - deepseek-responses-api
+    - glm
+    - xiaoyuzhou
+    - deepseek
+    - deepseek-harness
+    - tetris
+    - grok-bot
+    - threejs
+    - gpt
+    - bilibili
+    - ctrip
+    - qichacha
+    - wechat
+    - meituan
+    - muse-agent
+    - umami
+    - codex
+    - cursor
+    - chatgpt
+    - jianying
+    - macbook
+    - bloodborne
+    - photoshop
+    - nvidia-dlss
+    - douyin
+    - pokebonk
+    - vampire-survivors
+    - diablo
+    - grok
+    - iphone
+    - pokemon-games
+    - claude
+    - steam
+    - android
+    - windows
+    - chrome
+    - safari
+    - app-store
+    - instinct
+    - legend-of-zelda
+    - super-mario-odyssey
+    - nintendo-switch
+    - apple-tv-hardware
+    - grand-theft-auto-vi
+    - playstation-5
+    - xbox
+    - kindle
+    - android-debug-bridge
+    - mac-studio
+    - x
+    - php
+    - nodejs
+    - wordpress
+    - icloud-keychain
+    - 1password
+    - apple-passwords
+    - railway
+    - opencode
+    - linux
+    - xiaohongshu
+    - planet-zoo
+    - two-point-hospital
+    - v2ex
+    - leetcode
+    - claude-duet
+    - claude-code
+    - rea
+    - dia
+    - qwen
+    - whisper
+    - slack
+    - arc
+    - omarchy
+    - esp32
+    - taobao
+    - ai-passport
+    - huawei-ascend
+    - dragon-ball
+    - dianping
+    - baidu-search
+    - google-analytics
+    - playstation
+    - steam-next-fest
+    - '4399'
+    - nvidia-geforce
+    - apple-a-series
+    - xiaomi-tv
+    - xiaomi-tv-remotes
+    - xiaomi-smartphones
+    - xiaoai-speakers
+    - xiaozhi-esp32
+    - deepseek-chat
+    - deepseek-search
+    - next-token-cut
+    - youmind
+    - gmail
+    - macos
+  people:
+    - liang-wenfeng
+    - yubo
+    - sam-altman
+    - kazike
+    - cyber-zen
+    - lex-fridman
+    - dhh
+    - wang-le
+    - liu-xiaopai
+    - liu-run
+    - kuaidao-qingyi
+    - luo-yihang
+    - lauren-tan
+    - yao-jingang
+preview:
+  topics:
+    zh-Hans:
+      - DeepSeek
+      - AI 游戏
+      - 旧设备改造
+      - Personal Agent
+      - AI 安全
+    en:
+      - DeepSeek
+      - AI games
+      - Device tinkering
+      - Personal agents
+      - AI security
+  images:
+    '480': /assets/weekly-007-cover-480.webp
+    '720': /assets/weekly-007-cover-720.webp
+    '960': /assets/weekly-007-cover-960.webp
+    '1440': /assets/weekly-007-cover-1440.webp
+    '1920': /assets/weekly-007-cover-1920.webp
+  imageDimensions:
+    width: 3000
+    height: 3000
+  eyebrow:
+    zh-Hans: 第 007 期
+    en: 'Episode #007'
+  heading:
+    zh-Hans:
+      - DeepSeek 极速狂飙，
+      - AI 游戏新机会，AI 改造老家电
+    en:
+      - DeepSeek at full speed,
+      - new opportunities in AI games, and AI makeovers for old appliances
+  summary:
+    zh-Hans: 从 DeepSeek 提速到 AI 游戏，从旧电视改造到语音小硬件：四位主理人聊实际动手体验、Agent 工作流与安全边界。
+    en: 'From faster DeepSeek responses and AI-built games to old TVs and voice devices: hands-on experiences with agents, creative workflows and security.'
+  note:
+    zh-Hans: 已录制，内容整理中。
+    en: Recorded; preparing the episode.

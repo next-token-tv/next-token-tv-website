@@ -1,0 +1,14 @@
+kind: business
+name:
+  zh-Hans: 刘润
+  en: Liu Run
+bio:
+  zh-Hans: 润米咨询创始人、商业顾问和作者，持续分享商业与管理知识。
+  en: Founder of Runmi Consulting, business adviser and author who shares business and management ideas.
+aliases: []
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal information
+    href: https://www.run2me.com/
+lastVerifiedAt: '2026-10-25'

@@ -1,0 +1,16 @@
+name:
+  zh-Hans: 正则表达式
+  en: Regular expression
+summary:
+  zh-Hans: 正则表达式是描述文本匹配模式的表达方式，可用于查找、提取、替换和校验字符串。
+  en: A regular expression describes a text-matching pattern for searching, extracting, replacing, or validating strings.
+aliases:
+  - 正则
+  - Regex
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: MDN · Regular expressions
+      en: MDN · Regular expressions
+    href: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions

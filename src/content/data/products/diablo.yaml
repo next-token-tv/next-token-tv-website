@@ -1,0 +1,18 @@
+kind: game
+name:
+  zh-Hans: 暗黑破坏神
+  en: Diablo
+summary:
+  zh-Hans: Blizzard 的动作角色扮演游戏系列，围绕战斗、角色成长和装备收集展开。
+  en: >-
+    Blizzard’s action role-playing game series centered on combat, character
+    progression and loot.
+aliases: []
+official:
+  website: https://www.blizzard.com/en-us/games
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official source
+    href: https://www.blizzard.com/en-us/games

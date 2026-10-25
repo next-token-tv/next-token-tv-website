@@ -1,0 +1,54 @@
+episodeId: next-token-weekly--007
+status: local-review
+sourceRepository: next-token
+photo:
+  path: shows/weekly/episodes/007/03-post-production/artwork/source-frames-v4/frame-0055.jpg
+  sha256: 143e2e6438c923f4fbe40ceac14f3903ef26b442e9ce5abca6da9ac9431be13e
+  videoSeconds: 55
+titleStatus: confirmed
+sources:
+  - shows/weekly/episodes/007/credits.json
+  - shows/weekly/episodes/007/04-release/copy/show-notes.zh-Hans.md
+chapters:
+  path: shows/weekly/episodes/007/04-release/copy/chapters.json
+  english:
+    sections:
+      - Faster DeepSeek, search and software experiences
+      - Making games and reworking old devices
+      - Stronger capabilities, new security questions
+      - What do we want to do with better AI?
+    chapters:
+      - Highlights
+      - Intro
+      - 'Opening: ten thousand listeners and four hosts'
+      - How DeepSeek inference speed changes the experience
+      - 'Search APIs: Chinese information for a personal agent'
+      - Agent traffic, personal websites and open interfaces
+      - 'Building editing tools: automation and rendering waits'
+      - 'AI games: ports, browser games and progression loops'
+      - Create once, enjoy repeatedly without repeated token costs
+      - Console ports and platform security
+      - Rebuilding a TV launcher to connect old devices with AI
+      - 'Security: vulnerabilities, certificates and patches'
+      - Passwords, passkeys and changing devices
+      - Leaked keys and security boundaries in the AI era
+      - 'Vibe coding: productivity or a creative game?'
+      - 'What is worth learning: asking AI and talking to people'
+      - Duet and model companies’ product choices
+      - When AI writes the code, how do we learn architecture?
+      - 'Work without watching the computer: ask for the result'
+      - 'Bigger tasks: podcasts, Slack and WeChat'
+      - What would you do with unlimited intelligence and tokens?
+      - Omarchy, old phones and rewriting software
+      - Voice and small devices as personal-agent interfaces
+      - 'Closing: the changes continue'
+cover:
+  status: review-not-approved
+  renderer: tools/artwork/render_photo_cover.py
+  template: assets/brand/weekly-photo-cover-template.json
+  templateSha256: e11c3d1e6a52250ea65f3b4509ee952352e2cf44cd244aff8d61e4361a9cae51
+  profile: square
+  titleLines:
+    - DeepSeek 极速狂飙，
+    - AI 游戏新机会，AI 改造老家电
+  footer: 2026.10.23 · 万象空间

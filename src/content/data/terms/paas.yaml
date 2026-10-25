@@ -1,0 +1,15 @@
+name:
+  zh-Hans: 平台即服务（PaaS）
+  en: Platform as a service (PaaS)
+summary:
+  zh-Hans: 平台即服务提供部署和运行应用所需的平台环境，由服务方管理底层基础设施的一部分。
+  en: Platform as a service provides an environment for deploying and running applications while the provider manages underlying infrastructure.
+aliases:
+  - PaaS
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: NIST · Platform as a service
+      en: NIST · Platform as a service
+    href: https://csrc.nist.gov/glossary/term/platform_as_a_service

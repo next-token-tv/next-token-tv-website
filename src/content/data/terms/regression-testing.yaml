@@ -1,0 +1,14 @@
+name:
+  zh-Hans: 回归测试
+  en: Regression testing
+summary:
+  zh-Hans: 回归测试是在软件或环境发生改动后，检查已有功能是否受到意外影响的测试。
+  en: Regression testing checks whether changes to software or its environment have unintentionally affected existing behavior.
+aliases: []
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: ASTQB · Confirmation and regression testing
+      en: ASTQB · Confirmation and regression testing
+    href: https://astqb.org/2-2-test-levels-and-test-types/

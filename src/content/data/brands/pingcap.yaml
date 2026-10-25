@@ -1,0 +1,18 @@
+kind: internet-software-brand
+name:
+  zh-Hans: PingCAP
+  en: PingCAP
+summary:
+  zh-Hans: 开发 TiDB 分布式 SQL 数据库及相关云服务的公司。
+  en: >-
+    The company behind the TiDB distributed SQL database and related cloud
+    services.
+aliases: []
+official:
+  website: https://www.pingcap.com/about-us/
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: 公司介绍
+      en: Company overview
+    href: https://www.pingcap.com/about-us/

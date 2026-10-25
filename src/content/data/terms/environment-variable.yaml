@@ -1,0 +1,14 @@
+name:
+  zh-Hans: 环境变量
+  en: Environment variable
+summary:
+  zh-Hans: 环境变量是运行环境向进程提供的名称和值，常用于传入配置、路径或服务连接信息。
+  en: Environment variables are named values supplied to a process by its execution environment, commonly for configuration, paths, or service connections.
+aliases: []
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: Node.js · Environment variables
+      en: Node.js · Environment variables
+    href: https://nodejs.org/api/environment_variables.html

@@ -1,0 +1,16 @@
+kind: platform
+name:
+  zh-Hans: LeetCode
+  en: LeetCode
+summary:
+  zh-Hans: 提供编程题目、练习和技术面试准备内容的在线平台。
+  en: An online platform for programming problems, practice and technical interview preparation.
+aliases: []
+official:
+  website: https://leetcode.com/
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://leetcode.com/

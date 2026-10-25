@@ -1,0 +1,19 @@
+kind: developer-tool
+name:
+  zh-Hans: NVIDIA DLSS
+  en: NVIDIA DLSS
+summary:
+  zh-Hans: NVIDIA 的神经渲染技术集合，使用 AI 改善游戏图像与性能。
+  en: NVIDIA’s neural-rendering technology suite using AI to improve game visuals and performance.
+aliases:
+  - DLSS
+  - DLSS 5
+official:
+  website: https://www.nvidia.com/en-us/geforce/technologies/dlss/
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://www.nvidia.com/en-us/geforce/technologies/dlss/
+brand: nvidia

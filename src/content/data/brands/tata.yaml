@@ -1,0 +1,17 @@
+kind: other-brand
+name:
+  zh-Hans: 塔塔集团
+  en: Tata Group
+summary:
+  zh-Hans: 总部位于印度的企业集团，业务涉及制造、科技及消费服务等领域。
+  en: An India-based business group operating across manufacturing, technology and consumer services.
+aliases:
+  - 塔塔
+official:
+  website: https://www.tata.com/about-us
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal information
+    href: https://www.tata.com/about-us
+lastVerifiedAt: '2026-10-25'

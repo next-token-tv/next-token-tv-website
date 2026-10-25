@@ -14,6 +14,9 @@ socialsLabel:
   zh-Hans: 歸藏的社交账号
   en: Guizang's social accounts
 socials:
+  - platform: website
+    handle: 歸藏的 AI 资讯
+    href: https://guizang.ai/
   - platform: x
     handle: "@op7418"
     href: https://x.com/op7418

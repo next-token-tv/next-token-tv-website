@@ -1,0 +1,16 @@
+name:
+  zh-Hans: 省时间与消遣（Save Time / Kill Time）
+  en: Saving time and passing time
+summary:
+  zh-Hans: Save Time 强调减少完成任务所需的时间；Kill Time 通常表示打发时间。节目用这组表达讨论效率工具与消遣体验。
+  en: Save Time emphasizes reducing the time needed for a task; Kill Time usually means passing time. The episode uses the contrast to discuss utility and entertainment.
+aliases:
+  - Save Time
+  - Kill Time
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: Cambridge Dictionary · Kill time
+      en: Cambridge Dictionary · Kill time
+    href: https://dictionary.cambridge.org/dictionary/english/kill-time-an-hour-etc

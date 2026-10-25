@@ -1,0 +1,15 @@
+name:
+  zh-Hans: 模型蒸馏
+  en: Model distillation
+summary:
+  zh-Hans: 模型蒸馏是利用教师模型的输出或行为训练学生模型，使学生学习教师的部分能力。
+  en: Model distillation trains a student model using a teacher’s outputs or behavior to transfer some of the teacher’s capabilities.
+aliases:
+  - 知识蒸馏
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: Hinton et al. · Distilling the Knowledge in a Neural Network
+      en: Hinton et al. · Distilling the Knowledge in a Neural Network
+    href: https://arxiv.org/abs/1503.02531

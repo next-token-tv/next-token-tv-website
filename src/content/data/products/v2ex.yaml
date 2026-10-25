@@ -1,0 +1,16 @@
+kind: platform
+name:
+  zh-Hans: V2EX
+  en: V2EX
+summary:
+  zh-Hans: 面向开发者、设计师及其他创意工作者的在线讨论社区。
+  en: An online discussion community for developers, designers and other creative professionals.
+aliases: []
+official:
+  website: https://www.v2ex.com/about
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://www.v2ex.com/about

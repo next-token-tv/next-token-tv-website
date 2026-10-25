@@ -1,0 +1,15 @@
+name:
+  zh-Hans: 4K 分辨率
+  en: 4K resolution
+summary:
+  zh-Hans: 4K 描述横向约四千像素的图像分辨率；消费级 UHD 常用 3840×2160，数字影院还使用 4096×2160。
+  en: '4K describes image resolutions around four thousand pixels wide: consumer UHD commonly uses 3840×2160, while digital cinema also uses 4096×2160.'
+aliases:
+  - 4K
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: Sony · 4K white paper
+      en: Sony · 4K white paper
+    href: https://www.sony.com/campaign/SNA/pdf/Sony_4K_Projectors_White_Paper_v2.3.pdf

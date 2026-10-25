@@ -1,0 +1,17 @@
+kind: event
+name:
+  zh-Hans: Steam 新品节
+  en: Steam Next Fest
+summary:
+  zh-Hans: Steam 举办的游戏试玩活动，集中展示未正式发售游戏的试玩版。
+  en: A Steam event showcasing playable demos of upcoming games.
+aliases:
+  - Steam新品节
+official:
+  website: https://partner.steamgames.com/doc/marketing/upcoming_events/nextfest
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal information
+    href: https://partner.steamgames.com/doc/marketing/upcoming_events/nextfest
+lastVerifiedAt: '2026-10-25'

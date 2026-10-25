@@ -1,0 +1,19 @@
+kind: game
+name:
+  zh-Hans: 超级马力欧 奥德赛
+  en: Super Mario Odyssey
+summary:
+  zh-Hans: 任天堂推出的 3D 平台动作游戏，马力欧与帽子伙伴凯皮探索多个国度。
+  en: Nintendo’s 3D platform adventure featuring Mario and his companion Cappy across multiple kingdoms.
+aliases:
+  - 马里奥的奥德赛
+  - 马力欧奥德赛
+official:
+  website: https://www.nintendo.com/us/store/products/super-mario-odyssey-switch/
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://www.nintendo.com/us/store/products/super-mario-odyssey-switch/
+brand: nintendo

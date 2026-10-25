@@ -1,0 +1,15 @@
+name:
+  zh-Hans: UP 主
+  en: UP creator
+summary:
+  zh-Hans: UP 主是中文视频社区对发布内容的创作者的常用称呼，在哔哩哔哩尤其常见。
+  en: UP creator is a common Chinese video-community label for people who publish content, particularly on Bilibili.
+aliases:
+  - UP主
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: Bilibili · Video creators
+      en: Bilibili · Video creators
+    href: https://e.bilibili.com/observe/observe_42.html

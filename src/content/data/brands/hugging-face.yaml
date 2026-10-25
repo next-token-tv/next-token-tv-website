@@ -4,10 +4,17 @@ name:
   en: Hugging Face
 summary:
   zh-Hans: 开发机器学习协作平台与开源工具的人工智能公司，支持模型、数据集与 AI 应用的共享与协作。
-  en: An AI company developing a machine-learning collaboration platform and open-source tools for sharing and building models, datasets, and AI applications.
+  en: >-
+    An AI company developing a machine-learning collaboration platform and open-source tools for sharing and
+    building models, datasets, and AI applications.
 aliases:
   - HuggingFace
   - HF
 official:
   website: https://huggingface.co/
-lastVerifiedAt: "2026-09-07"
+lastVerifiedAt: '2026-09-07'
+sources:
+  - label:
+      zh-Hans: 官方介绍
+      en: Official introduction
+    href: https://huggingface.co/

@@ -1,0 +1,19 @@
+kind: application
+name:
+  zh-Hans: DeepSeek 对话应用
+  en: DeepSeek Chat
+summary:
+  zh-Hans: DeepSeek 面向用户的网页与移动端 AI 对话应用，提供与模型交互的界面。
+  en: DeepSeek’s web and mobile chat application for interacting with its AI models.
+aliases:
+  - DeepSeek App
+  - DeepSeek APP
+brand: deepseek
+official:
+  website: https://chat.deepseek.com/
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal information
+    href: https://api-docs.deepseek.com/updates/
+lastVerifiedAt: '2026-10-25'

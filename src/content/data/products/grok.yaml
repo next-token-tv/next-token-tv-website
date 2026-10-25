@@ -13,3 +13,8 @@ official:
   website: https://grok.com/
   documentation: https://docs.x.ai/
 lastVerifiedAt: '2026-09-07'
+sources:
+  - label:
+      zh-Hans: 官方介绍
+      en: Official introduction
+    href: https://grok.com/

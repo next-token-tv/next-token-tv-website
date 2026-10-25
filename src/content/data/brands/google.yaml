@@ -9,4 +9,9 @@ aliases:
   - 谷歌
 official:
   website: https://about.google/
-lastVerifiedAt: "2026-09-07"
+lastVerifiedAt: '2026-09-07'
+sources:
+  - label:
+      zh-Hans: 官方介绍
+      en: Official introduction
+    href: https://about.google/

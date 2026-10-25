@@ -1,0 +1,21 @@
+kind: platform
+name:
+  zh-Hans: 微信小店
+  en: Weixin Mini Shops
+summary:
+  zh-Hans: 微信小店是微信生态内的商家经营与商品交易服务，提供店铺和商品展示入口。
+  en: Weixin Mini Shops is a merchant storefront and commerce service within the Weixin ecosystem.
+aliases: []
+official:
+  website: https://www.tencent.com/products/weixin-wechat/
+parent: wechat
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: Tencent · 2024 Q3 results
+      en: Tencent · 2024 Q3 results
+    href: https://static.www.tencent.com/uploads/2024/11/13/3fba55fd8dcb38a2ff37e34895a5f8db.pdf
+  - label:
+      zh-Hans: 腾讯 · 发展历程
+      en: Tencent · Our story
+    href: https://www.tencent.com/who-we-are/our-story/

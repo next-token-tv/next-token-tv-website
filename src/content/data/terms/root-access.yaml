@@ -1,0 +1,15 @@
+name:
+  zh-Hans: Root 权限
+  en: Root access
+summary:
+  zh-Hans: Root 通常指类 Unix 系统的超级用户身份；Root 权限允许执行普通用户不能执行的管理操作。
+  en: Root commonly denotes the superuser identity on Unix-like systems, with administrative privileges unavailable to ordinary users.
+aliases:
+  - Root
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: Linux man-pages · Capabilities
+      en: Linux man-pages · Capabilities
+    href: https://man7.org/linux/man-pages/man7/capabilities.7.html

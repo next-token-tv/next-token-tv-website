@@ -1,0 +1,16 @@
+name:
+  zh-Hans: 局域网（LAN）
+  en: Local area network (LAN)
+summary:
+  zh-Hans: 局域网连接同一有限区域内的设备，例如家庭、办公室或一栋建筑中的设备。
+  en: A local area network connects devices within a limited area, such as a home, office, or building.
+aliases:
+  - 局域网
+  - LAN
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: Cisco · Local area networks
+      en: Cisco · Local area networks
+    href: https://www.cisco.com/site/us/en/learn/topics/networking/what-is-a-lan-local-area-network.html

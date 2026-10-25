@@ -1,0 +1,16 @@
+kind: hardware
+name:
+  zh-Hans: Kindle
+  en: Kindle
+summary:
+  zh-Hans: Amazon 的电子阅读器产品系列，主要用于阅读电子书，部分型号支持手写笔记。
+  en: Amazon’s e-reader family for digital books, with handwriting features on selected models.
+aliases: []
+official:
+  website: https://www.aboutamazon.com/news/devices/which-kindle-to-buy
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://www.aboutamazon.com/news/devices/which-kindle-to-buy

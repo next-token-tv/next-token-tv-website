@@ -1,0 +1,17 @@
+kind: hardware
+name:
+  zh-Hans: 小米手机
+  en: Xiaomi smartphones
+summary:
+  zh-Hans: 小米的智能手机产品系列，不同代际和产品线采用不同硬件配置。
+  en: Xiaomi’s smartphone family, spanning multiple generations and hardware configurations.
+aliases: []
+brand: xiaomi
+official:
+  website: https://www.mi.com/shop/category/list
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal information
+    href: https://www.mi.com/shop/category/list
+lastVerifiedAt: '2026-10-25'

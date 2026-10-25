@@ -1,0 +1,14 @@
+name:
+  zh-Hans: 生物识别
+  en: Biometrics
+summary:
+  zh-Hans: 生物识别利用可测量的身体特征或行为特征，识别个人或验证其声称的身份。
+  en: Biometrics uses measurable physical or behavioral characteristics to identify a person or verify a claimed identity.
+aliases: []
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: NIST · Biometrics
+      en: NIST · Biometrics
+    href: https://csrc.nist.gov/glossary/term/biometrics

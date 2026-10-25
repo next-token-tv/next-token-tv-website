@@ -1,0 +1,14 @@
+name:
+  zh-Hans: 缓存
+  en: Cache
+summary:
+  zh-Hans: 缓存保存可复用的数据或计算结果，使后续请求不必重新获取或计算全部内容。
+  en: A cache stores reusable data or computed results so later requests can avoid repeating the full retrieval or computation.
+aliases: []
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: MDN · Cache
+      en: MDN · Cache
+    href: https://developer.mozilla.org/en-US/docs/Glossary/Cache

@@ -1,0 +1,15 @@
+kind: business
+name:
+  zh-Hans: 骆轶航
+  en: Thomas Luo
+bio:
+  zh-Hans: PingWest 品玩创始人，长期从事科技媒体与内容工作。
+  en: Founder of PingWest, with a background in technology journalism and media.
+aliases:
+  - Thomas Luo
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal information
+    href: https://www.pingwest.com/author
+lastVerifiedAt: '2026-10-25'

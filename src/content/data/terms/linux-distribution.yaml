@@ -1,0 +1,14 @@
+name:
+  zh-Hans: Linux 发行版
+  en: Linux distribution
+summary:
+  zh-Hans: Linux 发行版是围绕 Linux 内核组合用户程序、系统工具和软件管理机制形成的可安装系统。
+  en: A Linux distribution combines the Linux kernel with user programs, system tools, and software management into an installable operating system.
+aliases: []
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: Red Hat · Linux distributions
+      en: Red Hat · Linux distributions
+    href: https://www.redhat.com/en/topics/linux/whats-the-best-linux-distro-for-you

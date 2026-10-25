@@ -1,0 +1,17 @@
+kind: hardware
+name:
+  zh-Hans: 小爱音箱
+  en: XiaoAI speakers
+summary:
+  zh-Hans: 搭载小爱语音助手的小米智能音箱系列，可用于音乐播放、语音交互和智能家居控制。
+  en: Xiaomi’s smart speaker family with XiaoAI voice interaction, music playback and smart-home control.
+aliases: []
+brand: xiaomi
+official:
+  website: https://www.mi.com/aispeaker
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal information
+    href: https://www.mi.com/aispeaker
+lastVerifiedAt: '2026-10-25'

@@ -1,0 +1,17 @@
+kind: hardware
+name:
+  zh-Hans: PlayStation
+  en: PlayStation
+summary:
+  zh-Hans: 索尼的游戏主机产品系列，包含不同代际的家用主机。
+  en: Sony’s video game console family, spanning multiple generations of home consoles.
+aliases: []
+brand: sony
+official:
+  website: https://www.playstation.com/en-us/playstation-history/
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal information
+    href: https://www.playstation.com/en-us/playstation-history/
+lastVerifiedAt: '2026-10-25'

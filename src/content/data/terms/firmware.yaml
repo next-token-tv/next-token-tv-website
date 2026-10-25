@@ -1,0 +1,14 @@
+name:
+  zh-Hans: 固件
+  en: Firmware
+summary:
+  zh-Hans: 固件是存储在设备非易失性存储器中的程序与数据，用于实现设备的基础功能。
+  en: Firmware is program code and data held in a device’s nonvolatile storage to implement basic device functions.
+aliases: []
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: NIST · Firmware
+      en: NIST · Firmware
+    href: https://csrc.nist.gov/glossary/term/firmware

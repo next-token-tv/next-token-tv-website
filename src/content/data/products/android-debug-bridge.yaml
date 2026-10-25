@@ -1,0 +1,19 @@
+kind: developer-tool
+name:
+  zh-Hans: Android Debug Bridge
+  en: Android Debug Bridge
+summary:
+  zh-Hans: Android SDK Platform Tools 中的命令行工具，用于与设备通信、安装调试应用和执行设备命令。
+  en: A command-line tool in Android SDK Platform Tools for device communication, app debugging and shell commands.
+aliases:
+  - ADB
+  - adb
+official:
+  website: https://developer.android.com/tools/adb
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://developer.android.com/tools/adb
+brand: google

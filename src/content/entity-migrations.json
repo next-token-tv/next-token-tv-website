@@ -102,5 +102,13 @@
   {
     "from": "brand:openai-devday",
     "to": "product:openai-devday"
+  },
+  {
+    "from": "product:watcha",
+    "to": "brand:watcha"
+  },
+  {
+    "from": "product:watcha-conference",
+    "to": "brand:watcha"
   }
 ]

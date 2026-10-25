@@ -1,0 +1,15 @@
+name:
+  zh-Hans: 流式输出
+  en: Streaming output
+summary:
+  zh-Hans: 流式输出是在结果尚未全部生成时，逐步把已产生的内容发送给使用者。
+  en: Streaming output delivers portions of a result before the whole result has finished generating.
+aliases:
+  - Streaming Output
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: MDN · Server-sent events
+      en: MDN · Server-sent events
+    href: https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events

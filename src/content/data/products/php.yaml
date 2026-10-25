@@ -1,0 +1,16 @@
+kind: developer-tool
+name:
+  zh-Hans: PHP
+  en: PHP
+summary:
+  zh-Hans: 广泛用于 Web 开发的通用脚本语言，可用于动态网页与服务端程序。
+  en: A general-purpose scripting language widely used for web development and server-side applications.
+aliases: []
+official:
+  website: https://www.php.net/
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://www.php.net/

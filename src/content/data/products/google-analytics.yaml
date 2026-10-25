@@ -1,0 +1,17 @@
+kind: application
+name:
+  zh-Hans: Google Analytics
+  en: Google Analytics
+summary:
+  zh-Hans: Google 提供的网站与应用分析服务，用于了解访问来源、用户行为和转化。
+  en: Google’s analytics service for understanding website and app traffic, user behavior and conversions.
+aliases: []
+brand: google
+official:
+  website: https://marketingplatform.google.com/about/analytics/
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal information
+    href: https://marketingplatform.google.com/about/analytics/
+lastVerifiedAt: '2026-10-25'

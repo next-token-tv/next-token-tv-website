@@ -1,0 +1,14 @@
+kind: creator-community
+name:
+  zh-Hans: 姚金刚
+  en: Yao Jingang
+bio:
+  zh-Hans: 关注 AI 营销、SEO / GEO、内容系统和增长实践的作者，GEOFlow 项目作者。
+  en: Author focused on AI marketing, SEO / GEO, content systems and growth, and the creator of GEOFlow.
+aliases: []
+sources:
+  - label:
+      zh-Hans: GEOFlow 作者与项目介绍
+      en: GEOFlow author and project
+    href: https://github.com/yaojingang/GEOFlow/wiki/%E4%BD%9C%E8%80%85%E4%B8%8E%E9%A1%B9%E7%9B%AE
+lastVerifiedAt: '2026-10-25'

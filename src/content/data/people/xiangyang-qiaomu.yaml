@@ -15,6 +15,9 @@ socialsLabel:
   zh-Hans: 向阳乔木的社交账号
   en: Xiangyang Qiaomu's social accounts
 socials:
+  - platform: website
+    handle: 向阳乔木 · AI 实践笔记
+    href: https://qiaomu.ai/
   - platform: x
     handle: "@vista8"
     href: https://x.com/vista8

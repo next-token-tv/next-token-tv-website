@@ -1,0 +1,23 @@
+kind: hardware
+brand: apple
+name:
+  zh-Hans: Apple TV 机顶盒
+  en: Apple TV hardware
+summary:
+  zh-Hans: Apple 的电视机顶盒产品系列，可连接电视播放影音和运行支持的应用与游戏，包括 Apple TV HD、Apple TV 4K 等型号。
+  en: Apple's television set-top box family for media playback and supported apps and games, including Apple TV HD and Apple TV 4K.
+aliases:
+  - Apple TV HD
+  - Apple TV 4K
+official:
+  website: https://www.apple.com/apple-tv-4k/
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: Apple TV 4K 官方产品页
+      en: Apple TV 4K official product page
+    href: https://www.apple.com/apple-tv-4k/
+  - label:
+      zh-Hans: Apple 支持：识别 Apple TV 型号
+      en: Apple Support · Identify your Apple TV model
+    href: https://support.apple.com/en-gb/101605

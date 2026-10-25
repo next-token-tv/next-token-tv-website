@@ -1,0 +1,15 @@
+kind: application
+name:
+  zh-Hans: Next Token Cut
+  en: Next Token Cut
+summary:
+  zh-Hans: 用于 Next Token 节目制作的本地剪辑与字幕工作台。
+  en: A local editing and subtitle workspace used in producing Next Token.
+aliases: []
+brand: next-token
+sources:
+  - label:
+      zh-Hans: 节目中的工具介绍
+      en: Tool introduction in the episode
+    href: https://nexttoken.tv/weekly/007
+lastVerifiedAt: '2026-10-25'

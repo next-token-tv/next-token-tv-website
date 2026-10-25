@@ -1,0 +1,16 @@
+name:
+  zh-Hans: 执行中引导（Steer）
+  en: Agent steering
+summary:
+  zh-Hans: 执行中引导是在 Agent 正在处理任务时追加要求或纠正方向，使后续行动响应新的输入。
+  en: Agent steering supplies additional instructions or corrections while an agent is working so subsequent actions can respond to new input.
+aliases:
+  - Steer
+  - 引导模式
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: OpenAI Codex · Turn steering
+      en: OpenAI Codex · Turn steering
+    href: https://github.com/openai/codex/blob/main/sdk/python/docs/api-reference.md

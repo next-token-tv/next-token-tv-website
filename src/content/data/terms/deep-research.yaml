@@ -1,0 +1,16 @@
+name:
+  zh-Hans: 深度研究（Deep Research）
+  en: Deep research
+summary:
+  zh-Hans: 在 AI 应用中，深度研究指围绕一个问题进行多步检索、阅读、分析和综合，而非只返回单次搜索结果。
+  en: In AI applications, deep research involves multiple rounds of searching, reading, analysis, and synthesis rather than a single search result.
+aliases:
+  - Deep Research
+  - 深度研究
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: OpenAI · An example of deep research
+      en: OpenAI · An example of deep research
+    href: https://openai.com/index/introducing-deep-research/

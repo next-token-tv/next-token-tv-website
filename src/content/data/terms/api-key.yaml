@@ -1,0 +1,16 @@
+name:
+  zh-Hans: API 密钥（API Key）
+  en: API key
+summary:
+  zh-Hans: API 密钥是调用接口时使用的标识或凭据，可用于识别调用项目并关联配额或计费。
+  en: An API key is an identifier or credential supplied with API requests, often linking usage to a project, quota, or billing account.
+aliases:
+  - API Key
+  - API 密钥
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: Google Cloud · API keys
+      en: Google Cloud · API keys
+    href: https://docs.cloud.google.com/docs/authentication/api-keys

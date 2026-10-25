@@ -1,0 +1,18 @@
+kind: game
+name:
+  zh-Hans: 侠盗猎车手 VI
+  en: Grand Theft Auto VI
+summary:
+  zh-Hans: Rockstar Games 的开放世界动作游戏，故事围绕 Jason、Lucia 与 Leonida 州展开。
+  en: Rockstar Games’ open-world action game following Jason and Lucia in the state of Leonida.
+aliases:
+  - GTA 6
+  - GTA VI
+official:
+  website: https://www.rockstargames.com/VI
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://www.rockstargames.com/VI

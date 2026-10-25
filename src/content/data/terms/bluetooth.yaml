@@ -1,0 +1,14 @@
+name:
+  zh-Hans: 蓝牙
+  en: Bluetooth
+summary:
+  zh-Hans: 蓝牙是一组无线连接技术，用于音频传输、设备间数据交换及其他连接场景。
+  en: Bluetooth is a family of wireless connectivity technologies used for audio, device data exchange, and other communication scenarios.
+aliases: []
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: Bluetooth SIG · Technology overview
+      en: Bluetooth SIG · Technology overview
+    href: https://www.bluetooth.com/learn-about-bluetooth/tech-overview/

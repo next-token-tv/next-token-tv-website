@@ -1,0 +1,19 @@
+kind: hardware
+name:
+  zh-Hans: NVIDIA GeForce
+  en: NVIDIA GeForce
+summary:
+  zh-Hans: NVIDIA 面向游戏与个人计算的图形处理器产品系列，包含 GTX 和 RTX 等产品线。
+  en: NVIDIA’s graphics processor family for gaming and personal computing, including GTX and RTX product lines.
+aliases:
+  - GeForce
+  - GTX 1060
+brand: nvidia
+official:
+  website: https://www.nvidia.com/en-us/geforce/
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal information
+    href: https://nvidia.custhelp.com/app/answers/detail/a_id/5678/kw/graphics%20card%20specifications
+lastVerifiedAt: '2026-10-25'

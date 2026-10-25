@@ -1,0 +1,18 @@
+kind: hardware
+name:
+  zh-Hans: 昇腾
+  en: Huawei Ascend
+summary:
+  zh-Hans: 华为面向人工智能计算的处理器与硬件产品系列，为模型训练和推理提供计算能力。
+  en: Huawei’s AI processor and hardware family for model training and inference.
+aliases:
+  - Ascend
+brand: huawei
+official:
+  website: https://www.hiascend.com/
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal information
+    href: https://www.hiascend.com/
+lastVerifiedAt: '2026-10-25'

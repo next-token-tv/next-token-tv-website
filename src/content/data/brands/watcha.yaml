@@ -1,0 +1,22 @@
+kind: media-community-brand
+name:
+  zh-Hans: 观猹
+  en: Watcha
+summary:
+  zh-Hans: 围绕 AI 产品体验、创作者交流与线下活动的媒体和社区品牌。
+  en: An AI media and community brand connecting product discovery, creators and in-person events.
+aliases:
+  - 观猹大会
+  - Watcha Conference
+official:
+  website: https://watcha.cn/
+sources:
+  - label:
+      zh-Hans: 观猹官网
+      en: Watcha website
+    href: https://watcha.cn/
+  - label:
+      zh-Hans: 观猹大会官网
+      en: Watcha Conference website
+    href: https://dahui.watcha.cn/
+lastVerifiedAt: '2026-10-25'

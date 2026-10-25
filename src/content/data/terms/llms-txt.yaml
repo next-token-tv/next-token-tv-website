@@ -1,0 +1,14 @@
+name:
+  zh-Hans: llms.txt
+  en: llms.txt
+summary:
+  zh-Hans: llms.txt 是为网站提供面向语言模型与 Agent 的简明信息入口的文件约定提案。
+  en: llms.txt is a proposed file convention for giving language models and agents a concise information entry point to a website.
+aliases: []
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: llms.txt · Proposal
+      en: llms.txt · Proposal
+    href: https://llmstxt.org/

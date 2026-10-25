@@ -1,0 +1,17 @@
+kind: api-service
+name:
+  zh-Hans: DeepSeek Responses API
+  en: DeepSeek Responses API
+summary:
+  zh-Hans: DeepSeek 提供的 Responses 格式模型接口，可通过输入、指令和工具调用组织模型任务，并支持事件流输出。
+  en: DeepSeek’s Responses-format model API for inputs, instructions and tool calls, with streamed output.
+aliases: []
+official:
+  website: https://api-docs.deepseek.com/guides/responses_api/
+brand: deepseek
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: DeepSeek · Responses API
+      en: DeepSeek · Responses API
+    href: https://api-docs.deepseek.com/guides/responses_api/

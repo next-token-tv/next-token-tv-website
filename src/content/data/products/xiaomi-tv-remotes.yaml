@@ -1,0 +1,23 @@
+kind: hardware
+name:
+  zh-Hans: 小米电视遥控器
+  en: Xiaomi TV remotes
+summary:
+  zh-Hans: 用于操作小米电视及相关设备的遥控器产品系列，不同型号的连接和语音功能不同。
+  en: >-
+    A family of remotes for Xiaomi televisions and related devices, with connectivity and voice features
+    varying by model.
+aliases:
+  - 小米遥控器
+brand: xiaomi
+official:
+  website: https://www.mi.com/xiaomi-bluetooth-remote-2-pro
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal information
+    href: https://www.mi.com/xiaomi-bluetooth-remote-2-pro
+lastVerifiedAt: '2026-10-25'
+socialSummary:
+  zh-Hans: 操作小米电视及相关设备的遥控器系列
+  en: Remote controls for Xiaomi televisions and related devices

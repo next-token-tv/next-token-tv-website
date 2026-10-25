@@ -49,6 +49,9 @@ socialsLabel:
   zh-Hans: 橘子 Orange 的播客与社交账号
   en: Orange's podcast and social accounts
 socials:
+  - platform: website
+    handle: Orange.AI
+    href: https://orangesai.com/
   - platform: podcast
     handle: 橘座
     href: https://www.xiaoyuzhoufm.com/podcast/6640bb10390b415a59a41773

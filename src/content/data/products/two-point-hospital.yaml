@@ -1,0 +1,16 @@
+kind: game
+name:
+  zh-Hans: 双点医院
+  en: Two Point Hospital
+summary:
+  zh-Hans: Two Point Studios 开发、SEGA 发行的医院模拟经营游戏，玩家设计医院并管理员工和诊疗流程。
+  en: A hospital management game developed by Two Point Studios and published by SEGA.
+aliases: []
+official:
+  website: https://store.steampowered.com/app/535930/Two_Point_Hospital/
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://store.steampowered.com/app/535930/Two_Point_Hospital/

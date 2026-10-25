@@ -1,0 +1,16 @@
+name:
+  zh-Hans: 帧率（FPS）
+  en: Frame rate (FPS)
+summary:
+  zh-Hans: 帧率是视频或动画每秒显示或处理的帧数，常用 FPS 表示。
+  en: Frame rate is the number of video or animation frames displayed or processed per second, commonly expressed as FPS.
+aliases:
+  - 帧率
+  - FPS
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: Adobe · Frames per second
+      en: Adobe · Frames per second
+    href: https://experienceleague.adobe.com/en/docs/media-analytics/using/implementation/variables/quality/frames-per-second

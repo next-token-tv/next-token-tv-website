@@ -1,0 +1,17 @@
+kind: game
+name:
+  zh-Hans: PokéBonk
+  en: PokéBonk
+summary:
+  zh-Hans: 使用宝可梦角色的非官方浏览器生存类游戏，支持在网页中游玩。
+  en: An unofficial Pokémon fan game built as a browser-based 3D survivor game.
+aliases:
+  - PokeBonk
+official:
+  website: https://pokebonk.com/
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://pokebonk.com/

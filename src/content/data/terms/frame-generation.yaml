@@ -1,0 +1,15 @@
+name:
+  zh-Hans: 帧生成
+  en: Frame generation
+summary:
+  zh-Hans: 帧生成通过计算或模型合成额外画面，以提高显示的帧率和运动流畅度。
+  en: Frame generation synthesizes additional images to increase displayed frame rate and perceived motion smoothness.
+aliases:
+  - Frame Generation
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: NVIDIA · DLSS technologies
+      en: NVIDIA · DLSS technologies
+    href: https://developer.nvidia.com/rtx/dlss

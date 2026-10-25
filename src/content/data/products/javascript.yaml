@@ -1,0 +1,17 @@
+kind: developer-tool
+name:
+  zh-Hans: JavaScript
+  en: JavaScript
+summary:
+  zh-Hans: JavaScript 是用于网页交互、应用逻辑与服务端程序的编程语言，常简称 JS。
+  en: JavaScript, often abbreviated JS, is a programming language used for web interactions, application logic, and server-side programs.
+aliases:
+  - JS
+official:
+  website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: MDN · JavaScript
+      en: MDN · JavaScript
+    href: https://developer.mozilla.org/en-US/docs/Web/JavaScript

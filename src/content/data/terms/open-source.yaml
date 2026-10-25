@@ -1,0 +1,14 @@
+name:
+  zh-Hans: 开源
+  en: Open source
+summary:
+  zh-Hans: 开源指软件依据允许使用、检查、修改与再分发的许可证开放源代码。
+  en: Open source describes software distributed under a license permitting use, inspection, modification, and redistribution of its source code.
+aliases: []
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: Open Source Initiative · Open Source Definition
+      en: Open Source Initiative · Open Source Definition
+    href: https://opensource.org/osd

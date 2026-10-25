@@ -1,0 +1,15 @@
+name:
+  zh-Hans: 数字证书
+  en: Digital certificate
+summary:
+  zh-Hans: 数字证书将公钥与主体信息联系起来，通过签名及信任链支持身份验证。
+  en: A digital certificate associates a public key with information about a subject, supporting authentication through signatures and a chain of trust.
+aliases:
+  - 根证书
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: IETF · RFC 5280
+      en: IETF · RFC 5280
+    href: https://www.rfc-editor.org/info/rfc5280/

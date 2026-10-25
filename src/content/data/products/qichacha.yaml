@@ -1,0 +1,18 @@
+kind: platform
+name:
+  zh-Hans: 企查查
+  en: Qichacha
+summary:
+  zh-Hans: 提供企业工商信息查询与相关商业信息服务的平台。
+  en: >-
+    A platform for company information searches and business information
+    services.
+aliases: []
+official:
+  website: https://www.qcc.com/
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: 官方资料
+      en: Official source
+    href: https://www.qcc.com/

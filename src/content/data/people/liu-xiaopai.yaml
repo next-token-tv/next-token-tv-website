@@ -1,0 +1,20 @@
+name:
+  zh-Hans: 刘小排
+  en: Liu Xiaopai
+bio:
+  zh-Hans: AI 产品开发者、Raphael AI 创始人，公开分享产品开发实践。
+  en: AI product builder and founder of Raphael AI, sharing hands-on product development work.
+kind: business
+additionalKinds:
+  - research-engineering
+aliases: []
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: 本人即刻主页
+      en: Personal Jike profile
+    href: https://m.okjike.com/users/065922A7-2523-4C26-AB2B-DDFF60443E2C
+  - label:
+      zh-Hans: 本人 GitHub
+      en: Personal GitHub
+    href: https://github.com/liuxiaopai-ai

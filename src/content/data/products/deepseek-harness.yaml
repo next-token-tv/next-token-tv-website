@@ -9,6 +9,11 @@ summary:
 aliases: []
 status: preview
 official:
-  website: https://www.deepseek.com/harness/en/
+  website: https://www.deepseek.com/en/harness/
   repository: https://github.com/deepseek-ai/deepseek-harness
-lastVerifiedAt: "2026-09-07"
+lastVerifiedAt: '2026-09-07'
+sources:
+  - label:
+      zh-Hans: 官方介绍
+      en: Official introduction
+    href: https://www.deepseek.com/en/harness/

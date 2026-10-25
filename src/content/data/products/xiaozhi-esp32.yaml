@@ -1,0 +1,19 @@
+kind: application
+name:
+  zh-Hans: 小智 AI
+  en: Xiaozhi AI
+summary:
+  zh-Hans: 面向 ESP32 等开发板的开源语音聊天机器人软件，通过语音和大模型交互。
+  en: >-
+    Open-source voice chatbot software for boards such as ESP32, connecting spoken interaction with language
+    models.
+aliases:
+  - xiaozhi-esp32
+official:
+  website: https://github.com/78/xiaozhi-esp32
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal information
+    href: https://github.com/78/xiaozhi-esp32
+lastVerifiedAt: '2026-10-25'

@@ -11,3 +11,8 @@ official:
   website: https://openai.com/codex/
   documentation: https://developers.openai.com/codex/
 lastVerifiedAt: '2026-09-07'
+sources:
+  - label:
+      zh-Hans: 官方介绍
+      en: Official introduction
+    href: https://openai.com/codex/

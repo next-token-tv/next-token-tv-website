@@ -46,7 +46,7 @@ Sign in with your Apple Account on Apple’s official [Report a Problem](https:/
 
 ### How do developers publish an app on the App Store?
 
-Join the Apple Developer Program, submit the app in [App Store Connect](https://appstoreconnect.apple.com/), and pass [App Review](https://developer.apple.com/app-review/). Rules and commission follow Apple’s developer documentation.
+Join the Apple Developer Program, submit the app in [App Store Connect](https://appstoreconnect.apple.com/), and pass [App Review](https://developer.apple.com/app-store/review/). Rules and commission follow Apple’s developer documentation.
 
 ## Sources
 

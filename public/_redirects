@@ -207,6 +207,22 @@
 /en/wiki/brands/openai-devday/ /en/wiki/products/openai-devday 301
 /en/brands/openai-devday /en/wiki/products/openai-devday 301
 /en/brands/openai-devday/ /en/wiki/products/openai-devday 301
+/wiki/products/watcha /wiki/brands/watcha 301
+/wiki/products/watcha/ /wiki/brands/watcha 301
+/products/watcha /wiki/brands/watcha 301
+/products/watcha/ /wiki/brands/watcha 301
+/en/wiki/products/watcha /en/wiki/brands/watcha 301
+/en/wiki/products/watcha/ /en/wiki/brands/watcha 301
+/en/products/watcha /en/wiki/brands/watcha 301
+/en/products/watcha/ /en/wiki/brands/watcha 301
+/wiki/products/watcha-conference /wiki/brands/watcha 301
+/wiki/products/watcha-conference/ /wiki/brands/watcha 301
+/products/watcha-conference /wiki/brands/watcha 301
+/products/watcha-conference/ /wiki/brands/watcha 301
+/en/wiki/products/watcha-conference /en/wiki/brands/watcha 301
+/en/wiki/products/watcha-conference/ /en/wiki/brands/watcha 301
+/en/products/watcha-conference /en/wiki/brands/watcha 301
+/en/products/watcha-conference/ /en/wiki/brands/watcha 301
 # END ENTITY MIGRATIONS
 /sitemap.xml /sitemap-index.xml 301
 /brands /wiki/brands 301

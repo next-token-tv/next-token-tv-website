@@ -1,0 +1,14 @@
+name:
+  zh-Hans: 模型推理
+  en: Model inference
+summary:
+  zh-Hans: 模型推理是用训练好的模型处理输入并产生预测或生成结果的过程。
+  en: Model inference applies a trained model to inputs to produce predictions or generated outputs.
+aliases: []
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: Google · Machine Learning Glossary
+      en: Google · Machine Learning Glossary
+    href: https://developers.google.com/machine-learning/glossary#inference

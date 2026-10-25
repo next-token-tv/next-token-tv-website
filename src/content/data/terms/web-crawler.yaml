@@ -1,0 +1,16 @@
+name:
+  zh-Hans: 网络爬虫
+  en: Web crawler
+summary:
+  zh-Hans: 网络爬虫是自动发现、访问并提取网页信息的程序，常用于搜索索引与资料收集。
+  en: A web crawler automatically discovers and retrieves web pages, often for search indexing or information collection.
+aliases:
+  - 爬虫
+  - Web Crawler
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: Google · Crawlers and fetchers
+      en: Google · Crawlers and fetchers
+    href: https://developers.google.com/crawling/docs/crawlers-fetchers/overview-google-crawlers

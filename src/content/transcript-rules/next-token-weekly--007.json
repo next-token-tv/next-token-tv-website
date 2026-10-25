@@ -1,0 +1,877 @@
+{
+  "locale": "zh-Hans",
+  "resolutions": {
+    "Next Token Weekly": {
+      "entityType": "show",
+      "id": "next-token-weekly"
+    },
+    "DeepSeek": {
+      "entityType": "brand",
+      "id": "deepseek"
+    },
+    "MiniMax": {
+      "entityType": "product",
+      "id": "minimax"
+    },
+    "Muse": {
+      "entityType": "product",
+      "id": "muse-agent"
+    },
+    "赛博禅心": {
+      "entityType": "person",
+      "id": "cyber-zen"
+    },
+    "Cyber Zen": {
+      "entityType": "person",
+      "id": "cyber-zen"
+    },
+    "PS": {
+      "entityType": "product",
+      "id": "playstation"
+    }
+  },
+  "notices": [],
+  "excludedEntities": [
+    "product:diandian",
+    "brand:netease-youdao",
+    "product:silicon-valley",
+    "product:apple-tv"
+  ],
+  "scopedAliases": [
+    {
+      "entityType": "product",
+      "id": "muse-agent",
+      "alias": "Muse"
+    },
+    {
+      "entityType": "brand",
+      "id": "aws",
+      "alias": "亚马逊云"
+    },
+    {
+      "entityType": "product",
+      "id": "deepseek",
+      "alias": "DeepSeek V4.1 Flash 1017"
+    },
+    {
+      "entityType": "product",
+      "id": "gpt",
+      "alias": "GPT Image 2"
+    },
+    {
+      "entityType": "product",
+      "id": "claude",
+      "alias": "Opus 5.5"
+    },
+    {
+      "entityType": "product",
+      "id": "claude",
+      "alias": "Mythos"
+    },
+    {
+      "entityType": "product",
+      "id": "qwen",
+      "alias": "Qwen 0.6B"
+    },
+    {
+      "entityType": "person",
+      "id": "sam-altman",
+      "alias": "Sam"
+    },
+    {
+      "entityType": "product",
+      "id": "playstation",
+      "alias": "PS"
+    },
+    {
+      "entityType": "product",
+      "id": "playstation-5",
+      "alias": "PS5 Pro"
+    },
+    {
+      "entityType": "product",
+      "id": "baidu-search",
+      "alias": "百度"
+    },
+    {
+      "entityType": "product",
+      "id": "youmind",
+      "alias": "youmind.com/for-agents"
+    },
+    {
+      "entityType": "person",
+      "id": "luo-yihang",
+      "alias": "骆一航"
+    },
+    {
+      "entityType": "product",
+      "id": "steam-next-fest",
+      "alias": "新品节"
+    },
+    {
+      "entityType": "product",
+      "id": "nvidia-geforce",
+      "alias": "1060"
+    },
+    {
+      "entityType": "product",
+      "id": "diablo",
+      "alias": "暗黑"
+    },
+    {
+      "entityType": "product",
+      "id": "grand-theft-auto-vi",
+      "alias": "GTA"
+    },
+    {
+      "entityType": "product",
+      "id": "gmail",
+      "alias": "谷歌邮箱"
+    },
+    {
+      "entityType": "brand",
+      "id": "hugging-face",
+      "alias": "抱抱脸"
+    },
+    {
+      "entityType": "product",
+      "id": "xiaoai-speakers",
+      "alias": "小爱"
+    },
+    {
+      "entityType": "product",
+      "id": "xiaozhi-esp32",
+      "alias": "小智"
+    },
+    {
+      "entityType": "product",
+      "id": "macos",
+      "alias": "Mac 系统"
+    },
+    {
+      "entityType": "product",
+      "id": "deepseek-search",
+      "alias": "搜索 API"
+    },
+    {
+      "entityType": "product",
+      "id": "deepseek-search",
+      "alias": "搜索的 API"
+    },
+    {
+      "entityType": "product",
+      "id": "huawei-ascend",
+      "alias": "昇腾的 950"
+    },
+    {
+      "entityType": "person",
+      "id": "yao-jingang",
+      "alias": "金刚"
+    }
+  ],
+  "titleFromEpisode": true,
+  "chapterAliases": [
+    {
+      "entityType": "product",
+      "id": "dianping",
+      "alias": "点评",
+      "chapters": [
+        "chapter-03"
+      ]
+    },
+    {
+      "entityType": "product",
+      "id": "deepseek-responses-api",
+      "alias": "Responses API",
+      "chapters": [
+        "chapter-03"
+      ]
+    },
+    {
+      "entityType": "product",
+      "id": "gpt",
+      "alias": "Ultra Fast",
+      "chapters": [
+        "chapter-02"
+      ]
+    },
+    {
+      "entityType": "term",
+      "id": "computer-use",
+      "alias": "Android-Use",
+      "chapters": [
+        "chapter-09"
+      ]
+    },
+    {
+      "entityType": "term",
+      "id": "digital-certificate",
+      "alias": "证书",
+      "chapters": [
+        "chapter-10",
+        "chapter-20"
+      ]
+    },
+    {
+      "entityType": "term",
+      "id": "model-distillation",
+      "alias": "蒸馏攻击",
+      "chapters": [
+        "chapter-12"
+      ]
+    },
+    {
+      "entityType": "term",
+      "id": "model-distillation",
+      "alias": "蒸馏",
+      "chapters": [
+        "chapter-12"
+      ]
+    },
+    {
+      "entityType": "term",
+      "id": "linux-distribution",
+      "alias": "发行版",
+      "chapters": [
+        "chapter-20"
+      ]
+    },
+    {
+      "entityType": "term",
+      "id": "firmware",
+      "alias": "ROM",
+      "chapters": [
+        "chapter-20"
+      ]
+    },
+    {
+      "entityType": "term",
+      "id": "frame-rate",
+      "alias": "120 帧",
+      "chapters": [
+        "chapter-06",
+        "chapter-08"
+      ]
+    },
+    {
+      "entityType": "term",
+      "id": "frame-rate",
+      "alias": "30 帧",
+      "chapters": [
+        "chapter-08"
+      ]
+    },
+    {
+      "entityType": "term",
+      "id": "model-inference",
+      "alias": "推理",
+      "chapters": [
+        "chapter-02"
+      ]
+    },
+    {
+      "entityType": "term",
+      "id": "model-inference",
+      "alias": "推理",
+      "chapters": [
+        "chapter-05"
+      ]
+    },
+    {
+      "entityType": "product",
+      "id": "deepseek-chat",
+      "alias": "DeepSeek 的 App",
+      "chapters": [
+        "chapter-02"
+      ]
+    },
+    {
+      "entityType": "product",
+      "id": "deepseek-search",
+      "alias": "DeepSeek API",
+      "chapters": [
+        "chapter-03"
+      ]
+    },
+    {
+      "entityType": "product",
+      "id": "glm",
+      "alias": "智谱 5.2 还是 5.3",
+      "chapters": [
+        "chapter-12"
+      ]
+    },
+    {
+      "entityType": "product",
+      "id": "apple-tv-hardware",
+      "alias": "Apple TV",
+      "chapters": [
+        "chapter-08"
+      ]
+    }
+  ],
+  "termReferences": [
+    {
+      "id": "arr",
+      "aliases": [
+        "ARR"
+      ]
+    },
+    {
+      "id": "3d",
+      "aliases": [
+        "3D"
+      ]
+    },
+    {
+      "id": "5g",
+      "aliases": [
+        "5G"
+      ]
+    },
+    {
+      "id": "agent-skills",
+      "aliases": [
+        "Skill"
+      ]
+    },
+    {
+      "id": "agent",
+      "aliases": [
+        "Agent",
+        "AI Agent"
+      ]
+    },
+    {
+      "id": "agi",
+      "aliases": [
+        "AGI",
+        "通用人工智能"
+      ]
+    },
+    {
+      "id": "ai-slop",
+      "aliases": [
+        "AI Slop",
+        "Slop"
+      ]
+    },
+    {
+      "id": "ai",
+      "aliases": [
+        "AI",
+        "人工智能"
+      ]
+    },
+    {
+      "id": "api",
+      "aliases": [
+        "API"
+      ]
+    },
+    {
+      "id": "bug",
+      "aliases": [
+        "Bug"
+      ]
+    },
+    {
+      "id": "ceo",
+      "aliases": [
+        "CEO"
+      ]
+    },
+    {
+      "id": "cli",
+      "aliases": [
+        "CLI"
+      ]
+    },
+    {
+      "id": "computer-use",
+      "aliases": [
+        "Computer Use"
+      ]
+    },
+    {
+      "id": "context",
+      "aliases": [
+        "上下文"
+      ]
+    },
+    {
+      "id": "cpu",
+      "aliases": [
+        "CPU"
+      ]
+    },
+    {
+      "id": "cto",
+      "aliases": [
+        "CTO"
+      ]
+    },
+    {
+      "id": "diy",
+      "aliases": [
+        "DIY"
+      ]
+    },
+    {
+      "id": "esim",
+      "aliases": [
+        "eSIM"
+      ]
+    },
+    {
+      "id": "geo",
+      "aliases": [
+        "GEO"
+      ]
+    },
+    {
+      "id": "gpu",
+      "aliases": [
+        "GPU",
+        "显卡"
+      ]
+    },
+    {
+      "id": "harness",
+      "aliases": [
+        "Harness"
+      ]
+    },
+    {
+      "id": "html",
+      "aliases": [
+        "HTML"
+      ]
+    },
+    {
+      "id": "infrastructure",
+      "aliases": [
+        "基础设施"
+      ]
+    },
+    {
+      "id": "internet",
+      "aliases": [
+        "互联网"
+      ]
+    },
+    {
+      "id": "mcp",
+      "aliases": [
+        "MCP"
+      ]
+    },
+    {
+      "id": "operating-system",
+      "aliases": [
+        "操作系统"
+      ]
+    },
+    {
+      "id": "pc",
+      "aliases": [
+        "PC"
+      ]
+    },
+    {
+      "id": "pdf",
+      "aliases": [
+        "PDF"
+      ]
+    },
+    {
+      "id": "personal-agent",
+      "aliases": [
+        "Personal Agent"
+      ]
+    },
+    {
+      "id": "plugin",
+      "aliases": [
+        "插件"
+      ]
+    },
+    {
+      "id": "prompt",
+      "aliases": [
+        "提示词",
+        "Prompt"
+      ]
+    },
+    {
+      "id": "recursive-self-improvement",
+      "aliases": [
+        "RSI"
+      ]
+    },
+    {
+      "id": "roi",
+      "aliases": [
+        "ROI"
+      ]
+    },
+    {
+      "id": "saas",
+      "aliases": [
+        "SaaS"
+      ]
+    },
+    {
+      "id": "seo",
+      "aliases": [
+        "SEO"
+      ]
+    },
+    {
+      "id": "show-notes",
+      "aliases": [
+        "Show Notes"
+      ]
+    },
+    {
+      "id": "ssh",
+      "aliases": [
+        "SSH"
+      ]
+    },
+    {
+      "id": "svg",
+      "aliases": [
+        "SVG"
+      ]
+    },
+    {
+      "id": "token",
+      "aliases": [
+        "Token"
+      ]
+    },
+    {
+      "id": "ui",
+      "aliases": [
+        "UI"
+      ]
+    },
+    {
+      "id": "ux",
+      "aliases": [
+        "用户体验"
+      ]
+    },
+    {
+      "id": "vibe-coding",
+      "aliases": [
+        "Vibe Coding"
+      ]
+    },
+    {
+      "id": "virtual-machine",
+      "aliases": [
+        "虚拟机"
+      ]
+    },
+    {
+      "id": "wi-fi",
+      "aliases": [
+        "Wi-Fi"
+      ]
+    },
+    {
+      "id": "workflow",
+      "aliases": [
+        "工作流",
+        "Workflow"
+      ]
+    },
+    {
+      "id": "streaming-output",
+      "aliases": [
+        "流式输出",
+        "Streaming output",
+        "Streaming Output"
+      ]
+    },
+    {
+      "id": "chain-of-thought",
+      "aliases": [
+        "思维链（CoT）",
+        "Chain of thought (CoT)",
+        "思维链",
+        "CoT",
+        "Chain of Thought"
+      ]
+    },
+    {
+      "id": "web-crawler",
+      "aliases": [
+        "网络爬虫",
+        "Web crawler",
+        "爬虫",
+        "Web Crawler"
+      ]
+    },
+    {
+      "id": "api-key",
+      "aliases": [
+        "API 密钥（API Key）",
+        "API key",
+        "API Key",
+        "API 密钥"
+      ]
+    },
+    {
+      "id": "rendering",
+      "aliases": [
+        "渲染",
+        "Rendering"
+      ]
+    },
+    {
+      "id": "frame-generation",
+      "aliases": [
+        "帧生成",
+        "Frame generation",
+        "Frame Generation"
+      ]
+    },
+    {
+      "id": "root-access",
+      "aliases": [
+        "Root 权限",
+        "Root access",
+        "Root"
+      ]
+    },
+    {
+      "id": "regression-testing",
+      "aliases": [
+        "回归测试",
+        "Regression testing"
+      ]
+    },
+    {
+      "id": "lan",
+      "aliases": [
+        "局域网（LAN）",
+        "Local area network (LAN)",
+        "局域网",
+        "LAN"
+      ]
+    },
+    {
+      "id": "digital-certificate",
+      "aliases": [
+        "数字证书",
+        "Digital certificate",
+        "根证书"
+      ]
+    },
+    {
+      "id": "biometrics",
+      "aliases": [
+        "生物识别",
+        "Biometrics"
+      ]
+    },
+    {
+      "id": "plaintext-password",
+      "aliases": [
+        "明文密码存储",
+        "Plaintext password storage",
+        "明文保存"
+      ]
+    },
+    {
+      "id": "environment-variable",
+      "aliases": [
+        "环境变量",
+        "Environment variable"
+      ]
+    },
+    {
+      "id": "model-distillation",
+      "aliases": [
+        "模型蒸馏",
+        "Model distillation",
+        "知识蒸馏"
+      ]
+    },
+    {
+      "id": "regular-expression",
+      "aliases": [
+        "正则表达式",
+        "Regular expression",
+        "正则",
+        "Regex"
+      ]
+    },
+    {
+      "id": "linux-distribution",
+      "aliases": [
+        "Linux 发行版",
+        "Linux distribution"
+      ]
+    },
+    {
+      "id": "bluetooth",
+      "aliases": [
+        "蓝牙",
+        "Bluetooth"
+      ]
+    },
+    {
+      "id": "firmware",
+      "aliases": [
+        "固件",
+        "Firmware"
+      ]
+    },
+    {
+      "id": "paas",
+      "aliases": [
+        "平台即服务（PaaS）",
+        "Platform as a service (PaaS)",
+        "PaaS"
+      ]
+    },
+    {
+      "id": "faang",
+      "aliases": [
+        "FAANG"
+      ]
+    },
+    {
+      "id": "zero-day",
+      "aliases": [
+        "零日漏洞（0-Day）",
+        "Zero-day vulnerability",
+        "0-Day",
+        "Zero-Day",
+        "零日漏洞"
+      ]
+    },
+    {
+      "id": "game-budget-tiers",
+      "aliases": [
+        "游戏制作规模（3A／2A）",
+        "Game production tiers (AAA / AA)",
+        "3A",
+        "2A",
+        "AAA",
+        "AA"
+      ]
+    },
+    {
+      "id": "4k",
+      "aliases": [
+        "4K 分辨率",
+        "4K resolution",
+        "4K"
+      ]
+    },
+    {
+      "id": "deep-research",
+      "aliases": [
+        "深度研究（Deep Research）",
+        "Deep research",
+        "Deep Research",
+        "深度研究"
+      ]
+    },
+    {
+      "id": "llms-txt",
+      "aliases": [
+        "llms.txt"
+      ]
+    },
+    {
+      "id": "up-creator",
+      "aliases": [
+        "UP 主",
+        "UP creator",
+        "UP主"
+      ]
+    },
+    {
+      "id": "save-time-kill-time",
+      "aliases": [
+        "省时间与消遣（Save Time / Kill Time）",
+        "Saving time and passing time",
+        "Save Time",
+        "Kill Time"
+      ]
+    },
+    {
+      "id": "agent-steering",
+      "aliases": [
+        "执行中引导（Steer）",
+        "Agent steering",
+        "Steer",
+        "引导模式"
+      ]
+    },
+    {
+      "id": "frame-rate",
+      "aliases": [
+        "帧率（FPS）",
+        "Frame rate (FPS)",
+        "帧率",
+        "FPS"
+      ]
+    },
+    {
+      "id": "model-inference",
+      "aliases": [
+        "模型推理",
+        "Model inference"
+      ]
+    },
+    {
+      "id": "open-source",
+      "aliases": [
+        "开源",
+        "Open source"
+      ]
+    },
+    {
+      "id": "cache",
+      "aliases": [
+        "缓存",
+        "Cache"
+      ]
+    },
+    {
+      "id": "concurrency",
+      "aliases": [
+        "并发",
+        "Concurrency"
+      ]
+    },
+    {
+      "id": "database",
+      "aliases": [
+        "数据库",
+        "Database"
+      ]
+    },
+    {
+      "id": "technology-stack",
+      "aliases": [
+        "技术栈",
+        "Technology stack"
+      ]
+    },
+    {
+      "id": "smart-home",
+      "aliases": [
+        "智能家居",
+        "Smart home"
+      ]
+    }
+  ]
+}

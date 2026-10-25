@@ -1,0 +1,17 @@
+kind: game
+name:
+  zh-Hans: 宝可梦
+  en: Pokémon
+summary:
+  zh-Hans: 以宝可梦角色、收集与对战为核心的游戏系列，包含多款独立作品。
+  en: A game series centered on Pokémon creatures, collecting and battles across multiple titles.
+aliases:
+  - Pokemon
+official:
+  website: https://www.nintendo.com/us/store/games/pokemon-games/
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://www.nintendo.com/us/store/games/pokemon-games/

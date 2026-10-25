@@ -1,0 +1,14 @@
+name:
+  zh-Hans: 智能家居
+  en: Smart home
+summary:
+  zh-Hans: 智能家居通过联网设备、传感器与控制系统，让家庭设备支持远程操作、状态反馈或自动化协作。
+  en: A smart home uses connected devices, sensors, and control systems for remote operation, status feedback, or household automation.
+aliases: []
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: Connectivity Standards Alliance · Matter
+      en: Connectivity Standards Alliance · Matter
+    href: https://csa-iot.org/all-solutions/matter/

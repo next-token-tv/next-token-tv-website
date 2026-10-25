@@ -1,0 +1,18 @@
+kind: agent
+name:
+  zh-Hans: Claude Duet
+  en: Claude Duet
+summary:
+  zh-Hans: Anthropic 推出的主动式 Agent 应用，可结合连接的工作信息处理任务、发送提醒，并在用户离开后继续工作。
+  en: Anthropic’s proactive agent app for connected work, task execution and updates while the user is away.
+aliases:
+  - Duet
+official:
+  website: https://claude.com/resources/articles/claude-duet
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://claude.com/resources/articles/claude-duet
+brand: anthropic

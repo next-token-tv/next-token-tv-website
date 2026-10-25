@@ -1,0 +1,16 @@
+kind: platform
+name:
+  zh-Hans: Railway
+  en: Railway
+summary:
+  zh-Hans: 应用部署平台，提供基础设施配置和云端部署工作流。
+  en: A deployment platform for provisioning infrastructure and deploying applications to the cloud.
+aliases: []
+official:
+  website: https://docs.railway.com/quick-start
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://docs.railway.com/quick-start

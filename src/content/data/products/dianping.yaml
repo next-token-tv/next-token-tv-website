@@ -1,0 +1,17 @@
+kind: platform
+name:
+  zh-Hans: 大众点评
+  en: Dianping
+summary:
+  zh-Hans: 提供商户信息、消费者评价和本地生活发现服务的平台。
+  en: A local-discovery platform with business listings, consumer reviews and recommendations.
+aliases:
+  - 点评网
+official:
+  website: https://www.dianping.com/
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal information
+    href: https://rules-center.meituan.com/m/detail/guize/1567?activeRule=1
+lastVerifiedAt: '2026-10-25'

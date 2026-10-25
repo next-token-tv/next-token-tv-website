@@ -46,7 +46,7 @@ App Store 是 [Apple](/wiki/brands/apple) 的应用分发商店，2008 年 7 月
 
 ### 开发者怎么把应用上架 App Store？
 
-加入 Apple Developer 计划，在 [App Store Connect](https://appstoreconnect.apple.com/) 提交应用并通过 [App Review](https://developer.apple.com/app-review/) 审核。规则与费率以 Apple 开发者文档为准。
+加入 Apple Developer 计划，在 [App Store Connect](https://appstoreconnect.apple.com/) 提交应用并通过 [App Review](https://developer.apple.com/app-store/review/) 审核。规则与费率以 Apple 开发者文档为准。
 
 ## 来源
 

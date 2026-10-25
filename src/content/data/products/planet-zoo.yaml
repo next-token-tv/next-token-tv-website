@@ -1,0 +1,16 @@
+kind: game
+name:
+  zh-Hans: 动物园之星
+  en: Planet Zoo
+summary:
+  zh-Hans: Frontier Developments 开发的动物园模拟经营游戏，围绕栖息地建造、动物照护与园区管理展开。
+  en: Frontier Developments’ zoo simulation game centered on habitats, animal care and management.
+aliases: []
+official:
+  website: https://store.steampowered.com/app/703080/Planet_Zoo/
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: 官方产品资料
+      en: Official product information
+    href: https://store.steampowered.com/app/703080/Planet_Zoo/

@@ -1,0 +1,18 @@
+name:
+  zh-Hans: Lex Fridman
+  en: Lex Fridman
+bio:
+  zh-Hans: Lex Fridman Podcast 主持人，研究兴趣包括人机交互与机器人。
+  en: >-
+    Host of the Lex Fridman Podcast, with research interests in human–AI
+    interaction and robotics.
+kind: creator-community
+additionalKinds:
+  - research-engineering
+aliases: []
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: 个人网站
+      en: Personal website
+    href: https://lexfridman.com/

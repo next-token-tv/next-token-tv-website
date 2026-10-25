@@ -10,4 +10,9 @@ aliases: []
 status: available
 official:
   website: https://www.apple.com/mac-studio/
-lastVerifiedAt: "2026-09-07"
+lastVerifiedAt: '2026-09-07'
+sources:
+  - label:
+      zh-Hans: 官方介绍
+      en: Official introduction
+    href: https://www.apple.com/mac-studio/

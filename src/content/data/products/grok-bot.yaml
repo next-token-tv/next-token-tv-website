@@ -12,4 +12,9 @@ status: available
 official:
   website: https://x.ai/news/grok-bot-for-enterprise
   documentation: https://docs.x.ai/grok-bot/overview
-lastVerifiedAt: "2026-09-07"
+lastVerifiedAt: '2026-09-07'
+sources:
+  - label:
+      zh-Hans: 官方介绍
+      en: Official introduction
+    href: https://x.ai/news/grok-bot-for-enterprise

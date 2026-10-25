@@ -1,0 +1,14 @@
+name:
+  zh-Hans: FAANG
+  en: FAANG
+summary:
+  zh-Hans: FAANG 是由 Facebook、Amazon、Apple、Netflix 和 Google 的名称首字母组成的科技公司合称。
+  en: FAANG groups Facebook, Amazon, Apple, Netflix, and Google using their initial letters.
+aliases: []
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: CFI · FAANG
+      en: CFI · FAANG
+    href: https://corporatefinanceinstitute.com/resources/equities/faang-stocks/

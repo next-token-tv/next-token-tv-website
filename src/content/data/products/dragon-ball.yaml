@@ -1,0 +1,19 @@
+kind: series
+name:
+  zh-Hans: 龙珠
+  en: Dragon Ball
+summary:
+  zh-Hans: 改编自鸟山明漫画的动画作品，以孙悟空的冒险和收集龙珠的故事为主线。
+  en: >-
+    An animated adaptation of Akira Toriyama’s manga, following Goku’s adventures and the search for the
+    Dragon Balls.
+aliases:
+  - 七龙珠
+official:
+  website: https://www.toei-anim.co.jp/tv/dragon/intro/index.html
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal information
+    href: https://www.toei-anim.co.jp/tv/dragon/intro/index.html
+lastVerifiedAt: '2026-10-25'

@@ -1,0 +1,14 @@
+name:
+  zh-Hans: 技术栈
+  en: Technology stack
+summary:
+  zh-Hans: 技术栈是构建和运行一个应用所采用的语言、框架、数据库与基础设施等技术的组合。
+  en: A technology stack is the combination of languages, frameworks, databases, and infrastructure used to build and run an application.
+aliases: []
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: MongoDB · Technology stack
+      en: MongoDB · Technology stack
+    href: https://www.mongodb.com/resources/basics/technology-stack

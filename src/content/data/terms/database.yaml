@@ -1,0 +1,14 @@
+name:
+  zh-Hans: 数据库
+  en: Database
+summary:
+  zh-Hans: 数据库是按一定结构组织并持久保存的数据集合，通常由数据库管理系统负责查询与更新。
+  en: A database is an organized collection of stored data, usually accessed and updated through a database management system.
+aliases: []
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: Oracle · What is a database?
+      en: Oracle · What is a database?
+    href: https://www.oracle.com/database/what-is-database/

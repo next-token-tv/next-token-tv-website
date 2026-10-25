@@ -1,0 +1,17 @@
+name:
+  zh-Hans: 零日漏洞（0-Day）
+  en: Zero-day vulnerability
+summary:
+  zh-Hans: 零日漏洞指防御方尚未知晓或尚无现成修补方案的软件、固件或硬件缺陷；利用它实施的攻击称为零日攻击。
+  en: A zero-day vulnerability is a hardware, firmware, or software flaw unknown to defenders or lacking an available fix; exploiting it is a zero-day attack.
+aliases:
+  - 0-Day
+  - Zero-Day
+  - 零日漏洞
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: NIST · Zero-day attack
+      en: NIST · Zero-day attack
+    href: https://csrc.nist.gov/glossary/term/zero_day_attack

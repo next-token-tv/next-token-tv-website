@@ -1,0 +1,20 @@
+kind: hardware
+name:
+  zh-Hans: Apple A 系列芯片
+  en: Apple A-series chips
+summary:
+  zh-Hans: Apple 为 iPhone 等设备设计的系统级芯片系列，集成 CPU、GPU 等计算模块。
+  en: >-
+    Apple’s system-on-chip family for devices such as iPhone, integrating CPU, GPU and other computing
+    components.
+aliases:
+  - A20 Pro
+brand: apple
+official:
+  website: https://www.apple.com/iphone-18-pro/
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal information
+    href: https://www.apple.com/iphone-18-pro/
+lastVerifiedAt: '2026-10-25'
