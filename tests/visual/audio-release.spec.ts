@@ -1,4 +1,4 @@
-import {nextEpisode} from './episode-fixture';
+import {nextEpisode, publishedTranscripts} from './episode-fixture';
 import { expect, test } from '@playwright/test';
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { load } from 'js-yaml';
@@ -42,9 +42,13 @@ for (const width of [390, 768, 1280, 1320, 1440, 1920, 2560]) {
           await expect(page.locator('.visual-caption strong')).toHaveText('AI signalsone open table');
         }
         expect(await cards.evaluateAll(nodes => nodes.map(n => n.getAttribute('data-episode-number')))).toEqual(path === '/' ? [latest.number] : episodes.map(e=>e.number));
-        await expect(page.locator(`a[href*="/${latest.number}/transcript"]`)).toHaveCount(!hasTranscript ? 0 : 2);
+        // The hero transcript CTA follows the latest published transcript, which can be
+        // newer than the latest published episode (transcripts ship before audio).
+        const latestTranscriptNumber = publishedTranscripts.filter(t => t.locale === (prefix ? 'en' : 'zh-Hans')).map(t => t.episodeId.split('--')[1]).sort((a, b) => Number(b) - Number(a))[0];
+        const ctaOnLatest = hasTranscript && latestTranscriptNumber === latest.number ? 1 : 0;
+        await expect(page.locator(`a[href*="/${latest.number}/transcript"]`)).toHaveCount(!hasTranscript ? 0 : 1 + ctaOnLatest);
         await expect(page.locator('.platform-list a[href*="spotify.com"]')).toHaveAttribute('href', /\/show\//);
-        if (!prefix && hasTranscript) await expect(page.locator('main > section').first().locator(`a[href="/weekly/${latest.number}/transcript"]`)).toContainText('#'+latest.number);
+        if (!prefix && hasTranscript) await expect(page.locator('main > section').first().locator(`a[href="/weekly/${latestTranscriptNumber}/transcript"]`)).toContainText('#'+latestTranscriptNumber);
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       }
       await page.goto(`${prefix}/weekly/002`);

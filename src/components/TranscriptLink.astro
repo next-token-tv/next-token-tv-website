@@ -9,8 +9,10 @@ const transcriptLocale = transcript?.data.locale ?? locale;
 const chineseFallback = locale === "en" && transcriptLocale === "zh-Hans";
 const isPublished = transcript?.data.publicationStatus === "published";
 const isLocalPreview = import.meta.env.DEV && transcript?.data.publicationStatus === "review-draft";
+// Pages in the other language stay free of transcript links when only the other locale's transcript exists.
+const showCta = (isPublished || isLocalPreview) && (locale === "zh-Hans" || !!localizedTranscript);
 ---
-{transcript && (isPublished || isLocalPreview) && (
+{showCta && (
   <>
     <a class:list={["episode-transcript-cta", `transcript-cta--${variant}`]} href={`${transcriptLocale === "en" ? "/en" : ""}/weekly/${number}/transcript`}>
       {showNumber && <>#{number} · </>}{locale === "en" ? (chineseFallback ? "Read the transcript (Chinese)" : details ? "Read the full transcript" : "Read the transcript") : (details ? "阅读完整文字稿" : "阅读文字稿")} <span aria-hidden="true">→</span>

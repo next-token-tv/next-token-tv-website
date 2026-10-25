@@ -1,11 +1,13 @@
 ---
 import { getTranscriptEpisodes } from "../data/catalog";
-import { isVisibleEpisode } from "../data/episode-visibility";
 import TranscriptLink from "./TranscriptLink.astro";
 import type { Locale } from "../data/types";
 interface Props { locale: Locale; variant?: "light" | "inline" }
 const { locale, variant = "light" } = Astro.props;
-const candidates = [...await getTranscriptEpisodes(locale), ...(locale === "en" ? await getTranscriptEpisodes("zh-Hans") : [])];
-const episode = candidates.filter(({ data }) => isVisibleEpisode(data, import.meta.env.DEV)).sort((a, b) => Number(b.data.number) - Number(a.data.number))[0];
+// Transcripts publish ahead of episode audio, so the latest entry is picked by
+// transcript publication alone. Per locale: TranscriptLink suppresses the
+// cross-language fallback CTA, so a zh-only newer transcript must not empty the slot.
+const candidates = await getTranscriptEpisodes(locale);
+const episode = candidates.sort((a, b) => Number(b.data.number) - Number(a.data.number))[0];
 ---
 {episode && <TranscriptLink episodeId={episode.id} number={episode.data.number} locale={locale} variant={variant} showNumber />}

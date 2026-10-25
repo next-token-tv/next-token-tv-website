@@ -14,7 +14,9 @@ function initializeTranscriptNavigation() {
     let frame = 0;
     const reveal = () => {
       const link = links[active];
-      if (!link || !toc.open || getComputedStyle(sidebar).position !== 'sticky') return;
+      // The mobile sidebar is static but its list is still its own scroll
+      // container; scrollTop is a no-op wherever the list cannot scroll.
+      if (!link || !toc.open) return;
       const bounds = list.getBoundingClientRect();
       const item = link.getBoundingClientRect();
       if (item.top < bounds.top || item.bottom > bounds.bottom) {
