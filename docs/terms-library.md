@@ -12,7 +12,7 @@
 
 仅 `status: published` 的条目进入目录、详情路由、搜索、网站地图和 API。发布要求双语摘要、非空双语正文、来源与核验日期。重复的同语言正文、引用不存在的术语或缺失正文会使构建失败。草稿不生成公开详情页。
 
-当前有 177 个已发布术语，均有双语摘要和正文。名单来自 SRT 校审词表，经同义写法合并和范围筛选。具体名单、原始写法映射和暂不收录项见 [术语初始化名单](terms-seed-list.md)。可复制 `token` 的文件作为新条目模板。ID 使用小写 ASCII 与连字符。正式名称不重复填入别名；别名只收录确实指向同一概念的名称。
+当前有 178 个已发布术语，均有双语摘要和正文。名单来自 SRT 校审词表，经同义写法合并和范围筛选。具体名单、原始写法映射和暂不收录项见 [术语初始化名单](terms-seed-list.md)。可复制 `token` 的文件作为新条目模板。ID 使用小写 ASCII 与连字符。正式名称不重复填入别名；别名只收录确实指向同一概念的名称。
 
 补充条目包括 CV、VPN、DPI、Webhook、Callback、HDMI、KYC、A-Roll / B-Roll、IPO、EDC、Galgame、Aha Moment、RSI 和 One Shot。A-Roll 与 B-Roll 合为一篇，CUA 作为 Computer Use 的别名。One Shot 按节目中的“一次完成”解释。AGENTS.md、CLAUDE.md、LLM.txt 不收录；llms.txt 按有独立公开提案的文件约定收录，与 LLM.txt 区分；Human Native、Routine、Auto Mode、Knowledge Map 不作为本批通用术语收录。
 

@@ -3,8 +3,33 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 import remarkParse from "remark-parse";
 import { unified } from "unified";
-import { convertTranscript } from "../scripts/lib/transcript-converter.mjs";
+import { convertTranscript, relinkTranscript } from "../scripts/lib/transcript-converter.mjs";
 import { validateTranscriptManifest } from "../scripts/lib/transcript-manifest.mjs";
+
+test('confirmed website references preserve text, formatting and existing links', () => {
+  const source = '# Test\n\n## Chapter\n\n**杨攀**\n\nyangpan.com，**yangpan.com**，notyangpan.com；`yangpan.com`；[yangpan.com](https://example.com/)。';
+  const tree = unified().use(remarkParse).parse(source);
+  const options = { episodeId: 'show--007', locale: 'zh-Hans', entities: [], externalLinks: [{ text: 'yangpan.com', href: 'https://yangpan.com/' }] };
+  const { snapshot } = convertTranscript(tree, options);
+  const segments = snapshot.chapters[0].turns[0].paragraphs[0];
+  const links = segments.filter(s => s.type === 'external-link');
+  assert.deepEqual(links.map(s => s.href), ['https://yangpan.com/', 'https://yangpan.com/', 'https://example.com/']);
+  assert.deepEqual(links[1].marks, ['strong']);
+  assert.ok(segments.some(s => s.type === 'code' && s.value === 'yangpan.com'));
+  assert.deepEqual(relinkTranscript(snapshot, options).chapters, snapshot.chapters);
+  assert.throws(() => convertTranscript(tree, { ...options, externalLinks: [{ text: 'yangpan.com', href: 'javascript:alert(1)' }] }), /Invalid external/);
+});
+
+test('website references do not link fragments of other domains, email addresses or URLs', () => {
+  const source = '# Test\n\n## Chapter\n\n**杨攀**\n\nyangpan.com，yangpan.com. x.yangpan.com user@yangpan.com yangpan.com.example https://yangpan.com/path yangpan.com/path yangpan.com?next=1';
+  const { snapshot } = convertTranscript(unified().use(remarkParse).parse(source), {
+    episodeId: 'show--007', locale: 'zh-Hans', entities: [],
+    externalLinks: [{ text: 'yangpan.com', href: 'https://yangpan.com/' }],
+  });
+  const segments = snapshot.chapters[0].turns[0].paragraphs[0];
+  assert.equal(segments.filter(s => s.type === 'external-link').length, 2);
+  assert.equal(segments.map(s => s.value).join(''), source.split('\n\n').at(-1));
+});
 
 test("Weekly 003 published transcript retains chapters and resolves its new entities", async () => {
   const snapshot = JSON.parse(await readFile(new URL("../src/content/imported/transcripts/next-token-weekly--003.zh-Hans.json", import.meta.url), "utf8"));

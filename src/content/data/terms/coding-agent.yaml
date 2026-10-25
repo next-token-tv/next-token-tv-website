@@ -1,0 +1,20 @@
+name:
+  zh-Hans: 编程智能体（Coding Agent）
+  en: Coding Agent
+summary:
+  zh-Hans: 面向软件开发任务的智能体，能够读取代码库、修改文件、执行命令和测试，并根据反馈继续完成任务。
+  en: An agent for software development that can inspect a repository, edit files, run commands and tests, and continue working from the results.
+aliases:
+  - 编程智能体
+  - 编码智能体
+status: published
+lastVerifiedAt: '2026-10-25'
+sources:
+  - label:
+      zh-Hans: Anthropic：Claude Code 常见开发场景
+      en: 'Anthropic: Claude Code common developer use cases'
+    href: https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases
+  - label:
+      zh-Hans: SWE-agent：面向自动化软件工程的智能体与计算机接口
+      en: 'SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering'
+    href: https://arxiv.org/abs/2405.15793

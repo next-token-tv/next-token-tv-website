@@ -14,7 +14,7 @@ const GENERIC_CANDIDATES = new Set([
   "Token", "Token Maxxing", "TPS", "TTS", "UX", "Vibe Coding", "Web", "Web 2.0",
 ]);
 
-export const CONVERSION_VERSION = "1.4.6";
+export const CONVERSION_VERSION = "1.4.7";
 
 export function sha256(value) {
   return createHash("sha256").update(value).digest("hex");
@@ -74,11 +74,11 @@ export function createEntityMatcher(entities, resolutions = {}) {
   return { candidates, ambiguousAliases };
 }
 
-function nextEntityMatch(text, cursor, candidates) {
+function nextEntityMatch(text, cursor, candidates, boundary = hasWordBoundary) {
   let best;
   for (const candidate of candidates) {
     let index = text.indexOf(candidate.alias, cursor);
-    while (index >= 0 && !hasWordBoundary(text, index, candidate.alias)) {
+    while (index >= 0 && !boundary(text, index, candidate.alias)) {
       index = text.indexOf(candidate.alias, index + 1);
     }
     if (index < 0) continue;
@@ -125,6 +125,37 @@ function linkifyText(text, matcher, linkedInChapter, linkCounts) {
   }
 
   return segments.filter(({ value }) => value.length > 0);
+}
+
+function hasExternalReferenceBoundary(text, start, value) {
+  if (!hasWordBoundary(text, start, value)) return false;
+  const before = text[start - 1] ?? '';
+  const after = text.slice(start + value.length);
+  // Do not turn a fragment of a longer address into a different destination.
+  return !/[.@/:-]/.test(before) && !/^(?:[/@:#?_-]|\.[A-Za-z0-9])/.test(after);
+}
+
+function linkExternalReferences(chapters, references) {
+  if (!references.length) return;
+  const candidates = references.map(({ text, href }) => {
+    if (!text?.trim() || !/^https?:\/\//.test(href) || !new URL(href).hostname) throw new Error('Invalid external transcript reference');
+    return { alias: text, href };
+  });
+  for (const chapter of chapters) for (const turn of chapter.turns) {
+    turn.paragraphs = turn.paragraphs.map(paragraph => paragraph.flatMap(segment => {
+      if (segment.type !== 'text') return [segment];
+      const output = [];
+      let cursor = 0;
+      while (cursor < segment.value.length) {
+        const match = nextEntityMatch(segment.value, cursor, candidates, hasExternalReferenceBoundary);
+        if (!match) { output.push({ ...segment, value: segment.value.slice(cursor) }); break; }
+        if (match.index > cursor) output.push({ ...segment, value: segment.value.slice(cursor, match.index) });
+        output.push({ ...segment, type: 'external-link', value: match.candidate.alias, href: match.candidate.href });
+        cursor = match.index + match.candidate.alias.length;
+      }
+      return output;
+    }));
+  }
 }
 
 function convertInline(nodes, matcher, linkedInChapter, linkCounts, marks = []) {
@@ -250,6 +281,7 @@ export function convertTranscript(tree, {
   resolutions = {},
   excludedEntities = [],
   chapterAliases = [],
+  externalLinks = [],
 }) {
   const matcherForChapter = chapterMatcherFactory(entities, resolutions, excludedEntities, chapterAliases);
   const matcher = matcherForChapter(undefined);
@@ -318,6 +350,7 @@ export function convertTranscript(tree, {
     delete current.linkedEntities;
   }
 
+  linkExternalReferences(chapters, externalLinks);
   const paragraphs = chapters.reduce(
     (sum, current) => sum + current.turns.reduce((turnSum, currentTurn) => turnSum + currentTurn.paragraphs.length, 0),
     0,
@@ -374,7 +407,7 @@ export function convertTranscript(tree, {
 }
 
 // Rebuild annotations on the imported text without rereading an editorial source.
-export function relinkTranscript(snapshot, {entities, resolutions = {}, excludedEntities = [], chapterAliases = []}) {
+export function relinkTranscript(snapshot, {entities, resolutions = {}, excludedEntities = [], chapterAliases = [], externalLinks = []}) {
   const result = structuredClone(snapshot);
   const matcherForChapter = chapterMatcherFactory(entities, resolutions, excludedEntities, chapterAliases);
   const counts = new Map();
@@ -401,5 +434,6 @@ export function relinkTranscript(snapshot, {entities, resolutions = {}, excluded
       flush();return output;
     });
   }
+  linkExternalReferences(result.chapters, externalLinks);
   return result;
 }

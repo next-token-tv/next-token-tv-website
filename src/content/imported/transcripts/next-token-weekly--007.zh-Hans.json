@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "conversionVersion": "1.4.6",
+  "conversionVersion": "1.4.7",
   "episodeId": "next-token-weekly--007",
   "locale": "zh-Hans",
   "title": "#007 DeepSeek 极速狂飙，AI 游戏新机会，AI 改造老家电",
@@ -974,14 +974,14 @@
             [
               {
                 "type": "text",
-                "value": "其实这个其实会改变一个底层思维，原来我们认为说我们给，给这些什么 Coding "
+                "value": "其实这个其实会改变一个底层思维，原来我们认为说我们给，给这些什么 "
               },
               {
                 "type": "entity-link",
-                "value": "Agent",
+                "value": "Coding Agent",
                 "entityType": "term",
-                "entityId": "agent",
-                "href": "/wiki/terms/agent"
+                "entityId": "coding-agent",
+                "href": "/wiki/terms/coding-agent"
               },
               {
                 "type": "text",
@@ -1949,14 +1949,14 @@
             [
               {
                 "type": "entity-link",
-                "value": "微信",
+                "value": "微信公众号",
                 "entityType": "product",
                 "entityId": "wechat",
                 "href": "/wiki/products/wechat"
               },
               {
                 "type": "text",
-                "value": "公众号。"
+                "value": "。"
               }
             ]
           ],
@@ -3844,7 +3844,16 @@
             [
               {
                 "type": "text",
-                "value": "我十一的时候就没出去，就把这个事给做了，就是因为我有一个 2002 年的域名，叫 yangpan.com，然后我十一期间把它的内容就都堆出来。然后我们都有的话，做个互链。互链。做个友链。"
+                "value": "我十一的时候就没出去，就把这个事给做了，就是因为我有一个 2002 年的域名，叫 "
+              },
+              {
+                "type": "external-link",
+                "value": "yangpan.com",
+                "href": "https://yangpan.com/"
+              },
+              {
+                "type": "text",
+                "value": "，然后我十一期间把它的内容就都堆出来。然后我们都有的话，做个互链。互链。做个友链。"
               }
             ]
           ],

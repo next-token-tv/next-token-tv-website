@@ -1,5 +1,8 @@
 {
   "locale": "zh-Hans",
+  "externalLinks": [
+    { "text": "yangpan.com", "href": "https://yangpan.com/" }
+  ],
   "resolutions": {
     "Next Token Weekly": {
       "entityType": "show",
@@ -38,6 +41,11 @@
     "product:apple-tv"
   ],
   "scopedAliases": [
+    {
+      "entityType": "product",
+      "id": "wechat",
+      "alias": "微信公众号"
+    },
     {
       "entityType": "product",
       "id": "muse-agent",
@@ -311,6 +319,10 @@
     }
   ],
   "termReferences": [
+    {
+      "id": "coding-agent",
+      "aliases": ["Coding Agent"]
+    },
     {
       "id": "arr",
       "aliases": [

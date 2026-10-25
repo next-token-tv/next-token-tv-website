@@ -137,6 +137,7 @@ const { snapshot, report } = convertTranscript(tree, {
   entities,
   resolutions: rules.resolutions,
   chapterAliases: rules.chapterAliases,
+  externalLinks: rules.externalLinks,
   excludedEntities,
 });
 // Public titles describe the episode; source filenames and editorial headings stay in provenance.

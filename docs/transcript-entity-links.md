@@ -19,6 +19,8 @@
 
 Show links use the show entry’s `pagePath`; Next Token Weekly links to `/weekly`.
 
+Episode rules may use `externalLinks` with `text` and an HTTP(S) `href` for explicitly confirmed website references. These link plain text without changing wording or creating library entities; existing Markdown links and inline code remain intact. Import and relink apply the same rule.
+
 Published Chinese transcripts also expose `/weekly/<number>/transcript.md`. The Markdown response is generated from the same imported snapshot as the HTML reader and retains the chapter and speaker order. Entity names remain plain text in the transcript body; verified brands, products, people, and terms are deduplicated by entity and listed in first-appearance order under grouped references at the end, using absolute site URLs. Show links and host speaker identities are not included in that entity reference list. The file links back to the HTML reader and includes a UTF-8 BOM for standalone browser compatibility, while `public/_headers` explicitly serves the route as `text/markdown; charset=utf-8` on Cloudflare. The HTML reader declares Markdown as an alternate representation; Markdown routes stay out of the XML sitemap to avoid duplicate indexing.
 
 Wiki Markdown retains its transcript citations in source. The `next-token-transcript-links` Astro integration renders draft transcript links during local development; production builds preserve the citation text but omit links to unavailable transcripts, including unavailable translations. Once the corresponding snapshot is published, those links render without rewriting the article. Chapter and quote fragments remain unchanged.

@@ -30,7 +30,7 @@ for(const file of await readdir(resolve(root,'src/content/data/host-memberships'
  const membership=load(await readFile(resolve(root,'src/content/data/host-memberships',file),'utf8'));
  if(membership.show===episode.show)excludedEntities.push(`person:${membership.person}`);
 }
-const result=relinkTranscript(snapshot,{entities,resolutions:rules.resolutions,chapterAliases:rules.chapterAliases,excludedEntities});
+const result=relinkTranscript(snapshot,{entities,resolutions:rules.resolutions,chapterAliases:rules.chapterAliases,externalLinks:rules.externalLinks,excludedEntities});
 const text=s=>s.chapters.map(c=>c.turns.map(t=>t.paragraphs.map(p=>p.map(s=>s.value).join(''))));
 if(JSON.stringify(text(snapshot))!==JSON.stringify(text(result)))throw Error('Transcript text changed');
 await writeFile(path+'.tmp',JSON.stringify(result,null,2)+'\n');await rename(path+'.tmp',path);
