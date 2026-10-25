@@ -25,7 +25,7 @@ const t=(zh:string,en:string)=>locale==='en'?en:zh;
  document.querySelectorAll<HTMLElement>('[data-state-controls]').forEach(root=>{
   root.querySelector('[data-select-input]')?.addEventListener('click',()=>{const input=root.querySelector<HTMLInputElement>('#ds-focus-input')!;input.focus();input.select();});
   const toggle=root.querySelector<HTMLButtonElement>('[data-highlight-switch]')!;
-  toggle.addEventListener('click',()=>{const on=toggle.getAttribute('aria-checked')!=='true';toggle.setAttribute('aria-checked',String(on));document.querySelector('[data-annotation-specimen]')?.setAttribute('data-entity-highlight',String(on));});
+  toggle.addEventListener('click',()=>{const on=toggle.getAttribute('aria-checked')!=='true';toggle.setAttribute('aria-checked',String(on));document.querySelector('[data-annotation-specimen] .ds-category-state')?.setAttribute('data-entity-highlight',String(on));});
   root.querySelector('[data-copy-example]')?.addEventListener('click',async()=>{
    const value=new URL('#reading',location.href).href;const input=root.querySelector<HTMLInputElement>('.ds-copy input')!;const status=root.querySelector('[data-copy-status]')!;
    try {await navigator.clipboard.writeText(value);input.hidden=true;status.textContent=root.dataset.copied!;}

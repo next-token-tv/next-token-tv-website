@@ -63,7 +63,7 @@ for (const prefix of ['', '/en']) {
     await expect(page.locator('#rules #overlay-colors')).toHaveCount(1);
     await expect(page.locator('#controls [data-color-alias="--switch-track"]')).toHaveCount(1);
     const categoryColors = await page.locator('.category-link').evaluateAll(links => links.map(link => getComputedStyle(link).backgroundColor));
-    expect(new Set(categoryColors).size).toBe(3);
+    expect(new Set(categoryColors).size).toBe(8);
     for (const reference of await page.locator('[data-color-alias] [data-color-source]').evaluateAll(links => links.map(link => ({href:link.getAttribute('href')!,source:link.getAttribute('data-color-source')!})))) {
       await expect(page.locator(reference.href)).toHaveCount(1);
       await expect(page.locator(reference.href)).toHaveAttribute('data-color-token', reference.source);
@@ -74,7 +74,7 @@ for (const prefix of ['', '/en']) {
     await expect(page.locator('[data-color-alias="--identity-blue"] [data-color-source]')).toHaveAttribute('data-color-source', '--sky');
     const toggle = page.locator('[data-highlight-switch]');
     await expect(toggle).toHaveAttribute('aria-checked', 'false');
-    const link = page.locator('.category-link[data-entity-type="product"]');
+    const link = page.locator('.ds-category-states .ds-category-state').first().locator('.category-link[data-entity-type="product"]');
     const normal = await link.evaluate(el => getComputedStyle(el).backgroundColor);
     await toggle.click();
     await expect(toggle).toHaveAttribute('aria-checked', 'true');
