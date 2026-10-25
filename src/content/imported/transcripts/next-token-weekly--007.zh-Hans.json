@@ -21103,7 +21103,7 @@
   ],
   "provenance": {
     "sourceRepository": "next-token",
-    "sourceRevision": "034fe5992aff502e74cf69bfc5f12bb8c467488d",
+    "sourceRevision": "d5a77ffb6787645182bc1eda8c74213bbac989df",
     "sourceState": "committed",
     "sourcePath": "shows/weekly/episodes/007/03-post-production/transcripts/reading/transcript.zh-Hans.md",
     "sourceSha256": "2cfdc2ede15b5cbeb3f3d84ffb2fef015e81892e885d4667ceab3f1b784c7c7b"
@@ -21117,5 +21117,5 @@
     "sourceSha256": "7b4dcc4fa2220a2e04b4f7c63e0b6b8d616130ecf98a7cb846fa3db6f336d784",
     "timebase": "video"
   },
-  "publicationStatus": "review-draft"
+  "publicationStatus": "published"
 }

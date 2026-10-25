@@ -1,28 +1,13 @@
 schemaVersion: 2
 number: '007'
 show: next-token-weekly
-status: announced
-phase: post-production
-detailLayout: true
-releasePreview: true
-scheduledAt: '2026-10-23'
-timeZone: Asia/Shanghai
-recordingMode: in-person
+status: published
 recordingLocation:
   zh-Hans: 万象空间
   en: Wanxiang Space
 title:
   zh-Hans: '#007 DeepSeek 极速狂飙，AI 游戏新机会，AI 改造老家电'
   en: '#007 DeepSeek at full speed, new opportunities in AI games, and AI makeovers for old appliances'
-participants:
-  - person: guizang
-    role: duty-host
-  - person: xiangyang-qiaomu
-    role: co-host
-  - person: yangpan
-    role: co-host
-  - person: orange
-    role: co-host
 mentions:
   brands:
     - next-token
@@ -165,42 +150,64 @@ mentions:
     - luo-yihang
     - lauren-tan
     - yao-jingang
-preview:
-  topics:
-    zh-Hans:
+productionImport: next-token-weekly--007.production
+transcriptPublishedAt: '2026-10-26'
+media:
+  audio: false
+  video: false
+platforms:
+  - platform: xiaoyuzhou
+    label:
+      zh-Hans: 小宇宙
+      en: Xiaoyuzhou
+  - platform: apple-podcasts
+    label:
+      zh-Hans: Apple Podcasts
+      en: Apple Podcasts
+  - platform: spotify
+    label:
+      zh-Hans: Spotify
+      en: Spotify
+  - platform: bilibili
+    label:
+      zh-Hans: 哔哩哔哩
+      en: Bilibili
+  - platform: youtube
+    label:
+      zh-Hans: YouTube
+      en: YouTube
+homepage:
+  zh-Hans:
+    eyebrow: 第 007 期
+    heading:
+      - DeepSeek 极速狂飙，
+      - AI 游戏新机会，AI 改造老家电
+    lede: 从 DeepSeek 提速到 AI 游戏，从旧电视改造到语音小硬件：四位主理人聊实际动手体验、Agent 工作流与安全边界。
+    copy: 从 DeepSeek 提速到 AI 游戏，从旧电视改造到语音小硬件：四位主理人聊实际动手体验、Agent 工作流与安全边界。
+    imageAlt: '#007 DeepSeek 极速狂飙，AI 游戏新机会，AI 改造老家电'
+    topicsLabel: 本期议题
+    topics:
       - DeepSeek
       - AI 游戏
       - 旧设备改造
       - Personal Agent
       - AI 安全
-    en:
+    listenAction: 立即收听
+    watchAction: 查看本期
+  en:
+    eyebrow: 'Episode #007'
+    heading:
+      - DeepSeek at full speed,
+      - new opportunities in AI games, and AI makeovers for old appliances
+    lede: 'From faster DeepSeek responses and AI-built games to old TVs and voice devices: hands-on experiences with agents, creative workflows and security.'
+    copy: 'From faster DeepSeek responses and AI-built games to old TVs and voice devices: hands-on experiences with agents, creative workflows and security.'
+    imageAlt: '#007 DeepSeek at full speed, new opportunities in AI games, and AI makeovers for old appliances'
+    topicsLabel: Episode topics
+    topics:
       - DeepSeek
       - AI games
       - Device tinkering
       - Personal agents
       - AI security
-  images:
-    '480': /assets/weekly-007-cover-480.webp
-    '720': /assets/weekly-007-cover-720.webp
-    '960': /assets/weekly-007-cover-960.webp
-    '1440': /assets/weekly-007-cover-1440.webp
-    '1920': /assets/weekly-007-cover-1920.webp
-  imageDimensions:
-    width: 3000
-    height: 3000
-  eyebrow:
-    zh-Hans: 第 007 期
-    en: 'Episode #007'
-  heading:
-    zh-Hans:
-      - DeepSeek 极速狂飙，
-      - AI 游戏新机会，AI 改造老家电
-    en:
-      - DeepSeek at full speed,
-      - new opportunities in AI games, and AI makeovers for old appliances
-  summary:
-    zh-Hans: 从 DeepSeek 提速到 AI 游戏，从旧电视改造到语音小硬件：四位主理人聊实际动手体验、Agent 工作流与安全边界。
-    en: 'From faster DeepSeek responses and AI-built games to old TVs and voice devices: hands-on experiences with agents, creative workflows and security.'
-  note:
-    zh-Hans: 已录制，内容整理中。
-    en: Recorded; preparing the episode.
+    listenAction: Listen now
+    watchAction: Explore episode

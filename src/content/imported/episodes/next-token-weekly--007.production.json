@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 2,
+  "episodeId": "next-token-weekly--007",
+  "number": "007",
+  "show": "next-token-weekly",
+  "status": "published",
+  "language": "zh-Hans",
+  "recordedAt": "2026-10-23",
+  "recordingMode": "in-person",
+  "recordingLocation": {
+    "zh-Hans": "万象空间",
+    "en": "Wanxiang Space"
+  },
+  "imageKind": "artwork",
+  "imageDimensions": {
+    "width": 3000,
+    "height": 3000
+  },
+  "participants": [
+    {
+      "person": "guizang",
+      "role": "duty-host"
+    },
+    {
+      "person": "xiangyang-qiaomu",
+      "role": "co-host"
+    },
+    {
+      "person": "yangpan",
+      "role": "co-host"
+    },
+    {
+      "person": "orange",
+      "role": "co-host"
+    }
+  ],
+  "guestNames": [],
+  "images": {
+    "480": "/assets/weekly-007-cover-square-480.webp",
+    "720": "/assets/weekly-007-cover-square-720.webp",
+    "960": "/assets/weekly-007-cover-square-960.webp",
+    "1440": "/assets/weekly-007-cover-square-1440.webp",
+    "1920": "/assets/weekly-007-cover-square-1920.webp"
+  },
+  "provenance": {
+    "productionCommit": "d5a77ffb6787645182bc1eda8c74213bbac989df",
+    "sources": [
+      {
+        "path": "shows/weekly/episodes/007/credits.json",
+        "sha256": "48e940314e1b7248d8ba285c6e04d5388da25068a3967b8360ba52d08f9e8a46"
+      },
+      {
+        "path": "shows/weekly/episodes/007/04-release/artwork/cover-square.jpg",
+        "sha256": "9b4af002cf5d50c22b0c6fddd783760f51bab4eff5f6ce4873ce0a3192ab961b"
+      },
+      {
+        "path": "shows/weekly/episodes/007/04-release/copy/website-release.json",
+        "sha256": "01b1161672beadb2e4ac218a06d90b6e6868eee5a848d3d9b839e96855d82271"
+      }
+    ]
+  }
+}

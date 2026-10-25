@@ -1,0 +1,21 @@
+schemaVersion: 2
+episodeId: next-token-weekly--007
+number: '007'
+show: next-token-weekly
+status: published
+language: zh-Hans
+recordedAt: '2026-10-23'
+recordingMode: in-person
+recordingLocation:
+  zh-Hans: 万象空间
+  en: Wanxiang Space
+imageKind: artwork
+imageDimensions:
+  width: 3000
+  height: 3000
+creditsSource: shows/weekly/episodes/007/credits.json
+cover: shows/weekly/episodes/007/04-release/artwork/cover-square.jpg
+sources:
+  - shows/weekly/episodes/007/credits.json
+  - shows/weekly/episodes/007/04-release/artwork/cover-square.jpg
+  - shows/weekly/episodes/007/04-release/copy/website-release.json
