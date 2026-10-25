@@ -234,3 +234,71 @@ test('relinking preserves editorial text, formatting, speaker flags and provenan
   assert.deepEqual(paragraph.slice(-2),snapshot.chapters[0].turns[0].paragraphs[0].slice(-2));
   assert.equal(snapshot.chapters[0].turns[0].paragraphs[0][1].href,'/old');
 });
+
+
+test('explicit uncertain and collective speaker labels remain separate turns', () => {
+  const source = '# Test\n\n## Chapter\n\n**杨攀**\n\n前一句。\n\n**橘子／说话人待核**\n\n炼金术。\n\n**橘子及其他主持人（待核）**\n\n拜拜。';
+  const {snapshot, report} = convertTranscript(unified().use(remarkParse).parse(source), {episodeId:'show--007',locale:'zh-Hans',entities:[]});
+  const turns = snapshot.chapters[0].turns;
+  assert.deepEqual(turns.map(t => [t.speaker, t.speakerId, t.candidate]), [['杨攀','yangpan',false],['橘子／说话人待核',null,true],['橘子及其他主持人',null,true]]);
+  assert.deepEqual(report.unknownSpeakers, []);
+  assert.equal(turns[0].paragraphs.length, 1);
+  assert.equal(turns[1].paragraphs[0].map(s=>s.value).join(''), '炼金术。');
+});
+
+test('chapter aliases link a named platform without linking ordinary uses of the same word', async () => {
+  const source = '# Test\n\n## 搜索\n\n**杨攀：** 点评网和点评。\n\n## 反馈\n\n**杨攀：** 给每个人一个点评。';
+  const options = {
+    episodeId: 'show--007', locale: 'zh-Hans',
+    entities: [{entityType: 'product', id: 'dianping', aliases: ['点评网']}],
+    chapterAliases: [{entityType: 'product', id: 'dianping', alias: '点评', chapters: ['chapter-01']}],
+  };
+  const {snapshot} = convertTranscript(unified().use(remarkParse).parse(source), options);
+  const first = snapshot.chapters[0].turns[0].paragraphs[0];
+  const second = snapshot.chapters[1].turns[0].paragraphs[0];
+  assert.deepEqual(first.filter(s => s.type === 'entity-link').map(s => s.value), ['点评网', '点评']);
+  assert.deepEqual(second, [{type: 'text', value: '给每个人一个点评。'}]);
+  const {relinkTranscript} = await import('../scripts/lib/transcript-converter.mjs');
+  assert.deepEqual(relinkTranscript(snapshot, options), snapshot);
+  assert.throws(() => convertTranscript(unified().use(remarkParse).parse(source), {...options,
+    chapterAliases: [{entityType:'product', id:'missing', alias:'点评', chapters:['chapter-01']}],
+  }), /Invalid chapter alias/);
+});
+
+test('term links preserve complete product and brand names and relink deterministically', async () => {
+  const {relinkTranscript} = await import('../scripts/lib/transcript-converter.mjs');
+  const source = '# Test\n\n## Concepts\n\n**杨攀：** Next Token，Token。DeepSeek Harness 和 Harness。AI Passport、AI、Personal Agent、Agent。APIKey API。';
+  const entities = [
+    {entityType:'brand',id:'next-token',aliases:['Next Token']},
+    {entityType:'product',id:'deepseek-harness',aliases:['DeepSeek Harness']},
+    {entityType:'product',id:'ai-passport',aliases:['AI Passport']},
+    ...[['token','Token'],['harness','Harness'],['ai','AI'],['personal-agent','Personal Agent'],['agent','Agent'],['api','API']].map(([id,alias])=>({entityType:'term',id,aliases:[alias]})),
+  ];
+  const {snapshot} = convertTranscript(unified().use(remarkParse).parse(source),{episodeId:'show--007',locale:'zh-Hans',entities});
+  const segments = snapshot.chapters[0].turns[0].paragraphs[0];
+  assert.deepEqual(segments.filter(s=>s.type==='entity-link').map(s=>[s.value,s.href]),[
+    ['Next Token','/wiki/brands/next-token'],['Token','/wiki/terms/token'],
+    ['DeepSeek Harness','/wiki/products/deepseek-harness'],['Harness','/wiki/terms/harness'],
+    ['AI Passport','/wiki/products/ai-passport'],['AI','/wiki/terms/ai'],
+    ['Personal Agent','/wiki/terms/personal-agent'],['Agent','/wiki/terms/agent'],['API','/wiki/terms/api'],
+  ]);
+  assert.deepEqual(relinkTranscript(snapshot,{entities}),snapshot);
+});
+
+test('transcript terms require published records and reviewed catalog spellings', async () => {
+  const {readTranscriptTerms} = await import('../scripts/lib/transcript-terms.mjs');
+  const {mkdtemp,mkdir,writeFile,rm} = await import('node:fs/promises');
+  const {tmpdir} = await import('node:os');
+  const root = await mkdtemp(`${tmpdir()}/transcript-terms-`);
+  try {
+    await mkdir(`${root}/src/content/data/terms`,{recursive:true});
+    const path=`${root}/src/content/data/terms/token.yaml`;
+    await writeFile(path,'name: {en: Token, zh-Hans: 词元}\naliases: []\nstatus: draft\n');
+    await assert.rejects(readTranscriptTerms(root,[{id:'token',aliases:['Token']}]),/not published/);
+    await writeFile(path,'name: {en: Token, zh-Hans: 词元}\naliases: []\nstatus: published\n');
+    await assert.rejects(readTranscriptTerms(root,[{id:'token',aliases:['Made up']}]),/Unverified/);
+    await assert.rejects(readTranscriptTerms(root,[{id:'../token',aliases:['Token']}]),/Invalid/);
+    assert.deepEqual(await readTranscriptTerms(root,[{id:'token',aliases:['Token']}]),[{entityType:'term',id:'token',aliases:['Token']}]);
+    assert.deepEqual(await readTranscriptTerms(root),[]);
+  } finally { await rm(root,{recursive:true,force:true}); }
+});

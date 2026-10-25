@@ -10,6 +10,8 @@ import { convertTranscript, sha256 } from "./lib/transcript-converter.mjs";
 import { validateTranscriptManifest } from "./lib/transcript-manifest.mjs";
 import { alignTranscriptTimings } from "./lib/transcript-timing.mjs";
 
+import { readTranscriptTerms } from "./lib/transcript-terms.mjs";
+
 const websiteRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const execFileAsync = promisify(execFile);
 const [episodeId, sourceArgument, ...flags] = process.argv.slice(2);
@@ -110,6 +112,7 @@ const entities = [
   ...(await readEntities("products", "product")),
   ...(await readEntities("people", "person")),
   ...(await readEntities("shows", "show")),
+  ...(await readTranscriptTerms(websiteRoot, rules.termReferences)),
 ];
 const tree = unified().use(remarkParse).parse(source);
 const episode = load(await readFile(resolve(websiteRoot, `src/content/data/episodes/${episodeId}.yaml`), "utf8"));
@@ -133,8 +136,11 @@ const { snapshot, report } = convertTranscript(tree, {
   sourceSha256,
   entities,
   resolutions: rules.resolutions,
+  chapterAliases: rules.chapterAliases,
   excludedEntities,
 });
+// Public titles describe the episode; source filenames and editorial headings stay in provenance.
+if (rules.titleFromEpisode) snapshot.title = episode.title[rules.locale];
 const timingArgument = flags.find(flag => flag.startsWith('--timings-srt='));
 snapshot.notices.push(...(rules.notices ?? []));
 if (flags.includes("--preserve-timings")) {

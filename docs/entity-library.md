@@ -32,11 +32,13 @@ Fireworks AI、硅基流动的品牌条目介绍公司主体及业务；两者�
 | Runta、OpenRouter、fal.ai、X | 只收录平台产品 |
 | Qwen、混元、WorkBuddy | 只收录对应模型或应用产品 |
 | SpaceXAI | 品牌；xAI、X.AI 为别名，与 X 平台分开 |
+| 观猹 | 媒体与社区品牌；观猹大会作为品牌活动介绍，不另建独立条目 |
 | WaytoAGI | 媒体与社区，分类为 `media-community-brand` |
 | Y Combinator | 品牌使用全称，YC 为别名 |
 | 豆包 / Doubao | 应用产品；与 Doubao Seed、豆包工作等产品的所属品牌均为字节跳动 |
 | Android | 操作系统产品 |
 | Node.js | JavaScript 运行时产品，归入开发者工具；Node 为别名，不另建同名品牌 |
+| Apple TV | 机顶盒硬件归入 `apple-tv-hardware`，影视订阅服务归入 `apple-tv`；按节目语境区分，不因同名合并 |
 | OpenAI DevDay、Apple WWDC | 活动产品 `event`，分别关联 OpenAI、Apple；主办方与活动分开 |
 | All-In、All-In Summit | 分别收录节目产品 `show` 与活动产品 `event`；分期提及按实际语境关联 |
 | Devin | Cognition 旗下 Agent 产品 |

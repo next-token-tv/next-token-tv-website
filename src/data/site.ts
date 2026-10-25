@@ -1,4 +1,4 @@
-import { getHostsForShow, getPublishedEpisode } from "./catalog";
+import { getHostsForShow, getLatestVisibleEpisode } from "./catalog";
 import type { Locale } from "./types";
 
 export type { Locale } from "./types";
@@ -213,13 +213,13 @@ const siteContentBase: Record<Locale, SiteContentBase> = {
 export async function getSiteContent(locale: Locale): Promise<SiteContent> {
   const [hosts, episode] = await Promise.all([
     getHostsForShow("next-token-weekly", locale),
-    getPublishedEpisode(),
+    getLatestVisibleEpisode(),
   ]);
   const base = siteContentBase[locale];
 
   return {
     ...base,
-    status: locale === "en" ? `#${episode.data.number} ${!episode.data.media.audio && !episode.data.media.video ? "transcript out now" : episode.data.media.audio && !episode.data.media.video ? "audio out now" : "out now"}` : `#${episode.data.number} ${!episode.data.media.audio && !episode.data.media.video ? "文字稿已上线" : episode.data.media.audio && !episode.data.media.video ? "音频已上线" : "已上线"}`,
+    status: episode.data.status !== "published" ? (locale === "en" ? `Latest #${episode.data.number}` : `最新一期 #${episode.data.number}`) : locale === "en" ? `#${episode.data.number} ${!episode.data.media.audio && !episode.data.media.video ? "transcript out now" : episode.data.media.audio && !episode.data.media.video ? "audio out now" : "out now"}` : `#${episode.data.number} ${!episode.data.media.audio && !episode.data.media.video ? "文字稿已上线" : episode.data.media.audio && !episode.data.media.video ? "音频已上线" : "已上线"}`,
     description: base.description,
     ogDescription: base.description,
     hero: { ...base.hero, primaryAction: locale === "en" ? `Explore latest episode #${episode.data.number}` : `查看最新一期 #${episode.data.number}` },

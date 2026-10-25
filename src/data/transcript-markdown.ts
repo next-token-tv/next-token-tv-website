@@ -3,7 +3,7 @@ import { absoluteSiteUrl } from "./internal-url";
 
 type Transcript = CollectionEntry<"transcriptImports">["data"];
 type Segment = Transcript["chapters"][number]["turns"][number]["paragraphs"][number][number];
-type RelatedEntityType = "brand" | "product" | "person";
+type RelatedEntityType = "brand" | "product" | "person" | "term";
 
 type RelatedEntity = {
   label: string;
@@ -11,7 +11,7 @@ type RelatedEntity = {
 };
 
 function isRelatedEntityType(value: string | undefined): value is RelatedEntityType {
-  return value === "brand" || value === "product" || value === "person";
+  return value === "brand" || value === "product" || value === "person" || value === "term";
 }
 
 function escapeMarkdown(value: string) {
@@ -50,6 +50,7 @@ function collectRelatedEntities(transcript: Transcript, site: URL) {
     brand: [],
     product: [],
     person: [],
+    term: [],
   };
   const seen = new Set<string>();
 
@@ -109,11 +110,11 @@ export function renderTranscriptMarkdown(transcript: Transcript, episodeNumber: 
 
   const relatedHeading = transcript.locale === "en" ? "Related resources" : "相关资料";
   const groupHeadings: Record<RelatedEntityType, string> = transcript.locale === "en"
-    ? { brand: "Brands", product: "Products", person: "People" }
-    : { brand: "品牌", product: "产品", person: "人物" };
+    ? { brand: "Brands", product: "Products", person: "People", term: "Terms" }
+    : { brand: "品牌", product: "产品", person: "人物", term: "术语" };
 
   lines.push(`## ${relatedHeading}`, "");
-  (["brand", "product", "person"] as const).forEach((entityType) => {
+  (["brand", "product", "person", "term"] as const).forEach((entityType) => {
     const entities = relatedEntities[entityType];
     if (entities.length === 0) return;
 

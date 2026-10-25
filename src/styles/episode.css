@@ -226,7 +226,7 @@
 .episode-detail-participant-grid article {
   min-width: 0;
   border-right: 1px solid var(--ink);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--ink);
 }
 
 .episode-detail-participant-grid .host-photo img {

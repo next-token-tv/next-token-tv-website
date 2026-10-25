@@ -14,14 +14,15 @@
 
 .category-link,
 .transcript-entity-link,
-.transcript-entity-key {
+.transcript-entity-key,
+.transcript-paragraphs a[href*="/wiki/terms/"] {
   --entity-tint: var(--category-person);
 
   color: inherit;
   text-decoration: none;
   background-color: rgb(from var(--entity-tint) r g b / var(--entity-opacity));
-  border-radius: var(--control-radius);
-  padding: 0.1875rem 0.25rem;
+  border-radius: 2px;
+  padding: 0.125rem 0.1875rem;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
@@ -39,8 +40,16 @@
   --entity-tint: var(--category-product);
 }
 
+.category-link[data-entity-type="term"],
+.transcript-entity-link[data-entity-type="term"],
+.transcript-entity-key[data-entity-type="term"],
+.transcript-paragraphs a[href*="/wiki/terms/"] {
+  --entity-tint: var(--category-term);
+}
+
 .category-link:focus-visible,
-.transcript-entity-link:focus-visible {
+.transcript-entity-link:focus-visible,
+.transcript-paragraphs a[href*="/wiki/terms/"]:focus-visible {
   background-color: rgb(from var(--entity-tint) r g b / var(--entity-hover-opacity));
   text-decoration: underline;
   text-decoration-color: rgb(from var(--entity-tint) r g b / 0.6);

@@ -21,7 +21,7 @@
     "check": "npm run check:chapters && npm run test:transcript && npm run test:community && npm run test:article && npm run test:release && npm run lint:styles && npm run check:worker && astro check && npm run check:redirects && npm run test:maintenance && npm run check:artwork && npm run check:wiki",
     "test:article": "node --experimental-strip-types --test tests/article-markdown.test.mjs tests/blog-content.test.mjs tests/blog-rss.test.mjs",
     "test:release": "node --test tests/sitemap-dates.test.mjs tests/design-contract.test.mjs tests/announcement-schedule.test.mjs tests/episode-release.test.mjs tests/platform-release.test.mjs tests/https-redirect.test.mjs tests/og-retention.test.mjs tests/browser-test-runner.test.mjs tests/release-process.test.mjs tests/style-ownership.test.mjs",
-    "test:transcript": "node --experimental-strip-types --test tests/transcript-converter.test.mjs tests/transcript-paragraph-anchors.test.mjs tests/transcript-timing.test.mjs",
+    "test:transcript": "node --experimental-strip-types --test tests/transcript-converter.test.mjs tests/transcript-paragraph-anchors.test.mjs tests/transcript-timing.test.mjs tests/transcript-citation-visibility.test.mjs",
     "lint:styles": "stylelint \"src/**/*.{css,astro}\" --allow-empty-input",
     "test:visual": "node scripts/run-browser-tests.mjs visual",
     "test:performance": "node scripts/run-browser-tests.mjs performance",
@@ -43,7 +43,7 @@
     "entity:migrate": "node --experimental-strip-types scripts/entity-migrate.mjs",
     "generate:redirects": "node scripts/generate-entity-redirects.mjs",
     "check:redirects": "node scripts/generate-entity-redirects.mjs --check",
-    "test:maintenance": "node --experimental-strip-types --test tests/maintenance.test.mjs tests/search.test.mjs tests/catalog-relations.test.mjs tests/performance-workflow.test.mjs tests/release-checkpoint.test.mjs tests/release-retention.test.mjs tests/episode-artwork.test.mjs",
+    "test:maintenance": "node --experimental-strip-types --test tests/maintenance.test.mjs tests/search.test.mjs tests/catalog-relations.test.mjs tests/performance-workflow.test.mjs tests/release-checkpoint.test.mjs tests/release-retention.test.mjs tests/episode-artwork.test.mjs tests/episode-visibility.test.mjs",
     "community:qr": "node scripts/generate-community-qr.mjs",
     "test:community": "node --test tests/community-qr.test.mjs",
     "check:wiki": "node scripts/check-wiki.mjs",
@@ -66,6 +66,7 @@
     "stylelint": "^17.15.0",
     "typescript": "^5.9.3",
     "unified": "^11.0.5",
-    "wrangler": "^4.101.0"
+    "wrangler": "^4.101.0",
+    "@astrojs/markdown-satteri": "0.4.0"
   }
 }

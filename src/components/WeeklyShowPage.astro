@@ -9,8 +9,8 @@ import PersonCard from "./PersonCard.astro";
 import {
   getAnnouncedEpisodes,
   getHostsForShow,
-  getPublishedEpisode,
-  getPublishedEpisodes,
+  getLatestVisibleEpisode,
+  getVisibleEpisodes,
   getShowPageData,
 } from "../data/catalog";
 import { resolveVenueId } from "../data/partners";
@@ -26,10 +26,10 @@ const showId = "next-token-weekly";
 const [show, hosts, latestEpisode, announcedEpisodes] = await Promise.all([
   getShowPageData(showId, locale),
   getHostsForShow(showId, locale),
-  getPublishedEpisode(),
+  getLatestVisibleEpisode(),
   getAnnouncedEpisodes(),
 ]);
-const episodes = await getPublishedEpisodes(showId);
+const episodes = await getVisibleEpisodes(showId);
 const page = show.data.page[locale];
 const episodeCopy = latestEpisode.data.homepage[locale];
 const upcoming = announcedEpisodes

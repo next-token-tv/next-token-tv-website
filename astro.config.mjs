@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import { fileURLToPath } from "node:url";
 import { readSitemapDates } from "./scripts/lib/sitemap-dates.mjs";
+import { transcriptLinks } from "./scripts/lib/transcript-citation-links.mjs";
 
 const sitemapDates = await readSitemapDates(fileURLToPath(new URL(".", import.meta.url)));
 
@@ -10,6 +11,7 @@ export default defineConfig({
   output: "static",
   trailingSlash: "never",
   integrations: [
+    transcriptLinks(),
     sitemap({
       serialize: (page) => {
         const date = sitemapDates.get(new URL(page.url).pathname.replace(/\/$/, ""));

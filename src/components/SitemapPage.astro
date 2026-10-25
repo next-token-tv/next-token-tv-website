@@ -1,7 +1,7 @@
 ---
 import { getTerms } from "../data/terms";
 import { getBlogPosts } from "../data/blog";
-import { getBrandDirectory, getProductDirectory, getEpisodesForShow, getPublishedTranscriptEpisodes } from "../data/catalog";
+import { getBrandDirectory, getProductDirectory, getEpisodesForShow, getTranscriptEpisodes } from "../data/catalog";
 import { getPartners } from "../data/partners";
 import type { Locale } from "../data/types";
 import { getCollection } from "astro:content";
@@ -12,7 +12,7 @@ const people = await getCollection("people");
 const prefix = en ? "/en" : "";
 const [brands, products, episodes, transcripts, partners] = await Promise.all([
   getBrandDirectory(locale), getProductDirectory(locale),
-  getEpisodesForShow("next-token-weekly"), getPublishedTranscriptEpisodes(locale), getPartners(),
+  getEpisodesForShow("next-token-weekly"), getTranscriptEpisodes(locale), getPartners(),
 ]);
 const blogPosts = await getBlogPosts(locale);
 const terms = await getTerms(locale);

@@ -1,11 +1,11 @@
 ---
-import { getPublishedEpisode } from "../data/catalog";
+import { getDetailEpisode } from "../data/catalog";
 import TranscriptLink from "./TranscriptLink.astro";
 import type { Locale } from "../data/types";
 import { episodeImageSrcset } from "../data/episode-images";
 interface Props { episodeId: string; locale: Locale }
 const { episodeId, locale } = Astro.props;
-const episode = await getPublishedEpisode(episodeId);
+const episode = await getDetailEpisode(episodeId);
 const copy = episode.data.homepage[locale];
 const images = episode.data.images;
 const dimensions = episode.data.imageDimensions;

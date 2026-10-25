@@ -1,9 +1,9 @@
 import type { APIRoute } from "astro";
-import { getEpisodeTranscript, getPublishedTranscriptEpisodes } from "../../../../data/catalog";
+import { getEpisodeTranscript, getTranscriptEpisodes } from "../../../../data/catalog";
 import { renderTranscriptMarkdown } from "../../../../data/transcript-markdown";
 
 export async function getStaticPaths() {
-  const episodes = await getPublishedTranscriptEpisodes("en");
+  const episodes = await getTranscriptEpisodes("en");
   return episodes.map((episode) => ({
     params: { number: episode.data.number },
     props: { episodeId: episode.id },

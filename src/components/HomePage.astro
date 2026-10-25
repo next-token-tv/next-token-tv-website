@@ -6,7 +6,7 @@ import UpcomingEpisodeLink from "./UpcomingEpisodeLink.astro";
 import ShowSubscriptions from "./ShowSubscriptions.astro";
 import HostCard from "./HostCard.astro";
 import ConditionalImagePan from "./ConditionalImagePan.astro";
-import { getPublishedEpisode } from "../data/catalog";
+import { getLatestVisibleEpisode } from "../data/catalog";
 import BrandHeroVisual from "./BrandHeroVisual.astro";
 import type { SiteContent } from "../data/site";
 
@@ -15,7 +15,7 @@ interface Props {
 }
 
 const { content } = Astro.props;
-const latestEpisode = await getPublishedEpisode();
+const latestEpisode = await getLatestVisibleEpisode();
 const latestEpisodePath = `${content.locale === "en" ? "/en" : ""}/weekly/${latestEpisode.data.number}`;
 ---
 

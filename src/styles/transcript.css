@@ -4,15 +4,6 @@
   overflow: clip;
 }
 
-.transcript-review-banner {
-  padding: 0.7rem var(--gutter);
-  background: var(--signal);
-  color: var(--ink);
-  font-size: var(--type-caption);
-  font-weight: 850;
-  letter-spacing: 0.08em;
-  text-align: center;
-}
 
 .transcript-hero {
   padding-top: clamp(1.5rem, 3vw, 3rem);

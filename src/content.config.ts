@@ -64,7 +64,7 @@ const people = defineCollection({
     alt: localizedText.default({ "zh-Hans": "人物头像", en: "Portrait" }),
     socialsLabel: localizedText.default({ "zh-Hans": "公开账号", en: "Public profiles" }),
     socials: z.array(z.object({
-      platform: z.enum(["x", "github", "jike", "weibo", "wechat", "wechat-channels", "rednote", "linkedin", "blog", "podcast"]),
+      platform: z.enum(["x", "github", "jike", "weibo", "wechat", "wechat-channels", "rednote", "linkedin", "website", "blog", "podcast"]),
       handle: z.string(),
       href: z.url().optional(),
     })).default([]),
@@ -271,6 +271,7 @@ const episodes = defineCollection({
       status: z.literal("announced"),
       phase: z.enum(["recording", "post-production"]).default("recording"),
       detailLayout: z.boolean().default(false),
+      releasePreview: z.boolean().default(false),
       scheduledAt: z.union([z.iso.date(), z.iso.datetime({ offset: true })]),
       timeZone: z.string(),
       recordingMode: z.enum(["online", "in-person"]).default("in-person"),
@@ -286,6 +287,7 @@ const episodes = defineCollection({
         eyebrow: localizedText,
         heading: localizedHeading,
         summary: localizedText,
+        topics: z.object({ "zh-Hans": z.array(z.string()), en: z.array(z.string()) }).optional(),
         note: localizedText,
       }),
     }),
@@ -336,7 +338,7 @@ const transcriptSegment = z.object({
   type: z.enum(["text", "entity-link", "external-link", "code"]),
   value: z.string(),
   href: z.string().optional(),
-  entityType: z.enum(["brand", "product", "person", "show"]).optional(),
+  entityType: z.enum(["brand", "product", "person", "show", "term"]).optional(),
   entityId: z.string().optional(),
   marks: z.array(z.enum(["strong", "emphasis"])).optional(),
 });

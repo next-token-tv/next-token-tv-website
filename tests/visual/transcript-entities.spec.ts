@@ -93,7 +93,7 @@ test('repeated keywords use pale type-colored backgrounds with visible focus', a
     }));
     expect(style.background).toContain('0.08');
     expect(style.image).toBe('none');
-    expect(style.radius).toBe('1px');
+    expect(style.radius).toBe('2px');
     colors.push(style.background);
   }
   expect(new Set(colors).size).toBe(3);

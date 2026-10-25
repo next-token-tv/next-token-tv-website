@@ -1,4 +1,5 @@
 ---
+import { isReleasePreview } from "../data/episode-visibility";
 import type { CollectionEntry } from "astro:content";
 import type { Locale } from "../data/types";
 
@@ -28,7 +29,7 @@ const copy = locale === "en"
         <div class="related-episode-row">
         <a class="episode-link wiki-support-link" href={`${prefix}/weekly/${episode.data.number}`}>
           <strong>#{episode.data.number}</strong>
-          <span>{episode.data.status === "published" ? copy.published : episode.data.phase === "post-production" ? (locale === "en" ? "In production" : "制作中") : copy.announced}</span>
+          <span>{isReleasePreview(episode.data, import.meta.env.DEV) ? (locale === "en" ? "Episode" : "节目") : episode.data.status === "published" ? copy.published : episode.data.phase === "post-production" ? (locale === "en" ? "In production" : "制作中") : copy.announced}</span>
           <p>{episode.data.title[locale]}</p>
           <b aria-hidden="true">→</b>
         </a>

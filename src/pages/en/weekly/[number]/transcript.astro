@@ -30,6 +30,9 @@ const episodePath = `/en/weekly/${episode.data.number}`;
 const seo = "transcriptSeo" in episode.data ? episode.data.transcriptSeo?.["en"] : undefined;
 const isReviewDraft = transcript.data.publicationStatus === "review-draft";
 const displayTitle = transcript.data.title;
+const heading = episode.data.status === "published" ? episode.data.homepage["en"].heading : episode.data.preview.heading["en"];
+const titleLines = displayTitle === `#${episode.data.number} ${heading.join(" ")}`
+  ? [`#${episode.data.number} ${heading[0]}`, heading[1]] : undefined;
 const pageTitle = seo?.title ?? `Episode transcript | ${displayTitle} - Next Token`;
 const description = seo?.description ?? `${transcript.data.byline} ${transcript.data.chapterCount} chapters in total, preserving the full conversation order and speaker labels.`;
 const structuredData = {
@@ -57,8 +60,8 @@ const structuredData = {
   alternatePath={`/weekly/${episode.data.number}/transcript`}
   noIndex={isReviewDraft}
   ogType="article"
-  markdownPath={isReviewDraft ? undefined : `/en/weekly/${episode.data.number}/transcript.md`}
+  markdownPath={`/en/weekly/${episode.data.number}/transcript.md`}
 >
   <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-  <EpisodeTranscriptPage transcript={transcript} episodeNumber={episode.data.number} locale="en" isReviewDraft={isReviewDraft} displayTitle={displayTitle} anchorIds={getParagraphAnchorIds(zhTranscript.data.chapters)} />
+  <EpisodeTranscriptPage transcript={transcript} episodeNumber={episode.data.number} locale="en" isReviewDraft={isReviewDraft} displayTitle={displayTitle} titleLines={titleLines} anchorIds={getParagraphAnchorIds(zhTranscript.data.chapters)} />
 </BaseLayout>

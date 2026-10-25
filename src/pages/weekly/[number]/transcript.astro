@@ -29,6 +29,9 @@ const seo = "transcriptSeo" in episode.data ? episode.data.transcriptSeo?.["zh-H
 const isReviewDraft = transcript.data.publicationStatus === "review-draft";
 const hasEnglish = (await getEpisodeTranscriptOrNull(episodeId, "en"))?.data.publicationStatus === "published";
 const displayTitle = transcript.data.title;
+const heading = episode.data.status === "published" ? episode.data.homepage["zh-Hans"].heading : episode.data.preview.heading["zh-Hans"];
+const titleLines = displayTitle === `#${episode.data.number} ${heading.join("")}`
+  ? [`#${episode.data.number} ${heading[0]}`, heading[1]] : undefined;
 const pageTitle = seo?.title ?? `阅读文字稿｜${displayTitle} - Next Token｜词元之外`;
 const description = seo?.description ?? `${transcript.data.byline} 共 ${transcript.data.chapterCount} 个章节，保留完整对谈顺序与人物标注。`;
 const structuredData = {
@@ -57,8 +60,8 @@ const structuredData = {
   noIndex={isReviewDraft}
   hasLocaleAlternate={hasEnglish}
   ogType="article"
-  markdownPath={isReviewDraft ? undefined : `/weekly/${episode.data.number}/transcript.md`}
+  markdownPath={`/weekly/${episode.data.number}/transcript.md`}
 >
   <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-  <EpisodeTranscriptPage transcript={transcript} episodeNumber={episode.data.number} locale="zh-Hans" isReviewDraft={isReviewDraft} displayTitle={displayTitle} />
+  <EpisodeTranscriptPage transcript={transcript} episodeNumber={episode.data.number} locale="zh-Hans" isReviewDraft={isReviewDraft} displayTitle={displayTitle} titleLines={titleLines} />
 </BaseLayout>

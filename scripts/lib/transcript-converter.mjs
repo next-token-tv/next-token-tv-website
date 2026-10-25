@@ -14,7 +14,7 @@ const GENERIC_CANDIDATES = new Set([
   "Token", "Token Maxxing", "TPS", "TTS", "UX", "Vibe Coding", "Web", "Web 2.0",
 ]);
 
-export const CONVERSION_VERSION = "1.4.3";
+export const CONVERSION_VERSION = "1.4.6";
 
 export function sha256(value) {
   return createHash("sha256").update(value).digest("hex");
@@ -114,7 +114,7 @@ function linkifyText(text, matcher, linkedInChapter, linkCounts) {
       value: text.slice(start, end),
       entityType: entity.entityType,
       entityId: entity.id,
-      href: entity.href ?? `/wiki/${{ brand: "brands", product: "products", person: "people" }[entity.entityType]}/${entity.id}`,
+      href: entity.href ?? `/wiki/${{ brand: "brands", product: "products", person: "people", term: "terms" }[entity.entityType]}/${entity.id}`,
     });
     // Report chapter coverage, not occurrence count, while linking every occurrence.
     if (!linkedInChapter.has(entityKey)) {
@@ -174,15 +174,20 @@ function speakerFromParagraph(node) {
   if (first?.type !== "strong") return null;
   const marker = plainText(first);
   const hasColon = marker.endsWith("：");
+  const rawName = marker.replace(/：$/, "");
+  const unresolved = rawName === "说话人待核"
+    || (/／说话人待核$/.test(rawName) && SPEAKERS.has(rawName.replace(/／说话人待核$/, "")))
+    || (/及其他主持人（待核）$/.test(rawName) && SPEAKERS.has(rawName.replace(/及其他主持人（待核）$/, "")));
   // A standalone bold name is also a speaker heading. Bold prose is not.
-  if (!hasColon && (node.children.length !== 1 || !SPEAKERS.has(marker.replace(/(?:†|（待核）)$/, "")))) return null;
+  if (!hasColon && (node.children.length !== 1 || !unresolved && !SPEAKERS.has(marker.replace(/(?:†|（待核）)$/, "")))) return null;
   const markedName = hasColon ? marker.slice(0, -1) : marker;
-  const candidate = /(?:†|（待核）)$/.test(markedName);
+  const candidate = unresolved || /(?:†|（待核）)$/.test(markedName);
   const name = markedName.replace(/(?:†|（待核）)$/, "");
   const kind = ["片头旁白", "片头解说"].includes(name) ? "narration" : name === "编者注" ? "editor-note" : "speech";
   return {
     name,
     candidate,
+    unresolved,
     kind,
     speakerId: kind === "speech" ? SPEAKERS.get(name) ?? null : null,
     content: trimSpeakerGap(node.children.slice(1)),
@@ -212,6 +217,27 @@ function collectUnlinkedCandidates(chapters, knownAliases) {
     .sort((a, b) => b.count - a.count || a.value.localeCompare(b.value));
 }
 
+function chapterMatcherFactory(entities, resolutions, excludedEntities, chapterAliases) {
+  const excluded = new Set(excludedEntities);
+  const eligible = entities.filter(entity => !excluded.has(`${entity.entityType}:${entity.id}`));
+  for (const rule of chapterAliases) {
+    if (!rule.alias?.trim() || !rule.chapters?.length || !rule.chapters.every(id => /^chapter-\d{2}$/.test(id))
+      || !eligible.some(entity => entity.entityType === rule.entityType && entity.id === rule.id)) {
+      throw new Error(`Invalid chapter alias: ${rule.alias}`);
+    }
+  }
+  const cache = new Map();
+  return (chapterId) => {
+    if (!cache.has(chapterId)) {
+      const scoped = eligible.map(entity => ({...entity, aliases: [...entity.aliases,
+        ...chapterAliases.filter(rule => rule.chapters.includes(chapterId) && rule.entityType === entity.entityType && rule.id === entity.id).map(rule => rule.alias),
+      ]}));
+      cache.set(chapterId, createEntityMatcher(scoped, resolutions));
+    }
+    return cache.get(chapterId);
+  };
+}
+
 export function convertTranscript(tree, {
   episodeId,
   locale,
@@ -223,9 +249,10 @@ export function convertTranscript(tree, {
   entities,
   resolutions = {},
   excludedEntities = [],
+  chapterAliases = [],
 }) {
-  const excluded = new Set(excludedEntities);
-  const matcher = createEntityMatcher(entities.filter(entity => !excluded.has(`${entity.entityType}:${entity.id}`)), resolutions);
+  const matcherForChapter = chapterMatcherFactory(entities, resolutions, excludedEntities, chapterAliases);
+  const matcher = matcherForChapter(undefined);
   const linkCounts = new Map();
   const unknownSpeakers = new Set();
   const chapters = [];
@@ -259,7 +286,7 @@ export function convertTranscript(tree, {
 
     const speaker = speakerFromParagraph(node);
     if (speaker) {
-      if (speaker.kind === "speech" && !speaker.speakerId) unknownSpeakers.add(speaker.name);
+      if (speaker.kind === "speech" && !speaker.speakerId && !speaker.unresolved) unknownSpeakers.add(speaker.name);
       turn = {
         kind: speaker.kind,
         speaker: speaker.name,
@@ -269,11 +296,11 @@ export function convertTranscript(tree, {
       };
       chapter.turns.push(turn);
       if (speaker.content.length) {
-        turn.paragraphs.push(convertParagraph(speaker.content, matcher, chapter.linkedEntities ??= new Set(), linkCounts));
+        turn.paragraphs.push(convertParagraph(speaker.content, matcherForChapter(chapter.id), chapter.linkedEntities ??= new Set(), linkCounts));
       }
     } else {
       if (!turn) throw new Error(`Paragraph before the first speaker in ${chapter.title}`);
-      turn.paragraphs.push(convertParagraph(node.children, matcher, chapter.linkedEntities ??= new Set(), linkCounts));
+      turn.paragraphs.push(convertParagraph(node.children, matcherForChapter(chapter.id), chapter.linkedEntities ??= new Set(), linkCounts));
     }
   }
 
@@ -282,7 +309,7 @@ export function convertTranscript(tree, {
     // No eligible known entity may remain unlinked in body text.
     for (const segment of current.turns.flatMap(turn => turn.paragraphs.flat())) {
       if (segment.type !== "text") continue;
-      const match = nextEntityMatch(segment.value, 0, matcher.candidates);
+      const match = nextEntityMatch(segment.value, 0, matcherForChapter(current.id).candidates);
       if (match) {
         const { entity, alias } = match.candidate;
         throw new Error(`Known entity missing link in ${current.id}: ${entity.entityType}:${entity.id} (${alias})`);
@@ -327,7 +354,7 @@ export function convertTranscript(tree, {
     linkedEntities: [...linkCounts]
       .map(([entity, chapterCount]) => ({ entity, chapterCount }))
       .sort((a, b) => a.entity.localeCompare(b.entity)),
-    ambiguousAliases: matcher.ambiguousAliases,
+    ambiguousAliases: [...new Map([matcher, ...chapters.map(chapter => matcherForChapter(chapter.id))].flatMap(item => item.ambiguousAliases).map(item => [item.alias, item])).values()],
     unknownSpeakers: [...unknownSpeakers].sort(),
     unlinkedCandidates: collectUnlinkedCandidates(
       chapters,
@@ -347,13 +374,13 @@ export function convertTranscript(tree, {
 }
 
 // Rebuild annotations on the imported text without rereading an editorial source.
-export function relinkTranscript(snapshot, {entities, resolutions = {}, excludedEntities = []}) {
+export function relinkTranscript(snapshot, {entities, resolutions = {}, excludedEntities = [], chapterAliases = []}) {
   const result = structuredClone(snapshot);
-  const excluded = new Set(excludedEntities);
-  const matcher = createEntityMatcher(entities.filter(e => !excluded.has(`${e.entityType}:${e.id}`)), resolutions);
-  if (matcher.ambiguousAliases.length) throw new Error(`Ambiguous aliases: ${matcher.ambiguousAliases.map(a=>a.alias).join(', ')}`);
+  const matcherForChapter = chapterMatcherFactory(entities, resolutions, excludedEntities, chapterAliases);
   const counts = new Map();
   for (const chapter of result.chapters) {
+    const matcher = matcherForChapter(chapter.id);
+    if (matcher.ambiguousAliases.length) throw new Error(`Ambiguous aliases: ${matcher.ambiguousAliases.map(a=>a.alias).join(', ')}`);
     const linked = new Set();
     for (const turn of chapter.turns) turn.paragraphs = turn.paragraphs.map(paragraph => {
       // Existing external links remain editorial content, not entity annotations.

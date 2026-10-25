@@ -8,7 +8,7 @@ import { render } from "astro:content";
 import ConditionalImagePan from "./ConditionalImagePan.astro";
 import EpisodeMentions from "./EpisodeMentions.astro";
 import PlatformBrand from "./PlatformBrand.astro";
-import { getEpisodeShowNotes, getPeopleByIds, getDetailEpisode } from "../data/catalog";
+import { getEpisodeShowNotes, getPeopleByIds, getDetailEpisode, getEpisodeTranscriptOrNull } from "../data/catalog";
 import { partnerPath, resolveVenueId } from "../data/partners";
 import type { Locale } from "../data/types";
 import { episodeImageSrcset } from "../data/episode-images";
@@ -31,6 +31,7 @@ const [recording, participants] = await Promise.all([
 const { Content } = await render(showNotes);
 const homepage = episode.data.homepage[locale];
 const announcement = episode.data.status === "announced" ? announcementCopy(episode.data, locale) : null;
+const isLocalReview = import.meta.env.DEV && (await getEpisodeTranscriptOrNull(episodeId, locale))?.data.publicationStatus === "review-draft";
 const weeklyPath = locale === "en" ? "/en/weekly" : "/weekly";
 const recordingDate = new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-Hans", {
   year: "numeric",
@@ -111,7 +112,7 @@ const labels = locale === "en" ? {
         <h1 class="episode-hero-title type-title">{homepage.heading[0]}<br />{homepage.heading[1]}</h1>
         <p>{homepage.lede}</p>
         {episode.data.media.audio && !episode.data.media.video && <p>{locale === "en" ? "Audio out now · Video not yet available" : "音频已上线 · 视频版尚未上线"}</p>}
-        {announcement && <p>{announcement.label} · {announcement.note}</p>}
+        {announcement && !isLocalReview && <p>{announcement.label} · {announcement.note}</p>}
         {!announcement && !episode.data.media.audio && !episode.data.media.video && <p>{locale === "en" ? "Full transcript available" : "完整文字稿已上线"}</p>}
         <TranscriptLink episodeId={episodeId} number={episode.data.number} locale={locale} details />
         <EpisodeArticleLink episodeId={episodeId} locale={locale} />

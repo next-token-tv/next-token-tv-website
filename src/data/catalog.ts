@@ -4,6 +4,7 @@ import type { Locale } from "./types";
 
 import { indexById, requireId, type Catalog } from "./catalog-core";
 import { validateCatalog } from "./catalog-validation";
+import { isReleasePreview, isVisibleEpisode } from "./episode-visibility";
 import { getCatalogRelations } from "./catalog-relations";
 
 function proseParagraphs(body: string | undefined) {
@@ -56,12 +57,13 @@ const platformLabels = {
   "wechat-channels": { "zh-Hans": "视频号", en: "Channels" },
   rednote: { "zh-Hans": "小红书", en: "RedNote" },
   linkedin: { "zh-Hans": "LinkedIn", en: "LinkedIn" },
+  website: { "zh-Hans": "个人网站", en: "Personal website" },
   blog: { "zh-Hans": "博客", en: "Blog" },
   podcast: { "zh-Hans": "播客", en: "Podcast" },
 } as const;
 
 const socialOrder: (keyof typeof platformLabels)[] = [
-  "podcast", "x", "github", "jike", "wechat", "wechat-channels", "rednote", "weibo", "linkedin", "blog",
+  "website", "podcast", "x", "github", "jike", "wechat", "wechat-channels", "rednote", "weibo", "linkedin", "blog",
 ];
 
 function getSocials(socials: CollectionEntry<"people">["data"]["socials"], locale: Locale): Host["socials"] {
@@ -182,6 +184,11 @@ export async function getDetailEpisode(episodeId: string) {
     eyebrow: `Next Token Weekly #${data.number}`,
     heading: data.preview.heading[locale],
     lede: data.preview.summary[locale],
+    copy: data.preview.summary[locale],
+    topicsLabel: locale === "en" ? "Topics" : "本期话题",
+    topics: data.preview.topics?.[locale] ?? [],
+    listenAction: locale === "en" ? "Explore episode" : "查看本期",
+    watchAction: locale === "en" ? "Explore episode" : "查看本期",
     imageAlt: data.preview.heading[locale].join(" "),
   });
   const homepage = { "zh-Hans": homepageFor("zh-Hans"), en: homepageFor("en") };
@@ -202,6 +209,21 @@ export async function getPublishedEpisodes(showId = "next-token-weekly") {
   const catalog = await getContentCatalog();
   return Promise.all(catalog.episodes.filter(({ data }) => data.status === "published" && data.show === showId)
     .sort((a, b) => Number(b.data.number) - Number(a.data.number)).map(({ id }) => getPublishedEpisode(id)));
+}
+
+/** Shared listing for home, show, and navigation; publishing APIs remain publication-only. */
+export async function getVisibleEpisodes(showId = "next-token-weekly") {
+  const catalog = await getContentCatalog();
+  return Promise.all(catalog.episodes
+    .filter(({ data }) => data.show === showId && isVisibleEpisode(data, import.meta.env.DEV))
+    .sort((a, b) => Number(b.data.number) - Number(a.data.number))
+    .map(({ id }) => getDetailEpisode(id)));
+}
+
+export async function getLatestVisibleEpisode(showId = "next-token-weekly") {
+  const episode = (await getVisibleEpisodes(showId))[0];
+  if (!episode) throw new Error(`No visible episode for ${showId}`);
+  return episode;
 }
 
 export async function getEpisodeTranscript(episodeId: string, locale: Locale) {
@@ -239,7 +261,7 @@ export async function getPublishedTranscriptEpisodes(locale: Locale) {
 
 export async function getAnnouncedEpisodes() {
   const catalog = await getContentCatalog();
-  return catalog.episodes.filter((episode) => episode.data.status === "announced");
+  return catalog.episodes.filter((episode) => episode.data.status === "announced" && !isReleasePreview(episode.data, import.meta.env.DEV));
 }
 
 export async function getAnnouncedEpisode(episodeId: string) {

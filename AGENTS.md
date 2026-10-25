@@ -26,3 +26,6 @@ This website is metadata-driven.
 - For WeChat articles and full-episode conversation editing, use [.agents/skills/next-token-wechat/SKILL.md](.agents/skills/next-token-wechat/SKILL.md) and follow [the WeChat editorial standard](docs/wechat-editorial.zh-Hans.md) and [channel contract](docs/wechat.md). Preserve the full-episode scope and fixed speaker emojis; do not default to the Blog's single-topic structure.
 
 - For technical SEO audits or fixes, use [.agents/skills/next-token-seo/SKILL.md](.agents/skills/next-token-seo/SKILL.md) and follow [the technical SEO contract](docs/seo-technical.md).
+
+- Local review pages use the intended final reader-facing titles, copy and layout. Keep deployment status, source filenames, review-stage labels and production notes in metadata or QA reports, not public page copy. Local review does not authorize publication; retain draft exclusion from production builds and noindex.
+- Episode release preparation covers the entire local site: home latest episode and card, show latest episode and ordered list, global navigation, transcript and Markdown links, search, sitemap, host profiles and library relations in both locales. Verify by navigating from the homepage. A working direct episode URL alone is incomplete.

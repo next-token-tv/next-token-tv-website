@@ -10,6 +10,11 @@
  .ds-person-placeholder { background: var(--surface); }
  .ds-identities span, .ds-category-examples p { font-size: var(--type-meta); color: var(--muted); }
  .ds-annotations [id] { scroll-margin-top: 6rem; }
- .ds-category-examples { display: flex; flex-wrap: wrap; gap: 1rem; margin-block: 1.5rem; }
+ .ds-category-states { display: grid; gap: 2rem; margin-block: 1.5rem; }
+ .ds-category-state h4 { margin: 0 0 1rem; font-size: var(--type-ui); font-weight: 600; }
+ .ds-category-examples { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: 1.5rem; }
+ .ds-category-example { display: grid; align-content: start; gap: .75rem; }
+ .ds-category-sample { line-height: 1.75; }
+ .ds-category-example p { margin: 0; line-height: 1.75; }
  .ds-annotation-grid { font-size: var(--type-ui); line-height: 1.8; } .ds-annotation-grid p:last-child { margin-bottom: 0; }
 }

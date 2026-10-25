@@ -45,6 +45,7 @@
     --category-brand: var(--gold);
     --category-product: var(--sky-text);
     --category-person: var(--signal-text);
+    --category-term: var(--muted);
     --highlight-match: var(--signal-soft);
     --highlight-target: var(--signal-soft);
     --annotation-surface: var(--sky-soft);

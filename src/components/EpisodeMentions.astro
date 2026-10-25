@@ -1,15 +1,19 @@
 ---
 import { getEpisodeMentionEntities } from "../data/catalog";
+import { getEpisodeTerms } from "../data/terms";
 import { brandKind, productKind, personKind } from "../data/entity-kind-labels";
 import type { Locale } from "../data/types";
 
 interface Props { episodeId: string; locale: Locale; }
 const { episodeId, locale } = Astro.props;
-const mentions = await getEpisodeMentionEntities(episodeId);
+const [mentions, terms] = await Promise.all([
+  getEpisodeMentionEntities(episodeId),
+  getEpisodeTerms(episodeId, locale),
+]);
 const prefix = locale === "en" ? "/en" : "";
 const copy = locale === "en"
-  ? { kicker: "Referenced in this episode", title: "People, brands and products", brand: "Brands", product: "Products" }
-  : { kicker: "本期提及", title: "人物、品牌与产品", brand: "品牌", product: "产品" };
+  ? { kicker: "Referenced in this episode", title: terms.length ? "People, brands, products and terms" : "People, brands and products", brand: "Brands", product: "Products", terms: "Terms" }
+  : { kicker: "本期提及", title: terms.length ? "人物、品牌、产品与术语" : "人物、品牌与产品", brand: "品牌", product: "产品", terms: "术语" };
 type MentionItem = { name: string; href: string; kind: string };
 function subgroups(items: MentionItem[], labels: Record<string, Record<Locale, string>>) {
   return Object.entries(labels).map(([kind, label]) => ({
@@ -38,7 +42,7 @@ const groups = [
 ].filter((group) => group.items.length > 0);
 ---
 
-{groups.length > 0 && (
+{(groups.length > 0 || terms.length > 0) && (
   <section class="episode-mentions shell" aria-labelledby="episode-mentions-title">
     <div>
       <p class="section-kicker">02 / {copy.kicker}</p>
@@ -63,6 +67,21 @@ const groups = [
           </div>
         </div>
       ))}
+      {terms.length > 0 && (
+        <div class="episode-mention-group" data-mention-kind="term" id="episode-terms">
+          <div class="episode-mention-group-heading">
+            <h3>{copy.terms}</h3>
+            <span>{terms.length}</span>
+          </div>
+          <div class="episode-mention-subgroup episode-mention-subgroup-unlabelled">
+            <div class="episode-mention-list">
+              {terms.map(term => (
+                <a href={`${prefix}/wiki/terms/${term.id}`}><strong>{term.data.name[locale]}</strong><b aria-hidden="true">→</b></a>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   </section>
 )}

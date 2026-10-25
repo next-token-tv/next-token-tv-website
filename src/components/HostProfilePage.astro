@@ -1,4 +1,5 @@
 ---
+import { isReleasePreview } from "../data/episode-visibility";
 import HostPortrait from "./HostPortrait.astro";
 import EntityPeopleRelations from "./EntityPeopleRelations.astro";
 import { getHostProfile } from "../data/catalog";
@@ -45,7 +46,7 @@ const home = en ? "/en" : "/";
     <h2 class="heading-section-compact" id="profile-episodes">{en ? "At the table" : "参与的每一期"}</h2>
     {episodes.length ? <div class="profile-episode-list">{episodes.map(episode => <a href={`${en ? "/en" : ""}/weekly/${episode.data.number}`}>
       <span class="profile-episode-number">#{episode.data.number}</span>
-      <div class="profile-episode-copy"><small>{episode.data.status === "published" ? (en ? "Now live" : "现已上线") : (en ? "Recording preview" : "录制预告")}</small><h3>{episode.data.title[locale]}</h3></div>
+      <div class="profile-episode-copy"><small>{isReleasePreview(episode.data, import.meta.env.DEV) ? (en ? "Episode" : "节目") : episode.data.status === "published" ? (en ? "Now live" : "现已上线") : (en ? "Recording preview" : "录制预告")}</small><h3>{episode.data.title[locale]}</h3></div>
       <span aria-hidden="true">↗</span>
     </a>)}</div> : <p>{en ? "Episodes will appear here when announced." : "节目公布后将在这里更新。"}</p>}
   </section>

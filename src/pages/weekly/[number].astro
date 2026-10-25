@@ -35,6 +35,7 @@ const alternatePath = `/en/weekly/${episode.data.number}`;
     : episode.data.preview.summary["zh-Hans"]}
   canonicalPath={canonicalPath}
   alternatePath={alternatePath}
+  noIndex={import.meta.env.DEV && episode.data.status === "announced" && episode.data.releasePreview}
 >
   {(episode.data.status === "published" || episode.data.detailLayout)
     ? <EpisodeDetailPage episodeId={episodeId} locale="zh-Hans" />

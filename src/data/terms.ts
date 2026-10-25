@@ -25,3 +25,30 @@ export async function getTermArticle(id: string, locale: Locale) {
   if (!article) throw new Error(`Missing term article: ${id}/${locale}`);
   return article;
 }
+
+export async function getEpisodeTerms(episodeId: string, locale: Locale) {
+  const [transcripts, terms] = await Promise.all([getCollection("transcriptImports"), getTerms(locale)]);
+  const available = transcripts.filter(({ data }) =>
+    data.episodeId === episodeId && (import.meta.env.DEV || data.publicationStatus === "published"),
+  );
+  const transcript = available.find(({ data }) => data.locale === locale)
+    ?? available.find(({ data }) => data.locale === "zh-Hans");
+  if (!transcript) return [];
+  const ids = new Set<string>();
+  for (const chapter of transcript.data.chapters) {
+    for (const turn of chapter.turns) {
+      for (const paragraph of turn.paragraphs) {
+        for (const segment of paragraph) {
+          if (segment.type === "entity-link" && segment.entityType === "term" && segment.entityId) {
+            ids.add(segment.entityId);
+          }
+        }
+      }
+    }
+  }
+  const byId = new Map(terms.map(term => [term.id, term]));
+  return [...ids].flatMap(id => {
+    const term = byId.get(id);
+    return term ? [term] : [];
+  });
+}

@@ -12,11 +12,12 @@ interface Props {
   locale: Locale;
   isReviewDraft?: boolean;
   displayTitle?: string;
+  titleLines?: string[];
   /** Paragraph anchors from the canonical Chinese transcript; translations must reuse them so deep links match. */
   anchorIds?: string[][][];
 }
 
-const { transcript, episodeNumber, locale, isReviewDraft = false, displayTitle = transcript.data.title, anchorIds } = Astro.props;
+const { transcript, episodeNumber, locale, isReviewDraft = false, displayTitle = transcript.data.title, titleLines, anchorIds } = Astro.props;
 const speakerIds = [...new Set(
   transcript.data.chapters.flatMap(({ turns }) => turns.map(({ speakerId }) => speakerId).filter(Boolean)),
 )] as string[];
@@ -38,7 +39,6 @@ const copy = locale === "en" ? {
   read: "Full transcript",
   markdown: "Markdown format",
   candidate: "speaker attribution pending verification",
-  reviewDraft: "Local preview · Not published",
   paragraphLink: "Link to this paragraph",
   speakerPage: (name: string) => `Open ${name}'s profile`,
 } : {
@@ -49,22 +49,19 @@ const copy = locale === "en" ? {
   read: "完整文字稿",
   markdown: "Markdown 格式",
   candidate: "人物署名仍待核对",
-  reviewDraft: "本地预览 · 尚未发布",
   paragraphLink: "引用此段",
   speakerPage: (name: string) => `查看${name}的个人页面`,
 };
 ---
 
 <main id="main" class="transcript-page" data-review-draft={isReviewDraft || undefined}>
-  {isReviewDraft && <div class="transcript-review-banner" role="status">{copy.reviewDraft}</div>}
   <header class="transcript-hero shell">
     <a class="transcript-back" href={episodePath}>← {copy.back}</a>
     <div class="transcript-hero-grid">
       <div>
         <p class="section-kicker">{copy.kicker}</p>
         <h1 class="heading-reading-title" aria-label={displayTitle}>
-          <span>{seriesTitle}</span>
-          {topicTitle && <span>{topicTitle}</span>}
+          {(titleLines ?? [seriesTitle, topicTitle].filter(Boolean)).map((line) => <span>{line}</span>)}
         </h1>
       </div>
       <div class="transcript-hero-meta">
@@ -72,10 +69,10 @@ const copy = locale === "en" ? {
           <strong>{copy.read}</strong>
           <span>{String(transcript.data.chapterCount).padStart(2, "0")} {copy.chapters}</span>
         </div>
-        {!isReviewDraft && <div class="transcript-meta-actions">
+        <div class="transcript-meta-actions">
           <a class="transcript-format-link" href={`${episodePath}/transcript.md`} type="text/markdown"><span>{copy.markdown}</span><span aria-hidden="true">↗</span></a>
-          <a class="transcript-format-link" href={`${locale === "en" ? "/en" : ""}/blog/episodes/${episodeNumber}`}><span>{locale === "en" ? "Related blog posts" : "本期相关博客"}</span><span aria-hidden="true">→</span></a>
-        </div>}
+          {!isReviewDraft && <a class="transcript-format-link" href={`${locale === "en" ? "/en" : ""}/blog/episodes/${episodeNumber}`}><span>{locale === "en" ? "Related blog posts" : "本期相关博客"}</span><span aria-hidden="true">→</span></a>}
+        </div>
         {transcript.data.byline && <p>{transcript.data.byline}</p>}
         {transcript.data.notices.map((notice) => <p class="transcript-notice">{notice}</p>)}
       </div>
@@ -139,7 +136,7 @@ const copy = locale === "en" ? {
                         <p id={paragraphId} class="transcript-quote-paragraph">
                           <TranscriptSegments segments={paragraph} wikiPrefix={locale === "en" ? "/en" : ""} />
                           {timing && <span class="transcript-paragraph-time" title={locale === 'en' ? 'Video subtitle cue range; not word-level timing' : '视频字幕对应范围，非逐字对齐时间'}>{locale === 'en' ? 'Video' : '视频'} · {formatTime(timing.startSeconds)}–{formatTime(timing.endSeconds)}</span>}
-                          {!isReviewDraft && <a class="transcript-paragraph-link" href={`${episodePath}/transcript#${paragraphId}`} data-paragraph-copy aria-label={copy.paragraphLink} title={copy.paragraphLink}>¶</a>}
+                          <a class="transcript-paragraph-link" href={`${episodePath}/transcript#${paragraphId}`} data-paragraph-copy aria-label={copy.paragraphLink} title={copy.paragraphLink}>¶</a>
                         </p>
                       );
                     })}

@@ -2,6 +2,7 @@ import { getTerms, getTermArticle } from "./terms";
 import { getBlogPosts } from "./blog";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
+import { isVisibleEpisode } from "./episode-visibility";
 import { getContentCatalog } from './catalog';
 import { getParagraphAnchorIds } from './transcript-paragraph-anchors';
 import type { SearchDocument } from './search-engine';
@@ -31,13 +32,13 @@ export async function createSearchIndex(locale: Locale): Promise<SearchDocument[
     documents.push({kind:'entity',title:term.data.name[locale],aliases:term.data.aliases,href:`${prefix}/wiki/terms/${term.id}`,text:`${term.data.summary[locale]} ${proseText(article.body ?? '')}`});
   }
   for (const episode of catalog.episodes) {
-    if (episode.data.status!=='published') continue;
+    if (!isVisibleEpisode(episode.data, import.meta.env.DEV)) continue;
     const notes = catalog.prose.find(p=>p.data.entityType==='episode' && p.data.entity===episode.id && p.data.locale===locale && p.data.slot==='show-notes');
-    documents.push({kind:'episode',title:episode.data.title[locale],href:`${prefix}/weekly/${episode.data.number}`,text:`${episode.data.homepage[locale].lede} ${proseText(notes?.body ?? '')}`});
+    documents.push({kind:'episode',title:episode.data.title[locale],href:`${prefix}/weekly/${episode.data.number}`,text:`${episode.data.status === "published" ? episode.data.homepage[locale].lede : episode.data.preview.summary[locale]} ${proseText(notes?.body ?? '')}`});
   }
   for (const {data} of catalog.transcriptImports) {
-    if(data.locale!==locale || data.publicationStatus!=='published') continue;
-    const episode=catalog.episodes.find(e=>e.id===data.episodeId && e.data.status==='published');
+    if(data.locale!==locale || (!import.meta.env.DEV && data.publicationStatus!=='published')) continue;
+    const episode=catalog.episodes.find(e=>e.id===data.episodeId && isVisibleEpisode(e.data, import.meta.env.DEV));
     if(!episode) continue;
     // Translations use the same stable paragraph IDs as the Chinese reading source.
     const source = catalog.transcriptImports.find(entry => entry.data.episodeId === data.episodeId && entry.data.locale === 'zh-Hans');
