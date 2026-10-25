@@ -1,14 +1,20 @@
-const sidebar = document.querySelector<HTMLElement>('.transcript-sidebar');
+let cleanup = () => {};
+
+function initializeTranscriptNavigation() {
+  cleanup();
+  const sidebar = document.querySelector<HTMLElement>('.transcript-sidebar');
   const toc = sidebar?.querySelector<HTMLDetailsElement>('.transcript-toc');
   const list = toc?.querySelector<HTMLOListElement>('ol');
   const chapters = [...document.querySelectorAll<HTMLElement>('.transcript-chapter')];
   const links = [...(toc?.querySelectorAll<HTMLAnchorElement>('a[href^="#"]') ?? [])];
   if (sidebar && toc && list && chapters.length) {
+    const controller = new AbortController();
+    const { signal } = controller;
     let active = -1;
     let frame = 0;
     const reveal = () => {
       const link = links[active];
-      if (!link || !toc.open) return;
+      if (!link || !toc.open || getComputedStyle(sidebar).position !== 'sticky') return;
       const bounds = list.getBoundingClientRect();
       const item = link.getBoundingClientRect();
       if (item.top < bounds.top || item.bottom > bounds.bottom) {
@@ -28,8 +34,8 @@ const sidebar = document.querySelector<HTMLElement>('.transcript-sidebar');
         links[active]?.removeAttribute('aria-current');
         active = index;
         links[active]?.setAttribute('aria-current', 'location');
-        reveal();
       }
+      reveal();
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
     const resize = () => {
@@ -42,11 +48,29 @@ const sidebar = document.querySelector<HTMLElement>('.transcript-sidebar');
       schedule();
       reveal();
     };
-    addEventListener('scroll', schedule, { passive: true });
-    addEventListener('resize', resize);
-    addEventListener('hashchange', schedule);
-    toc.addEventListener('toggle', resize);
-    new ResizeObserver(resize).observe(sidebar.querySelector('.transcript-search') ?? sidebar);
-    document.fonts.ready.then(resize);
+    addEventListener('scroll', schedule, { passive: true, signal });
+    addEventListener('resize', resize, { signal });
+    addEventListener('hashchange', schedule, { signal });
+    addEventListener('pageshow', resize, { signal });
+    toc.addEventListener('toggle', resize, { signal });
+    const observer = new ResizeObserver(resize);
+    observer.observe(sidebar.querySelector('.transcript-search') ?? sidebar);
+    document.fonts.ready.then(() => { if (!signal.aborted) resize(); });
+    cleanup = () => {
+      controller.abort();
+      observer.disconnect();
+      cancelAnimationFrame(frame);
+    };
     resize();
   }
+}
+
+initializeTranscriptNavigation();
+document.addEventListener("astro:page-load", initializeTranscriptNavigation);
+if (import.meta.hot) {
+  import.meta.hot.accept();
+  import.meta.hot.dispose(() => {
+    cleanup();
+    document.removeEventListener("astro:page-load", initializeTranscriptNavigation);
+  });
+}
