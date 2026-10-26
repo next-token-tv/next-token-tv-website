@@ -49,10 +49,20 @@
   height: 2.75rem;
   flex: 0 0 auto;
   padding: 0;
-  border: 0;
-  animation: none;
+  border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent);
+  animation: logo-border-breathe 5s ease-in-out infinite;
 }
 
+@keyframes logo-border-breathe {
+  0%, 100% {
+    border-color: color-mix(in srgb, var(--ink) 25%, transparent);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 3%, transparent);
+  }
+  50% {
+    border-color: color-mix(in srgb, var(--ink) 6%, transparent);
+    box-shadow: 0 0 0 1px transparent;
+  }
+}
 
 
 .wordmark-title {
