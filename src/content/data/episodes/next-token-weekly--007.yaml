@@ -153,29 +153,17 @@ mentions:
 productionImport: next-token-weekly--007.production
 transcriptPublishedAt: '2026-10-26'
 media:
-  audio: false
-  video: false
+  audio: true
+  video: true
 platforms:
   - platform: xiaoyuzhou
     label:
       zh-Hans: 小宇宙
       en: Xiaoyuzhou
-  - platform: apple-podcasts
-    label:
-      zh-Hans: Apple Podcasts
-      en: Apple Podcasts
-  - platform: spotify
-    label:
-      zh-Hans: Spotify
-      en: Spotify
-  - platform: bilibili
-    label:
-      zh-Hans: 哔哩哔哩
-      en: Bilibili
-  - platform: youtube
-    label:
-      zh-Hans: YouTube
-      en: YouTube
+    href: https://www.xiaoyuzhoufm.com/episode/6ade36e7c96c8942ec12152e
+    action:
+      zh-Hans: 收听 / 收看
+      en: Listen / watch
 homepage:
   zh-Hans:
     eyebrow: 第 007 期
