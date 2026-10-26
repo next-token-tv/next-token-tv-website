@@ -164,6 +164,14 @@ platforms:
     action:
       zh-Hans: 收听 / 收看
       en: Listen / watch
+  - platform: bilibili
+    label:
+      zh-Hans: 哔哩哔哩
+      en: Bilibili
+    href: https://www.bilibili.com/video/BV189nQ6SEY7/
+    action:
+      zh-Hans: 立即观看
+      en: Watch now
 homepage:
   zh-Hans:
     eyebrow: 第 007 期
