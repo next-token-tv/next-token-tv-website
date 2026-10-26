@@ -1,5 +1,8 @@
 # TODO
 
+> 历史范围与阶段记录，保留当时内容；其中的路径、数量和状态不代表当前事实。新任务从[网站文档入口](README.md)读取现行规范。
+
+
 - [x] Add the 36 English blog editions, including titles, summaries and article bodies.
 - [x] Add English blog routes with reciprocal language switching and language metadata.
 - [x] Include English articles in the English search index and `/en/blog/rss.xml`.

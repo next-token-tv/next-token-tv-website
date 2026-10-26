@@ -1,5 +1,8 @@
 # Weekly #004 资料库基础条目
 
+> 历史范围与阶段记录，保留当时内容；其中的路径、数量和状态不代表当前事实。新任务从[网站文档入口](README.md)读取现行规范。
+
+
 新增条目只包含中英文简介、分类、来源与必要关系，详情页由现有模板生成；尚无新增长篇 Wiki 正文。
 
 结构化资料位于 `src/content/data/`。完整正文可放入 `src/content/prose/<集合>/<id>.wiki.zh-Hans.md` 与 `.wiki.en.md`，沿用现有 frontmatter。

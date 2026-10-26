@@ -1,31 +1,17 @@
-This website is metadata-driven.
+# Website instructions
 
-- Follow [the entity library rules](docs/entity-library.md) when adding or classifying brands, products, models, and shows.
+Use [documentation entrypoints](docs/README.md) for the relevant task and the sibling [production workflow](../next-token/docs/production/workflow.zh-Hans.md) for cross-repository ownership.
 
-- Follow [the website design guidelines](docs/design-guidelines.md) for presentation changes, including the shared H2 line-height rule.
+- Human-authored metadata is YAML in `src/content/data/`; localized prose is Markdown in `src/content/prose/`. Generated `src/content/imported/` JSON must not be hand-edited. Source provenance and episode availability follow the [release contract](docs/release-checklist.md).
+- Keep stable lowercase ASCII entity IDs; follow [entity classification](docs/entity-library.md) rather than duplicating classification rules here.
+- Production owns original dialogue, media and brand assets. This repository owns presentation and website delivery copies; builds never read editorial working files directly.
+- Preserve rendered design during metadata refactors unless a design change was requested. Follow the [design guidelines](docs/design-guidelines.md).
+- Review pages present final reader-facing copy; production status and source details belong in metadata/QA. Draft exclusion, noindex and publication checks follow the release contract. Local review does not authorize publishing.
+- Preserve unrelated work and historical materials. Use Conventional Commits; run `gh` and `wrangler` outside the sandbox. Runtime/test changes listed in [implementation decisions](../next-token/docs/production/implementation-decisions.zh-Hans.md) require separate confirmation.
 
-- Human-authored structured metadata lives as YAML under `src/content/data/`.
-- Localized long-form content lives as Markdown under `src/content/prose/`.
-- Generated snapshots imported from production repositories live as JSON under `src/content/imported/` and must not be hand-edited.
-- Transcript snapshots must record their source repository, repository-relative path, source SHA-256, source Git state, and committed revision when one exists. Published snapshots require committed sources. Conversion QA reports remain command output and are not stored in website snapshots. Website builds never read editorial working files directly.
-- Cross-entity references use stable lowercase ASCII IDs. IDs are filenames without their extension.
-- Industry brands and products are separate entities: a product may reference its owning brand and a parent product. Standalone products do not require a separate brand entry. Versioned model names are aliases of their model-family entry.
-- Classify the referent: a brand is the provider; a product is the concrete software, model, tool, hardware, or service people use. A website, trademark, community, or the word "platform" does not establish a brand. For a shared company/product name, default to the product; split only when independently sourced organization and product descriptions cover distinct information. Brand articles focus on the organization and its business, not pricing tiers or API instructions.
-
-- Brand entries describe companies, organizations, or independent media brands. Models, applications, platforms, and open-source tools belong in products; do not create a duplicate brand for the same product. A company and its same-name product may remain separate when each has distinct information. Shows use their show entry and pagePath, not a duplicate brand.
-- A team/about page, founder identity, or legal company alone does not justify splitting a same-name platform into company and product entries. Split only when the library independently covers the organization (for example, its product portfolio or organization-specific topics). Runta and OpenRouter are standalone platform products.
-- A recording venue belongs to one partner. Every episode production snapshot references one exact venue.
-- An announced episode may store a confirmed recording date and venue before a production snapshot exists. Published episodes require an imported production snapshot.
-- Announcement schedules may be date-only when the recording time is unconfirmed. Online recordings use `recordingMode: online` without a physical venue; do not infer meeting links, public attendance, or participants.
-- An episode becomes `published` when its first medium or approved transcript is released. A transcript-first release requires a committed published transcript and `transcriptPublishedAt`; audio/video flags and platform links stay unavailable until actual platform publication. Audio and video availability are independent `media` flags; transcript availability comes from the localized transcript collection. Published audio-only episodes use an imported audio snapshot with hashed release sources; they must not remain announcements. Latest published episodes are selected from metadata by descending episode number, never by a hardcoded ID.
-- Next Token logo and visual-identity source files remain authoritative in the sibling `next-token` repository. Files under `public/assets/` are website delivery copies.
-- Metadata refactors must preserve the existing rendered design unless a design change is explicitly requested.
-
-- For Blog writing and editing, use [.agents/skills/next-token-blog/SKILL.md](.agents/skills/next-token-blog/SKILL.md) and follow [the editorial standard](docs/blog-editorial.zh-Hans.md) and [the content contract](docs/blog.md).
-
-- For WeChat articles and full-episode conversation editing, use [.agents/skills/next-token-wechat/SKILL.md](.agents/skills/next-token-wechat/SKILL.md) and follow [the WeChat editorial standard](docs/wechat-editorial.zh-Hans.md) and [channel contract](docs/wechat.md). Preserve the full-episode scope and fixed speaker emojis; do not default to the Blog's single-topic structure.
-
-- For technical SEO audits or fixes, use [.agents/skills/next-token-seo/SKILL.md](.agents/skills/next-token-seo/SKILL.md) and follow [the technical SEO contract](docs/seo-technical.md).
-
-- Local review pages use the intended final reader-facing titles, copy and layout. Keep deployment status, source filenames, review-stage labels and production notes in metadata or QA reports, not public page copy. Local review does not authorize publication; retain draft exclusion from production builds and noindex.
-- Episode release preparation covers the entire local site: home latest episode and card, show latest episode and ordered list, global navigation, transcript and Markdown links, search, sitemap, host profiles and library relations in both locales. Verify by navigating from the homepage. A working direct episode URL alone is incomplete.
+| Task | Entry |
+|---|---|
+| Blog writing/editing | [Blog skill](.agents/skills/next-token-blog/SKILL.md), [editorial standard](docs/blog-editorial.zh-Hans.md), [content contract](docs/blog.md) |
+| Full-episode WeChat articles | [WeChat skill](.agents/skills/next-token-wechat/SKILL.md), [editorial standard](docs/wechat-editorial.zh-Hans.md), [channel contract](docs/wechat.md) |
+| Technical SEO | [SEO skill](.agents/skills/next-token-seo/SKILL.md), [SEO contract](docs/seo-technical.md) |
+| Episode import and site release | [README import commands](README.md), [release checks](docs/release-checklist.md), [maintenance](docs/site-maintenance.md) |

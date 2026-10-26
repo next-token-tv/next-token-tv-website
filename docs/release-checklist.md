@@ -1,5 +1,16 @@
 # Release gates
 
+## Source and episode state
+
+- Human-authored YAML metadata, localized Markdown prose and generated imported JSON have separate ownership. Import snapshots record source repository, repository-relative path, SHA-256, source state and committed revision when available. Published snapshots require committed sources; conversion QA stays command output, not embedded production notes. Builds read imported snapshots, never editorial working files.
+- A venue belongs to one partner, and a production snapshot identifies its exact physical venue when applicable. Announcements may record confirmed dates and venue before a snapshot exists. Date-only schedules preserve unknown recording times; `recordingMode: online` does not imply a physical venue, meeting URL, public access or attendees.
+- `published` begins with the first released medium or approved published transcript. Transcript-first release requires committed transcript content and `transcriptPublishedAt`; it does not enable audio/video links. Published audio-only episodes use an imported audio snapshot with hashed release sources. Audio/video availability and localized transcript availability are independent.
+- Select the latest published episode from metadata by descending episode number. Do not hardcode an episode ID or infer publication from a passed scheduled date.
+- Local review copy uses intended final reader-facing wording. Drafts stay excluded from production and noindex; production filenames, review-stage labels and agent reasoning are not public copy.
+- Episode release preparation covers home/latest cards, show ordering, navigation, both locales, transcript and Markdown links, search, sitemap, host profiles and entity relations. Verify navigation from home as well as direct URLs.
+
+## Website validation
+
 `npm run release:check` runs schema/content checks, stylesheet lint, a production build, Chrome interaction and responsive regression tests, and the built-site audit. It does not commit, push, or deploy. `npm run deploy` runs these gates before Wrangler publishes the site.
 
 A production release is a complete website snapshot: episode pages, published transcripts, Wiki entries and their saved articles, navigation, APIs, and generated assets ship together. Episode or platform-link updates must not silently omit current Wiki content. Explicitly unpublished drafts remain excluded by their publication status.
@@ -15,7 +26,7 @@ The built-site audit requires:
 - Published episode and transcript snapshots come from committed production sources. Importers reject dirty or untracked release inputs and do not serialize raw working-tree status into website data.
 - Internal destinations and fragment anchors exist, including entity links.
 - Each episode has Chinese and English detail routes.
-- Published episode metadata titles use `Weekly #<number> | <topic>` semantics without a site-name suffix. HTML sitemap rows show the number once and use the localized hero heading for the topic.
+- Published episode metadata titles use `#NNN <topic>` under the [shared naming standard](../../next-token/docs/brand/naming.zh-Hans.md#跨平台完整单集标题), preserving three digits and one space without a Weekly prefix or site-name suffix. HTML sitemap rows show the number once and use the localized hero heading for the topic.
 - Published Chinese and English Show Notes include opening context, episode questions, the generated timeline, references, people/products/terms, and production credits. `npm run check:chapters` confirms both timeline blocks against their imported chapter snapshot.
 - Home and Weekly pages in both languages link to the latest published episode and the next announced recording. A preview must not remain when no announced recording exists.
 - Recording previews use time-stable “录制安排 · 进度待确认 / Recording schedule · Status unconfirmed” wording until editorial confirmation; dates remain scheduled dates, not evidence that recording happened. HTML, OG and llms.txt share this state wording. This protects a deployed static page when the date passes without a rebuild.

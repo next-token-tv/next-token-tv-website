@@ -13,6 +13,10 @@
 
 各语言 URL 始终直接展示对应内容，不按浏览器语言自动跳转。全站在语言偏好与当前页面不一致时提供双向切换提示：中文页显示 “Switch to English”，英文页显示“切换到中文”。手动选择优先于浏览器语言；继续浏览当前语言也会保存为偏好。切换保留对应页面路径、查询参数与锚点。存储不可用时，切换链接仍正常工作。
 
+## 文档入口
+
+当前规范和任务入口见 [网站文档索引](docs/README.md)；单集发布状态、导入来源与整站验收以[发布检查](docs/release-checklist.md)为准。历史研究和计划保留作参考，不作为默认任务清单。
+
 ## 技术架构
 
 - `src/pages/`：Astro 路由，生成中英文首页、栏目、分期、人物、合作伙伴、品牌、产品、品牌素材和 404 页面。
@@ -141,7 +145,7 @@ Sitemap 包含中英文首页、栏目、分期、人物、合作伙伴、品牌
 
 所有页面提供 canonical、双向 `hreflang`、Open Graph 与 Twitter 基础元数据。品牌和产品详情页另提供 JSON-LD 实体数据，名称、摘要、别名、品牌关系和发布日期均来自元数据 SSOT。
 
-分期从预告更新为正式内容时保留原 URL。当前未设置 `lastmod`：后续只能从可信的内容更新时间生成，不使用构建时间或录制日期代替。生产发布后可在 Google Search Console 中提交上述 sitemap 入口。
+分期从预告更新为正式内容时保留原 URL。已发布 Blog 与 Wiki 正文的 `lastmod` 来自对应语言的可信 `updatedAt`；没有可信更新时间的页面省略该字段，不使用构建时间或录制日期代替。实现与验证见[技术 SEO 约定](docs/seo-technical.md)。生产发布后可在 Google Search Console 中提交上述 sitemap 入口。
 
 Google Search Console 使用 `https://nexttoken.tv/` URL 前缀资源，通过公共布局中的 `google-site-verification` 标签验证所有权；该标签需要持续保留。
 

@@ -1,5 +1,8 @@
 # Weekly #004 reading transcript
 
+> 历史范围与阶段记录，保留当时内容；其中的路径、数量和状态不代表当前事实。新任务从[网站文档入口](README.md)读取现行规范。
+
+
 - Page: `/weekly/004/transcript`; episode entry: `/weekly/004`.
 - Content source: `next-token/shows/weekly/episodes/004/03-post-production/transcripts/reading/transcript.zh-Hans.md`.
 - Source SHA-256: `16c15ebaba8015f5478b62e9174ea8288ecbd4977a756abb7754dd96193d228d`.
