@@ -11,13 +11,15 @@ interface Props {
   episodeNumber: string;
   locale: Locale;
   isReviewDraft?: boolean;
+  /** The /blog/episodes hub route only exists for published episodes. */
+  showBlogLink?: boolean;
   displayTitle?: string;
   titleLines?: string[];
   /** Paragraph anchors from the canonical Chinese transcript; translations must reuse them so deep links match. */
   anchorIds?: string[][][];
 }
 
-const { transcript, episodeNumber, locale, isReviewDraft = false, displayTitle = transcript.data.title, titleLines, anchorIds } = Astro.props;
+const { transcript, episodeNumber, locale, isReviewDraft = false, showBlogLink = true, displayTitle = transcript.data.title, titleLines, anchorIds } = Astro.props;
 const speakerIds = [...new Set(
   transcript.data.chapters.flatMap(({ turns }) => turns.map(({ speakerId }) => speakerId).filter(Boolean)),
 )] as string[];
@@ -71,7 +73,7 @@ const copy = locale === "en" ? {
         </div>
         <div class="transcript-meta-actions">
           <a class="transcript-format-link" href={`${episodePath}/transcript.md`} type="text/markdown"><span>{copy.markdown}</span><span aria-hidden="true">↗</span></a>
-          {!isReviewDraft && <a class="transcript-format-link" href={`${locale === "en" ? "/en" : ""}/blog/episodes/${episodeNumber}`}><span>{locale === "en" ? "Related blog posts" : "本期相关博客"}</span><span aria-hidden="true">→</span></a>}
+          {!isReviewDraft && showBlogLink && <a class="transcript-format-link" href={`${locale === "en" ? "/en" : ""}/blog/episodes/${episodeNumber}`}><span>{locale === "en" ? "Related blog posts" : "本期相关博客"}</span><span aria-hidden="true">→</span></a>}
         </div>
         {transcript.data.byline && <p>{transcript.data.byline}</p>}
         {transcript.data.notices.map((notice) => <p class="transcript-notice">{notice}</p>)}

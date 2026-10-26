@@ -13,7 +13,7 @@ The conversation starts with AI reverse engineering and writing a macOS mouse dr
 
 How much work do personal agents actually complete? What remains valuable when software and media become easier to produce?
 
-[Read the full Chinese transcript](/weekly/006/transcript).
+The full transcript is available in Chinese.
 
 ## Music
 

@@ -63,5 +63,5 @@ const structuredData = {
   markdownPath={`/weekly/${episode.data.number}/transcript.md`}
 >
   <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-  <EpisodeTranscriptPage transcript={transcript} episodeNumber={episode.data.number} locale="zh-Hans" isReviewDraft={isReviewDraft} displayTitle={displayTitle} titleLines={titleLines} />
+  <EpisodeTranscriptPage transcript={transcript} episodeNumber={episode.data.number} locale="zh-Hans" isReviewDraft={isReviewDraft} showBlogLink={episode.data.status === "published"} displayTitle={displayTitle} titleLines={titleLines} />
 </BaseLayout>
