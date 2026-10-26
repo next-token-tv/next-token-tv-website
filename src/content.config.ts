@@ -407,6 +407,9 @@ const wechatArticles = defineCollection({
   loader: markdownLoader("./src/content/prose/wechat"),
   schema: z.object({
     number: z.string().regex(/^\d{3}$/),
+    status: z.enum(["draft", "published"]).default("published"),
+    cover: assetPath.optional(),
+    closingQuestion: z.string().optional(),
     title: z.string().min(1),
     description: z.string().min(1),
     recordedAt: z.iso.date(),

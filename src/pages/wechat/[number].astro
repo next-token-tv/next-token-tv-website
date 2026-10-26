@@ -2,7 +2,7 @@
 import { getCollection, render, type CollectionEntry } from "astro:content";
 import WechatLayout from "../../layouts/WechatLayout.astro";
 export async function getStaticPaths() {
-  return (await getCollection("wechatArticles")).map(article => ({ params: { number: article.data.number }, props: { article } }));
+  return (await getCollection("wechatArticles")).filter(article => import.meta.env.DEV || article.data.status === "published").map(article => ({ params: { number: article.data.number }, props: { article } }));
 }
 interface Props { article: CollectionEntry<"wechatArticles">; }
 const { article } = Astro.props;
@@ -27,8 +27,8 @@ const { number, title, description, recordedAt } = article.data;
       <div class="conversation"><Content /></div>
       <footer class="letter-footer">
         <p class="eyebrow">对话还在继续</p>
-        <p>你把哪些事情交给了 Agent？<br />哪些真的省了事，哪些只是玩得很开心？</p>
-        <p class="source-links"><a href={`https://nexttoken.tv/weekly/${number}`}>收听 / 观看第 {number} 期</a> · <a href={`https://nexttoken.tv/weekly/${number}/transcript`}>完整文字稿</a></p>
+        <p>{article.data.closingQuestion ?? "你把哪些事情交给了 Agent？哪些真的省了事，哪些只是玩得很开心？"}</p>
+        <p class="source-links"><a href={article.data.status === "draft" ? `/weekly/${number}` : `https://nexttoken.tv/weekly/${number}`}>查看第 {number} 期</a> · <a href={article.data.status === "draft" ? `/weekly/${number}/transcript` : `https://nexttoken.tv/weekly/${number}/transcript`}>完整文字稿</a></p>
         <p class="signature">NEXT TOKEN<br /><span>词元之外</span></p>
       </footer>
     </article>
