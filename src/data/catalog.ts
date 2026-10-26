@@ -60,10 +60,11 @@ const platformLabels = {
   website: { "zh-Hans": "个人网站", en: "Personal website" },
   blog: { "zh-Hans": "博客", en: "Blog" },
   podcast: { "zh-Hans": "播客", en: "Podcast" },
+  bilibili: { "zh-Hans": "B 站", en: "Bilibili" },
 } as const;
 
 const socialOrder: (keyof typeof platformLabels)[] = [
-  "website", "podcast", "x", "github", "jike", "wechat", "wechat-channels", "rednote", "weibo", "linkedin", "blog",
+  "website", "podcast", "bilibili", "x", "github", "jike", "wechat", "wechat-channels", "rednote", "weibo", "linkedin", "blog",
 ];
 
 function getSocials(socials: CollectionEntry<"people">["data"]["socials"], locale: Locale): Host["socials"] {

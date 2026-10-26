@@ -64,7 +64,7 @@ const people = defineCollection({
     alt: localizedText.default({ "zh-Hans": "人物头像", en: "Portrait" }),
     socialsLabel: localizedText.default({ "zh-Hans": "公开账号", en: "Public profiles" }),
     socials: z.array(z.object({
-      platform: z.enum(["x", "github", "jike", "weibo", "wechat", "wechat-channels", "rednote", "linkedin", "website", "blog", "podcast"]),
+      platform: z.enum(["x", "github", "jike", "weibo", "wechat", "wechat-channels", "rednote", "linkedin", "website", "blog", "podcast", "bilibili"]),
       handle: z.string(),
       href: z.url().optional(),
     })).default([]),
