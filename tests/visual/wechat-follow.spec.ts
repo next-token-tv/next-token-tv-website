@@ -111,12 +111,14 @@ for (const prefix of ['', '/en']) for (const width of [390, 1440]) {
       return { width: rect.width, height: rect.height, centerOffset: brand.y + brand.height / 2 - rect.y - rect.height / 2, color: style.backgroundColor, padding: style.padding };
     }));
     expect(geometry.length).toBeGreaterThan(1);
+    const first = geometry[0];
+    if (!first) throw new Error('Episode platform controls are missing');
     for (const item of geometry) {
       expect([160, 192, 224]).toContain(item.width);
       expect(item.height).toBe(50);
       expect(Math.abs(item.centerOffset)).toBeLessThan(0.1);
-      expect(item.color).toBe(geometry[0].color);
-      expect(item.padding).toBe(geometry[0].padding);
+      expect(item.color).toBe(first.color);
+      expect(item.padding).toBe(first.padding);
     }
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   });
