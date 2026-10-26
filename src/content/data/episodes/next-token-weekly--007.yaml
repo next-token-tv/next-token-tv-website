@@ -172,6 +172,14 @@ platforms:
     action:
       zh-Hans: 立即观看
       en: Watch now
+  - platform: youtube
+    label:
+      zh-Hans: YouTube
+      en: YouTube
+    href: https://youtu.be/jbgY_2EiYQc
+    action:
+      zh-Hans: 立即观看
+      en: Watch now
 homepage:
   zh-Hans:
     eyebrow: 第 007 期
