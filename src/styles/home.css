@@ -446,7 +446,8 @@ h1 .accent {
 .episode-listen {
   display: inline-flex;
   width: fit-content;
-  min-height: var(--control-height);
+  min-height: max(var(--control-height), 3.125rem);
+  line-height: 1.6;
   align-items: center;
   gap: 0.65rem;
   padding: .5rem .875rem;
@@ -541,8 +542,20 @@ h1 .accent {
 }
 
 .episode-platform {
+  width: var(--platform-width-sm);
+  justify-content: center;
+  flex-shrink: 0;
   background: var(--white);
   border-color: var(--white);
+}
+
+:lang(en) .episode-platform[data-listen-platform="xiaoyuzhou"],
+:lang(en) .platform-list-compact .episode-platform {
+  width: var(--platform-width-md);
+}
+
+.episode-platform[data-listen-platform="apple-podcasts"] {
+  width: var(--platform-width-lg);
 }
 
 .episode-platform:hover,

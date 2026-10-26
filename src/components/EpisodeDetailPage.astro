@@ -8,7 +8,7 @@ import { render } from "astro:content";
 import ConditionalImagePan from "./ConditionalImagePan.astro";
 import EpisodeMentions from "./EpisodeMentions.astro";
 import PlatformBrand from "./PlatformBrand.astro";
-import { getEpisodeShowNotes, getPeopleByIds, getDetailEpisode, getEpisodeTranscriptOrNull } from "../data/catalog";
+import { getEpisodeShowNotes, getPeopleByIds, getDetailEpisode, getEpisodeTranscriptOrNull, getShowPageData } from "../data/catalog";
 import { partnerPath, resolveVenueId } from "../data/partners";
 import type { Locale } from "../data/types";
 import { episodeImageSrcset } from "../data/episode-images";
@@ -30,6 +30,14 @@ const [recording, participants] = await Promise.all([
 ]);
 const { Content } = await render(showNotes);
 const homepage = episode.data.homepage[locale];
+const show = await getShowPageData(episode.data.show, locale);
+const official = show.data.subscriptions.find(platform => platform.platform === "wechat");
+const wechatPlatforms = episode.data.status === "published" && episode.data.wechatPodcastPublished && official?.qr ? [{
+  platform: "wechat", label: locale === "en" ? "WeChat Podcast" : "公众号播客",
+  action: locale === "en" ? "Audio live · Scan QR" : "音频已上线 · 扫码收听",
+  accountName: official.accountName, qr: official.qr,
+}] : [];
+const qrHint = locale === "en" ? "Scan this official account code in WeChat and find this episode’s audio podcast." : "微信扫描公众号二维码，在公众号中找到本期音频播客收听。";
 const announcement = episode.data.status === "announced" ? announcementCopy(episode.data, locale) : null;
 const isLocalReview = import.meta.env.DEV && (await getEpisodeTranscriptOrNull(episodeId, locale))?.data.publicationStatus === "review-draft";
 const weeklyPath = locale === "en" ? "/en/weekly" : "/weekly";
@@ -122,6 +130,7 @@ const labels = locale === "en" ? {
               <PlatformBrand platform={platform.platform} name={platform.label[locale]} /> <span aria-hidden="true">↗</span>
             </a>
           ))}
+          {wechatPlatforms.length > 0 && <PlatformList platforms={wechatPlatforms} comingSoon={labels.comingSoon} compact idPrefix="episode-hero" qrHint={qrHint} />}
         </div>
       </div>
     </div>
@@ -177,12 +186,12 @@ const labels = locale === "en" ? {
     {episode.data.guestNames.length > 0 && <p class="episode-guest-names">{locale === "en" ? "Guests" : "本期嘉宾"}：{episode.data.guestNames.map(name => name[locale]).join(" · ")}</p>}
   </section>
 
-  {episode.data.platforms.some(platform => platform.href) && <section class="episode-detail-platforms shell">
+  {(episode.data.platforms.some(platform => platform.href) || wechatPlatforms.length > 0) && <section class="episode-detail-platforms shell">
     <div>
       <p class="section-kicker">{labels.platforms}</p>
       <h2 class="heading-section-content">{labels.platformsHeading}</h2>
     </div>
-    <PlatformList platforms={episode.data.platforms.map((platform) => ({ ...platform, label: platform.label[locale], action: platform.action?.[locale] }))} comingSoon={labels.comingSoon} />
+    <PlatformList platforms={[...episode.data.platforms.map((platform) => ({ ...platform, label: platform.label[locale], action: platform.action?.[locale] })), ...wechatPlatforms]} comingSoon={labels.comingSoon} idPrefix="episode-platforms" qrHint={qrHint} />
   </section>}
 </main>
 

@@ -1,6 +1,7 @@
 schemaVersion: 2
 number: '006'
 show: next-token-weekly
+wechatPodcastPublished: true
 status: published
 title:
   zh-Hans: '#006 AI 逆向挡不住，Grok Bot、Muse 用上头：干活还是过家家？'

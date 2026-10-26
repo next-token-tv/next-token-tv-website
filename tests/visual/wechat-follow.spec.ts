@@ -51,12 +51,73 @@ test('touch users can press the QR image without dismissing it', async ({ browse
   await context.close();
 });
 
-test('older browsers can open the original QR image', async ({ page }) => {
+test('older browsers disclose QR codes without navigating away', async ({ page }) => {
   await page.addInitScript(() => { Object.defineProperty(HTMLElement.prototype, 'showPopover', { value: undefined, configurable: true }); });
   await page.goto('/community');
   await page.addStyleTag({ content: 'astro-dev-toolbar { display: none !important; }' });
   const row = page.locator('.platform-qr-row').first();
   await expect(row.locator('.platform-qr')).not.toBeVisible();
   await row.locator('button').click();
-  await expect(page).toHaveURL(/\/assets\/follow\/wechat-official\.jpg$/);
+  await expect(page).toHaveURL(/\/community$/);
+  await expect(row.locator('.platform-qr img')).toBeVisible();
+  await row.locator('button').click();
+  await expect(row.locator('.platform-qr')).not.toBeVisible();
 });
+
+for (const prefix of ['', '/en']) for (const number of ['006', '007']) {
+  test(`episode podcast QR disclosure ${prefix || 'zh'} ${number}`, async ({ page }) => {
+    await page.goto(`${prefix}/weekly/${number}`);
+    const rows = page.locator('.platform-qr-row');
+    await expect(rows).toHaveCount(2);
+    const ids = await rows.locator('.platform-qr').evaluateAll(items => items.map(item => item.id));
+    expect(new Set(ids).size).toBe(2);
+    for (const row of await rows.all()) {
+      await expect(row.locator('a')).toHaveCount(0);
+      await row.locator('button').hover();
+      await expect(row.locator('.platform-qr')).toBeVisible();
+      await expect(row.locator('.platform-qr img')).toHaveCount(1);
+      await expect(row.locator('.platform-qr img').first()).toHaveAttribute('src', '/assets/follow/wechat-official.jpg');
+      await expect(row.locator('.platform-qr img[src*="wechat-channels"]')).toHaveCount(0);
+      await page.keyboard.press('Escape');
+      await expect(row.locator('.platform-qr')).not.toBeVisible();
+    }
+    await page.setViewportSize({ width: 390, height: 844 });
+    await rows.first().locator('button').click();
+    await expect(rows.first().locator('.platform-qr')).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.goto(`${prefix}/weekly/005`);
+    await expect(page.locator('.platform-qr-row')).toHaveCount(0);
+  });
+}
+
+test('header logo restores breathing border and respects reduced motion', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto('/');
+  const logo = page.locator('.wordmark img');
+  await expect(logo).toHaveCSS('animation-name', 'logo-border-breathe');
+  await expect(logo).toHaveCSS('border-top-width', '1px');
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await expect(logo).toHaveCSS('animation-name', 'none');
+});
+
+for (const prefix of ['', '/en']) for (const width of [390, 1440]) {
+  test(`episode platform sizing ${prefix || 'zh'} ${width}`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto(`${prefix}/weekly/006`);
+    const geometry = await page.locator('.episode-actions .episode-platform').evaluateAll(items => items.map(item => {
+      const rect = item.getBoundingClientRect();
+      const brand = item.querySelector('.platform-brand')!.getBoundingClientRect();
+      const style = getComputedStyle(item);
+      return { width: rect.width, height: rect.height, centerOffset: brand.y + brand.height / 2 - rect.y - rect.height / 2, color: style.backgroundColor, padding: style.padding };
+    }));
+    expect(geometry.length).toBeGreaterThan(1);
+    for (const item of geometry) {
+      expect([160, 192, 224]).toContain(item.width);
+      expect(item.height).toBe(50);
+      expect(Math.abs(item.centerOffset)).toBeLessThan(0.1);
+      expect(item.color).toBe(geometry[0].color);
+      expect(item.padding).toBe(geometry[0].padding);
+    }
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  });
+}

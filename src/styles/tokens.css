@@ -56,6 +56,9 @@
     --reading-width: 46rem;
     --section-space: clamp(3rem, 5vw, 5rem);
     --control-height: 2.5rem;
+    --platform-width-sm: 10rem;
+    --platform-width-md: 12rem;
+    --platform-width-lg: 14rem;
     --control-radius: 1px;
     --duration: 160ms;
     --wiki-visual-height: 10rem;

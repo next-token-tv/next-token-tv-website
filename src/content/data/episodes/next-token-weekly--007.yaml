@@ -1,6 +1,7 @@
 schemaVersion: 2
 number: '007'
 show: next-token-weekly
+wechatPodcastPublished: true
 status: published
 recordingLocation:
   zh-Hans: 万象空间
@@ -164,6 +165,14 @@ platforms:
     action:
       zh-Hans: 收听 / 收看
       en: Listen / watch
+  - platform: spotify
+    label:
+      zh-Hans: Spotify
+      en: Spotify
+    href: https://open.spotify.com/episode/68LItbFCGfxnJhMYgzeJeU
+    action:
+      zh-Hans: 立即收听
+      en: Listen now
   - platform: bilibili
     label:
       zh-Hans: 哔哩哔哩
@@ -176,7 +185,7 @@ platforms:
     label:
       zh-Hans: YouTube
       en: YouTube
-    href: https://youtu.be/jbgY_2EiYQc
+    href: https://www.youtube.com/watch?v=jbgY_2EiYQc
     action:
       zh-Hans: 立即观看
       en: Watch now

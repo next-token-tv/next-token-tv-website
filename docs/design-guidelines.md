@@ -141,6 +141,7 @@ Border tokens follow a separate functional scale described under Units, rules an
 
 ## Controls and motion
 
+- Episode platform entrances use shared width tiers of 10rem, 12rem and 14rem (`--platform-width-sm/md/lg`), with centered contents. Standard labels use 10rem; English Xiaoyuzhou and WeChat Podcast use 12rem; Apple Podcasts uses 14rem. QR disclosures use the same sizing as outbound platform links.
 - Controls use `--control-height: 2.5rem` on fine pointers and `2.75rem` on coarse pointers. Buttons may grow for wrapping labels. Primary actions use ink; secondary actions use a light surface; ordinary text links remain lightweight.
 - Native selects, `.control-input`, `.control-button` and `.control-choice` share type and state rules. Pages set widths and layout. Native keyboard and mobile picker behavior remains intact.
 - Inputs, selects, disclosure triggers and action buttons retain the shared 1px corner radius in resting and focused states. Their focus outline is 2px with a 1px offset.

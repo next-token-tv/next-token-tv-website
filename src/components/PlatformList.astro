@@ -3,6 +3,8 @@ import PlatformBrand from "./PlatformBrand.astro";
 
 interface Props {
   platforms: { platform: string; label: string; href?: string; action?: string; accountName?: string; qr?: { image: string; width: number; height: number } }[];
+  idPrefix?: string;
+  compact?: boolean;
   qrLabel?: string;
   qrHint?: string;
   label?: string;
@@ -11,19 +13,19 @@ interface Props {
   reveal?: boolean;
 }
 
-const { platforms, label, available, comingSoon, reveal = false, qrLabel = "查看二维码", qrHint = "用微信扫一扫，或长按图片识别关注" } = Astro.props;
+const { platforms, label, available, comingSoon, reveal = false, qrLabel = "查看二维码", qrHint = "用微信扫一扫，或长按图片识别关注", idPrefix = "follow", compact = false } = Astro.props;
 ---
 
-<div class="platform-list" aria-label={label} data-reveal={reveal || undefined}>
+<div class:list={["platform-list", { "platform-list-compact": compact }]} aria-label={label} data-reveal={reveal || undefined}>
   {platforms.map((platform, index) => {
     if (platform.qr && !platform.href) return (
       <div class="platform-qr-row">
-        <button class="platform is-live platform-qr-trigger" type="button" aria-expanded="false" aria-controls={`follow-qr-${platform.platform}`}>
+        <button class:list={["platform-qr-trigger", compact ? "episode-listen episode-platform" : "platform is-live"]} type="button" aria-expanded="false" aria-controls={`${idPrefix}-qr-${platform.platform}`}>
           <span class="index">{String(index + 1).padStart(2, "0")}</span>
           <strong><PlatformBrand platform={platform.platform} name={platform.label} /></strong>
-          <span class="coming">{platform.action ?? qrLabel} <span aria-hidden="true">↗</span></span>
+          <span class="coming">{platform.action ?? qrLabel}</span>
         </button>
-        <div class="platform-qr" id={`follow-qr-${platform.platform}`} popover="manual" role="region" aria-label={`${platform.label} · ${platform.accountName}`}>
+        <div class="platform-qr" id={`${idPrefix}-qr-${platform.platform}`} popover="manual" role="region" aria-label={`${platform.label} · ${platform.accountName}`}>
           <p class="platform-qr-name">{platform.accountName}</p>
           <img src={platform.qr.image} width={platform.qr.width} height={platform.qr.height} alt={`${platform.label} · ${platform.accountName}`} />
           <p class="platform-qr-hint">{qrHint}</p>
@@ -53,11 +55,18 @@ const { platforms, label, available, comingSoon, reveal = false, qrLabel = "查�
   document.querySelectorAll<HTMLElement>(".platform-qr-row").forEach(row => {
     const button = row.querySelector<HTMLButtonElement>("button")!;
     const panel = row.querySelector<HTMLElement>(".platform-qr")!;
-    // Older in-app browsers can still open the original QR image.
+    // Keep QR disclosure in-page even when the Popover API is unavailable.
     if (typeof panel.showPopover !== "function") {
       panel.hidden = true;
-      button.removeAttribute("aria-expanded");
-      button.addEventListener("click", () => { window.location.href = panel.querySelector("img")!.src; });
+      panel.classList.add("platform-qr-fallback");
+      const setOpen = (open: boolean) => {
+        panel.hidden = !open;
+        panel.style.display = open ? "block" : "none";
+        button.setAttribute("aria-expanded", String(open));
+      };
+      button.addEventListener("click", () => setOpen(panel.hidden));
+      document.addEventListener("keydown", event => { if (event.key === "Escape") setOpen(false); });
+      document.addEventListener("pointerdown", event => { if (!row.contains(event.target as Node)) setOpen(false); });
       return;
     }
     let timer: ReturnType<typeof setTimeout>;

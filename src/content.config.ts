@@ -253,6 +253,7 @@ const episodes = defineCollection({
       status: z.literal("published"),
       productionImport: z.string(),
       transcriptPublishedAt: z.iso.date().optional(),
+      wechatPodcastPublished: z.boolean().default(false),
       media: z.object({ audio: z.boolean(), video: z.boolean() }),
       transcriptSeo: z.object({
         "zh-Hans": z.object({ title: z.string().min(1), description: z.string().min(1) }),
