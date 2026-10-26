@@ -2,12 +2,13 @@
 import { announcementCopy } from "../data/announcement-copy.mjs";
 import { getAnnouncedEpisodes } from "../data/catalog";
 import { resolveVenueId } from "../data/partners";
+import type { CollectionEntry } from "astro:content";
 import type { Locale } from "../data/types";
 
-interface Props { locale: Locale; showId?: string }
-const { locale, showId = "next-token-weekly" } = Astro.props;
-const episodes = await getAnnouncedEpisodes();
-const episode = episodes.filter(({ data }) => data.show === showId)
+interface Props { locale: Locale; showId?: string; episode?: CollectionEntry<"episodes"> | null }
+const { locale, showId = "next-token-weekly", episode: suppliedEpisode } = Astro.props;
+const episodes = suppliedEpisode === undefined ? await getAnnouncedEpisodes() : [];
+const episode = suppliedEpisode !== undefined ? suppliedEpisode : episodes.filter(({ data }) => data.show === showId)
   .sort((a, b) => a.data.status === "announced" && b.data.status === "announced"
     ? Date.parse(a.data.scheduledAt) - Date.parse(b.data.scheduledAt) : 0)[0];
 const data = episode?.data.status === "announced" ? episode.data : undefined;

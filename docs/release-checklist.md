@@ -55,6 +55,7 @@ Mobile performance is not a release-blocking gate. Run `npm run performance:audi
 # Validation and delivery controls
 
 - Development: `npm run test:visual:quick` runs control, tag and design-system checks; `npm run test:visual -- tests/visual/<file>.spec.ts` selects a changed feature. Both build by default. These commands do not certify a production release.
+- Home and Weekly hero snapshots use [fixed visual inputs](visual-regression.md); real routes retain geometry and current-publication behavior checks. The separate fixture build stays under `.cache/visual-fixtures/` and never replaces the release artifact in `dist/`.
 - Release: `release:prepare` runs all gates once in an immutable revision bundle. Browser tests stop after five failures and default to two workers; `PLAYWRIGHT_WORKERS=1` selects serial execution. Performance measurements remain serial and separate.
 - `release:resume` verifies source and artifact digests before reusing passed stages. A failed browser stage reruns the full browser suite; test-level results are not reused. Preparation timings include earlier gate attempts and dependency installation; invocation timing records the current attempt only.
 - `release:publish -- <bundle>` verifies and uploads the existing artifact without rebuilding. Wrangler output streams immediately. `NEXTTOKEN_PUBLISH_TIMEOUT_MS` sets the total timeout (default 600000 milliseconds); termination includes the child process group.

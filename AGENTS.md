@@ -7,7 +7,7 @@ Use [documentation entrypoints](docs/README.md) for the relevant task and the si
 - Production owns original dialogue, media and brand assets. This repository owns presentation and website delivery copies; builds never read editorial working files directly.
 - Preserve rendered design during metadata refactors unless a design change was requested. Follow the [design guidelines](docs/design-guidelines.md).
 - Review pages present final reader-facing copy; production status and source details belong in metadata/QA. Draft exclusion, noindex and publication checks follow the release contract. Local review does not authorize publishing.
-- Preserve unrelated work and historical materials. Use Conventional Commits; run `gh` and `wrangler` outside the sandbox. Runtime/test changes listed in [implementation decisions](../next-token/docs/production/implementation-decisions.zh-Hans.md) require separate confirmation.
+- Preserve unrelated work and historical materials. Use Conventional Commits; run `gh` and `wrangler` outside the sandbox. Follow the confirmed scope in [implementation decisions](../next-token/docs/production/implementation-decisions.zh-Hans.md); items still marked pending require separate confirmation.
 
 | Task | Entry |
 |---|---|

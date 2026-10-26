@@ -14,25 +14,27 @@ import {
   getShowPageData,
 } from "../data/catalog";
 import { resolveVenueId } from "../data/partners";
+import type { HeroEpisodes } from "../data/hero-episodes";
 import type { SiteContent } from "../data/site";
 
 interface Props {
   content: SiteContent;
+  heroEpisodes?: HeroEpisodes;
 }
 
-const { content } = Astro.props;
+const { content, heroEpisodes } = Astro.props;
 const locale = content.locale;
 const showId = "next-token-weekly";
 const [show, hosts, latestEpisode, announcedEpisodes] = await Promise.all([
   getShowPageData(showId, locale),
   getHostsForShow(showId, locale),
-  getLatestVisibleEpisode(),
+  heroEpisodes?.latest ?? getLatestVisibleEpisode(),
   getAnnouncedEpisodes(),
 ]);
 const episodes = await getVisibleEpisodes(showId);
 const page = show.data.page[locale];
 const episodeCopy = latestEpisode.data.homepage[locale];
-const upcoming = announcedEpisodes
+const upcoming = heroEpisodes ? heroEpisodes.upcoming : announcedEpisodes
   .filter(({ data }) => data.show === showId)
   .sort((a, b) => a.data.status === "announced" && b.data.status === "announced"
     ? Date.parse(a.data.scheduledAt) - Date.parse(b.data.scheduledAt)
@@ -105,14 +107,14 @@ const formatDate = (date: string, timeZone: string, includeTime = false) => new 
           <strong>{locale === "en" ? "Latest episode" : "最新一期"} #{latestEpisode.data.number}</strong>
           <p class="latest-episode-title">{episodeCopy.heading.join(locale === "en" ? " " : "")}</p>
           <a href={`${weeklyPath}/${latestEpisode.data.number}`}>{locale === "en" ? (!latestEpisode.data.media.audio && !latestEpisode.data.media.video ? "Explore episode" : latestEpisode.data.media.video ? "Listen / watch" : "Listen now · Audio") : (!latestEpisode.data.media.audio && !latestEpisode.data.media.video ? "查看本期" : latestEpisode.data.media.video ? "收听 / 收看" : "立即收听 · 音频版")} ↗</a>
-          <LatestTranscriptLink locale={locale} variant="inline" />
+          <LatestTranscriptLink locale={locale} variant="inline" episode={heroEpisodes?.transcript} />
         </div>
         <nav class="show-shortcuts" aria-label={locale === "en" ? "On this page" : "本页导航"}>
           <a href="#episodes">{locale === "en" ? "All episodes" : "全部节目"} ↓</a>
           <a href="#about-show">{locale === "en" ? "About the show" : "关于节目"}</a>
           <a href="#subscribe">{locale === "en" ? "Subscribe" : "订阅节目"}</a>
         </nav>
-        <UpcomingEpisodeLink locale={locale} />
+        <UpcomingEpisodeLink locale={locale} episode={heroEpisodes?.upcoming} />
       </div>
       <div class="weekly-show-poster" aria-hidden="true">
         <span>Next Token</span>

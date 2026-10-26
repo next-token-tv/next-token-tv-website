@@ -7,7 +7,7 @@
 | 本地运行、文件归属与导入 | [仓库 README](../README.md) |
 | 单集状态、来源快照与发布验收 | [发布检查](release-checklist.md) |
 | 发布命令、迁移、搜索与运行维护 | [网站维护](site-maintenance.md) |
-| 视觉与样式 | [设计规范](design-guidelines.md) |
+| 视觉与样式 | [设计规范](design-guidelines.md)、[视觉回归](visual-regression.md) |
 | 实体分类与稳定身份 | [实体规范](entity-library.md) |
 | Wiki 正文 | [编辑规范](wiki-editorial-plan.md)、[正文实现](wiki-technical-implementation-plan.md) |
 | 主题 Blog | [编辑规范](blog-editorial.zh-Hans.md)、[内容契约](blog.md) |
@@ -17,4 +17,4 @@
 
 技能负责路由到上述规范并执行本次任务，不维护第二套风格或数据契约。单集研究、`research/`、带日期的审查、已完成 TODO、写作计划与历史试稿用于了解当时依据，不作为新任务默认步骤。历史路径、数量、发布状态和外部事实在引用前重新核实；材料本身暂时保留，不因整理入口而删除或改写历史证据。
 
-尚待确认的程序和截图测试调整集中于[代码调整清单](../../next-token/docs/production/implementation-decisions.zh-Hans.md)。文档更新不表示相关程序已修复或网站已部署。
+已确认的实现范围与尚待确认的调整集中于[代码调整清单](../../next-token/docs/production/implementation-decisions.zh-Hans.md)。代码、检查与部署状态分别核实。

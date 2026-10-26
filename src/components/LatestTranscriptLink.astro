@@ -1,13 +1,14 @@
 ---
 import { getTranscriptEpisodes } from "../data/catalog";
 import TranscriptLink from "./TranscriptLink.astro";
+import type { CollectionEntry } from "astro:content";
 import type { Locale } from "../data/types";
-interface Props { locale: Locale; variant?: "light" | "inline" }
-const { locale, variant = "light" } = Astro.props;
+interface Props { locale: Locale; variant?: "light" | "inline"; episode?: CollectionEntry<"episodes"> | null }
+const { locale, variant = "light", episode: suppliedEpisode } = Astro.props;
 // Transcripts publish ahead of episode audio, so the latest entry is picked by
 // transcript publication alone. Per locale: TranscriptLink suppresses the
 // cross-language fallback CTA, so a zh-only newer transcript must not empty the slot.
-const candidates = await getTranscriptEpisodes(locale);
-const episode = candidates.sort((a, b) => Number(b.data.number) - Number(a.data.number))[0];
+const candidates = suppliedEpisode === undefined ? await getTranscriptEpisodes(locale) : [];
+const episode = suppliedEpisode !== undefined ? suppliedEpisode : candidates.sort((a, b) => Number(b.data.number) - Number(a.data.number))[0];
 ---
 {episode && <TranscriptLink episodeId={episode.id} number={episode.data.number} locale={locale} variant={variant} showNumber />}

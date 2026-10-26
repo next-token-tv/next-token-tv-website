@@ -1,0 +1,28 @@
+---
+import HomePage from '../../../src/components/HomePage.astro';
+import WeeklyShowPage from '../../../src/components/WeeklyShowPage.astro';
+import BaseLayout from '../../../src/layouts/BaseLayout.astro';
+import { getEpisode, getPublishedEpisode } from '../../../src/data/catalog';
+import { getSiteContent } from '../../../src/data/site';
+import type { HeroEpisodes } from '../../../src/data/hero-episodes';
+import fixture from './hero-content';
+
+export function getStaticPaths() {
+  return ['zh-Hans', 'en'].flatMap(locale => ['home', 'weekly'].flatMap(surface =>
+    ['with-preview', 'without-preview'].map(state => ({ params: { locale, surface, state } }))));
+}
+const locale = Astro.params.locale === 'en' ? 'en' : 'zh-Hans';
+const historical = await getPublishedEpisode(fixture.latest.id);
+const latest = { ...historical, data: { ...historical.data, number: fixture.latest.number, homepage: fixture.latest.homepage, media: fixture.latest.media } };
+const heroEpisodes: HeroEpisodes = {
+  latest,
+  transcript: await getEpisode(locale === 'en' ? 'next-token-weekly--005' : fixture.latest.id),
+  upcoming: Astro.params.state === 'with-preview' ? fixture.upcoming : null,
+};
+const content = await getSiteContent(locale, latest);
+---
+<BaseLayout content={content} noIndex hasLocaleAlternate={false}>
+  {Astro.params.surface === 'weekly'
+    ? <WeeklyShowPage content={content} heroEpisodes={heroEpisodes} />
+    : <HomePage content={content} heroEpisodes={heroEpisodes} />}
+</BaseLayout>

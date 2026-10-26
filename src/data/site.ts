@@ -210,10 +210,10 @@ const siteContentBase: Record<Locale, SiteContentBase> = {
   },
 };
 
-export async function getSiteContent(locale: Locale): Promise<SiteContent> {
+export async function getSiteContent(locale: Locale, featuredEpisode?: Awaited<ReturnType<typeof getLatestVisibleEpisode>>): Promise<SiteContent> {
   const [hosts, episode] = await Promise.all([
     getHostsForShow("next-token-weekly", locale),
-    getLatestVisibleEpisode(),
+    featuredEpisode ?? getLatestVisibleEpisode(),
   ]);
   const base = siteContentBase[locale];
 

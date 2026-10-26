@@ -187,3 +187,4 @@ Border tokens follow a separate functional scale described under Units, rules an
 - `npm run test:visual` covers real bilingual templates at 390, 768, 1280, 1440, 1920 and 2560 CSS pixels. Design contracts additionally cover 1210×887 and short desktop 1280×720.
 - Validate shell alignment, page overflow, horizontal and vertical heading clipping, reading/H2 line height, semantic type scales, intact artwork, keyboard controls and mobile navigation. Scrollable containers remain valid within their bounds.
 - Screenshot baselines reflect the inspected design. Update them only for intentional, visually reviewed changes.
+- Dynamic home and Weekly heroes use [fixed visual inputs](visual-regression.md); current episode and preview destinations have separate behavior checks.

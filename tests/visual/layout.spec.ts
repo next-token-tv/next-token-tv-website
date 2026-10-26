@@ -186,12 +186,7 @@ for (const viewport of viewports) {
         expect(Math.abs(geometry.header!.right - geometry.main!.right)).toBeLessThanOrEqual(1);
         for (const ratio of geometry.headingRatios) expect(ratio).toBeCloseTo(1.25, 2);
 
-        if (viewport.name === "mobile" || viewport.name === "wide") {
-          if (route.path === "/weekly" || route.path === "/en/weekly") {
-            await page.locator(".site-header").evaluate((header) => {
-              header.style.visibility = "hidden";
-            });
-          }
+        if ((viewport.name === "mobile" || viewport.name === "wide") && !["/", "/en", "/weekly", "/en/weekly"].includes(route.path)) {
           await expect(page.locator(route.visual)).toHaveScreenshot(
             `${route.path.replace("/wiki/", "/").replaceAll("/", "-").replace(/^-|-$/g, "") || "home"}-${viewport.name}.png`,
           );

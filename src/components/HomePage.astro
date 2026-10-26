@@ -8,19 +8,21 @@ import HostCard from "./HostCard.astro";
 import ConditionalImagePan from "./ConditionalImagePan.astro";
 import { getLatestVisibleEpisode, getSocialPlatformOrder } from "../data/catalog";
 import BrandHeroVisual from "./BrandHeroVisual.astro";
+import type { HeroEpisodes } from "../data/hero-episodes";
 import type { SiteContent } from "../data/site";
 
 interface Props {
   content: SiteContent;
+  heroEpisodes?: HeroEpisodes;
 }
 
-const { content } = Astro.props;
+const { content, heroEpisodes } = Astro.props;
 const availablePlatforms = getSocialPlatformOrder(content.locale).filter(platform => content.hosts.items.some(host => host.socials.some(social => social.platform === platform)));
 const platformHostCount = (platform: string) => content.hosts.items.filter(host => host.socials.some(social => social.platform === platform)).length;
 const socialPlatforms = availablePlatforms.toSorted((a, b) => platformHostCount(b) - platformHostCount(a));
 const compactPlatforms = socialPlatforms.filter(platform => platformHostCount(platform) < content.hosts.items.length);
 const socialRowCount = socialPlatforms.length - compactPlatforms.length + Math.max(0, ...content.hosts.items.map(host => compactPlatforms.filter(platform => host.socials.some(social => social.platform === platform)).length));
-const latestEpisode = await getLatestVisibleEpisode();
+const latestEpisode = heroEpisodes?.latest ?? await getLatestVisibleEpisode();
 const latestEpisodePath = `${content.locale === "en" ? "/en" : ""}/weekly/${latestEpisode.data.number}`;
 ---
 
@@ -38,10 +40,10 @@ const latestEpisodePath = `${content.locale === "en" ? "/en" : ""}/weekly/${late
         <p class="hero-intro">{content.hero.intro}</p>
         <div class="actions">
           <a class="button primary" href={latestEpisodePath}>{content.hero.primaryAction} <span aria-hidden="true">↘</span></a>
-          <LatestTranscriptLink locale={content.locale} />
+          <LatestTranscriptLink locale={content.locale} episode={heroEpisodes?.transcript} />
           <a class="hero-about-link" href={`${content.locale === "en" ? "/en" : ""}/weekly#episodes`}>{content.locale === "en" ? "All episodes" : "全部节目"} →</a>
         </div>
-        <UpcomingEpisodeLink locale={content.locale} />
+        <UpcomingEpisodeLink locale={content.locale} episode={heroEpisodes?.upcoming} />
       </div>
     </div>
 
