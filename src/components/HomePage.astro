@@ -6,7 +6,7 @@ import UpcomingEpisodeLink from "./UpcomingEpisodeLink.astro";
 import ShowSubscriptions from "./ShowSubscriptions.astro";
 import HostCard from "./HostCard.astro";
 import ConditionalImagePan from "./ConditionalImagePan.astro";
-import { getLatestVisibleEpisode } from "../data/catalog";
+import { getLatestVisibleEpisode, getSocialPlatformOrder } from "../data/catalog";
 import BrandHeroVisual from "./BrandHeroVisual.astro";
 import type { SiteContent } from "../data/site";
 
@@ -15,6 +15,11 @@ interface Props {
 }
 
 const { content } = Astro.props;
+const availablePlatforms = getSocialPlatformOrder(content.locale).filter(platform => content.hosts.items.some(host => host.socials.some(social => social.platform === platform)));
+const platformHostCount = (platform: string) => content.hosts.items.filter(host => host.socials.some(social => social.platform === platform)).length;
+const socialPlatforms = availablePlatforms.toSorted((a, b) => platformHostCount(b) - platformHostCount(a));
+const compactPlatforms = socialPlatforms.filter(platform => platformHostCount(platform) < content.hosts.items.length);
+const socialRowCount = socialPlatforms.length - compactPlatforms.length + Math.max(0, ...content.hosts.items.map(host => compactPlatforms.filter(platform => host.socials.some(social => social.platform === platform)).length));
 const latestEpisode = await getLatestVisibleEpisode();
 const latestEpisodePath = `${content.locale === "en" ? "/en" : ""}/weekly/${latestEpisode.data.number}`;
 ---
@@ -99,7 +104,7 @@ const latestEpisodePath = `${content.locale === "en" ? "/en" : ""}/weekly/${late
     </div>
 
     <div class="host-grid" data-reveal>
-      {content.hosts.items.map((host) => <HostCard host={host} />)}
+      {content.hosts.items.map((host) => <HostCard host={host} socialPlatforms={socialPlatforms} compactPlatforms={compactPlatforms} socialRowCount={socialRowCount} />)}
     </div>
   </section>
 

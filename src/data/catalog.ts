@@ -59,13 +59,18 @@ const platformLabels = {
   linkedin: { "zh-Hans": "LinkedIn", en: "LinkedIn" },
   website: { "zh-Hans": "个人网站", en: "Personal website" },
   blog: { "zh-Hans": "博客", en: "Blog" },
+  xiaoyuzhou: { "zh-Hans": "小宇宙", en: "Xiaoyuzhou" },
   podcast: { "zh-Hans": "播客", en: "Podcast" },
   bilibili: { "zh-Hans": "B 站", en: "Bilibili" },
 } as const;
 
 const socialOrder: (keyof typeof platformLabels)[] = [
-  "website", "podcast", "bilibili", "x", "github", "jike", "wechat", "wechat-channels", "rednote", "weibo", "linkedin", "blog",
+  "website", "x", "wechat", "wechat-channels", "rednote", "jike", "github", "bilibili", "linkedin", "xiaoyuzhou", "podcast", "weibo", "blog",
 ];
+
+export function getSocialPlatformOrder(locale: Locale): string[] {
+  return socialOrder.map(platform => platformLabels[platform][locale]);
+}
 
 function getSocials(socials: CollectionEntry<"people">["data"]["socials"], locale: Locale): Host["socials"] {
   return [...socials].sort((a, b) => socialOrder.indexOf(a.platform) - socialOrder.indexOf(b.platform)).map(social => ({

@@ -653,6 +653,14 @@ h1 .accent {
   line-height: 1.25;
 }
 
+.host-socials-aligned li {
+  min-height: 2.5rem;
+  display: grid;
+  align-items: center;
+}
+
+.host-socials-aligned .social-platform { white-space: nowrap; }
+
 .host-socials a {
   text-decoration: none;
   transition: color 180ms ease;
