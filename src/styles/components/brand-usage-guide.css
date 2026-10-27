@@ -1,10 +1,12 @@
 @layer reset, tokens, base, layouts, components, utilities, overrides;
 @layer components {
-.brand-usage { max-width: 52rem; margin-top: 2rem; }
+.brand-usage { margin-top: 2rem; }
 .brand-usage h3 { font-size: 1.5rem; margin: 0 0 .75rem; line-height: 1.4; }
 .brand-usage p { margin: 0; color: var(--muted); line-height: 1.8; }
-.brand-lockup-example { margin: 1.5rem 0; }
-.brand-lockup-stage { background: var(--white); padding: 1.5rem; }
+.brand-lockup-examples { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.brand-lockup-example { min-width: 0; margin: 0; }
+.brand-lockup-stage { background: var(--white); padding: clamp(.5rem, 2vw, 1.5rem); }
+.brand-lockup-stage-dark { background: var(--ink); }
 .brand-usage figcaption { margin-top: .75rem; color: var(--muted); font-size: var(--type-meta); line-height: 1.75; }
 .brand-lockup { display: grid; grid-template-columns: 6fr 1fr 6fr; width: min(100%, 22.75rem); align-items: start; }
 .brand-lockup-logo { display: block; width: 100%; height: auto; }
@@ -15,5 +17,5 @@
 .brand-lockup-specs dt { font-weight: 600; }
 .brand-lockup-specs dd { margin: 0; color: var(--muted); }
 #kit-host-lockup { scroll-margin-top: 6rem; }
-@media (max-width: 40rem) { .brand-lockup-specs > div { grid-template-columns: 1fr; gap: .25rem; } .brand-lockup-stage { padding: 1rem; } }
+@media (max-width: 40rem) { .brand-lockup-specs > div { grid-template-columns: 1fr; gap: .25rem; } .brand-lockup-examples { gap: .5rem; } }
 }

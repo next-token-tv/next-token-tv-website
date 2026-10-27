@@ -56,15 +56,19 @@ const copy = locale === "zh-Hans" ? {
       <div class="kit-logo-examples">
         <figure class="kit-logo-preview kit-logo-preview-white">
           <img src={kit.data.preview} alt={`${brand.data.name[locale]} Logo`} width="1024" height="1024" />
-          <figcaption>{t("暖白背景 · 无需边框", "Warm White background · No border")}</figcaption>
+          <figcaption>{t("方形 · 暖白背景 · 无需边框", "Square · Warm White · No border")}</figcaption>
         </figure>
         <figure class="kit-logo-preview kit-logo-preview-paper">
           <img src={kit.data.preview} alt={`${brand.data.name[locale]} Logo`} width="1024" height="1024" />
-          <figcaption>{t("暖纸背景 · 1px 淡墨边界色线框", "Warm Paper background · 1px Soft Ink Border")}</figcaption>
+          <figcaption>{t("方形 · 暖纸背景 · 1px 线框", "Square · Warm Paper · 1px border")}</figcaption>
         </figure>
         <figure class="kit-logo-preview kit-logo-preview-white kit-logo-preview-circle">
           <img src={kit.data.preview} alt={t("Next Token 圆形 Logo", "Next Token circular logo")} width="1024" height="1024" />
-          <figcaption>{t("圆形用法 · 与原方形画布四边相切", "Circular use · Tangent to all four sides of the original square")}</figcaption>
+          <figcaption>{t("圆形 · 暖白背景 · 无需边框", "Circle · Warm White · No border")}</figcaption>
+        </figure>
+        <figure class="kit-logo-preview kit-logo-preview-paper kit-logo-preview-circle">
+          <img src={kit.data.preview} alt={t("Next Token 圆形 Logo · 带线框", "Next Token circular logo with border")} width="1024" height="1024" />
+          <figcaption>{t("圆形 · 暖纸背景 · 1px 线框", "Circle · Warm Paper · 1px border")}</figcaption>
         </figure>
       </div>
       <ul class="kit-downloads" aria-label={copy.downloads}>
@@ -78,7 +82,7 @@ const copy = locale === "zh-Hans" ? {
         ))}
       </ul>
     </div>
-    <p class="kit-placement-note">{t("网站、海报和合作素材优先使用暖白", "For websites, posters and partner materials, prefer Warm White")} <code>{colorHex('--white').toUpperCase()}</code>{t("或纯白 #FFFFFF 背景。使用暖纸背景时，沿 Logo 方形画布内侧加 1px 实线边框，颜色为淡墨 · 边界", " or pure white #FFFFFF. On Warm Paper, add a 1px inset solid border around the square logo canvas in Soft Ink · Border")} <code>{colorHex('--muted-border').toUpperCase()}</code>{t("，保留 Logo 原有底色和内部留白。", ", preserving the original logo background and internal space.")} <a class="text-link" href={`${prefix}/design-system#color`}>{t("颜色规范", "Color specification")} →</a></p>
+    <p class="kit-placement-note">{t("网站、海报和合作素材优先使用暖白", "For websites, posters and partner materials, prefer Warm White")} <code>{colorHex('--white').toUpperCase()}</code>{t("或纯白 #FFFFFF 背景。使用暖纸背景时，沿 Logo 方形或圆形外缘内侧加 1px 实线边框，颜色为淡墨 · 边界", " or pure white #FFFFFF. On Warm Paper, add a 1px inset solid border around the square or circular logo edge in Soft Ink · Border")} <code>{colorHex('--muted-border').toUpperCase()}</code>{t("，保留 Logo 原有底色和内部留白。", ", preserving the original logo background and internal space.")} <a class="text-link" href={`${prefix}/design-system#color`}>{t("颜色规范", "Color specification")} →</a></p>
   </section>
 
   <BrandCopyLibrary locale={locale} />
