@@ -21,6 +21,7 @@
   .kit-logo-preview-paper { background: var(--paper); }
   .kit-logo-preview img { width: min(100%, 16rem); height: auto; }
   .kit-logo-preview-paper img { outline: var(--stroke-thin) solid var(--muted-border); outline-offset: -1px; }
+  .kit-logo-preview-circle img { border-radius: 50%; }
   .kit-logo-preview figcaption { margin-top: 1rem; color: var(--muted); font-size: var(--type-ui); }
   .kit-downloads { list-style: none; padding: 0; margin: 0; }
   .kit-downloads li + li { border-top: 1px solid var(--line); }

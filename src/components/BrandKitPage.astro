@@ -62,6 +62,10 @@ const copy = locale === "zh-Hans" ? {
           <img src={kit.data.preview} alt={`${brand.data.name[locale]} Logo`} width="1024" height="1024" />
           <figcaption>{t("暖纸背景 · 1px 淡墨边界色线框", "Warm Paper background · 1px Soft Ink Border")}</figcaption>
         </figure>
+        <figure class="kit-logo-preview kit-logo-preview-white kit-logo-preview-circle">
+          <img src={kit.data.preview} alt={t("Next Token 圆形 Logo", "Next Token circular logo")} width="1024" height="1024" />
+          <figcaption>{t("圆形用法 · 与原方形画布四边相切", "Circular use · Tangent to all four sides of the original square")}</figcaption>
+        </figure>
       </div>
       <ul class="kit-downloads" aria-label={copy.downloads}>
         {kit.data.downloads.map((asset) => (

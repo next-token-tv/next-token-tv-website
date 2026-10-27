@@ -15,7 +15,7 @@ The visual wordmark is Next Token. Use the downloadable files and scale them pro
 
 ### Preserve the background and composition
 
-All logo files have an opaque paper-colored background and no guides. The square composition also accommodates a circular avatar crop. Keep the original canvas and its spacing instead of cropping tightly around the lettering.
+All logo files have an opaque paper-colored background and no guides. For circular use, center the circle on the original square canvas and use its side length as the diameter, tangent to all four sides. Crop only the corners; preserve the lettering, orange square, proportions, positions and internal spacing without enlarging or shifting the logo. On Warm Paper, add a 1px inset Soft Ink Border line along the circumference.
 
 ### Distinguish the brand from the show
 
