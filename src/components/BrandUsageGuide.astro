@@ -1,0 +1,20 @@
+---
+import type { Locale } from '../data/types';
+interface Props { locale: Locale }
+const {locale}=Astro.props;
+const t=(zh:string,en:string)=>locale==='en'?en:zh;
+---
+<div class="brand-usage" id="kit-host-lockup">
+ <h3>{t('Logo 与四位主理人','Logo and four co-hosts')}</h3>
+ <p>{t('四位主理人的头像作为整体出现时，与 Logo 一起使用：Logo 在左，直角四宫格在右，头像方阵的可见外缘与 Logo 方形画布等高、上下对齐。沿用视频角标的位置与间距，整组等比例缩放。','When the four co-host portraits appear as a group, pair them with the logo: logo on the left, square-corner portrait grid on the right, with the visible portrait grid matching the logo canvas height and aligned edges. Preserve the video lockup’s positions and spacing and scale the complete group proportionally.')}</p>
+ <figure class="brand-lockup-example"><div class="brand-lockup-stage"><div class="brand-lockup"><img class="brand-lockup-logo" src="/assets/brand-kit/logo-next-token.svg" width="1024" height="1024" alt="Next Token" /><div class="brand-host-grid">{[['yangpan','杨攀','Yang Pan'],['xiangyang-qiaomu','向阳乔木','Xiangyang Qiaomu'],['guizang','歸藏','Guizang'],['orange','橘子','Orange']].map(([id,zh,en])=><img src={`/assets/hosts/${id}-1024.webp`} width="1024" height="1024" alt={t(zh!,en!)} />)}</div></div></div><figcaption>{t('Logo 与四人头像 · 直角组合','Logo and four co-hosts · Square-corner lockup')}</figcaption></figure>
+ <dl class="brand-lockup-specs">
+  <div><dt>{t('头像位置','Portrait positions')}</dt><dd>{t('左上杨攀，右上向阳乔木；左下歸藏，右下橘子。','Yang Pan top left, Xiangyang Qiaomu top right; Guizang bottom left, Orange bottom right.')}</dd></div>
+  <div><dt>{t('与 Logo 的关系','Relationship to the logo')}</dt><dd>{t('Logo 画布与头像方阵可见区域边长均为 S，两者间距 S / 6。例如 168 + 28 + 168px，总尺寸 364 × 168px。','The logo canvas and visible portrait grid both have side S, with a gap of S / 6. Example: 168 + 28 + 168px, totaling 364 × 168px.')}</dd></div>
+  <div><dt>{t('头像尺寸与留白','Portrait size and spacing')}</dt><dd>{t('原素材去除四周 24px 透明留白后，头像方阵为 976px：单头像 472px，横纵间距 32px。将这一区域整体缩放至 Logo 高度，四角为直角。','Exclude the original 24px transparent padding on each side: the visible grid is 976px, with 472px portraits and 32px gaps. Scale this region to the logo height; keep square corners.')}</dd></div>
+ </dl>
+ <p>{t('保留完整头像，不重新裁切、不交换位置、不改为横排。间距从 Logo 画布右缘量至头像方阵可见左缘；暖纸背景下，组合中的 Logo 同样加 1px 淡墨边界色细线。','Keep each portrait intact: do not recrop, reorder or rearrange into a row. Measure the gap from the logo canvas’s right edge to the visible portrait grid’s left edge; on Warm Paper, add the same 1px Soft Ink Border line to the logo.')}</p>
+</div>
+<style>
+@import "../styles/components/brand-usage-guide.css";
+</style>

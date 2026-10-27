@@ -15,8 +15,12 @@
   .kit-section h2 { margin: 0; }
   .kit-section-heading > p:last-child:not(.eyebrow) { max-width: 45rem; margin: 1rem 0 0; color: var(--muted); }
   .kit-logo-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); border: 1px solid var(--ink); }
-  .kit-logo-preview { display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0; padding: 2rem; border-right: 1px solid var(--ink); }
-  .kit-logo-preview img { width: min(100%, 26rem); height: auto; }
+  .kit-logo-preview { display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0; padding: 2rem; }
+  .kit-logo-examples { border-right: 1px solid var(--ink); }
+  .kit-logo-preview-white { background: var(--white); }
+  .kit-logo-preview-paper { background: var(--paper); }
+  .kit-logo-preview img { width: min(100%, 16rem); height: auto; }
+  .kit-logo-preview-paper img { outline: var(--stroke-thin) solid var(--muted-border); outline-offset: -1px; }
   .kit-logo-preview figcaption { margin-top: 1rem; color: var(--muted); font-size: var(--type-ui); }
   .kit-downloads { list-style: none; padding: 0; margin: 0; }
   .kit-downloads li + li { border-top: 1px solid var(--line); }
@@ -43,13 +47,15 @@
   .kit-typeface { display: flex; align-items: baseline; flex-wrap: wrap; gap: .75rem 2rem; padding-top: 2rem; }
   .kit-typeface strong { font-family: var(--display); font-size: 2rem; letter-spacing: var(--display-tracking); }
   .kit-guidelines { max-width: 52rem; }
+  .kit-placement-note { max-width: 52rem; margin: 1rem 0 0; color: var(--muted); font-size: var(--type-ui); line-height: 1.8; }
   .kit-guidelines :global(h3) { font-size: 1.5rem; margin: 2rem 0 .75rem; line-height: 1.4; }
   .kit-guidelines :global(h3:first-child) { margin-top: 0; }
   .kit-guidelines :global(p) { margin: 0; color: var(--muted); line-height: 1.8; }
   @media (max-width: 720px) {
     .kit-logo-grid { grid-template-columns: 1fr; }
-    .kit-logo-preview { border-right: 0; border-bottom: 1px solid var(--ink); padding: 1.5rem; }
-    .kit-logo-preview img { width: min(100%, 20rem); }
+    .kit-logo-examples { border-right: 0; border-bottom: 1px solid var(--ink); }
+    .kit-logo-preview { padding: 1.5rem; }
+    .kit-logo-preview img { width: min(100%, 16rem); }
     .kit-palette { grid-template-columns: 1fr; }
     .kit-swatch { min-height: 10rem; }
   }

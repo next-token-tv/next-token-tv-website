@@ -7,7 +7,7 @@ slot: brand-kit
 
 ### Keep the complete name
 
-The official name in every language is Next Token｜词元之外, with the English name first and the Chinese name second. Use a vertical bar with one space on each side. Where a platform does not support it, use Next Token｜词元之外. Do not translate the Chinese name into an English program title.
+The official name in every language is Next Token｜词元之外, with the English name first and the Chinese name second. Use the full-width vertical bar (｜) without surrounding spaces. Do not translate the Chinese name into an English program title.
 
 ### Use the official artwork
 

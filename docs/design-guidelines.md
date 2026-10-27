@@ -189,3 +189,10 @@ Border tokens follow a separate functional scale described under Units, rules an
 - Validate shell alignment, page overflow, horizontal and vertical heading clipping, reading/H2 line height, semantic type scales, intact artwork, keyboard controls and mobile navigation. Scrollable containers remain valid within their bounds.
 - Screenshot baselines reflect the inspected design. Update them only for intentional, visually reviewed changes.
 - Dynamic home and Weekly heroes use [fixed visual inputs](visual-regression.md); current episode and preview destinations have separate behavior checks.
+
+## Brand Kit delivery backgrounds and co-host lockup
+
+- Partner websites and posters use Warm White (`--white`, #FFFDF6) or pure white (#FFFFFF) around the unchanged logo artwork. Warm Paper (`--paper`) backgrounds require a 1px inset square border in Soft Ink Border (`--muted-border`, #7B7770) along the full logo canvas. Scale the border with print/video artwork.
+- The co-host grid is fixed: Yang Pan top left, Xiangyang Qiaomu top right, Guizang bottom left, Orange bottom right. It accompanies the logo on its right. The logo canvas and visible portrait grid have equal side S and aligned edges; their gap is S/6.
+- The source 1024px grid has 472px tiles, 32px gaps and 24px outer padding. Exclude that padding and scale the visible 976px grid to the logo height. The Brand Kit specimen uses square tile corners. Portrait shape is independent of interface-control radii.
+- The Logo section includes background and border guidance; `BrandUsageGuide.astro` adds the bilingual co-host specimen within Usage guidelines. Official source assets remain in the sibling production repository.
