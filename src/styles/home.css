@@ -542,20 +542,31 @@ h1 .accent {
 }
 
 .episode-platform {
-  width: var(--platform-width-sm);
+  width: var(--platform-width);
+  padding-inline: .5rem;
+  gap: .375rem;
   justify-content: center;
   flex-shrink: 0;
   background: var(--white);
   border-color: var(--white);
 }
 
-:lang(en) .episode-platform[data-listen-platform="xiaoyuzhou"],
-:lang(en) .platform-list-compact .episode-platform {
-  width: var(--platform-width-md);
-}
+.episode-platform .platform-brand { gap: .375rem; }
 
-.episode-platform[data-listen-platform="apple-podcasts"] {
-  width: var(--platform-width-lg);
+@media (max-width: 720px) {
+  .episode-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .episode-actions .episode-platform {
+    width: 100%;
+    line-height: 1.1;
+  }
+
+  .episode-actions .platform-brand > span:last-child { min-width: 0; overflow-wrap: anywhere; }
+  .episode-actions > .platform-list-compact,
+  .episode-actions .platform-qr-row { min-width: 0; width: 100%; }
 }
 
 .episode-platform:hover,

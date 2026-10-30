@@ -67,6 +67,7 @@ test('older browsers disclose QR codes without navigating away', async ({ page }
 for (const prefix of ['', '/en']) for (const number of ['003', '004', '005', '006', '007']) {
   test(`published episode podcast QR disclosure ${prefix || 'zh'} ${number}`, async ({ page }) => {
     await page.goto(`${prefix}/weekly/${number}`);
+    await page.addStyleTag({ content: 'astro-dev-toolbar { display: none !important; }' });
     const rows = page.locator('.platform-qr-row');
     await expect(rows).toHaveCount(2);
     const ids = await rows.locator('.platform-qr').evaluateAll(items => items.map(item => item.id));
@@ -106,7 +107,7 @@ test('header logo restores breathing border and respects reduced motion', async 
   await expect(logo).toHaveCSS('animation-name', 'none');
 });
 
-for (const prefix of ['', '/en']) for (const width of [390, 1440]) {
+for (const prefix of ['', '/en']) for (const width of [320, 390, 720, 1440]) {
   test(`episode platform sizing ${prefix || 'zh'} ${width}`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.goto(`${prefix}/weekly/006`);
@@ -117,10 +118,19 @@ for (const prefix of ['', '/en']) for (const width of [390, 1440]) {
       return { width: rect.width, height: rect.height, centerOffset: brand.y + brand.height / 2 - rect.y - rect.height / 2, color: style.backgroundColor, padding: style.padding };
     }));
     expect(geometry.length).toBeGreaterThan(1);
+    if (width <= 720) {
+      const columns = await page.locator('.episode-actions').evaluate(el => getComputedStyle(el).gridTemplateColumns.split(' '));
+      expect(columns).toHaveLength(2);
+      expect(Math.abs(parseFloat(columns[0]!) - parseFloat(columns[1]!))).toBeLessThan(0.1);
+    }
+    const apple = page.locator('.episode-actions a[data-listen-platform="apple-podcasts"]');
+    await expect(apple).toHaveAccessibleName(/Apple Podcasts/);
+    await expect(apple.locator('.platform-brand')).toHaveText('Podcasts');
     const first = geometry[0];
     if (!first) throw new Error('Episode platform controls are missing');
     for (const item of geometry) {
-      expect([160, 192, 224]).toContain(item.width);
+      expect(Math.abs(item.width - first.width)).toBeLessThan(0.1);
+      if (width > 720) expect(item.width).toBe(176);
       expect(item.height).toBe(50);
       expect(Math.abs(item.centerOffset)).toBeLessThan(0.1);
       expect(item.color).toBe(first.color);

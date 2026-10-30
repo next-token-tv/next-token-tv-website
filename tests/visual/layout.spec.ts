@@ -162,6 +162,7 @@ for (const viewport of viewports) {
         await page.goto(route.path);
         await page.evaluate((language) => window.localStorage.setItem("next-token-language", language), route.path.startsWith("/en") ? "en" : "zh-Hans");
         await page.reload();
+        await page.addStyleTag({ content: 'astro-dev-toolbar { display: none !important; }' });
 
         const geometry = await page.evaluate((mainShellSelector) => {
           const rect = (selector: string) => document.querySelector(selector)?.getBoundingClientRect();
@@ -187,6 +188,7 @@ for (const viewport of viewports) {
         for (const ratio of geometry.headingRatios) expect(ratio).toBeCloseTo(1.25, 2);
 
         if ((viewport.name === "mobile" || viewport.name === "wide") && !["/", "/en", "/weekly", "/en/weekly"].includes(route.path)) {
+          await page.locator('astro-dev-toolbar').evaluateAll(elements => elements.forEach(el => el.remove()));
           await expect(page.locator(route.visual)).toHaveScreenshot(
             `${route.path.replace("/wiki/", "/").replaceAll("/", "-").replace(/^-|-$/g, "") || "home"}-${viewport.name}.png`,
           );

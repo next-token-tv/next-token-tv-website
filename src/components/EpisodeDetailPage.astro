@@ -127,7 +127,7 @@ const labels = locale === "en" ? {
         <div class="episode-actions">
           {episode.data.platforms.filter(({ href }) => href).map((platform) => (
             <a class="episode-listen episode-platform" data-listen-platform={platform.platform} href={platform.href} target="_blank" rel="noopener noreferrer" aria-label={`${platform.label[locale]} · ${platform.action?.[locale] ?? platform.label[locale]}`}>
-              <PlatformBrand platform={platform.platform} name={platform.label[locale]} /> <span aria-hidden="true">↗</span>
+              <PlatformBrand platform={platform.platform} name={platform.platform === "apple-podcasts" ? "Podcasts" : platform.label[locale]} /> <span aria-hidden="true">↗</span>
             </a>
           ))}
           {wechatPlatforms.length > 0 && <PlatformList platforms={wechatPlatforms} comingSoon={labels.comingSoon} compact idPrefix="episode-hero" qrHint={qrHint} />}
