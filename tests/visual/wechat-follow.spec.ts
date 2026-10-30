@@ -65,28 +65,12 @@ test('older browsers disclose QR codes without navigating away', async ({ page }
 });
 
 for (const prefix of ['', '/en']) for (const number of ['006', '007']) {
-  test(`episode podcast QR disclosure ${prefix || 'zh'} ${number}`, async ({ page }) => {
+  test(`unpublished episode podcast has no listening entrance ${prefix || 'zh'} ${number}`, async ({ page }) => {
     await page.goto(`${prefix}/weekly/${number}`);
-    const rows = page.locator('.platform-qr-row');
-    await expect(rows).toHaveCount(2);
-    const ids = await rows.locator('.platform-qr').evaluateAll(items => items.map(item => item.id));
-    expect(new Set(ids).size).toBe(2);
-    for (const row of await rows.all()) {
-      await expect(row.locator('a')).toHaveCount(0);
-      await row.locator('button').hover();
-      await expect(row.locator('.platform-qr')).toBeVisible();
-      await expect(row.locator('.platform-qr img')).toHaveCount(1);
-      await expect(row.locator('.platform-qr img').first()).toHaveAttribute('src', '/assets/follow/wechat-official.jpg');
-      await expect(row.locator('.platform-qr img[src*="wechat-channels"]')).toHaveCount(0);
-      await page.keyboard.press('Escape');
-      await expect(row.locator('.platform-qr')).not.toBeVisible();
-    }
-    await page.setViewportSize({ width: 390, height: 844 });
-    await rows.first().locator('button').click();
-    await expect(rows.first().locator('.platform-qr')).toBeVisible();
-    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.goto(`${prefix}/weekly/005`);
     await expect(page.locator('.platform-qr-row')).toHaveCount(0);
+    if (number === '007') {
+      await expect(page.locator('.episode-actions a[href*="1000798141712"]')).toHaveCount(1);
+    }
   });
 }
 

@@ -1,7 +1,7 @@
 schemaVersion: 2
 number: '007'
 show: next-token-weekly
-wechatPodcastPublished: true
+wechatPodcastPublished: false
 status: published
 recordingLocation:
   zh-Hans: 万象空间
@@ -165,6 +165,14 @@ platforms:
     action:
       zh-Hans: 收听 / 收看
       en: Listen / watch
+  - platform: apple-podcasts
+    label:
+      zh-Hans: Apple Podcasts
+      en: Apple Podcasts
+    href: https://podcasts.apple.com/us/podcast/007-deepseek-%E6%9E%81%E9%80%9F%E7%8B%82%E9%A3%99-ai-%E6%B8%B8%E6%88%8F%E6%96%B0%E6%9C%BA%E4%BC%9A-ai-%E6%94%B9%E9%80%A0%E8%80%81%E5%AE%B6%E7%94%B5/id6809305832?i=1000798141712&uo=4
+    action:
+      zh-Hans: 立即收听
+      en: Listen now
   - platform: spotify
     label:
       zh-Hans: Spotify
