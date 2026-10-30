@@ -1,7 +1,7 @@
 schemaVersion: 2
 number: '007'
 show: next-token-weekly
-wechatPodcastPublished: false
+wechatPodcastPublished: true
 status: published
 recordingLocation:
   zh-Hans: 万象空间

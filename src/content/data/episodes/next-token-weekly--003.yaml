@@ -1,6 +1,7 @@
 schemaVersion: 2
 number: "003"
 show: next-token-weekly
+wechatPodcastPublished: true
 status: published
 productionImport: next-token-weekly--003.production
 media:

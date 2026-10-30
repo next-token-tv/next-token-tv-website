@@ -64,13 +64,35 @@ test('older browsers disclose QR codes without navigating away', async ({ page }
   await expect(row.locator('.platform-qr')).not.toBeVisible();
 });
 
-for (const prefix of ['', '/en']) for (const number of ['006', '007']) {
-  test(`unpublished episode podcast has no listening entrance ${prefix || 'zh'} ${number}`, async ({ page }) => {
+for (const prefix of ['', '/en']) for (const number of ['003', '004', '005', '006', '007']) {
+  test(`published episode podcast QR disclosure ${prefix || 'zh'} ${number}`, async ({ page }) => {
     await page.goto(`${prefix}/weekly/${number}`);
-    await expect(page.locator('.platform-qr-row')).toHaveCount(0);
+    const rows = page.locator('.platform-qr-row');
+    await expect(rows).toHaveCount(2);
+    const ids = await rows.locator('.platform-qr').evaluateAll(items => items.map(item => item.id));
+    expect(new Set(ids).size).toBe(2);
+    for (const row of await rows.all()) {
+      await expect(row.locator('a')).toHaveCount(0);
+      await row.locator('button').hover();
+      await expect(row.locator('.platform-qr')).toBeVisible();
+      await expect(row.locator('.platform-qr img')).toHaveCount(1);
+      await expect(row.locator('.platform-qr img')).toHaveAttribute('src', '/assets/follow/wechat-official.jpg');
+      await page.keyboard.press('Escape');
+      await expect(row.locator('.platform-qr')).not.toBeVisible();
+    }
     if (number === '007') {
       await expect(page.locator('.episode-actions a[href*="1000798141712"]')).toHaveCount(1);
     }
+    await page.setViewportSize({ width: 390, height: 844 });
+    await rows.first().locator('button').click();
+    await expect(rows.first().locator('.platform-qr')).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  });
+}
+for (const number of ['001', '002']) {
+  test(`unconfirmed episode podcast has no entrance ${number}`, async ({ page }) => {
+    await page.goto(`/weekly/${number}`);
+    await expect(page.locator('.platform-qr-row')).toHaveCount(0);
   });
 }
 

@@ -1,6 +1,7 @@
 schemaVersion: 2
 number: '004'
 show: next-token-weekly
+wechatPodcastPublished: true
 status: published
 transcriptPublishedAt: '2026-09-27'
 title:

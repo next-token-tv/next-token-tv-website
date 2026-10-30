@@ -1,6 +1,7 @@
 schemaVersion: 2
 number: '005'
 show: next-token-weekly
+wechatPodcastPublished: true
 status: published
 title:
   zh-Hans: '#005 国庆补课：PA 大战白热化；游戏、软件、硬件，一切都将开源？'
