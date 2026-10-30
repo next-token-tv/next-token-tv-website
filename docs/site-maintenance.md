@@ -1,5 +1,13 @@
 # Website maintenance
 
+## Local development preview
+
+Use `npm run dev` for interactive development or `npm run dev:start` for a background preview at `http://127.0.0.1:4321`. Both use `scripts/dev.mjs`, enforce the development environment, and pass Astro `--force` to resynchronize the content store at startup and replace a tracked older server. `npm run dev:status` and `npm run dev:stop` manage that same server. A different port can be selected with `-- --port NNNN`; an occupied port fails rather than silently moving the preview.
+
+The development-only integration polls file changes every 300 ms and waits for writes to settle. YAML, imported JSON and Markdown edits, including atomic saves, flow through Astro collection loaders and browser hot reload. Production build behavior is unchanged. `npm run preview` serves built output and is not a live content editor.
+
+Run `npm run test:dev` when changing the development launcher, content watchers or Astro version. It launches an isolated Astro fixture and Chrome, checks automatic refresh for all three content formats, then verifies changes made while the server was stopped. It also checks that an inherited production environment cannot disable development refresh. This test does not edit episode content or deploy the website.
+
 ## Verified releases
 
 `npm run release:check` runs content/type/style checks once, builds once with `build:assets`, then runs browser tests and output audits against that build. Mobile performance is a separate audit and does not block publishing. Standalone `build` retains its own chapter, transcript and type checks. Standalone browser test commands continue to build by default. `PLAYWRIGHT_SKIP_BUILD=1` is reserved for an already-built artifact.

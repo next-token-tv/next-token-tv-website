@@ -9,7 +9,7 @@
   },
   "scripts": {
     "predev": "npm run generate:og",
-    "dev": "astro dev --host 127.0.0.1 --port 4174",
+    "dev": "node scripts/dev.mjs",
     "import:episode": "node scripts/import-episode.mjs",
     "import:transcript": "node scripts/import-transcript.mjs",
     "generate:og": "node scripts/generate-og.mjs",
@@ -47,7 +47,11 @@
     "community:qr": "node scripts/generate-community-qr.mjs",
     "test:community": "node --test tests/community-qr.test.mjs",
     "check:wiki": "node scripts/check-wiki.mjs",
-    "test:visual:quick": "node scripts/run-browser-tests.mjs visual tests/visual/tags.spec.ts tests/visual/design-system.spec.ts"
+    "test:visual:quick": "node scripts/run-browser-tests.mjs visual tests/visual/tags.spec.ts tests/visual/design-system.spec.ts",
+    "dev:start": "node scripts/dev.mjs --background",
+    "dev:stop": "node scripts/dev.mjs stop",
+    "dev:status": "node scripts/dev.mjs status",
+    "test:dev": "node --test tests/development-preview.test.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
