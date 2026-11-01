@@ -27,6 +27,12 @@ npm run test:visual -- tests/visual/hero-layout.spec.ts --update-snapshots=all
 
 `PLAYWRIGHT_PORT` selects the production preview port (default 4176). `PLAYWRIGHT_FIXTURE_PORT` selects the isolated fixture preview port (default 4177); choose distinct unused ports. `PLAYWRIGHT_USE_EXISTING_SERVER=1` reuses only the explicitly prepared production preview. The test fixture server is still built and managed by Playwright. `PLAYWRIGHT_SKIP_BUILD=1` reuses a prepared production build, including during the release gate; it does not skip the fixture build. Run commands involving Wrangler outside the sandbox.
 
+Design contracts poll the measured layout for up to five seconds after font readiness. Font loading can finish before responsive/container styles have been applied; measurements are retried without reloading or rewriting the page. Persistent size, alignment, overflow or clipping violations still fail, with actual and expected font sizes in the report.
+
+Wrangler is pinned to 4.156.0, which includes the upstream [dev-proxy request-failure fix](https://github.com/cloudflare/workers-sdk/pull/15252) and [serialized error diagnostics](https://github.com/cloudflare/workers-sdk/pull/14906). The preview resilience test cancels asset requests and sends a rejected request body, then verifies that the same server still serves pages. No automatic whole-suite retry is configured.
+
+Social-card checks validate every emitted page's head metadata and PNG through HTTP, disposing each response immediately. One page in each of four disjoint groups also receives browser DOM assertions. This retains full metadata/image coverage without thousands of page navigations and their cancelled subresource requests.
+
 Publishing a new episode updates the behavior assertions through metadata and leaves the fixed hero inputs unchanged. Review failures in real geometry or destinations directly; do not move the fixed episode forward to make them pass. Changes to a fixed input or shared design require inspecting the actual, expected and difference images before updating the relevant baseline.
 
 The eight existing `home`, `en`, `weekly` and `en-weekly` mobile/wide PNGs under `layout.spec.ts-snapshots/` are historical references and remain preserved. Those real routes retain geometry checks but no longer compare publication-dependent hero text to these old files. New references live under `hero-layout.spec.ts-snapshots/`. Existing approved visual versions are not deleted or overwritten by this transition.
