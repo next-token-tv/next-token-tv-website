@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "conversionVersion": "1.4.9",
+  "conversionVersion": "1.4.10",
   "episodeId": "next-token-weekly--008",
   "locale": "zh-Hans",
   "title": "#008 A 社上市，泡沫破裂前夜？AI 短剧之外，钱和流量都去哪儿了？",
@@ -1203,9 +1203,9 @@
         },
         {
           "kind": "speech",
-          "speaker": "说话人待核",
+          "speaker": "未署名",
           "speakerId": null,
-          "candidate": true,
+          "candidate": false,
           "paragraphs": [
             [
               {
@@ -5631,9 +5631,9 @@
         },
         {
           "kind": "speech",
-          "speaker": "说话人待核",
+          "speaker": "未署名",
           "speakerId": null,
-          "candidate": true,
+          "candidate": false,
           "paragraphs": [
             [
               {
@@ -6040,9 +6040,9 @@
         },
         {
           "kind": "speech",
-          "speaker": "说话人待核",
+          "speaker": "未署名",
           "speakerId": null,
-          "candidate": true,
+          "candidate": false,
           "paragraphs": [
             [
               {
@@ -9914,9 +9914,9 @@
         },
         {
           "kind": "speech",
-          "speaker": "说话人待核",
+          "speaker": "未署名",
           "speakerId": null,
-          "candidate": true,
+          "candidate": false,
           "paragraphs": [
             [
               {
@@ -9942,9 +9942,9 @@
         },
         {
           "kind": "speech",
-          "speaker": "说话人待核",
+          "speaker": "未署名",
           "speakerId": null,
-          "candidate": true,
+          "candidate": false,
           "paragraphs": [
             [
               {
@@ -9970,9 +9970,9 @@
         },
         {
           "kind": "speech",
-          "speaker": "说话人待核",
+          "speaker": "未署名",
           "speakerId": null,
-          "candidate": true,
+          "candidate": false,
           "paragraphs": [
             [
               {
@@ -9998,9 +9998,9 @@
         },
         {
           "kind": "speech",
-          "speaker": "说话人待核",
+          "speaker": "未署名",
           "speakerId": null,
-          "candidate": true,
+          "candidate": false,
           "paragraphs": [
             [
               {
@@ -10026,9 +10026,9 @@
         },
         {
           "kind": "speech",
-          "speaker": "说话人待核",
+          "speaker": "未署名",
           "speakerId": null,
-          "candidate": true,
+          "candidate": false,
           "paragraphs": [
             [
               {
@@ -10054,9 +10054,9 @@
         },
         {
           "kind": "speech",
-          "speaker": "说话人待核",
+          "speaker": "未署名",
           "speakerId": null,
-          "candidate": true,
+          "candidate": false,
           "paragraphs": [
             [
               {
@@ -11141,9 +11141,9 @@
         },
         {
           "kind": "speech",
-          "speaker": "说话人待核",
+          "speaker": "未署名",
           "speakerId": null,
-          "candidate": true,
+          "candidate": false,
           "paragraphs": [
             [
               {
@@ -13079,9 +13079,9 @@
         },
         {
           "kind": "speech",
-          "speaker": "说话人待核",
+          "speaker": "未署名",
           "speakerId": null,
-          "candidate": true,
+          "candidate": false,
           "paragraphs": [
             [
               {
@@ -13236,11 +13236,11 @@
   ],
   "provenance": {
     "sourceRepository": "next-token",
-    "sourceRevision": "1d23f574086218f9803a580b3918a8bf20412e82",
+    "sourceRevision": "19e7b3854e2ae3210212936a110396973487ffea",
     "sourceState": "committed",
-    "sourcePath": "shows/weekly/episodes/008/04-release/copy/website-preview/transcript.zh-Hans.md",
-    "sourceSha256": "e43b5ea2ca79bf4a911e82fe48aac77932857d9f61b3ba06cc568568782b7724"
+    "sourcePath": "shows/weekly/episodes/008/04-release/copy/transcript.zh-Hans.md",
+    "sourceSha256": "e954c55dc265ee3e1b147dcd942a924d2050ab9e4d9d3043021ed6c2cdad0e36"
   },
   "chapterCount": 13,
-  "publicationStatus": "review-draft"
+  "publicationStatus": "published"
 }

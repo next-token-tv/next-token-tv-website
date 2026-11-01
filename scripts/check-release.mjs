@@ -1,4 +1,5 @@
 import { validPlatformUrl } from '../src/data/platforms.mjs';
+import { hasEpisodeRoute } from '../src/data/episode-visibility.ts';
 import { readdir, readFile, stat } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -229,6 +230,14 @@ const announced = [];
 for (const name of await readdir(directory)) {
   if (!name.endsWith('.yaml')) continue;
   const data = load(await readFile(resolve(directory, name), 'utf8'));
+  if (!hasEpisodeRoute(data)) {
+    for (const prefix of ['', '/en']) {
+      if (pages.has(resolve(dist, `.${prefix}/weekly/${data.number}/index.html`))) {
+        errors.push(`${name}: local release preview leaked into production`);
+      }
+    }
+    continue;
+  }
   episodes++;
   if (data.status === 'published') published.push(data);
   if (data.status === 'published') {

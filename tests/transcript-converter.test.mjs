@@ -358,3 +358,11 @@ test('chapter exclusions suppress ordinary words without losing genuine product 
   assert.deepEqual(relinkTranscript(snapshot,options).chapters,snapshot.chapters);
   assert.throws(()=>convertTranscript(tree,{...options,chapterExcludedAliases:[{alias:'点点',chapters:['typo']}]}),/Invalid chapter excluded alias/);
 });
+
+test('approved unattributed speech preserves dialogue without inventing a person or pending review',()=>{
+ const {snapshot,report}=convertTranscript(unified().use(remarkParse).parse('# Test\n\n## Chapter\n\n**未署名：**\n\n容易挨骂。'),{episodeId:'show--008',locale:'zh-Hans',entities:[]});
+ assert.deepEqual(report.unknownSpeakers,[]);
+ const t=snapshot.chapters[0].turns[0];
+ assert.equal(t.speaker,'未署名');assert.equal(t.speakerId,null);assert.equal(t.candidate,false);
+ assert.equal(t.paragraphs[0][0].value,'容易挨骂。');
+});

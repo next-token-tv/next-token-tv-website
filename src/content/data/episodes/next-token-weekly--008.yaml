@@ -1,26 +1,10 @@
 schemaVersion: 1
 number: '008'
 show: next-token-weekly
-status: announced
-phase: post-production
-detailLayout: true
-releasePreview: true
-scheduledAt: '2026-11-01'
-timeZone: Asia/Shanghai
-recordingMode: in-person
-recordingVenue: xiangwai--beijing-fuxi
+status: published
 title:
   zh-Hans: '#008 A 社上市，泡沫破裂前夜？AI 短剧之外，钱和流量都去哪儿了？'
   en: '#008 Anthropic’s IPO: On the Eve of a Bubble? Where Are the Money and Traffic Going?'
-participants:
-  - person: orange
-    role: duty-host
-  - person: yangpan
-    role: co-host
-  - person: guizang
-    role: co-host
-  - person: xiangyang-qiaomu
-    role: co-host
 mentions:
   brands:
     - anthropic
@@ -141,44 +125,48 @@ mentions:
     - zhongqing
     - yan-junchen
     - foyege
-preview:
-  images:
-    '480': /assets/episodes/008/cover-v5-480.webp
-    '720': /assets/episodes/008/cover-v5-720.webp
-    '960': /assets/episodes/008/cover-v5-960.webp
-    '1440': /assets/episodes/008/cover-v5-1440.webp
-    '1920': /assets/episodes/008/cover-v5-1920.webp
-  imageDimensions:
-    width: 3000
-    height: 3000
-  eyebrow:
-    zh-Hans: 第 008 期
-    en: Episode 008
-  heading:
-    zh-Hans:
+productionImport: next-token-weekly--008.production
+transcriptPublishedAt: '2026-11-02'
+media:
+  audio: false
+  video: false
+platforms: []
+homepage:
+  zh-Hans:
+    eyebrow: 第 008 期
+    heading:
       - A 社上市，泡沫破裂前夜？
       - AI 短剧之外，钱和流量都去哪儿了？
-    en:
-      - 'Anthropic’s IPO: On the Eve of a Bubble?'
-      - Where Are the Money and Traffic Going?
-  summary:
-    zh-Hans: 从 AI 公司的估值与融资，到 AI 搜索如何分配流量，再到短剧创作、科学研究和双十一购物车：四位主理人聊泡沫、价值、创意与信任。
-    en: >-
-      From AI valuations and search traffic to short dramas, scientific research and shopping carts: four hosts discuss bubbles, value,
-      creativity and trust.
-  topics:
-    zh-Hans:
+    lede: 从 AI 公司的估值与融资，到 AI 搜索如何分配流量，再到短剧创作、科学研究和双十一购物车：四位主理人聊泡沫、价值、创意与信任。
+    copy: 从 AI 公司的估值与融资，到 AI 搜索如何分配流量，再到短剧创作、科学研究和双十一购物车：四位主理人聊泡沫、价值、创意与信任。
+    imageAlt: '#008 A 社上市，泡沫破裂前夜？AI 短剧之外，钱和流量都去哪儿了？'
+    topicsLabel: 本期话题
+    topics:
       - AI 泡沫
       - AI 搜索
       - AI 短剧
       - 创意与信任
       - 双十一
-    en:
+    listenAction: 阅读文字稿
+    watchAction: 查看本期
+  en:
+    eyebrow: Episode 008
+    heading:
+      - 'Anthropic’s IPO: On the Eve of a Bubble?'
+      - Where Are the Money and Traffic Going?
+    lede: >-
+      From AI valuations and search traffic to short dramas, scientific research and shopping carts: four hosts discuss bubbles, value,
+      creativity and trust.
+    copy: >-
+      From AI valuations and search traffic to short dramas, scientific research and shopping carts: four hosts discuss bubbles, value,
+      creativity and trust.
+    imageAlt: '#008 Anthropic’s IPO: On the Eve of a Bubble? Where Are the Money and Traffic Going?'
+    topicsLabel: In this episode
+    topics:
       - AI bubbles
       - AI search
       - AI short dramas
       - Creativity and trust
       - Shopping
-  note:
-    zh-Hans: ''
-    en: ''
+    listenAction: Read transcript
+    watchAction: Explore episode

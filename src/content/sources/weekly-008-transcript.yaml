@@ -1,0 +1,26 @@
+schemaVersion: 2
+episodeId: next-token-weekly--008
+number: '008'
+show: next-token-weekly
+status: published
+language: zh-Hans
+recordedAt: '2026-11-01'
+recordingMode: in-person
+recordingVenue: xiangwai--beijing-fuxi
+imageKind: artwork
+imageDimensions:
+  width: 3000
+  height: 3000
+participants:
+  - person: orange
+    role: duty-host
+  - person: yangpan
+    role: co-host
+  - person: guizang
+    role: co-host
+  - person: xiangyang-qiaomu
+    role: co-host
+cover: shows/weekly/episodes/008/04-release/artwork/cover-square.jpg
+sources:
+  - shows/weekly/episodes/008/04-release/artwork/cover-square.jpg
+  - shows/weekly/episodes/008/04-release/copy/website-release.json
