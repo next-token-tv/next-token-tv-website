@@ -55,6 +55,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
+    "@astrojs/markdown-satteri": "0.4.0",
     "@astrojs/sitemap": "^3.7.4",
     "@csstools/selector-resolve-nested": "4.0.1",
     "@playwright/test": "^1.63.0",
@@ -70,7 +71,6 @@
     "stylelint": "^17.15.0",
     "typescript": "^5.9.3",
     "unified": "^11.0.5",
-    "wrangler": "^4.101.0",
-    "@astrojs/markdown-satteri": "0.4.0"
+    "wrangler": "4.156.0"
   }
 }
