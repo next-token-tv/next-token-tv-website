@@ -13,7 +13,7 @@ test(`every social card has a working PNG and complete matching head metadata (g
     const pageResponse = await request.get(path);
     try {
       expect(pageResponse.status(), path).toBe(200);
-      const metadata: Record<string, string[]> = {};
+      const metadata: Record<string, (string | undefined)[]> = {};
       let inHead = false;
       const parser = new Parser({
         onopentag(name, attrs) {
@@ -34,7 +34,7 @@ test(`every social card has a working PNG and complete matching head metadata (g
       expect(png.readUInt32BE(16)).toBe(1200);
       expect(png.readUInt32BE(20)).toBe(630);
     } finally { await response.dispose(); }
-    if (path === entries[0][0]) {
+    if (path === entries[0]?.[0]) {
       expect((await page.goto(path))?.status()).toBe(200);
       for (const [key, value] of Object.entries(expected)) {
         await expect(page.locator(`head meta[property="${key}"], head meta[name="${key}"]`)).toHaveAttribute('content', value);
