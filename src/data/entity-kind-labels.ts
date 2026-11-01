@@ -12,6 +12,7 @@ export const productKind = {
   event: { "zh-Hans": "活动", en: "Event" },
   game: { "zh-Hans": "游戏", en: "Game" },
   book: { "zh-Hans": "图书", en: "Book" },
+  movie: { "zh-Hans": "电影", en: "Films" },
   series: { "zh-Hans": "剧集", en: "TV series" },
   "operating-system": { "zh-Hans": "操作系统", en: "Operating system" },
   application: { "zh-Hans": "应用", en: "Application" },

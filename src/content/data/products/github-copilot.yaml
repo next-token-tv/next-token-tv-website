@@ -1,0 +1,17 @@
+kind: agent
+name:
+  zh-Hans: GitHub Copilot
+  en: GitHub Copilot
+summary:
+  zh-Hans: GitHub 提供的 AI 编程助手与代码任务代理。
+  en: GitHub’s AI coding assistant and agent for software development tasks.
+aliases: []
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://github.com/features/copilot
+official:
+  website: https://github.com/features/copilot
+brand: microsoft

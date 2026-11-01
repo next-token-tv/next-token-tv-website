@@ -1,0 +1,184 @@
+schemaVersion: 1
+number: '008'
+show: next-token-weekly
+status: announced
+phase: post-production
+detailLayout: true
+releasePreview: true
+scheduledAt: '2026-11-01'
+timeZone: Asia/Shanghai
+recordingMode: in-person
+recordingVenue: xiangwai--beijing-fuxi
+title:
+  zh-Hans: '#008 A 社上市，泡沫破裂前夜？AI 短剧之外，钱和流量都去哪儿了？'
+  en: '#008 Anthropic’s IPO: On the Eve of a Bubble? Where Are the Money and Traffic Going?'
+participants:
+  - person: orange
+    role: duty-host
+  - person: yangpan
+    role: co-host
+  - person: guizang
+    role: co-host
+  - person: xiangyang-qiaomu
+    role: co-host
+mentions:
+  brands:
+    - anthropic
+    - openai
+    - google
+    - apple
+    - nvidia
+    - amd
+    - meta
+    - oppo
+    - cloudflare
+    - deepseek
+    - nintendo
+    - microsoft
+    - zhipu
+    - xiaomi
+    - sony
+    - intel
+    - sandisk
+    - qualcomm
+    - oneplus
+    - anker
+    - muji
+    - blackstone
+    - amazon
+    - vibe-friends
+    - geekerwan
+    - xinhua
+    - beijing-daily
+    - zhang-xiao-quan
+  products:
+    - claude
+    - claude-code
+    - gpt
+    - gemini
+    - grok-bot
+    - reddit
+    - google-ai-mode
+    - alphafold
+    - jimeng
+    - hongguo
+    - youtube
+    - bilibili
+    - xiaohongshu
+    - tiktok
+    - instagram
+    - threads
+    - github
+    - notion
+    - pinduoduo
+    - iphone
+    - ipad
+    - ios
+    - android
+    - wechat
+    - xiaoyuzhou
+    - qwen
+    - railway
+    - x
+    - douyin
+    - diandian
+    - deepseek
+    - deepseek-harness
+    - doubao
+    - doubao-seed
+    - instinct
+    - jianying
+    - synology-nas
+    - meituan
+    - cyberpunk-2077
+    - xiaomi-smartphones
+    - binance
+    - profound
+    - microsoft-copilot
+    - github-copilot
+    - apple-pay
+    - oneplus-13t
+    - oppo-pad-mini
+    - oppo-find-n
+    - oppo-ai-xinli-ball
+    - soundcore-work
+    - coloros
+    - snapdragon
+    - mediatek-dimensity
+    - guizang-ppt-skill
+    - youzhiyouxing
+    - web-20-next
+    - zsxq
+    - qidian
+    - xuan-jian-xian-zu
+    - phantom-blade-zero
+    - fuyou-tiandi
+    - sapiens
+    - guixu-ai-series
+    - zero-files
+    - chi-xie-ru-song
+    - pantheon
+    - harry-potter-films
+    - twilight-films
+    - scp-foundation
+    - qiaomu-ai-rss
+    - nvidia-b300
+    - microsoft-excel
+  people:
+    - elon-musk
+    - liu-xiaopai
+    - cyber-zen
+    - zhang-yiming
+    - yubo
+    - yao-jingang
+    - meng-yan
+    - hong-wang
+    - liu-cixin
+    - yuval-noah-harari
+    - pete-lau
+    - changpeng-zhao
+    - yin-ming
+    - zhongqing
+    - yan-junchen
+    - foyege
+preview:
+  images:
+    '480': /assets/episodes/008/cover-480.webp
+    '720': /assets/episodes/008/cover-720.webp
+    '960': /assets/episodes/008/cover-960.webp
+    '1440': /assets/episodes/008/cover-1440.webp
+    '1920': /assets/episodes/008/cover-1920.webp
+  imageDimensions:
+    width: 3000
+    height: 3000
+  eyebrow:
+    zh-Hans: 第 008 期
+    en: Episode 008
+  heading:
+    zh-Hans:
+      - A 社上市，泡沫破裂前夜？
+      - AI 短剧之外，钱和流量都去哪儿了？
+    en:
+      - 'Anthropic’s IPO: On the Eve of a Bubble?'
+      - Where Are the Money and Traffic Going?
+  summary:
+    zh-Hans: 从 AI 公司的估值与融资，到 AI 搜索如何分配流量，再到短剧创作、科学研究和双十一购物车：四位主理人聊泡沫、价值、创意与信任。
+    en: >-
+      From AI valuations and search traffic to short dramas, scientific research and shopping carts: four hosts discuss bubbles, value,
+      creativity and trust.
+  topics:
+    zh-Hans:
+      - AI 泡沫
+      - AI 搜索
+      - AI 短剧
+      - 创意与信任
+      - 双十一
+    en:
+      - AI bubbles
+      - AI search
+      - AI short dramas
+      - Creativity and trust
+      - Shopping
+  note:
+    zh-Hans: ''
+    en: ''

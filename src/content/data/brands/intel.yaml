@@ -1,0 +1,17 @@
+kind: hardware-brand
+name:
+  zh-Hans: 英特尔
+  en: Intel
+summary:
+  zh-Hans: 设计与制造处理器及相关计算平台的半导体公司。
+  en: A semiconductor company designing and manufacturing processors and computing platforms.
+aliases:
+  - Intel
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.intel.com/content/www/us/en/company-overview/company-overview.html
+official:
+  website: https://www.intel.com/content/www/us/en/company-overview/company-overview.html

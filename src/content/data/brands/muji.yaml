@@ -1,0 +1,17 @@
+kind: other-brand
+name:
+  zh-Hans: 无印良品
+  en: MUJI
+summary:
+  zh-Hans: 提供服装、家居用品与食品的生活方式品牌。
+  en: A lifestyle brand offering clothing, household goods and food.
+aliases:
+  - 無印良品
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.muji.com/
+official:
+  website: https://www.muji.com/

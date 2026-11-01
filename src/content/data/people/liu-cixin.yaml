@@ -1,0 +1,15 @@
+kind: creator-community
+name:
+  zh-Hans: 刘慈欣
+  en: Liu Cixin
+bio:
+  zh-Hans: 中国科幻作家，代表作品包括《三体》。
+  en: A Chinese science-fiction writer whose works include The Three-Body Problem.
+aliases:
+  - Cixin Liu
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://academic.macmillan.com/author/cixinliu

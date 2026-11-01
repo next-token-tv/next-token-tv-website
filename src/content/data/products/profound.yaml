@@ -1,0 +1,16 @@
+kind: platform
+name:
+  zh-Hans: Profound
+  en: Profound
+summary:
+  zh-Hans: 用于分析品牌在 AI 搜索与回答引擎中的可见性及引用情况的服务。
+  en: A service for analyzing brand visibility and citations in AI search and answer engines.
+aliases: []
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.tryprofound.com/
+official:
+  website: https://www.tryprofound.com/

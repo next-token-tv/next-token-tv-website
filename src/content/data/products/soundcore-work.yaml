@@ -1,0 +1,18 @@
+kind: hardware
+name:
+  zh-Hans: soundcore Work
+  en: soundcore Work
+summary:
+  zh-Hans: 安克旗下的便携 AI 录音设备，用于录音与转写整理。
+  en: A portable AI voice recorder from Anker for recording and transcription.
+aliases:
+  - 安克录音豆
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.soundcore.com.tw/products/soundcore-work
+official:
+  website: https://www.soundcore.com.tw/products/soundcore-work
+brand: anker

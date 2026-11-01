@@ -38,7 +38,8 @@ const wechatPlatforms = episode.data.status === "published" && episode.data.wech
   accountName: official.accountName, qr: official.qr,
 }] : [];
 const qrHint = locale === "en" ? "Scan this official account code in WeChat and find this episode’s audio podcast." : "微信扫描公众号二维码，在公众号中找到本期音频播客收听。";
-const announcement = episode.data.status === "announced" ? announcementCopy(episode.data, locale) : null;
+const isReleasePreview = import.meta.env.DEV && episode.data.status === "announced" && episode.data.releasePreview;
+const announcement = episode.data.status === "announced" && !isReleasePreview ? announcementCopy(episode.data, locale) : null;
 const isLocalReview = import.meta.env.DEV && (await getEpisodeTranscriptOrNull(episodeId, locale))?.data.publicationStatus === "review-draft";
 const weeklyPath = locale === "en" ? "/en/weekly" : "/weekly";
 const recordingDate = new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-Hans", {
@@ -121,7 +122,7 @@ const labels = locale === "en" ? {
         <p>{homepage.lede}</p>
         {episode.data.media.audio && !episode.data.media.video && <p>{locale === "en" ? "Audio out now · Video not yet available" : "音频已上线 · 视频版尚未上线"}</p>}
         {announcement && !isLocalReview && <p>{announcement.label} · {announcement.note}</p>}
-        {!announcement && !episode.data.media.audio && !episode.data.media.video && <p>{locale === "en" ? "Full transcript available" : "完整文字稿已上线"}</p>}
+        {episode.data.status === "published" && !episode.data.media.audio && !episode.data.media.video && <p>{locale === "en" ? "Full transcript available" : "完整文字稿已上线"}</p>}
         <TranscriptLink episodeId={episodeId} number={episode.data.number} locale={locale} details />
         <EpisodeArticleLink episodeId={episodeId} locale={locale} />
         <div class="episode-actions">

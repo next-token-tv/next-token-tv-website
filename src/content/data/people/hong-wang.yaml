@@ -1,0 +1,14 @@
+kind: research-engineering
+name:
+  zh-Hans: 王虹
+  en: Hong Wang
+bio:
+  zh-Hans: 研究傅里叶分析与几何测度论的数学家。
+  en: A mathematician working in Fourier analysis and geometric measure theory.
+aliases: []
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://sites.google.com/view/hongwang/home

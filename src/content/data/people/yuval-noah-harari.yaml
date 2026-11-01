@@ -1,0 +1,15 @@
+kind: research-engineering
+name:
+  zh-Hans: 尤瓦尔·赫拉利
+  en: Yuval Noah Harari
+bio:
+  zh-Hans: 历史学家与作家，《人类简史》的作者。
+  en: A historian and writer, and the author of Sapiens.
+aliases:
+  - 赫拉利
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.ynharari.com/about/

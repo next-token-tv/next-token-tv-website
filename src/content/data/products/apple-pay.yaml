@@ -1,0 +1,17 @@
+kind: application
+name:
+  zh-Hans: Apple Pay
+  en: Apple Pay
+summary:
+  zh-Hans: Apple 提供的数字支付服务，可通过兼容设备完成支付。
+  en: Apple’s digital payment service for compatible devices.
+aliases: []
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.apple.com/apple-pay/
+official:
+  website: https://www.apple.com/apple-pay/
+brand: apple

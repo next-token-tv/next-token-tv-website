@@ -1,0 +1,16 @@
+kind: application
+name:
+  zh-Hans: 乔木 AI RSS
+  en: Qiaomu AI RSS
+summary:
+  zh-Hans: 向阳乔木的 RSS 阅读工具，聚合资讯并支持中文翻译与 AI 改写。
+  en: Xiangyang Qiaomu’s RSS reading tool for aggregated content, Chinese translations and AI rewrites.
+aliases: []
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://github.com/joeseesun/qiaomu-ai-rss
+official:
+  website: https://github.com/joeseesun/qiaomu-ai-rss

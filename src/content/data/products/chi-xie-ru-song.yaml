@@ -1,0 +1,14 @@
+kind: series
+name:
+  zh-Hans: 持械入宋
+  en: Chi Xie Ru Song
+summary:
+  zh-Hans: 以现代武装人员进入宋代为设定的 AI 短剧。
+  en: An AI-produced short drama about modern armed characters entering the Song dynasty.
+aliases: []
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.bilibili.com/video/BV1iJhx65Egz/

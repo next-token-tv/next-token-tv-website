@@ -1,0 +1,220 @@
+{
+  "locale": "zh-Hans",
+  "resolutions": {
+    "Next Token Weekly": {
+      "entityType": "show",
+      "id": "next-token-weekly"
+    },
+    "DeepSeek": {
+      "entityType": "product",
+      "id": "deepseek"
+    },
+    "MiniMax": {
+      "entityType": "product",
+      "id": "minimax"
+    },
+    "赛博禅心": {
+      "entityType": "person",
+      "id": "cyber-zen"
+    },
+    "Cyber Zen": {
+      "entityType": "person",
+      "id": "cyber-zen"
+    },
+    "Dots": {
+      "entityType": "product",
+      "id": "diandian"
+    },
+    "亚马逊": {
+      "entityType": "brand",
+      "id": "amazon"
+    },
+    "Amazon": {
+      "entityType": "brand",
+      "id": "amazon"
+    }
+  },
+  "notices": [],
+  "titleFromEpisode": true,
+  "excludedEntities": [
+    "brand:ted",
+    "product:rea",
+    "product:php",
+    "product:android-debug-bridge",
+    "brand:netease-youdao",
+    "product:silicon-valley"
+  ],
+  "scopedAliases": [
+    {
+      "entityType": "person",
+      "id": "yan-junchen",
+      "alias": "君晨"
+    },
+    {
+      "entityType": "person",
+      "id": "zhang-yiming",
+      "alias": "（张）一鸣"
+    },
+    {
+      "entityType": "person",
+      "id": "yao-jingang",
+      "alias": "老姚"
+    },
+    {
+      "entityType": "person",
+      "id": "elon-musk",
+      "alias": "老马"
+    },
+    {
+      "entityType": "brand",
+      "id": "anthropic",
+      "alias": "A 社"
+    },
+    {
+      "entityType": "brand",
+      "id": "openai",
+      "alias": "O 社"
+    },
+    {
+      "entityType": "product",
+      "id": "microsoft-copilot",
+      "alias": "微软 Copilot"
+    },
+    {
+      "entityType": "product",
+      "id": "microsoft-copilot",
+      "alias": "Copilot"
+    },
+    {
+      "entityType": "product",
+      "id": "claude",
+      "alias": "Opus 5.5"
+    },
+    {
+      "entityType": "product",
+      "id": "claude",
+      "alias": "Opus"
+    },
+    {
+      "entityType": "product",
+      "id": "qwen",
+      "alias": "Qwen 3.8 Flash Next"
+    },
+    {
+      "entityType": "product",
+      "id": "gpt",
+      "alias": "GPT 版本 2.0"
+    },
+    {
+      "entityType": "product",
+      "id": "synology-nas",
+      "alias": "群晖"
+    },
+    {
+      "entityType": "product",
+      "id": "soundcore-work",
+      "alias": "安克录音笔"
+    },
+    {
+      "entityType": "product",
+      "id": "soundcore-work",
+      "alias": "安克那个录音豆"
+    },
+    {
+      "entityType": "product",
+      "id": "soundcore-work",
+      "alias": "安克录音设备"
+    },
+    {
+      "entityType": "product",
+      "id": "oppo-find-n",
+      "alias": "OPPO 那个折叠屏"
+    },
+    {
+      "entityType": "product",
+      "id": "oppo-find-n",
+      "alias": "OPPO 折叠屏"
+    },
+    {
+      "entityType": "product",
+      "id": "oppo-find-n",
+      "alias": "N6"
+    },
+    {
+      "entityType": "product",
+      "id": "iphone",
+      "alias": "Duo"
+    },
+    {
+      "entityType": "product",
+      "id": "snapdragon",
+      "alias": "骁龙 8 Gen6"
+    },
+    {
+      "entityType": "product",
+      "id": "snapdragon",
+      "alias": "8 Gen6"
+    },
+    {
+      "entityType": "product",
+      "id": "wechat",
+      "alias": "绿泡泡"
+    },
+    {
+      "entityType": "product",
+      "id": "qiaomu-ai-rss",
+      "alias": "AI RSS"
+    },
+    {
+      "entityType": "product",
+      "id": "scp-foundation",
+      "alias": "SCP（基金会）"
+    },
+    {
+      "entityType": "product",
+      "id": "doubao-seed",
+      "alias": "豆包（模型）"
+    },
+    {
+      "entityType": "product",
+      "id": "ipad",
+      "alias": "iPad mini"
+    }
+  ],
+  "chapterAliases": [
+    {
+      "entityType": "brand",
+      "id": "deepseek",
+      "alias": "DeepSeek",
+      "chapters": [
+        "chapter-02",
+        "chapter-08"
+      ]
+    },
+    {
+      "entityType": "product",
+      "id": "doubao-seed",
+      "alias": "豆包",
+      "chapters": [
+        "chapter-07"
+      ]
+    },
+    {
+      "entityType": "product",
+      "id": "oppo-find-n",
+      "alias": "Find",
+      "chapters": [
+        "chapter-12",
+        "chapter-13"
+      ]
+    }
+  ],
+  "chapterExcludedAliases": [
+    {
+      "alias": "点点",
+      "chapters": [
+        "chapter-07"
+      ]
+    }
+  ]
+}

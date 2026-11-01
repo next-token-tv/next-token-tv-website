@@ -1,0 +1,16 @@
+kind: media-community-brand
+name:
+  zh-Hans: 新华社
+  en: Xinhua News Agency
+summary:
+  zh-Hans: 提供新闻报道与信息服务的通讯社。
+  en: A news agency providing reporting and information services.
+aliases: []
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.news.cn/
+official:
+  website: https://www.news.cn/

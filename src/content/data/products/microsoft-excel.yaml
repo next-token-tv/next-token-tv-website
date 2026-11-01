@@ -1,0 +1,18 @@
+kind: application
+name:
+  zh-Hans: Microsoft Excel
+  en: Microsoft Excel
+summary:
+  zh-Hans: 微软的电子表格应用，用于数据整理、分析与报表。
+  en: Microsoft’s spreadsheet application for organizing data, analysis and reporting.
+aliases:
+  - Excel
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://excel.cloud.microsoft/create/en/spreadsheet-maker/
+official:
+  website: https://excel.cloud.microsoft/create/en/spreadsheet-maker/
+brand: microsoft

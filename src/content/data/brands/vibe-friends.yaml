@@ -1,0 +1,17 @@
+kind: media-community-brand
+name:
+  zh-Hans: Vibe Friends
+  en: Vibe Friends
+summary:
+  zh-Hans: 面向 AI 独立创作者的社群，举办交流活动与黑客松。
+  en: A community for solo AI creators, with meetups and hackathons.
+aliases:
+  - VibeFriends
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://vibefriends.com/
+official:
+  website: https://vibefriends.com/

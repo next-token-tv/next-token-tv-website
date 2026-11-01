@@ -1,0 +1,16 @@
+kind: media-community-brand
+name:
+  zh-Hans: 北京日报
+  en: Beijing Daily
+summary:
+  zh-Hans: 北京的新闻媒体，提供报纸与数字新闻内容。
+  en: A Beijing news outlet publishing print and digital journalism.
+aliases: []
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.bjd.com.cn/
+official:
+  website: https://www.bjd.com.cn/

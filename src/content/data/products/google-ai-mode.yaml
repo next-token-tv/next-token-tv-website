@@ -1,0 +1,18 @@
+kind: application
+brand: google
+name:
+  zh-Hans: Google AI Mode
+  en: Google AI Mode
+summary:
+  zh-Hans: Google 搜索中的 AI 搜索模式，支持围绕问题继续追问。
+  en: An AI search mode in Google Search that supports follow-up questions.
+aliases:
+  - AI Mode
+official:
+  website: https://blog.google/products-and-platforms/products/search/ai-mode-search/
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 官方介绍
+      en: Official introduction
+    href: https://blog.google/products-and-platforms/products/search/ai-mode-search/

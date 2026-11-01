@@ -1,0 +1,17 @@
+kind: model-family
+brand: google
+name:
+  zh-Hans: AlphaFold
+  en: AlphaFold
+summary:
+  zh-Hans: Google DeepMind 开发的生物分子结构预测模型系列。
+  en: A family of biomolecular structure prediction models developed by Google DeepMind.
+aliases: []
+official:
+  website: https://deepmind.google/science/alphafold/
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 官方介绍
+      en: Official introduction
+    href: https://deepmind.google/science/alphafold/

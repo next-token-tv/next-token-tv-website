@@ -1,0 +1,16 @@
+kind: other-brand
+name:
+  zh-Hans: 黑石
+  en: Blackstone
+summary:
+  zh-Hans: 从事私募股权、房地产和信贷等另类资产管理业务的公司。
+  en: An alternative asset manager working across private equity, real estate and credit.
+aliases: []
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.blackstone.com/
+official:
+  website: https://www.blackstone.com/

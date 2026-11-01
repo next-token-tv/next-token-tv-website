@@ -1,0 +1,18 @@
+kind: hardware
+name:
+  zh-Hans: OPPO AI 心力球
+  en: OPPO AI Xinli Ball
+summary:
+  zh-Hans: OPPO 的随身 AI 记录硬件，提供记录、整理与回顾功能。
+  en: A wearable AI recording device from OPPO for capturing, organizing and reviewing information.
+aliases:
+  - 心力球
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.opposhop.cn/cn/web/products/57060.html
+official:
+  website: https://www.opposhop.cn/cn/web/products/57060.html
+brand: oppo

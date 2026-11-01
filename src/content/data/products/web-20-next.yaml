@@ -1,0 +1,16 @@
+kind: platform
+name:
+  zh-Hans: Web 2.0 Next
+  en: Web 2.0 Next
+summary:
+  zh-Hans: 围绕个人网站、友情链接与可信信息来源的网络实践。
+  en: A web initiative centered on personal sites, reciprocal links and trusted information sources.
+aliases: []
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://web20next.com/
+official:
+  website: https://web20next.com/

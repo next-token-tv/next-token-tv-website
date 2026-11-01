@@ -1,0 +1,14 @@
+kind: business
+name:
+  zh-Hans: 刘作虎
+  en: Pete Lau
+bio:
+  zh-Hans: 一加创始人，长期从事智能手机产品与品牌工作。
+  en: Founder of OnePlus, working on smartphone products and brands.
+aliases: []
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://weibo.com/liuzuohu

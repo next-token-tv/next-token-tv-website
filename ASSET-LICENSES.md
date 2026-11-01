@@ -11,6 +11,7 @@ The following material is published for use by the official Next Token website a
 - `public/assets/brand-kit/`
 - `public/assets/hosts/`
 - `public/assets/weekly-*`
+- `public/assets/episodes/008/cover-*.webp`: responsive exports of episode 008’s approved `covers-v4/cover-square.jpg` in the production repository.
 
 Copyright © 2026 Next Token. All rights reserved. “Next Token”, “Next Token Weekly”, their names, logos, and visual identity are Next Token brand material. Appearance in a public repository does not grant trademark, merchandising, endorsement, or redistribution rights. Portraits also remain subject to the depicted persons' publicity rights.
 

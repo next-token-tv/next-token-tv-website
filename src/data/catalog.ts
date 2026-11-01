@@ -4,7 +4,7 @@ import type { Locale } from "./types";
 
 import { indexById, requireId, type Catalog } from "./catalog-core";
 import { validateCatalog } from "./catalog-validation";
-import { isReleasePreview, isVisibleEpisode } from "./episode-visibility";
+import { hasEpisodeRoute, isVisibleEpisode } from "./episode-visibility";
 import { getCatalogRelations } from "./catalog-relations";
 
 function proseParagraphs(body: string | undefined) {
@@ -32,6 +32,8 @@ async function loadContentCatalog(): Promise<Catalog> {
   ]).then(([people, shows, hostMemberships, partners, venues, brands, products, episodes, episodeImports, transcriptImports, prose]) => {
     const catalog = { people, shows, hostMemberships, partners, venues, brands, products, episodes, episodeImports, transcriptImports, prose };
     validateCatalog(catalog);
+    // Validate every source, then keep local release candidates out of public routes and relations.
+    catalog.episodes = catalog.episodes.filter(({ data }) => hasEpisodeRoute(data, import.meta.env.DEV));
     return catalog;
   });
 
@@ -136,7 +138,7 @@ export async function getEpisode(episodeId: string) {
 export async function getEpisodesForShow(showId: string) {
   const catalog = await getContentCatalog();
   return catalog.episodes
-    .filter(({ data }) => data.show === showId)
+    .filter(({ data }) => data.show === showId && hasEpisodeRoute(data, import.meta.env.DEV))
     .sort((a, b) => a.data.number.localeCompare(b.data.number));
 }
 
@@ -267,7 +269,7 @@ export async function getPublishedTranscriptEpisodes(locale: Locale) {
 
 export async function getAnnouncedEpisodes() {
   const catalog = await getContentCatalog();
-  return catalog.episodes.filter((episode) => episode.data.status === "announced" && !isReleasePreview(episode.data, import.meta.env.DEV));
+  return catalog.episodes.filter((episode) => episode.data.status === "announced" && !episode.data.releasePreview);
 }
 
 export async function getAnnouncedEpisode(episodeId: string) {

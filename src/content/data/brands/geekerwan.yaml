@@ -1,0 +1,17 @@
+kind: media-community-brand
+name:
+  zh-Hans: 极客湾
+  en: Geekerwan
+summary:
+  zh-Hans: 专注数码产品、芯片与计算设备评测的科技内容团队。
+  en: A technology media team reviewing digital devices, chips and computing hardware.
+aliases:
+  - 极客湾Geekerwan
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.youtube.com/channel/UCeUJO1H3TEXu2syfAAPjYKQ
+official:
+  website: https://www.youtube.com/channel/UCeUJO1H3TEXu2syfAAPjYKQ

@@ -1,0 +1,18 @@
+kind: hardware
+name:
+  zh-Hans: 一加 13T
+  en: OnePlus 13T
+summary:
+  zh-Hans: 一加推出的小屏 Android 智能手机。
+  en: A compact Android smartphone from OnePlus.
+aliases:
+  - 一加13T
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.oneplus.com/cn/13t
+official:
+  website: https://www.oneplus.com/cn/13t
+brand: oneplus

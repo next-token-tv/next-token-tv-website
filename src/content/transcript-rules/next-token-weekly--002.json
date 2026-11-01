@@ -2,6 +2,8 @@
   "locale": "zh-Hans",
   "scopedAliases": [],
   "resolutions": {
+    "亚马逊": { "entityType": "product", "id": "amazon" },
+    "Amazon": { "entityType": "product", "id": "amazon" },
     "Next Token Weekly": {
       "entityType": "show",
       "id": "next-token-weekly"

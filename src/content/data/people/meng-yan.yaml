@@ -1,0 +1,14 @@
+kind: business
+name:
+  zh-Hans: 孟岩
+  en: Meng Yan
+bio:
+  zh-Hans: 有知有行创作者，关注投资教育与长期投资。
+  en: A creator at Youzhiyouxing focused on investment education and long-term investing.
+aliases: []
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.youzhiyouxing.cn/materials/181

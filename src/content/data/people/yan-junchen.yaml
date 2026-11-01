@@ -1,0 +1,14 @@
+kind: business
+name:
+  zh-Hans: 延君晨
+  en: Yan Junchen
+bio:
+  zh-Hans: 曾参与创办 Dify，关注 AI 产品设计与人机交互。
+  en: Previously co-founded Dify; focuses on AI product design and human-computer interaction.
+aliases: []
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://qcon.infoq.cn/2026/beijing/speaker/10244

@@ -1,0 +1,16 @@
+kind: hardware-brand
+name:
+  zh-Hans: 高通
+  en: Qualcomm
+summary:
+  zh-Hans: 开发移动通信与计算技术的半导体公司，产品包括骁龙平台。
+  en: A semiconductor company developing mobile communications and computing technologies, including Snapdragon platforms.
+aliases: []
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.qualcomm.com/snapdragon/smartphones
+official:
+  website: https://www.qualcomm.com/snapdragon/smartphones

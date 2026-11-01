@@ -1,0 +1,18 @@
+kind: hardware
+name:
+  zh-Hans: NVIDIA B300
+  en: NVIDIA B300
+summary:
+  zh-Hans: 采用 Blackwell Ultra 架构、面向数据中心 AI 计算的 GPU。
+  en: A Blackwell Ultra GPU for data-center AI computing.
+aliases:
+  - B300
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://docs.nvidia.com/ai-enterprise/support-matrix/latest/index.html
+official:
+  website: https://docs.nvidia.com/ai-enterprise/support-matrix/latest/index.html
+brand: nvidia

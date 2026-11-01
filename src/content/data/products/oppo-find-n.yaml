@@ -1,0 +1,17 @@
+kind: hardware
+name:
+  zh-Hans: OPPO Find N
+  en: OPPO Find N
+summary:
+  zh-Hans: OPPO 的折叠屏智能手机系列。
+  en: OPPO’s family of foldable smartphones.
+aliases: []
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.oppo.com/cn/smartphones/
+official:
+  website: https://www.oppo.com/cn/smartphones/
+brand: oppo

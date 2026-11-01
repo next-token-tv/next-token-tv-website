@@ -1,0 +1,17 @@
+kind: hardware
+name:
+  zh-Hans: 骁龙
+  en: Snapdragon
+summary:
+  zh-Hans: 高通的移动计算平台系列，涵盖 CPU、图形与连接能力。
+  en: Qualcomm’s mobile computing platform family integrating processing, graphics and connectivity.
+aliases: []
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.qualcomm.com/snapdragon/smartphones
+official:
+  website: https://www.qualcomm.com/snapdragon/smartphones
+brand: qualcomm

@@ -1,0 +1,17 @@
+kind: movie
+name:
+  zh-Hans: 哈利·波特
+  en: Harry Potter
+summary:
+  zh-Hans: 改编自 J. K. 罗琳小说的魔法题材电影系列。
+  en: A fantasy film series adapted from J. K. Rowling’s novels.
+aliases:
+  - 哈利波特
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.harrypotter.com/discover/films
+official:
+  website: https://www.harrypotter.com/discover/films

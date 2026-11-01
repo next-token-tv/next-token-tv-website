@@ -1,0 +1,16 @@
+kind: hardware
+name:
+  zh-Hans: 天玑
+  en: MediaTek Dimensity
+summary:
+  zh-Hans: 联发科面向智能手机的移动芯片系列。
+  en: MediaTek’s family of mobile chips for smartphones.
+aliases: []
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.mediatek.com/products/smartphones/dimensity-5g
+official:
+  website: https://www.mediatek.com/products/smartphones/dimensity-5g

@@ -1,0 +1,17 @@
+kind: hardware
+name:
+  zh-Hans: OPPO Pad Mini
+  en: OPPO Pad Mini
+summary:
+  zh-Hans: OPPO 推出的小尺寸 Android 平板电脑。
+  en: A compact Android tablet from OPPO.
+aliases: []
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://store.oppo.com/cn/app/product/index?skuId=39991
+official:
+  website: https://store.oppo.com/cn/app/product/index?skuId=39991
+brand: oppo

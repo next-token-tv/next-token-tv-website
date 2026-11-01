@@ -1,0 +1,15 @@
+kind: business
+name:
+  zh-Hans: 赵长鹏
+  en: Changpeng Zhao
+bio:
+  zh-Hans: 币安创始人，常用简称为 CZ。
+  en: Founder of Binance, commonly known as CZ.
+aliases:
+  - CZ
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.binance.com/en/blog/from-our-ceo/421499824684901276

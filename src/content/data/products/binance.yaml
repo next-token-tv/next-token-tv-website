@@ -1,0 +1,16 @@
+kind: platform
+name:
+  zh-Hans: 币安
+  en: Binance
+summary:
+  zh-Hans: 提供数字资产交易及相关服务的在线平台。
+  en: An online platform for digital asset trading and related services.
+aliases: []
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.binance.com/en/about
+official:
+  website: https://www.binance.com/en/about

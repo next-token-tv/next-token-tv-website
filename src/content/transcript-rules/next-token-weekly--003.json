@@ -17,6 +17,8 @@
     {"entityType": "product", "id": "wechat-input-method", "alias": "微信语音输入法"}
   ],
   "resolutions": {
+    "亚马逊": { "entityType": "product", "id": "amazon" },
+    "Amazon": { "entityType": "product", "id": "amazon" },
     "All-In": {"entityType": "product", "id": "all-in-summit"},
     "Next Token Weekly": {"entityType": "show", "id": "next-token-weekly"},
     "DeepSeek": {"entityType": "brand", "id": "deepseek"},

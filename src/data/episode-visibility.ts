@@ -12,3 +12,8 @@ export function isReleasePreview(data: EpisodeVisibility, includePreview = false
 export function isVisibleEpisode(data: EpisodeVisibility, includePreview = false) {
   return data.status === 'published' || isReleasePreview(data, includePreview);
 }
+
+/** Public announcements have routes; unpublished release previews are development-only. */
+export function hasEpisodeRoute(data: EpisodeVisibility, includePreview = false) {
+  return data.status === 'published' || data.releasePreview !== true || includePreview;
+}

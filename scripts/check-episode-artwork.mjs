@@ -13,7 +13,7 @@ for(const file of await readdir(resolve(root,'src/content/data/episodes'))){
  const cover=snapshot??data.preview;
  episodes.push({data,cover});
  for(const error of await artworkErrors(assets,cover.images,cover.imageDimensions))errors.push(`#${data.number}: ${error}`);
- if(built)for(const prefix of ['','en/']){
+ if(built && !(data.status==='announced' && data.releasePreview))for(const prefix of ['','en/']){
   const html=await readFile(resolve(assets,`${prefix}weekly/${data.number}/index.html`),'utf8');
   for(const error of renderedArtworkErrors(renderedArtworkImages(html,data.number,true),cover.images))errors.push(`${prefix}weekly/${data.number}: ${error}`);
  }

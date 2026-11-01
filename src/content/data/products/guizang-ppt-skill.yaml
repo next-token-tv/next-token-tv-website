@@ -1,0 +1,17 @@
+kind: developer-tool
+name:
+  zh-Hans: 歸藏 PPT Skill
+  en: Guizang PPT Skill
+summary:
+  zh-Hans: 帮助 AI Agent 生成 HTML 演示文稿的开源 Skill。
+  en: An open-source skill for AI agents to generate HTML slide presentations.
+aliases:
+  - 歸藏 PPT
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://github.com/op7418/guizang-ppt-skill
+official:
+  website: https://github.com/op7418/guizang-ppt-skill

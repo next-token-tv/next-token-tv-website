@@ -1,0 +1,17 @@
+kind: agent
+name:
+  zh-Hans: Microsoft Copilot
+  en: Microsoft Copilot
+summary:
+  zh-Hans: 微软提供的 AI 助手，支持问答、搜索与内容创作等任务。
+  en: Microsoft’s AI assistant for questions, search and content creation.
+aliases: []
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.microsoft.com/en-us/copilot
+official:
+  website: https://www.microsoft.com/en-us/copilot
+brand: microsoft

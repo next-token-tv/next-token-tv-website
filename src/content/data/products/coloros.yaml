@@ -1,0 +1,17 @@
+kind: operating-system
+name:
+  zh-Hans: ColorOS
+  en: ColorOS
+summary:
+  zh-Hans: OPPO 基于 Android 开发的智能设备操作系统。
+  en: OPPO’s Android-based operating system for smart devices.
+aliases: []
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.coloros.com/
+official:
+  website: https://www.coloros.com/
+brand: oppo

@@ -1,0 +1,15 @@
+kind: creator-community
+name:
+  zh-Hans: Foyege
+  en: Foyege
+bio:
+  zh-Hans: AI 影像创作者，公开账号为 @Foyege24，创作《哈利·波特》同人影像。
+  en: An AI video creator known as @Foyege24 who creates Harry Potter fan videos.
+aliases:
+  - Foyege24
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://x.com/Foyege24

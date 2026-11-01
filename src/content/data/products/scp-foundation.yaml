@@ -1,0 +1,17 @@
+kind: platform
+name:
+  zh-Hans: SCP 基金会
+  en: SCP Foundation
+summary:
+  zh-Hans: 围绕异常事物与虚构收容机构的协作写作网站。
+  en: A collaborative fiction website about anomalous phenomena and a fictional containment organization.
+aliases:
+  - SCP基金会
+lastVerifiedAt: '2026-11-02'
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://scp-wiki.wikidot.com/
+official:
+  website: https://scp-wiki.wikidot.com/
