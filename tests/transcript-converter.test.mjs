@@ -327,3 +327,34 @@ test('transcript terms require published records and reviewed catalog spellings'
     assert.deepEqual(await readTranscriptTerms(root),[]);
   } finally { await rm(root,{recursive:true,force:true}); }
 });
+
+test('chapter aliases override shared names only in their selected chapters', () => {
+  const source='# Test\n\n## 财务\n\n**杨攀**\n\nDeepSeek。\n\n## 模型\n\n**杨攀**\n\nDeepSeek。';
+  const options={episodeId:'show--008',locale:'zh-Hans',entities:[
+    {entityType:'brand',id:'deepseek-company',aliases:['DeepSeek']},
+    {entityType:'product',id:'deepseek-model',aliases:['DeepSeek']},
+  ],resolutions:{DeepSeek:{entityType:'product',id:'deepseek-model'}},chapterAliases:[
+    {entityType:'brand',id:'deepseek-company',alias:'DeepSeek',chapters:['chapter-01']},
+  ]};
+  const {snapshot}=convertTranscript(unified().use(remarkParse).parse(source),options);
+  assert.deepEqual(snapshot.chapters.map(c=>c.turns[0].paragraphs[0][0].entityId),['deepseek-company','deepseek-model']);
+  assert.deepEqual(relinkTranscript(snapshot,options),snapshot);
+  assert.throws(()=>convertTranscript(unified().use(remarkParse).parse(source),{...options,chapterAliases:[...options.chapterAliases,
+    {entityType:'product',id:'deepseek-model',alias:'DeepSeek',chapters:['chapter-01']},
+  ]}),/Conflicting chapter alias/);
+});
+
+test('chapter exclusions suppress ordinary words without losing genuine product mentions', () => {
+  const source='# Test\n\n## Product\n\n**杨攀**\n\n点点很好用。\n\n## Ordinary\n\n**杨攀**\n\n加一点点引导，点点 App。';
+  const tree=unified().use(remarkParse).parse(source);
+  const options={episodeId:'test--008',locale:'zh-Hans',entities:[{entityType:'product',id:'diandian',aliases:['点点','点点 App']}],chapterExcludedAliases:[{alias:'点点',chapters:['chapter-02']}]};
+  const {snapshot}=convertTranscript(tree,options);
+  const first=snapshot.chapters[0].turns[0].paragraphs[0];
+  const second=snapshot.chapters[1].turns[0].paragraphs[0];
+  assert.ok(first.some(s=>s.value==='点点'&&s.type==='entity-link'));
+  assert.ok(second.some(s=>s.type==='text'&&s.value.includes('一点点引导')));
+  assert.ok(second.some(s=>s.value==='点点 App'&&s.type==='entity-link'));
+  assert.equal(second.map(s=>s.value).join(''),'加一点点引导，点点 App。');
+  assert.deepEqual(relinkTranscript(snapshot,options).chapters,snapshot.chapters);
+  assert.throws(()=>convertTranscript(tree,{...options,chapterExcludedAliases:[{alias:'点点',chapters:['typo']}]}),/Invalid chapter excluded alias/);
+});

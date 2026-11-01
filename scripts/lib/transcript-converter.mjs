@@ -14,7 +14,7 @@ const GENERIC_CANDIDATES = new Set([
   "Token", "Token Maxxing", "TPS", "TTS", "UX", "Vibe Coding", "Web", "Web 2.0",
 ]);
 
-export const CONVERSION_VERSION = "1.4.7";
+export const CONVERSION_VERSION = "1.4.9";
 
 export function sha256(value) {
   return createHash("sha256").update(value).digest("hex");
@@ -248,7 +248,7 @@ function collectUnlinkedCandidates(chapters, knownAliases) {
     .sort((a, b) => b.count - a.count || a.value.localeCompare(b.value));
 }
 
-function chapterMatcherFactory(entities, resolutions, excludedEntities, chapterAliases) {
+function chapterMatcherFactory(entities, resolutions, excludedEntities, chapterAliases, chapterExcludedAliases) {
   const excluded = new Set(excludedEntities);
   const eligible = entities.filter(entity => !excluded.has(`${entity.entityType}:${entity.id}`));
   for (const rule of chapterAliases) {
@@ -257,13 +257,29 @@ function chapterMatcherFactory(entities, resolutions, excludedEntities, chapterA
       throw new Error(`Invalid chapter alias: ${rule.alias}`);
     }
   }
+  for (const rule of chapterExcludedAliases) {
+    if (!rule.alias?.trim() || !rule.chapters?.length || !rule.chapters.every(id => /^chapter-\d{2}$/.test(id))) {
+      throw new Error(`Invalid chapter excluded alias: ${rule.alias}`);
+    }
+  }
   const cache = new Map();
   return (chapterId) => {
     if (!cache.has(chapterId)) {
       const scoped = eligible.map(entity => ({...entity, aliases: [...entity.aliases,
         ...chapterAliases.filter(rule => rule.chapters.includes(chapterId) && rule.entityType === entity.entityType && rule.id === entity.id).map(rule => rule.alias),
       ]}));
-      cache.set(chapterId, createEntityMatcher(scoped, resolutions));
+      const chapterResolutions = {};
+      for (const rule of chapterAliases.filter(rule => rule.chapters.includes(chapterId))) {
+        const previous = chapterResolutions[rule.alias];
+        if (previous && (previous.entityType !== rule.entityType || previous.id !== rule.id)) {
+          throw new Error(`Conflicting chapter alias: ${rule.alias} in ${chapterId}`);
+        }
+        chapterResolutions[rule.alias] = { entityType: rule.entityType, id: rule.id };
+      }
+      const suppressed = new Set(chapterExcludedAliases.filter(rule => rule.chapters.includes(chapterId)).map(rule => rule.alias));
+      const matcher = createEntityMatcher(scoped, { ...resolutions, ...chapterResolutions });
+      matcher.candidates = matcher.candidates.filter(({ alias }) => !suppressed.has(alias));
+      cache.set(chapterId, matcher);
     }
     return cache.get(chapterId);
   };
@@ -281,9 +297,10 @@ export function convertTranscript(tree, {
   resolutions = {},
   excludedEntities = [],
   chapterAliases = [],
+  chapterExcludedAliases = [],
   externalLinks = [],
 }) {
-  const matcherForChapter = chapterMatcherFactory(entities, resolutions, excludedEntities, chapterAliases);
+  const matcherForChapter = chapterMatcherFactory(entities, resolutions, excludedEntities, chapterAliases, chapterExcludedAliases);
   const matcher = matcherForChapter(undefined);
   const linkCounts = new Map();
   const unknownSpeakers = new Set();
@@ -407,9 +424,9 @@ export function convertTranscript(tree, {
 }
 
 // Rebuild annotations on the imported text without rereading an editorial source.
-export function relinkTranscript(snapshot, {entities, resolutions = {}, excludedEntities = [], chapterAliases = [], externalLinks = []}) {
+export function relinkTranscript(snapshot, {entities, resolutions = {}, excludedEntities = [], chapterAliases = [], chapterExcludedAliases = [], externalLinks = []}) {
   const result = structuredClone(snapshot);
-  const matcherForChapter = chapterMatcherFactory(entities, resolutions, excludedEntities, chapterAliases);
+  const matcherForChapter = chapterMatcherFactory(entities, resolutions, excludedEntities, chapterAliases, chapterExcludedAliases);
   const counts = new Map();
   for (const chapter of result.chapters) {
     const matcher = matcherForChapter(chapter.id);
