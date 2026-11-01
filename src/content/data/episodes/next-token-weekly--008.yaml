@@ -143,11 +143,11 @@ mentions:
     - foyege
 preview:
   images:
-    '480': /assets/episodes/008/cover-480.webp
-    '720': /assets/episodes/008/cover-720.webp
-    '960': /assets/episodes/008/cover-960.webp
-    '1440': /assets/episodes/008/cover-1440.webp
-    '1920': /assets/episodes/008/cover-1920.webp
+    '480': /assets/episodes/008/cover-v5-480.webp
+    '720': /assets/episodes/008/cover-v5-720.webp
+    '960': /assets/episodes/008/cover-v5-960.webp
+    '1440': /assets/episodes/008/cover-v5-1440.webp
+    '1920': /assets/episodes/008/cover-v5-1920.webp
   imageDimensions:
     width: 3000
     height: 3000
