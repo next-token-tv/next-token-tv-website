@@ -18,7 +18,7 @@ seoDescription: '了解软件工程师 Lauren Tan（@poteto）：GitHub 公开�
 
 ## 节目中的提及
 
-Lauren Tan 没有参与本期录制。第 007 期在"Omarchy、旧手机与重写软件的可能性"章节，歸藏转述：有人把 Grok Bot 里的 Linux 发行版刷成了 [Omarchy](/wiki/products/omarchy)（见[该段落](/weekly/007/transcript#quote-175a9ff7651adf1dbc74)），"然后看起来 Grok Bot 那个人很感兴趣，说 @poteto。艾特那个人，说我们想了解这个细节，你有什么卡点什么的，你跟我们说，我们想多跟你聊聊"（见[该段落](/weekly/007/transcript#quote-2563de5f754183baae93)）。@poteto 即本条目人物的公开账号；"Grok Bot 方面 @ 本人求细节"是主理人对社交媒体互动的转述，相关互动原文本条目未核验。[Grok Bot](/wiki/products/grok-bot) 为 xAI 旗下产品。
+Lauren Tan 没有参与本期录制。第 007 期在"Omarchy、旧手机与重写软件的可能性"章节，歸藏转述：有人把 Grok Bot 里的 Linux 发行版刷成了 [Omarchy](/wiki/products/omarchy)（见[该段落](/weekly/007/transcript#quote-175a9ff7651adf1dbc74)），"然后看起来 Grok Bot 那个人很感兴趣，说 @poteto。艾特那个人，说我们想了解这个细节，你有什么卡点什么的，你跟我们说，我们想多跟你聊聊"（见[该段落](/weekly/007/transcript#quote-2563de5f754183baae93)）。@poteto 即本条目人物的公开账号；"Grok Bot 方面 @ 本人求细节"是主理人对社交媒体互动的转述。[Grok Bot](/wiki/products/grok-bot) 为 xAI 旗下产品。
 
 ## 易混概念
 
