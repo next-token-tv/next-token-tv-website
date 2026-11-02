@@ -1,5 +1,7 @@
 import { getCollection } from "astro:content";
 import type { Locale } from "./types";
+import { getContentCatalog } from "./catalog";
+import { getCatalogRelations } from "./catalog-relations";
 
 export async function getTerms(locale: Locale = "zh-Hans") {
   const [terms, articles] = await Promise.all([getCollection("terms"), getCollection("termArticles")]);
@@ -24,6 +26,12 @@ export async function getTermArticle(id: string, locale: Locale) {
   const article = articles.find(item => item.data.term === id && item.data.locale === locale);
   if (!article) throw new Error(`Missing term article: ${id}/${locale}`);
   return article;
+}
+
+export async function getTermEpisodes(id: string) {
+  const catalog = await getContentCatalog();
+  return getCatalogRelations(catalog).episodes("term", id)
+    .slice().sort((a, b) => b.data.number.localeCompare(a.data.number));
 }
 
 export async function getEpisodeTerms(episodeId: string, locale: Locale) {

@@ -3,7 +3,9 @@ import "../styles/wiki-detail.css";
 import WikiDetailHeader from "./WikiDetailHeader.astro";
 import WikiIdentityCard from "./WikiIdentityCard.astro";
 import WikiArticle from "./WikiArticle.astro";
+import RelatedEpisodes from "./RelatedEpisodes.astro";
 import { displayAliases } from "../data/entity-aliases";
+import { getTermEpisodes } from "../data/terms";
 import type { Locale } from "../data/types";
 import type { CollectionEntry } from "astro:content";
 
@@ -12,6 +14,7 @@ const { term, locale } = Astro.props;
 const en = locale === "en";
 const prefix = en ? "/en" : "";
 const aliases = displayAliases(term.data.name, term.data.aliases);
+const episodes = await getTermEpisodes(term.id);
 // The card carries the name in the other language, mirroring how entity cards show the category.
 const cardTitle = en ? term.data.name["zh-Hans"] : term.data.name.en;
 const definedTerm = {
@@ -31,6 +34,7 @@ const definedTerm = {
     <h2 class="wiki-support-heading" id="term-sources">{en ? "Sources" : "参考资料"}</h2>
     <div><ul class="term-source-list">{term.data.sources.map(source => <li class="wiki-support-item"><a class="wiki-support-link" href={source.href} target="_blank" rel="noopener noreferrer">{source.label[locale]} ↗</a></li>)}</ul></div>
   </section>
+  <RelatedEpisodes episodes={episodes} locale={locale} compact contained />
 </main>
 <script is:inline type="application/ld+json" set:html={JSON.stringify(definedTerm).replace(/</g, "\\u003c")} />
 <style>
