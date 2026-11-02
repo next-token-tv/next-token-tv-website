@@ -24,12 +24,16 @@ export async function createSearchIndex(locale: Locale): Promise<SearchDocument[
     for (const entry of catalog[collection]) {
       const article = catalog.prose.find(p=>p.data.entityType===type && p.data.entity===entry.id && p.data.locale===locale && p.data.slot==='wiki');
       const summary = 'summary' in entry.data ? entry.data.summary[locale] : entry.data.bio[locale];
-      documents.push({kind:'entity',title:entry.data.name[locale],aliases:entry.data.aliases,href:`${prefix}/wiki/${collection}/${entry.id}`,text:`${summary} ${proseText(article?.body ?? '')}`});
+      // Latin brand names must stay findable on zh pages (and CJK names on en)
+      // even before the prose that would otherwise mention them ships.
+      const otherName = entry.data.name[locale === 'en' ? 'zh-Hans' : 'en'] ?? '';
+      documents.push({kind:'entity',title:entry.data.name[locale],aliases:entry.data.aliases,href:`${prefix}/wiki/${collection}/${entry.id}`,text:`${summary} ${otherName} ${proseText(article?.body ?? '')}`});
     }
   }
   for (const term of await getTerms(locale)) {
     const article = await getTermArticle(term.id, locale);
-    documents.push({kind:'entity',title:term.data.name[locale],aliases:term.data.aliases,href:`${prefix}/wiki/terms/${term.id}`,text:`${term.data.summary[locale]} ${proseText(article.body ?? '')}`});
+    const otherTermName = term.data.name[locale === 'en' ? 'zh-Hans' : 'en'] ?? '';
+    documents.push({kind:'entity',title:term.data.name[locale],aliases:term.data.aliases,href:`${prefix}/wiki/terms/${term.id}`,text:`${term.data.summary[locale]} ${otherTermName} ${proseText(article.body ?? '')}`});
   }
   for (const episode of catalog.episodes) {
     if (!isVisibleEpisode(episode.data, import.meta.env.DEV)) continue;
