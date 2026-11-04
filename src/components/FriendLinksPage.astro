@@ -8,6 +8,11 @@ const partnerLinks = directory.data.partners;
 import type {Locale} from '../data/site';
 const {locale} = Astro.props as {locale: Locale};
 const en = locale === 'en';
+const partnerHref = (href: string) => {
+  const url = new URL(href);
+  if (url.origin !== 'https://nexttoken.tv') return href;
+  return `${en ? '/en' : ''}${url.pathname}${url.search}${url.hash}`;
+};
 ---
 <main class="friends shell" id="main">
   <header>
@@ -20,7 +25,7 @@ const en = locale === 'en';
   {partnerLinks.length > 0 && <section class="friends-partners" aria-labelledby="friends-partners-title">
     <h2 class="heading-section-compact" id="friends-partners-title">{en ? 'Partners' : '合作伙伴'}</h2>
     <ul class="friends-grid">{partnerLinks.map(partner =>
-      <li><a href={en && partner.url.startsWith('https://nexttoken.tv/partners/') ? partner.url.replace('https://nexttoken.tv/partners/', '/en/partners/') : partner.url}><div class:list={["friend-logo", {"friend-logo-dark": partner.darkBackground}]}><img src={partner.logo} alt={partner.name[locale]} loading="lazy" /></div></a></li>
+      <li><a href={partnerHref(partner.url)}><div class:list={["friend-logo", {"friend-logo-dark": partner.darkBackground}]}><img src={partner.logo} alt={partner.name[locale]} loading="lazy" /></div></a></li>
     )}</ul>
   </section>}
   <section class="friends-exchange" aria-labelledby="friends-exchange-title">
