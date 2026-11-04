@@ -1,0 +1,33 @@
+---
+import { getEntry } from 'astro:content';
+import type { Locale } from '../data/site';
+const { locale } = Astro.props as { locale: Locale };
+const t = (zh: string, en: string) => locale === 'en' ? en : zh;
+const kit = await getEntry('brandKits', 'next-token');
+if (!kit) throw new Error('Missing Next Token brand kit');
+---
+    <div class="kit-media-lockup">
+      <h3 id="media-lockup">{t("媒体与社区友链标识", "Media and community exchange logo")}</h3>
+      <p>{t("Next Token｜词元之外。请保持原比例与标识留白。", "Next Token｜词元之外. Preserve the proportions and clear space.")}</p>
+      {kit.data.mediaLockups.map((lockup) => (
+        <section class="kit-lockup-variant">
+          <h4>{lockup.name[locale]}</h4>
+          <div class="kit-lockup-examples">
+            {(["light", "dark"] as const).map((theme) => (
+              <figure class="kit-lockup-example">
+                <div class:list={["kit-lockup-canvas", `kit-lockup-canvas--${theme}`]}>
+                  <img src={lockup[theme]} width={lockup.width} height={lockup.height} loading="lazy" decoding="async" alt={`Next Token｜词元之外 · ${lockup.name[locale]}`} />
+                </div>
+                <figcaption>
+                  <span>{theme === "light" ? t("白底", "White background") : t("黑底", "Black background")}</span>
+                  <a href={lockup[theme]} download class="text-link" aria-label={`${lockup.name[locale]} · ${theme === "light" ? t("浅底版", "Light version") : t("深底版", "Dark version")} SVG`}>{t("下载 SVG", "Download SVG")} ↓</a>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+<style>
+@import "../styles/components/media-lockups.css";
+</style>

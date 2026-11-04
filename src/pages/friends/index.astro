@@ -1,0 +1,9 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import FriendLinksPage from "../../components/FriendLinksPage.astro";
+import {getSiteContent} from "../../data/site";
+const content = await getSiteContent("zh-Hans");
+---
+<BaseLayout content={content} pageTitle="友情链接 | Next Token｜词元之外" description="Next Token｜词元之外的媒体与社区友链。" canonicalPath="/friends" alternatePath="/en/friends">
+  <FriendLinksPage locale="zh-Hans" />
+</BaseLayout>

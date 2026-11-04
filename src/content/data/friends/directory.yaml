@@ -1,0 +1,12 @@
+links:
+  - name:
+      zh-Hans: AGI Bar · 知识蒸馏
+      en: AGI Bar
+    url: https://agi.bar/
+    logo: /assets/friends/agi-bar.svg
+    darkBackground: true
+  - name:
+      zh-Hans: WaytoAGI
+      en: WaytoAGI
+    url: https://www.waytoagi.com/
+    logo: /assets/friends/waytoagi.svg

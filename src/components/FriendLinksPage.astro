@@ -1,0 +1,33 @@
+---
+import MediaLockups from './MediaLockups.astro';
+import {getEntry} from 'astro:content';
+const directory = await getEntry('friendDirectories', 'directory');
+if (!directory) throw new Error('Missing friend directory');
+const friendLinks = directory.data.links;
+import type {Locale} from '../data/site';
+const {locale} = Astro.props as {locale: Locale};
+const en = locale === 'en';
+---
+<main class="friends shell" id="main">
+  <header>
+    <p class="eyebrow">Next Token / Media &amp; communities</p>
+    <h1 class="type-title">{en ? 'Friends of Next Token' : '友情链接'}</h1>
+  </header>
+  {friendLinks.length > 0 && <ul class="friends-grid">{friendLinks.map(friend =>
+    <li><a href={friend.url}><div class:list={["friend-logo", {"friend-logo-dark": friend.darkBackground}]}><img src={friend.logo} alt={friend.name[locale]} loading="lazy" /></div></a></li>
+  )}</ul>}
+  <section class="friends-exchange" aria-labelledby="friends-exchange-title">
+    <h2 class="heading-section-compact" id="friends-exchange-title">{en ? 'Exchange links with Next Token' : '与 Next Token 交换友情链接'}</h2>
+    <p>{en ? 'We welcome media and communities interested in AI, technology and creative work. Share your website name, URL and logo with us through our community.' : '欢迎关注 AI、科技与创作的媒体和社区互换友情链接。请通过社群与我们联系，并提供网站名称、网址和 Logo。'} <a class="text-link" href={`${en ? '/en' : ''}/community`}>{en ? 'Contact through our community' : '社群联系入口'} →</a></p>
+    <dl class="friends-link-details">
+      <div><dt>{en ? 'Website name' : '网站名称'}</dt><dd>Next Token｜词元之外</dd></div>
+      <div><dt>{en ? 'Link URL' : '链接地址'}</dt><dd><a href="https://nexttoken.tv/">https://nexttoken.tv/</a></dd></div>
+    </dl>
+    <p>{en ? 'Choose a single-line or stacked logo below, with or without the four co-hosts. Use dark lettering on light backgrounds and white lettering on dark backgrounds. Keep the proportions, colors and spacing intact, and link the complete logo to our homepage.' : '可选用下方单行或双行标识，也可选带四位主理人头像的版本。浅色背景使用深色文字版，深色背景使用白色文字版；请保留原比例、颜色与留白，将整组标识链接到本站首页。'}</p>
+    <p><a class="text-link" href={`${en ? '/en' : ''}/brand-kit`}>{en ? 'Full brand kit' : '完整品牌素材与使用规范'} →</a></p>
+    <MediaLockups locale={locale} />
+  </section>
+</main>
+<style>
+@import "../styles/components/friend-links-page.css";
+</style>

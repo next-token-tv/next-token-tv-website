@@ -16,7 +16,7 @@ const pages = new Map();
 const publishedText = new Map();
 const sourceExtensions = /\.(?:astro|ts|mjs|yaml)$/;
 const sourceUrlPattern = /https?:\/\/[^\s"'`<>]+|\/[^\s"'`<>]+/g;
-const internalPathPattern = /^\/(?:en\/)?(?:weekly|wiki|partners|brand-kit|design-system|sitemap|api|people|brands|products)(?:\/|[?#]|$)|^\/en(?:\/|[?#]|$)/;
+const internalPathPattern = /^\/(?:en\/)?(?:weekly|wiki|partners|friends|brand-kit|design-system|sitemap|api|people|brands|products)(?:\/|[?#]|$)|^\/en(?:\/|[?#]|$)/;
 async function walk(dir) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {
     const path = resolve(dir, entry.name);
@@ -56,7 +56,7 @@ for (const file of ['README.md', ...docs]) {
   for (const [raw] of content.matchAll(/https:\/\/nexttoken\.tv\/[^\s"'`<>()[\]{}]*/g)) {
     if (new URL(raw).pathname !== '/' && new URL(raw).pathname.endsWith('/')) errors.push(`${file}: trailing slash in documented URL ${raw}`);
   }
-  for (const [, raw] of content.matchAll(/`(\/(?:en(?:\/|$)|(?:en\/)?(?:weekly|wiki|partners|brand-kit|design-system|sitemap|api|people|brands|products))[^`]*)`/g)) {
+  for (const [, raw] of content.matchAll(/`(\/(?:en(?:\/|$)|(?:en\/)?(?:weekly|wiki|partners|friends|brand-kit|design-system|sitemap|api|people|brands|products))[^`]*)`/g)) {
     if (raw.includes('<')) continue;
     if (raw.split(/[?#]/, 1)[0].endsWith('/')) errors.push(`${file}: trailing slash in documented path ${raw}`);
   }

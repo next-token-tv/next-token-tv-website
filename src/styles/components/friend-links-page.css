@@ -1,0 +1,13 @@
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+  .friends { padding-block: 3rem 5rem; }
+  .friends header { padding-bottom: 2rem; }
+  .friends-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(min(100%,13rem),1fr)); padding: 0; margin: 0 0 2rem; list-style: none; gap: 1rem; }
+  .friends-grid a { display: block; border: var(--stroke-thin) solid var(--line); }
+  .friend-logo { padding: 1.5rem; background: var(--brand-specimen-white); }
+  .friend-logo-dark { background: var(--ink); }
+  .friends-exchange { padding-top: 2rem; border-top: var(--stroke-thin) solid var(--line); }
+  .friends-link-details { display: grid; gap: 1rem; margin-block: 1.5rem; }
+  .friends-link-details dd { margin: 0; }
+  .friends-grid img { width: 100%; height: 4rem; object-fit: contain; }
+}

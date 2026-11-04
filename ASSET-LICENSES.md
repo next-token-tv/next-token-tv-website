@@ -61,3 +61,14 @@ Relevant upstream notices and source pages:
 - Apple Podcasts identity guidelines: <https://marketing.services.apple/apple-podcasts-identity-guidelines>
 
 Apple and Apple Podcasts are trademarks of Apple Inc., registered in the U.S. and other countries.
+
+## Media and community wordmarks
+
+- `public/assets/brand-kit/next-token-media-lockup*.svg`: Next Token square mark with League Spartan Black English lettering and Glow Sans SC Normal Heavy v0.93 Chinese lettering. All lettering is outlined; no external fonts are required. Co-host variants embed the four existing host portrait WebP assets, preserving their order and square-corner grid layout; other variants contain no raster images.
+- Glow Sans font binaries are licensed under SIL OFL 1.1 (the upstream build code has a separate MIT license). Source: <https://github.com/welai/glow-sans/releases/tag/v0.93>. Font and license are retained in the production repository at `assets/brand/fonts/GlowSansSC-Normal-Heavy.otf` and `assets/brand/fonts/GlowSans-OFL.txt`.
+
+## Friend directory logos
+
+- `public/assets/friends/agi-bar.svg`: unchanged official logo from <https://agi.bar/img/logo.svg>, used to identify and link to AGI Bar.
+- `public/assets/friends/waytoagi.svg`: unchanged official logo from <https://www.waytoagi.com/images/logo.svg>, used to identify and link to WaytoAGI.
+- These logos remain the property of their respective owners; no general reuse license is asserted.

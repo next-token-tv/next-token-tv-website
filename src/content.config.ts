@@ -197,11 +197,28 @@ const products = defineCollection({
   }),
 });
 
+const friendDirectories = defineCollection({
+  loader: yamlLoader("./src/content/data/friends"),
+  schema: z.object({ links: z.array(z.object({
+    name: localizedText,
+    url: z.url({ protocol: /^https$/ }),
+    logo: assetPath,
+    darkBackground: z.boolean().default(false),
+  })) }),
+});
+
 const brandKits = defineCollection({
   loader: yamlLoader("./src/content/data/brand-kits"),
   schema: z.object({
     brand: z.string(),
     preview: assetPath,
+    mediaLockups: z.array(z.object({
+      name: localizedText,
+      light: assetPath,
+      dark: assetPath,
+      width: z.number().positive(),
+      height: z.number().positive(),
+    })),
     description: localizedText,
     downloads: z.array(z.object({
       href: assetPath,
@@ -506,6 +523,7 @@ export const collections = {
   venues,
   brands,
   brandKits,
+  friendDirectories,
   products,
   episodes,
   episodeImports,

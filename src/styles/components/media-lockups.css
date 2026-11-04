@@ -1,0 +1,17 @@
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+
+@layer components {
+  .kit-media-lockup { margin-top: 2rem; padding-block: 1.5rem; border-block: var(--stroke-thin) solid var(--line); }
+  .kit-lockup-variant { margin-top: 2rem; }
+  .kit-lockup-examples { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+  .kit-lockup-example { margin: 0; min-width: 0; }
+  .kit-lockup-canvas { display: flex; align-items: center; justify-content: center; min-height: 180px; padding: 1.5rem; border: var(--stroke-thin) solid var(--line); }
+  .kit-lockup-canvas--light { background: var(--brand-specimen-white); }
+  .kit-lockup-canvas--dark { background: var(--brand-specimen-black); }
+  .kit-lockup-canvas img { display: block; max-width: 100%; height: auto; }
+  .kit-lockup-example figcaption { display: flex; justify-content: space-between; gap: 1rem; margin-top: 0.75rem; }
+  @media (max-width: 700px) {
+    .kit-lockup-examples { grid-template-columns: 1fr; }
+    .kit-lockup-canvas { padding: 1rem; min-height: 150px; }
+  }
+}

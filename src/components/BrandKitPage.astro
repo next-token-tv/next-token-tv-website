@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntry, render } from "astro:content";
 import type { Locale } from "../data/site";
+import MediaLockups from "./MediaLockups.astro";
 import BrandUsageGuide from "./BrandUsageGuide.astro";
 import BrandCopyLibrary from "./BrandCopyLibrary.astro";
 import { namedColor, coreColorTokens, colorHex } from "../data/design-colors";
@@ -42,6 +43,7 @@ const copy = locale === "zh-Hans" ? {
     <p class="kit-lede">{kit.data.description[locale]}</p>
     <nav class="kit-shortcuts" aria-label={locale === "en" ? "On this page" : "本页导航"}>
       <a href="#kit-logo">{locale === "en" ? "Logo downloads" : "Logo 下载"} ↓</a>
+      <a href="#media-lockup">{t("友链标识", "Media exchange logo")} ↓</a>
       <a href="#official-copy">{locale === "en" ? "Official copy" : "官方文案"} ↓</a>
     </nav>
   </header>
@@ -82,6 +84,7 @@ const copy = locale === "zh-Hans" ? {
         ))}
       </ul>
     </div>
+    <MediaLockups locale={locale} />
     <p class="kit-placement-note">{t("网站、海报和合作素材优先使用暖白", "For websites, posters and partner materials, prefer Warm White")} <code>{colorHex('--white').toUpperCase()}</code>{t("或纯白 #FFFFFF 背景。使用暖纸背景时，沿 Logo 方形或圆形外缘内侧加 1px 实线边框，颜色为淡墨 · 边界", " or pure white #FFFFFF. On Warm Paper, add a 1px inset solid border around the square or circular logo edge in Soft Ink · Border")} <code>{colorHex('--muted-border').toUpperCase()}</code>{t("，保留 Logo 原有底色和内部留白。", ", preserving the original logo background and internal space.")} <a class="text-link" href={`${prefix}/design-system#color`}>{t("颜色规范", "Color specification")} →</a></p>
   </section>
 
