@@ -210,16 +210,24 @@ h1 .accent {
 .rail-track {
   display: flex;
   width: max-content;
-  animation: none;
+  animation: topic-rail-scroll 60s linear infinite;
+}
+
+.topic-rail:hover .rail-track {
+  animation-play-state: paused;
 }
 
 .rail-set {
+  min-width: 100vw;
+  justify-content: space-around;
   display: flex;
   align-items: center;
   flex: 0 0 auto;
 }
 
 .rail-item {
+  flex: 0 0 auto;
+  white-space: nowrap;
   display: inline-flex;
   align-items: center;
   gap: 1.5rem;
@@ -243,10 +251,14 @@ h1 .accent {
   background: var(--signal);
 }
 
-@keyframes marquee {
+@keyframes topic-rail-scroll {
   to {
     transform: translateX(-50%);
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rail-track { animation: none; }
 }
 
 .section {

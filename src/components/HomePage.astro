@@ -55,7 +55,7 @@ const latestEpisodePath = `${content.locale === "en" ? "/en" : ""}/weekly/${late
     <div class="rail-track">
       {[0, 1].map(() => (
         <div class="rail-set">
-          {content.topics.map((topic) => <span class="rail-item"><span class="rail-label">{topic}</span></span>)}
+          {[...content.topics, ...content.topics, ...content.topics].map((topic) => <span class="rail-item"><span class="rail-label">{topic}</span></span>)}
         </div>
       ))}
     </div>
