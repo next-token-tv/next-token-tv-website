@@ -41,7 +41,7 @@ const copy = locale === "zh-Hans" ? {
     <p class="eyebrow">{copy.eyebrow}</p>
     <h1 class="type-title">{copy.title}</h1>
     <p class="kit-lede">{kit.data.description[locale]}</p>
-    <p><a class="button" href="/downloads/next-token-brand-kit.zip" download>{t("打包下载本页全部素材", "Download all page resources")} · ZIP ↓</a></p>
+    <div class="kit-intro-download"><a class="button" href="/downloads/next-token-brand-kit.zip" download>{t("打包下载本页全部素材", "Download all page resources")} · ZIP ↓</a></div>
     <nav class="kit-shortcuts" aria-label={locale === "en" ? "On this page" : "本页导航"}>
       <a href="#kit-logo">{locale === "en" ? "Logo downloads" : "Logo 下载"} ↓</a>
       <a href="#media-lockup">{t("友链标识", "Media exchange logo")} ↓</a>
@@ -57,22 +57,20 @@ const copy = locale === "zh-Hans" ? {
     </div>
     <div class="kit-logo-grid">
       <div class="kit-logo-examples">
-        <figure class="kit-logo-preview kit-logo-preview-white">
-          <img src={kit.data.preview} alt={`${brand.data.name[locale]} Logo`} width="1024" height="1024" />
-          <figcaption>{t("方形 · 暖白背景 · 无需边框", "Square · Warm White · No border")}</figcaption>
-        </figure>
-        <figure class="kit-logo-preview kit-logo-preview-paper">
-          <img src={kit.data.preview} alt={`${brand.data.name[locale]} Logo`} width="1024" height="1024" />
-          <figcaption>{t("方形 · 暖纸背景 · 1px 线框", "Square · Warm Paper · 1px border")}</figcaption>
-        </figure>
-        <figure class="kit-logo-preview kit-logo-preview-white kit-logo-preview-circle">
-          <img src={kit.data.preview} alt={t("Next Token 圆形 Logo", "Next Token circular logo")} width="1024" height="1024" />
-          <figcaption>{t("圆形 · 暖白背景 · 无需边框", "Circle · Warm White · No border")}</figcaption>
-        </figure>
-        <figure class="kit-logo-preview kit-logo-preview-paper kit-logo-preview-circle">
-          <img src={kit.data.preview} alt={t("Next Token 圆形 Logo · 带线框", "Next Token circular logo with border")} width="1024" height="1024" />
-          <figcaption>{t("圆形 · 暖纸背景 · 1px 线框", "Circle · Warm Paper · 1px border")}</figcaption>
-        </figure>
+        {([
+          { theme: "paper", label: t("暖纸底", "Warm Paper background") },
+          { theme: "white", label: t("白底", "White background") },
+          { theme: "black", label: t("黑底", "Black background") },
+        ]).map(({ theme, label }) => (
+          <div class={`kit-logo-theme kit-logo-preview-${theme}`}>
+            {[false, true].map((circle) => (
+              <figure class:list={["kit-logo-preview", { "kit-logo-preview-circle": circle }]}>
+                <img src={kit.data.preview} alt={`${brand.data.name[locale]} · ${circle ? t("圆形 Logo", "Circular logo") : t("方形 Logo", "Square logo")}`} width="1024" height="1024" />
+                <figcaption>{circle ? t("圆形", "Circle") : t("方形", "Square")} · {label}</figcaption>
+              </figure>
+            ))}
+          </div>
+        ))}
       </div>
       <ul class="kit-downloads" aria-label={copy.downloads}>
         {kit.data.downloads.map((asset) => (

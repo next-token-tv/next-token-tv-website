@@ -18,18 +18,18 @@ mediaLockups:
     width: 357
     height: 108
   - name:
-      zh-Hans: 单行长条版 · 四位主理人
-      en: Single-line lockup · Four co-hosts
-    light: /assets/brand-kit/next-token-media-lockup-inline-hosts.svg
-    dark: /assets/brand-kit/next-token-media-lockup-inline-hosts-dark.svg
-    width: 671
-    height: 108
-  - name:
       zh-Hans: 双行组合版 · 四位主理人
       en: Stacked lockup · Four co-hosts
     light: /assets/brand-kit/next-token-media-lockup-hosts.svg
     dark: /assets/brand-kit/next-token-media-lockup-hosts-dark.svg
     width: 469
+    height: 108
+  - name:
+      zh-Hans: 单行长条版 · 四位主理人
+      en: Single-line lockup · Four co-hosts
+    light: /assets/brand-kit/next-token-media-lockup-inline-hosts.svg
+    dark: /assets/brand-kit/next-token-media-lockup-inline-hosts-dark.svg
+    width: 671
     height: 108
 description:
   zh-Hans: 为市场合作、媒体报道与节目推荐准备的官方资料：主品牌与旗舰节目的多种长度介绍、可下载 Logo、品牌色及名称规范。

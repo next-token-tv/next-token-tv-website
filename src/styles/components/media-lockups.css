@@ -2,22 +2,24 @@
 
 @layer components {
   .kit-media-lockup { margin-top: 2rem; padding-block: 1.5rem; border-block: var(--stroke-thin) solid var(--line); }
-  .kit-lockup-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-  .kit-lockup-variant { min-width: 0; }
-  .kit-lockup-variant h4 { min-height: 3em; }
-  .kit-lockup-examples { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
-  .kit-lockup-example { margin: 0; min-width: 0; }
-  .kit-lockup-canvas { display: flex; align-items: center; justify-content: center; min-height: 120px; padding: .75rem; border: var(--stroke-thin) solid var(--line); }
-  .kit-lockup-canvas--light { background: var(--brand-specimen-white); }
-  .kit-lockup-canvas--dark { background: var(--brand-specimen-black); }
-  .kit-lockup-canvas img { display: block; max-width: 100%; height: auto; }
-  .kit-lockup-example figcaption { display: flex; justify-content: space-between; gap: 1rem; margin-top: 0.75rem; }
-  @media (max-width: 1100px) {
-    .kit-lockup-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
+  .kit-lockup-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 2rem; }
+  .kit-lockup-panel { min-width: 0; padding: 1.5rem; }
+  .kit-lockup-panel--light { color: var(--ink); background: var(--brand-specimen-white); }
+  .kit-lockup-panel--dark { color: var(--white); background: var(--brand-specimen-black); }
+  .kit-lockup-panel h4 { margin: 0; color: inherit; }
+  .kit-lockup-examples { display: grid; }
+  .kit-lockup-example { margin: 0; min-width: 0; padding-block: 1.5rem; }
+  .kit-lockup-example + .kit-lockup-example { border-top: var(--stroke-thin) solid var(--line); }
+  .kit-lockup-panel--dark .kit-lockup-example + .kit-lockup-example { border-top-color: var(--inverse-line); }
+  .kit-lockup-example:last-child { padding-bottom: 0; }
+  .kit-lockup-canvas { display: flex; align-items: center; justify-content: flex-start; min-height: 120px; }
+  .kit-lockup-canvas img { display: block; width: min(var(--lockup-width), var(--lockup-natural-width)); height: auto; }
+  /* SVG artwork starts 6 units inside its viewBox; follow the scaled inset. */
+  .kit-lockup-example figcaption { padding-left: min(6px, var(--lockup-art-inset)); display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-top: .75rem; }
+  .kit-lockup-example .text-link { flex-shrink: 0; color: inherit; }
   @media (max-width: 700px) {
     .kit-lockup-grid { grid-template-columns: 1fr; }
-    .kit-lockup-examples { grid-template-columns: 1fr; }
-    .kit-lockup-canvas { padding: 1rem; min-height: 150px; }
+    .kit-lockup-panel { padding: 1.25rem; }
+    .kit-lockup-example figcaption { flex-wrap: wrap; gap: .5rem 1rem; }
   }
 }
