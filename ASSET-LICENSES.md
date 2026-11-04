@@ -72,3 +72,5 @@ Apple and Apple Podcasts are trademarks of Apple Inc., registered in the U.S. an
 - `public/assets/friends/agi-bar.svg`: unchanged official logo from <https://agi.bar/img/logo.svg>, used to identify and link to AGI Bar.
 - `public/assets/friends/waytoagi.svg`: unchanged official logo from <https://www.waytoagi.com/images/logo.svg>, used to identify and link to WaytoAGI.
 - These logos remain the property of their respective owners; no general reuse license is asserted.
+
+- `public/assets/friends/folotoy.png`: unchanged official header logo from <https://folotoy.com/folotoy-logo.png>, used to identify and link to FoloToy. Trademark rights remain with its owner.

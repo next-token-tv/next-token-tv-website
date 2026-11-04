@@ -1,12 +1,23 @@
 links:
   - name:
+      zh-Hans: WaytoAGI
+      en: WaytoAGI
+    url: https://www.waytoagi.com/
+    logo: /assets/friends/waytoagi.svg
+partners:
+  - name:
+      zh-Hans: FoloToy
+      en: FoloToy
+    url: https://folotoy.com/
+    logo: /assets/friends/folotoy.png
+  - name:
       zh-Hans: AGI Bar · 知识蒸馏
       en: AGI Bar
     url: https://agi.bar/
     logo: /assets/friends/agi-bar.svg
     darkBackground: true
   - name:
-      zh-Hans: WaytoAGI
-      en: WaytoAGI
-    url: https://www.waytoagi.com/
-    logo: /assets/friends/waytoagi.svg
+      zh-Hans: 象外空间
+      en: Xanadu Why Space
+    url: https://nexttoken.tv/partners/xiangwai
+    logo: /assets/partners/xiangwai/logo.svg

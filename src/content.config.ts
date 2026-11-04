@@ -197,14 +197,19 @@ const products = defineCollection({
   }),
 });
 
+const directoryLink = z.object({
+  name: localizedText,
+  url: z.url({ protocol: /^https$/ }),
+  logo: assetPath,
+  darkBackground: z.boolean().default(false),
+});
+
 const friendDirectories = defineCollection({
   loader: yamlLoader("./src/content/data/friends"),
-  schema: z.object({ links: z.array(z.object({
-    name: localizedText,
-    url: z.url({ protocol: /^https$/ }),
-    logo: assetPath,
-    darkBackground: z.boolean().default(false),
-  })) }),
+  schema: z.object({
+    links: z.array(directoryLink),
+    partners: z.array(directoryLink).default([]),
+  }),
 });
 
 const brandKits = defineCollection({

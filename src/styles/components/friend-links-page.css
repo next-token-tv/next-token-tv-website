@@ -6,6 +6,7 @@
   .friends-grid a { display: block; border: var(--stroke-thin) solid var(--line); }
   .friend-logo { padding: 1.5rem; background: var(--brand-specimen-white); }
   .friend-logo-dark { background: var(--ink); }
+  .friends-partners { padding-top: 1.5rem; border-top: var(--stroke-thin) solid var(--line); }
   .friends-exchange { padding-top: 2rem; border-top: var(--stroke-thin) solid var(--line); }
   .friends-link-details { display: grid; gap: 1rem; margin-block: 1.5rem; }
   .friends-link-details dd { margin: 0; }
