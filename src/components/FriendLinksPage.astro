@@ -18,6 +18,7 @@ const partnerHref = (href: string) => {
   <header>
     <p class="eyebrow">Next Token / Media &amp; communities</p>
     <h1 class="type-title">{en ? 'Friends of Next Token' : '友情链接'}</h1>
+    <p><a class="button" href="/downloads/next-token-friends.zip" download>{en ? "Download all page resources" : "打包下载本页全部素材"} · ZIP ↓</a></p>
   </header>
   {friendLinks.length > 0 && <ul class="friends-grid">{friendLinks.map(friend =>
     <li><a href={friend.url}><div class:list={["friend-logo", {"friend-logo-dark": friend.darkBackground}]}><img src={friend.logo} alt={friend.name[locale]} loading="lazy" /></div></a></li>

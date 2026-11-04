@@ -1,5 +1,11 @@
 links:
   - name:
+      zh-Hans: AGI Bar · 知识蒸馏
+      en: AGI Bar
+    url: https://agi.bar/
+    logo: /assets/friends/agi-bar.svg
+    darkBackground: true
+  - name:
       zh-Hans: WaytoAGI
       en: WaytoAGI
     url: https://www.waytoagi.com/
@@ -13,7 +19,7 @@ partners:
   - name:
       zh-Hans: AGI Bar · 知识蒸馏
       en: AGI Bar
-    url: https://agi.bar/
+    url: https://nexttoken.tv/partners/agi-bar
     logo: /assets/friends/agi-bar.svg
     darkBackground: true
   - name:
