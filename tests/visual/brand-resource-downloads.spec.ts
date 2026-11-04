@@ -29,8 +29,8 @@ for (const prefix of ['', '/en']) {
         expect(entries['links.json']).toBeDefined();
       }
       await page.setViewportSize({ width: 390, height: 844 });
-      expect(await page.locator('.kit-lockup-grid').evaluate(n => getComputedStyle(n).gridTemplateColumns.split(' ').length)).toBe(1);
-      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+      await expect.poll(() => page.locator('.kit-lockup-grid').evaluate(n => getComputedStyle(n).gridTemplateColumns.split(' ').length)).toBe(1);
+      await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     });
   }
 }
