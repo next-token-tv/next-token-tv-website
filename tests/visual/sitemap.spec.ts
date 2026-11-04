@@ -30,6 +30,14 @@ for (const width of [390, 1440]) {
         expect(transcript!.x).toBeGreaterThan(episode!.x);
       }
       await page.locator('.site-header').evaluate(node => { (node as HTMLElement).style.visibility='hidden'; });
+      // Entries above these sections may move their origin by a fractional pixel.
+      // Normalize capture positioning without changing production layout or tolerance.
+      for (const selector of ['.sitemap-episodes', '.sitemap-intro']) {
+        await page.locator(selector).evaluate(node => {
+          const { x, y } = node.getBoundingClientRect();
+          (node as HTMLElement).style.transform = `translate(${Math.round(x) - x}px, ${Math.round(y) - y}px)`;
+        });
+      }
       await expect(page.locator('.sitemap-episodes')).toHaveScreenshot(`sitemap-episodes-${prefix ? 'en' : 'zh'}-${width}.png`);
       await expect(page.locator('.sitemap-intro')).toHaveScreenshot(`sitemap-${prefix ? 'en' : 'zh'}-${width}.png`);
       // Catalog height can leave the footer at a fractional device pixel.
