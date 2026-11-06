@@ -39,20 +39,20 @@ downloads:
     format: SVG
     size: 1024
     use:
-      zh-Hans: 矢量文件 · 字形已转轮廓
-      en: Vector artwork · outlined lettering
+      zh-Hans: 矢量图 · 可自由缩放
+      en: Vector artwork · scalable
   - href: /assets/brand-kit/logo-next-token-3000.png
     format: PNG
     size: 3000
     use:
-      zh-Hans: 播客节目封面
-      en: Podcast cover
+      zh-Hans: 高分辨率方形图片
+      en: High-resolution square image
   - href: /assets/brand-kit/logo-next-token-1280.png
     format: PNG
     size: 1280
     use:
-      zh-Hans: YouTube Podcast 封面
-      en: YouTube Podcast cover
+      zh-Hans: 中等尺寸方形图片
+      en: Medium square image
   - href: /assets/brand-kit/logo-next-token.png
     format: PNG
     size: 1024
@@ -63,14 +63,14 @@ downloads:
     format: JPG
     size: 960
     use:
-      zh-Hans: 喜马拉雅专辑封面
-      en: Ximalaya album cover
+      zh-Hans: 通用方形图片
+      en: General-purpose square image
   - href: /assets/brand-kit/logo-next-token-512.png
     format: PNG
     size: 512
     use:
-      zh-Hans: 小尺寸图片
-      en: Small image
+      zh-Hans: 小尺寸方形图片
+      en: Small square image
 # Color names and values resolve from the shared website palette.
 colors:
   - --paper
