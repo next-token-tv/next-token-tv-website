@@ -201,6 +201,7 @@ const directoryLink = z.object({
   name: localizedText,
   url: z.url({ protocol: /^https$/ }),
   logo: assetPath,
+  logoEn: assetPath.optional(),
   darkBackground: z.boolean().default(false),
 });
 

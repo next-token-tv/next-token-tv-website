@@ -21,12 +21,12 @@ const partnerHref = (href: string) => {
     <p><a class="button" href="/downloads/next-token-friends.zip" download>{en ? "Download all page resources" : "打包下载本页全部素材"} · ZIP ↓</a></p>
   </header>
   {friendLinks.length > 0 && <ul class="friends-grid">{friendLinks.map(friend =>
-    <li><a href={friend.url}><div class:list={["friend-logo", {"friend-logo-dark": friend.darkBackground}]}><img src={friend.logo} alt={friend.name[locale]} loading="lazy" /></div></a></li>
+    <li><a href={friend.url}><div class:list={["friend-logo", {"friend-logo-dark": friend.darkBackground}]}><img src={en ? friend.logoEn ?? friend.logo : friend.logo} alt={friend.name[locale]} loading="lazy" /></div></a></li>
   )}</ul>}
   {partnerLinks.length > 0 && <section class="friends-partners" aria-labelledby="friends-partners-title">
     <h2 class="heading-section-compact" id="friends-partners-title">{en ? 'Partners' : '合作伙伴'}</h2>
     <ul class="friends-grid">{partnerLinks.map(partner =>
-      <li><a href={partnerHref(partner.url)}><div class:list={["friend-logo", {"friend-logo-dark": partner.darkBackground}]}><img src={partner.logo} alt={partner.name[locale]} loading="lazy" /></div></a></li>
+      <li><a href={partnerHref(partner.url)}><div class:list={["friend-logo", {"friend-logo-dark": partner.darkBackground}]}><img src={en ? partner.logoEn ?? partner.logo : partner.logo} alt={partner.name[locale]} loading="lazy" /></div></a></li>
     )}</ul>
   </section>}
   <section class="friends-exchange" aria-labelledby="friends-exchange-title">

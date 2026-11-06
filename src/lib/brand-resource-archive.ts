@@ -21,7 +21,10 @@ export async function brandResourceArchive(kind: 'brand-kit' | 'friends') {
   } else {
     const directory = await getEntry('friendDirectories', 'directory');
     if (!directory) throw new Error('Missing friend directory');
-    for (const item of [...directory.data.links, ...directory.data.partners]) paths.add(item.logo);
+    for (const item of [...directory.data.links, ...directory.data.partners]) {
+      paths.add(item.logo);
+      if (item.logoEn) paths.add(item.logoEn);
+    }
     files['links.json'] = strToU8(JSON.stringify(directory.data, null, 2) + '\n');
   }
   const publicRoot = resolve('public');

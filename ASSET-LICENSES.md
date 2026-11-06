@@ -76,3 +76,5 @@ Apple and Apple Podcasts are trademarks of Apple Inc., registered in the U.S. an
 - `public/assets/friends/folotoy.png`: unchanged official header logo from <https://folotoy.com/folotoy-logo.png>, used to identify and link to FoloToy. Trademark rights remain with its owner.
 
 - `public/assets/friends/feifan.jpg`: user-provided `feifan.jpg`, used to identify and link to 非凡产研 / UniqueResearch at <https://ffcap.cn/>. Trademark rights remain with its owner.
+
+- `public/assets/friends/watcha-zh.svg`, `watcha-en.svg`, and `agent-universe.svg`: unchanged SVG files supplied in <https://agentuniverse.feishu.cn/docx/Rctzd6KtkorIoBxnGBbcMH32nKd>, identifying 观猹 / Watcha and 特工宇宙 / Agent Universe. Trademark rights remain with their respective owners.

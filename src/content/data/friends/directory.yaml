@@ -15,6 +15,18 @@ links:
       en: UniqueResearch
     url: https://ffcap.cn/
     logo: /assets/friends/feifan.jpg
+  - name:
+      zh-Hans: 观猹
+      en: Watcha
+    url: https://watcha.cn/
+    logo: /assets/friends/watcha-zh.svg
+    logoEn: /assets/friends/watcha-en.svg
+  - name:
+      zh-Hans: 特工宇宙
+      en: Agent Universe
+    url: https://www.agent-universe.com/
+    logo: /assets/friends/agent-universe.svg
+    darkBackground: true
 partners:
   - name:
       zh-Hans: FoloToy

@@ -34,6 +34,12 @@ for (const prefix of ['', '/en']) {
         await expect(page.locator('main > .friends-grid a[href="https://agi.bar/"]')).toHaveCount(1);
         await expect(page.locator(`.friends-partners a[href="${prefix}/partners/agi-bar"]`)).toHaveCount(1);
         expect(entries['links.json']).toBeDefined();
+        const watcha = page.locator('main > .friends-grid a[href="https://watcha.cn/"] img');
+        await expect(watcha).toHaveAttribute('src', `/assets/friends/watcha-${prefix ? 'en' : 'zh'}.svg`);
+        await expect(watcha).toHaveAttribute('alt', prefix ? 'Watcha' : '观猹');
+        await expect(page.locator('main > .friends-grid a[href="https://www.agent-universe.com/"] img')).toHaveAttribute('alt', prefix ? 'Agent Universe' : '特工宇宙');
+        expect(entries['assets/friends/watcha-zh.svg']).toBeDefined();
+        expect(entries['assets/friends/watcha-en.svg']).toBeDefined();
       }
       await page.setViewportSize({ width: 390, height: 844 });
       await expect.poll(() => page.locator('.kit-lockup-grid').evaluate(n => getComputedStyle(n).gridTemplateColumns.split(' ').length)).toBe(1);
