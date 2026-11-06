@@ -8,6 +8,17 @@ for (const width of [390, 1440]) for (const prefix of ['', '/en']) {
       await page.addStyleTag({ content: 'astro-dev-toolbar { display: none !important; }' });
       const entries = page.locator('.platform-qr-row');
       await expect(entries).toHaveCount(2);
+      const spacing = await page.locator('.platform-list:not(.platform-list-compact) .platform').evaluateAll(rows => rows.map(row => {
+        const style = getComputedStyle(row);
+        const rect = row.getBoundingClientRect();
+        return { top: style.paddingTop, bottom: style.paddingBottom, height: rect.height };
+      }));
+      expect(spacing.length).toBeGreaterThan(2);
+      for (const qr of spacing.slice(0, 2)) {
+        expect(qr.top).toBe(spacing[2]!.top);
+        expect(qr.bottom).toBe(spacing[2]!.bottom);
+        expect(Math.abs(qr.height - spacing[2]!.height)).toBeLessThan(1);
+      }
       for (const [index, name, asset] of [
         [0, 'Next Token 词元之外', '/assets/follow/wechat-official.jpg'],
         [1, 'NextToken词元之外', '/assets/follow/wechat-channels.jpg'],
