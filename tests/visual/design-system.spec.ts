@@ -116,7 +116,10 @@ for (const prefix of ['', '/en']) {
   test(`design-system error state survives hover and focus ${prefix || 'zh'}`, async ({ page }) => {
     await page.goto(`${prefix}/design-system`);
     const field = page.locator('input[aria-invalid="true"]');
-    const errorColor = await field.evaluate(el => getComputedStyle(el).borderTopColor);
+    await expect.poll(() => page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--error').trim())).toMatch(/^#[\da-f]{6}$/i);
+    const errorHex = await page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--error').trim());
+    const errorColor = `rgb(${[1, 3, 5].map(start => parseInt(errorHex.slice(start, start + 2), 16)).join(', ')})`;
+    await expect(field).toHaveCSS('border-top-color', errorColor);
     await field.hover();
     await expect(field).toHaveCSS('border-top-color', errorColor);
     await field.focus();
