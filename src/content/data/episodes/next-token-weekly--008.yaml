@@ -128,9 +128,49 @@ mentions:
 productionImport: next-token-weekly--008.production
 transcriptPublishedAt: '2026-11-02'
 media:
-  audio: false
-  video: false
-platforms: []
+  audio: true
+  video: true
+platforms:
+  - platform: xiaoyuzhou
+    label:
+      zh-Hans: 小宇宙
+      en: Xiaoyuzhou
+    href: https://www.xiaoyuzhoufm.com/episode/6ae7993fc96c8942ec15b45b
+    action:
+      zh-Hans: 收听 / 收看
+      en: Listen / watch
+  - platform: apple-podcasts
+    label:
+      zh-Hans: Apple Podcasts
+      en: Apple Podcasts
+    href: https://podcasts.apple.com/us/podcast/id6809305832?i=1000799847423
+    action:
+      zh-Hans: 立即收听
+      en: Listen now
+  - platform: spotify
+    label:
+      zh-Hans: Spotify
+      en: Spotify
+    href: https://open.spotify.com/episode/2xLjzKd9O0ho8IJIPGJisj
+    action:
+      zh-Hans: 立即收听
+      en: Listen now
+  - platform: bilibili
+    label:
+      zh-Hans: 哔哩哔哩
+      en: Bilibili
+    href: https://www.bilibili.com/video/BV1Vy4F64EEq/
+    action:
+      zh-Hans: 立即观看
+      en: Watch now
+  - platform: youtube
+    label:
+      zh-Hans: YouTube
+      en: YouTube
+    href: https://www.youtube.com/watch?v=wpwWJ9iuS5o
+    action:
+      zh-Hans: 立即观看
+      en: Watch now
 homepage:
   zh-Hans:
     eyebrow: 第 008 期
@@ -147,19 +187,15 @@ homepage:
       - AI 短剧
       - 创意与信任
       - 双十一
-    listenAction: 阅读文字稿
-    watchAction: 查看本期
+    listenAction: 立即收听
+    watchAction: 立即观看
   en:
     eyebrow: Episode 008
     heading:
       - 'Anthropic’s IPO: On the Eve of a Bubble?'
       - Where Are the Money and Traffic Going?
-    lede: >-
-      From AI valuations and search traffic to short dramas, scientific research and shopping carts: four hosts discuss bubbles, value,
-      creativity and trust.
-    copy: >-
-      From AI valuations and search traffic to short dramas, scientific research and shopping carts: four hosts discuss bubbles, value,
-      creativity and trust.
+    lede: 'From AI valuations and search traffic to short dramas, scientific research and shopping carts: four hosts discuss bubbles, value, creativity and trust.'
+    copy: 'From AI valuations and search traffic to short dramas, scientific research and shopping carts: four hosts discuss bubbles, value, creativity and trust.'
     imageAlt: '#008 Anthropic’s IPO: On the Eve of a Bubble? Where Are the Money and Traffic Going?'
     topicsLabel: In this episode
     topics:
@@ -168,5 +204,5 @@ homepage:
       - AI short dramas
       - Creativity and trust
       - Shopping
-    listenAction: Read transcript
-    watchAction: Explore episode
+    listenAction: Listen now
+    watchAction: Watch now
