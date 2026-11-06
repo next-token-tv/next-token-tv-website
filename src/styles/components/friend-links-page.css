@@ -5,6 +5,9 @@
   .friends-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(min(100%,13rem),1fr)); padding: 0; margin: 0 0 2rem; list-style: none; gap: 1rem; }
   .friends-grid a { display: block; border: var(--stroke-thin) solid var(--line); }
   .friend-logo { padding: 1.5rem; background: var(--brand-specimen-white); }
+  /* The supplied square artwork has wide white margins around the mark. */
+  .friend-logo:has(img[src="/assets/friends/feifan.jpg"]) { overflow: hidden; }
+  .friends-grid img[src="/assets/friends/feifan.jpg"] { transform: scale(2.4); }
   .friend-logo-dark { background: var(--ink); }
   .friends-partners { padding-top: 1.5rem; border-top: var(--stroke-thin) solid var(--line); }
   .friends-exchange { padding-top: 2rem; border-top: var(--stroke-thin) solid var(--line); }

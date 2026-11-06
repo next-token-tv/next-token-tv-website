@@ -10,6 +10,11 @@ links:
       en: WaytoAGI
     url: https://www.waytoagi.com/
     logo: /assets/friends/waytoagi.svg
+  - name:
+      zh-Hans: 非凡产研
+      en: UniqueResearch
+    url: https://ffcap.cn/
+    logo: /assets/friends/feifan.jpg
 partners:
   - name:
       zh-Hans: FoloToy

@@ -74,3 +74,5 @@ Apple and Apple Podcasts are trademarks of Apple Inc., registered in the U.S. an
 - These logos remain the property of their respective owners; no general reuse license is asserted.
 
 - `public/assets/friends/folotoy.png`: unchanged official header logo from <https://folotoy.com/folotoy-logo.png>, used to identify and link to FoloToy. Trademark rights remain with its owner.
+
+- `public/assets/friends/feifan.jpg`: user-provided `feifan.jpg`, used to identify and link to 非凡产研 / UniqueResearch at <https://ffcap.cn/>. Trademark rights remain with its owner.
