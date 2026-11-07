@@ -41,6 +41,7 @@ export type Partner = {
   summary: LocalizedText;
   introduction: Record<Locale, string[]>;
   logo: string;
+  logoDarkBackground: boolean;
   featuredVenueSlug: string;
   venues: PartnerVenue[];
   sources: Array<{
@@ -100,6 +101,7 @@ export async function getPartners(): Promise<Partner[]> {
         summary: entry.data.summary,
         introduction,
         logo: entry.data.logo,
+        logoDarkBackground: entry.data.logoDarkBackground,
         featuredVenueSlug: featuredVenueEntry.data.slug,
         venues,
         sources: entry.data.sources,

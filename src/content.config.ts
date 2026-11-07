@@ -123,6 +123,7 @@ const partners = defineCollection({
     role: localizedText,
     summary: localizedText,
     logo: assetPath,
+    logoDarkBackground: z.boolean().default(false),
     featuredVenue: z.string(),
     displayOrder: z.number().int().nonnegative(),
     sources: z.array(source),

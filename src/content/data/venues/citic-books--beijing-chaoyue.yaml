@@ -1,0 +1,45 @@
+slug: beijing-chaoyue
+partner: citic-books
+name:
+  zh-Hans: 北京朝悦店
+  en: Beijing Chaoyue
+summary:
+  zh-Hans: 中信书店首家旗舰店北京朝悦店，位于北京朝阳大悦城 9 层，融合阅读、艺术与生活方式。
+  en: >-
+    CITIC Books’ first flagship, Beijing Chaoyue, occupies the ninth floor of
+    Chaoyang Joy City combining reading, art and lifestyle experiences.
+heroImage: /assets/partners/citic-books/service.webp
+heroAlt:
+  zh-Hans: 中信书店服务台与书架
+  en: CITIC Books service counter and bookshelves
+gallery:
+  - src: /assets/partners/citic-books/entrance.webp
+    alt:
+      zh-Hans: 中信书店入口与扶梯
+      en: CITIC Books entrance and escalators
+  - src: /assets/partners/citic-books/bookshelves.webp
+    alt:
+      zh-Hans: 中信书店北京朝悦店的书架与图书陈列区
+      en: Bookshelves and book displays at CITIC Books Beijing Chaoyue
+location:
+  label:
+    zh-Hans: 北京 · 朝阳
+    en: Chaoyang, Beijing
+  address:
+    zh-Hans: 北京市朝阳区朝阳大悦城 9 层
+    en: 9F, Chaoyang Joy City, Chaoyang District, Beijing
+  mapUrl: https://maps.apple.com/?q=%E5%8C%97%E4%BA%AC%E6%9C%9D%E9%98%B3%E5%A4%A7%E6%82%A6%E5%9F%8E%20%E4%B8%AD%E4%BF%A1%E4%B9%A6%E5%BA%97
+facts:
+  - value: 近 4000 m²
+    label:
+      zh-Hans: 复合文化空间
+      en: Cultural space
+  - value: 40,000+
+    label:
+      zh-Hans: 图书种类
+      en: Book titles
+  - value: 100,000+
+    label:
+      zh-Hans: 图书册数
+      en: Books
+displayOrder: 1

@@ -1,0 +1,18 @@
+name: 中信书店
+englishName: CITIC Books
+role:
+  zh-Hans: 场地合作伙伴
+  en: Venue partner
+summary:
+  zh-Hans: 中信书店首家旗舰店北京朝悦店，位于北京朝阳大悦城 9 层，融合阅读、艺术与生活方式。
+  en: >-
+    CITIC Books’ first flagship, Beijing Chaoyue, occupies the ninth floor of
+    Chaoyang Joy City combining reading, art and lifestyle experiences.
+logo: /assets/partners/citic-books/logo.png
+featuredVenue: citic-books--beijing-chaoyue
+displayOrder: 3
+sources:
+  - label:
+      zh-Hans: 中信书店北京朝悦店介绍
+      en: Beijing Chaoyue store introduction
+    href: https://mp.weixin.qq.com/s/pMPgiM_CeA64NiySc1aQSQ

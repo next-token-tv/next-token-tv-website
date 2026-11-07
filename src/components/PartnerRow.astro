@@ -16,15 +16,15 @@ const copy = locale === "zh-Hans"
 ---
 
 <article class="partner-row">
-  <div class="partner-row-logo">
+  <a href={path} aria-label={`${copy.detail}：${partner.name}`} class:list={["partner-row-logo", "partner-row-link", { "partner-logo-dark": partner.logoDarkBackground }]}>
     <img src={partner.logo} width="142" height="101" alt={copy.logo} loading="lazy" />
-  </div>
-  <div class="partner-row-identity">
+  </a>
+  <a class="partner-row-identity partner-row-link" href={path}>
     <p class="partner-role">{partner.role[locale]}</p>
-    <h2><a href={path}>{partner.name}</a></h2>
+    <h2>{partner.name}</h2>
     <p class="partner-english-name">{partner.englishName}</p>
-  </div>
-  <p class="partner-row-summary">{partner.summary[locale]}</p>
+  </a>
+  <a class="partner-row-summary partner-row-link" href={path}>{partner.summary[locale]}</a>
   <div class="partner-row-location">
     <strong>{copy.venues}</strong>
     <ul>

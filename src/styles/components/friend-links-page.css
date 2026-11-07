@@ -13,5 +13,7 @@
   .friends-exchange { padding-top: 2rem; border-top: var(--stroke-thin) solid var(--line); }
   .friends-link-details { display: grid; gap: 1rem; margin-block: 1.5rem; }
   .friends-link-details dd { margin: 0; }
+  .friends-partners .friend-logo { padding: 1rem; }
+  .friends-partners .friends-grid img { height: 6rem; }
   .friends-grid img { width: 100%; height: 4rem; object-fit: contain; }
 }

@@ -6,7 +6,8 @@ role:
 summary:
   zh-Hans: 白天是 AI 门店，晚上回归酒吧本质的行业社交网络，目前在北京与上海设有空间。
   en: An AI studio by day and a bar by night, with a growing network of spaces in Beijing and Shanghai.
-logo: /assets/partners/agi-bar/logo.svg
+logo: /assets/friends/agi-bar.svg
+logoDarkBackground: true
 featuredVenue: agi-bar--beijing-zhongguancun
 displayOrder: 2
 sources:

@@ -1,0 +1,64 @@
+---
+import type {Locale} from '../data/site';
+interface Props { images: {src: string; alt: string}[]; caption: string; locale: Locale; }
+const {images, caption, locale} = Astro.props;
+const en = locale === 'en';
+---
+<figure class="partner-profile-image" data-partner-carousel>
+  {images.map((image, i) => <img src={image.src} width="1080" height="720" alt={image.alt} hidden={i !== 0} data-slide loading={i === 0 ? 'eager' : 'lazy'} />)}
+  <figcaption>{caption}</figcaption>
+  {images.length > 1 && <div class="partner-carousel-controls" hidden>
+    <button type="button" data-prev aria-label={en ? 'Previous photo' : '上一张照片'}>←</button>
+    <span data-count aria-live="off">1 / {images.length}</span>
+    <button type="button" data-next aria-label={en ? 'Next photo' : '下一张照片'}>→</button>
+    <button type="button" data-pause data-play-label={en ? 'Play' : '播放'} data-pause-label={en ? 'Pause' : '暂停'}>{en ? 'Pause' : '暂停'}</button>
+  </div>}
+</figure>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-partner-carousel]').forEach(root => {
+    const slides = [...root.querySelectorAll<HTMLImageElement>('[data-slide]')];
+    const controls = root.querySelector<HTMLElement>('.partner-carousel-controls');
+    if (!controls) return;
+    controls.hidden = false;
+    const motion = matchMedia('(prefers-reduced-motion: reduce)');
+    const pause = root.querySelector<HTMLButtonElement>('[data-pause]')!;
+    let index = 0, paused = motion.matches;
+    const updateButton = () => { pause.textContent = paused ? pause.dataset.playLabel! : pause.dataset.pauseLabel!; };
+    let changing = false;
+    const show = async (offset: number) => {
+      if (changing) return;
+      changing = true;
+      const nextIndex = (index + offset + slides.length) % slides.length;
+      const next = slides[nextIndex]!;
+      next.loading = 'eager';
+      try { await next.decode(); } catch { changing = false; return; }
+      const previous = slides[index]!;
+      const overlay = previous.cloneNode() as HTMLImageElement;
+      overlay.removeAttribute('data-slide');
+      overlay.classList.add('partner-carousel-outgoing');
+      overlay.alt = '';
+      overlay.setAttribute('aria-hidden', 'true');
+      if (!motion.matches) root.append(overlay);
+      previous.hidden = true;
+      index = nextIndex;
+      next.hidden = false;
+      if (!motion.matches) {
+        const animation = overlay.animate([{opacity: 1}, {opacity: 0}], {duration: 450, easing: 'ease-in-out'});
+        await animation.finished.catch(() => {});
+        overlay.remove();
+      }
+      changing = false;
+      root.querySelector('[data-count]')!.textContent = `${index + 1} / ${slides.length}`;
+    };
+    for (const [selector, offset] of [['[data-prev]', -1], ['[data-next]', 1]] as const) {
+      root.querySelector(selector)!.addEventListener('click', () => { paused = true; updateButton(); show(offset); });
+    }
+    pause.addEventListener('click', () => { paused = !paused; updateButton(); });
+    motion.addEventListener('change', () => { if (motion.matches) { paused = true; updateButton(); } });
+    updateButton();
+    const timer = setInterval(() => {
+      if (!root.isConnected) { clearInterval(timer); return; }
+      if (!paused && !document.hidden && !root.matches(':hover, :focus-within')) show(1);
+    }, 5000);
+  });
+</script>

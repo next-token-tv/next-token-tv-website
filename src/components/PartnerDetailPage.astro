@@ -1,5 +1,6 @@
 ---
 import type { Locale } from "../data/site";
+import PartnerCarousel from "./PartnerCarousel.astro";
 import VenueMap from "./VenueMap.astro";
 import type { Partner } from "../data/partners";
 import { featuredVenue, partnersPath } from "../data/partners";
@@ -79,15 +80,12 @@ const partnerSchema = {
   <section class="partner-profile-hero shell" aria-labelledby="partner-name">
     <div class="partner-profile-copy">
       <p class="partner-role">{partner.role[locale]}</p>
-      <img class="partner-profile-logo" src={partner.logo} width="142" height="101" alt={copy.logo} />
+      <img class:list={["partner-profile-logo", { "partner-logo-dark": partner.logoDarkBackground }]} src={partner.logo} width="142" height="101" alt={copy.logo} />
       <h1 class="type-title" id="partner-name">{partner.name}</h1>
       <p class="partner-profile-english">{partner.englishName}</p>
       <p class="partner-profile-summary">{partner.summary[locale]}</p>
     </div>
-    <figure class="partner-profile-image">
-      <img src={venue.heroImage} width="1080" height="720" alt={venue.heroAlt[locale]} />
-      <figcaption>{partner.name} · {venue.name[locale]}</figcaption>
-    </figure>
+    <PartnerCarousel locale={locale} caption={`${partner.name} · ${venue.name[locale]}`} images={[{src: venue.heroImage, alt: venue.heroAlt[locale]}, ...venueGallery.map(image => ({src: image.src, alt: image.alt[locale]}))]} />
   </section>
 
   <section class="partner-venues shell" aria-labelledby="venues-title">
