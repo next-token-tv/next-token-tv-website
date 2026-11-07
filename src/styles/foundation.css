@@ -75,6 +75,7 @@
 
 .wordmark-name {
   font-family: var(--display);
+  font-size: .94em;
   font-weight: 900;
   line-height: 0.82;
   letter-spacing: var(--display-tracking);
@@ -92,10 +93,10 @@
 
 .wordmark-tagline {
   font-family: var(--sans);
-  font-size: 0.75em;
-  font-weight: 800;
+  font-size: 0.875em;
+  font-weight: 700;
   line-height: 1;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
 }
 
 .nav-links {
