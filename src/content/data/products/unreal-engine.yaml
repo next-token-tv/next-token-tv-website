@@ -1,0 +1,21 @@
+kind: framework
+name:
+  zh-Hans: 虚幻引擎
+  en: Unreal Engine
+summary:
+  zh-Hans: Epic Games 开发的实时三维创作与游戏开发引擎。
+  en: A real-time 3D creation and game development engine from Epic Games.
+aliases:
+  - Unreal
+  - UE5
+  - UE 5.6
+  - 虚幻 5
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal source
+    href: https://www.unrealengine.com
+lastVerifiedAt: '2026-11-09'
+official:
+  website: https://www.unrealengine.com
+brand: epic-games

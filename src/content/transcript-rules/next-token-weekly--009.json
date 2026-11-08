@@ -1,0 +1,666 @@
+{
+  "locale": "zh-Hans",
+  "titleFromEpisode": true,
+  "resolutions": {
+    "Next Token Weekly": {
+      "entityType": "show",
+      "id": "next-token-weekly"
+    },
+    "DeepSeek": {
+      "entityType": "product",
+      "id": "deepseek"
+    },
+    "MiniMax": {
+      "entityType": "product",
+      "id": "minimax"
+    },
+    "赛博禅心": {
+      "entityType": "person",
+      "id": "cyber-zen"
+    },
+    "Cyber Zen": {
+      "entityType": "person",
+      "id": "cyber-zen"
+    },
+    "Dots": {
+      "entityType": "product",
+      "id": "dots"
+    },
+    "亚马逊": {
+      "entityType": "brand",
+      "id": "amazon"
+    },
+    "Amazon": {
+      "entityType": "brand",
+      "id": "amazon"
+    },
+    "Muse": {
+      "entityType": "product",
+      "id": "muse-agent"
+    }
+  },
+  "excludedEntities": [
+    "brand:netease-youdao",
+    "brand:ted",
+    "product:go",
+    "product:silicon-valley",
+    "brand:lego"
+  ],
+  "scopedAliases": [
+    {
+      "entityType": "product",
+      "id": "muse-agent",
+      "alias": "Muse"
+    },
+    {
+      "entityType": "product",
+      "id": "canva",
+      "alias": "Canvas"
+    },
+    {
+      "entityType": "product",
+      "id": "claude",
+      "alias": "Opus 5.5"
+    },
+    {
+      "entityType": "product",
+      "id": "claude",
+      "alias": "Opus 3.6"
+    },
+    {
+      "entityType": "product",
+      "id": "claude",
+      "alias": "Opus 3.7"
+    },
+    {
+      "entityType": "product",
+      "id": "gpt",
+      "alias": "GPT Image 2.0"
+    },
+    {
+      "entityType": "product",
+      "id": "gpt",
+      "alias": "GPT-6 Cyber"
+    },
+    {
+      "entityType": "product",
+      "id": "deepseek",
+      "alias": "DeepSeek V4.1 Flash 1017"
+    },
+    {
+      "entityType": "product",
+      "id": "ipad",
+      "alias": "iPad mini"
+    },
+    {
+      "entityType": "product",
+      "id": "kindle",
+      "alias": "Kindle Paperwhite 5"
+    },
+    {
+      "entityType": "product",
+      "id": "legend-of-zelda",
+      "alias": "塞尔达时之笛"
+    },
+    {
+      "entityType": "product",
+      "id": "legend-of-zelda",
+      "alias": "时之笛"
+    },
+    {
+      "entityType": "person",
+      "id": "simon-willison",
+      "alias": "Simon Wilson"
+    },
+    {
+      "entityType": "person",
+      "id": "cui-tianyi",
+      "alias": "（崔）添翼"
+    },
+    {
+      "entityType": "person",
+      "id": "cui-tianyi",
+      "alias": "添翼"
+    },
+    {
+      "entityType": "product",
+      "id": "nvidia-dlss",
+      "alias": "大力水手"
+    },
+    {
+      "entityType": "term",
+      "id": "subagent",
+      "alias": "Sub Agent"
+    }
+  ],
+  "termReferences": [
+    {
+      "id": "one-shot",
+      "aliases": [
+        "一次完成（One Shot）",
+        "One Shot",
+        "one shot",
+        "One-Shot",
+        "一次完成"
+      ]
+    },
+    {
+      "id": "vibe-coding",
+      "aliases": [
+        "Vibe Coding",
+        "氛围编程"
+      ]
+    },
+    {
+      "id": "a-roll-b-roll",
+      "aliases": [
+        "主体与补充素材（A-Roll / B-Roll）",
+        "A-Roll and B-Roll",
+        "A-Roll",
+        "B-Roll",
+        "主体素材",
+        "补充素材"
+      ]
+    },
+    {
+      "id": "agent",
+      "aliases": [
+        "智能体",
+        "Agent",
+        "AI Agent",
+        "AI 智能体"
+      ]
+    },
+    {
+      "id": "context",
+      "aliases": [
+        "上下文",
+        "Context"
+      ]
+    },
+    {
+      "id": "harness",
+      "aliases": [
+        "智能体运行框架",
+        "Agent Harness",
+        "Harness"
+      ]
+    },
+    {
+      "id": "token",
+      "aliases": [
+        "词元",
+        "Token"
+      ]
+    },
+    {
+      "id": "plugin",
+      "aliases": [
+        "插件",
+        "Plugin",
+        "Plug-in"
+      ]
+    },
+    {
+      "id": "open-source",
+      "aliases": [
+        "开源",
+        "Open source"
+      ]
+    },
+    {
+      "id": "linux-distribution",
+      "aliases": [
+        "Linux 发行版",
+        "Linux distribution"
+      ]
+    },
+    {
+      "id": "chatbot",
+      "aliases": [
+        "聊天机器人",
+        "Chatbot",
+        "Chat Bot"
+      ]
+    },
+    {
+      "id": "sdk",
+      "aliases": [
+        "软件开发工具包（SDK）",
+        "Software Development Kit (SDK)",
+        "SDK",
+        "devkit",
+        "软件开发工具包",
+        "Software Development Kit"
+      ]
+    },
+    {
+      "id": "mcp",
+      "aliases": [
+        "模型上下文协议（MCP）",
+        "Model Context Protocol (MCP)",
+        "MCP",
+        "模型上下文协议",
+        "Model Context Protocol"
+      ]
+    },
+    {
+      "id": "saas",
+      "aliases": [
+        "软件即服务（SaaS）",
+        "Software as a Service (SaaS)",
+        "SaaS",
+        "软件即服务",
+        "Software as a Service"
+      ]
+    },
+    {
+      "id": "html",
+      "aliases": [
+        "超文本标记语言（HTML）",
+        "HyperText Markup Language (HTML)",
+        "HTML",
+        "超文本标记语言",
+        "HyperText Markup Language"
+      ]
+    },
+    {
+      "id": "rendering",
+      "aliases": [
+        "渲染",
+        "Rendering"
+      ]
+    },
+    {
+      "id": "geo",
+      "aliases": [
+        "生成式引擎优化（GEO）",
+        "Generative Engine Optimization (GEO)",
+        "GEO",
+        "生成式引擎优化",
+        "Generative Engine Optimization"
+      ]
+    },
+    {
+      "id": "b2b",
+      "aliases": [
+        "面向企业（B2B）",
+        "Business-to-Business (B2B)",
+        "B 端",
+        "To B",
+        "B2B",
+        "面向企业",
+        "Business-to-Business"
+      ]
+    },
+    {
+      "id": "api",
+      "aliases": [
+        "应用程序编程接口（API）",
+        "Application Programming Interface (API)",
+        "API",
+        "Web API",
+        "接口",
+        "应用程序编程接口",
+        "Application Programming Interface"
+      ]
+    },
+    {
+      "id": "save-time-kill-time",
+      "aliases": [
+        "省时间与消遣（Save Time / Kill Time）",
+        "Saving time and passing time",
+        "Save Time",
+        "Kill Time"
+      ]
+    },
+    {
+      "id": "agent-skills",
+      "aliases": [
+        "智能体技能",
+        "Agent Skills",
+        "Skill",
+        "Skills",
+        "Agent Skill"
+      ]
+    },
+    {
+      "id": "fork",
+      "aliases": [
+        "分叉",
+        "Fork"
+      ]
+    },
+    {
+      "id": "personal-agent",
+      "aliases": [
+        "个人智能体（Personal Agent）",
+        "Personal Agent",
+        "个人智能体"
+      ]
+    },
+    {
+      "id": "agent-steering",
+      "aliases": [
+        "执行中引导（Steer）",
+        "Agent steering",
+        "Steer",
+        "引导模式"
+      ]
+    },
+    {
+      "id": "session",
+      "aliases": [
+        "会话",
+        "Session",
+        "会话期"
+      ]
+    },
+    {
+      "id": "subagent",
+      "aliases": [
+        "子智能体",
+        "Subagent",
+        "Sub Agents",
+        "Sub-agent"
+      ]
+    },
+    {
+      "id": "database",
+      "aliases": [
+        "数据库",
+        "Database"
+      ]
+    },
+    {
+      "id": "operating-system",
+      "aliases": [
+        "操作系统（OS）",
+        "Operating System (OS)",
+        "OS",
+        "操作系统",
+        "Operating System"
+      ]
+    },
+    {
+      "id": "memory",
+      "aliases": [
+        "智能体记忆",
+        "Agent Memory",
+        "Memory"
+      ]
+    },
+    {
+      "id": "computer-use",
+      "aliases": [
+        "计算机操作能力",
+        "Computer Use",
+        "computer use agent",
+        "CUA"
+      ]
+    },
+    {
+      "id": "browser-use",
+      "aliases": [
+        "浏览器操作能力",
+        "Browser Use",
+        "browser automation"
+      ]
+    },
+    {
+      "id": "recursive-self-improvement",
+      "aliases": [
+        "递归自我改进（RSI）",
+        "Recursive Self-Improvement (RSI)",
+        "RSI",
+        "递归自我改进"
+      ]
+    },
+    {
+      "id": "model-inference",
+      "aliases": [
+        "模型推理",
+        "Model inference"
+      ]
+    },
+    {
+      "id": "tokens-per-second",
+      "aliases": [
+        "每秒词元数（TPS）",
+        "Tokens per Second (TPS)",
+        "TPS",
+        "每秒词元数",
+        "Tokens per Second"
+      ]
+    },
+    {
+      "id": "jevons-paradox",
+      "aliases": [
+        "杰文斯悖论",
+        "Jevons Paradox"
+      ]
+    },
+    {
+      "id": "idc",
+      "aliases": [
+        "互联网数据中心（IDC）",
+        "Internet Data Center (IDC)",
+        "IDC",
+        "数据中心",
+        "互联网数据中心",
+        "Internet Data Center"
+      ]
+    },
+    {
+      "id": "bug",
+      "aliases": [
+        "软件缺陷",
+        "Bug",
+        "bug",
+        "程序错误",
+        "缺陷"
+      ]
+    },
+    {
+      "id": "ssh",
+      "aliases": [
+        "安全外壳协议（SSH）",
+        "Secure Shell (SSH)",
+        "SSH",
+        "Secure Shell Protocol",
+        "安全外壳协议",
+        "Secure Shell"
+      ]
+    },
+    {
+      "id": "ai-slop",
+      "aliases": [
+        "AI 垃圾内容",
+        "AI Slop",
+        "Slop"
+      ]
+    },
+    {
+      "id": "benchmark",
+      "aliases": [
+        "基准测试",
+        "Benchmark"
+      ]
+    },
+    {
+      "id": "3d",
+      "aliases": [
+        "三维（3D）",
+        "3D",
+        "三维图形",
+        "三维"
+      ]
+    },
+    {
+      "id": "game-budget-tiers",
+      "aliases": [
+        "游戏制作规模（3A／2A）",
+        "Game production tiers (AAA / AA)",
+        "3A",
+        "2A",
+        "AAA",
+        "AA"
+      ]
+    },
+    {
+      "id": "human-in-the-loop",
+      "aliases": [
+        "人在回路（HITL）",
+        "Human in the Loop (HITL)",
+        "HITL",
+        "人机协同",
+        "人在回路",
+        "Human in the Loop"
+      ]
+    },
+    {
+      "id": "aha-moment",
+      "aliases": [
+        "顿悟时刻（Aha Moment）",
+        "Aha Moment",
+        "顿悟时刻",
+        "啊哈时刻"
+      ]
+    },
+    {
+      "id": "prompt",
+      "aliases": [
+        "提示词",
+        "Prompt",
+        "提示"
+      ]
+    },
+    {
+      "id": "system-prompt",
+      "aliases": [
+        "系统提示词",
+        "System Prompt",
+        "System Message",
+        "系统指令"
+      ]
+    },
+    {
+      "id": "ai-native",
+      "aliases": [
+        "AI 原生",
+        "AI Native",
+        "AI-Native",
+        "AI 原生应用"
+      ]
+    },
+    {
+      "id": "esim",
+      "aliases": [
+        "嵌入式 SIM（eSIM）",
+        "eSIM",
+        "embedded SIM",
+        "嵌入式SIM卡",
+        "嵌入式 SIM"
+      ]
+    },
+    {
+      "id": "forward-deployed-engineer",
+      "aliases": [
+        "前线部署工程师（FDE）",
+        "Forward Deployed Engineer (FDE)",
+        "FDE",
+        "Forward Deployed Engineer"
+      ]
+    },
+    {
+      "id": "agent-routing",
+      "aliases": [
+        "智能体路由",
+        "Agent Routing",
+        "Router",
+        "Routing"
+      ]
+    },
+    {
+      "id": "minimum-viable-product",
+      "aliases": [
+        "最小可行产品（MVP）",
+        "Minimum Viable Product (MVP)",
+        "MVP"
+      ]
+    },
+    {
+      "id": "social-engineering",
+      "aliases": [
+        "社会工程攻击",
+        "Social Engineering",
+        "社会工程学"
+      ]
+    },
+    {
+      "id": "meme",
+      "aliases": [
+        "模因",
+        "Meme",
+        "网络迷因"
+      ]
+    },
+    {
+      "id": "public-relations",
+      "aliases": [
+        "公共关系（PR）",
+        "Public Relations (PR)",
+        "PR",
+        "公共关系",
+        "公关",
+        "Public Relations"
+      ]
+    },
+    {
+      "id": "model-weights",
+      "aliases": [
+        "模型权重",
+        "Model Weights",
+        "权重"
+      ]
+    },
+    {
+      "id": "neural-network",
+      "aliases": [
+        "神经网络",
+        "Neural Network"
+      ]
+    },
+    {
+      "id": "model-interpretability",
+      "aliases": [
+        "模型可解释性",
+        "Model Interpretability",
+        "可解释性"
+      ]
+    },
+    {
+      "id": "webgl",
+      "aliases": [
+        "WebGL"
+      ]
+    },
+    {
+      "id": "css",
+      "aliases": [
+        "CSS"
+      ]
+    }
+  ],
+  "notices": [],
+  "chapterAliases": [
+    {
+      "entityType": "term",
+      "id": "human-in-the-loop",
+      "alias": "In the Loop",
+      "chapters": [
+        "chapter-04"
+      ]
+    }
+  ]
+}

@@ -5,6 +5,7 @@ const SPEAKERS = new Map([
   ["歸藏", "guizang"],
   ["橘子", "orange"],
   ["向阳乔木", "xiangyang-qiaomu"],
+  ["众人", null],
 ]);
 
 const GENERIC_CANDIDATES = new Set([
@@ -14,7 +15,7 @@ const GENERIC_CANDIDATES = new Set([
   "Token", "Token Maxxing", "TPS", "TTS", "UX", "Vibe Coding", "Web", "Web 2.0",
 ]);
 
-export const CONVERSION_VERSION = "1.4.10";
+export const CONVERSION_VERSION = "1.4.11";
 
 export function sha256(value) {
   return createHash("sha256").update(value).digest("hex");
@@ -335,7 +336,7 @@ export function convertTranscript(tree, {
 
     const speaker = speakerFromParagraph(node);
     if (speaker) {
-      if (speaker.kind === "speech" && !speaker.speakerId && !speaker.unresolved && speaker.name !== "未署名") unknownSpeakers.add(speaker.name);
+      if (speaker.kind === "speech" && !SPEAKERS.has(speaker.name) && !speaker.unresolved && speaker.name !== "未署名") unknownSpeakers.add(speaker.name);
       turn = {
         kind: speaker.kind,
         speaker: speaker.name,

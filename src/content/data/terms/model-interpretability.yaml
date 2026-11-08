@@ -1,0 +1,16 @@
+name:
+  zh-Hans: 模型可解释性
+  en: Model Interpretability
+summary:
+  zh-Hans: 理解模型行为、内部机制或预测依据的能力与研究方向。
+  en: The ability and field of study concerned with understanding a model’s
+    behavior, mechanisms or basis for predictions.
+aliases:
+  - 可解释性
+status: published
+sources:
+  - label:
+      zh-Hans: 参考资料
+      en: Reference
+    href: https://developers.google.com/machine-learning/glossary#interpretability
+lastVerifiedAt: '2026-11-09'

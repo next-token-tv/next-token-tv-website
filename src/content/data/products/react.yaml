@@ -1,0 +1,16 @@
+kind: framework
+name:
+  zh-Hans: React
+  en: React
+summary:
+  zh-Hans: 用于构建 Web 与原生用户界面的组件库。
+  en: A component library for building web and native user interfaces.
+aliases: []
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal source
+    href: https://react.dev
+lastVerifiedAt: '2026-11-09'
+official:
+  website: https://react.dev

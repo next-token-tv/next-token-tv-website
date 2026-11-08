@@ -1,0 +1,17 @@
+kind: application
+brand: tencent
+name:
+  zh-Hans: QQ 秀
+  en: QQ Show
+summary:
+  zh-Hans: 腾讯 QQ 的虚拟形象装扮服务，用户可通过服饰和场景表达个性。
+  en: Tencent QQ’s virtual-avatar customization service, using clothing and scenes
+    for personal expression.
+aliases:
+  - QQ秀
+sources:
+  - label:
+      zh-Hans: 产品介绍
+      en: Product introduction
+    href: https://tech.sina.com.cn/it2/2003-02-19/1108166450.shtml
+lastVerifiedAt: '2026-11-09'

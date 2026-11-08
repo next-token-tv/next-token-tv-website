@@ -30,6 +30,20 @@ const sourceSha256 = sha256(source);
 const manifestPath = resolve(dirname(sourcePath), reviewPreview ? "manifest.json" : "transcript-manifest.json");
 const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
 let evidence;
+if (reviewPreview && manifest.status === "ready-for-review") {
+  const episodeRoot = resolve(dirname(sourcePath), "../../..");
+  const report = JSON.parse(await readFile(resolve(episodeRoot, manifest.qa), "utf8"));
+  const approval = JSON.parse(await readFile(resolve(episodeRoot, manifest.srt_approval), "utf8"));
+  const srtSha256 = sha256(await readFile(resolve(episodeRoot, manifest.srt_path)));
+  evidence = {
+    readingSha256: report.transcript_sha256,
+    srtSha256,
+    verified: report.approved_body_unchanged === true
+      && report.source_srt_sha256 === srtSha256
+      && approval.srt_sha256 === srtSha256 && approval.text_approved === true
+      && Array.isArray(report.pending_speaker_cues) && report.pending_speaker_cues.length === 0,
+  };
+}
 if (reviewPreview && manifest.status === "complete-reading-draft") {
   const { stdout } = await execFileAsync("git", ["-C", dirname(sourcePath), "rev-parse", "--show-toplevel"]);
   const repositoryRoot = stdout.trim();

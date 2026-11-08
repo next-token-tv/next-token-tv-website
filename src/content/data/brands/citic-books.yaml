@@ -1,0 +1,14 @@
+kind: other-brand
+name:
+  zh-Hans: 中信书店
+  en: CITIC Books
+summary:
+  zh-Hans: 以图书零售、阅读活动与文化空间为核心的书店品牌。
+  en: A bookstore brand centered on books, reading events and cultural spaces.
+aliases: []
+sources:
+  - label:
+      zh-Hans: 参考资料
+      en: Reference
+    href: https://static.cninfo.com.cn/finalpage/enpage/300788_1.pdf
+lastVerifiedAt: '2026-11-09'

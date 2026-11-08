@@ -1,0 +1,18 @@
+name:
+  zh-Hans: 层叠样式表（CSS）
+  en: Cascading Style Sheets (CSS)
+summary:
+  zh-Hans: 描述网页等文档呈现方式的样式语言，用于控制布局、颜色、字体等。
+  en: A style-sheet language describing the presentation of documents, including
+    layout, colors and fonts.
+aliases:
+  - CSS
+  - 层叠样式表
+  - Cascading Style Sheets
+status: published
+sources:
+  - label:
+      zh-Hans: MDN：CSS
+      en: "MDN: CSS"
+    href: https://developer.mozilla.org/en-US/docs/Web/CSS
+lastVerifiedAt: '2026-11-09'

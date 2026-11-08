@@ -73,7 +73,8 @@ export default {
       "mentions": {
         "brands": [],
         "products": [],
-        "people": []
+        "people": [],
+        "terms": []
       },
       "preview": {
         "eyebrow": {

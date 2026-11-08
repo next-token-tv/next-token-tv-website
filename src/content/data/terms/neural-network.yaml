@@ -1,0 +1,15 @@
+name:
+  zh-Hans: 神经网络
+  en: Neural Network
+summary:
+  zh-Hans: 由相互连接的计算单元组成的机器学习模型，通过参数和非线性变换处理输入。
+  en: A machine-learning model built from connected computational units,
+    parameters and nonlinear transformations.
+aliases: []
+status: published
+sources:
+  - label:
+      zh-Hans: 参考资料
+      en: Reference
+    href: https://developers.google.com/machine-learning/glossary#neural_network
+lastVerifiedAt: '2026-11-09'

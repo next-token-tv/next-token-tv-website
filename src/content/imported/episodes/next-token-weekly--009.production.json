@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 2,
+  "episodeId": "next-token-weekly--009",
+  "number": "009",
+  "show": "next-token-weekly",
+  "status": "published",
+  "language": "zh-Hans",
+  "recordedAt": "2026-11-07",
+  "releaseDate": "2026-11-09",
+  "recordingMode": "in-person",
+  "recordingVenue": "citic-books--beijing-chaoyue",
+  "imageKind": "artwork",
+  "imageDimensions": {
+    "width": 3000,
+    "height": 3000
+  },
+  "participants": [
+    {
+      "person": "yangpan",
+      "role": "duty-host"
+    },
+    {
+      "person": "orange",
+      "role": "co-host"
+    },
+    {
+      "person": "guizang",
+      "role": "co-host"
+    },
+    {
+      "person": "xiangyang-qiaomu",
+      "role": "co-host"
+    }
+  ],
+  "images": {
+    "480": "/assets/weekly-009-cover-square-480.webp",
+    "720": "/assets/weekly-009-cover-square-720.webp",
+    "960": "/assets/weekly-009-cover-square-960.webp",
+    "1440": "/assets/weekly-009-cover-square-1440.webp",
+    "1920": "/assets/weekly-009-cover-square-1920.webp"
+  },
+  "provenance": {
+    "productionCommit": "cb8de74797856f230fac395178f6099ad000f6bb",
+    "sources": [
+      {
+        "path": "shows/weekly/episodes/009/04-release/artwork/cover-square.jpg",
+        "sha256": "408c73eb9d2431f3c35fb69b85f976581fe2af1c543d94ff91e5b4ca892857c5"
+      },
+      {
+        "path": "shows/weekly/episodes/009/04-release/copy/website-release.json",
+        "sha256": "fecee719e3a4025d5ced4e2ac2d59d16bfe6023c715b4b494fd8e46979428f76"
+      }
+    ]
+  }
+}

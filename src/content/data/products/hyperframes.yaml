@@ -1,0 +1,19 @@
+kind: framework
+name:
+  zh-Hans: HyperFrames
+  en: HyperFrames
+summary:
+  zh-Hans: HeyGen 提供的开源视频制作工具，可通过 AI Agent 创建和修改视频。
+  en: An open-source video creation tool from HeyGen for building and editing videos with AI agents.
+aliases:
+  - Hyperframes
+status: available
+official:
+  website: https://hyperframes.heygen.com
+sources:
+  - label:
+      zh-Hans: HyperFrames 官网
+      en: HyperFrames official website
+    href: https://hyperframes.heygen.com
+lastVerifiedAt: '2026-11-09'
+brand: heygen

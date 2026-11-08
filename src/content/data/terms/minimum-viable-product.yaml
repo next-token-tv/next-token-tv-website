@@ -1,0 +1,15 @@
+name:
+  zh-Hans: 最小可行产品（MVP）
+  en: Minimum Viable Product (MVP)
+summary:
+  zh-Hans: 用最小必要实现检验核心假设并获取用户反馈的产品版本。
+  en: A minimal product version used to test core assumptions and learn from users.
+aliases:
+  - MVP
+status: published
+sources:
+  - label:
+      zh-Hans: 定义与相关资料
+      en: Definition and context
+    href: https://theleanstartup.com/principles
+lastVerifiedAt: '2026-11-09'

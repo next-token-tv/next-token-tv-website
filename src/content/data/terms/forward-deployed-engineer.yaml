@@ -1,0 +1,16 @@
+name:
+  zh-Hans: 前线部署工程师（FDE）
+  en: Forward Deployed Engineer (FDE)
+summary:
+  zh-Hans: 深入客户业务现场，将软件能力与实际需求结合并交付解决方案的工程角色。
+  en: An engineering role that works closely with customers to adapt software to practical business needs.
+aliases:
+  - FDE
+  - Forward Deployed Engineer
+status: published
+sources:
+  - label:
+      zh-Hans: 定义与相关资料
+      en: Definition and context
+    href: https://www.palantir.com/careers/students-and-early-talent
+lastVerifiedAt: '2026-11-09'

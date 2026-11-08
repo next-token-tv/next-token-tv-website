@@ -266,6 +266,7 @@ const episodeCore = {
     brands: z.array(z.string()).default([]),
     products: z.array(z.string()).default([]),
     people: z.array(z.string()).default([]),
+    terms: z.array(z.string()).default([]),
   }),
 };
 

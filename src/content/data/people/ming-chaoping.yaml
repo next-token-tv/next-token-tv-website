@@ -1,0 +1,14 @@
+kind: business
+name:
+  zh-Hans: 明超平
+  en: Chaoping Ming
+bio:
+  zh-Hans: YouWare 创始人，关注 AI 创作工具。
+  en: Founder of YouWare, focused on AI creation tools.
+aliases: []
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://ec.hkust.edu.hk/events/zhenfund-hkust-startup-talk-building-whats-next-ai-zhengexiaoyuanxing
+lastVerifiedAt: '2026-11-09'

@@ -1,0 +1,16 @@
+kind: agent
+name:
+  zh-Hans: Renoise
+  en: Renoise
+summary:
+  zh-Hans: 支持多种生成模型与 Agent 工作流的视频及图像创作工具。
+  en: A video and image creation tool supporting multiple generative models and agent workflows.
+aliases: []
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://renoise.ai
+lastVerifiedAt: '2026-11-09'
+official:
+  website: https://renoise.ai

@@ -366,3 +366,29 @@ test('approved unattributed speech preserves dialogue without inventing a person
  assert.equal(t.speaker,'未署名');assert.equal(t.speakerId,null);assert.equal(t.candidate,false);
  assert.equal(t.paragraphs[0][0].value,'容易挨骂。');
 });
+
+test('resolved reading previews require matching source evidence and cannot publish', () => {
+  const hash = 'a'.repeat(64), srt = 'b'.repeat(64);
+  const manifest = {status:'ready-for-review', transcript_sha256:hash, srt_sha256:srt, body_text_preserved:true, pending_speaker_cues:0, transcript_approved:false, publication_approved:false};
+  const evidence = {verified:true, readingSha256:hash, srtSha256:srt};
+  assert.doesNotThrow(() => validateTranscriptManifest(manifest, hash, true, evidence));
+  for (const invalid of [{...evidence,verified:false},{...evidence,srtSha256:'stale'},{...evidence,readingSha256:'stale'}]) assert.throws(() => validateTranscriptManifest(manifest,hash,true,invalid));
+  assert.throws(() => validateTranscriptManifest({...manifest,pending_speaker_cues:1},hash,true,evidence));
+  assert.throws(() => validateTranscriptManifest({...manifest,output_sha256:hash},hash,false,evidence));
+});
+
+test('collective speech keeps its label without assigning an individual', () => {
+  const {snapshot,report} = convertTranscript(unified().use(remarkParse).parse('# Test\n\n## Closing\n\n**众人：**\n\n大家再见。'),{episodeId:'show--009',locale:'zh-Hans',entities:[]});
+  assert.deepEqual(report.unknownSpeakers,[]);
+  const turn=snapshot.chapters[0].turns[0];
+  assert.equal(turn.kind,'speech');assert.equal(turn.speaker,'众人');assert.equal(turn.speakerId,null);
+});
+
+test('Weekly 009 links reviewed names and terms without ordinary-word false positives', async () => {
+  const data = JSON.parse(await readFile(new URL('../src/content/imported/transcripts/next-token-weekly--009.zh-Hans.json',import.meta.url),'utf8'));
+  const segments=data.chapters.flatMap(c=>c.turns.flatMap(t=>t.paragraphs.flat()));
+  for(const [value,type,id] of [['中信书店','brand','citic-books'],['PR','term','public-relations'],['TypeScript','product','typescript'],['QQ 空间','product','qzone'],['QQ 秀','product','qq-show'],['Sub Agent','term','subagent'],['模型权重','term','model-weights'],['WebGL','term','webgl']]) {
+    assert.ok(segments.some(s=>s.type==='entity-link'&&s.value===value&&s.entityType===type&&s.entityId===id),value);
+  }
+  for(const id of ['day-one','netease-youdao','silicon-valley','go']) assert.ok(!segments.some(s=>s.type==='entity-link'&&s.entityId===id),id);
+});

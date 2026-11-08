@@ -1,0 +1,17 @@
+kind: other-brand
+name:
+  zh-Hans: 软银集团
+  en: SoftBank Group
+summary:
+  zh-Hans: 总部位于日本的投资控股集团。
+  en: A Japan-based investment holding group.
+aliases:
+  - 软银
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://group.softbank/en
+lastVerifiedAt: '2026-11-09'
+official:
+  website: https://group.softbank/en

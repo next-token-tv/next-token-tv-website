@@ -1,0 +1,15 @@
+name:
+  zh-Hans: 模因
+  en: Meme
+summary:
+  zh-Hans: 通过模仿、改写和传播在人群中流行的观念、表达或文化形式。
+  en: An idea, expression or cultural form that spreads through imitation and adaptation.
+aliases:
+  - 网络迷因
+status: published
+sources:
+  - label:
+      zh-Hans: 定义与相关资料
+      en: Definition and context
+    href: https://en.wikipedia.org/wiki/Internet_meme
+lastVerifiedAt: '2026-11-09'

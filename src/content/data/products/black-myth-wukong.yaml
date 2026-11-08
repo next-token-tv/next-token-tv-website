@@ -1,0 +1,17 @@
+kind: game
+name:
+  zh-Hans: 黑神话：悟空
+  en: 'Black Myth: Wukong'
+summary:
+  zh-Hans: 游戏科学制作、以中国神话为背景的动作角色扮演游戏。
+  en: An action role-playing game by Game Science inspired by Chinese mythology.
+aliases:
+  - 黑神话悟空
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal source
+    href: https://gamesci.cn/wukong
+lastVerifiedAt: '2026-11-09'
+official:
+  website: https://gamesci.cn/wukong

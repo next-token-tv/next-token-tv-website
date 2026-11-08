@@ -1,0 +1,16 @@
+name:
+  zh-Hans: 智能体路由
+  en: Agent Routing
+summary:
+  zh-Hans: 按任务类型或上下文，将请求分配给适合的模型、工具或智能体的机制。
+  en: A mechanism for assigning requests to suitable models, tools or agents based on the task and context.
+aliases:
+  - Router
+  - Routing
+status: published
+sources:
+  - label:
+      zh-Hans: 定义与相关资料
+      en: Definition and context
+    href: https://www.anthropic.com/research/building-effective-agents
+lastVerifiedAt: '2026-11-09'

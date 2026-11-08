@@ -1,0 +1,27 @@
+schemaVersion: 2
+episodeId: next-token-weekly--009
+number: "009"
+show: next-token-weekly
+status: published
+language: zh-Hans
+recordedAt: '2026-11-07'
+releaseDate: '2026-11-09'
+recordingMode: in-person
+recordingVenue: citic-books--beijing-chaoyue
+imageKind: artwork
+imageDimensions:
+  width: 3000
+  height: 3000
+participants:
+  - person: yangpan
+    role: duty-host
+  - person: orange
+    role: co-host
+  - person: guizang
+    role: co-host
+  - person: xiangyang-qiaomu
+    role: co-host
+cover: shows/weekly/episodes/009/04-release/artwork/cover-square.jpg
+sources:
+  - shows/weekly/episodes/009/04-release/artwork/cover-square.jpg
+  - shows/weekly/episodes/009/04-release/copy/website-release.json

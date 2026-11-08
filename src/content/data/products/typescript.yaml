@@ -1,0 +1,17 @@
+kind: developer-tool
+name:
+  zh-Hans: TypeScript
+  en: TypeScript
+summary:
+  zh-Hans: 在 JavaScript 基础上增加静态类型检查的编程语言，配有编译器与开发工具支持。
+  en: A programming language that adds static type checking to JavaScript, with
+    compiler and editor support.
+aliases: []
+official:
+  website: https://www.typescriptlang.org
+sources:
+  - label:
+      zh-Hans: 参考资料
+      en: Reference
+    href: https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html
+lastVerifiedAt: '2026-11-09'

@@ -1,0 +1,19 @@
+kind: platform
+brand: tencent
+name:
+  zh-Hans: QQ 空间
+  en: Qzone
+summary:
+  zh-Hans: 腾讯的社交平台，支持发布动态、照片以及与好友互动。
+  en: Tencent’s social platform for sharing updates and photos and interacting
+    with friends.
+aliases:
+  - QQ空间
+sources:
+  - label:
+      zh-Hans: 产品介绍
+      en: Product introduction
+    href: https://www.tencent.com/zh-cn/products/qzone/
+lastVerifiedAt: '2026-11-09'
+official:
+  website: https://www.tencent.com/zh-cn/products/qzone/

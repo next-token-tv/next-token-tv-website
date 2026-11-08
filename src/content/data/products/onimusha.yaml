@@ -1,0 +1,16 @@
+kind: game
+name:
+  zh-Hans: 鬼武者
+  en: Onimusha
+summary:
+  zh-Hans: 卡普空制作的动作游戏系列。
+  en: An action game series created by Capcom.
+aliases: []
+sources:
+  - label:
+      zh-Hans: 资料来源
+      en: Source
+    href: https://www.capcom.sg/licensing/detail_11.html
+lastVerifiedAt: '2026-11-09'
+official:
+  website: https://www.capcom.sg/licensing/detail_11.html

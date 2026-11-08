@@ -33,3 +33,9 @@ test('transcript entity links create back-references, excluding self-references 
  assert.deepEqual(relations.episodes('brand','next-token'),[]);
  assert.deepEqual(relations.episodes('product','draft-only'),[]);
 });
+
+test('subtitle-reviewed terms back-reference an episode before its transcript exists',()=>{
+ const episode={id:'e',data:{status:'announced',participants:[],mentions:{brands:[],products:[],people:[],terms:['harness','harness']}}};
+ const catalog={products:[],episodes:[episode],episodeImports:[],transcriptImports:[]};
+ assert.deepEqual(getCatalogRelations(catalog).episodes('term','harness'),[episode]);
+});

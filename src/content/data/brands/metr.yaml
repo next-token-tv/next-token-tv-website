@@ -1,0 +1,16 @@
+kind: ai-brand
+name:
+  zh-Hans: METR
+  en: METR
+summary:
+  zh-Hans: 研究 AI 系统能力与风险的评估机构。
+  en: An organization evaluating AI capabilities and risks.
+aliases: []
+sources:
+  - label:
+      zh-Hans: 官方或本人资料
+      en: Official or personal source
+    href: https://metr.org/about
+lastVerifiedAt: '2026-11-09'
+official:
+  website: https://metr.org/about

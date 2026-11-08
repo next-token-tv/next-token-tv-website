@@ -28,6 +28,7 @@ function createRelations(catalog: Catalog) {
       if (brand) keys.add(`brand:${brand}`);
     }
     for (const person of episode.data.mentions.people) keys.add(`person:${person}`);
+    for (const term of episode.data.mentions.terms ?? []) keys.add(`term:${term}`);
     const data = episode.data;
     const participants = data.status === 'announced' ? data.participants : imports.get(data.productionImport)?.data.participants ?? [];
     for (const { person } of participants) keys.add(`person:${person}`);

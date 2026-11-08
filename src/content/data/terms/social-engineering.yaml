@@ -1,0 +1,15 @@
+name:
+  zh-Hans: 社会工程攻击
+  en: Social Engineering
+summary:
+  zh-Hans: 利用信任、身份伪装或心理诱导，使人泄露信息或执行不安全操作的攻击方式。
+  en: Attacks that exploit trust, impersonation or persuasion to induce unsafe actions or disclosure.
+aliases:
+  - 社会工程学
+status: published
+sources:
+  - label:
+      zh-Hans: 定义与相关资料
+      en: Definition and context
+    href: https://developer.mozilla.org/en-US/docs/Glossary/Social_engineering
+lastVerifiedAt: '2026-11-09'

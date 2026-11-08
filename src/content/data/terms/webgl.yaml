@@ -1,0 +1,14 @@
+name:
+  zh-Hans: WebGL
+  en: WebGL
+summary:
+  zh-Hans: 用于在浏览器中绘制硬件加速图形的 Web API 标准。
+  en: A Web API standard for hardware-accelerated graphics in browsers.
+aliases: []
+status: published
+sources:
+  - label:
+      zh-Hans: 参考资料
+      en: Reference
+    href: https://www.khronos.org/webgl/
+lastVerifiedAt: '2026-11-09'

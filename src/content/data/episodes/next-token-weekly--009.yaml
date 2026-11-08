@@ -1,0 +1,223 @@
+schemaVersion: 1
+number: "009"
+show: next-token-weekly
+status: published
+title:
+  zh-Hans: "#009 DSH 大肥鱼日活 154 万，AI 游戏软件的网文化"
+  en: "#009 DSH’s Big Fat Fish Reaches 1.54M Daily Users: AI Games and Software
+    Meet Web-Novel Culture"
+mentions:
+  brands:
+    - citic-books
+    - deepseek
+    - openai
+    - anthropic
+    - apple
+    - meta
+    - nvidia
+    - vercel
+    - heygen
+    - red-hat
+    - epic-games
+    - metr
+    - mit
+    - gcores
+    - gcores-industries
+    - bytedance
+    - nintendo
+    - stripe
+    - bambu-lab
+    - softbank
+  products:
+    - typescript
+    - deepseek-harness
+    - obsidian
+    - codex
+    - claude-code
+    - claude
+    - gpt
+    - deepseek
+    - github
+    - notion
+    - steam
+    - m5stack
+    - kindle
+    - ipad
+    - iphone
+    - grok-bot
+    - dots
+    - openclaw
+    - opencode
+    - pi
+    - workbuddy
+    - youtube
+    - instagram
+    - facebook
+    - x
+    - app-store
+    - nvidia-b300
+    - hyperframes
+    - threejs
+    - macos
+    - linux
+    - electron
+    - react
+    - nextjs
+    - astro
+    - solid
+    - remotion
+    - raycast
+    - chatcut
+    - canva
+    - debian
+    - qq
+    - qzone
+    - qq-show
+    - fanqie-novel
+    - unreal-engine
+    - black-myth-wukong
+    - colaos
+    - muse-agent
+    - aihot
+    - ffmpeg
+    - tailwind-css
+    - doubao
+    - hongguo
+    - macaron
+    - qwen
+    - binance
+    - legend-of-zelda
+    - pokebonk
+    - qidian
+    - phantom-blade-zero
+    - nvidia-dlss
+    - jianying
+    - esp32
+    - xiaoyuzhou
+    - bilibili
+    - douyin
+    - xiaohongshu
+    - wechat
+    - weibo
+    - qoder
+    - trae
+    - renoise-ai
+    - onimusha
+    - doubao-work
+  people:
+    - cui-tianyi
+    - kazike
+    - simon-willison
+    - elon-musk
+    - tim-sweeney
+    - zhongqing
+    - zhao-xia
+    - ming-chaoping
+  terms:
+    - css
+    - public-relations
+    - model-weights
+    - neural-network
+    - model-interpretability
+    - webgl
+    - one-shot
+    - vibe-coding
+    - a-roll-b-roll
+    - agent
+    - context
+    - harness
+    - token
+    - plugin
+    - open-source
+    - linux-distribution
+    - chatbot
+    - sdk
+    - mcp
+    - saas
+    - html
+    - rendering
+    - geo
+    - b2b
+    - api
+    - save-time-kill-time
+    - agent-skills
+    - fork
+    - personal-agent
+    - agent-steering
+    - session
+    - subagent
+    - database
+    - operating-system
+    - memory
+    - computer-use
+    - browser-use
+    - recursive-self-improvement
+    - model-inference
+    - tokens-per-second
+    - jevons-paradox
+    - idc
+    - bug
+    - ssh
+    - ai-slop
+    - benchmark
+    - 3d
+    - game-budget-tiers
+    - human-in-the-loop
+    - aha-moment
+    - prompt
+    - system-prompt
+    - ai-native
+    - esim
+    - forward-deployed-engineer
+    - agent-routing
+    - minimum-viable-product
+    - social-engineering
+    - meme
+productionImport: next-token-weekly--009.production
+transcriptPublishedAt: '2026-11-09'
+media:
+  audio: false
+  video: false
+platforms: []
+homepage:
+  zh-Hans:
+    eyebrow: 第 009 期
+    heading:
+      - DSH 大肥鱼日活 154 万
+      - AI 游戏软件的网文化
+    lede: 从 DeepSeek Harness、大肥鱼和插件生态，到个人 Agent 与上下文积累，再到 AI
+      安全、游戏分发和动手实践：四位主理人聊制作门槛降低之后，创作、传播与体验怎样变化。
+    copy: 从 DeepSeek Harness、大肥鱼和插件生态，到个人 Agent 与上下文积累，再到 AI
+      安全、游戏分发和动手实践：四位主理人聊制作门槛降低之后，创作、传播与体验怎样变化。
+    imageAlt: "#009 DSH 大肥鱼日活 154 万，AI 游戏软件的网文化"
+    topicsLabel: 本期话题
+    topics:
+      - Harness 插件生态
+      - 个人 Agent
+      - 上下文资产
+      - AI 安全
+      - 游戏与软件分发
+    listenAction: 立即收听
+    watchAction: 立即观看
+  en:
+    eyebrow: Episode 009
+    heading:
+      - "DSH’s Big Fat Fish: 1.54M Daily Users"
+      - AI Games, Software and Web-Novel Culture
+    lede: From DeepSeek Harness and its plugin culture to personal agents, AI
+      security and game distribution, the four hosts discuss what changes when
+      more people can build software—and how useful work finds an audience.
+    copy: From DeepSeek Harness and its plugin culture to personal agents, AI
+      security and game distribution, the four hosts discuss what changes when
+      more people can build software—and how useful work finds an audience.
+    imageAlt: "#009 DSH’s Big Fat Fish Reaches 1.54M Daily Users: AI Games and
+      Software Meet Web-Novel Culture"
+    topicsLabel: In this episode
+    topics:
+      - Harness plugins
+      - Personal agents
+      - Personal context
+      - AI security
+      - Game and software distribution
+    listenAction: Listen now
+    watchAction: Watch now

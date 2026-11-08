@@ -1,0 +1,19 @@
+name:
+  zh-Hans: 公共关系（PR）
+  en: Public Relations (PR)
+summary:
+  zh-Hans: 通过沟通维护组织与公众关系的活动。
+  en: Communication that builds and maintains relationships between organizations
+    and their publics.
+aliases:
+  - PR
+  - 公共关系
+  - 公关
+  - Public Relations
+status: published
+sources:
+  - label:
+      zh-Hans: 参考资料
+      en: Reference
+    href: https://www.prsa.org/about/all-about-pr
+lastVerifiedAt: '2026-11-09'
