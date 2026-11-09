@@ -5,7 +5,12 @@ import QRCode from 'qrcode';
 
 export async function decodeQr(image) {
   const { data, info } = await sharp(image).rotate().ensureAlpha().raw().toBuffer({ resolveWithObject: true });
-  return jsQR(new Uint8ClampedArray(data), info.width, info.height)?.data;
+  const direct = jsQR(new Uint8ClampedArray(data), info.width, info.height)?.data;
+  if (direct) return direct;
+  // WeChat invitation cards can use rounded dots and large surrounding captions.
+  const normalized = await sharp(image).rotate().resize({width:720}).greyscale().threshold(100).png().toBuffer();
+  const fallback = await sharp(normalized).ensureAlpha().raw().toBuffer({resolveWithObject:true});
+  return jsQR(new Uint8ClampedArray(fallback.data), fallback.info.width, fallback.info.height)?.data;
 }
 // Delivery copy of next-token/people/hosts/group/hosts-grid-white-background-512.png.
 const hostsGrid = (await sharp(readFileSync(new URL('../../public/assets/community/hosts-grid-white-background-512.png', import.meta.url)))
@@ -13,8 +18,8 @@ const hostsGrid = (await sharp(readFileSync(new URL('../../public/assets/communi
 const xml = value => value.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' })[c]);
 export function validateInvite(payload) {
   const url = new URL(payload);
-  if (url.protocol !== 'https:' || url.hostname !== 'weixin.qq.com' || !url.pathname.startsWith('/g/') || url.username || url.password || url.port) {
-    throw new Error('Expected a WeChat group invitation URL at https://weixin.qq.com/g/.');
+  if (url.protocol !== 'https:' || !['weixin.qq.com','c.weixin.com'].includes(url.hostname) || !url.pathname.startsWith('/g/') || url.username || url.password || url.port) {
+    throw new Error('Expected a WeChat group invitation URL on weixin.qq.com or c.weixin.com under /g/.');
   }
 }
 export function createCommunitySvg(payload, { groupName, validBefore }) {

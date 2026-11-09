@@ -29,6 +29,7 @@ if (!current) throw new Error('Missing Weekly community configuration.');
 const fields = {
   ...current, qrImage: `${asset}.svg`, qrPngImage: `${asset}.png`, qrValidBefore: values['valid-before'],
   width: 720, height: 720,
+  qrPayloadSha256: createHash("sha256").update(payload).digest("hex"),
   description: {
     'zh-Hans': `欢迎加入 Next Token Weekly ${values.group}，一起聊 AI 工具、节目选题与真实使用体验。`,
     en: 'Join the Next Token Weekly WeChat community to discuss AI tools, episode ideas and real workflows.',

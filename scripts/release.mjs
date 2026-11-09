@@ -1,3 +1,4 @@
+import {assertCommunityRelease} from './lib/community-release.mjs';
 import {streamCommand} from './lib/release-process.mjs';
 import { spawnSync } from 'node:child_process';
 import { readFile, writeFile, mkdir, appendFile } from 'node:fs/promises';
@@ -30,6 +31,7 @@ if (command === 'prepare' || command === 'deploy') {
   run('git', ['archive', revision, '-o', archive]);
   run('tar', ['-xf', archive, '-C', bundle]);
   run('npm', ['ci'], bundle);
+  await assertCommunityRelease(bundle, resolve(root, '../next-token'));
   await writeFile(resolve(bundle,'release-attempt.json'),JSON.stringify({schemaVersion:1,revision,preparationSeconds:(Date.now()-preparationStarted)/1000})+'\n');
   await verifyBundle(bundle, revision, false);
   if (command === 'deploy') await release('publish', bundle);
@@ -38,6 +40,7 @@ if (command === 'prepare' || command === 'deploy') {
   const bundle=resolve(argument);
   const attempt=JSON.parse(await readFile(resolve(bundle,'release-attempt.json'),'utf8'));
   if(attempt.schemaVersion!==1 || !/^[a-f0-9]{40}$/.test(attempt.revision))throw new Error('Invalid release attempt');
+  await assertCommunityRelease(bundle, resolve(root, '../next-token'));
   await verifyBundle(bundle,attempt.revision,true);
 } else if (command === 'publish') {
   if (!argument) throw new Error('Usage: npm run release:publish -- <verified-bundle>');
@@ -45,6 +48,7 @@ if (command === 'prepare' || command === 'deploy') {
   const manifest = JSON.parse(await readFile(resolve(bundle, 'release.json'), 'utf8'));
   if (manifest.schemaVersion !== 1 || manifest.checks !== 'passed' || !/^[a-f0-9]{40}$/.test(manifest.revision)) throw new Error('Invalid release manifest');
   if (await artifactDigest(bundle) !== manifest.digest) throw new Error('Release artifact changed after checks; prepare again');
+  await assertCommunityRelease(bundle, resolve(root, '../next-token'));
   const timeoutMs = Number(process.env.NEXTTOKEN_PUBLISH_TIMEOUT_MS ?? 600_000);
   console.log(`Publishing verified revision ${manifest.revision.slice(0,12)} (timeout ${timeoutMs / 1000}s)`);
   const result = await streamCommand('npx', ['wrangler', 'deploy'], {cwd: bundle, timeoutMs});

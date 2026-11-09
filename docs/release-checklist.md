@@ -9,6 +9,8 @@
 - Local review copy uses intended final reader-facing wording. Drafts stay excluded from production and noindex; production filenames, review-stage labels and agent reasoning are not public copy.
 - Episode release preparation covers home/latest cards, show ordering, navigation, both locales, transcript and Markdown links, search, sitemap, host profiles and entity relations. Verify navigation from home as well as direct URLs.
 
+- Community invitations must be unexpired in Asia/Shanghai, decode consistently from SVG and PNG, and match the latest dated production QR source. Preparation, resume and upload recheck this gate; a previously verified bundle does not bypass expiry. See [community QR](community-qr.md#发布门禁).
+
 ## Website validation
 
 `npm run release:check` runs schema/content checks, stylesheet lint, a production build, Chrome interaction and responsive regression tests, and the built-site audit. It does not commit, push, or deploy. `npm run deploy` runs these gates before Wrangler publishes the site.

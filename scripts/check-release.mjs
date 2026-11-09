@@ -1,3 +1,4 @@
+import {assertCommunityRelease} from './lib/community-release.mjs';
 import { validPlatformUrl } from '../src/data/platforms.mjs';
 import { hasEpisodeRoute } from '../src/data/episode-visibility.ts';
 import { readdir, readFile, stat } from 'node:fs/promises';
@@ -9,6 +10,7 @@ import { needsRecordingScheduleRefresh } from './lib/announcement-schedule.mjs';
 import { createLocalLinkChecker } from './lib/local-link-check.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+await assertCommunityRelease(root);
 const dist = resolve(root, 'dist');
 const checkLocalLink = createLocalLinkChecker(dist);
 const errors = [];
