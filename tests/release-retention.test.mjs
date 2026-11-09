@@ -48,6 +48,8 @@ test('publishing cleans only after confirmed deployment; failed publish retains 
  const {artifactDigest}=await import('../scripts/lib/release-artifact.mjs');
  for(const dir of ['scripts/lib','bin','.releases'])await mkdir(join(root,dir),{recursive:true});
  for(const file of ['release.mjs','lib/release-artifact.mjs','lib/release-process.mjs','lib/release-retention.mjs','lib/performance-status.mjs'])await cp(new URL('../scripts/'+file,import.meta.url),join(root,'scripts',file));
+ // QR correctness has dedicated tests; isolate these release orchestration fixtures.
+ await writeFile(join(root,'scripts/lib/community-release.mjs'),'export async function assertCommunityRelease() {}\n');
  const releases=join(root,'.releases');
  for(let i=1;i<=4;i++)await mkdir(join(releases,name(i)));
  await writeFile(join(releases,'history.jsonl'),[1,2].map(i=>JSON.stringify({bundle:join(releases,name(i)),version:`v${i}`,deployedAt:'today'})).join('\n')+'\n');

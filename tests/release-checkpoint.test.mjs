@@ -56,6 +56,8 @@ test('release CLI accepts complete legacy preparations but rejects legacy resume
  try {
   for(const dir of ['scripts/lib','bin'])await mkdir(join(root,dir),{recursive:true});
   for(const file of ['scripts/release.mjs','scripts/lib/release-artifact.mjs','scripts/lib/release-process.mjs','scripts/lib/performance-status.mjs','scripts/lib/release-retention.mjs'])await cp(join(import.meta.dirname,'..',file),join(root,file));
+ // QR correctness has dedicated tests; isolate these release orchestration fixtures.
+ await writeFile(join(root,'scripts/lib/community-release.mjs'),'export async function assertCommunityRelease() {}\n');
   await writeFile(join(root,'bin/git'),'#!/bin/sh\nif [ "$1" = rev-parse ]; then echo aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa; fi\n',{mode:0o755});
   await writeFile(join(root,'bin/tar'),'#!/bin/sh\nexit 0\n',{mode:0o755});
   await writeFile(join(root,'bin/npm'),`#!${process.execPath}

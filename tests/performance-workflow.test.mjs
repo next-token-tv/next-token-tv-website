@@ -68,6 +68,8 @@ test('publishing records missing or failed performance audits without blocking t
  const project=resolve(import.meta.dirname,'..'),bundle=join(root,'bundle');
  for(const dir of ['scripts/lib','.releases','bin','bundle/dist','bundle/worker'])await mkdir(join(root,dir),{recursive:true});
  for(const file of ['scripts/release.mjs','scripts/lib/release-process.mjs','scripts/lib/performance-status.mjs','scripts/lib/release-artifact.mjs','scripts/lib/release-retention.mjs'])await cp(join(project,file),join(root,file));
+ // QR correctness has dedicated tests; isolate this performance-state fixture.
+ await writeFile(join(root,'scripts/lib/community-release.mjs'),'export async function assertCommunityRelease() {}\n');
  await writeFile(join(bundle,'dist/index.html'),'release');await writeFile(join(bundle,'worker/index.js'),'worker');await writeFile(join(bundle,'wrangler.jsonc'),'{}');
  const manifest={schemaVersion:1,checks:'passed',revision:'b'.repeat(40),digest:await artifactDigest(bundle)};
  await writeFile(join(bundle,'release.json'),JSON.stringify(manifest));
