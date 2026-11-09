@@ -6,7 +6,7 @@ interface Props {
   title: string;
   description: string;
   path: string;
-  episodePath: string;
+  episodePath?: string;
   headings: { depth: number; slug: string; text: string }[];
   footerLabel: string;
 }
@@ -22,7 +22,7 @@ const en = locale === "en";
     <div class="article-meta"><slot name="meta" /></div>
     <nav class="article-actions" aria-label={en ? "Article formats and sources" : "文章格式与原文"}>
       <a href={`${path}.md`} type="text/markdown">{en ? "Markdown version ↗" : "Markdown 格式 ↗"}</a>
-      <a href={`${episodePath}/transcript`}>{en ? "Read the full transcript →" : "阅读完整文字稿 →"}</a>
+      {episodePath && <a href={`${episodePath}/transcript`}>{en ? "Read the full transcript →" : "阅读完整文字稿 →"}</a>}
     </nav>
   </header>
   <div class="article-layout shell">

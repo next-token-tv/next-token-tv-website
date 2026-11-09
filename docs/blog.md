@@ -19,3 +19,5 @@
 - Blog Article structured data identifies Next Token as the editorial organization. Visible bylines link to the localized channel’s `#editorial` explanation; both locales share the stable organization ID `https://nexttoken.tv/blog#editorial`. Source speakers remain separate from the editorial author.
 - Blog publication dates remain stable after release. Each locale records substantive edits in its own `updatedAt`; shared sitemap date rules and validation are defined in [Technical SEO](seo-technical.md).
 - Markdown exports follow the shared [HTTP canonical contract](url-conventions.md#markdown-canonical).
+
+- Project announcements may use `episodes: []` when their evidence is the project itself. These pages omit Weekly numbering and transcript actions; sources remain in the article references. Do not invent an episode association.

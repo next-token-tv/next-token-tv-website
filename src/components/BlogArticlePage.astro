@@ -13,9 +13,8 @@ const { Content, headings } = await render(article);
 if (headings.some(heading => heading.depth === 1)) throw new Error(`Article ${article.id} must not contain a second H1`);
 const content = await getSiteContent(locale);
 const episodes = await Promise.all(article.data.episodes.map(id => getDetailEpisode(id)));
-const episode = episodes[0]!;
-const number = episode.data.number;
-const episodePath = `${prefix}/weekly/${number}`;
+const number = episodes[0]?.data.number;
+const episodePath = number ? `${prefix}/weekly/${number}` : undefined;
 const path = `${prefix}/blog/${article.id}`;
 const draft = article.data.status === "draft";
 const hasAlternate = locale === "en" || (await getCollection("blogEn")).some(post => post.id === article.id);
@@ -32,17 +31,17 @@ const schema = {
 ---
 <BaseLayout content={content} pageTitle={article.data.title} description={article.data.description} canonicalPath={path} hasLocaleAlternate={hasAlternate} alternatePath={hasAlternate ? `${locale === "en" ? "" : "/en"}/blog/${article.id}` : undefined} noIndex={draft} ogType="article" markdownPath={`${path}.md`}>
   <script is:inline type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, "\\u003c")} />
-  <ArticleReadingLayout locale={locale} title={article.data.title} description={article.data.description} path={path} episodePath={episodePath} headings={headings} footerLabel={copy("来源节目", "Source episodes")}>
+  <ArticleReadingLayout locale={locale} title={article.data.title} description={article.data.description} path={path} episodePath={episodePath} headings={headings} footerLabel={episodes.length ? copy("来源节目", "Source episodes") : copy("相关阅读", "More reading")}>
     <Fragment slot="context">{locale === "en" ? <a class="article-back" href="/en/blog">← All blog articles</a> : <nav class="article-context" aria-label="博客导航">
         <a href="/blog">所有博客文章</a>
         {episodes.map(entry => <a href={`/blog/episodes/${entry.data.number}`}>第 {entry.data.number} 期相关博客</a>)}
       </nav>}</Fragment>
-    <Fragment slot="kicker">{copy("博客 / WEEKLY #", "Blog / WEEKLY #")}{number}{draft && copy(" · 审阅稿", " · Under review")}</Fragment>
+    <Fragment slot="kicker">{number ? `${copy("博客 / WEEKLY #", "Blog / WEEKLY #")}${number}` : copy("NEXT TOKEN / 博客", "NEXT TOKEN / BLOG")}{draft && copy(" · 审阅稿", " · Under review")}</Fragment>
     <Fragment slot="meta"><a href={authorPath} rel="author">{copy("Next Token 编辑整理", "Next Token Editorial")}</a><time datetime={article.data.publishedAt ?? article.data.updatedAt}>{article.data.publishedAt ?? article.data.updatedAt}</time>{draft && <span>{copy("待审核 · 尚未发布", "Under review · Not yet published")}</span>}</Fragment>
-    <Fragment slot="source">{copy(
+    <Fragment slot="source">{episodes.length ? copy(
       `整理自 ${episodes.map(entry => `Weekly #${entry.data.number}（${entry.data.recordedAt}）`).join("、")}。文中体验与判断对应录制时的讨论。`,
       `Compiled from ${episodes.map(entry => `Weekly #${entry.data.number} (recorded ${entry.data.recordedAt})`).join(", ")}. Experiences and judgments reflect the discussion at recording time.`
-    )}</Fragment>
+    ) : copy("Next Token 项目动态与实践。相关资料见文末。", "Next Token project news and practice. References are listed below.")}</Fragment>
     <Content />
     <Fragment slot="footer">{episodes.map(entry => <a href={`${prefix}/weekly/${entry.data.number}/transcript`}>Weekly #{entry.data.number}{copy(" · 完整文字稿 →", " · Full transcript →")}</a>)}<a href={`${prefix}/blog`}>{copy("更多博客文章 →", "More blog articles →")}</a></Fragment>
   </ArticleReadingLayout>

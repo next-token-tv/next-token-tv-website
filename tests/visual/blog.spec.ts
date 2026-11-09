@@ -98,3 +98,15 @@ test('Published blog feeds include every article in their locale', async ({ requ
   }
  }
 });
+
+test('standalone project announcement has no invented episode and publishes Markdown and RSS', async ({page,request}) => {
+  const path='/blog/next-token-studio-open-source';
+  await page.setViewportSize({width:390,height:844});
+  await page.goto(path);
+  await expect(page.locator('h1')).toHaveText('Next Token Studio 开源：把一场播客录成独立音轨');
+  await expect(page.locator('.article-actions a[href*="/transcript"]')).toHaveCount(0);
+  await expect(page.locator('.section-kicker').filter({hasText:'WEEKLY'})).toHaveCount(0);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBeTruthy();
+  expect((await (await request.get(`${path}.md`)).text())).toContain('next-token-tv/next-token-studio');
+  expect((await (await request.get('/blog/rss.xml')).text())).toContain(path);
+});
