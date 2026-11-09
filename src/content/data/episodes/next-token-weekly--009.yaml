@@ -176,9 +176,17 @@ mentions:
 productionImport: next-token-weekly--009.production
 transcriptPublishedAt: '2026-11-09'
 media:
-  audio: false
-  video: false
-platforms: []
+  audio: true
+  video: true
+platforms:
+  - platform: xiaoyuzhou
+    label:
+      zh-Hans: 小宇宙
+      en: Xiaoyuzhou
+    href: https://www.xiaoyuzhoufm.com/episode/6af0b82eb4a4e20202f6bda7
+    action:
+      zh-Hans: 收听 / 收看
+      en: Listen / watch
 homepage:
   zh-Hans:
     eyebrow: 第 009 期
