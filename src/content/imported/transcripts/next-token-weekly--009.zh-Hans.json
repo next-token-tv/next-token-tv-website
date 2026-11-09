@@ -7380,7 +7380,7 @@
               },
               {
                 "type": "entity-link",
-                "value": "Simon Wilson",
+                "value": "Simon Willison",
                 "entityType": "person",
                 "entityId": "simon-willison",
                 "href": "/wiki/people/simon-willison"
@@ -7599,7 +7599,7 @@
               },
               {
                 "type": "entity-link",
-                "value": "Simon Wilson",
+                "value": "Simon Willison",
                 "entityType": "person",
                 "entityId": "simon-willison",
                 "href": "/wiki/people/simon-willison"
@@ -13549,10 +13549,10 @@
   ],
   "provenance": {
     "sourceRepository": "next-token",
-    "sourceRevision": "cb8de74797856f230fac395178f6099ad000f6bb",
+    "sourceRevision": "04d62606b4306ca13b399e68308f8827c29bc2ae",
     "sourceState": "committed",
     "sourcePath": "shows/weekly/episodes/009/04-release/copy/transcript.zh-Hans.md",
-    "sourceSha256": "379fc75f57757f57c1a7f59e6d9bd207744c9da53f0676dfc39b8e7efb00b065"
+    "sourceSha256": "c0da57ec3d808c491ddb763444d5ecbf592777f57c7d90577fd5ec0d5590f123"
   },
   "chapterCount": 5,
   "publicationStatus": "published"
