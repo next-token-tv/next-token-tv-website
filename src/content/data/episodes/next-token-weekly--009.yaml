@@ -187,6 +187,22 @@ platforms:
     action:
       zh-Hans: 收听 / 收看
       en: Listen / watch
+  - platform: spotify
+    label:
+      zh-Hans: Spotify
+      en: Spotify
+    href: https://open.spotify.com/episode/0yno4lYwLJ9zCUgPiWL8m7
+    action:
+      zh-Hans: 收听 / 收看
+      en: Listen / watch
+  - platform: youtube
+    label:
+      zh-Hans: YouTube
+      en: YouTube
+    href: https://www.youtube.com/watch?v=bDckKDrfa_Q
+    action:
+      zh-Hans: 立即观看
+      en: Watch now
 homepage:
   zh-Hans:
     eyebrow: 第 009 期
