@@ -49,4 +49,5 @@ GitHub 的认证文档介绍了不同访问方式。实际接入时应按任务�
 - [工作成果需要组织和管理的讨论](/weekly/009/transcript#quote-39f3fc8316887821c381)
 - [多个工具共用上下文的个人实践](/weekly/009/transcript#quote-89f6ef975e6a8d53e149)
 - [跨 Agent 沉淀资料的需求](/weekly/009/transcript#quote-e95a312108e9a21956bf)
+- [按需临时生成看板的讨论](/weekly/009/transcript#quote-348adb1c0e7f70f499f8)
 - [GitHub：About authentication to GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)

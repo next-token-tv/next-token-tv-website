@@ -11,7 +11,7 @@ updatedAt: '2026-11-10'
 
 One job can span several tools: research in one agent, code in another, then organize the material through a third interface. Switching often means explaining progress again, finding decisions that were already confirmed and figuring out which file contains the latest result.
 
-Episode 009 discussed gathering work materials in a chosen place, such as Notion or GitHub, and letting different agents use them. It also distinguished temporary subtasks from persistent conversations. The shared question is whether the next piece of work can find enough evidence to continue after the current task ends.
+Episode 009 discussed gathering work materials in a chosen place, such as Notion or GitHub, and letting different agents use them. It also distinguished temporary subtasks from persistent sessions. The shared question is whether the next piece of work can find enough evidence to continue after the current task ends.
 
 ## Extract decisions and results from the conversation
 
@@ -49,4 +49,5 @@ If this reveals a gap, add the missing record rather than indefinitely appending
 - [Organizing and managing work outputs](/weekly/009/transcript#quote-39f3fc8316887821c381)
 - [One person’s practice of sharing context across tools](/weekly/009/transcript#quote-89f6ef975e6a8d53e149)
 - [Preserving material across agents](/weekly/009/transcript#quote-e95a312108e9a21956bf)
+- [Generating a temporary board on demand](/weekly/009/transcript#quote-348adb1c0e7f70f499f8)
 - [GitHub: About authentication to GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)
