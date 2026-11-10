@@ -51,7 +51,7 @@ The organizational structure can be lightweight. Add an executor only when a pie
 
 ## Related material
 
-- [Collaboration and waiting in the trending-topics podcast experiment](/en/weekly/006/transcript#quote-7ce559ebe3a5ab8b4d34)
-- [The experience of having different roles take part in product brainstorming](/en/weekly/006/transcript#quote-312553049d6c5e9e8980)
-- [Concurrency and foreground responses](/en/weekly/006/transcript#quote-353d2eee19934aafcc2e)
+- [Collaboration and waiting in the trending-topics podcast experiment](/weekly/006/transcript#quote-7ce559ebe3a5ab8b4d34)
+- [The experience of having different roles take part in product brainstorming](/weekly/006/transcript#quote-312553049d6c5e9e8980)
+- [Concurrency and foreground responses](/weekly/006/transcript#quote-353d2eee19934aafcc2e)
 - [Anthropic: How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system), June 13, 2025.

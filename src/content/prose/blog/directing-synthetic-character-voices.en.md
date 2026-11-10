@@ -43,7 +43,7 @@ Finally, listen to the whole scene: does the background music drown out the shop
 
 ## Related materials
 
-- [A production experiment in setting fixed voice qualities and personalities for novel characters](/en/weekly/006/transcript#quote-48aa03f48cac92da24ec)
-- [An example of describing voice performance for the priest character](/en/weekly/006/transcript#quote-db2fa6a59652219f2ec5) and [the expected personality traits](/en/weekly/006/transcript#quote-b9e9ebf275cbc0abc0b0)
+- [A production experiment in setting fixed voice qualities and personalities for novel characters](/weekly/006/transcript#quote-48aa03f48cac92da24ec)
+- [An example of describing voice performance for the priest character](/weekly/006/transcript#quote-db2fa6a59652219f2ec5) and [the expected personality traits](/weekly/006/transcript#quote-b9e9ebf275cbc0abc0b0)
 - [W3C: Speech Synthesis Markup Language 1.1](https://www.w3.org/TR/speech-synthesis11/), 2010; accessed October 26, 2026.
 - [Google: Text-to-speech generation](https://ai.google.dev/gemini-api/docs/speech-generation), accessed October 26, 2026.

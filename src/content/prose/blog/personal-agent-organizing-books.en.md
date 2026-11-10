@@ -53,6 +53,6 @@ For this bookshelf-organizing session, the most accurate conclusion remains spec
 
 ## Related materials
 
-- [Usage record: WeChat Read bookshelf categorization, confirmation, and interface operations](/en/weekly/006/transcript#quote-d4b289d3f6c4c0251474)
-- [Time spent on this organizing session](/en/weekly/006/transcript#quote-c431187b070dbccfc993) and [discussion of tidying as a purpose](/en/weekly/006/transcript#quote-18b6481d1b58a35ee3d5)
+- [Usage record: WeChat Read bookshelf categorization, confirmation, and interface operations](/weekly/006/transcript#quote-d4b289d3f6c4c0251474)
+- [Time spent on this organizing session](/weekly/006/transcript#quote-c431187b070dbccfc993) and [discussion of tidying as a purpose](/weekly/006/transcript#quote-18b6481d1b58a35ee3d5)
 - [William Jones: Putting our digital information in its place](https://www.microsoft.com/en-us/research/video/putting-our-digital-information-in-its-place-lessons-learned-from-fieldwork-and-prototyping-in-the-keeping-found-things-found-project/), introduction to the Keeping Found Things Found project, consulted on October 19, 2026.

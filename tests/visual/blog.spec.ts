@@ -110,3 +110,13 @@ test('standalone project announcement has no invented episode and publishes Mark
   expect((await (await request.get(`${path}.md`)).text())).toContain('next-token-tv/next-token-studio');
   expect((await (await request.get('/blog/rss.xml')).text())).toContain(path);
 });
+
+test('English blogs use the published Chinese transcript when no English edition exists', async ({page,request}) => {
+  await page.goto('/en/blog/personal-agent-portable-context');
+  const link=page.locator('.article-actions a[href="/weekly/009/transcript"]');
+  await expect(link).toHaveText('Read the Chinese transcript →');
+  expect((await request.get('/weekly/009/transcript')).status()).toBe(200);
+  await expect(page.locator('a[href*="/en/weekly/009/transcript"]')).toHaveCount(0);
+  await page.goto('/en/blog/jev-structured-decisions');
+  await expect(page.locator('.article-actions a[href="/en/weekly/003/transcript"]')).toBeVisible();
+});

@@ -35,6 +35,6 @@ To test this feature, enter four fictional notices in order: announce the event,
 
 ## Related resources
 
-- [The experience of receiving a school notice canceling fitness testing](/en/weekly/006/transcript#quote-8f1224ad90673192786d)
-- [Clear attribution of the reminder to Dots](/en/weekly/006/transcript#quote-5644622b812dbd3a6437)
+- [The experience of receiving a school notice canceling fitness testing](/weekly/006/transcript#quote-8f1224ad90673192786d)
+- [Clear attribution of the reminder to Dots](/weekly/006/transcript#quote-5644622b812dbd3a6437)
 - [RFC 5545: iCalendar](https://www.rfc-editor.org/rfc/rfc5545.html), 2009; with particular reference to sections 3.8.4.7, 3.8.7.4, and 3.8.1.11; consulted on October 26, 2026.

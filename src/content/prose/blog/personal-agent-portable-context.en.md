@@ -43,10 +43,10 @@ Choose a small completed task and ask another tool to continue it using only the
 
 If this reveals a gap, add the missing record rather than indefinitely appending every conversation to the next prompt. Context worth accumulating is material the next task can use and verify—and that can be corrected when the facts change.
 
-## Related sources
+## Related sources (episode transcripts in Chinese)
 
-- [Temporary subtasks, persistent sessions and implementation limits](/en/weekly/009/transcript#quote-2df2b99cea5671e7a59c), with [limits in coordinating conversations](/en/weekly/009/transcript#quote-fbe0ed39f3cf47f079be)
-- [Organizing and managing work outputs](/en/weekly/009/transcript#quote-39f3fc8316887821c381)
-- [One person’s practice of sharing context across tools](/en/weekly/009/transcript#quote-89f6ef975e6a8d53e149)
-- [Preserving material across agents](/en/weekly/009/transcript#quote-e95a312108e9a21956bf)
+- [Temporary subtasks, persistent sessions and implementation limits](/weekly/009/transcript#quote-2df2b99cea5671e7a59c), with [limits in coordinating conversations](/weekly/009/transcript#quote-fbe0ed39f3cf47f079be)
+- [Organizing and managing work outputs](/weekly/009/transcript#quote-39f3fc8316887821c381)
+- [One person’s practice of sharing context across tools](/weekly/009/transcript#quote-89f6ef975e6a8d53e149)
+- [Preserving material across agents](/weekly/009/transcript#quote-e95a312108e9a21956bf)
 - [GitHub: About authentication to GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)

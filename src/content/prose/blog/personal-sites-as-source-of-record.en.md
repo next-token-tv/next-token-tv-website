@@ -37,9 +37,9 @@ This is also where a personal site may help AI retrieval: clear titles, authorsh
 
 Start with an accurate introduction, a project directory and a few articles with complete sources. Check that old links remain valid as the site changes. Maintaining the content and its provenance over time does more to make an address dependable than adding many badges at once.
 
-## Related sources
+## Related sources (episode transcripts in Chinese)
 
-- [A personal website as a consistent source for one’s own information](/en/weekly/008/transcript#quote-03a142f9fb8ae82d0a63)
-- [Friend links and a network of trust](/en/weekly/008/transcript#quote-132600184765a84a9d68)
+- [A personal website as a consistent source for one’s own information](/weekly/008/transcript#quote-03a142f9fb8ae82d0a63)
+- [Friend links and a network of trust](/weekly/008/transcript#quote-132600184765a84a9d68)
 - [W3C: Cool URIs don't change](https://www.w3.org/Provider/Style/URI)
 - [Microformats: rel-me](https://microformats.org/wiki/rel-me)

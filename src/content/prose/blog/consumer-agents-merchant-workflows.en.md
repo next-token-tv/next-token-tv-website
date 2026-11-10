@@ -49,8 +49,8 @@ Personal assistants face a similar issue, though their value is not necessarily 
 
 When an Agent first enters a store or an e-commerce merchant console, this can be understood as making use of existing business conditions. What ultimately determines how far it can go is still the information it can access, the actions it can perform, and whether the results can get back to the user.
 
-## Related sources
+## Related sources (episode transcripts in Chinese)
 
-- [Episode discussion of personal assistants and merchant operations](/en/weekly/006/transcript#quote-5621e5aed44acf1fddda)
+- [Episode discussion of personal assistants and merchant operations](/weekly/006/transcript#quote-5621e5aed44acf1fddda)
 - [Published on Meituan’s official website: AI enters local services, and CatPaw aims to be a digital operations partner for merchants](https://www.meituan.com/news/NN260727239005651), July 27, 2026. The page lists Economic Observer as the source.
 - [Alibaba: Qwen App turns ecosystem services into executable AI capabilities](https://www.alibabagroup.com/en-US/document-1948497434959151104), accessed October 19, 2026. Consumer ordering and payment capabilities are described by the company; this article did not test them.

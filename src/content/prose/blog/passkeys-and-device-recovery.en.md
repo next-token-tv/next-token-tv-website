@@ -40,8 +40,8 @@ You do not need to test this by signing out of all your devices. Keep your curre
 
 ## Related resources
 
-- [How password managers work and generate passwords](/en/weekly/007/transcript#quote-53ea85195bdef30afbf9)
-- [Concerns about switching phones or operating systems](/en/weekly/007/transcript#quote-3d7f7fc305ff23b31561)
+- [How password managers work and generate passwords](/weekly/007/transcript#quote-53ea85195bdef30afbf9)
+- [Concerns about switching phones or operating systems](/weekly/007/transcript#quote-3d7f7fc305ff23b31561)
 - [FIDO Alliance: Passkeys](https://fidoalliance.org/passkeys-2/), accessed October 26, 2026.
 - [Microsoft: Manage your saved passkeys](https://support.microsoft.com/en-us/accounts-billing/security/manage-your-saved-passkeys), accessed October 26, 2026.
 - [Apple: Make your passwords and passkeys available across devices with iPhone and iCloud Keychain](https://support.apple.com/guide/iphone/passwords-devices-iph82d6721b2/26/ios/26), accessed October 26, 2026.

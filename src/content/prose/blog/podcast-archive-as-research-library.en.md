@@ -41,7 +41,7 @@ For acceptance checks, you can pick a few discussions whose sources you already 
 
 ## Related materials
 
-- [An attempt to obtain official subtitles, transcribe the rest, and compile a Chinese-language website](/en/weekly/007/transcript#quote-194fdd8d1baa66b25243)
-- [The experience of expanding the scope and continuing the work](/en/weekly/007/transcript#quote-04eaf393ebc8920f2d17)
-- [A discussion of using existing show notes to help with the process](/en/weekly/007/transcript#quote-4c70343fdf7752a9466e)
+- [An attempt to obtain official subtitles, transcribe the rest, and compile a Chinese-language website](/weekly/007/transcript#quote-194fdd8d1baa66b25243)
+- [The experience of expanding the scope and continuing the work](/weekly/007/transcript#quote-04eaf393ebc8920f2d17)
+- [A discussion of using existing show notes to help with the process](/weekly/007/transcript#quote-4c70343fdf7752a9466e)
 - [OpenAI Whisper: Model Card, Performance and Limitations](https://github.com/openai/whisper/blob/main/model-card.md), accessed October 26, 2026.

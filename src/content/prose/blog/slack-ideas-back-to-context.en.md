@@ -39,6 +39,6 @@ After reading, sometimes a response is needed; sometimes it is enough to bring a
 
 ## Related materials
 
-- [A case of reviewing product discussions and finding overlooked ideas](/en/weekly/007/transcript#quote-e9d4b5ba2ed4ddb5d709)
-- [Requesting message links, then returning to the original discussion to catch up](/en/weekly/007/transcript#quote-e166115c20a0c39084d6)
+- [A case of reviewing product discussions and finding overlooked ideas](/weekly/007/transcript#quote-e9d4b5ba2ed4ddb5d709)
+- [Requesting message links, then returning to the original discussion to catch up](/weekly/007/transcript#quote-e166115c20a0c39084d6)
 - [Slack: Search in Slack](https://slack.com/help/articles/202528808-Search-in-Slack-), accessed October 26, 2026.

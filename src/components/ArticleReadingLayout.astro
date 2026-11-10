@@ -7,10 +7,11 @@ interface Props {
   description: string;
   path: string;
   episodePath?: string;
+  transcriptLabel?: string;
   headings: { depth: number; slug: string; text: string }[];
   footerLabel: string;
 }
-const { locale, title, description, path, episodePath, headings, footerLabel } = Astro.props;
+const { locale, title, description, path, episodePath, transcriptLabel, headings, footerLabel } = Astro.props;
 const en = locale === "en";
 ---
 <main id="main" class="episode-article-page">
@@ -22,7 +23,7 @@ const en = locale === "en";
     <div class="article-meta"><slot name="meta" /></div>
     <nav class="article-actions" aria-label={en ? "Article formats and sources" : "文章格式与原文"}>
       <a href={`${path}.md`} type="text/markdown">{en ? "Markdown version ↗" : "Markdown 格式 ↗"}</a>
-      {episodePath && <a href={`${episodePath}/transcript`}>{en ? "Read the full transcript →" : "阅读完整文字稿 →"}</a>}
+      {episodePath && <a href={`${episodePath}/transcript`}>{transcriptLabel ?? (en ? "Read the full transcript →" : "阅读完整文字稿 →")}</a>}
     </nav>
   </header>
   <div class="article-layout shell">

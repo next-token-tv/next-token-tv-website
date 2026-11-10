@@ -35,7 +35,7 @@ After changing the configuration, you can repeat the original small task: start 
 
 ## Related materials
 
-- [Trouble using a connected home speaker](/en/weekly/006/transcript#quote-25dd15bf3ae3b6c81e59)
-- [Experiences with casting problems involving picture, sound, and disconnections](/en/weekly/006/transcript#quote-0d346b2978b8e98af71f) and [specific symptoms](/en/weekly/006/transcript#quote-ae239fecab165decfb78)
-- [Confusion about household members and the speaker control interface](/en/weekly/006/transcript#quote-65ac52546ed6f0b4edb2)
+- [Trouble using a connected home speaker](/weekly/006/transcript#quote-25dd15bf3ae3b6c81e59)
+- [Experiences with casting problems involving picture, sound, and disconnections](/weekly/006/transcript#quote-0d346b2978b8e98af71f) and [specific symptoms](/weekly/006/transcript#quote-ae239fecab165decfb78)
+- [Confusion about household members and the speaker control interface](/weekly/006/transcript#quote-65ac52546ed6f0b4edb2)
 - [Home Assistant: Matter](https://www.home-assistant.io/integrations/matter/), consulted on October 26, 2026.

@@ -47,5 +47,5 @@ This leaves creators with a more stable way to judge their work than chasing a f
 
 ## Related resources
 
-- [Program discussion about AI raising the baseline for content](/en/weekly/006/transcript#quote-bf5df8782cdcab12a4ac)
+- [Program discussion about AI raising the baseline for content](/weekly/006/transcript#quote-bf5df8782cdcab12a4ac)
 - [Doshi and Hauser: Generative artificial intelligence enhances creativity but reduces the diversity of novel content](https://arxiv.org/abs/2312.00506), revised version from 2024. This article cites only the study’s findings on quality and similarity in its storytelling experiment; the rest is editorial analysis and hypothetical examples.

@@ -49,7 +49,7 @@ After reuse, add the new project’s location and the part used to the original 
 
 ## Related materials
 
-- [The experience of recovering a project from Memory and reusing it to make a Demo](/en/weekly/006/transcript#quote-7764a789fcb295fcbc20)
-- [The frustration of forgetting which Agent something was discussed with](/en/weekly/006/transcript#quote-076a7dae07427ed56156)
-- [The idea of creating a project Map and finding projects from a single entry point](/en/weekly/006/transcript#quote-b14cd2058010090ca6c6)
+- [The experience of recovering a project from Memory and reusing it to make a Demo](/weekly/006/transcript#quote-7764a789fcb295fcbc20)
+- [The frustration of forgetting which Agent something was discussed with](/weekly/006/transcript#quote-076a7dae07427ed56156)
+- [The idea of creating a project Map and finding projects from a single entry point](/weekly/006/transcript#quote-b14cd2058010090ca6c6)
 - [Git: git-worktree](https://git-scm.com/docs/git-worktree), consulted on October 26, 2026.

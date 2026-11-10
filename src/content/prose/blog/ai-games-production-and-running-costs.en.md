@@ -41,7 +41,7 @@ An early version can include just one complete flow: enter, play, fail or finish
 
 ## Related resources
 
-- [PokéBonk's gameplay and personal trial experience](/en/weekly/007/transcript#quote-20beee0f3aed440036e9) and [the experience of accessing it on a phone and retaining progress](/en/weekly/007/transcript#quote-bfdee750456ad982b4f5)
-- [Turning production costs into a work that can be consumed repeatedly](/en/weekly/007/transcript#quote-7cf873daf94bc4bfe3f5)
-- [Discussion of increasing supply and players' time](/en/weekly/007/transcript#quote-b713aca92855b8a868cf)
+- [PokéBonk's gameplay and personal trial experience](/weekly/007/transcript#quote-20beee0f3aed440036e9) and [the experience of accessing it on a phone and retaining progress](/weekly/007/transcript#quote-bfdee750456ad982b4f5)
+- [Turning production costs into a work that can be consumed repeatedly](/weekly/007/transcript#quote-7cf873daf94bc4bfe3f5)
+- [Discussion of increasing supply and players' time](/weekly/007/transcript#quote-b713aca92855b8a868cf)
 - [MDN: Publishing games](https://developer.mozilla.org/en-US/docs/Games/Publishing_games) and [Introduction to game development for the Web](https://developer.mozilla.org/en-US/docs/Games/Introduction), consulted on October 26, 2026.

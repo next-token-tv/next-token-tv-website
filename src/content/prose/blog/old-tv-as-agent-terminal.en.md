@@ -43,8 +43,8 @@ First, get the home screen for frequently used apps working reliably, then add a
 
 ## Related resources
 
-- [The starting point for the launcher redesign and the need for frequently used apps](/en/weekly/007/transcript#quote-4154c19a238626c15f07) and [the existing burden of use](/en/weekly/007/transcript#quote-6d64eecd91e4b566849a)
-- [A personal account of an old TV reporting low memory](/en/weekly/007/transcript#quote-543b8841ddb45ddb6988)
-- [The Codex entry point on the TV](/en/weekly/007/transcript#quote-198f4774cb3d5438779f) and [the Grok Bot entry point still being built](/en/weekly/007/transcript#quote-40afa2e781b80762c2c7)
-- [The idea of controlling the TV over the local network and playing morning news](/en/weekly/007/transcript#quote-cf038512591ac83330b4)
+- [The starting point for the launcher redesign and the need for frequently used apps](/weekly/007/transcript#quote-4154c19a238626c15f07) and [the existing burden of use](/weekly/007/transcript#quote-6d64eecd91e4b566849a)
+- [A personal account of an old TV reporting low memory](/weekly/007/transcript#quote-543b8841ddb45ddb6988)
+- [The Codex entry point on the TV](/weekly/007/transcript#quote-198f4774cb3d5438779f) and [the Grok Bot entry point still being built](/weekly/007/transcript#quote-40afa2e781b80762c2c7)
+- [The idea of controlling the TV over the local network and playing morning news](/weekly/007/transcript#quote-cf038512591ac83330b4)
 - [Android Developers: TV navigation](https://developer.android.com/training/tv/get-started/navigation) and [Android Debug Bridge](https://developer.android.com/tools/adb), accessed October 26, 2026.

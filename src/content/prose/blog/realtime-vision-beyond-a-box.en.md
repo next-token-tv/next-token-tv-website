@@ -35,7 +35,7 @@ Whichever implementation you use, it is worth trying a few actions that are like
 
 ## Related references
 
-- [An experiment connecting object bounding boxes to interactive gameplay](/en/weekly/006/transcript#quote-9288bb56f08a2927b7bb)
-- [Specific description of moving and redrawing a handheld object](/en/weekly/006/transcript#quote-4d51c5e5481b38adc870)
+- [An experiment connecting object bounding boxes to interactive gameplay](/weekly/006/transcript#quote-9288bb56f08a2927b7bb)
+- [Specific description of moving and redrawing a handheld object](/weekly/006/transcript#quote-4d51c5e5481b38adc870)
 - [Google: Image understanding — Object detection](https://ai.google.dev/gemini-api/docs/image-understanding#object-detection), accessed October 26, 2026.
 - [MDN: HTMLVideoElement.requestVideoFrameCallback()](https://developer.mozilla.org/en-US/docs/Web/API/HTMLVideoElement/requestVideoFrameCallback), accessed October 26, 2026.

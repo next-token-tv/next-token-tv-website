@@ -51,7 +51,7 @@ The reason an author is ultimately remembered may start with a prefix, but it ta
 
 ## Related resources
 
-- [Organizing and installing Skills with an author prefix](/en/weekly/006/transcript#quote-7bf7fd3d3b8de133bd46)
-- [Discussion of work and attention](/en/weekly/006/transcript#quote-3ff65a82a6e19d3258d3)
-- [Questioning whether success stories are replicable](/en/weekly/006/transcript#quote-77d3d2c2fc7ab2d30bec)
+- [Organizing and installing Skills with an author prefix](/weekly/006/transcript#quote-7bf7fd3d3b8de133bd46)
+- [Discussion of work and attention](/weekly/006/transcript#quote-3ff65a82a6e19d3258d3)
+- [Questioning whether success stories are replicable](/weekly/006/transcript#quote-77d3d2c2fc7ab2d30bec)
 - [GitHub Docs: Viewing traffic to a repository](https://docs.github.com/en/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository), consulted on October 19, 2026.

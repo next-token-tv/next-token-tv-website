@@ -39,6 +39,6 @@ A short note is enough: what input the rule is for, one correct example, and one
 
 ## Related resources
 
-- [The attempt to find skills with low learning costs and high reuse value through multiple rounds](/en/weekly/007/transcript#quote-3642448f519402551dd7)
-- [Criteria for selecting rules that are reusable, transferable, and used weekly](/en/weekly/007/transcript#quote-a11fa71dbb6ee135b1b2)
+- [The attempt to find skills with low learning costs and high reuse value through multiple rounds](/weekly/007/transcript#quote-3642448f519402551dd7)
+- [Criteria for selecting rules that are reusable, transferable, and used weekly](/weekly/007/transcript#quote-a11fa71dbb6ee135b1b2)
 - [Dunlosky et al.: Improving Students’ Learning With Effective Learning Techniques](https://acs.ist.psu.edu/ist521/dunloskyRMNW13.pdf), 2013; accessed October 26, 2026.

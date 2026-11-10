@@ -43,7 +43,7 @@ Once you have found clear instructions, the applicable version, and the restrict
 
 ## Related materials
 
-- [Wrapping DeepSeek Search as a Skill and connecting it to a project](/en/weekly/007/transcript#quote-31440856481f8bea97c3)
-- [The idea of keyword expansion, parallel retrieval, and consolidating results](/en/weekly/007/transcript#quote-600979a219924253053f)
-- [The experience of Chinese-language information coverage](/en/weekly/007/transcript#quote-5c2371ac112774289a5e)
+- [Wrapping DeepSeek Search as a Skill and connecting it to a project](/weekly/007/transcript#quote-31440856481f8bea97c3)
+- [The idea of keyword expansion, parallel retrieval, and consolidating results](/weekly/007/transcript#quote-600979a219924253053f)
+- [The experience of Chinese-language information coverage](/weekly/007/transcript#quote-5c2371ac112774289a5e)
 - [DeepSeek: Search & Fetch](https://api-docs.deepseek.com/guides/search/), accessed October 26, 2026.

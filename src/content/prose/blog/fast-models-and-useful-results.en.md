@@ -41,7 +41,7 @@ For PDF narration, check how soon the audio starts, whether it pauses along the 
 
 ## Related resources
 
-- [The DeepSeek app’s response experience and the conditions for using it](/en/weekly/007/transcript#quote-c527db7301f884083b47)
-- [An account of using an Agent to read a PDF aloud](/en/weekly/007/transcript#quote-da26127f2aa4fa07d186) and [the requirements for the delivered result](/en/weekly/007/transcript#quote-708e374316ea336c23e6)
-- [The wait for screen recording packaging](/en/weekly/007/transcript#quote-fe2fb8bd99cb2aed0417) and [the discussion of the rendering stage](/en/weekly/007/transcript#quote-05e84c5cf4c2d60321bd)
+- [The DeepSeek app’s response experience and the conditions for using it](/weekly/007/transcript#quote-c527db7301f884083b47)
+- [An account of using an Agent to read a PDF aloud](/weekly/007/transcript#quote-da26127f2aa4fa07d186) and [the requirements for the delivered result](/weekly/007/transcript#quote-708e374316ea336c23e6)
+- [The wait for screen recording packaging](/weekly/007/transcript#quote-fe2fb8bd99cb2aed0417) and [the discussion of the rendering stage](/weekly/007/transcript#quote-05e84c5cf4c2d60321bd)
 - [Anthropic: Reducing latency](https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-latency), accessed October 26, 2026.

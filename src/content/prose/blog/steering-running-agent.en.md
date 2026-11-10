@@ -41,6 +41,6 @@ Before final delivery, check the files once more against the current requirement
 
 ## Related materials
 
-- [An account of moving from waiting for a task to finish to adding requirements along the way](/en/weekly/007/transcript#quote-8607bd02dee57564e193) and [feedback on continuing to make changes](/en/weekly/007/transcript#quote-81ea975af366ebf49a27)
-- [Discussion of Steer mode](/en/weekly/007/transcript#quote-eacbdd3fd520ad42e7b8)
+- [An account of moving from waiting for a task to finish to adding requirements along the way](/weekly/007/transcript#quote-8607bd02dee57564e193) and [feedback on continuing to make changes](/weekly/007/transcript#quote-81ea975af366ebf49a27)
+- [Discussion of Steer mode](/weekly/007/transcript#quote-eacbdd3fd520ad42e7b8)
 - [Temporal: Workflow message passing](https://docs.temporal.io/encyclopedia/workflow-message-passing), consulted on October 26, 2026.

@@ -45,8 +45,8 @@ If your goal is to find out whether AI brought in new readers, look separately a
 
 ## Related materials
 
-- [The attempt to combine logs with page scripts](/en/weekly/007/transcript#quote-af0116525cd7e9cf3cf4) and its [Umami source](/en/weekly/007/transcript#quote-7b1f7eddfc944a1032c0)
-- [The project is not yet enough to judge the share of AI versus human traffic](/en/weekly/007/transcript#quote-f4e0cb51e97175f4e4a2)
-- [A single read triggered by a user task](/en/weekly/007/transcript#quote-49111cf322364fcee17d)
+- [The attempt to combine logs with page scripts](/weekly/007/transcript#quote-af0116525cd7e9cf3cf4) and its [Umami source](/weekly/007/transcript#quote-7b1f7eddfc944a1032c0)
+- [The project is not yet enough to judge the share of AI versus human traffic](/weekly/007/transcript#quote-f4e0cb51e97175f4e4a2)
+- [A single read triggered by a user task](/weekly/007/transcript#quote-49111cf322364fcee17d)
 - [Umami: Collect data](https://docs.umami.is/docs/collect-data), accessed October 26, 2026.
 - [Cloudflare: Manage AI crawlers](https://developers.cloudflare.com/ai-crawl-control/features/manage-ai-crawlers/), accessed October 26, 2026.

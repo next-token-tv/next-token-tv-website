@@ -49,7 +49,7 @@ The content that remains may spend less time on common knowledge that the model 
 
 ## Related resources
 
-- [Even when models can edit video, style requirements still need to be expressed](/en/weekly/006/transcript#quote-1e34f8e5e05b53e87674)
-- [Producing a news briefing with a prompt that calls multiple Skills](/en/weekly/006/transcript#quote-586e55e466f63a0828d9)
-- [Discussion about periodically cleaning up Skills](/en/weekly/006/transcript#quote-d32a9a2b95ac1cbd5f9a)
+- [Even when models can edit video, style requirements still need to be expressed](/weekly/006/transcript#quote-1e34f8e5e05b53e87674)
+- [Producing a news briefing with a prompt that calls multiple Skills](/weekly/006/transcript#quote-586e55e466f63a0828d9)
+- [Discussion about periodically cleaning up Skills](/weekly/006/transcript#quote-d32a9a2b95ac1cbd5f9a)
 - [Anthropic: Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills), October 16, 2025.

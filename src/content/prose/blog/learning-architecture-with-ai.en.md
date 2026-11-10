@@ -41,7 +41,7 @@ When a similar need comes up next time, compare these conditions first. If usage
 
 ## Related Materials
 
-- [An attempt to use REA and a model to analyze architecture and organize experience](/en/weekly/007/transcript#quote-3fb85b619a2fda8c51d1) and its [reuse purpose](/en/weekly/007/transcript#quote-e5214dbc3daa7801eb8e)
-- [Discussion of the need for opportunities to practice architectural skills](/en/weekly/007/transcript#quote-b2df0bd183e54d599af5)
+- [An attempt to use REA and a model to analyze architecture and organize experience](/weekly/007/transcript#quote-3fb85b619a2fda8c51d1) and its [reuse purpose](/weekly/007/transcript#quote-e5214dbc3daa7801eb8e)
+- [Discussion of the need for opportunities to practice architectural skills](/weekly/007/transcript#quote-b2df0bd183e54d599af5)
 - [Michael Nygard: Documenting Architecture Decisions](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions), November 15, 2011; accessed October 26, 2026.
 - [Martin Fowler: Architecture Decision Record](https://martinfowler.com/bliki/ArchitectureDecisionRecord.html), March 24, 2026; accessed October 26, 2026.

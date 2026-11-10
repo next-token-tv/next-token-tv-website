@@ -47,8 +47,8 @@ A specific note is enough when handing over the file: where the finished video i
 
 ## Related materials
 
-- [An experience where the editing rules were expected to be applied, but the delivered video was missing its packaging](/en/weekly/006/transcript#quote-a2fcb2430449dc4f0f0b)
-- [Discussion of orchestration and context handoff](/en/weekly/006/transcript#quote-2564fed4537f88aa58fd)
-- [An editing experience involving audio track timing mix-ups](/en/weekly/006/transcript#quote-ca507e21a569037f2497)
-- [A workflow that starts with a storyboard, then generates the video and cover image](/en/weekly/006/transcript#quote-18e37c2504e3107e3659)
+- [An experience where the editing rules were expected to be applied, but the delivered video was missing its packaging](/weekly/006/transcript#quote-a2fcb2430449dc4f0f0b)
+- [Discussion of orchestration and context handoff](/weekly/006/transcript#quote-2564fed4537f88aa58fd)
+- [An editing experience involving audio track timing mix-ups](/weekly/006/transcript#quote-ca507e21a569037f2497)
+- [A workflow that starts with a storyboard, then generates the video and cover image](/weekly/006/transcript#quote-18e37c2504e3107e3659)
 - [FFmpeg: ffprobe Documentation](https://ffmpeg.org/ffprobe.html) and [Stream selection](https://ffmpeg.org/ffmpeg.html#Stream-selection), accessed October 26, 2026.
