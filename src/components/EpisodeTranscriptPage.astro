@@ -1,10 +1,24 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { getPeopleByIds } from "../data/catalog";
+import { getEpisode, getPeopleByIds } from "../data/catalog";
 import type { Locale } from "../data/types";
 import TranscriptSegments from "./TranscriptSegments.astro";
 import TranscriptReaderTools from "./TranscriptReaderTools.astro";
 import { getParagraphAnchorIds } from "../data/transcript-paragraph-anchors";
+import { timestampVideoUrl } from "../data/video-timestamps.mjs";
+
+type VideoPlatform = "youtube" | "bilibili";
+type Timeline = {
+  tracks: {
+    videos: Partial<Record<VideoPlatform, string>>;
+    times: Record<string, [number, number]>;
+    chapterStarts?: Record<string, number>;
+  }[];
+};
+const timelines = import.meta.glob<Timeline>("../content/imported/transcript-timelines/*.json", {
+  eager: true,
+  import: "default",
+});
 
 interface Props {
   transcript: CollectionEntry<"transcriptImports">;
@@ -31,8 +45,53 @@ const episodePath = `${locale === "en" ? "/en" : ""}/weekly/${episodeNumber}`;
 const paragraphAnchorIds = anchorIds ?? getParagraphAnchorIds(transcript.data.chapters);
 const formatTime = (seconds: number) => {
   const total = Math.floor(seconds);
-  return [Math.floor(total / 3600), Math.floor(total / 60) % 60, total % 60].map(n => String(n).padStart(2, '0')).join(':');
+  const hours = Math.floor(total / 3600);
+  const minutes = String(Math.floor(total / 60) % 60).padStart(2, "0");
+  const remainder = String(total % 60).padStart(2, "0");
+  return hours ? `${hours}:${minutes}:${remainder}` : `${minutes}:${remainder}`;
 };
+const episode = await getEpisode(transcript.data.episodeId);
+const timeline = episode.data.status === "published"
+  ? timelines[`../content/imported/transcript-timelines/${episode.id}.json`]
+  : undefined;
+const videoPlatforms: VideoPlatform[] = locale === "en" ? ["youtube", "bilibili"] : ["bilibili", "youtube"];
+const playbackTracks = videoPlatforms.flatMap(platform => {
+  const track = timeline?.tracks.find(item => item.videos[platform]);
+  const href = track?.videos[platform];
+  if (!track || !href) return [];
+  const currentHref = episode.data.status === "published"
+    ? episode.data.platforms.find(item => item.platform === platform)?.href
+    : undefined;
+  if (currentHref && timestampVideoUrl(platform, currentHref, 0) !== href) return [];
+  return [{ platform, href, times: track.times, chapterStarts: track.chapterStarts, label: platform === "youtube" ? "YouTube" : locale === "en" ? "Bilibili" : "B 站" }];
+});
+function playbackLink(track: typeof playbackTracks[number], seconds: number | undefined) {
+  if (seconds === undefined) return undefined;
+  const url = timestampVideoUrl(track.platform, track.href, seconds);
+  if (!url) return undefined;
+  const time = formatTime(seconds);
+  return {
+    url, time, label: track.label,
+    accessibleLabel: locale === "en" ? `Watch at ${time} on ${track.label}` : `在 ${track.label} 从 ${time} 播放`,
+  };
+}
+function playbackLinks(paragraphId: string | undefined) {
+  if (!paragraphId) return [];
+  return playbackTracks.map(track => playbackLink(track, track.times[paragraphId]?.[0])).filter(link => link !== undefined);
+}
+const chapterStarts = transcript.data.chapters.map((chapter, index) => {
+  const paragraphs = paragraphAnchorIds[index]?.flat() ?? [];
+  const firstParagraph = paragraphs[0];
+  if (!firstParagraph) return;
+  for (const track of playbackTracks) {
+    const seconds = track.chapterStarts?.[chapter.id];
+    if (seconds !== undefined) return { id: firstParagraph, time: formatTime(seconds) };
+  }
+  for (const id of paragraphs) {
+    const link = playbackLinks(id)[0];
+    if (link) return { id, time: link.time };
+  }
+});
 const copy = locale === "en" ? {
   back: "Back to episode",
   kicker: `Weekly #${episodeNumber} / Transcript`,
@@ -89,10 +148,16 @@ const copy = locale === "en" ? {
         <ol>
           {transcript.data.chapters.map((chapter, index) => (
             <li>
-              <a href={`#${chapter.id}`}>
+              <a class="transcript-toc-chapter" href={`#${chapter.id}`}>
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 {chapter.title}
               </a>
+              {chapterStarts[index] && (
+                <a class="transcript-toc-time" href={`#${chapterStarts[index].id}`}
+                  aria-label={locale === "en" ? `Go to paragraph at ${chapterStarts[index].time}` : `跳到 ${chapterStarts[index].time} 对应段落`}>
+                  {chapterStarts[index].time}
+                </a>
+              )}
             </li>
           ))}
         </ol>
@@ -133,12 +198,23 @@ const copy = locale === "en" ? {
                   <div class="transcript-paragraphs">
                     {turn.paragraphs.map((paragraph, paragraphIndex) => {
                       const paragraphId = paragraphAnchorIds[chapterIndex]?.[turnIndex]?.[paragraphIndex];
-                      const timing = turn.paragraphTimings?.[paragraphIndex];
+                      const links = playbackLinks(paragraphId);
+                      const legacyTiming = !timeline ? turn.paragraphTimings?.[paragraphIndex] : undefined;
                       return (
                         <p id={paragraphId} class="transcript-quote-paragraph">
                           <TranscriptSegments segments={paragraph} wikiPrefix={locale === "en" ? "/en" : ""} />
-                          {timing && <span class="transcript-paragraph-time" title={locale === 'en' ? 'Video subtitle cue range; not word-level timing' : '视频字幕对应范围，非逐字对齐时间'}>{locale === 'en' ? 'Video' : '视频'} · {formatTime(timing.startSeconds)}–{formatTime(timing.endSeconds)}</span>}
                           <a class="transcript-paragraph-link" href={`${episodePath}/transcript#${paragraphId}`} data-paragraph-copy aria-label={copy.paragraphLink} title={copy.paragraphLink}>¶</a>
+                          {(links.length > 0 || legacyTiming) && (
+                            <span class="transcript-playback">
+                              {links.map((link, index) => (
+                                <span class="transcript-playback-item">
+                                  {(index === 0 || link.time !== links[0]?.time) && <span class="transcript-playback-time">{link.time}</span>}
+                                  <a href={link.url} target="_blank" rel="noopener noreferrer" aria-label={link.accessibleLabel} title={link.accessibleLabel}>{link.label}<span aria-hidden="true">↗</span></a>
+                                </span>
+                              ))}
+                              {legacyTiming && <span class="transcript-playback-item">{locale === "en" ? "Video" : "视频"} · {formatTime(legacyTiming.startSeconds)}</span>}
+                            </span>
+                          )}
                         </p>
                       );
                     })}

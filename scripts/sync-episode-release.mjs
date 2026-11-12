@@ -1,8 +1,11 @@
 import fs from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { load, dump } from 'js-yaml';
 import { planPlatformSync } from './lib/platform-release.mjs';
+import { hasBilibiliTimingEditions } from './lib/bilibili-timing.mjs';
 
 const number = process.argv[2];
 if (!/^\d{3}$/.test(number ?? '')) {
@@ -27,6 +30,10 @@ if (plan.platforms.length) {
     return record.published_at ?? record.public_display_time;
   })].filter(Boolean).map(date => date.slice(0, 10)).sort();
   if (dates.length) snapshot.releaseDate = dates[0];
+  const timelinePath = resolve(root, `src/content/imported/transcript-timelines/next-token-weekly--${number}.json`);
+  if (hasBilibiliTimingEditions(number) && existsSync(timelinePath)) {
+    execFileSync(process.execPath, ['--experimental-strip-types', resolve(root, 'scripts/import-transcript-timelines.mjs'), number], { stdio: 'inherit' });
+  }
   await fs.writeFile(episodePath, dump(episode, { lineWidth: -1, noRefs: true }));
   await fs.writeFile(snapshotPath, JSON.stringify(snapshot, null, 2) + '\n');
 }

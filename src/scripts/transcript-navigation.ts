@@ -6,7 +6,7 @@ function initializeTranscriptNavigation() {
   const toc = sidebar?.querySelector<HTMLDetailsElement>('.transcript-toc');
   const list = toc?.querySelector<HTMLOListElement>('ol');
   const chapters = [...document.querySelectorAll<HTMLElement>('.transcript-chapter')];
-  const links = [...(toc?.querySelectorAll<HTMLAnchorElement>('a[href^="#"]') ?? [])];
+  const links = [...(toc?.querySelectorAll<HTMLAnchorElement>('.transcript-toc-chapter') ?? [])];
   if (sidebar && toc && list && chapters.length) {
     const controller = new AbortController();
     const { signal } = controller;
@@ -50,6 +50,19 @@ function initializeTranscriptNavigation() {
       schedule();
       reveal();
     };
+    const transcript = sidebar.closest('.transcript-page');
+    let revealed: Element | null = null;
+    transcript?.addEventListener('pointerup', event => {
+      if (!(event instanceof PointerEvent) || event.pointerType !== 'touch' || !(event.target instanceof Element)) return;
+      const row = event.target.closest('.transcript-toc li, .transcript-quote-paragraph');
+      if (event.target.closest('a') && row === revealed) return;
+      if (getSelection()?.toString()) return;
+      const next = row !== revealed && row?.querySelector('.transcript-toc-time, .transcript-playback')
+        ? row : null;
+      revealed?.removeAttribute('data-time-revealed');
+      revealed = next;
+      revealed?.setAttribute('data-time-revealed', '');
+    }, { signal });
     addEventListener('scroll', schedule, { passive: true, signal });
     addEventListener('resize', resize, { signal });
     addEventListener('hashchange', schedule, { signal });

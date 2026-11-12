@@ -6,7 +6,7 @@ const seconds = text => {
 
 // Only unambiguous full-text matches are accepted. Times are subtitle cue bounds,
 // not word-level alignment; edited, missing and repeated passages remain untimed.
-export function alignTranscriptTimings(chapters, srt) {
+export function alignTranscriptTimings(chapters, srt, { includeShortCues = false } = {}) {
   let text = '';
   const cues = srt.trim().split(/\r?\n\s*\r?\n/).map(block => {
     const lines = block.split(/\r?\n/);
@@ -20,12 +20,13 @@ export function alignTranscriptTimings(chapters, srt) {
   for (const chapter of chapters) for (const turn of chapter.turns) {
     turn.paragraphTimings = turn.paragraphs.map(paragraph => {
       const value = normalize(paragraph.map(segment => segment.value).join(''));
-      if (value.length < 12) return null;
+      if (value.length < (includeShortCues ? 6 : 12)) return null;
       const start = text.indexOf(value);
       if (start < 0 || text.indexOf(value, start + 1) !== -1) return null;
       const first = cues.find(cue => cue.start <= start && cue.end > start);
       const last = cues.find(cue => cue.start < start + value.length && cue.end >= start + value.length);
       if (!first || !last || last.endSeconds < first.startSeconds) return null;
+      if (value.length < 12 && (first.start !== start || last.end !== start + value.length)) return null;
       matched++;
       return { startSeconds: first.startSeconds, endSeconds: last.endSeconds };
     });

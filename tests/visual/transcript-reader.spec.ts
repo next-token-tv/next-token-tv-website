@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 
 test('paragraph timing is excluded from search text and snippets', async ({ page }) => {
   await page.goto('/weekly/003/transcript');
-  const time = page.locator('.transcript-paragraph-time').first();
+  const time = page.locator('.transcript-playback-time').first();
   const label = (await time.textContent())!.trim();
   const input = page.getByRole('searchbox', { name: '搜索文字稿' });
   await input.fill(label);
@@ -11,7 +11,7 @@ test('paragraph timing is excluded from search text and snippets', async ({ page
   await input.fill('视频');
   await expect(page.locator('[data-search-results] a').first()).toBeVisible();
   for (const text of await page.locator('[data-search-results] a').allTextContents()) {
-    expect(text).not.toMatch(/视频 · \d{2}:\d{2}:\d{2}/);
+    expect(text).not.toMatch(/\d{2}:\d{2}\s*(B 站|YouTube)\s*↗/);
   }
 });
 
