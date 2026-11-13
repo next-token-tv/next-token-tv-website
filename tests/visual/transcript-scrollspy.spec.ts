@@ -25,7 +25,7 @@ for (const width of [390, 1233]) {
   });
 }
 
-test('times reveal on hover, chapter times scroll to paragraphs, and platforms use their own timing', async ({ page }) => {
+test('times reveal on hover, chapter times scroll to paragraphs, and 003 uses the shared video timeline', async ({ page }) => {
   await page.setViewportSize({width:1233,height:897});
   await page.goto('/weekly/003/transcript');
   const item = page.locator('.transcript-toc-chapter').first();
@@ -56,12 +56,9 @@ test('times reveal on hover, chapter times scroll to paragraphs, and platforms u
   await expect(bilibili).toHaveText("B 站↗");
   await expect(youtube).toHaveText("YouTube↗");
   await expect(playback.locator('a .transcript-playback-time')).toHaveCount(0);
-  await expect(playback.locator('.transcript-playback-time')).toHaveCount(2);
-  const bilibiliStart = new URL((await bilibili.getAttribute('href'))!).searchParams.get('t');
-  const youtubeStart = new URL((await youtube.getAttribute('href'))!).searchParams.get('t');
-  expect(bilibiliStart).toMatch(/^\d+$/);
-  expect(youtubeStart).toMatch(/^\d+s$/);
-  expect(Number(bilibiliStart)).not.toBe(parseInt(youtubeStart!, 10));
+  await expect(playback.locator('.transcript-playback-time')).toHaveText('00:10');
+  await expect(bilibili).toHaveAttribute('href', 'https://www.bilibili.com/video/BV1zQhv6VEwj?t=10');
+  await expect(youtube).toHaveAttribute('href', 'https://www.youtube.com/watch?v=sx_bAooPhdU&t=10s');
 
   await page.context().route('https://www.bilibili.com/**', route => route.fulfill({ body: '' }));
   const [popup] = await Promise.all([page.waitForEvent('popup'), bilibili.click()]);

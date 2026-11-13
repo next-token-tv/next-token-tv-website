@@ -3,9 +3,9 @@
 const editions = {
   "003": {
     BV1zQhv6VEwj: {
-      42105047244: {
-        filename: "subtitles-bilibili.zh-Hans.srt",
-        sha256: "1d93b0fe734bc773fea809b6f0e9a6b2bab346fa917cab336706d13ffb2a585f",
+      43534387211: {
+        filename: "subtitles.zh-Hans.srt",
+        sha256: "635dc5a818e9d8b67366bd251b79cdc12e911845e230e1b53985f56acf1bafd8",
       },
     },
   },

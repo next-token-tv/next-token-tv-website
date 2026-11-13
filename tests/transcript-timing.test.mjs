@@ -17,9 +17,10 @@ test('a replacement at the same Bilibili URL cannot use the earlier part’s cap
     assert.equal(url.searchParams.get('bvid'), 'BV1zQhv6VEwj');
     return Response.json({ code: 0, data: { bvid: 'BV1zQhv6VEwj', pages: [{ page: 1, cid }] } });
   };
-  const timing = await publicBilibiliTiming('003', href, view(42105047244));
-  assert.equal(timing?.filename, 'subtitles-bilibili.zh-Hans.srt');
-  assert.equal(timing?.cid, 42105047244);
+  const timing = await publicBilibiliTiming('003', href, view(43534387211));
+  assert.equal(timing?.filename, 'subtitles.zh-Hans.srt');
+  assert.equal(timing?.cid, 43534387211);
+  assert.equal(await publicBilibiliTiming('003', href, view(42105047244)), null);
   assert.equal(await publicBilibiliTiming('003', href, view(42105047245)), null);
-  assert.equal(await publicBilibiliTiming('003', `${href}?p=2`, view(42105047244)), null);
+  assert.equal(await publicBilibiliTiming('003', `${href}?p=2`, view(43534387211)), null);
 });
