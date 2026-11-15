@@ -386,7 +386,7 @@
   .partners-intro-grid,
   .partner-story,
   .partner-section-heading,
-  .partner-sources {
+  .partner-sources-content {
     grid-template-columns: 1fr;
     gap: 1.75rem;
   }
@@ -527,11 +527,6 @@
 
   .partner-gallery-grid {
     grid-template-columns: 1fr;
-  }
-
-  .partner-gallery-grid figure + figure {
-    border-top: 1px solid var(--ink);
-    border-left: 0;
   }
 
   .episode-preview-copy {

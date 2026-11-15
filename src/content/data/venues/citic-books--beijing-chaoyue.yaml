@@ -12,6 +12,7 @@ heroImage: /assets/partners/citic-books/service.webp
 heroAlt:
   zh-Hans: 中信书店服务台与书架
   en: CITIC Books service counter and bookshelves
+showGalleryBelow: false
 gallery:
   - src: /assets/partners/citic-books/entrance.webp
     alt:

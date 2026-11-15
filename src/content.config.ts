@@ -140,6 +140,7 @@ const venues = defineCollection({
     heroImage: assetPath.optional(),
     heroAlt: localizedText.optional(),
     gallery: z.array(z.object({ src: assetPath, alt: localizedText })).optional(),
+    showGalleryBelow: z.boolean().optional(),
     location: z.object({
       label: localizedText,
       address: localizedText,

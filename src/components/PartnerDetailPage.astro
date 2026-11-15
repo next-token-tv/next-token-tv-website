@@ -142,46 +142,52 @@ const partnerSchema = {
     </div>
   </section>
 
-  <section class="partner-spaces shell" aria-labelledby="spaces-title">
-    <div class="partner-section-heading">
-      <p class="section-kicker">03 / {copy.spaces}</p>
-      <h2 id="spaces-title">{copy.spaces}</h2>
-    </div>
-    <div class="partner-space-list">
-      {venueSpaces.map((space, index) => (
-        <article>
-          <span>{String(index + 1).padStart(2, "0")}</span>
-          <h3>{space.title[locale]}</h3>
-          <p>{space.copy[locale]}</p>
-        </article>
-      ))}
-    </div>
-  </section>
+  {venueSpaces.length > 0 && (
+    <section class="partner-spaces shell" aria-labelledby="spaces-title">
+      <div class="partner-section-heading">
+        <p class="section-kicker">03 / {copy.spaces}</p>
+        <h2 id="spaces-title">{copy.spaces}</h2>
+      </div>
+      <div class="partner-space-list">
+        {venueSpaces.map((space, index) => (
+          <article>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <h3>{space.title[locale]}</h3>
+            <p>{space.copy[locale]}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  )}
 
-  <section class="partner-gallery" aria-labelledby="gallery-title">
-    <div class="shell partner-section-heading">
-      <p class="section-kicker">04 / {copy.gallery}</p>
-      <h2 id="gallery-title">{copy.gallery}</h2>
-    </div>
-    <div class="partner-gallery-grid shell">
-      {venueGallery.map((image) => (
-        <figure>
-          <img src={image.src} width="1080" height="720" alt={image.alt[locale]} loading="lazy" />
-        </figure>
-      ))}
-    </div>
-  </section>
+  {venue.showGalleryBelow !== false && venueGallery.length > 0 && (
+    <section class="partner-gallery shell" aria-labelledby="gallery-title">
+      <div class="partner-section-heading">
+        <p class="section-kicker">04 / {copy.gallery}</p>
+        <h2 id="gallery-title">{copy.gallery}</h2>
+      </div>
+      <div class="partner-gallery-grid">
+        {venueGallery.map((image) => (
+          <figure>
+            <img src={image.src} width="1080" height="720" alt={image.alt[locale]} loading="lazy" />
+          </figure>
+        ))}
+      </div>
+    </section>
+  )}
 
   <aside class="partner-sources shell" aria-labelledby="sources-title">
-    <p class="section-kicker" id="sources-title">{copy.sources}</p>
-    <div>
-      {partner.sources.map((source) => (
-        <a href={source.href} target="_blank" rel="noreferrer">
-          <span>{source.label[locale]}</span>
-          <span class="visually-hidden">{copy.external}</span>
-          <span aria-hidden="true">↗</span>
-        </a>
-      ))}
+    <div class="partner-sources-content">
+      <p class="section-kicker" id="sources-title">{copy.sources}</p>
+      <div>
+        {partner.sources.map((source) => (
+          <a href={source.href} target="_blank" rel="noreferrer">
+            <span>{source.label[locale]}</span>
+            <span class="visually-hidden">{copy.external}</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </div>
     </div>
   </aside>
 </main>

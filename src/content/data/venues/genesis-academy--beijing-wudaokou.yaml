@@ -1,0 +1,59 @@
+slug: beijing-wudaokou
+partner: genesis-academy
+name:
+  zh-Hans: 五道口 AI 原点社区
+  en: AI Yuandian Community, Wudaokou
+summary:
+  zh-Hans: 原点学堂位于原点大厦 9–10 层，面向 AI 学习、交流和项目合作。
+  en: Genesis Academy occupies floors 9 and 10 of Yuandian Building, with space for AI learning, meetups, and collaboration.
+heroImage: /assets/partners/genesis-academy/event-space.webp
+heroAlt:
+  zh-Hans: AI 原点社区的活动空间，座椅面向演讲屏幕
+  en: Event space at AI Yuandian Community with seating facing the presentation screen
+showGalleryBelow: false
+gallery:
+  - src: /assets/partners/genesis-academy/window-lounge.webp
+    alt:
+      zh-Hans: AI 原点社区落地窗旁的休息区
+      en: Lounge seating by the windows at AI Yuandian Community
+  - src: /assets/partners/genesis-academy/corridor.webp
+    alt:
+      zh-Hans: AI 原点社区的灯带走廊
+      en: Illuminated corridor at AI Yuandian Community
+  - src: /assets/partners/genesis-academy/community-event.webp
+    alt:
+      zh-Hans: 听众在 AI 原点社区参加现场分享
+      en: Audience attending a talk at AI Yuandian Community
+location:
+  label:
+    zh-Hans: 北京 · 海淀 · 五道口
+    en: Wudaokou, Haidian, Beijing
+  address:
+    zh-Hans: 北京市海淀区成府路 45 号原点大厦 9–10 层
+    en: Floors 9–10, Yuandian Building, 45 Chengfu Road, Haidian District, Beijing
+  mapUrl: https://maps.apple.com/?q=%E5%8C%97%E4%BA%AC%E6%B5%B7%E6%B7%80%E6%88%90%E5%BA%9C%E8%B7%AF45%E5%8F%B7%E5%8E%9F%E7%82%B9%E5%A4%A7%E5%8E%A6
+facts:
+  - value: 9–10F
+    label:
+      zh-Hans: 原点大厦所在楼层
+      en: Floors at Yuandian Building
+spaces:
+  - title:
+      zh-Hans: 实践学习
+      en: Hands-on learning
+    copy:
+      zh-Hans: 面向高校学生提供实践培训，帮助他们把课堂所学用到实际项目中。
+      en: Practical training helps university students apply what they learn to real projects.
+  - title:
+      zh-Hans: 社区交流
+      en: Community exchange
+    copy:
+      zh-Hans: 为学生、创业者、研究者、企业和投资人提供交流与资源对接的空间。
+      en: Students, founders, researchers, companies, and investors can meet and connect around shared projects.
+  - title:
+      zh-Hans: 项目合作
+      en: Project collaboration
+    copy:
+      zh-Hans: 支持创业团队首发产品，帮助企业对接资源、推动技术进入实际应用。
+      en: The academy supports startup product launches and helps companies find partners to put their technology to work.
+displayOrder: 1

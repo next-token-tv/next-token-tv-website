@@ -16,6 +16,7 @@ export type PartnerVenue = {
     src: string;
     alt: LocalizedText;
   }>;
+  showGalleryBelow?: boolean;
   location: {
     label: LocalizedText;
     address: LocalizedText;
@@ -75,6 +76,7 @@ export async function getPartners(): Promise<Partner[]> {
           heroImage: data.heroImage,
           heroAlt: data.heroAlt,
           gallery: data.gallery,
+          showGalleryBelow: data.showGalleryBelow,
           location: data.location,
           facts: data.facts,
           spaces: data.spaces,

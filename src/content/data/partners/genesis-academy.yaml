@@ -1,0 +1,16 @@
+name: 原点学堂
+englishName: Genesis Academy
+role:
+  zh-Hans: 场地合作伙伴
+  en: Venue partner
+summary:
+  zh-Hans: 位于北京五道口 AI 原点社区，连接学生、研究者、创业者与投资人，提供实践培训、交流和项目合作空间。
+  en: Based in Wudaokou’s AI Yuandian Community, Genesis Academy brings students, researchers, founders, and investors together for hands-on learning and collaboration.
+logo: /assets/partners/genesis-academy/logo.png
+featuredVenue: genesis-academy--beijing-wudaokou
+displayOrder: 4
+sources:
+  - label:
+      zh-Hans: AI 原点社区介绍
+      en: AI Yuandian Community profile
+    href: https://opc.baidu.com/park-detail/bei-jing-ai-yuan-dian-she-qu
