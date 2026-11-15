@@ -1,0 +1,17 @@
+kind: application
+brand: microsoft
+parent: microsoft-office
+name:
+  zh-Hans: Microsoft Word
+  en: Microsoft Word
+summary:
+  zh-Hans: 微软的文字处理应用，用于撰写、排版和协作编辑文档。
+  en: Microsoft’s word processor for writing, formatting, and editing documents together.
+official:
+  website: https://www.microsoft.com/en-us/microsoft-365/word
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label:
+      zh-Hans: Microsoft Word 官方介绍
+      en: Official Microsoft Word overview
+    href: https://www.microsoft.com/en-us/microsoft-365/word

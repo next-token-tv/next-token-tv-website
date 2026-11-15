@@ -1,0 +1,14 @@
+kind: "research-engineering"
+name:
+  zh-Hans: "Jeff Atwood"
+  en: "Jeff Atwood"
+bio:
+  zh-Hans: "软件开发者、Coding Horror 作者，提出了关于 JavaScript 应用范围的 Atwood 定律。"
+  en: "Software developer and author of Coding Horror, where he formulated Atwood’s Law about the reach of JavaScript."
+aliases: []
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label:
+      zh-Hans: "官方或作者资料"
+      en: "Official or first-party source"
+    href: https://blog.codinghorror.com/all-programming-is-web-programming/

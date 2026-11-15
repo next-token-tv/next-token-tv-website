@@ -1,0 +1,20 @@
+kind: developer-tool
+brand: next-token
+name:
+  zh-Hans: Next Token Skill
+  en: Next Token Skill
+summary:
+  zh-Hans: 可供 Agent 安装的节目检索工具，用于查找 Next Token 的逐字稿与文章，并返回相关出处和视频时间点。
+  en: An installable agent skill that searches Next Token transcripts and articles and returns relevant citations and video timestamps.
+socialSummary:
+  zh-Hans: 让 Agent 检索节目内容，找到原话和视频时间点。
+  en: Find show quotes and video timestamps from your agent.
+aliases: []
+official:
+  repository: https://github.com/next-token-tv/next-token-skill
+lastVerifiedAt: '2026-11-15'
+sources:
+  - label:
+      zh-Hans: 项目说明与安装方法
+      en: Project documentation and installation
+    href: https://github.com/next-token-tv/next-token-skill

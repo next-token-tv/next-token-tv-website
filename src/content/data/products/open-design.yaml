@@ -1,0 +1,18 @@
+kind: agent
+name:
+  zh-Hans: OpenDesign
+  en: OpenDesign
+summary:
+  zh-Hans: 开源的 AI 设计工作台，通过 Agent 制作和迭代原型、网页与其他设计素材。
+  en: An open-source AI design workspace that uses agents to create and iterate on prototypes, websites, and other design assets.
+aliases:
+  - Open Design
+official:
+  website: https://open-design.ai/
+  repository: https://github.com/nexu-io/open-design
+lastVerifiedAt: '2026-11-15'
+sources:
+  - label:
+      zh-Hans: OpenDesign 项目说明
+      en: OpenDesign project documentation
+    href: https://github.com/nexu-io/open-design

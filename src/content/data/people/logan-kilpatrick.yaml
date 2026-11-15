@@ -1,0 +1,29 @@
+name:
+  zh-Hans: Logan Kilpatrick
+  en: Logan Kilpatrick
+bio:
+  zh-Hans: 在 Google DeepMind 负责 Google AI Studio 和 Gemini API 的开发者团队。
+  en: Leads the Google DeepMind team behind Google AI Studio and the Gemini API.
+kind: research-engineering
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label:
+      zh-Hans: Google 官方作者简介
+      en: Google author profile
+    href: https://blog.google/authors/logan-kilpatrick/
+relations:
+  - entityType: brand
+    entity: google-deepmind
+    role:
+      zh-Hans: 负责 Google AI Studio 和 Gemini API
+      en: Leads Google AI Studio and the Gemini API
+    lastVerifiedAt: '2026-11-16'
+    sources:
+      - label:
+          zh-Hans: Google 官方作者简介
+          en: Google author profile
+        href: https://blog.google/authors/logan-kilpatrick/
+socials:
+  - platform: x
+    handle: '@OfficialLoganK'
+    href: https://x.com/OfficialLoganK

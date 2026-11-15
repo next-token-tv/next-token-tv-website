@@ -1,0 +1,14 @@
+kind: "other-brand"
+name:
+  zh-Hans: "Montbell"
+  en: "Montbell"
+summary:
+  zh-Hans: "日本户外用品品牌，产品包括户外服装、背包和露营装备。"
+  en: "A Japanese outdoor brand that makes clothing, packs, and camping gear."
+aliases: []
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label:
+      zh-Hans: "官方或作者资料"
+      en: "Official or first-party source"
+    href: https://www.montbell.com/jp/en

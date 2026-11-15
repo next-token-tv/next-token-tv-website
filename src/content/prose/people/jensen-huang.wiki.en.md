@@ -3,14 +3,14 @@ entityType: person
 entity: jensen-huang
 locale: en
 slot: wiki
-updatedAt: '2026-09-21'
-seoTitle: 'Jensen Huang: NVIDIA Founder, President and CEO | Next Token Wiki'
-seoDescription: 'Jensen Huang’s career: co-founding NVIDIA in 1993, serving as president and CEO since its founding, education and honors, plus how the show discusses him.'
+updatedAt: '2026-11-15'
+seoTitle: 'Jensen Huang: NVIDIA Co-founder and Former CEO | Next Token Wiki'
+seoDescription: 'Jensen Huang co-founded NVIDIA in 1993 and resigned as president, CEO, and board member in 2026. Read about his career, education, and mentions on the show.'
 ---
 
 ## Jensen Huang
 
-Jensen Huang (formally Jen-Hsun Huang; Chinese name 黄仁勋) is the founder, president, and chief executive officer (CEO) of NVIDIA. He co-founded the company in 1993 with Chris Malachowsky and Curtis Priem and has served as its president, CEO, and a board member since the company began. See the [NVIDIA](/en/wiki/brands/nvidia) brand page for the company and its products.
+Jensen Huang (formally Jen-Hsun Huang, Chinese name 黄仁勋) co-founded NVIDIA in 1993 with Chris Malachowsky and Curtis Priem. On November 12, 2026, NVIDIA announced that he had resigned as president, CEO, and board member. Colette Kress took over as interim CEO. See the [NVIDIA](/en/wiki/brands/nvidia) brand page for the company and its products.
 
 ## Career and milestones
 
@@ -29,7 +29,7 @@ Jensen Huang is not a participant in the episode; the following are the hosts' r
 
 ### Who is Jensen Huang?
 
-Jensen Huang is the founder, president, and CEO of NVIDIA, leading the company since he co-founded it in 1993.
+Jensen Huang is a co-founder and former president and CEO of NVIDIA.
 
 ### What is Jensen Huang's English name?
 
@@ -49,6 +49,7 @@ He is a member of the National Academy of Engineering, was appointed to the Pres
 
 ## Sources
 
+- [NVIDIA’s CEO transition announcement](https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition)
 - [NVIDIA official bio: Jensen Huang](https://nvidianews.nvidia.com/bios/jensen-huang)
 - [English Wikipedia: Nvidia](https://en.wikipedia.org/wiki/Nvidia)
 - [NVIDIA brand page](/en/wiki/brands/nvidia)

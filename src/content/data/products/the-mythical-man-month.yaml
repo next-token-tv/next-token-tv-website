@@ -1,0 +1,20 @@
+kind: "book"
+name:
+  zh-Hans: "人月神话"
+  en: "The Mythical Man-Month"
+summary:
+  zh-Hans: "弗雷德里克·布鲁克斯的软件工程文集，讨论大型软件项目中的排期、协作和沟通成本。"
+  en: "Fred Brooks’s essays on scheduling, coordination, and communication costs in large software projects."
+socialSummary:
+  zh-Hans: "弗雷德里克·布鲁克斯的软件工程文集。"
+  en: "Fred Brooks’s essays on software project management."
+aliases:
+  - "《人月神话》"
+official:
+  website: https://www.pearson.com/en-us/subject-catalog/p/Brooks-Mythical-Man-Month-The-Essays-on-Software-Engineering-Anniversary-Edition-2nd-Edition/P200000000149/9780201835953
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label:
+      zh-Hans: "官方或作者资料"
+      en: "Official or first-party source"
+    href: https://www.pearson.com/en-us/subject-catalog/p/Brooks-Mythical-Man-Month-The-Essays-on-Software-Engineering-Anniversary-Edition-2nd-Edition/P200000000149/9780201835953

@@ -12,6 +12,8 @@ aliases:
   - Claude 3.5
   - Claude Fable 5.1
   - Fable 5.1
+  - Claude Fable 5.2
+  - Fable 5.2
   - Fable
   - Claude Mythos 5.1
   - Mythos 5.1
@@ -23,15 +25,15 @@ status: available
 official:
   website: https://www.anthropic.com/claude
   documentation: https://docs.anthropic.com/en/docs/about-claude/models/overview
-lastVerifiedAt: '2026-09-07'
+lastVerifiedAt: '2026-11-15'
 sources:
   - label:
       zh-Hans: Claude 3.5 官方资料
       en: Claude 3.5 official information
     href: https://www.anthropic.com/news/claude-3-5-sonnet
   - label:
-      zh-Hans: Claude Fable 5.1 官方资料
-      en: Claude Fable 5.1 official information
+      zh-Hans: Claude Fable 官方资料
+      en: Claude Fable official information
     href: https://www.anthropic.com/claude/fable
   - label:
       zh-Hans: Claude Mythos 5.1 官方资料

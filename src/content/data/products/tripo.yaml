@@ -1,0 +1,18 @@
+kind: application
+name:
+  zh-Hans: Tripo
+  en: Tripo
+summary:
+  zh-Hans: 根据文字或图片生成 3D 模型的工具，也提供自动骨骼绑定等制作功能。
+  en: A tool for generating 3D models from text or images, with production features including auto-rigging.
+aliases:
+  - Tripo AI
+  - Tripo Studio
+official:
+  website: https://www.tripo3d.ai/
+lastVerifiedAt: '2026-11-15'
+sources:
+  - label:
+      zh-Hans: Tripo 官方网站
+      en: Official Tripo website
+    href: https://www.tripo3d.ai/

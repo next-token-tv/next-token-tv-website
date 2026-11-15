@@ -3,14 +3,14 @@ entityType: person
 entity: jensen-huang
 locale: zh-Hans
 slot: wiki
-updatedAt: '2026-09-21'
-seoTitle: '黄仁勋（Jensen Huang）：NVIDIA 创始人、总裁兼 CEO｜Next Token Wiki'
-seoDescription: '黄仁勋的经历：1993 年共同创立 NVIDIA 并担任总裁兼 CEO 至今、教育与早年经历，以及节目中的相关讨论。'
+updatedAt: '2026-11-15'
+seoTitle: '黄仁勋（Jensen Huang）：NVIDIA 联合创始人、前 CEO｜Next Token Wiki'
+seoDescription: '黄仁勋于 1993 年共同创立 NVIDIA，2026 年辞去总裁、CEO 和董事会成员职务。了解其教育与职业经历及节目中的相关讨论。'
 ---
 
 ## 黄仁勋（Jensen Huang）
 
-黄仁勋（Jensen Huang，正式拼法 Jen-Hsun Huang）是英伟达（NVIDIA）的创始人、总裁兼首席执行官（CEO）。他于 1993 年与 Chris Malachowsky、Curtis Priem 共同创立 NVIDIA，此后一直担任公司总裁、CEO 和董事会成员。公司业务与 GPU 产品见 [英伟达](/wiki/brands/nvidia) 品牌页。
+黄仁勋（Jensen Huang，正式拼法 Jen-Hsun Huang）于 1993 年与 Chris Malachowsky、Curtis Priem 共同创立 NVIDIA（英伟达）。NVIDIA 于 2026 年 11 月 12 日宣布，他已辞去总裁、CEO 和董事会成员职务，Colette Kress 出任临时 CEO。公司业务与 GPU 产品见 [英伟达](/wiki/brands/nvidia) 品牌页。
 
 ## 经历与代表作品
 
@@ -29,7 +29,7 @@ seoDescription: '黄仁勋的经历：1993 年共同创立 NVIDIA 并担任总�
 
 ### 黄仁勋是谁？
 
-黄仁勋（Jensen Huang）是 NVIDIA 的创始人、总裁兼 CEO，自 1993 年共同创立公司以来一直领导该公司。
+黄仁勋（Jensen Huang）是 NVIDIA 联合创始人，曾任公司总裁兼 CEO。
 
 ### 黄仁勋的英文名是什么？
 
@@ -49,6 +49,7 @@ NVIDIA 于 1993 年 4 月 5 日由黄仁勋与 Chris Malachowsky、Curtis Priem 
 
 ## 来源
 
+- [NVIDIA 领导层交接公告](https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition)
 - [NVIDIA 官方管理者介绍：Jensen Huang](https://nvidianews.nvidia.com/bios/jensen-huang)
 - [Wikipedia（英文）：Nvidia](https://en.wikipedia.org/wiki/Nvidia)
 - [英伟达品牌页](/wiki/brands/nvidia)

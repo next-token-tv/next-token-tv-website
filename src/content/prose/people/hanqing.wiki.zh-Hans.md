@@ -3,14 +3,14 @@ entityType: person
 entity: hanqing
 locale: zh-Hans
 slot: wiki
-updatedAt: '2026-09-18'
+updatedAt: '2026-11-16'
 seoTitle: '汗青（赵汗青）：AI.TALK 创始人与 AI 歌手 Yuri 构建者｜Next Token Wiki'
 seoDescription: '了解 AI.TALK 创始人汗青（赵汗青）、其打造的 AI 原生歌手 Yuri（尤栗）与"超现实AI音乐会"，以及在 Next Token Weekly #002 中的相关提及。'
 ---
 
 ## 汗青（Hanqing）
 
-汗青是 AI 内容品牌 AI.TALK 的创始人，AI 原生歌手 Yuri（尤栗）的构建者。他在公开演讲与媒体访谈中多以全名"赵汗青"出现；其 YouTube 频道自述页写明"I'm HQ, the founder of AI.TALK"（我是 AI.TALK 的创始人 HQ）。
+汗青是 AI 内容品牌 AI.TALK 的创始人，AI 原生歌手 [YURI（尤栗）](/wiki/people/yuri) 的构建者。他在公开演讲与媒体访谈中多以全名"赵汗青"出现。其 YouTube 频道自述页写明"I'm HQ, the founder of AI.TALK"（我是 AI.TALK 的创始人 HQ）。
 
 ## 身份与作品
 

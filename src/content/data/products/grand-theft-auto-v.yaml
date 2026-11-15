@@ -1,0 +1,19 @@
+kind: "game"
+name:
+  zh-Hans: "侠盗猎车手 V"
+  en: "Grand Theft Auto V"
+summary:
+  zh-Hans: "Rockstar Games 的开放世界动作游戏，故事发生在洛圣都及周边地区。"
+  en: "Rockstar Games’ open-world action game set in and around Los Santos."
+aliases:
+  - "GTA 5"
+  - "GTA V"
+  - "GTAV"
+official:
+  website: https://www.rockstargames.com/gta-v
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label:
+      zh-Hans: "官方或作者资料"
+      en: "Official or first-party source"
+    href: https://www.rockstargames.com/gta-v

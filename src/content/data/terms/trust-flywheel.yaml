@@ -1,0 +1,14 @@
+name:
+  zh-Hans: "信任飞轮"
+  en: "Trust flywheel"
+summary:
+  zh-Hans: "在本期讨论中，指 Agent 多次提供有用结果后，用户愿意委托更多任务、分享更多上下文，进而让 Agent 有更多机会帮上忙的循环。"
+  en: "In this episode, a loop in which useful agent results lead users to delegate more tasks and share more context, creating further opportunities for the agent to help."
+aliases: []
+status: "published"
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label:
+      zh-Hans: "相关研究：适度信赖 AI"
+      en: "Related research on appropriate reliance on AI"
+    href: https://www.microsoft.com/en-us/research/articles/appropriate-reliance-research-initiative/

@@ -1,0 +1,22 @@
+kind: "platform"
+brand: "google"
+name:
+  zh-Hans: "Vertex AI"
+  en: "Vertex AI"
+summary:
+  zh-Hans: "Google Cloud 的机器学习与生成式 AI 平台。Google 文档将其后继平台称为 Gemini Enterprise Agent Platform。"
+  en: "Google Cloud’s machine learning and generative AI platform, now named Gemini Enterprise Agent Platform in Google’s documentation."
+socialSummary:
+  zh-Hans: "Google Cloud 的机器学习与生成式 AI 平台。"
+  en: "Google Cloud’s machine learning and generative AI platform."
+aliases:
+  - "Vertex"
+  - "Gemini Enterprise Agent Platform"
+official:
+  website: https://docs.cloud.google.com/gemini-enterprise-agent-platform/vertex-ai-name-changes
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label:
+      zh-Hans: "官方或作者资料"
+      en: "Official or first-party source"
+    href: https://docs.cloud.google.com/gemini-enterprise-agent-platform/vertex-ai-name-changes

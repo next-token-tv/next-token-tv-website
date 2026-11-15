@@ -1,0 +1,18 @@
+kind: model-family
+brand: bytedance
+name:
+  zh-Hans: Seedream
+  en: Seedream
+summary:
+  zh-Hans: 字节跳动 Seed 团队研发的图像生成与编辑模型家族，支持文本提示和参考图像。
+  en: ByteDance Seed’s family of image generation and editing models, supporting text prompts and reference images.
+aliases:
+  - Seedream 5.5
+official:
+  website: https://seed.bytedance.com/en/seedream5_5
+lastVerifiedAt: '2026-11-15'
+sources:
+  - label:
+      zh-Hans: Seedream 5.5 官方资料
+      en: Seedream 5.5 official information
+    href: https://seed.bytedance.com/en/seedream5_5

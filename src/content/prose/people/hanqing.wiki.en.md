@@ -3,14 +3,14 @@ entityType: person
 entity: hanqing
 locale: en
 slot: wiki
-updatedAt: '2026-09-18'
+updatedAt: '2026-11-16'
 seoTitle: 'Hanqing (Zhao Hanqing): AI.TALK founder and creator of AI singer Yuri | Next Token Wiki'
 seoDescription: 'Learn about Hanqing (Zhao Hanqing), founder of AI.TALK and creator of the AI-native singer Yuri, plus his mention in Next Token Weekly #002.'
 ---
 
 ## Hanqing (汗青)
 
-Hanqing is the founder of the AI media brand AI.TALK and the creator of Yuri (尤栗), an AI-native singer. He appears under the full name Zhao Hanqing (赵汗青) in public talks and media interviews; the self-description of his YouTube channel reads "I'm HQ, the founder of AI.TALK."
+Hanqing is the founder of the AI media brand AI.TALK and the creator of [YURI (尤栗)](/en/wiki/people/yuri), an AI-native singer. He appears under the full name Zhao Hanqing (赵汗青) in public talks and media interviews. The self-description of his YouTube channel reads "I'm HQ, the founder of AI.TALK."
 
 ## Identity and work
 

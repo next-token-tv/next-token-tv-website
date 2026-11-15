@@ -1,0 +1,21 @@
+kind: "event"
+brand: "nvidia"
+name:
+  zh-Hans: "NVIDIA GTC"
+  en: "NVIDIA GTC"
+summary:
+  zh-Hans: "NVIDIA 举办的技术大会，涵盖 AI、加速计算和开发工具，提供主题演讲、技术分会和培训。"
+  en: "NVIDIA’s conference on AI, accelerated computing, and developer tools, with keynotes, technical sessions, and training."
+socialSummary:
+  zh-Hans: "NVIDIA 的 AI 与加速计算技术大会。"
+  en: "NVIDIA’s AI and accelerated computing conference."
+aliases:
+  - "GTC"
+official:
+  website: https://www.nvidia.com/gtc/events/
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label:
+      zh-Hans: "官方或作者资料"
+      en: "Official or first-party source"
+    href: https://www.nvidia.com/gtc/events/

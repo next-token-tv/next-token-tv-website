@@ -1,0 +1,18 @@
+kind: "platform"
+brand: "microsoft"
+name:
+  zh-Hans: "Microsoft Azure"
+  en: "Microsoft Azure"
+summary:
+  zh-Hans: "微软的云计算平台，提供计算、存储、网络和 AI 等云服务。"
+  en: "Microsoft’s cloud computing platform for compute, storage, networking, and AI services."
+aliases:
+  - "Azure"
+official:
+  website: https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-azure/
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label:
+      zh-Hans: "官方或作者资料"
+      en: "Official or first-party source"
+    href: https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-azure/

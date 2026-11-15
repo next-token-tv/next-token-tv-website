@@ -1,0 +1,15 @@
+kind: application
+name:
+  zh-Hans: Craft
+  en: Craft
+summary:
+  zh-Hans: 用于写作、整理笔记和管理任务的文档应用。
+  en: A document app for writing, organizing notes, and managing tasks.
+official:
+  website: https://www.craft.do/
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label:
+      zh-Hans: Craft 官方介绍
+      en: Official Craft overview
+    href: https://www.craft.do/

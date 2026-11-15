@@ -1,0 +1,15 @@
+name:
+  zh-Hans: "智能体间协作"
+  en: "Agent-to-agent collaboration"
+summary:
+  zh-Hans: "多个 AI 智能体通过交换消息、委派任务或汇集结果共同处理一项工作。本期以各自的旅行 Agent 协调多人行程为例。"
+  en: "Multiple AI agents work together by exchanging messages, delegating tasks, or combining results. The episode uses a group trip coordinated by personal agents as an example."
+aliases:
+  - "A2A"
+status: "published"
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label:
+      zh-Hans: "相关实现：A2A 协议"
+      en: "Related implementation: A2A Protocol"
+    href: https://a2a-protocol.org/v1.0.0/

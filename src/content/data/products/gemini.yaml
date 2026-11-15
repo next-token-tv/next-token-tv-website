@@ -12,11 +12,13 @@ aliases:
   - Gemini 3.8 Flash
   - Gemini Omni 1.1 Flash
   - Omni 1.1 Flash
+  - Gemini 4 Carbon
+  - Gemini 4 Hydrogen
 status: available
 official:
   website: https://gemini.google.com/
   documentation: https://ai.google.dev/gemini-api/docs/models
-lastVerifiedAt: '2026-09-07'
+lastVerifiedAt: '2026-11-15'
 sources:
   - label:
       zh-Hans: Gemini 3.5 Transcribe 官方资料
@@ -30,3 +32,7 @@ sources:
       zh-Hans: Gemini Omni 1.1 Flash 官方资料
       en: Gemini Omni 1.1 Flash official information
     href: https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/
+  - label:
+      zh-Hans: Antigravity 中的 Gemini 4 Carbon 和 Hydrogen
+      en: Gemini 4 Carbon and Hydrogen in Antigravity
+    href: https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity

@@ -1,0 +1,16 @@
+name:
+  zh-Hans: 第一人称射击游戏（FPS）
+  en: First-person shooter (FPS)
+summary:
+  zh-Hans: 以游戏角色的第一人称视角展开、以射击为主要玩法的游戏类型。
+  en: A game genre in which players shoot from their character’s point of view.
+aliases:
+  - FPS
+  - 第一人称射击游戏
+status: published
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label:
+      zh-Hans: Unreal Engine 第一人称游戏模板
+      en: Unreal Engine first-person game template
+    href: https://dev.epicgames.com/documentation/unreal-engine/first-person-template-in-unreal-engine

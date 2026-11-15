@@ -1,0 +1,15 @@
+name:
+  zh-Hans: YURI（尤栗）
+  en: YURI
+bio:
+  zh-Hans: 汗青工作室旗下 AI.TALK 打造的数字人和虚拟歌手。
+  en: A virtual singer created by AI.TALK at Hanqing Studio.
+kind: other
+aliases:
+  - 尤栗
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label:
+      zh-Hans: AI.TALK 官方发布的 YURI 音乐视频
+      en: Official YURI music video from AI.TALK
+    href: https://www.bilibili.com/video/BV1La7hzCEiy
