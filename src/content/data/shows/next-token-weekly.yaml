@@ -9,7 +9,7 @@ flagship: true
 cadence: weekly
 defaultLocale: zh-Hans
 community:
-  qrImage: "/assets/community/wechat-2026-11-17-fcd206448570.svg"
+  qrImage: "/assets/community/wechat-2026-11-23-4c2b4c0115bd.svg"
   width: 720
   height: 720
   description:
@@ -19,9 +19,9 @@ community:
     zh-Hans: "Next Token Weekly 听友 4 群入群二维码"
     en: "Next Token Weekly WeChat group invitation QR code"
   discordUrl: "https://discord.gg/RHVMkjpxEN"
-  qrPngImage: "/assets/community/wechat-2026-11-17-fcd206448570.png"
-  qrValidBefore: "2026-11-17"
-  qrPayloadSha256: "847b54f6c40536d10e17d57330f196d3a95842c683431c58074903219ae4a919"
+  qrPngImage: "/assets/community/wechat-2026-11-23-4c2b4c0115bd.png"
+  qrValidBefore: "2026-11-23"
+  qrPayloadSha256: "0ae3ceb73670d1ad2f28bf0fa4b7eba5a8f45c697aad70c14987428d6a3d4fd8"
 rssUrl: '/weekly/rss.xml'
 subscriptions:
   - platform: wechat

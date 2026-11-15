@@ -8,9 +8,13 @@ export async function decodeQr(image) {
   const direct = jsQR(new Uint8ClampedArray(data), info.width, info.height)?.data;
   if (direct) return direct;
   // WeChat invitation cards can use rounded dots and large surrounding captions.
-  const normalized = await sharp(image).rotate().resize({width:720}).greyscale().threshold(100).png().toBuffer();
-  const fallback = await sharp(normalized).ensureAlpha().raw().toBuffer({resolveWithObject:true});
-  return jsQR(new Uint8ClampedArray(fallback.data), fallback.info.width, fallback.info.height)?.data;
+  for (const threshold of [100, 200]) {
+    const normalized = await sharp(image).rotate().resize({width:720}).greyscale().threshold(threshold).png().toBuffer();
+    const fallback = await sharp(normalized).ensureAlpha().raw().toBuffer({resolveWithObject:true});
+    const payload = jsQR(new Uint8ClampedArray(fallback.data), fallback.info.width, fallback.info.height)?.data;
+    if (payload) return payload;
+  }
+  return undefined;
 }
 // Delivery copy of next-token/people/hosts/group/hosts-grid-white-background-512.png.
 const hostsGrid = (await sharp(readFileSync(new URL('../../public/assets/community/hosts-grid-white-background-512.png', import.meta.url)))
