@@ -231,7 +231,7 @@ const copy = locale === "en" ? {
       ))}
     </article>
   </div>
-  {clipTracks.length > 0 && <TranscriptClipTools episodeNumber={episodeNumber} locale={locale} title={displayTitle} tracks={clipTracks} />}
+  {clipTracks.length > 0 && <TranscriptClipTools episodeNumber={episodeNumber} locale={locale} title={episode.data.title[locale]} tracks={clipTracks} />}
 </main>
 
 <script>

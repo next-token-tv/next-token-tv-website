@@ -16,12 +16,10 @@ const strings = {
     hints: ["Choose a paragraph or a speaker’s turn.", "Choose an end point or preview now.", "Choose another paragraph or speaker to adjust the range."],
     copied: "Clip prompt copied.", manual: "The prompt is selected. Copy it manually.",
     videoLink: "Open at start", openOn: (label: string) => `Open at start on ${label}`, needsTiming: "Timing needs verification",
-    bounds: (from: string, to: string) => `${from} to ${to} seconds`,
     timingFallback: "Find the start and end times using the transcript references.",
-    request: "Edit the following Next Token Weekly excerpt into a clip. Preserve the speakers, meaning, and context. Start with an edit preview or a cut list.",
-    excerpt: "Selected transcript", references: "Transcript references", episode: "Episode", chapter: "Chapter",
-    start: "First paragraph", end: "Last paragraph", video: "Video timestamps", context: "Check context",
-    skill: "If the Next Token Skill is installed, use it to check the surrounding conversation and sources. If you do not have the video, start with a cut list using the references above.",
+    endNeedsTiming: "End time needs verification",
+    references: "Transcript references", start: "First paragraph", end: "Last paragraph",
+    sources: "Video sources", citationRange: "Clip range", playFrom: (start: string) => `Play from ${start}`,
     colon: ": ",
   },
   "zh-Hans": {
@@ -30,11 +28,10 @@ const strings = {
     hints: ["点正文选一段，点姓名选一轮发言。", "再点一处设为终点，或直接预览。", "点另一段正文或姓名可调整范围。"],
     copied: "已复制切片提示词。", manual: "已选中提示词，请手动复制。",
     videoLink: "打开起点", openOn: (label: string) => `在 ${label} 打开起点`, needsTiming: "需定位",
-    bounds: (from: string, to: string) => `${from} 秒至 ${to} 秒`, timingFallback: "请对照逐字稿确认起止时间。",
-    request: "请把以下 Next Token Weekly 发言剪成一条切片。保留说话人、原意和理解这段话所需的上下文。先给我剪辑预览或剪辑清单。",
-    excerpt: "选中原文", references: "逐字稿引用", episode: "节目", chapter: "章节",
-    start: "起始段落", end: "结束段落", video: "视频定位", context: "补查上下文",
-    skill: "如已安装 Next Token Skill，请用它核对前后发言和出处。缺少源视频时，请先给出按上述引用定位的剪辑清单。",
+    timingFallback: "请对照逐字稿确认起止时间。",
+    endNeedsTiming: "终点待确认",
+    references: "逐字稿引用", start: "起始段落", end: "结束段落",
+    sources: "视频来源", citationRange: "引用范围", playFrom: (start: string) => `从 ${start} 播放`,
     colon: "：",
   },
 } as const;
@@ -81,6 +78,9 @@ function initializeClips(tools: HTMLElement, launch: HTMLButtonElement) {
   const copy = tools.querySelector<HTMLButtonElement>("[data-clip-copy]")!;
   const copyStatus = tools.querySelector<HTMLElement>("[data-clip-copy-status]")!;
   const tracks = JSON.parse(tools.dataset.clipTracks ?? "[]") as Track[];
+  const episodeName = `Next Token Weekly #${tools.dataset.episodeNumber}`;
+  const episodeTopic = tools.dataset.episodeTitle
+    ?.replace(/^(?:(?:Next Token )?Weekly )?#\d{3}\b\s*[｜|·]?\s*/u, "").trim();
   const paragraphs = Array.from(body.querySelectorAll<HTMLParagraphElement>(".transcript-quote-paragraph[id]"), element => {
     const text = paragraphText(element);
     const button = pickButton(`${locale.pickLine}${locale.colon}${text.slice(0, 32)}`);
@@ -121,15 +121,14 @@ function initializeClips(tools: HTMLElement, launch: HTMLButtonElement) {
       const label = track.platform === "youtube" ? "YouTube" : en ? "Bilibili" : "B 站";
       const from = track.times[first]?.[0];
       const to = track.times[last]?.[1];
-      if (from === undefined || to === undefined || !Number.isFinite(to) || to <= from) {
-        return { label };
-      }
+      if (from === undefined) return { label };
       const href = timestampVideoUrl(track.platform, track.href, from);
       if (!href) return { label };
+      const startTime = timecode(from, Math.floor);
+      if (to === undefined || !Number.isFinite(to) || to <= from) return { label, href, startTime };
       return {
-        label, href, duration: Math.ceil(to - from),
-        time: `${timecode(from, Math.floor)}–${timecode(to, Math.ceil)}`,
-        bounds: locale.bounds(from.toFixed(3), to.toFixed(3)),
+        label, href, startTime, duration: Math.ceil(to - from),
+        time: `${startTime}–${timecode(to, Math.ceil)}`,
       };
     });
   }
@@ -154,7 +153,7 @@ function initializeClips(tools: HTMLElement, launch: HTMLButtonElement) {
 
     const first = selected[0];
     const final = selected.at(-1);
-    const duration = first && final && videoRanges(first.element.id, final.element.id).find(item => item.href)?.duration;
+    const duration = first && final && videoRanges(first.element.id, final.element.id).find(item => item.duration)?.duration;
     status.textContent = first ? `${locale.count(selected.length)}${duration ? ` · ${locale.duration(duration)}` : ""}` : locale.idle;
     hint.textContent = locale.hints[start === null ? 0 : end === null ? 1 : 2];
     reset.hidden = !first;
@@ -218,8 +217,7 @@ function initializeClips(tools: HTMLElement, launch: HTMLButtonElement) {
     const ranges = videoRanges(first.id, last.id);
     const excerpt = selected.map(({ element, text }) => {
       const speaker = element.closest(".transcript-turn")?.querySelector(".transcript-speaker strong")?.textContent?.trim();
-      const chapter = element.closest<HTMLElement>(".transcript-chapter");
-      return { speaker, chapter, text };
+      return { speaker, text };
     });
     previewSummary.textContent = status.textContent;
     quotes.replaceChildren(...excerpt.map(({ speaker, text }) => {
@@ -229,9 +227,10 @@ function initializeClips(tools: HTMLElement, launch: HTMLButtonElement) {
       paragraph.append(name, text);
       return paragraph;
     }));
-    video.replaceChildren(...ranges.map(({ label, href, time }) => {
+    video.replaceChildren(...ranges.map(({ label, href, startTime, time }) => {
       const item = document.createElement("li");
-      item.textContent = `${label} · ${time ?? locale.needsTiming}`;
+      const timing = time ?? (startTime ? `${startTime} · ${locale.endNeedsTiming}` : locale.needsTiming);
+      item.textContent = `${label} · ${timing}`;
       if (href) {
         const link = document.createElement("a");
         link.href = href;
@@ -243,25 +242,22 @@ function initializeClips(tools: HTMLElement, launch: HTMLButtonElement) {
       }
       return item;
     }));
-    const chapters = new Set(excerpt.map(item => item.chapter));
+    const firstTime = ranges[0]?.time;
+    const sharedTime = ranges.every(item => item.time === firstTime) ? firstTime : undefined;
     prompt.value = [
-      locale.request,
+      episodeTopic ? `${episodeName} · ${episodeTopic}` : episodeName,
       "",
-      `## ${locale.excerpt}`,
-      ...excerpt.map(({ speaker, text }) => `${speaker ? `${speaker}${locale.colon}` : ""}${text}`),
+      locale.references,
+      `- [${locale.start}](${reference(first.id)})`,
+      `- [${locale.end}](${reference(last.id)})`,
       "",
-      `## ${locale.references}`,
-      `${locale.episode}${locale.colon}${tools.dataset.episodeTitle || `Next Token Weekly #${tools.dataset.episodeNumber}`}`,
-      ...Array.from(chapters, chapter => chapter ? `${locale.chapter}${locale.colon}${chapter.querySelector("h2")?.textContent?.trim()} · ${reference(chapter.id)}` : "").filter(Boolean),
-      `${locale.start}${locale.colon}${reference(first.id)}`,
-      `${locale.end}${locale.colon}${reference(last.id)}`,
-      "",
-      `## ${locale.video}`,
-      ...ranges.map(({ label, href, bounds }) => `${label}${locale.colon}${href ? `${href} · ${bounds}` : locale.timingFallback}`),
-      "",
-      `## ${locale.context}`,
-      locale.skill,
-      "https://github.com/next-token-tv/next-token-skill",
+      sharedTime ? `${locale.sources} · ${locale.citationRange} ${sharedTime}` : locale.sources,
+      ...ranges.map(({ label, href, startTime, time }) => {
+        if (!href || !startTime) return `- ${label} · ${locale.timingFallback}`;
+        const link = `- [${label} · ${locale.playFrom(startTime)}](${href})`;
+        if (!time) return `${link} · ${locale.endNeedsTiming}`;
+        return sharedTime ? link : `${link} · ${locale.citationRange} ${time}`;
+      }),
     ].join("\n");
     promptDetails.open = false;
     copyStatus.textContent = "";
