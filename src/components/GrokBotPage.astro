@@ -1,0 +1,73 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getSiteContent, type Locale } from "../data/site";
+
+interface Props { locale: Locale }
+
+const { locale } = Astro.props;
+const en = locale === "en";
+const prefix = en ? "/en" : "";
+const content = await getSiteContent(locale);
+const botUrl = "https://x.ai/bot/KDaPgN5oNmtGbJt1VsFHl";
+const name = "Next Token Grok Bot";
+const copy = en ? {
+  title: "Ask Next Token in Grok",
+  description: "Ask about an AI topic. The Next Token Grok Bot uses the show’s episode pages to recap what the hosts discussed and point you to the sources.",
+  open: "Open in Grok",
+  examples: "What you can ask",
+  questions: [
+    "Summarize the key AI ideas from the first nine episodes of Next Token. Group them by theme and include sources.",
+    "Summarize the key ideas behind DeepSeek Harness distributions.",
+    "How do the Next Token hosts use personal agents? Give me concrete examples and video timestamps.",
+  ],
+  related: "Related links",
+  episode: "Read the introduction in episode 010 (Chinese)",
+} : {
+  title: "在 Grok 里问 Next Token。",
+  description: "问一个你关心的 AI 话题。Next Token Grok Bot 会根据官网节目页面，帮你回顾主理人的讨论，找到相关出处。",
+  open: "在 Grok 打开",
+  examples: "你可以这样问",
+  questions: [
+    "总结 Next Token 前九期值得记住的 AI 观点，按主题归纳，并附上出处。",
+    "帮我总结一下 DeepSeek Harness 发行版的认知",
+    "Next Token 的主理人是怎么用 Personal Agent 的？给我具体例子和视频时间点。",
+  ],
+  related: "相关入口",
+  episode: "读第 010 期里对 Bot 的介绍",
+};
+---
+
+<BaseLayout
+  content={content}
+  pageTitle={en ? `${name} | Ask Next Token in Grok` : `${name}｜在 Grok 里问 Next Token`}
+  description={copy.description}
+  canonicalPath={`${prefix}/grok-bot`}
+  alternatePath={en ? "/grok-bot" : "/en/grok-bot"}
+>
+  <main id="main" class="grok-bot-page shell">
+    <div class="grok-bot-hero">
+      <header class="grok-bot-intro">
+        <p class="grok-bot-name type-ui"><span class="signal-mark" aria-hidden="true"></span>{name}</p>
+        <h1 class="type-hero">{copy.title}</h1>
+        <p class="grok-bot-lede type-body">{copy.description}</p>
+        <a class="button primary" href={botUrl} target="_blank" rel="noopener noreferrer">{copy.open} <span aria-hidden="true">↗</span></a>
+      </header>
+
+      <section class="grok-bot-examples" aria-labelledby="grok-bot-examples-title">
+        <h2 class="heading-section-compact" id="grok-bot-examples-title">{copy.examples}</h2>
+        <ul>
+          {copy.questions.map(question => <li>{question}</li>)}
+        </ul>
+      </section>
+    </div>
+
+    <nav class="grok-bot-related type-ui" aria-label={copy.related}>
+      <a class="text-link" href="/weekly/010/transcript#chapter-30">{copy.episode} <span aria-hidden="true">→</span></a>
+      <a class="text-link" href={`${prefix}/skill`}>Next Token Skill <span aria-hidden="true">→</span></a>
+    </nav>
+  </main>
+</BaseLayout>
+
+<style>
+@import "../styles/components/grok-bot-page.css";
+</style>

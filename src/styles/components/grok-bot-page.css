@@ -1,0 +1,33 @@
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+  .grok-bot-page { container-type: inline-size; padding-block: var(--section-space); }
+  .grok-bot-hero { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-8); }
+  .grok-bot-intro { align-self: center; }
+  .grok-bot-name { display: flex; align-items: center; gap: var(--space-2); margin: 0 0 var(--space-4); font-weight: 650; }
+  .grok-bot-intro h1 { margin: 0; text-wrap: balance; }
+  .grok-bot-lede { max-inline-size: 36rem; margin: var(--space-4) 0 var(--space-6); color: var(--muted); text-wrap: pretty; }
+
+  .grok-bot-examples {
+    padding: clamp(1.25rem, 3vw, 2rem);
+    border: var(--stroke-thin) solid var(--line);
+    border-block-start: .25rem solid var(--signal);
+    background: var(--white);
+  }
+  .grok-bot-examples h2 { margin: 0 0 var(--space-4); }
+  .grok-bot-examples ul { margin: 0; padding: 0; list-style: none; }
+  .grok-bot-examples li { padding-block: var(--space-3); border-block-start: var(--stroke-thin) solid var(--line); text-wrap: pretty; }
+  .grok-bot-examples li:last-child { padding-block-end: 0; }
+
+  .grok-bot-related {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-6);
+    margin-block-start: var(--space-8);
+    padding-block-start: var(--space-4);
+    border-block-start: var(--stroke-thin) solid var(--line);
+  }
+
+  @container (min-width: 53rem) {
+    .grok-bot-hero { grid-template-columns: minmax(0, .96fr) minmax(0, 1.04fr); gap: var(--section-space); }
+  }
+}
