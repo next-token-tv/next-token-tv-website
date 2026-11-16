@@ -203,6 +203,22 @@ platforms:
     action:
       zh-Hans: 立即观看
       en: Watch now
+  - platform: bilibili
+    label:
+      zh-Hans: 哔哩哔哩
+      en: Bilibili
+    href: https://www.bilibili.com/video/BV1Z6W46AEwr/
+    action:
+      zh-Hans: 立即观看
+      en: Watch now
+  - platform: apple-podcasts
+    label:
+      zh-Hans: Apple Podcasts
+      en: Apple Podcasts
+    href: https://podcasts.apple.com/us/podcast/009-dsh-%E5%A4%A7%E8%82%A5%E9%B1%BC%E6%97%A5%E6%B4%BB-154-%E4%B8%87-ai-%E6%B8%B8%E6%88%8F%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BD%91%E6%96%87%E5%8C%96/id6809305832?i=1000800919321&uo=4
+    action:
+      zh-Hans: 立即收听
+      en: Listen now
 homepage:
   zh-Hans:
     eyebrow: 第 009 期

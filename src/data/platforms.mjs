@@ -19,6 +19,7 @@ export const platforms = {
   spotify: define('Spotify', 'Spotify', 'spotify', ['open.spotify.com'], 'mixed'),
   bilibili: define('哔哩哔哩', 'Bilibili', 'bilibili', ['www.bilibili.com', 'b23.tv'], 'video'),
   youtube: define('YouTube', 'YouTube', 'youtube', ['www.youtube.com', 'youtube.com', 'youtu.be'], 'video'),
+  'wechat-channels': define('微信视频号', 'WeChat Channels', 'wechat-channels', ['channels.weixin.qq.com'], 'video'),
   xiaohongshu: define('小红书', 'RedNote', 'xiaohongshu', ['www.xiaohongshu.com', 'xiaohongshu.com', 'xhslink.com', 'xhslink.cn'], 'video'),
 };
 export const platformIds = Object.keys(platforms);
