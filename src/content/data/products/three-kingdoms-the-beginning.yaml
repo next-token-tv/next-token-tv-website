@@ -1,0 +1,17 @@
+kind: movie
+name:
+  zh-Hans: 三国第一部：争洛阳
+  en: "Three Kingdoms: The Beginning"
+summary:
+  zh-Hans: 追光动画制作的历史题材动画电影，以东汉末年的洛阳为背景，讲述曹操、袁绍等人在乱世中的抉择。
+  en: A historical animated film from Light Chaser Animation about Cao Cao, Yuan Shao, and the struggle for Luoyang at the end of the Eastern Han dynasty.
+aliases:
+  - 争洛阳
+official:
+  website: https://www.youtube.com/watch?v=QdaTmHgYjWA
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label:
+      zh-Hans: 追光动画官方制作特辑
+      en: Light Chaser Animation official making-of
+    href: https://www.youtube.com/watch?v=QdaTmHgYjWA

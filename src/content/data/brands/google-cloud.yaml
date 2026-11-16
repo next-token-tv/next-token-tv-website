@@ -1,0 +1,15 @@
+kind: internet-software-brand
+name:
+  zh-Hans: Google Cloud
+  en: Google Cloud
+summary:
+  zh-Hans: Google 旗下的云计算业务与服务品牌，提供计算、存储、数据分析及 AI 基础设施和开发服务。
+  en: Google's cloud computing business and service brand, offering compute, storage, analytics, and AI infrastructure and development services.
+aliases:
+  - 谷歌云
+official:
+  website: https://cloud.google.com/
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label: {zh-Hans: Google Cloud 官方网站, en: Google Cloud official website}
+    href: https://cloud.google.com/

@@ -1,0 +1,21 @@
+name:
+  zh-Hans: 计算机图形（CG）
+  en: Computer Graphics (CG)
+summary:
+  zh-Hans: 计算机图形（CG）指用计算机创建、处理和呈现图形与影像的技术。在影视语境中，“CG 动画”通常指用这类技术制作的动画。
+  en: Computer graphics (CG) covers techniques for creating, manipulating, and displaying images with computers. In film, “CG animation” refers to animation made using these techniques.
+aliases:
+  - CG
+  - 计算机图形
+  - Computer Graphics
+status: published
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label:
+      zh-Hans: 计算机历史博物馆：计算机图形
+      en: 'Computer History Museum: Graphics'
+    href: https://www.computerhistory.org/brochures/thm-42c16781e7e42/
+  - label:
+      zh-Hans: 皮克斯：RenderMan 与三维渲染
+      en: 'Pixar: RenderMan and 3D rendering'
+    href: https://renderman.pixar.com/about

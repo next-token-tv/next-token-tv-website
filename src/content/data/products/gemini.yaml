@@ -14,11 +14,14 @@ aliases:
   - Omni 1.1 Flash
   - Gemini 4 Carbon
   - Gemini 4 Hydrogen
+  - Gemini Decision 1
+  - gemini-decision-1
+  - Gemini Decisions API
 status: available
 official:
   website: https://gemini.google.com/
   documentation: https://ai.google.dev/gemini-api/docs/models
-lastVerifiedAt: '2026-11-15'
+lastVerifiedAt: '2026-11-16'
 sources:
   - label:
       zh-Hans: Gemini 3.5 Transcribe 官方资料
@@ -36,3 +39,7 @@ sources:
       zh-Hans: Antigravity 中的 Gemini 4 Carbon 和 Hydrogen
       en: Gemini 4 Carbon and Hydrogen in Antigravity
     href: https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity
+  - label:
+      zh-Hans: Gemini Decision 1 与 Gemini Decisions API 官方公告
+      en: Official announcement of Gemini Decision 1 and the Gemini Decisions API
+    href: https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/

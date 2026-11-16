@@ -1,0 +1,16 @@
+kind: game
+name:
+  zh-Hans: 哈迪斯
+  en: Hades
+summary:
+  zh-Hans: Supergiant Games 开发的动作 Roguelike 游戏，玩家扮演冥界王子扎格列欧斯，在一次次逃离冥界的尝试中战斗。
+  en: An action roguelike by Supergiant Games in which Zagreus fights his way through the Greek underworld in repeated escape attempts.
+aliases: []
+official:
+  website: https://www.supergiantgames.com/games/hades/
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label:
+      zh-Hans: Supergiant Games 游戏页
+      en: Supergiant Games title page
+    href: https://www.supergiantgames.com/games/hades/

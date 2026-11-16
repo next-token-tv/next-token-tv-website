@@ -8,12 +8,18 @@ summary:
 aliases:
   - GeForce
   - GTX 1060
+  - GeForce RTX 5090
+  - RTX 5090
 brand: nvidia
 official:
   website: https://www.nvidia.com/en-us/geforce/
 sources:
   - label:
+      zh-Hans: NVIDIA GeForce RTX 5090 官方产品页
+      en: NVIDIA GeForce RTX 5090 product page
+    href: https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/
+  - label:
       zh-Hans: 官方或本人资料
       en: Official or personal information
     href: https://nvidia.custhelp.com/app/answers/detail/a_id/5678/kw/graphics%20card%20specifications
-lastVerifiedAt: '2026-10-25'
+lastVerifiedAt: '2026-11-16'

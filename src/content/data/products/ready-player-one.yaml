@@ -1,0 +1,16 @@
+kind: movie
+name:
+  zh-Hans: 头号玩家
+  en: Ready Player One
+summary:
+  zh-Hans: 史蒂文·斯皮尔伯格执导的科幻电影，改编自恩斯特·克莱恩的小说，故事围绕名为“绿洲”的虚拟世界展开。
+  en: Steven Spielberg’s science-fiction film adapts Ernest Cline’s novel and centers on the OASIS, a shared virtual world.
+aliases: []
+official:
+  website: https://www.warnerbros.com/movies/ready-player-one
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label:
+      zh-Hans: 华纳兄弟电影页
+      en: Warner Bros. film page
+    href: https://www.warnerbros.com/movies/ready-player-one

@@ -788,7 +788,18 @@
             [
               {
                 "type": "text",
-                "value": "昨天有人聊，那些装机博主聊，因为你知道游戏显卡已经两年，就之前游戏显卡是正常是一年多一更新，是吧？然后游戏显卡已经相当没多长时间没更新了，5090 啥时候发布的？对吧？50 系显卡啥时候发布的？"
+                "value": "昨天有人聊，那些装机博主聊，因为你知道游戏显卡已经两年，就之前游戏显卡是正常是一年多一更新，是吧？然后游戏显卡已经相当没多长时间没更新了，"
+              },
+              {
+                "type": "entity-link",
+                "value": "5090",
+                "entityType": "product",
+                "entityId": "nvidia-geforce",
+                "href": "/wiki/products/nvidia-geforce"
+              },
+              {
+                "type": "text",
+                "value": " 啥时候发布的？对吧？50 系显卡啥时候发布的？"
               }
             ],
             [
@@ -1064,7 +1075,18 @@
             [
               {
                 "type": "text",
-                "value": "搜到了一些，比如说那什么《哈迪斯》啊什么，他们做这些，然后有一些基础的规律，他就学到以后效果好很多，但是还是有差距吧。"
+                "value": "搜到了一些，比如说那什么"
+              },
+              {
+                "type": "entity-link",
+                "value": "《哈迪斯》",
+                "entityType": "product",
+                "entityId": "hades",
+                "href": "/wiki/products/hades"
+              },
+              {
+                "type": "text",
+                "value": "啊什么，他们做这些，然后有一些基础的规律，他就学到以后效果好很多，但是还是有差距吧。"
               }
             ]
           ]
@@ -1098,7 +1120,18 @@
             [
               {
                 "type": "text",
-                "value": "你很难想象它是用这个前端写出了类似游戏的那种 VFX，就是特效。"
+                "value": "你很难想象它是用这个前端写出了类似游戏的那种 "
+              },
+              {
+                "type": "entity-link",
+                "value": "VFX",
+                "entityType": "term",
+                "entityId": "vfx",
+                "href": "/wiki/terms/vfx"
+              },
+              {
+                "type": "text",
+                "value": "，就是特效。"
               }
             ]
           ]
@@ -2053,7 +2086,18 @@
             [
               {
                 "type": "text",
-                "value": "不需要其他平台，就很多人说那个分发，就我那天刚好聊的分发的问题。就是你根据你做虚幻，对吧？你或者说上 "
+                "value": "不需要其他平台，就很多人说那个分发，就我那天刚好聊的分发的问题。就是你根据你做"
+              },
+              {
+                "type": "entity-link",
+                "value": "虚幻",
+                "entityType": "product",
+                "entityId": "unreal-engine",
+                "href": "/wiki/products/unreal-engine"
+              },
+              {
+                "type": "text",
+                "value": "，对吧？你或者说上 "
               },
               {
                 "type": "entity-link",
@@ -2996,7 +3040,18 @@
               },
               {
                 "type": "text",
-                "value": "。那个播客，他就他跟那个像那个叫什么，那个相征录那期。他就说人类一直是说，AI 会帮我们做很多这种我们不想做的事情，让我们去享受生活，做很有创造力的事情。"
+                "value": "。那个播客，他就他跟那个像那个叫什么，那个"
+              },
+              {
+                "type": "entity-link",
+                "value": "相征",
+                "entityType": "person",
+                "entityId": "xiang-zheng",
+                "href": "/wiki/people/xiang-zheng"
+              },
+              {
+                "type": "text",
+                "value": "录那期。他就说人类一直是说，AI 会帮我们做很多这种我们不想做的事情，让我们去享受生活，做很有创造力的事情。"
               }
             ],
             [
@@ -3355,7 +3410,84 @@
             [
               {
                 "type": "text",
-                "value": "以往 CG 这个事情，就是高清的 CG 对我们整个内容产业链来说是最贵的。成本最高的。就是你看那些国产的那些动画电影，近几年，对吧？那那些成本，比如《哪吒》，《八仙》不是刚下嘛，还有刚上那个《争洛阳》。就是我们印象里这个是最最厉害的，比如说我们印象里最之前，巅峰很多人看那个《指环王》。就是有一个人拿那个，《指环王》有个画面是那个水变成一个马。"
+                "value": "以往 "
+              },
+              {
+                "type": "entity-link",
+                "value": "CG",
+                "entityType": "term",
+                "entityId": "cg",
+                "href": "/wiki/terms/cg"
+              },
+              {
+                "type": "text",
+                "value": " 这个事情，就是高清的 "
+              },
+              {
+                "type": "entity-link",
+                "value": "CG",
+                "entityType": "term",
+                "entityId": "cg",
+                "href": "/wiki/terms/cg"
+              },
+              {
+                "type": "text",
+                "value": " 对我们整个内容产业链来说是最贵的。成本最高的。就是你看那些国产的那些动画电影，近几年，对吧？那那些成本，比如"
+              },
+              {
+                "type": "entity-link",
+                "value": "《哪吒》",
+                "entityType": "product",
+                "entityId": "ne-zha-films",
+                "href": "/wiki/products/ne-zha-films"
+              },
+              {
+                "type": "text",
+                "value": "，"
+              },
+              {
+                "type": "entity-link",
+                "value": "《八仙》",
+                "entityType": "product",
+                "entityId": "all-wishes-come-true",
+                "href": "/wiki/products/all-wishes-come-true"
+              },
+              {
+                "type": "text",
+                "value": "不是刚下嘛，还有刚上那个"
+              },
+              {
+                "type": "entity-link",
+                "value": "《争洛阳》",
+                "entityType": "product",
+                "entityId": "three-kingdoms-the-beginning",
+                "href": "/wiki/products/three-kingdoms-the-beginning"
+              },
+              {
+                "type": "text",
+                "value": "。就是我们印象里这个是最最厉害的，比如说我们印象里最之前，巅峰很多人看那个"
+              },
+              {
+                "type": "entity-link",
+                "value": "《指环王》",
+                "entityType": "product",
+                "entityId": "the-lord-of-the-rings-the-fellowship-of-the-ring",
+                "href": "/wiki/products/the-lord-of-the-rings-the-fellowship-of-the-ring"
+              },
+              {
+                "type": "text",
+                "value": "。就是有一个人拿那个，"
+              },
+              {
+                "type": "entity-link",
+                "value": "《指环王》",
+                "entityType": "product",
+                "entityId": "the-lord-of-the-rings-the-fellowship-of-the-ring",
+                "href": "/wiki/products/the-lord-of-the-rings-the-fellowship-of-the-ring"
+              },
+              {
+                "type": "text",
+                "value": "有个画面是那个水变成一个马。"
               }
             ]
           ]
@@ -3383,7 +3515,18 @@
             [
               {
                 "type": "text",
-                "value": "八匹马在跑。它完全复刻了那个 CG 动画。然后你以前想说，你说这个是这一个小时，你完全没有人介入，它能做出来的。你像当时，在那个时代，那八匹马做了很……我估计做了不知……"
+                "value": "八匹马在跑。它完全复刻了那个 "
+              },
+              {
+                "type": "entity-link",
+                "value": "CG",
+                "entityType": "term",
+                "entityId": "cg",
+                "href": "/wiki/terms/cg"
+              },
+              {
+                "type": "text",
+                "value": " 动画。然后你以前想说，你说这个是这一个小时，你完全没有人介入，它能做出来的。你像当时，在那个时代，那八匹马做了很……我估计做了不知……"
               }
             ]
           ]
@@ -3635,7 +3778,29 @@
             [
               {
                 "type": "text",
-                "value": "你想一下，就是我们这都看过《头号玩家》。《头号玩家》就是每一个都是，就是那个时候我们设想的终极的游戏里边，终极的游戏就是所有游戏都在一个世界里，你可以随时进入各种游戏世界里。"
+                "value": "你想一下，就是我们这都看过"
+              },
+              {
+                "type": "entity-link",
+                "value": "《头号玩家》",
+                "entityType": "product",
+                "entityId": "ready-player-one",
+                "href": "/wiki/products/ready-player-one"
+              },
+              {
+                "type": "text",
+                "value": "。"
+              },
+              {
+                "type": "entity-link",
+                "value": "《头号玩家》",
+                "entityType": "product",
+                "entityId": "ready-player-one",
+                "href": "/wiki/products/ready-player-one"
+              },
+              {
+                "type": "text",
+                "value": "就是每一个都是，就是那个时候我们设想的终极的游戏里边，终极的游戏就是所有游戏都在一个世界里，你可以随时进入各种游戏世界里。"
               }
             ],
             [
@@ -4527,7 +4692,7 @@
             [
               {
                 "type": "text",
-                "value": "今天你不要抱怨这句话，如果今天看到有些人就说我们做了一个东西，谁谁抄我们了，天天在外边喊，这个是最最无聊的。就是你现在发一个东西，默认就会有1 万个人抄。对吧？有一个人抄是好事，就代表你就有价值。然后你要想说，在别人还有 1 万个人抄我情况下，我还能发现价值，那才是有价值。"
+                "value": "今天你不要抱怨这句话，如果今天看到有些人就说我们做了一个东西，谁谁抄我们了，天天在外边喊，这个是最最无聊的。就是你现在发一个东西，默认就会有 1 万个人抄。对吧？有一个人抄是好事，就代表你就有价值。然后你要想说，在别人还有 1 万个人抄我情况下，我还能发现价值，那才是有价值。"
               }
             ]
           ]
@@ -4575,7 +4740,7 @@
             [
               {
                 "type": "text",
-                "value": "迭代是代表说你要投入注意力和你的精力去干这事，因为大家现在每个人选项太多了，你每个人能做的事情是1 万件。但如果你选了这件事情，你说一直一直迭代，就跟那个 "
+                "value": "迭代是代表说你要投入注意力和你的精力去干这事，因为大家现在每个人选项太多了，你每个人能做的事情是 1 万件。但如果你选了这件事情，你说一直一直迭代，就跟那个 "
               },
               {
                 "type": "entity-link",
@@ -4600,7 +4765,18 @@
             [
               {
                 "type": "text",
-                "value": "就像之前不是问过这个小黄，然后 "
+                "value": "就像之前不是问过这个"
+              },
+              {
+                "type": "entity-link",
+                "value": "小黄",
+                "entityType": "person",
+                "entityId": "tom-huang",
+                "href": "/wiki/people/tom-huang"
+              },
+              {
+                "type": "text",
+                "value": "，然后 "
               },
               {
                 "type": "entity-link",
@@ -4642,7 +4818,18 @@
             [
               {
                 "type": "text",
-                "value": "那个 yetone 不就是吗？对吧？那个每天发无数个版本，这个谁也跟不上。"
+                "value": "那个 "
+              },
+              {
+                "type": "entity-link",
+                "value": "yetone",
+                "entityType": "person",
+                "entityId": "yetone",
+                "href": "/wiki/people/yetone"
+              },
+              {
+                "type": "text",
+                "value": " 不就是吗？对吧？那个每天发无数个版本，这个谁也跟不上。"
               }
             ]
           ]
@@ -5369,7 +5556,18 @@
             [
               {
                 "type": "text",
-                "value": "好，那确实小珺领先一切啊，你看人家工作室名字。"
+                "value": "好，那确实"
+              },
+              {
+                "type": "entity-link",
+                "value": "小珺",
+                "entityType": "person",
+                "entityId": "zhang-xiaojun",
+                "href": "/wiki/people/zhang-xiaojun"
+              },
+              {
+                "type": "text",
+                "value": "领先一切啊，你看人家工作室名字。"
               }
             ]
           ]
@@ -5700,7 +5898,18 @@
             [
               {
                 "type": "text",
-                "value": "因为它本质很本质，你看它做的都是非常本质的东西，它没有在虚幻上训练，没有在"
+                "value": "因为它本质很本质，你看它做的都是非常本质的东西，它没有在"
+              },
+              {
+                "type": "entity-link",
+                "value": "虚幻",
+                "entityType": "product",
+                "entityId": "unreal-engine",
+                "href": "/wiki/products/unreal-engine"
+              },
+              {
+                "type": "text",
+                "value": "上训练，没有在"
               },
               {
                 "type": "entity-link",
@@ -7237,7 +7446,7 @@
             [
               {
                 "type": "text",
-                "value": "只是大家发现那个现象，但是没有把它做成一个固定的 Routine 来做，就是每次模型要升级以后，你要想适配好它，你就要让它自己去检查这些"
+                "value": "只是大家发现那个现象，但是没有把它做成一个固定的 Routine 来做，就是每次模型要升级以后，你要想适配好它，你就要让它自己去检查这些 "
               },
               {
                 "type": "entity-link",
@@ -9352,7 +9561,18 @@
             [
               {
                 "type": "text",
-                "value": "对 Decisions。"
+                "value": "对 "
+              },
+              {
+                "type": "entity-link",
+                "value": "Decisions",
+                "entityType": "product",
+                "entityId": "gemini",
+                "href": "/wiki/products/gemini"
+              },
+              {
+                "type": "text",
+                "value": "。"
               }
             ]
           ]
@@ -9395,25 +9615,25 @@
               },
               {
                 "type": "entity-link",
-                "value": "Google",
+                "value": "Google Cloud",
                 "entityType": "brand",
-                "entityId": "google",
-                "href": "/wiki/brands/google"
+                "entityId": "google-cloud",
+                "href": "/wiki/brands/google-cloud"
               },
               {
                 "type": "text",
-                "value": " Cloud，你得走 "
+                "value": "，你得走 "
               },
               {
                 "type": "entity-link",
-                "value": "Google",
+                "value": "Google Cloud",
                 "entityType": "brand",
-                "entityId": "google",
-                "href": "/wiki/brands/google"
+                "entityId": "google-cloud",
+                "href": "/wiki/brands/google-cloud"
               },
               {
                 "type": "text",
-                "value": " Cloud。"
+                "value": "。"
               }
             ]
           ]
@@ -9431,14 +9651,14 @@
               },
               {
                 "type": "entity-link",
-                "value": "Google",
+                "value": "Google Cloud",
                 "entityType": "brand",
-                "entityId": "google",
-                "href": "/wiki/brands/google"
+                "entityId": "google-cloud",
+                "href": "/wiki/brands/google-cloud"
               },
               {
                 "type": "text",
-                "value": " Cloud，我走 "
+                "value": "，我走 "
               },
               {
                 "type": "entity-link",
@@ -9545,14 +9765,14 @@
               },
               {
                 "type": "entity-link",
-                "value": "Google",
+                "value": "Google Cloud",
                 "entityType": "brand",
-                "entityId": "google",
-                "href": "/wiki/brands/google"
+                "entityId": "google-cloud",
+                "href": "/wiki/brands/google-cloud"
               },
               {
                 "type": "text",
-                "value": " Cloud 还是……"
+                "value": " 还是……"
               }
             ]
           ]
@@ -9678,14 +9898,14 @@
               },
               {
                 "type": "entity-link",
-                "value": "Google",
+                "value": "Google Cloud",
                 "entityType": "brand",
-                "entityId": "google",
-                "href": "/wiki/brands/google"
+                "entityId": "google-cloud",
+                "href": "/wiki/brands/google-cloud"
               },
               {
                 "type": "text",
-                "value": " Cloud 你都找不着那个页面，没有人那个，AI 都找不着那界面。"
+                "value": " 你都找不着那个页面，没有人那个，AI 都找不着那界面。"
               }
             ]
           ]
@@ -10103,14 +10323,14 @@
               },
               {
                 "type": "entity-link",
-                "value": "Qwen",
+                "value": "Qwen 4",
                 "entityType": "product",
                 "entityId": "qwen",
                 "href": "/wiki/products/qwen"
               },
               {
                 "type": "text",
-                "value": " 4 预览版。这个有用的吗？"
+                "value": " 预览版。这个有用的吗？"
               }
             ]
           ]
@@ -11902,7 +12122,7 @@
               },
               {
                 "type": "text",
-                "value": "给一个链接嘛。我发现有个什么问题，它只支持它那套语言。只支持它的组件。一旦说我用我的 "
+                "value": " 给一个链接嘛。我发现有个什么问题，它只支持它那套语言。只支持它的组件。一旦说我用我的 "
               },
               {
                 "type": "entity-link",
@@ -13617,40 +13837,18 @@
             [
               {
                 "type": "text",
-                "value": "这个就是我最近在写篇文章，就是叫 AI 时代"
+                "value": "这个就是我最近在写篇文章，就是叫《AI 时代人月神话》。我们以前觉得"
               },
               {
                 "type": "entity-link",
-                "value": "人月神话",
+                "value": "《人月神话》",
                 "entityType": "product",
                 "entityId": "the-mythical-man-month",
                 "href": "/wiki/products/the-mythical-man-month"
               },
               {
                 "type": "text",
-                "value": "。我们以前觉得"
-              },
-              {
-                "type": "entity-link",
-                "value": "人月神话",
-                "entityType": "product",
-                "entityId": "the-mythical-man-month",
-                "href": "/wiki/products/the-mythical-man-month"
-              },
-              {
-                "type": "text",
-                "value": "就是说公司越来越多人，可能上百人的程序员。今天不是，今天是如果你公司核心业务，对吧？有，比如说 5 个人在上面，然后你想再找点人，再做点别的东西，加点功能，这就是"
-              },
-              {
-                "type": "entity-link",
-                "value": "人月神话",
-                "entityType": "product",
-                "entityId": "the-mythical-man-month",
-                "href": "/wiki/products/the-mythical-man-month"
-              },
-              {
-                "type": "text",
-                "value": "。"
+                "value": "就是说公司越来越多人，可能上百人的程序员。今天不是，今天是如果你公司核心业务，对吧？有，比如说 5 个人在上面，然后你想再找点人，再做点别的东西，加点功能，这就是人月神话。"
               }
             ],
             [
@@ -15379,8 +15577,15 @@
           "paragraphs": [
             [
               {
+                "type": "entity-link",
+                "value": "小珺",
+                "entityType": "person",
+                "entityId": "zhang-xiaojun",
+                "href": "/wiki/people/zhang-xiaojun"
+              },
+              {
                 "type": "text",
-                "value": "小珺牛逼。"
+                "value": "牛逼。"
               }
             ]
           ]
@@ -15452,7 +15657,7 @@
               },
               {
                 "type": "text",
-                "value": "讲自己多模态的时候，从来没听说过。"
+                "value": " 讲自己多模态的时候，从来没听说过。"
               }
             ]
           ]
@@ -15587,7 +15792,18 @@
             [
               {
                 "type": "text",
-                "value": "然后我在网上看，一只有 5 块钱，一个 3M 的贴纸，黑色。你看起来是个纯黑的。然后你把它贴上以后，你发现。"
+                "value": "然后我在网上看，一只有 5 块钱，一个 "
+              },
+              {
+                "type": "entity-link",
+                "value": "3M",
+                "entityType": "brand",
+                "entityId": "3m",
+                "href": "/wiki/brands/3m"
+              },
+              {
+                "type": "text",
+                "value": " 的贴纸，黑色。你看起来是个纯黑的。然后你把它贴上以后，你发现。"
               }
             ]
           ]
@@ -15671,7 +15887,29 @@
             [
               {
                 "type": "text",
-                "value": "就是你完，然后我坐在电视前，我就完全看不到那个灯了，但是你想去看那状态的时候，你还能看到它的亮。我就觉得就 3M，对 3M 大家肯定 Respect，对吧？对。这只有 5 块钱，然后几十个那个贴纸，然后我把我们家的各种的刺眼的灯，我就全都贴上了。"
+                "value": "就是你完，然后我坐在电视前，我就完全看不到那个灯了，但是你想去看那状态的时候，你还能看到它的亮。我就觉得就 "
+              },
+              {
+                "type": "entity-link",
+                "value": "3M",
+                "entityType": "brand",
+                "entityId": "3m",
+                "href": "/wiki/brands/3m"
+              },
+              {
+                "type": "text",
+                "value": "，对 "
+              },
+              {
+                "type": "entity-link",
+                "value": "3M",
+                "entityType": "brand",
+                "entityId": "3m",
+                "href": "/wiki/brands/3m"
+              },
+              {
+                "type": "text",
+                "value": " 大家肯定 Respect，对吧？对。这只有 5 块钱，然后几十个那个贴纸，然后我把我们家的各种的刺眼的灯，我就全都贴上了。"
               }
             ]
           ]
@@ -15724,7 +15962,29 @@
             [
               {
                 "type": "text",
-                "value": "就是 1,000 蓬的一个羽绒服。就是它的蓬松度嘛，一般羽绒服比如说像波司登就 650。然后好一点的像那个巴塔和始祖鸟就 800。但它是 1,000，1,000 就是最高等级。"
+                "value": "就是 1,000 蓬的一个羽绒服。就是它的蓬松度嘛，一般羽绒服比如说像波司登就 650。然后好一点的像那个"
+              },
+              {
+                "type": "entity-link",
+                "value": "巴塔",
+                "entityType": "brand",
+                "entityId": "patagonia",
+                "href": "/wiki/brands/patagonia"
+              },
+              {
+                "type": "text",
+                "value": "和"
+              },
+              {
+                "type": "entity-link",
+                "value": "始祖鸟",
+                "entityType": "brand",
+                "entityId": "arcteryx",
+                "href": "/wiki/brands/arcteryx"
+              },
+              {
+                "type": "text",
+                "value": "就 800。但它是 1,000，1,000 就是最高等级。"
               }
             ]
           ]
@@ -15752,7 +16012,18 @@
             [
               {
                 "type": "text",
-                "value": "它一直有，但是就是我们一般会认为说我们不会买这种东西嘛。但是今年我为什么买呢？因为我那个优衣库去年买了一件棉服，穿了就几个月就坏了，就是那个棉都跑了，我就想太差了，我不要买这种垃圾东西了。"
+                "value": "它一直有，但是就是我们一般会认为说我们不会买这种东西嘛。但是今年我为什么买呢？因为我那个"
+              },
+              {
+                "type": "entity-link",
+                "value": "优衣库",
+                "entityType": "brand",
+                "entityId": "uniqlo",
+                "href": "/wiki/brands/uniqlo"
+              },
+              {
+                "type": "text",
+                "value": "去年买了一件棉服，穿了就几个月就坏了，就是那个棉都跑了，我就想太差了，我不要买这种垃圾东西了。"
               }
             ],
             [
@@ -16517,7 +16788,7 @@
               },
               {
                 "type": "text",
-                "value": "的内容。"
+                "value": " 的内容。"
               }
             ]
           ]
@@ -16619,8 +16890,15 @@
           "paragraphs": [
             [
               {
+                "type": "entity-link",
+                "value": "MCP",
+                "entityType": "term",
+                "entityId": "mcp",
+                "href": "/wiki/terms/mcp"
+              },
+              {
                 "type": "text",
-                "value": "MCP "
+                "value": " "
               },
               {
                 "type": "entity-link",
@@ -16796,10 +17074,10 @@
   ],
   "provenance": {
     "sourceRepository": "next-token",
-    "sourceRevision": "cc88c5fb874c8838fb7b1d8e4dfda28abfd2300e",
+    "sourceRevision": "c98c536533996b0fb53b63fa788c8f841d2b4579",
     "sourceState": "committed",
     "sourcePath": "shows/weekly/episodes/010/04-release/copy/transcript.zh-Hans.md",
-    "sourceSha256": "cb37d1e1c84f4b7eefc70533dd1284e822c8f30b07e1335dace30d0ad8d9deed"
+    "sourceSha256": "e8ea0e5b27f63c2aae6f720f268318c92253e7eb9b44f637298253547eede803"
   },
   "chapterCount": 30,
   "publicationStatus": "published"

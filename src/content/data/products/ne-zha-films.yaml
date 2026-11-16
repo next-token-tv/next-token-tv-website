@@ -1,0 +1,18 @@
+kind: movie
+name:
+  zh-Hans: 哪吒之魔童系列
+  en: Ne Zha film series
+summary:
+  zh-Hans: 饺子执导的中国神话动画电影系列，包括《哪吒之魔童降世》和《哪吒之魔童闹海》。
+  en: A Chinese animated film series directed by Jiaozi and based on the myth of Ne Zha. It includes Ne Zha and Ne Zha II.
+aliases: []
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label:
+      zh-Hans: 《哪吒之魔童降世》发行页
+      en: Ne Zha distributor page
+    href: https://wellgousa.com/films/ne-zha
+  - label:
+      zh-Hans: 《哪吒之魔童闹海》发行页
+      en: Ne Zha II distributor page
+    href: https://a24films.com/films/ne-zha-2

@@ -1,0 +1,13 @@
+kind: other-brand
+name:
+  zh-Hans: 3M
+  en: 3M
+summary:
+  zh-Hans: 美国工业与消费品公司，业务涵盖胶黏材料、工业用品与安全防护用品等。
+  en: A US industrial and consumer products company whose businesses include adhesives, industrial supplies, and protective equipment.
+official:
+  website: https://www.3m.com/
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label: {zh-Hans: 3M 公司介绍, en: About 3M}
+    href: https://www.3m.com/3M/en_US/about-3m/

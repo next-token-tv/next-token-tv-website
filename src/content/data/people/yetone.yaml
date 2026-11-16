@@ -1,0 +1,18 @@
+kind: research-engineering
+name:
+  zh-Hans: yetone
+  en: yetone
+bio:
+  zh-Hans: 开源开发者，参与开发 Neovim 的 AI 编程插件 Avante 和跨平台翻译工具 NextAI Translator。
+  en: Open-source developer whose projects include Avante, an AI coding plugin for Neovim, and the cross-platform NextAI Translator.
+aliases: []
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label:
+      zh-Hans: GitHub 个人主页
+      en: GitHub profile
+    href: https://github.com/yetone
+socials:
+  - platform: github
+    handle: yetone
+    href: https://github.com/yetone

@@ -17,6 +17,14 @@ const editions = {
       },
     },
   },
+  "010": {
+    BV1oJsF6dEsL: {
+      43640751668: {
+        sourcePath: "05-qa/typography-correction-20261116/release.zh-Hans.srt",
+        sha256: "bfa9f5547a96a8b995e9eeb6be8ad825bb9073669743d51c51c04c1763e4994b",
+      },
+    },
+  },
 };
 
 export const hasBilibiliTimingEditions = number => Object.hasOwn(editions, number);

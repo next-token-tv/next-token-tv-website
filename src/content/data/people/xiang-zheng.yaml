@@ -1,0 +1,19 @@
+kind: creator-community
+name:
+  zh-Hans: 相征
+  en: Xiang Zheng
+bio:
+  zh-Hans: 中文播客《大内密谈》的创始人兼主持人。
+  en: Founder and host of the Chinese-language podcast Midnight Talk (大内密谈).
+aliases:
+  - 相爷
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label:
+      zh-Hans: Apple 播客创作者介绍
+      en: Apple Podcasts creator profile
+    href: https://podcasts.apple.com/cn/multi-room/6753197297
+  - label:
+      zh-Hans: 《大内密谈》节目页
+      en: 大内密谈 episode featuring Zhongqing
+    href: https://www.xiaoyuzhoufm.com/episode/6747ffb7c3b2a2f3340a95ae

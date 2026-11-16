@@ -1,0 +1,13 @@
+kind: other-brand
+name:
+  zh-Hans: 巴塔哥尼亚
+  en: Patagonia
+summary:
+  zh-Hans: 美国户外用品品牌，面向攀岩、滑雪和其他户外活动提供服装与装备。
+  en: A US outdoor brand that makes clothing and equipment for climbing, skiing, and other outdoor activities.
+official:
+  website: https://www.patagonia.com/
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label: {zh-Hans: Patagonia 官方资料, en: Patagonia official information}
+    href: https://www.patagonia.com/our-footprint/

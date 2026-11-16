@@ -1,0 +1,16 @@
+kind: movie
+name:
+  zh-Hans: 八仙！
+  en: All Wishes Come True!
+summary:
+  zh-Hans: 穆正洋执导的动画电影，改编自中国八仙传说，讲述八个凡人假扮仙人展开冒险的故事。
+  en: Mu Zhengyang’s animated comedy-adventure reimagines the Eight Immortals legend as a heist involving eight mortals.
+aliases: []
+official:
+  website: https://cmc-pictures.com/all-wishes-come-true/
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label:
+      zh-Hans: CMC Pictures 电影发行页
+      en: CMC Pictures distributor page
+    href: https://cmc-pictures.com/all-wishes-come-true/

@@ -1,0 +1,13 @@
+kind: other-brand
+name:
+  zh-Hans: 优衣库
+  en: UNIQLO
+summary:
+  zh-Hans: 迅销集团旗下服装品牌，以 LifeWear 为理念，提供面向日常穿着的服装。
+  en: A Fast Retailing apparel brand that designs everyday clothing under its LifeWear concept.
+official:
+  website: https://www.uniqlo.com/
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label: {zh-Hans: 迅销集团：关于优衣库, en: 'Fast Retailing: About UNIQLO'}
+    href: https://www.fastretailing.com/employment/en/uniqlo/about.html

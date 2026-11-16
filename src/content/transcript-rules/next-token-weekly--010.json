@@ -29,6 +29,9 @@
   "termReferences": [
     { "id": "html", "aliases": ["HTML"] },
     { "id": "3d", "aliases": ["3D"] },
+    { "id": "vfx", "aliases": ["VFX"] },
+    { "id": "cg", "aliases": ["CG"] },
+    { "id": "mcp", "aliases": ["MCP"] },
     { "id": "agent", "aliases": ["Agent", "智能体"] },
     { "id": "personal-agent", "aliases": ["Personal Agent", "个人智能体"] },
     { "id": "agent-skills", "aliases": ["Skill", "Skills"] },
@@ -53,8 +56,20 @@
     { "id": "first-person-shooter", "aliases": ["第一人称射击游戏"] }
   ],
   "chapterAliases": [
+    { "entityType": "product", "id": "nvidia-geforce", "alias": "5090", "chapters": ["chapter-03"] },
+    { "entityType": "product", "id": "unreal-engine", "alias": "虚幻", "chapters": ["chapter-06", "chapter-14"] },
+    { "entityType": "product", "id": "ne-zha-films", "alias": "哪吒", "chapters": ["chapter-10"] },
+    { "entityType": "product", "id": "all-wishes-come-true", "alias": "八仙", "chapters": ["chapter-10"] },
+    { "entityType": "product", "id": "the-lord-of-the-rings-the-fellowship-of-the-ring", "alias": "指环王", "chapters": ["chapter-10"] },
+    { "entityType": "person", "id": "tom-huang", "alias": "小黄", "chapters": ["chapter-13"] },
+    { "entityType": "person", "id": "zhang-xiaojun", "alias": "小珺", "chapters": ["chapter-14", "chapter-27"] },
     { "entityType": "term", "id": "first-person-shooter", "alias": "FPS", "chapters": ["chapter-07"] },
     { "entityType": "person", "id": "yuri", "alias": "Yuri", "chapters": ["chapter-14"] },
-    { "entityType": "person", "id": "logan-kilpatrick", "alias": "Logan", "chapters": ["chapter-17"] }
+    { "entityType": "person", "id": "logan-kilpatrick", "alias": "Logan", "chapters": ["chapter-17"] },
+    { "entityType": "product", "id": "gemini", "alias": "Decisions", "chapters": ["chapter-18"] },
+    { "entityType": "brand", "id": "patagonia", "alias": "巴塔", "chapters": ["chapter-28"] }
+  ],
+  "chapterExcludedAliases": [
+    { "alias": "人月神话", "chapters": ["chapter-25"] }
   ]
 }

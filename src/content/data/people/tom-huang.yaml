@@ -1,0 +1,30 @@
+kind: business
+name:
+  zh-Hans: Tom Huang
+  en: Tom Huang
+bio:
+  zh-Hans: OpenDesign 联合创始人，参与打造开源 AI 设计工作台。
+  en: Co-founder of OpenDesign, an open-source AI design workspace.
+aliases: []
+lastVerifiedAt: '2026-11-16'
+sources: &a1
+  - label:
+      zh-Hans: Tom Huang 访谈
+      en: Interview with Tom Huang
+    href: https://okaneland.com/studio/tom-huang/
+  - label:
+      zh-Hans: 向阳乔木记录的 OpenDesign 直播
+      en: Qiaomu’s account of the OpenDesign livestream
+    href: https://blog.qiaomu.ai/2026-06-06-ckkgvc
+socials:
+  - platform: x
+    handle: "@tuturetom"
+    href: https://x.com/tuturetom
+relations:
+  - entityType: product
+    entity: open-design
+    role:
+      zh-Hans: 联合创始人
+      en: Co-founder
+    sources: *a1
+    lastVerifiedAt: '2026-11-16'

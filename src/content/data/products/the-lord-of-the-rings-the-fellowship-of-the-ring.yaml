@@ -1,0 +1,17 @@
+kind: movie
+name:
+  zh-Hans: 指环王：护戒使者
+  en: "The Lord of the Rings: The Fellowship of the Ring"
+summary:
+  zh-Hans: 彼得·杰克逊执导的《指环王》电影三部曲首部，讲述弗罗多携至尊魔戒离开夏尔的旅程。
+  en: The first film in Peter Jackson’s Lord of the Rings trilogy follows Frodo as he carries the One Ring out of the Shire.
+aliases:
+  - 魔戒首部曲：魔戒现身
+official:
+  website: https://www.warnerbros.com/movies/lord-rings-fellowship-ring
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label:
+      zh-Hans: 华纳兄弟电影页
+      en: Warner Bros. film page
+    href: https://www.warnerbros.com/movies/lord-rings-fellowship-ring

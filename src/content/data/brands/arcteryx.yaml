@@ -1,0 +1,13 @@
+kind: other-brand
+name:
+  zh-Hans: 始祖鸟
+  en: Arc'teryx
+summary:
+  zh-Hans: 源自加拿大的户外品牌，提供面向攀登、滑雪和山地活动的服装与装备。
+  en: A Canadian outdoor brand that makes apparel and equipment for climbing, skiing, and mountain activities.
+official:
+  website: https://arcteryx.com/
+lastVerifiedAt: '2026-11-16'
+sources:
+  - label: {zh-Hans: Amer Sports：始祖鸟, en: "Amer Sports: Arc'teryx"}
+    href: https://www.amersports.com/brands/arcteryx/

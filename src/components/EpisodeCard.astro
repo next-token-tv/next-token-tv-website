@@ -3,6 +3,7 @@ import { getDetailEpisode } from "../data/catalog";
 import TranscriptLink from "./TranscriptLink.astro";
 import type { Locale } from "../data/types";
 import { episodeImageSrcset } from "../data/episode-images";
+import { platformAction } from "../data/platforms.mjs";
 interface Props { episodeId: string; locale: Locale }
 const { episodeId, locale } = Astro.props;
 const episode = await getDetailEpisode(episodeId);
@@ -13,6 +14,9 @@ const mediaLabel = locale === "en"
   ? (episode.data.media.video ? (episode.data.media.audio ? "Audio & video" : "Video") : "Audio")
   : (episode.data.media.video ? (episode.data.media.audio ? "音频 / 视频" : "视频") : "音频");
 const releaseLabel = (episode.data.media.audio || episode.data.media.video) ? `${episode.data.releaseDate} · ${mediaLabel}` : "";
+const actionLabel = releaseLabel
+  ? platformAction(episode.data.media)[locale]
+  : locale === "en" ? "Explore episode" : "查看本期";
 const href = `${locale === "en" ? "/en" : ""}/weekly/${episode.data.number}`;
 ---
 <article class:list={["weekly-card", { "has-artwork": episode.data.imageKind === "artwork" }]} data-episode-number={episode.data.number}>
@@ -37,7 +41,7 @@ const href = `${locale === "en" ? "/en" : ""}/weekly/${episode.data.number}`;
       <p>{copy.copy}</p>
       <div class="episode-meta" aria-label={copy.topicsLabel}>{copy.topics.map(topic => <span>{topic}</span>)}</div>
       <div class="episode-actions">
-        <a class="episode-listen" href={href}>{locale === "en" ? (!episode.data.media.audio && !episode.data.media.video ? "Explore episode" : episode.data.media.video ? "Listen / watch" : "Listen now") : (!episode.data.media.audio && !episode.data.media.video ? "查看本期" : episode.data.media.video ? "收听 / 收看" : "立即收听")} ↗</a>
+        <a class="episode-listen" href={href}>{actionLabel} ↗</a>
         <TranscriptLink episodeId={episodeId} number={episode.data.number} locale={locale} />
       </div>
     </div>
