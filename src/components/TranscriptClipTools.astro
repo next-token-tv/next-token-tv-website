@@ -14,12 +14,12 @@ interface Props {
 const { episodeNumber, locale, title, tracks } = Astro.props;
 const copy = locale === "en" ? {
   launch: "Make a clip", toolbar: "Select a clip range", exit: "Exit", reset: "Reset", preview: "Preview clip",
-  title: "Clip preview", video: "Video timestamps", quote: "Selected transcript", details: "Show full prompt",
-  prompt: "Clip prompt", adjust: "Back to selection", copy: "Copy clip prompt", close: "Close",
+  title: "Clip preview", video: "Video timestamps", quote: "Selected transcript", details: "View citation",
+  citation: "Clip citation", adjust: "Back to selection", copy: "Copy clip citation", close: "Close",
 } : {
   launch: "制作切片", toolbar: "切片选段", exit: "退出", reset: "重选", preview: "预览切片",
-  title: "切片预览", video: "视频定位", quote: "选中原文", details: "查看完整提示词",
-  prompt: "切片提示词", adjust: "返回调整", copy: "复制切片提示词", close: "关闭",
+  title: "切片预览", video: "视频定位", quote: "选中原文", details: "查看引用内容",
+  citation: "切片引用", adjust: "返回调整", copy: "复制切片引用", close: "关闭",
 };
 ---
 
@@ -50,7 +50,7 @@ const copy = locale === "en" ? {
       <blockquote class="transcript-clip-quotes" aria-label={copy.quote} data-clip-quotes></blockquote>
       <details class="transcript-clip-prompt" data-clip-prompt-details>
         <summary>{copy.details}</summary>
-        <textarea readonly aria-label={copy.prompt} rows="8" id="transcript-clip-prompt"></textarea>
+        <textarea readonly aria-label={copy.citation} rows="8" id="transcript-clip-prompt"></textarea>
       </details>
     </div>
 

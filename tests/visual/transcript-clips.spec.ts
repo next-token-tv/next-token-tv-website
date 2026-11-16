@@ -38,8 +38,9 @@ test("episode 010 clip preview copies a video range and exits selection", async 
     .toHaveAttribute("href", "https://www.bilibili.com/video/BV1oJsF6dEsL?t=5286");
   await expect(dialog.getByRole("link", { name: "在 YouTube 打开起点" }))
     .toHaveAttribute("href", "https://www.youtube.com/watch?v=tBMlXQIrYK4&t=5286s");
-  await dialog.getByRole("button", { name: "复制切片提示词" }).click();
-  await expect(dialog.getByText("已复制切片提示词。")).toBeVisible();
+  await expect(dialog.getByText("查看引用内容", { exact: true })).toBeVisible();
+  await dialog.getByRole("button", { name: "复制切片引用" }).click();
+  await expect(dialog.getByText("已复制切片引用。")).toBeVisible();
   const prompt = await page.evaluate(() => navigator.clipboard.readText());
   expect(prompt).toBe([
     "Next Token Weekly #010 · 黄仁勋辞职，Fable 杀死比赛，语言即世界",
