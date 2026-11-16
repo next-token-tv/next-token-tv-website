@@ -109,7 +109,7 @@
   }
 
   .transcript-clip-pick-hint::after {
-    content: "选取";
+    content: attr(data-pick-label);
   }
 
   [data-clip-selecting] .transcript-turn:has(.transcript-clip-pick:focus-visible) .transcript-clip-pick-hint {

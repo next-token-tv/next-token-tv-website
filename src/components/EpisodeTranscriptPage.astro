@@ -66,7 +66,9 @@ const playbackTracks = videoPlatforms.flatMap(platform => {
   if (currentHref && timestampVideoUrl(platform, currentHref, 0) !== href) return [];
   return [{ platform, href, times: track.times, chapterStarts: track.chapterStarts, label: platform === "youtube" ? "YouTube" : locale === "en" ? "Bilibili" : "B 站" }];
 });
-const enableClips = !isReviewDraft && episodeNumber === "010" && locale === "zh-Hans" && playbackTracks.length > 0;
+const clipTracks = isReviewDraft ? [] : playbackTracks.filter(track =>
+  paragraphAnchorIds.some(chapter => chapter.some(turn => turn.some(id => Object.hasOwn(track.times, id)))),
+);
 function playbackLink(track: typeof playbackTracks[number], seconds: number | undefined) {
   if (seconds === undefined) return undefined;
   const url = timestampVideoUrl(track.platform, track.href, seconds);
@@ -196,12 +198,6 @@ const copy = locale === "en" ? {
                     {turn.candidate && (
                       <span class="transcript-candidate" title={copy.candidate} aria-label={copy.candidate}>†</span>
                     )}
-                    {enableClips && turn.paragraphs.length > 0 && (
-                      <button class="transcript-clip-pick" type="button" hidden data-clip-speaker aria-pressed="false"
-                        aria-label={`选取${turn.speaker}的这轮发言：${turn.paragraphs[0]?.map(segment => segment.value).join("").slice(0, 24)}`}>
-                        <span class="transcript-clip-pick-hint" aria-hidden="true"></span>
-                      </button>
-                    )}
                   </div>
                   <div class="transcript-paragraphs">
                     {turn.paragraphs.map((paragraph, paragraphIndex) => {
@@ -223,10 +219,6 @@ const copy = locale === "en" ? {
                               {legacyTiming && <span class="transcript-playback-item">{locale === "en" ? "Video" : "视频"} · {formatTime(legacyTiming.startSeconds)}</span>}
                             </span>
                           )}
-                          {enableClips && paragraphId && (
-                            <button class="transcript-clip-pick" type="button" hidden data-clip-pick
-                              aria-pressed="false" aria-label={`选取这段正文：${paragraph.map(segment => segment.value).join("").slice(0, 24)}`}></button>
-                          )}
                         </p>
                       );
                     })}
@@ -239,7 +231,7 @@ const copy = locale === "en" ? {
       ))}
     </article>
   </div>
-  {enableClips && <TranscriptClipTools episodeNumber={episodeNumber} title={displayTitle} tracks={playbackTracks} />}
+  {clipTracks.length > 0 && <TranscriptClipTools episodeNumber={episodeNumber} locale={locale} title={displayTitle} tracks={clipTracks} />}
 </main>
 
 <script>

@@ -1,5 +1,23 @@
 import { expect, test } from "@playwright/test";
 
+for (const [path, launchName, previewName, dialogName, videoName] of [
+  ["/weekly/003/transcript", "制作切片", "预览切片", "切片预览", "在 YouTube 打开起点"],
+  ["/en/weekly/001/transcript", "Make a clip", "Preview clip", "Clip preview", "Open at start on YouTube"],
+] as const) {
+  test(`clip tools are available on ${path}`, async ({ page }) => {
+    await page.goto(path);
+    const paragraph = page.locator('.transcript-quote-paragraph:has(.transcript-playback a[href*="youtube.com"])').first();
+    const timestamp = await paragraph.locator('.transcript-playback a[href*="youtube.com"]').getAttribute("href");
+    await expect(page.locator("[data-clip-pick], [data-clip-speaker]")).toHaveCount(0);
+    await page.getByRole("button", { name: launchName }).click();
+    await paragraph.locator("[data-clip-pick]").press("Enter");
+    await page.getByRole("button", { name: previewName }).click();
+    const dialog = page.getByRole("dialog", { name: dialogName });
+    await expect(dialog.getByRole("link", { name: videoName })).toHaveAttribute("href", timestamp!);
+    await expect(dialog.locator("#transcript-clip-prompt")).toHaveValue(new RegExp(`${path}#quote-`));
+  });
+}
+
 test("episode 010 clip preview copies a video range and exits selection", async ({ page, context }) => {
   await context.grantPermissions(["clipboard-read", "clipboard-write"]);
   const quote = "quote-5153c558cfaf1cafa82f";
