@@ -4745,7 +4745,18 @@
             [
               {
                 "type": "text",
-                "value": "没有，就是你其实正常地表达，别人会认为你：你凭什么能用得上 Cloud？然后你凭什么……"
+                "value": "没有，就是你其实正常地表达，别人会认为你：你凭什么能用得上 "
+              },
+              {
+                "type": "entity-link",
+                "value": "Claude",
+                "entityType": "product",
+                "entityId": "claude",
+                "href": "/wiki/products/claude"
+              },
+              {
+                "type": "text",
+                "value": "？然后你凭什么……"
               }
             ]
           ]
@@ -16785,10 +16796,10 @@
   ],
   "provenance": {
     "sourceRepository": "next-token",
-    "sourceRevision": "12a7a5c2c216f3ca944da3f031329b0d82aa2d03",
+    "sourceRevision": "cc88c5fb874c8838fb7b1d8e4dfda28abfd2300e",
     "sourceState": "committed",
     "sourcePath": "shows/weekly/episodes/010/04-release/copy/transcript.zh-Hans.md",
-    "sourceSha256": "30e1152c57539927a09ad633cbe24e7b58f01898df072211c7d0fe91050d4736"
+    "sourceSha256": "cb37d1e1c84f4b7eefc70533dd1284e822c8f30b07e1335dace30d0ad8d9deed"
   },
   "chapterCount": 30,
   "publicationStatus": "published"
