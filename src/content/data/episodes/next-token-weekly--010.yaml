@@ -147,9 +147,17 @@ mentions:
 productionImport: next-token-weekly--010.production
 transcriptPublishedAt: '2026-11-16'
 media:
-  audio: false
+  audio: true
   video: true
 platforms:
+  - platform: xiaoyuzhou
+    label:
+      zh-Hans: 小宇宙
+      en: Xiaoyuzhou
+    href: https://www.xiaoyuzhoufm.com/episode/6af9e512fe62f8f52c4ba6fb
+    action:
+      zh-Hans: 收听 / 收看
+      en: Listen / watch
   - platform: bilibili
     label:
       zh-Hans: 哔哩哔哩
