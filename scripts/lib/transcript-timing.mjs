@@ -5,7 +5,7 @@ const seconds = text => {
 };
 
 // Only unambiguous full-text matches are accepted. Times are subtitle cue bounds,
-// not word-level alignment; edited, missing and repeated passages remain untimed.
+// not word-level alignment.
 export function alignTranscriptTimings(chapters, srt, { includeShortCues = false } = {}) {
   let text = '';
   const cues = srt.trim().split(/\r?\n\s*\r?\n/).map(block => {
@@ -30,6 +30,40 @@ export function alignTranscriptTimings(chapters, srt, { includeShortCues = false
       matched++;
       return { startSeconds: first.startSeconds, endSeconds: last.endSeconds };
     });
+  }
+  return matched + (includeShortCues ? alignBoundedRepeats(chapters, cues, text) : 0);
+}
+
+function alignBoundedRepeats(chapters, cues, text) {
+  const paragraphs = chapters.flatMap(({turns}) => turns.flatMap(turn => turn.paragraphs.map((paragraph, index) => ({
+    value: normalize(paragraph.map(segment => segment.value).join('')),
+    timing: turn.paragraphTimings[index],
+    timings: turn.paragraphTimings,
+    index,
+  }))));
+  let matched = 0;
+  for (let first = 0; first < paragraphs.length;) {
+    const {value} = paragraphs[first];
+    let next = first + 1;
+    while (paragraphs[next]?.value === value && !paragraphs[next].timing) next++;
+    const before = paragraphs[first - 1]?.timing;
+    const after = paragraphs[next]?.timing;
+    if (next - first > 1 && value.length >= 4 && !paragraphs[first].timing && before && after) {
+      // The neighboring matches define the window. A repeated phrase is only
+      // safe to align when its complete cues account for the entire window.
+      const window = cues.filter(cue => cue.startSeconds < after.startSeconds && cue.endSeconds > before.endSeconds);
+      if (window.length === next - first && window.every((cue, index) =>
+        cue.startSeconds >= (window[index - 1]?.endSeconds ?? before.endSeconds) &&
+        cue.endSeconds <= after.startSeconds && text.slice(cue.start, cue.end) === value
+      )) {
+        for (const [offset, {startSeconds, endSeconds}] of window.entries()) {
+          const {timings, index} = paragraphs[first + offset];
+          timings[index] = {startSeconds, endSeconds};
+          matched++;
+        }
+      }
+    }
+    first = next;
   }
   return matched;
 }
