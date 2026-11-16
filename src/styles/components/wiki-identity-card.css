@@ -1,11 +1,21 @@
 @layer reset, tokens, base, layouts, components, utilities, overrides;
 @layer components {
-.wiki-identity-card { container-type: inline-size; display: flex; flex-direction: column; justify-content: space-between; min-width: 0; height: var(--wiki-visual-height); padding: 1.25rem 1.5rem; background: var(--ink); color: var(--paper); }
+.wiki-identity-card { container-type: size; display: flex; flex-direction: column; min-width: 0; height: var(--wiki-visual-height); padding: 1.25rem 1.5rem; background: var(--ink); color: var(--paper); }
   .square { width: var(--wiki-visual-height); }
   .masthead { display: flex; justify-content: space-between; align-items: center; gap: .75rem; font-size: var(--type-base); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
   .masthead i { flex: 0 0 .5rem; height: .5rem; background: var(--signal); }
-  strong { font-family: var(--display); font-size: clamp(1.35rem, 14cqi, 2.75rem); line-height: 1.15; letter-spacing: var(--display-tracking); }
-  .square strong { text-align: center; font-size: 2rem; overflow-wrap: anywhere; }
+  .masthead, .caption { flex: none; }
+  .identity-title { flex: 1; min-height: 0; align-content: center; overflow: hidden; }
+  strong {
+    --wiki-title-preferred: clamp(1rem, min(12cqi, 28cqb), 2.5rem);
+    display: block;
+    font-family: var(--display);
+    font-size: var(--wiki-title-fit, clamp(1rem, min(7cqi, 16cqb), 1.6rem));
+    line-height: 1.15;
+    letter-spacing: var(--display-tracking);
+    overflow-wrap: anywhere;
+  }
+  .square strong { text-align: center; }
   .caption { display: flex; align-items: center; gap: 1rem; font-size: var(--type-caption); color: var(--inverse-muted); }
   .caption > span:first-child { white-space: nowrap; }
   .rule { height: 1px; flex: 1; background: var(--inverse-line); }
@@ -13,7 +23,6 @@
   img { width: 100%; height: 100%; object-fit: cover; }
   @media (max-width: 760px) {
     .wiki-identity-card { padding: 1rem 1.25rem; }
-    strong { font-size: 2rem; }
     .square { padding-inline: 1rem; }
     .has-photo { padding: 0; }
   }

@@ -2,6 +2,29 @@ import { expect, test } from "@playwright/test";
 
 const samples = ["products/deepseek", "brands/deepseek", "people/dhh"];
 
+test("long term names fit between the identity card masthead and caption", async ({ page }) => {
+  await page.setViewportSize({ width: 1215, height: 886 });
+  await page.goto("/wiki/terms/html");
+  const card = page.locator(".wiki-identity-card");
+  const title = card.locator("strong");
+  await expect(title).toHaveText("HyperText Markup Language (HTML)");
+
+  for (const width of [1215, 761, 390, 320, 1215]) {
+    await page.setViewportSize({ width, height: 886 });
+    const fixedHeight = width <= 760 ? 144 : 160;
+    await expect.poll(() => card.evaluate((node, expectedHeight) => {
+      const title = node.querySelector("strong")!;
+      const slot = title.parentElement!;
+      const caption = node.querySelector(".caption")!;
+      const bounds = node.getBoundingClientRect();
+      return bounds.height === expectedHeight &&
+        title.scrollHeight <= slot.clientHeight &&
+        title.scrollWidth <= slot.clientWidth &&
+        caption.getBoundingClientRect().bottom <= bounds.bottom;
+    }, fixedHeight)).toBe(true);
+  }
+});
+
 test("Wiki prose links stay subtle but show hover and keyboard focus", async ({ page }) => {
   await page.goto("/wiki/products/workbuddy");
   const link = page.locator(".wiki-prose a").first();

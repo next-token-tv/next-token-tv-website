@@ -5,10 +5,43 @@ const { label, title, square = false, photo, name, class: className } = Astro.pr
 <div class:list={["wiki-identity-card", className, { square, "has-photo": !!photo }]}>
   {photo ? <img src={photo} alt={name ?? title} width="192" height="192" /> : <>
     <div class="masthead"><span>{label}</span><i aria-hidden="true"></i></div>
-    <strong>{title}</strong>
+    <div class="identity-title" data-wiki-title-fit>
+      <strong title={title}>{title}</strong>
+    </div>
     <div class="caption"><span>Next Token / Wiki</span><span class="rule" aria-hidden="true"></span></div>
   </>}
 </div>
+<script>
+  const titles = document.querySelectorAll<HTMLElement>("[data-wiki-title-fit]");
+  if (titles.length) {
+    function fitTitle(slot: HTMLElement) {
+      const title = slot.querySelector("strong")!;
+      if (!slot.clientHeight) return;
+      title.style.setProperty("--wiki-title-fit", "var(--wiki-title-preferred)");
+
+      let largest = Math.floor(parseFloat(getComputedStyle(title).fontSize));
+      let smallest = Math.min(largest, Math.ceil(parseFloat(getComputedStyle(document.documentElement).fontSize)));
+
+      // Measure the actual wrapped text so the masthead and caption keep their space.
+      while (smallest < largest) {
+        const size = Math.ceil((smallest + largest) / 2);
+        title.style.setProperty("--wiki-title-fit", `${size}px`);
+        if (title.scrollHeight <= slot.clientHeight && title.scrollWidth <= slot.clientWidth) {
+          smallest = size;
+        } else {
+          largest = size - 1;
+        }
+      }
+      title.style.setProperty("--wiki-title-fit", `${smallest}px`);
+    }
+
+    const observer = new ResizeObserver(entries => {
+      for (const { target } of entries) fitTitle(target as HTMLElement);
+    });
+    for (const title of titles) observer.observe(title);
+    document.fonts.ready.then(() => titles.forEach(fitTitle));
+  }
+</script>
 <style>
 @import "../styles/components/wiki-identity-card.css";
 </style>
