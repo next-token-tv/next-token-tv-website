@@ -7,15 +7,17 @@
   .masthead, .caption { flex: none; }
   .identity-title { flex: 1; min-height: 0; align-content: center; overflow: hidden; }
   strong {
-    --wiki-title-preferred: clamp(1rem, min(12cqi, 28cqb), 2.5rem);
+    --wiki-title-preferred: clamp(1.35rem, 14cqi, 2.75rem);
     display: block;
     font-family: var(--display);
-    font-size: var(--wiki-title-fit, clamp(1rem, min(7cqi, 16cqb), 1.6rem));
+    font-size: clamp(1rem, min(7cqi, 16cqb), 1.6rem);
     line-height: 1.15;
     letter-spacing: var(--display-tracking);
     overflow-wrap: anywhere;
+    /* Title fitting measures each font size synchronously. */
+    transition-property: none;
   }
-  .square strong { text-align: center; }
+  .square strong { --wiki-title-preferred: 2rem; text-align: center; }
   .caption { display: flex; align-items: center; gap: 1rem; font-size: var(--type-caption); color: var(--inverse-muted); }
   .caption > span:first-child { white-space: nowrap; }
   .rule { height: 1px; flex: 1; background: var(--inverse-line); }
@@ -23,6 +25,7 @@
   img { width: 100%; height: 100%; object-fit: cover; }
   @media (max-width: 760px) {
     .wiki-identity-card { padding: 1rem 1.25rem; }
+    strong { --wiki-title-preferred: 2rem; }
     .square { padding-inline: 1rem; }
     .has-photo { padding: 0; }
   }

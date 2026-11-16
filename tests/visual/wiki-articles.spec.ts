@@ -25,6 +25,17 @@ test("long term names fit between the identity card masthead and caption", async
   }
 });
 
+test("English brand card uses the available title space", async ({ page }) => {
+  await page.goto("/en/wiki/brands/zhipu");
+  const title = page.locator(".wiki-identity-card strong");
+  for (const width of [390, 1920]) {
+    await page.setViewportSize({ width, height: 844 });
+    await expect.poll(() => title.evaluate(node =>
+      parseFloat(getComputedStyle(node).fontSize) >= 24 && node.scrollHeight <= node.parentElement!.clientHeight
+    )).toBe(true);
+  }
+});
+
 test("Wiki prose links stay subtle but show hover and keyboard focus", async ({ page }) => {
   await page.goto("/wiki/products/workbuddy");
   const link = page.locator(".wiki-prose a").first();

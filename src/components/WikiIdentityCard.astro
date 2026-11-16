@@ -17,28 +17,30 @@ const { label, title, square = false, photo, name, class: className } = Astro.pr
     function fitTitle(slot: HTMLElement) {
       const title = slot.querySelector("strong")!;
       if (!slot.clientHeight) return;
-      title.style.setProperty("--wiki-title-fit", "var(--wiki-title-preferred)");
-
+      title.style.fontSize = "var(--wiki-title-preferred)";
       let largest = Math.floor(parseFloat(getComputedStyle(title).fontSize));
       let smallest = Math.min(largest, Math.ceil(parseFloat(getComputedStyle(document.documentElement).fontSize)));
 
       // Measure the actual wrapped text so the masthead and caption keep their space.
       while (smallest < largest) {
         const size = Math.ceil((smallest + largest) / 2);
-        title.style.setProperty("--wiki-title-fit", `${size}px`);
+        title.style.fontSize = `${size}px`;
         if (title.scrollHeight <= slot.clientHeight && title.scrollWidth <= slot.clientWidth) {
           smallest = size;
         } else {
           largest = size - 1;
         }
       }
-      title.style.setProperty("--wiki-title-fit", `${smallest}px`);
+      title.style.fontSize = `${smallest}px`;
     }
 
     const observer = new ResizeObserver(entries => {
       for (const { target } of entries) fitTitle(target as HTMLElement);
     });
-    for (const title of titles) observer.observe(title);
+    for (const title of titles) {
+      fitTitle(title);
+      observer.observe(title);
+    }
     document.fonts.ready.then(() => titles.forEach(fitTitle));
   }
 </script>
