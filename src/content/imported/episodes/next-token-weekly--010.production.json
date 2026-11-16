@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 2,
+  "episodeId": "next-token-weekly--010",
+  "number": "010",
+  "show": "next-token-weekly",
+  "status": "published",
+  "language": "zh-Hans",
+  "recordedAt": "2026-11-13",
+  "releaseDate": "2026-11-16",
+  "recordingMode": "in-person",
+  "recordingVenue": "genesis-academy--beijing-wudaokou",
+  "imageKind": "artwork",
+  "imageDimensions": {
+    "width": 3000,
+    "height": 3000
+  },
+  "participants": [
+    {
+      "person": "xiangyang-qiaomu",
+      "role": "duty-host"
+    },
+    {
+      "person": "yangpan",
+      "role": "co-host"
+    },
+    {
+      "person": "orange",
+      "role": "co-host"
+    },
+    {
+      "person": "guizang",
+      "role": "co-host"
+    }
+  ],
+  "guestNames": [],
+  "images": {
+    "480": "/assets/weekly-010-cover-square-480.webp",
+    "720": "/assets/weekly-010-cover-square-720.webp",
+    "960": "/assets/weekly-010-cover-square-960.webp",
+    "1440": "/assets/weekly-010-cover-square-1440.webp",
+    "1920": "/assets/weekly-010-cover-square-1920.webp"
+  },
+  "provenance": {
+    "productionCommit": "12a7a5c2c216f3ca944da3f031329b0d82aa2d03",
+    "sources": [
+      {
+        "path": "shows/weekly/episodes/010/04-release/artwork/cover-square.jpg",
+        "sha256": "ed2ecaa99f664b5501c6cb15c540e02c60e6962dbb86a5cb1df12069fedb33b5"
+      },
+      {
+        "path": "shows/weekly/episodes/010/credits.json",
+        "sha256": "201f87dfadc78f6848528d19392d5e9294330a901be6d4107a48d7db08b42933"
+      },
+      {
+        "path": "shows/weekly/episodes/010/04-release/copy/website-release.json",
+        "sha256": "a81c5f308ccd9c8bad1c9937d33c5f5ad91eceb23bafd5ba44cbe7b6a0e0e562"
+      }
+    ]
+  }
+}

@@ -2,21 +2,30 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
+import { execFileSync } from 'node:child_process';
 import { load } from 'js-yaml';
 
-// Local review only: production chapter imports retain their release gates.
+// Prepare chapter lists before a public video release has been verified.
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const sourceFile = process.argv[2];
 if (!sourceFile) throw new Error('Usage: node scripts/import-preview-chapters.mjs <preview-source.yaml>');
 const config = load(readFileSync(resolve(sourceFile), 'utf8'));
-if (config.status !== 'local-review' || !/^[a-z0-9-]+--\d{3}$/.test(config.episodeId)) throw new Error('Expected a local review source');
+const audio = config.status === 'transcript-first' && config.chapters.timeline === 'assembled-audio';
+if ((!audio && config.status !== 'local-review') || !/^[a-z0-9-]+--\d{3}$/.test(config.episodeId)) throw new Error('Expected a local review or transcript-first source');
 const repository = resolve(root, '..', config.sourceRepository);
 const raw = readFileSync(resolve(repository, config.chapters.path));
 const data = JSON.parse(raw);
-if (data.episode_id !== config.episodeId || data.schema_version !== 1 || data.timeline !== 'release') throw new Error('Mismatched chapter source');
+const timeline = config.chapters.timeline ?? 'release';
+if ((!audio && !['release', 'program'].includes(timeline)) || data.episode_id !== config.episodeId || data.schema_version !== 1 || data.timeline !== timeline) throw new Error('Mismatched chapter source');
 const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
 const episodeRoot = resolve(repository, dirname(config.chapters.path), '../..');
 if (sha256(readFileSync(resolve(episodeRoot, data.source.srt))) !== data.source.srt_sha256) throw new Error('Stale chapter SRT');
+if (audio) {
+  execFileSync('git', ['-C', repository, 'ls-files', '--error-unmatch', '--', config.chapters.path], { stdio: 'pipe' });
+  const changes = execFileSync('git', ['-C', repository, 'status', '--porcelain', '--', config.chapters.path], { encoding: 'utf8' });
+  if (changes.trim()) throw new Error('Audio chapter source must be committed');
+  if (sha256(readFileSync(resolve(episodeRoot, data.source.audio))) !== data.source.audio_sha256) throw new Error('Stale chapter audio');
+}
 const english = config.chapters.english;
 if (english.chapters.length !== data.chapters.length || english.sections.length !== data.sections.length) throw new Error('Incomplete chapter translations');
 let previous = -1;
@@ -37,8 +46,12 @@ for (const language of ['zh-Hans', 'en']) {
   const lines = [];
   data.chapters.forEach((c, i) => {
     if (c.section !== group) {
-      if (!groups.has(c.section)) throw new Error('Unknown chapter section');
-      lines.push('', `### ${groups.get(c.section)}`, ''); group = c.section;
+      lines.push('');
+      if (c.section != null) {
+        if (!groups.has(c.section)) throw new Error('Unknown chapter section');
+        lines.push(`### ${groups.get(c.section)}`, '');
+      }
+      group = c.section;
     }
     const title = language === 'en' ? english.chapters[i] : c.titles[language];
     if (typeof title !== 'string' || !title.trim() || /[\n\r]/.test(title)) throw new Error('Invalid chapter title');
@@ -55,4 +68,4 @@ for (const language of ['zh-Hans', 'en']) {
   writeFileSync(file, text.slice(0, a) + '\n' + sections[language] + '\n' + text.slice(b));
 }
 writeFileSync(resolve(root, `src/content/imported/chapters/${config.episodeId}.json`), JSON.stringify({schemaVersion:1, episodeId:config.episodeId, source:config.chapters.path, sourceSha256:sha256(raw), publicationStatus:'prepared', sourceRepository:config.sourceRepository, sections}, null, 2) + '\n');
-console.log(`Imported local review chapters for ${config.episodeId}`);
+console.log(`Imported ${timeline} chapters for ${config.episodeId}`);

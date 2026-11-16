@@ -1,0 +1,60 @@
+{
+  "locale": "zh-Hans",
+  "titleFromEpisode": true,
+  "excludedEntities": ["brand:netease-youdao", "brand:ted", "product:go", "product:diandian"],
+  "resolutions": {
+    "Next Token Weekly": { "entityType": "show", "id": "next-token-weekly" },
+    "DeepSeek": { "entityType": "product", "id": "deepseek" },
+    "MiniMax": { "entityType": "product", "id": "minimax" },
+    "亚马逊": { "entityType": "brand", "id": "amazon" },
+    "Amazon": { "entityType": "brand", "id": "amazon" },
+    "赛博禅心": { "entityType": "person", "id": "cyber-zen" },
+    "Cyber Zen": { "entityType": "person", "id": "cyber-zen" },
+    "Dots": { "entityType": "product", "id": "dots" },
+    "Muse": { "entityType": "product", "id": "muse-agent" }
+  },
+  "scopedAliases": [
+    { "entityType": "product", "id": "gemini", "alias": "Carbon" },
+    { "entityType": "product", "id": "gemini", "alias": "Hydrogen" },
+    { "entityType": "product", "id": "gemini", "alias": "Argon" },
+    { "entityType": "product", "id": "gemini", "alias": "Nano Banana" },
+    { "entityType": "product", "id": "claude", "alias": "Opus 5.5" },
+    { "entityType": "product", "id": "claude", "alias": "Sonnet" },
+    { "entityType": "product", "id": "muse-agent", "alias": "Muse" },
+    { "entityType": "product", "id": "microsoft-office", "alias": "Office" },
+    { "entityType": "product", "id": "microsoft-word", "alias": "Word" },
+    { "entityType": "person", "id": "jeff-atwood", "alias": "Atwood" },
+    { "entityType": "person", "id": "sam-altman", "alias": "Sam" }
+  ],
+  "termReferences": [
+    { "id": "html", "aliases": ["HTML"] },
+    { "id": "3d", "aliases": ["3D"] },
+    { "id": "agent", "aliases": ["Agent", "智能体"] },
+    { "id": "personal-agent", "aliases": ["Personal Agent", "个人智能体"] },
+    { "id": "agent-skills", "aliases": ["Skill", "Skills"] },
+    { "id": "harness", "aliases": ["Harness"] },
+    { "id": "open-source", "aliases": ["开源"] },
+    { "id": "minimum-viable-product", "aliases": ["MVP"] },
+    { "id": "cli", "aliases": ["CLI"] },
+    { "id": "vibe-coding", "aliases": ["Vibe Coding"] },
+    { "id": "trust-flywheel", "aliases": ["信任飞轮"] },
+    { "id": "agent-to-agent-collaboration", "aliases": ["A2A"] },
+    { "id": "agi", "aliases": ["AGI"] },
+    { "id": "ai-native", "aliases": ["AI 原生", "AI Native"] },
+    { "id": "aha-moment", "aliases": ["Aha Moment"] },
+    { "id": "a-roll-b-roll", "aliases": ["B-Roll"] },
+    { "id": "ai-slop", "aliases": ["AI Slop"] },
+    { "id": "b2b", "aliases": ["To B"] },
+    { "id": "recursive-self-improvement", "aliases": ["RSI"] },
+    { "id": "markdown", "aliases": ["Markdown"] },
+    { "id": "prompt", "aliases": ["Prompt"] },
+    { "id": "bug", "aliases": ["Bug"] },
+    { "id": "geo", "aliases": ["GEO"] },
+    { "id": "first-person-shooter", "aliases": ["第一人称射击游戏"] }
+  ],
+  "chapterAliases": [
+    { "entityType": "term", "id": "first-person-shooter", "alias": "FPS", "chapters": ["chapter-07"] },
+    { "entityType": "person", "id": "yuri", "alias": "Yuri", "chapters": ["chapter-14"] },
+    { "entityType": "person", "id": "logan-kilpatrick", "alias": "Logan", "chapters": ["chapter-17"] }
+  ]
+}

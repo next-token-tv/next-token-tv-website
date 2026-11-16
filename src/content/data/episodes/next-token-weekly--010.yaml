@@ -1,0 +1,172 @@
+schemaVersion: 1
+number: '010'
+show: next-token-weekly
+status: published
+title:
+  zh-Hans: '#010 黄仁勋辞职，Fable 杀死比赛，语言即世界'
+  en: '#010 Jensen Huang Resigns, Fable Changes the Game, and Language Is the World'
+mentions:
+  people:
+    - jensen-huang
+    - aj
+    - logan-kilpatrick
+    - yuri
+    - steve-jobs
+    - sam-altman
+    - jeff-atwood
+    - zhongqing
+    - baoyu
+    - yann-lecun
+    - hanqing
+    - dario-amodei
+    - zhang-yiming
+    - elon-musk
+    - liang-wenfeng
+    - chen-mian
+  brands:
+    - nvidia
+    - anthropic
+    - google
+    - volcengine
+    - bytedance
+    - apple
+    - amd
+    - microsoft
+    - alibaba-cloud
+    - openai
+    - meta
+    - zhipu
+    - montbell
+  products:
+    - claude
+    - blender
+    - craft
+    - microsoft-word
+    - tripo
+    - xiaohongshu
+    - obsidian
+    - open-design
+    - gemini
+    - antigravity
+    - instinct
+    - muse-agent
+    - doubao
+    - seedream
+    - jimeng
+    - grand-theft-auto-vi
+    - bilibili
+    - youtube
+    - grok-bot
+    - next-token-skill
+    - nvidia-gtc
+    - douyin
+    - x
+    - javascript
+    - threejs
+    - steam
+    - gpt
+    - binance
+    - deepseek
+    - seedance
+    - ipad
+    - unreal-engine
+    - jianying
+    - soundcore-work
+    - colaos
+    - linear
+    - colamd
+    - cursor
+    - claude-code
+    - jev
+    - google-ai-studio
+    - vertex-ai
+    - microsoft-azure
+    - qwen
+    - microsoft-excel
+    - microsoft-office
+    - grok
+    - feishu
+    - taobao
+    - codex
+    - dots
+    - t3-code
+    - wechat
+    - imessage
+    - whatsapp
+    - the-mythical-man-month
+    - notion
+    - kimi
+    - iphone
+    - grand-theft-auto-v
+    - hongguo
+    - xiaoyuzhou
+  terms:
+    - html
+    - 3d
+    - first-person-shooter
+    - agent
+    - personal-agent
+    - harness
+    - agent-skills
+    - minimum-viable-product
+    - open-source
+    - cli
+    - vibe-coding
+    - prompt
+    - agi
+    - recursive-self-improvement
+    - b2b
+    - bug
+    - trust-flywheel
+    - aha-moment
+    - agent-to-agent-collaboration
+    - geo
+    - ai-native
+    - ai-slop
+    - a-roll-b-roll
+    - markdown
+productionImport: next-token-weekly--010.production
+transcriptPublishedAt: '2026-11-16'
+media:
+  audio: false
+  video: false
+platforms: []
+homepage:
+  zh-Hans:
+    eyebrow: 第 010 期
+    heading:
+      - 黄仁勋辞职，Fable 杀死比赛
+      - 语言即世界
+    lede: 从英伟达换帅到 Fable 5.2 做出单文件游戏，四位主理人聊 AI 让创作与复制变容易之后，人的品味、作品的价值和用户的信任从何而来。
+    copy: 从英伟达换帅到 Fable 5.2 做出单文件游戏，四位主理人聊 AI 让创作与复制变容易之后，人的品味、作品的价值和用户的信任从何而来。
+    imageAlt: '#010 黄仁勋辞职，Fable 杀死比赛，语言即世界'
+    topicsLabel: 本期话题
+    topics:
+      - 英伟达换帅
+      - Fable 5.2 与 HTML 游戏
+      - 审美与创作
+      - 个人 Agent
+      - Seedream 5.5
+    listenAction: 立即收听
+    watchAction: 立即观看
+  en:
+    eyebrow: Episode 010
+    heading:
+      - Jensen Huang Resigns, Fable Changes the Game
+      - Language Is the World
+    lede: >-
+      From NVIDIA’s CEO transition to building a single-file game with Fable 5.2, the four hosts ask what
+      gives creative work value when AI makes it easier to build and copy, and how personal agents earn trust.
+    copy: >-
+      From NVIDIA’s CEO transition to building a single-file game with Fable 5.2, the four hosts ask what
+      gives creative work value when AI makes it easier to build and copy, and how personal agents earn trust.
+    imageAlt: '#010 Jensen Huang Resigns, Fable Changes the Game, and Language Is the World'
+    topicsLabel: In this episode
+    topics:
+      - NVIDIA’s CEO transition
+      - Fable 5.2 and HTML games
+      - Creative judgment
+      - Personal agents
+      - Seedream 5.5
+    listenAction: Listen now
+    watchAction: Watch now

@@ -1,0 +1,20 @@
+schemaVersion: 2
+episodeId: next-token-weekly--010
+number: '010'
+show: next-token-weekly
+status: published
+language: zh-Hans
+recordedAt: '2026-11-13'
+releaseDate: '2026-11-16'
+recordingMode: in-person
+recordingVenue: genesis-academy--beijing-wudaokou
+imageKind: artwork
+imageDimensions:
+  width: 3000
+  height: 3000
+creditsSource: shows/weekly/episodes/010/credits.json
+cover: shows/weekly/episodes/010/04-release/artwork/cover-square.jpg
+sources:
+  - shows/weekly/episodes/010/04-release/artwork/cover-square.jpg
+  - shows/weekly/episodes/010/credits.json
+  - shows/weekly/episodes/010/04-release/copy/website-release.json
