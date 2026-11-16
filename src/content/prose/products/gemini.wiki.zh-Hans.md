@@ -3,7 +3,7 @@ entityType: product
 entity: gemini
 locale: zh-Hans
 slot: wiki
-updatedAt: '2026-09-17'
+updatedAt: '2026-11-16'
 seoTitle: 'Gemini：Google 多模态模型与助手、API 与边界｜Next Token Wiki'
 seoDescription: '了解 Gemini 的助手与模型家族、Gemini API 官方入口，以及模型版本和能力的核验边界。'
 ---
@@ -21,6 +21,10 @@ Gemini 可用于对话、文本与代码生成，以及处理图像、音频或�
 ## 节目中的讨论
 
 Weekly #002 的“写作体验：不同模型各有所长”章节中，向阳乔木转述朋友使用 Gemini 编写网站内容的体验；参见[对应中文章节](/weekly/002/transcript#chapter-07)。
+
+Weekly #006 的“模型体验的两极：最强能力、等待时间与便宜模型的生态位”章节中，向阳乔木提到“比如说 Gemini 4，就 [Argon](/weekly/006/transcript#quote-69000da3dd4cf2888cd0)。那个模型好像没什么人讨论”，并以“[氩（Argon）不是那个惰性气体嘛](/weekly/006/transcript#quote-8104004a63a54f3941b1)”说明这批模型的元素命名。
+
+Weekly #010 的“[Carbon 体验：写作的人味与设计、编码能力](/weekly/010/transcript#chapter-17)”整章讨论 Gemini 4 Carbon：橘子称它“是 Google 憋了一年，终于放出来一个能用的”（见[该段落](/weekly/010/transcript#quote-47969f4ef8b09bb03ff9)）并分享用 Carbon 写小说、重设计界面的体验；向阳乔木指出命名逻辑——“[Carbon 应该是碳的意思吧……另外它有一个轻量级的模型叫 Hydrogen](/weekly/010/transcript#quote-87e0b3aeb41f33a460ca)，是吧？那氢气的意思”。以上均为参与者评价。
 
 ## 常见问题
 
@@ -43,6 +47,10 @@ Gemini 应用是面向用户的助手入口；API 是开发者在自己的程序
 ### Gemini 模型名称为什么会变化？
 
 官方模型列表区分稳定、预览、最新和实验版本，也会标记弃用模型。接入生产环境时应使用文档列出的确切模型字符串并关注弃用通知，不能把旧教程中的别名当作当前状态。
+
+### Gemini 4 的模型是怎么命名的？
+
+官方模型文档列出 [Gemini 4 Carbon、Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models) 等以化学元素命名的模型字符串（如 gemini-4-carbon、gemini-4-argon、gemini-4-hydrogen），命名与可用性以[当前模型列表](https://ai.google.dev/gemini-api/docs/models)为准。节目参与者也讨论过这批命名：第 006 期提到 Gemini 4 Argon（氩），第 010 期讨论 Gemini 4 Carbon（碳）与轻量级模型 Hydrogen（氢）。
 
 ## 来源
 

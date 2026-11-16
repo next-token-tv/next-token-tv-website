@@ -15,7 +15,7 @@ seoDescription: '了解 AI.TALK 创始人汗青（赵汗青）、其打造的 AI
 ## 身份与作品
 
 - **AI.TALK**：[AI Talk YouTube 频道](https://www.youtube.com/channel/UCEC4_kBaGfVicaAEPuzfq-A)的自述介绍其为该品牌创始人，方向是以 AIGC 打造 IP 与互动叙事。《易论AI》访谈视频对嘉宾的介绍与此一致："赵汗青。AI.TALK 创始人，Yuri 的构建者"。
-- **Yuri（尤栗）**：汗青打造的[AI 原生歌手](https://www.youtube.com/watch?v=VVuIoDDKleg)。据《易论AI》访谈介绍，Yuri 的首支 MV《SURREAL》在一个月内播放量突破 1200 万；AI Talk 官方发布的视频显示，Yuri 与 The North Face、vivo 等品牌合作过单曲。
+- **Yuri（尤栗）**：汗青打造的[AI 原生歌手](https://www.youtube.com/watch?v=VVuIoDDKleg)。据《易论AI》访谈介绍，其音乐 MV《SURREAL（超现实）》发布于 2025 年 6 月，在一个月内播放量突破 1200 万；AI Talk 官方发布的视频显示，Yuri 与 The North Face、vivo 等品牌合作过单曲。
 - **超现实AI音乐会**：2026 年 9 月在上海举办，由 2026 外滩大会（INCLUSION·Conference on the Bund）与 YURI 联合主办。[官方现场视频](https://www.youtube.com/watch?v=4q-eUoeKvRk)说明称其为"首场AI歌手商业演唱会"，AI 影像由即梦 AI 提供技术支持，并有房东的猫等真实艺人参与共创。
 
 汗青曾在 [TEDxPetalingStreet](https://www.youtube.com/watch?v=1ollRs70uHo) 发表演讲"AI 的创作能打动我们吗？"，演讲者署名为"赵汗青 Zhao Han Qing"。
@@ -32,7 +32,7 @@ seoDescription: '了解 AI.TALK 创始人汗青（赵汗青）、其打造的 AI
 
 ### Yuri 是谁？
 
-Yuri（尤栗）是汗青打造的 AI 原生歌手（AI 偶像）。据《易论AI》访谈介绍，其首支 MV《SURREAL》一个月内播放量突破 1200 万；她与 The North Face、vivo 等品牌合作过单曲，并于 2026 年 9 月与外滩大会联合主办了"超现实AI音乐会"。
+Yuri（尤栗）是汗青打造的 AI 原生歌手（AI 偶像）。据《易论AI》访谈介绍，其音乐 MV《SURREAL（超现实）》发布于 2025 年 6 月，一个月内播放量突破 1200 万；她与 The North Face、vivo 等品牌合作过单曲，并于 2026 年 9 月与外滩大会联合主办了"超现实AI音乐会"。
 
 ### 汗青参加过 Next Token 的节目吗？
 

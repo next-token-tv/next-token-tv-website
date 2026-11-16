@@ -14,7 +14,7 @@ Grand Theft Auto VI (GTA VI, commonly GTA 6) is an open-world action-adventure g
 
 ## Series and releases
 
-The game is the eighth main entry in the Grand Theft Auto series, following 2013's Grand Theft Auto V. It was formally revealed in December 2023; the release plan was subsequently revised twice, and the officially announced target date is November 19, 2026.
+The game is the eighth main entry in the Grand Theft Auto series, following 2013's [Grand Theft Auto V](/en/wiki/products/grand-theft-auto-v). It was formally revealed in December 2023; the release plan was subsequently revised twice, and the officially announced target date is November 19, 2026.
 
 ## Usage
 
