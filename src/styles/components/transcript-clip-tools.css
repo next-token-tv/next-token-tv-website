@@ -20,6 +20,12 @@
     box-shadow: 0 .25rem .75rem var(--line);
   }
 
+  @media (max-width: 1000px) {
+    .transcript-page:has(.transcript-sidebar:focus-within) .transcript-clip-launch {
+      visibility: hidden;
+    }
+  }
+
   .transcript-clip-toolbar {
     inset-inline: var(--gutter);
     max-inline-size: 46rem;

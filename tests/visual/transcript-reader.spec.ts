@@ -108,6 +108,7 @@ for (const width of [390, 1440]) {
     await expect(page.locator('[data-reader-tools]')).toBeVisible();
     await expect(page.getByRole('button', { name: '清除', exact: true })).toBeHidden();
     await page.getByRole('searchbox').focus();
+    if (width === 390) await expect(page.locator('[data-clip-launch]')).toBeHidden();
     await expect(page.locator('[data-reader-tools]')).toHaveScreenshot(`reader-search-focus-${width}.png`);
     await expect(page.locator('.transcript-sidebar')).toHaveScreenshot(`reader-sidebar-${width}.png`);
     await expect(page.locator('.transcript-chapter').first()).toHaveScreenshot(`reader-chapter-${width}.png`);
