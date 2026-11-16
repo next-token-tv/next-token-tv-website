@@ -1,0 +1,55 @@
+---
+interface Props {
+  episodeNumber: string;
+  title: string;
+  tracks: {
+    platform: "youtube" | "bilibili";
+    href: string;
+    times: Record<string, [number, number]>;
+  }[];
+}
+const { episodeNumber, title, tracks } = Astro.props;
+---
+
+<div hidden data-clip-tools data-episode-number={episodeNumber} data-episode-title={title}
+  data-clip-tracks={JSON.stringify(tracks.map(({ platform, href, times }) => ({ platform, href, times })))}>
+  <button type="button" class="button primary transcript-clip-launch" data-clip-launch>制作切片</button>
+
+  <section class="transcript-clip-toolbar" aria-label="切片选段" hidden data-clip-toolbar>
+    <div class="transcript-clip-instructions">
+      <strong role="status" data-clip-status></strong>
+      <span data-clip-hint></span>
+    </div>
+    <div class="transcript-clip-actions">
+      <button type="button" class="button" data-clip-exit>退出</button>
+      <button type="button" class="button" hidden data-clip-reset>重选</button>
+      <button type="button" class="button primary" disabled aria-haspopup="dialog" data-clip-preview>预览切片</button>
+    </div>
+  </section>
+
+  <dialog class="transcript-clip-dialog" aria-labelledby="transcript-clip-title" data-clip-dialog>
+    <div class="transcript-clip-dialog-header">
+      <h2 id="transcript-clip-title" class="heading-section-content">切片预览</h2>
+      <span data-clip-preview-summary></span>
+    </div>
+
+    <div class="transcript-clip-dialog-content">
+      <ul class="transcript-clip-video" aria-label="视频定位" data-clip-video></ul>
+      <blockquote class="transcript-clip-quotes" aria-label="选中原文" data-clip-quotes></blockquote>
+      <details class="transcript-clip-prompt" data-clip-prompt-details>
+        <summary>查看完整提示词</summary>
+        <textarea readonly aria-label="切片提示词" rows="8" id="transcript-clip-prompt"></textarea>
+      </details>
+    </div>
+
+    <div class="transcript-clip-dialog-footer">
+      <form method="dialog" class="transcript-clip-actions">
+        <button type="submit" class="button" value="adjust">返回调整</button>
+        <button type="button" class="button primary" autofocus command="--copy"
+          commandfor="transcript-clip-prompt" data-clip-copy>复制切片提示词</button>
+        <button type="submit" class="button transcript-clip-close" value="exit">关闭</button>
+      </form>
+      <p role="status" data-clip-copy-status></p>
+    </div>
+  </dialog>
+</div>

@@ -1,0 +1,219 @@
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+  [data-clip-tools] [hidden] {
+    display: none;
+  }
+
+  .transcript-clip-launch,
+  .transcript-clip-toolbar {
+    position: fixed;
+    inset-block-end: calc(1rem + env(safe-area-inset-bottom, 0px));
+    z-index: 21;
+  }
+
+  body:has(astro-dev-toolbar) :is(.transcript-clip-launch, .transcript-clip-toolbar) {
+    inset-block-end: calc(3.75rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .transcript-clip-launch {
+    inset-inline-end: var(--gutter);
+    box-shadow: 0 .25rem .75rem var(--line);
+  }
+
+  .transcript-clip-toolbar {
+    inset-inline: var(--gutter);
+    max-inline-size: 46rem;
+    margin-inline: auto;
+    padding: .75rem;
+    border: var(--stroke-thin) solid var(--line-control);
+    background: var(--paper);
+    box-shadow: 0 .25rem 1rem var(--line);
+  }
+
+  .transcript-clip-toolbar:not([hidden]) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem 1rem;
+  }
+
+  .transcript-clip-instructions {
+    display: grid;
+    gap: .125rem;
+    font-size: var(--type-ui);
+  }
+
+  .transcript-clip-instructions span,
+  .transcript-clip-dialog-header span {
+    color: var(--muted);
+    font-size: var(--type-meta);
+  }
+
+  .transcript-clip-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
+
+  .transcript-clip-close {
+    margin-inline-start: auto;
+  }
+
+  .transcript-clip-actions .button:disabled {
+    background: var(--surface);
+    border-color: var(--line);
+    color: var(--muted);
+    cursor: not-allowed;
+  }
+
+  [data-clip-selecting] .transcript-quote-paragraph:has([data-clip-pick]) {
+    position: relative;
+    scroll-margin-block: 6.5rem 10rem;
+    cursor: pointer;
+  }
+
+  [data-clip-selecting] .transcript-quote-paragraph[data-clip-selected] {
+    background: var(--signal-soft);
+    box-shadow: -.25rem 0 var(--signal-soft);
+  }
+
+  [data-clip-selecting] .transcript-speaker:has([data-clip-speaker]) {
+    position: relative;
+    min-block-size: var(--control-height);
+    padding-inline-end: 2.25rem;
+  }
+
+  .transcript-clip-pick:not([hidden]) {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .transcript-clip-pick[data-clip-pick] {
+    /* The paragraph handles pointer input so selecting text and links still work. */
+    pointer-events: none;
+  }
+
+  .transcript-clip-pick-hint {
+    opacity: 0;
+    color: var(--muted);
+    font: var(--type-caption) var(--sans);
+    white-space: nowrap;
+  }
+
+  .transcript-clip-pick-hint::after {
+    content: "选取";
+  }
+
+  [data-clip-selecting] .transcript-turn:has(.transcript-clip-pick:focus-visible) .transcript-clip-pick-hint {
+    opacity: 1;
+  }
+
+  @media (hover: hover) {
+    [data-clip-selecting] .transcript-turn:has(.transcript-speaker:hover, .transcript-quote-paragraph:hover) .transcript-clip-pick-hint {
+      opacity: 1;
+    }
+  }
+
+  .transcript-clip-pick:focus-visible {
+    outline: var(--stroke-emphasis) solid var(--signal-text);
+    outline-offset: 1px;
+  }
+
+  [data-clip-selecting] .transcript-quote-paragraph :is(.transcript-playback, .transcript-paragraph-link, .transcript-paragraph-feedback) {
+    display: none;
+  }
+
+  .transcript-clip-dialog[open] {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    inline-size: min(39rem, calc(100% - 2rem));
+    max-block-size: min(42rem, 85dvh);
+    padding: 0;
+    border: var(--stroke-thin) solid var(--ink);
+    background: var(--paper);
+    color: var(--ink);
+    overscroll-behavior: contain;
+  }
+
+  .transcript-clip-dialog::backdrop {
+    background: rgb(from var(--ink) r g b / .55);
+    overflow: hidden;
+    overscroll-behavior: contain;
+  }
+
+  .transcript-clip-dialog-header,
+  .transcript-clip-dialog-content,
+  .transcript-clip-dialog-footer {
+    padding: clamp(.875rem, 3vw, 1.5rem);
+  }
+
+  .transcript-clip-dialog-header h2 {
+    margin: 0;
+  }
+
+  .transcript-clip-dialog-content {
+    overflow: auto;
+    overscroll-behavior: contain;
+    border-block: var(--stroke-thin) solid var(--line);
+  }
+
+  .transcript-clip-video {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .375rem 1.25rem;
+    margin: 0;
+    padding: 0;
+    color: var(--muted);
+    font-size: var(--type-meta);
+    list-style: none;
+  }
+
+  .transcript-clip-video a {
+    color: var(--signal-text);
+    text-decoration: underline;
+    text-underline-offset: .2em;
+  }
+
+  .transcript-clip-quotes {
+    margin: 1rem 0;
+    padding-inline-start: .875rem;
+    border-inline-start: var(--stroke-emphasis) solid var(--signal-text);
+    line-height: 1.75;
+    overflow-wrap: anywhere;
+  }
+
+  .transcript-clip-quotes p + p {
+    margin-block-start: .625rem;
+  }
+
+  .transcript-clip-prompt summary {
+    font-weight: 700;
+    font-size: var(--type-ui);
+    cursor: pointer;
+  }
+
+  .transcript-clip-prompt textarea {
+    inline-size: 100%;
+    margin-block-start: .5rem;
+    padding: .625rem;
+    border: var(--stroke-thin) solid var(--line-control);
+    background: var(--white);
+    color: var(--ink);
+    font: inherit;
+    font-size: var(--type-base);
+    resize: vertical;
+  }
+
+  .transcript-clip-dialog-footer [role="status"]:not(:empty) {
+    margin: .5rem 0 0;
+    font-size: var(--type-meta);
+  }
+}
