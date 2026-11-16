@@ -14,6 +14,8 @@ Next Token Skill is an open-source Agent Skill (Apache-2.0 license) published by
 
 ## How it works and installation
 
+[See an example answer and the installation commands](/en/skill).
+
 Per the repository:
 
 - Form: it is not an [MCP](/en/wiki/terms/mcp) server but a skill made of a SKILL.md instruction file and one Python script, callable by any agent that can run local commands.

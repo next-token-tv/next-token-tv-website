@@ -1,0 +1,178 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getProductProfile } from "../data/catalog";
+import { getSiteContent } from "../data/site";
+import type { Locale } from "../data/types";
+import SkillExamples from "./SkillExamples.astro";
+
+interface Props { locale: Locale }
+
+const { locale } = Astro.props;
+const en = locale === "en";
+const [content, { product }] = await Promise.all([getSiteContent(locale), getProductProfile("next-token-skill")]);
+const repository = product.data.official?.repository;
+if (!repository) throw new Error("Next Token Skill requires an official repository URL.");
+const name = product.data.name[locale];
+const copy = en ? {
+  headline: "Let your AI agent hear every episode of Next Token.",
+  lede: "Ask about AI in your own agent. It can search the show’s transcripts and articles, cite the hosts, and link to the moment they said it.",
+  install: "Install the skill", github: "View on GitHub",
+  prompts: "What you can ask",
+  copyPrompt: "Copy prompt", copyCommands: "Copy commands", copied: "Copied", fallback: "Text selected. Copy it manually.",
+  installHeading: "Install Next Token Skill",
+  requirements: "Requires Git, Python 3, and an agent that can run local commands.",
+  restart: "Run these commands, then reopen Claude Code.",
+  other: "Other agents and the command line",
+  otherInstructions: "Place the cloned next-token folder in your agent’s skills directory. You can also run the command below from the cloned repository.",
+  local: "The skill syncs transcripts and articles on first use and searches them locally. It requires no API key.",
+  searchHeading: "Search the show in your browser",
+  search: "Search Chinese transcripts", searchNote: "Find a passage and jump to the matching moment in the video.",
+  promptExamples: [
+    "Summarize the key AI ideas from the first nine episodes of Next Token. Group them by theme and include sources.",
+    "What did the hosts say about DeepSeek Harness distributions? Summarize their views and include timestamps.",
+    "What have the Next Token hosts learned from using personal agents? Give me concrete examples and timestamps.",
+  ],
+} : {
+  headline: "让你的 AI Agent 听过每一期 Next Token。",
+  lede: "在你常用的 Agent 里问一个 AI 问题。它会查找节目逐字稿和文章，引用主理人的观点，并附上对应的视频时间点。",
+  install: "安装 Skill", github: "查看 GitHub",
+  prompts: "你可以怎么问",
+  copyPrompt: "复制提问", copyCommands: "复制命令", copied: "已复制", fallback: "已选中文本，请手动复制。",
+  installHeading: "安装 Next Token Skill",
+  requirements: "需要 Git、Python 3，以及能执行本地命令的 Agent。",
+  restart: "运行以下命令，然后重新打开 Claude Code。",
+  other: "其他 Agent 与终端用法",
+  otherInstructions: "把仓库里的 next-token 目录放到你的 Agent 的 skills 目录。也可以进入克隆后的仓库，运行下面的命令直接搜索。",
+  local: "首次使用时同步节目逐字稿和文章，随后在本地检索。Skill 无需 API Key。",
+  searchHeading: "在官网查节目逐字稿",
+  search: "搜索节目逐字稿", searchNote: "找到感兴趣的发言，点开时间链接就能跳到视频对应位置。",
+  promptExamples: [
+    "总结 Next Token 前九期值得记住的 AI 观点，按主题归纳，并附上出处。",
+    "帮我总结一下 DeepSeek Harness 发行版的认知",
+    "Next Token 的主理人是怎么用 Personal Agent 的？给我具体例子和视频时间点。",
+  ],
+};
+const commands = [
+  'if [ -e ~/.claude/skills/next-token ] || [ -L ~/.claude/skills/next-token ]; then',
+  "  printf '%s\\n' 'Next Token Skill is already installed at ~/.claude/skills/next-token.'",
+  'else',
+  '  mkdir -p ~/.claude/skills &&',
+  `  git clone ${repository}.git &&`,
+  '  ln -s "$(pwd)/next-token-skill/next-token" ~/.claude/skills/next-token',
+  'fi',
+].join("\n");
+---
+
+<BaseLayout
+  content={content}
+  pageTitle={en ? `${name} | Search and cite the show in your AI agent` : `${name}｜让 AI Agent 检索和引用节目`}
+  description={product.data.summary[locale]}
+  canonicalPath={en ? "/en/skill" : "/skill"}
+  alternatePath={en ? "/skill" : "/en/skill"}
+>
+  <main id="main" class="skill-page shell" data-skill-page data-copied={copy.copied} data-copy-fallback={copy.fallback}>
+    <div class="skill-hero">
+      <header class="skill-intro">
+        <p class="skill-name type-ui"><span class="signal-mark" aria-hidden="true"></span>{name}</p>
+        <h1 class="type-hero">{copy.headline}</h1>
+        <p class="skill-lede type-body">{copy.lede}</p>
+        <div class="skill-actions">
+          <a class="button primary" href="#install">{copy.install} <span aria-hidden="true">↓</span></a>
+          <a class="button" href={repository}>{copy.github} <span aria-hidden="true">↗</span></a>
+        </div>
+      </header>
+
+      <SkillExamples locale={locale} />
+    </div>
+
+    <div class="skill-details">
+      <section aria-labelledby="prompts-title" data-copy-group>
+        <h2 class="heading-section-content" id="prompts-title">{copy.prompts}</h2>
+        <ul class="skill-prompts">
+          {copy.promptExamples.map((prompt, index) => {
+            const id = `skill-prompt-${index + 1}`;
+            return <li>
+              <p id={id}>{prompt}</p>
+              <button class="control-button" type="button" command="--copy" commandfor={id} data-skill-copy aria-describedby={id} hidden>{copy.copyPrompt}</button>
+            </li>;
+          })}
+        </ul>
+        <p class="skill-copy-status type-meta" role="status"></p>
+      </section>
+
+      <section id="install" aria-labelledby="install-title" data-copy-group>
+        <h2 class="heading-section-content" id="install-title">{copy.installHeading}</h2>
+        <p class="skill-note type-ui">{copy.requirements}</p>
+        <div class="skill-terminal">
+          <div class="skill-terminal-bar">
+            <h3 class="type-ui">Claude Code</h3>
+            <button class="control-button" type="button" command="--copy" commandfor="skill-install-commands" data-skill-copy hidden>{copy.copyCommands}</button>
+          </div>
+          <pre><code id="skill-install-commands">{commands}</code></pre>
+        </div>
+        <p class="skill-copy-status type-meta" role="status"></p>
+        <p class="skill-note type-ui">{copy.restart} {copy.local}</p>
+        <details class="skill-other">
+          <summary>{copy.other}</summary>
+          <p class="type-ui">{copy.otherInstructions}</p>
+          <pre><code>python3 next-token/scripts/nexttoken.py search "Personal Agent"</code></pre>
+        </details>
+      </section>
+    </div>
+
+    <section class="skill-search" aria-labelledby="skill-search-title">
+      <div>
+        <h2 class="heading-section-compact" id="skill-search-title">{copy.searchHeading}</h2>
+        <p>{copy.searchNote}</p>
+      </div>
+      <a class="button" href="/search?q=Personal+Agent&amp;type=transcript">{copy.search} <span aria-hidden="true">→</span></a>
+    </section>
+  </main>
+</BaseLayout>
+
+<script>
+  const page = document.querySelector<HTMLElement>("[data-skill-page]")!;
+  const timers = new WeakMap<HTMLElement, ReturnType<typeof setTimeout>>();
+  async function copyText(button: HTMLButtonElement, target: HTMLElement) {
+    const status = button.closest("[data-copy-group]")!.querySelector<HTMLElement>("[role='status']")!;
+    let message = page.dataset.copied!;
+    try {
+      await navigator.clipboard.writeText(target.innerText);
+    } catch {
+      const range = document.createRange();
+      range.selectNodeContents(target);
+      const selection = window.getSelection();
+      selection?.removeAllRanges();
+      selection?.addRange(range);
+      message = page.dataset.copyFallback!;
+    }
+    const previous = status.dataset.lastMessage;
+    status.textContent = previous === message ? `${message}\u00a0` : message;
+    status.dataset.lastMessage = status.textContent;
+    clearTimeout(timers.get(status));
+    timers.set(status, setTimeout(() => { status.textContent = ""; }, 3500));
+  }
+
+  const nativeCommands = "commandForElement" in HTMLButtonElement.prototype;
+  if (nativeCommands) {
+    page.addEventListener("command", event => {
+      const { command, source } = event as Event & { command: string; source: HTMLButtonElement };
+      if (command === "--copy" && source.matches("[data-skill-copy]") && event.target instanceof HTMLElement) {
+        void copyText(source, event.target);
+      }
+    }, true);
+  }
+  for (const button of page.querySelectorAll<HTMLButtonElement>("[data-skill-copy]")) {
+    if (!nativeCommands) {
+      button.addEventListener("click", () => {
+        const target = document.getElementById(button.getAttribute("commandfor")!);
+        if (target) void copyText(button, target);
+      });
+    }
+    button.hidden = false;
+  }
+</script>
+
+<style>
+@import "../styles/components/skill-page.css";
+</style>

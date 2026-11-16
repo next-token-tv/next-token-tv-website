@@ -93,6 +93,7 @@ const latestEpisodePath = `${content.locale === "en" ? "/en" : ""}/weekly/${late
     </div>
 
     <EpisodeCard episodeId={latestEpisode.id} locale={content.locale} />
+    <p class="type-ui"><a class="text-link" href={content.locale === "en" ? "/en/skill" : "/skill"}>{content.locale === "en" ? "Let your agent cite Next Token" : "让你的 Agent 引用 Next Token 节目"} <span aria-hidden="true">→</span></a></p>
     </div>
   </section>
 

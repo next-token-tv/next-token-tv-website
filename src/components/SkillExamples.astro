@@ -1,0 +1,135 @@
+---
+import type { Locale } from "../data/types";
+import { getEntry } from "astro:content";
+
+interface Props { locale: Locale }
+
+const { locale } = Astro.props;
+const copy = (zh: string, en: string) => locale === "en" ? en : zh;
+const [recap, harness] = await Promise.all([
+  getEntry("prose", "skill-examples/recap.zh-Hans"),
+  getEntry("prose", "skill-examples/harness.zh-Hans"),
+]);
+if (!recap?.body || !harness?.body) throw new Error("The original Skill answers are missing.");
+const [harnessQuestion, harnessTitle, ...harnessParagraphs] = harness.body.trim().split(/\r?\n(?:\r?\n)+/u);
+const examples = [
+  {
+    id: "recap",
+    label: copy("前九期 AI 观点", "Episodes 1–9"),
+    heading: "Next Token 前九期 AI 观点",
+    entries: recap.body.trim().split(/\r?\n/u).map(line => line.replace(/^\d+\. /u, "")),
+    ordered: true,
+  },
+  {
+    id: "harness",
+    label: copy("Harness 发行版", "Harness distributions"),
+    heading: harnessQuestion,
+    answerTitle: harnessTitle,
+    entries: harnessParagraphs,
+    ordered: false,
+  },
+];
+---
+
+<section class="skill-example" data-skill-examples aria-labelledby="skill-examples-title">
+  <div class="skill-example-header">
+    <h2 class="type-ui" id="skill-examples-title">{copy("回答原文", "Original answers in Chinese")}</h2>
+    <div class="skill-example-tabs" role="tablist" aria-labelledby="skill-examples-title">
+      {examples.map(({ id, label }, index) => (
+        <button class="type-ui" id={`skill-tab-${id}`} type="button" role="tab"
+          aria-selected={index === 0 ? "true" : "false"} tabindex={index === 0 ? 0 : -1}>
+          {label}
+        </button>
+      ))}
+    </div>
+  </div>
+  <div class="skill-example-panels">
+    {examples.map(({ id, heading, answerTitle, entries, ordered }, index) => (
+      <div class="skill-example-panel" role="tabpanel" aria-labelledby={`skill-tab-${id}`} tabindex={index === 0 ? 0 : -1} hidden={index !== 0}>
+        <div class="skill-answer" lang="zh-Hans">
+          <h3 class="type-entry skill-question">{heading}</h3>
+          {answerTitle && <h4 class="skill-answer-title type-ui">{answerTitle}</h4>}
+          {ordered
+            ? <ol class="skill-answer-list">{entries.map(entry => <li>{entry}</li>)}</ol>
+            : <div class="skill-answer-paragraphs">{entries.map(entry => <p>{entry}</p>)}</div>}
+        </div>
+      </div>
+    ))}
+  </div>
+  <div class="skill-example-more">
+    <button class="control-button" type="button" data-full-answer aria-haspopup="dialog">
+      {copy("查看完整回答", "Read the full answer")} <span aria-hidden="true">↗</span>
+    </button>
+  </div>
+  {examples.map(({ id, heading, answerTitle, entries, ordered }) => (
+    <dialog class="skill-full-answer" id={`skill-full-answer-${id}`} aria-labelledby={`skill-full-answer-title-${id}`}>
+      <header class="skill-full-answer-header">
+        <h2 class="heading-section-content" id={`skill-full-answer-title-${id}`} lang="zh-Hans">{answerTitle ?? heading}</h2>
+        <form method="dialog">
+          <button class="control-button" type="submit" autofocus>{copy("关闭", "Close")}</button>
+        </form>
+      </header>
+      <div class="skill-full-answer-body type-body" tabindex="0" lang="zh-Hans">
+        {ordered
+          ? <ol class="skill-answer-list">{entries.map(entry => <li>{entry}</li>)}</ol>
+          : <div class="skill-answer-paragraphs">{entries.map(entry => <p>{entry}</p>)}</div>}
+      </div>
+    </dialog>
+  ))}
+</section>
+
+<script>
+  const root = document.querySelector<HTMLElement>("[data-skill-examples]")!;
+  const tabs = [...root.querySelectorAll<HTMLButtonElement>("[role='tab']")];
+  const panels = [...root.querySelectorAll<HTMLElement>("[role='tabpanel']")];
+  const dialogs = [...root.querySelectorAll<HTMLDialogElement>("dialog")];
+  const opener = root.querySelector<HTMLButtonElement>("[data-full-answer]")!;
+  let selected = 0;
+
+  function select(index: number) {
+    selected = index;
+    tabs.forEach((tab, position) => {
+      const active = position === index;
+      tab.setAttribute("aria-selected", String(active));
+      tab.tabIndex = active ? 0 : -1;
+      const panel = panels[position]!;
+      panel.hidden = !active;
+      panel.tabIndex = active ? 0 : -1;
+    });
+  }
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => select(index));
+    tab.addEventListener("keydown", event => {
+      const destinations: Partial<Record<string, number>> = {
+        ArrowLeft: (index + tabs.length - 1) % tabs.length,
+        ArrowRight: (index + 1) % tabs.length,
+        Home: 0,
+        End: tabs.length - 1,
+      };
+      const next = destinations[event.key];
+      if (next === undefined) return;
+      event.preventDefault();
+      select(next);
+      tabs[next]!.focus();
+    });
+  });
+
+  opener.addEventListener("click", () => {
+    const dialog = dialogs[selected]!;
+    const body = dialog.querySelector(".skill-full-answer-body")!;
+    dialog.showModal();
+    const scrollListeners = new AbortController();
+    const containScroll = (event: Event) => {
+      if (event.target instanceof Node && !body.contains(event.target)) event.preventDefault();
+    };
+    for (const type of ["wheel", "touchmove"]) {
+      document.addEventListener(type, containScroll, { capture: true, passive: false, signal: scrollListeners.signal });
+    }
+    dialog.addEventListener("close", () => scrollListeners.abort(), { once: true });
+  });
+</script>
+
+<style>
+@import "../styles/components/skill-examples.css";
+</style>

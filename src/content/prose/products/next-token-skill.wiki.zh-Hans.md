@@ -14,6 +14,8 @@ Next Token Skill 是《Next Token｜词元之外》节目官方提供的开源 A
 
 ## 工作方式与安装
 
+[查看 Next Token Skill 的回答示例和安装命令](/skill)。
+
 按仓库说明：
 
 - 形态：不是 [MCP](/wiki/terms/mcp) 服务，而是一个由 SKILL.md 指令文件和一个 Python 脚本组成的 Skill，任何能执行本地命令的 Agent 都可以调用。

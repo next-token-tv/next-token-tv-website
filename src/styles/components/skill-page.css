@@ -1,0 +1,75 @@
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+  .skill-page { padding-block: var(--section-space); }
+
+  .skill-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-8);
+  }
+
+  .skill-intro { align-self: center; }
+  .skill-name { display: flex; align-items: center; gap: var(--space-2); margin: 0 0 var(--space-4); font-weight: 650; }
+  .skill-intro h1 { margin: 0; text-wrap: balance; }
+  .skill-lede { max-width: 36rem; margin: var(--space-4) 0 var(--space-6); color: var(--muted); text-wrap: pretty; }
+  .skill-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+
+  .skill-details {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-8);
+    margin-block-start: var(--section-space);
+    padding-block-start: var(--space-8);
+    border-block-start: var(--stroke-thin) solid var(--line-strong);
+  }
+
+  .skill-details h2 { margin-block-end: var(--space-4); }
+  .skill-prompts { padding: 0; margin: 0; list-style: none; }
+  .skill-prompts li { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding-block: var(--space-3); border-block-end: var(--stroke-thin) solid var(--line); }
+  .skill-prompts li:first-child { border-block-start: var(--stroke-thin) solid var(--line); }
+  .skill-prompts p { margin: 0; }
+  .skill-prompts button { flex-shrink: 0; }
+  .skill-page button[hidden] { display: none; }
+  .skill-copy-status { min-block-size: 1.3rem; margin: var(--space-1) 0 0; color: var(--muted); }
+
+  #install { scroll-margin-block-start: 6rem; }
+  .skill-note { margin: 0 0 var(--space-3); color: var(--muted); }
+  .skill-terminal { min-width: 0; background: var(--ink); color: var(--white); }
+  .skill-terminal-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2); padding: var(--space-2) var(--space-4); border-block-end: var(--stroke-thin) solid var(--inverse-line); }
+  .skill-terminal-bar h3 { margin: 0; }
+  .skill-terminal-bar button:focus-visible { outline-color: var(--inverse-accent); }
+  .skill-terminal pre, .skill-other pre {
+    margin: 0;
+    padding: var(--space-4);
+    font-family: var(--mono);
+    font-size: var(--type-meta);
+    line-height: 1.7;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  .skill-terminal code, .skill-other code { font: inherit; }
+  .skill-other { border-block-start: var(--stroke-thin) solid var(--line); }
+  .skill-other summary { cursor: pointer; padding-block: var(--space-3); font-weight: 600; }
+  .skill-other p { margin-block-start: 0; }
+  .skill-other pre { background: var(--surface); }
+
+  .skill-search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-block-start: var(--section-space);
+    padding: var(--space-6);
+    border-block-start: var(--stroke-thin) solid var(--line-strong);
+    background: var(--sky-soft);
+  }
+
+  .skill-search h2 { margin: 0 0 var(--space-2); }
+  .skill-search p { margin: 0; }
+
+  @media (min-width: 60rem) {
+    .skill-hero { grid-template-columns: minmax(0, .96fr) minmax(0, 1.04fr); gap: var(--section-space); }
+    .skill-details { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--section-space); }
+  }
+}

@@ -16,6 +16,7 @@ const en=locale==='en';
   <ol class="search-results"></ol>
   <button class="search-more control-button" type="button" hidden>{en ? 'Show more' : '显示更多'}</button>
   <noscript><p>{en ? 'Search requires JavaScript. Browse the' : '搜索需要启用 JavaScript，也可以浏览'} <a href={en ? '/en/sitemap' : '/sitemap'}>{en ? 'sitemap' : '网站地图'}</a>。</p></noscript>
+  <p class="type-ui"><a class="text-link" href={en ? '/en/skill' : '/skill'}>{en ? 'Search the show from your agent with Next Token Skill' : '用 Next Token Skill 在 Agent 里检索节目'} <span aria-hidden="true">→</span></a></p>
 </main>
 <script>
   import { searchDocuments, searchSnippet, type SearchDocument } from '../data/search-engine';

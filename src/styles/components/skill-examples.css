@@ -1,0 +1,108 @@
+@layer reset, tokens, base, layouts, components, utilities, overrides;
+@layer components {
+  .skill-example {
+    min-width: 0;
+    --example-inset: clamp(1rem, 3vw, 1.5rem);
+
+    border: var(--stroke-thin) solid var(--line);
+    border-block-start: .25rem solid var(--signal);
+    background: var(--white);
+  }
+
+  .skill-example-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-1) var(--space-2);
+    padding: var(--space-2) var(--example-inset);
+    border-block-end: var(--stroke-thin) solid var(--line);
+  }
+
+  .skill-example-header h2 { margin: 0; color: var(--signal-text); line-height: var(--section-heading-leading); }
+  .skill-example-tabs { display: flex; max-inline-size: 100%; overflow-x: auto; }
+  .skill-example-tabs button {
+    position: relative;
+    flex: none;
+    min-block-size: var(--control-height);
+    padding: 0 var(--space-1);
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .skill-example-tabs button:hover { color: var(--ink); }
+  .skill-example-tabs button:focus-visible { outline: var(--stroke-emphasis) solid var(--signal-text); outline-offset: -2px; }
+  .skill-example-tabs button[aria-selected="true"] { color: var(--signal-text); }
+  .skill-example-tabs button[aria-selected="true"]::after {
+    content: "";
+    position: absolute;
+    inset: auto var(--space-1) 0;
+    border-block-end: var(--stroke-emphasis) solid currentcolor;
+  }
+
+  @media (max-width: 28rem) {
+    .skill-example-header { display: grid; grid-template-columns: minmax(0, 1fr); }
+    .skill-example-tabs button { padding-inline: .125rem; }
+    .skill-example-tabs button[aria-selected="true"]::after { inset-inline: .125rem; }
+  }
+
+  .skill-example-panels { block-size: clamp(16rem, 36svh, 21rem); }
+  .skill-example-panel { block-size: 100%; }
+  .skill-example-panel:focus-visible { outline: var(--stroke-emphasis) solid var(--signal-text); outline-offset: -2px; }
+  .skill-answer, .skill-example-more { padding-inline: var(--example-inset); }
+  .skill-answer {
+    box-sizing: border-box;
+    block-size: 100%;
+    padding-block-start: var(--space-4);
+    overflow: hidden;
+    overflow: clip;
+    mask-image: linear-gradient(var(--ink) calc(100% - 1.25rem), transparent);
+  }
+  .skill-question { margin: 0 0 var(--space-3); text-wrap: balance; }
+  .skill-answer-title { margin: 0 0 var(--space-2); }
+  .skill-answer-list { margin: 0; padding-inline-start: 1.625rem; }
+  .skill-answer-list li, .skill-answer-paragraphs p { margin: 0; text-wrap: pretty; }
+  .skill-answer-list li + li, .skill-answer-paragraphs p + p { margin-block-start: var(--space-3); }
+  .skill-answer-list li::marker { color: var(--muted); font-variant-numeric: tabular-nums; }
+  .skill-example-more { padding-block: var(--space-4); }
+
+  .skill-full-answer {
+    box-sizing: border-box;
+    inline-size: min(86rem, calc(100% - 2 * clamp(.75rem, 3vw, 3rem)));
+    max-inline-size: none;
+    max-block-size: 88dvh;
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+    border: var(--stroke-thin) solid var(--line-strong);
+    border-block-start: .25rem solid var(--signal);
+    background: var(--white);
+    color: var(--ink);
+  }
+  .skill-full-answer[open] { display: grid; grid-template-rows: auto minmax(0, 1fr); }
+  .skill-full-answer:modal { overscroll-behavior: contain; }
+  .skill-full-answer::backdrop { overflow: hidden; overscroll-behavior: contain; background: var(--image-scrim); }
+
+  .skill-full-answer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding: var(--space-3) clamp(1rem, 3vw, 2.5rem);
+    border-block-end: var(--stroke-thin) solid var(--line);
+    background: var(--paper);
+  }
+  .skill-full-answer-header h2 { margin: 0; }
+  .skill-full-answer-header form { flex-shrink: 0; margin: 0; }
+  .skill-full-answer-body {
+    min-block-size: 0;
+    padding: var(--space-6) clamp(1rem, 3vw, 2.5rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+  }
+  .skill-full-answer-body:focus-visible { outline: var(--stroke-emphasis) solid var(--signal-text); outline-offset: -2px; }
+}
