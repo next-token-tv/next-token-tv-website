@@ -10,11 +10,11 @@ export const GET: APIRoute = async ({ props, site }) => {
   const englishTranscripts = new Set((await getTranscriptEpisodes("en")).map(entry => entry.data.number));
   const body = (article.body ?? "").replace(/\]\(\/(.*?)\)/g, (_: string, path: string) => `](${new URL(`/${path}`, site).href})`);
   return new Response([
-    `# ${article.data.title}`, "", `Next Token Blog${article.data.status === "draft" ? " · Under review" : ""}`, "",
+    `# ${article.data.title}`, "", `Next Token Blog${article.data.status === "draft" ? (article.data.approvedAt ? " · Approved · Not yet published" : " · Under review") : ""}`, "",
     article.data.description, "",
     ...(article.data.publishedAt && article.data.publishedAt !== article.data.updatedAt
       ? [`Published: ${article.data.publishedAt}`, `Updated: ${article.data.updatedAt}`]
-      : [`Published: ${article.data.publishedAt ?? article.data.updatedAt}`]),
+      : [article.data.publishedAt ? `Published: ${article.data.publishedAt}` : `Updated: ${article.data.updatedAt}`]),
     "", body.trim(), "", "## Sources and related links", "",
     `- [Web version article](${new URL(`/en/blog/${article.id}`, site).href})`,
     ...episodes.map(({ data: { number } }) => {

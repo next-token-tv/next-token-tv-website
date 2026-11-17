@@ -38,8 +38,8 @@ const schema = {
         <a href="/blog">所有博客文章</a>
         {episodes.map(entry => <a href={`/blog/episodes/${entry.data.number}`}>第 {entry.data.number} 期相关博客</a>)}
       </nav>}</Fragment>
-    <Fragment slot="kicker">{number ? `${copy("博客 / WEEKLY #", "Blog / WEEKLY #")}${number}` : copy("NEXT TOKEN / 博客", "NEXT TOKEN / BLOG")}{draft && copy(" · 审阅稿", " · Under review")}</Fragment>
-    <Fragment slot="meta"><a href={authorPath} rel="author">{copy("Next Token 编辑整理", "Next Token Editorial")}</a><time datetime={article.data.publishedAt ?? article.data.updatedAt}>{article.data.publishedAt ?? article.data.updatedAt}</time>{draft && <span>{copy("待审核 · 尚未发布", "Under review · Not yet published")}</span>}</Fragment>
+    <Fragment slot="kicker">{number ? `${copy("博客 / WEEKLY #", "Blog / WEEKLY #")}${number}` : copy("NEXT TOKEN / 博客", "NEXT TOKEN / BLOG")}{draft && (article.data.approvedAt ? copy(" · 已审核", " · Approved") : copy(" · 审阅稿", " · Under review"))}</Fragment>
+    <Fragment slot="meta"><a href={authorPath} rel="author">{copy("Next Token 编辑整理", "Next Token Editorial")}</a><time datetime={article.data.publishedAt ?? article.data.updatedAt}>{article.data.publishedAt ?? article.data.updatedAt}</time>{draft && <span>{article.data.approvedAt ? copy("已审核 · 尚未发布", "Approved · Not yet published") : copy("待审核 · 尚未发布", "Under review · Not yet published")}</span>}</Fragment>
     <Fragment slot="source">{episodes.length ? copy(
       `整理自 ${episodes.map(entry => `Weekly #${entry.data.number}（${entry.data.recordedAt}）`).join("、")}。文中体验与判断对应录制时的讨论。`,
       `Compiled from ${episodes.map(entry => `Weekly #${entry.data.number} (recorded ${entry.data.recordedAt})`).join(", ")}. Experiences and judgments reflect the discussion at recording time.`

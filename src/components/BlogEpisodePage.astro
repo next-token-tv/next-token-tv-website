@@ -25,7 +25,7 @@ const hasTranscript = (await getPublishedTranscriptEpisodes(locale)).some(entry 
     </header>
     <section aria-label={copy("本期相关博客", "Related articles")} class="posts">
       {posts.length ? posts.map(post => <article>
-        <div class="meta"><time datetime={post.data.publishedAt ?? post.data.updatedAt}>{post.data.publishedAt ?? post.data.updatedAt}</time>{post.data.status === "draft" && <span>{copy("审阅稿", "Under review")}</span>}</div>
+        <div class="meta"><time datetime={post.data.publishedAt ?? post.data.updatedAt}>{post.data.publishedAt ?? post.data.updatedAt}</time>{post.data.status === "draft" && <span>{post.data.approvedAt ? copy("已审核 · 尚未发布", "Approved · Not yet published") : copy("审阅稿", "Under review")}</span>}</div>
         <div><h2><a href={`${prefix}/blog/${post.id}`}>{post.data.title}</a></h2><p>{post.data.description}</p></div>
       </article>) : <p>{copy("本期相关博客正在准备中。", "Related articles for this episode are in preparation.")}</p>}
     </section>

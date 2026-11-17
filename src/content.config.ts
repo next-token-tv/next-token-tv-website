@@ -457,6 +457,7 @@ const episodeArticles = defineCollection({
 });
 
 const blogFields = {
+  approvedAt: z.iso.date().optional(),
   episodes: z.array(z.string()).refine(ids => new Set(ids).size === ids.length, "Duplicate source episodes"),
   title: z.string().min(1),
   description: z.string().min(1),
