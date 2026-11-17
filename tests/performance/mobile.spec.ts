@@ -1,12 +1,15 @@
 import { expect, test } from '@playwright/test';
+import { readFileSync } from 'node:fs';
 import { writeFile } from 'node:fs/promises';
+import { measureTranscriptInteractions } from './transcript-interactions';
 
 // Local regression budgets, not Lighthouse scores or field Core Web Vitals.
-const routes = ['/', '/weekly/002', '/weekly/002/transcript', '/weekly/003', '/weekly/003/transcript', '/weekly/004', '/weekly/004/transcript', '/wiki/brands'];
+const routes: string[] = JSON.parse(readFileSync(new URL('./routes.json', import.meta.url), 'utf8'));
 const median = (values: number[]) => [...values].sort((a, b) => a - b)[Math.floor(values.length / 2)];
 
 for (const path of routes) test(`mobile cold-load budget: ${path}`, async ({ browser, baseURL }, testInfo) => {
   const samples: { lcp: number; cls: number; largestImageBytes: number }[] = [];
+  const interactions: Awaited<ReturnType<typeof measureTranscriptInteractions>>[] = [];
   for (let run = 0; run < 3; run++) {
     const context = await browser.newContext({
       baseURL, viewport: { width: 390, height: 844 }, deviceScaleFactor: 2,
@@ -56,12 +59,17 @@ for (const path of routes) test(`mobile cold-load budget: ${path}`, async ({ bro
       expect(sample.lcp, 'LCP must be observed, not silently reported as zero').toBeGreaterThan(0);
       expect(sample.largestImageBytes, 'image byte measurements must be available').toBeGreaterThan(0);
       samples.push(sample);
+      if (path === '/weekly/009/transcript') interactions.push(await measureTranscriptInteractions(page, path));
     } finally { await context.close(); }
   }
   const reportPath = testInfo.outputPath('mobile-performance.json');
-  await writeFile(reportPath, JSON.stringify({ path, samples }, null, 2));
+  await writeFile(reportPath, JSON.stringify({ path, samples, ...(interactions.length ? { interactions } : {}) }, null, 2));
   await testInfo.attach('mobile-performance.json', { path: reportPath, contentType: 'application/json' });
   console.log(path, { medianLcp: median(samples.map(s => s.lcp)), maxCls: Math.max(...samples.map(s => s.cls)) });
+  if (interactions.length) console.log(path, {
+    medianFirstSearchResultMs: median(interactions.map(s => s.firstSearchResultMs)),
+    medianDeepLinkVisibleMs: median(interactions.map(s => s.deepLinkVisibleMs)),
+  });
   expect(median(samples.map(s => s.lcp)), 'median local mobile LCP').toBeLessThanOrEqual(2500);
   expect(Math.max(...samples.map(s => s.cls)), 'initial-load CLS').toBeLessThanOrEqual(0.1);
   expect(Math.max(...samples.map(s => s.largestImageBytes)), 'largest initially loaded image').toBeLessThanOrEqual(200 * 1024);

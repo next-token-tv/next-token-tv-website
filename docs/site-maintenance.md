@@ -24,7 +24,9 @@ Successful publishing automatically removes obsolete local release bundles. It r
 
 ## Independent mobile performance
 
-`npm run performance:audit` audits the current deployed bundle recorded in `.releases/history.jsonl`, including a recorded rollback. `npm run performance:audit -- <verified-bundle>` selects another verified bundle. The audit runs all eight routes with three cold-load samples per route against a local server for the immutable release artifact, without rebuilding or deploying. These are local regression budgets, not live user measurements or a production-network test. A failed or incomplete audit exits unsuccessfully but does not retract or block a release.
+`npm run performance:audit` audits the current deployed bundle recorded in `.releases/history.jsonl`, including a recorded rollback. `npm run performance:audit -- <verified-bundle>` selects another verified bundle. The audit runs the bundle's mobile routes with three cold-load samples per route against a local server for the immutable release artifact, without rebuilding or deploying. These are local regression budgets, not live user measurements or a production-network test. A failed or incomplete audit exits unsuccessfully but does not retract or block a release.
+
+The #009 transcript audit records the first search result's rendering opportunity and the first viewport appearance of a cold deep-linked paragraph under the same mobile throttling. These are scenario timings, not field INP. Reports include three samples for each interaction without latency pass thresholds.
 
 `.releases/performance-history.jsonl` records `running`, `passed`, `failed` or `error`, exact commit and artifact digest, timestamps and report location. A release with no matching audit is `not-run`; a pass on an older commit or different artifact is never inherited. A terminated process remains `running` until another audit is performed and is never reported as passed. Reports and samples remain under `.releases/performance/<audit-id>/`. Publishing records the matching performance state at that time; subsequent audits are reflected by the report without rewriting release history.
 

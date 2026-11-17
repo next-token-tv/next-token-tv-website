@@ -45,7 +45,7 @@ if(process.env.PLAYWRIGHT_SKIP_BUILD!=='1'||process.env.PLAYWRIGHT_USE_EXISTING_
 if(process.argv.slice(2).join(' ') .includes('--grep'))process.exit(5);
 const mode=process.env.AUDIT_FIXTURE_CASE;
 if(mode==='error')process.exit(2);
-fs.writeFileSync(process.env.PLAYWRIGHT_JSON_OUTPUT_FILE,JSON.stringify({stats:{expected:mode==='empty'?0:8,unexpected:mode==='failed'?1:0,skipped:0},errors:[]}));
+fs.writeFileSync(process.env.PLAYWRIGHT_JSON_OUTPUT_FILE,JSON.stringify({stats:{expected:mode==='empty'?0:mode==='expanded'?9:8,unexpected:mode==='failed'?1:0,skipped:0},errors:[]}));
 process.exit(mode==='failed'?1:0);
 `,{mode:0o755});
  const invoke=(mode,command='audit')=>spawnSync(process.execPath,[join(root,'scripts/performance.mjs'),command],{encoding:'utf8',env:{...process.env,PATH:join(root,'bin')+':'+process.env.PATH,AUDIT_FIXTURE_CASE:mode,PLAYWRIGHT_USE_EXISTING_SERVER:'1'}});
@@ -58,6 +58,10 @@ process.exit(mode==='failed'?1:0);
  assert.equal(invoke('','report').status,0);
  const report=JSON.parse(await readFile(join(root,'reports/maintenance/performance.json'),'utf8'));
  assert.equal(report.current.status,'error');assert.equal(report.lastPassed.status,'passed');
+ await mkdir(join(bundle,'tests/performance'),{recursive:true});
+ await cp(join(project,'tests/performance/routes.json'),join(bundle,'tests/performance/routes.json'));
+ assert.equal(invoke('passed').status,1);
+ assert.equal(invoke('expanded').status,0);
  // Changing the artifact must reject a later audit before it can record a pass.
  await writeFile(join(bundle,'dist/index.html'),'changed');
  assert.match(invoke('passed').stderr,/not a verified/);

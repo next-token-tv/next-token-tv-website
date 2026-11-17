@@ -32,8 +32,12 @@ if(command==='report') {
     if(result.error)throw result.error;
     const report=JSON.parse(await readFile(resolve(out,'results.json'),'utf8'));
     if(await artifactDigest(bundle)!==manifest.digest)throw new Error('Release artifact changed during performance audit');
-    const expected=8; // Full route suite, three cold-load samples per route.
-    status=result.status===0 && report.stats.expected===expected && report.stats.unexpected===0 && report.stats.skipped===0 && !report.errors?.length?'passed':'failed';
+    const expected=await readFile(resolve(bundle,'tests/performance/routes.json'),'utf8')
+      .then(text=>JSON.parse(text).length, error=>{
+        if(error.code==='ENOENT')return 8; // Verified bundles created before the route manifest.
+        throw error;
+      });
+    status=expected>0 && result.status===0 && report.stats.expected===expected && report.stats.unexpected===0 && report.stats.skipped===0 && !report.errors?.length?'passed':'failed';
   }catch(error){errorMessage=error.message;}
   const completed={...event,status,completedAt:new Date().toISOString(),...(errorMessage?{error:errorMessage}:{})};
   await appendFile(historyPath,JSON.stringify(completed)+'\n');
