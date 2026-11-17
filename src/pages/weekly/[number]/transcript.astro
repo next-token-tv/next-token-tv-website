@@ -33,7 +33,7 @@ const heading = episode.data.status === "published" ? episode.data.homepage["zh-
 const titleLines = displayTitle === `#${episode.data.number} ${heading.join("")}`
   ? [`#${episode.data.number} ${heading[0]}`, heading[1]] : undefined;
 const pageTitle = seo?.title ?? `阅读文字稿｜${displayTitle} - Next Token｜词元之外`;
-const description = seo?.description ?? `${transcript.data.byline} 共 ${transcript.data.chapterCount} 个章节，保留完整对谈顺序与人物标注。`;
+const description = seo?.description ?? `${displayTitle}：阅读完整对谈文字稿，共 ${transcript.data.chapterCount} 个章节，保留人物标注与原文顺序。`;
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Article",

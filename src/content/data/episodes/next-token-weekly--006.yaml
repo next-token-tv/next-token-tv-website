@@ -2,6 +2,13 @@ schemaVersion: 2
 number: '006'
 show: next-token-weekly
 wechatPodcastPublished: true
+transcriptSeo:
+  zh-Hans:
+    title: AI 逆向、Grok Bot 与 Muse 多 Agent 实践｜第六期文字稿 - Next Token
+    description: 阅读 Next Token 第六期完整文字稿：AI 逆向编写鼠标驱动、Grok Bot 视频制作、Muse 与多 Agent 协作，以及 Skills、记忆和原创内容的价值。按 28 个章节浏览对谈与人物发言。
+  en:
+    title: AI reverse engineering, Grok Bot and Muse | Episode 006 transcript - Next Token
+    description: Read the full Next Token episode 006 transcript on AI reverse engineering, Grok Bot video production, Muse, multi-agent collaboration, skills, memory and original creative work.
 status: published
 title:
   zh-Hans: '#006 AI 逆向挡不住，Grok Bot、Muse 用上头：干活还是过家家？'

@@ -34,7 +34,7 @@ const heading = episode.data.status === "published" ? episode.data.homepage["en"
 const titleLines = displayTitle === `#${episode.data.number} ${heading.join(" ")}`
   ? [`#${episode.data.number} ${heading[0]}`, heading[1]] : undefined;
 const pageTitle = seo?.title ?? `Episode transcript | ${displayTitle} - Next Token`;
-const description = seo?.description ?? `${transcript.data.byline} ${transcript.data.chapterCount} chapters in total, preserving the full conversation order and speaker labels.`;
+const description = seo?.description ?? `${displayTitle}: read the full conversation transcript in ${transcript.data.chapterCount} chapters, with speaker labels and the original discussion order.`;
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Article",
