@@ -1,0 +1,1 @@
+{"model": "gpt-6-luna", "provider": "codex", "backend": "openai", "reasoning_effort": "medium", "task": "review", "prompt": "只核对下列候选文章是否把素材中的事实、人物、数字、否定或设想写错。正文的假设与编辑建议允许不同于原文，不视作遗漏。只报告确定的问题。", "items": [{"id": "bounded", "source": "学校通知取消体测；提醒来自 Dots。", "candidate": "Dots 提醒了学校体测取消。"}]}

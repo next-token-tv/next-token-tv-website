@@ -1,0 +1,22 @@
+{
+  "reviewed_unit_ids": [
+    "personal-sites-as-source-of-record",
+    "personal-agent-portable-context"
+  ],
+  "findings": [
+    {
+      "category": "other",
+      "severity": "warning",
+      "unit_id": "personal-agent-portable-context",
+      "message": "中文稿称节目提到按需临时生成看板，但所附摘录中没有这一内容。请确认该说法有其他节目依据，或将其改写为文章自己的建议；英文稿忠实保留了这项归属。",
+      "requires_listening": false
+    },
+    {
+      "category": "meaning_change",
+      "severity": "warning",
+      "unit_id": "personal-agent-portable-context",
+      "message": "中文的“持续保留的会话”在英文中译为“persistent conversations”。原文语境指持续存在的 session，建议译为“persistent sessions”，以免与一般对话混淆。",
+      "requires_listening": false
+    }
+  ]
+}

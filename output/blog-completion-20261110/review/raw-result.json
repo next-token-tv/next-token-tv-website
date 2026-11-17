@@ -1,0 +1,37 @@
+{
+  "reviewed_unit_ids": [
+    "old-tv-as-agent-terminal.md",
+    "smart-home-beyond-pairing.md",
+    "fast-models-and-useful-results.md",
+    "family-notices-that-change-plans.md",
+    "podcast-archive-as-research-library.md",
+    "ai-learning-beyond-skill-lists.md",
+    "steering-running-agent.md",
+    "passkeys-and-device-recovery.md",
+    "learning-architecture-with-ai.md",
+    "realtime-vision-beyond-a-box.md",
+    "agent-video-delivery-checks.md",
+    "slack-ideas-back-to-context.md",
+    "project-index-for-agent-reuse.md",
+    "agent-traffic-beyond-pageviews.md",
+    "directing-synthetic-character-voices.md",
+    "ai-games-production-and-running-costs.md",
+    "search-api-as-agent-evidence.md"
+  ],
+  "findings": [
+    {
+      "category": "number",
+      "severity": "error",
+      "unit_id": "agent-video-delivery-checks.md",
+      "message": "文中称《AI 炼金术》第三期出现音轨时间混乱；所附出处只说“我上 AI 炼金术那期”，没有给出期数。",
+      "requires_listening": false
+    },
+    {
+      "category": "proper_name",
+      "severity": "warning",
+      "unit_id": "agent-traffic-beyond-pageviews.md",
+      "message": "正文将出处中的“金刚”具体写为“姚金刚”，所附材料未提供其全名，无法据此确认。",
+      "requires_listening": false
+    }
+  ]
+}

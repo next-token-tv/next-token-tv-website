@@ -1,0 +1,35 @@
+{
+  "reviewed_unit_ids": [
+    "fast-models-and-useful-results.md",
+    "podcast-archive-as-research-library.md",
+    "directing-synthetic-character-voices.md",
+    "ai-content-quality-and-difference.md",
+    "old-tv-as-agent-terminal.md",
+    "smart-home-beyond-pairing.md",
+    "ai-games-production-and-running-costs.md",
+    "family-notices-that-change-plans.md",
+    "steering-running-agent.md",
+    "personal-agent-organizing-books.md",
+    "slack-ideas-back-to-context.md",
+    "what-remains-in-agent-skills.md",
+    "learning-architecture-with-ai.md",
+    "open-source-author-recognition.md",
+    "consumer-agents-merchant-workflows.md",
+    "multi-agent-meeting-overhead.md",
+    "passkeys-and-device-recovery.md",
+    "agent-traffic-beyond-pageviews.md",
+    "realtime-vision-beyond-a-box.md",
+    "agent-video-delivery-checks.md",
+    "project-index-for-agent-reuse.md",
+    "ai-learning-beyond-skill-lists.md"
+  ],
+  "findings": [
+    {
+      "category": "meaning_change",
+      "severity": "warning",
+      "unit_id": "passkeys-and-device-recovery.md",
+      "message": "Source distinguishes recovery routes, including the authentication conditions for Apple’s “managed recovery.” Candidate calls these “the authentication requirements for managed recovery,” but the Chinese phrase “通过托管恢复时所需的认证条件” is specifically about authentication required when using managed recovery; “managed recovery” reads as a named recovery mechanism and may blur that distinction. Consider “the authentication conditions required for recovery through Apple’s managed process.”",
+      "requires_listening": false
+    }
+  ]
+}
