@@ -1,0 +1,52 @@
+episodeId: next-token-weekly--010
+status: local-review
+sourceRepository: next-token
+sources:
+  - shows/weekly/episodes/010/episode.json
+  - shows/weekly/episodes/010/credits.json
+  - shows/weekly/episodes/010/04-release/copy/show-notes.zh-Hans.md
+cover:
+  path: shows/weekly/episodes/010/03-post-production/artwork/drafts/platform-review-v2/cover-square.jpg
+  sha256: adc9d99c5704e9eb67e96b3c884e7c9e49dabef84ae71e5c0591e3e4b1cc0500
+  status: review-not-approved
+chapters:
+  path: shows/weekly/episodes/010/04-release/copy/chapters.json
+  timeline: program
+  english:
+    sections:
+      - Jensen Huang and the future of AI computing
+      - 'Fable: making things, judging them, and finding value'
+      - Language as world and working with models
+      - Personal agents, trust, and product design
+      - Image creation, recent purchases, and searching the show
+    chapters:
+      - Opening at Genesis Academy and updates from the show
+      - Jensen Huang’s resignation and memories of NVIDIA
+      - What could an executive transition mean for AI compute and gaming GPUs?
+      - Fable 5.2 builds scenes and shots, while combat feel takes iteration
+      - Packing 3D models, animation, and music into one HTML game
+      - From over 100 MB to 8 MB, a browser game reaches mobile players
+      - How Fable raises the bar for painting, games, and visual design
+      - Interactive ink painting and the difference between making and copying
+      - What still makes a designer valuable?
+      - Dinosaurs, fluids, and ancient Babylon as reusable virtual worlds
+      - From building a dream project to finding real demand
+      - Audience trust, distribution, and what survives imitation
+      - Iteration and open-source communities beyond the code
+      - From games to robotics, what does “language is the world” mean?
+      - Capability curves, AGI forecasts, and real-world data
+      - Giving models ownership of projects and revisiting old skills
+      - How Carbon writes, designs, and codes
+      - Harnesses, product experience, and cloud access
+      - Chinese models and office tools designed around agents
+      - How personal agents earn trust through travel planning with Instinct
+      - Where agents can go on the open web and inside closed platforms
+      - Multiple agents coordinate a trip and build a shared map
+      - Account access, sensitive information, and misplaced trust
+      - Commercial entry points, super apps, and product inertia
+      - The Mythical Man-Month in the AI era and the cost of extra features
+      - Multiple models in Doubao and balancing consistency with creativity in Seedream 5.5
+      - Jimeng’s canvas, agents, and a CLI for creators
+      - 'Recent picks: blackout film, down jackets, and GTA VI'
+      - Searching past transcripts and jumping to Bilibili or YouTube
+      - Citing the show with Next Token Skill and Grok Bot

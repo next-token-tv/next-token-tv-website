@@ -4,6 +4,7 @@ import {mapConcurrent} from './lib/concurrent-map.mjs';
 import {availableParallelism} from 'node:os';
 import {rendererFingerprint,renderOgCard} from './lib/og-renderer.mjs';
 import { announcementCopy } from '../src/data/announcement-copy.mjs';
+import { hasEpisodeRoute } from '../src/data/episode-visibility.ts';
 import { readFile, readdir, mkdir, writeFile } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -33,6 +34,7 @@ for (const locale of ['zh-Hans', 'en']) {
     for (const entity of entities) cards.push({ route: `${prefix}/wiki/${directory}/${entity.id}`, locale, label, collection: directory, title: entity.name[locale], subtitle: (entity.socialSummary ?? entity.summary)[locale] });
   }
   for (const e of episodes) {
+    if (!hasEpisodeRoute(e)) continue;
     cards.push({ route: `${prefix}/weekly/${e.number}`, locale, label: `WEEKLY #${e.number} · ${e.status === 'published' ? (e.media.audio && !e.media.video ? (en ? 'AUDIO OUT NOW' : '音频已上线') : !e.media.audio && !e.media.video ? (en ? 'TRANSCRIPT OUT NOW' : '文字稿已上线') : (en ? 'EPISODE' : '本期节目')) : announcementCopy(e, locale).label}`, title: e.status === 'published' ? e.homepage[locale].heading.join(en ? ' ' : '') : e.preview.heading[locale].join(en ? ' ' : ''), subtitle: en ? 'Next Token｜词元之外' : 'Next Token Weekly · 词元之外' });
   }
 }
