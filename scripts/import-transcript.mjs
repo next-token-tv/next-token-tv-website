@@ -59,6 +59,18 @@ if (reviewPreview && manifest.status === "complete-reading-draft") {
   };
   if (!sourceRelative.startsWith("shows/")) throw new Error("Reading source must belong to a show");
 }
+if (reviewPreview && manifest.status === "ready-for-publication") {
+  const episodeRoot = resolve(dirname(sourcePath), "../../..");
+  const report = JSON.parse(await readFile(resolve(episodeRoot, manifest.qa), "utf8"));
+  evidence = {
+    status: report.status,
+    readingSha256: report.outputs?.[manifest.output],
+    srtSha256: sha256(await readFile(resolve(episodeRoot, manifest.srt))),
+    verified: report.finalized === true
+      && report.pending_speaker_segments === 0
+      && report.website_visible_text_preserved === true,
+  };
+}
 validateTranscriptManifest(manifest, sourceSha256, reviewPreview, evidence);
 
 async function inspectSourceProvenance(path) {

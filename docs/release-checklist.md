@@ -26,6 +26,8 @@ Retired entity URLs with a known successor have explicit 301 rules before generi
 The built-site audit requires:
 
 - Published episode and transcript snapshots come from committed production sources. Importers reject dirty or untracked release inputs and do not serialize raw working-tree status into website data.
+- Publishing or updating a Weekly transcript requires approved, committed transcript snapshots in both Chinese and English. The release audit checks each language's HTML page and Markdown output and reports the episode number and language for each missing item. Media may publish before either transcript.
+- The audit permits rebuilding the unchanged Chinese-only transcript snapshots from deployment `0a752e9` for episodes 006–010. Remove each episode's recorded exception when its bilingual transcripts publish.
 - Internal destinations and fragment anchors exist, including entity links.
 - Each episode has Chinese and English detail routes.
 - Published episode metadata titles use `#NNN <topic>` under the [shared naming standard](../../next-token/docs/brand/naming.zh-Hans.md#跨平台完整单集标题), preserving three digits and one space without a Weekly prefix or site-name suffix. HTML sitemap rows show the number once and use the localized hero heading for the topic.

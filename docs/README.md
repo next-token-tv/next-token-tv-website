@@ -5,6 +5,7 @@
 | 任务 | 权威文档 |
 |---|---|
 | 本地运行、文件归属与导入 | [仓库 README](../README.md) |
+| 英文文字稿来源、复核与本地导入 | [英文文字稿](transcript-translations.md) |
 | 单集状态、来源快照与发布验收 | [发布检查](release-checklist.md) |
 | 发布命令、迁移、搜索与运行维护 | [网站维护](site-maintenance.md) |
 | 视觉与样式 | [设计规范](design-guidelines.md)、[视觉回归](visual-regression.md) |

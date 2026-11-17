@@ -6,13 +6,20 @@ export function validateTranscriptManifest(manifest, sourceSha256, reviewPreview
   const completeReading = reviewPreview && manifest.status === "complete-reading-draft"
     && evidence.status === "passed" && evidence.srtSha256 === manifest.srt_sha256
     && manifest.srt_approval?.text_approved === true;
+  const finalizedReading = reviewPreview && manifest.status === "ready-for-publication"
+    && manifest.finalized === true && manifest.pending_speaker_segments === 0
+    && manifest.srt_text_approval?.text_approved === true
+    && evidence.status === "passed" && evidence.verified === true
+    && evidence.srtSha256 === manifest.srt_sha256
+    && evidence.readingSha256 === manifest.output_sha256;
+  const verifiedReading = resolvedReading || completeReading || finalizedReading;
   const expectedHash = reviewPreview
-    ? (completeReading || resolvedReading ? evidence.readingSha256 : manifest.reading_markdown_sha256 ?? manifest.reading_transcript_sha256)
+    ? (verifiedReading ? evidence.readingSha256 : manifest.reading_markdown_sha256 ?? manifest.reading_transcript_sha256)
     : manifest.output_sha256;
   if (expectedHash !== sourceSha256) throw new Error("Source hash does not match transcript manifest");
   if (reviewPreview) {
     const proofread = manifest.subtitle_text_proofread === true && manifest.reading_transcript_sha256 === sourceSha256;
-    if ((!completeReading && !resolvedReading && !proofread && manifest.status !== "complete_review_draft") || manifest.transcript_approved !== false || manifest.publication_approved !== false) {
+    if ((!verifiedReading && !proofread && manifest.status !== "complete_review_draft") || manifest.transcript_approved !== false || manifest.publication_approved !== false) {
       throw new Error(`Transcript is not an eligible review draft: ${manifest.status}`);
     }
   } else if (manifest.status !== "approved-for-publication") {
