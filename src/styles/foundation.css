@@ -75,7 +75,7 @@
 
 .wordmark-name {
   font-family: var(--display);
-  font-size: .94em;
+  font-size: 1em;
   font-weight: 900;
   line-height: 0.82;
   letter-spacing: var(--display-tracking);
@@ -84,7 +84,7 @@
 }
 
 .wordmark-divider {
-  margin-inline: 0.12em;
+  margin-inline: 0.24em;
   font-family: var(--sans);
   font-size: 0.72em;
   font-weight: 500;
@@ -92,9 +92,9 @@
 }
 
 .wordmark-tagline {
-  font-family: var(--sans);
-  font-size: 0.875em;
-  font-weight: 700;
+  font-family: "Next Token Glow Sans", var(--sans);
+  font-size: 0.825em;
+  font-weight: 900;
   line-height: 1;
   letter-spacing: 0.02em;
 }

@@ -51,14 +51,21 @@ const latestEpisodePath = `${content.locale === "en" ? "/en" : ""}/weekly/${late
     </div>
   </section>
 
-  <div class="topic-rail" aria-hidden="true">
-    <div class="rail-track">
-      {[0, 1].map(() => (
-        <div class="rail-set">
-          {[...content.topics, ...content.topics, ...content.topics].map((topic) => <span class="rail-item"><span class="rail-label">{topic}</span></span>)}
-        </div>
-      ))}
+  <div class="topic-rail">
+    <div class="topic-rail-viewport" aria-hidden="true">
+      <div class="rail-track">
+        {[0, 1].map(() => (
+          <div class="rail-set">
+            {[...content.topics, ...content.topics, ...content.topics].map((topic) => <span class="rail-item"><span class="rail-label">{topic}</span></span>)}
+          </div>
+        ))}
+      </div>
     </div>
+    <button class="topic-rail-toggle" type="button" hidden
+      data-pause-label={content.locale === 'en' ? 'Pause topic ticker' : '暂停主题滚动'}
+      data-play-label={content.locale === 'en' ? 'Resume topic ticker' : '继续主题滚动'}>
+      <span data-pause-icon aria-hidden="true">Ⅱ</span><span data-play-icon aria-hidden="true">▶</span>
+    </button>
   </div>
 
   <section class="section shell" id="about">
@@ -126,23 +133,35 @@ const latestEpisodePath = `${content.locale === "en" ? "/en" : ""}/weekly/${late
 
 
 <script>
-  const revealItems = document.querySelectorAll<HTMLElement>("[data-reveal]");
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const rail = document.querySelector<HTMLElement>(".topic-rail");
+  const toggle = rail?.querySelector<HTMLButtonElement>(".topic-rail-toggle");
+  if (rail && toggle) {
+    const updateLabel = () => {
+      const label = rail.hasAttribute("data-paused") ? toggle.dataset.playLabel! : toggle.dataset.pauseLabel!;
+      toggle.setAttribute("aria-label", label);
+      toggle.title = label;
+    };
+    toggle.addEventListener("click", () => {
+      rail.toggleAttribute("data-paused");
+      updateLabel();
+    });
+    updateLabel();
+    toggle.hidden = false;
+    rail.setAttribute("data-motion-ready", "");
+  }
 
-  if (reduceMotion || !("IntersectionObserver" in window)) {
-    revealItems.forEach((item) => item.classList.add("is-visible"));
-  } else {
+  if (matchMedia("(prefers-reduced-motion: no-preference)").matches && "IntersectionObserver" in window) {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
+            entry.target.classList.add("reveal-entered");
             observer.unobserve(entry.target);
           }
         });
       },
       { threshold: 0.14 },
     );
-    revealItems.forEach((item) => observer.observe(item));
+    document.querySelectorAll("[data-reveal]").forEach((item) => observer.observe(item));
   }
 </script>

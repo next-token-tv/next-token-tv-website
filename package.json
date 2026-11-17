@@ -24,6 +24,7 @@
     "test:transcript": "node --experimental-strip-types --test tests/transcript-converter.test.mjs tests/transcript-paragraph-anchors.test.mjs tests/transcript-timing.test.mjs tests/transcript-citation-visibility.test.mjs tests/episode-entity-coverage.test.mjs tests/transcript-translation.test.mjs",
     "lint:styles": "stylelint \"src/**/*.{css,astro}\" --allow-empty-input",
     "test:visual": "node scripts/run-browser-tests.mjs visual",
+    "test:webkit": "playwright test --config playwright.webkit.config.ts",
     "test:performance": "node scripts/run-browser-tests.mjs performance",
     "test:visual:update": "node scripts/run-browser-tests.mjs visual --update-snapshots",
     "check:artwork": "node scripts/check-episode-artwork.mjs",

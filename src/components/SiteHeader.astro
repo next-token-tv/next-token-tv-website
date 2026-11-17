@@ -34,7 +34,7 @@ const isLibrary = currentPath.startsWith(content.locale === "en" ? "/en/wiki" : 
       <a class="library-link" href={libraryPath} aria-current={isLibrary ? "page" : undefined}>{content.navigation.library}</a>
       <a href={communityPath} aria-current={currentPath === communityPath ? "page" : undefined}>{content.locale === "en" ? "Community & Subscriptions" : "社群与订阅"}</a>
       <a class="search-link" aria-keyshortcuts="Meta+K Control+K" href={content.locale === "en" ? "/en/search" : "/search"} aria-label={content.locale === "en" ? "Search" : "搜索"}><InterfaceIcon name="search" /></a>
-      <div class="language-switcher" aria-label={content.languageLabel}>
+      <div class="language-switcher" role="group" aria-label={content.languageLabel}>
         <a href={content.locale === "zh-Hans" ? currentPath : alternatePath} lang="zh-Hans" data-language="zh-Hans" aria-current={content.locale === "zh-Hans" ? "page" : undefined}>中文</a>
         <span aria-hidden="true">/</span>
         <a href={content.locale === "en" ? currentPath : alternatePath} lang="en" data-language="en" aria-current={content.locale === "en" ? "page" : undefined}>EN</a>
@@ -52,7 +52,7 @@ const isLibrary = currentPath.startsWith(content.locale === "en" ? "/en/wiki" : 
       <a class="library-link" href={libraryPath} aria-current={isLibrary ? "page" : undefined}>{content.navigation.library}</a>
       <a href={communityPath} aria-current={currentPath === communityPath ? "page" : undefined}>{content.locale === "en" ? "Community & Subscriptions" : "社群与订阅"}</a>
       <a class="search-link" aria-keyshortcuts="Meta+K Control+K" href={content.locale === "en" ? "/en/search" : "/search"} aria-label={content.locale === "en" ? "Search" : "搜索"}><InterfaceIcon name="search" /></a>
-      <div class="language-switcher" aria-label={content.languageLabel}>
+      <div class="language-switcher" role="group" aria-label={content.languageLabel}>
         <a href={content.locale === "zh-Hans" ? currentPath : alternatePath} lang="zh-Hans" data-language="zh-Hans" aria-current={content.locale === "zh-Hans" ? "page" : undefined}>中文</a>
         <span aria-hidden="true">/</span>
         <a href={content.locale === "en" ? currentPath : alternatePath} lang="en" data-language="en" aria-current={content.locale === "en" ? "page" : undefined}>EN</a>

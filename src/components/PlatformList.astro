@@ -52,6 +52,7 @@ const { platforms, label, available, comingSoon, reveal = false, qrLabel = "æŸ¥ç
   })}
 </div>
 <script>
+  const header = document.querySelector(".site-header");
   document.querySelectorAll<HTMLElement>(".platform-qr-row").forEach(row => {
     const button = row.querySelector<HTMLButtonElement>("button")!;
     const panel = row.querySelector<HTMLElement>(".platform-qr")!;
@@ -74,18 +75,25 @@ const { platforms, label, available, comingSoon, reveal = false, qrLabel = "æŸ¥ç
     const close = () => { clearTimeout(timer); panel.hidePopover(); button.setAttribute("aria-expanded", "false"); pinned = false; };
     const position = () => {
       const rect = button.getBoundingClientRect();
+      const visibleTop = Math.max(0, header?.getBoundingClientRect().bottom ?? 0);
+      if (rect.bottom <= visibleTop || rect.top >= innerHeight || rect.right <= 0 || rect.left >= innerWidth) {
+        close();
+        return false;
+      }
       const gap = 8, margin = 12;
       const width = panel.offsetWidth, height = panel.offsetHeight;
       panel.style.left = `${Math.max(margin, Math.min(rect.right - width, innerWidth - width - margin))}px`;
       const below = rect.bottom + gap;
       panel.style.top = `${Math.max(margin, Math.min(below + height <= innerHeight - margin ? below : rect.top - height - gap, innerHeight - height - margin))}px`;
+      return true;
     };
     const open = () => {
       clearTimeout(timer);
       document.querySelectorAll<HTMLElement>(".platform-qr:popover-open").forEach(other => {
         if (other !== panel) { other.hidePopover(); other.parentElement?.querySelector("button")?.setAttribute("aria-expanded", "false"); }
       });
-      panel.showPopover(); button.setAttribute("aria-expanded", "true"); position();
+      panel.showPopover(); button.setAttribute("aria-expanded", "true");
+      return position();
     };
     panel.addEventListener("toggle", () => { if (!panel.matches(":popover-open")) { pinned = false; button.setAttribute("aria-expanded", "false"); } });
     button.addEventListener("pointerenter", event => { if (event.pointerType === "mouse") open(); });
@@ -94,11 +102,11 @@ const { platforms, label, available, comingSoon, reveal = false, qrLabel = "æŸ¥ç
     panel.addEventListener("pointerleave", () => { if (!pinned) timer = setTimeout(close, 180); });
     button.addEventListener("focus", () => { if (button.matches(":focus-visible")) open(); });
     document.addEventListener("focusin", event => { if (!row.contains(event.target as Node)) close(); });
-    button.addEventListener("click", () => { if (pinned) close(); else { open(); pinned = true; } });
+    button.addEventListener("click", () => { if (pinned) close(); else pinned = open(); });
     document.addEventListener("pointerdown", event => { if (!row.contains(event.target as Node)) close(); });
     document.addEventListener("keydown", event => { if (event.key === "Escape") close(); });
     window.addEventListener("resize", close);
-    window.addEventListener("scroll", () => { if (panel.matches(":popover-open")) position(); }, { passive: true });
+    window.addEventListener("scroll", () => { if (panel.matches(":popover-open")) position(); }, { capture: true, passive: true });
   });
 </script>
 <style>

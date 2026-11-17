@@ -6,13 +6,15 @@ const en = locale === 'en';
 ---
 <figure class="partner-profile-image" data-partner-carousel>
   {images.map((image, i) => <img src={image.src} width="1080" height="720" alt={image.alt} hidden={i !== 0} data-slide loading={i === 0 ? 'eager' : 'lazy'} />)}
-  <figcaption>{caption}</figcaption>
   {images.length > 1 && <div class="partner-carousel-controls" hidden>
     <button type="button" data-prev aria-label={en ? 'Previous photo' : '上一张照片'}>←</button>
     <span data-count aria-live="off">1 / {images.length}</span>
     <button type="button" data-next aria-label={en ? 'Next photo' : '下一张照片'}>→</button>
     <button type="button" data-pause data-play-label={en ? 'Play' : '播放'} data-pause-label={en ? 'Pause' : '暂停'}>{en ? 'Pause' : '暂停'}</button>
   </div>}
+  {images.length > 1 && <span class="visually-hidden" role="status" data-slide-status
+    data-label={en ? 'Photo {current} of {total}' : '第 {current} 张照片，共 {total} 张'}></span>}
+  <figcaption>{caption}</figcaption>
 </figure>
 <script>
   document.querySelectorAll<HTMLElement>('[data-partner-carousel]').forEach(root => {
@@ -22,43 +24,72 @@ const en = locale === 'en';
     controls.hidden = false;
     const motion = matchMedia('(prefers-reduced-motion: reduce)');
     const pause = root.querySelector<HTMLButtonElement>('[data-pause]')!;
-    let index = 0, paused = motion.matches;
-    const updateButton = () => { pause.textContent = paused ? pause.dataset.playLabel! : pause.dataset.pauseLabel!; };
+    const count = root.querySelector('[data-count]')!;
+    const status = root.querySelector<HTMLElement>('[data-slide-status]')!;
+    let index = 0;
+    let timer: ReturnType<typeof setInterval> | undefined;
+    let requested = false;
+    let pending: { automatic: boolean } | undefined;
     let changing = false;
-    const show = async (offset: number) => {
-      if (changing) return;
-      changing = true;
+    const show = async (offset: number, { announce = false, automatic = false } = {}) => {
+      if (pending || changing) return;
+      const request = { automatic };
+      pending = request;
       const nextIndex = (index + offset + slides.length) % slides.length;
       const next = slides[nextIndex]!;
       next.loading = 'eager';
-      try { await next.decode(); } catch { changing = false; return; }
+      try { await next.decode(); } catch {
+        if (pending === request) pending = undefined;
+        return;
+      }
+      if (pending !== request) return;
+      pending = undefined;
+      changing = true;
       const previous = slides[index]!;
-      const overlay = previous.cloneNode() as HTMLImageElement;
-      overlay.removeAttribute('data-slide');
-      overlay.classList.add('partner-carousel-outgoing');
-      overlay.alt = '';
-      overlay.setAttribute('aria-hidden', 'true');
-      if (!motion.matches) root.append(overlay);
+      const overlay = motion.matches ? undefined : previous.cloneNode() as HTMLImageElement;
+      if (overlay) {
+        overlay.removeAttribute('data-slide');
+        overlay.classList.add('partner-carousel-outgoing');
+        overlay.alt = '';
+        overlay.setAttribute('aria-hidden', 'true');
+        root.append(overlay);
+      }
       previous.hidden = true;
       index = nextIndex;
       next.hidden = false;
-      if (!motion.matches) {
+      if (overlay) {
         const animation = overlay.animate([{opacity: 1}, {opacity: 0}], {duration: 450, easing: 'ease-in-out'});
         await animation.finished.catch(() => {});
         overlay.remove();
       }
       changing = false;
-      root.querySelector('[data-count]')!.textContent = `${index + 1} / ${slides.length}`;
+      count.textContent = `${index + 1} / ${slides.length}`;
+      if (announce) status.textContent = status.dataset.label!.replace('{current}', String(index + 1)).replace('{total}', String(slides.length));
+    };
+    const setPlaying = (playing: boolean, explicit = false) => {
+      clearInterval(timer);
+      timer = undefined;
+      if (pending?.automatic) pending = undefined;
+      requested = explicit;
+      pause.textContent = playing ? pause.dataset.pauseLabel! : pause.dataset.playLabel!;
+      if (playing) timer = setInterval(() => {
+        if (!root.isConnected) { setPlaying(false); return; }
+        if (!document.hidden && (requested || !root.matches(':hover'))) void show(1, { automatic: true });
+      }, 5000);
     };
     for (const [selector, offset] of [['[data-prev]', -1], ['[data-next]', 1]] as const) {
-      root.querySelector(selector)!.addEventListener('click', () => { paused = true; updateButton(); show(offset); });
+      root.querySelector(selector)!.addEventListener('click', () => { setPlaying(false); void show(offset, { announce: true }); });
     }
-    pause.addEventListener('click', () => { paused = !paused; updateButton(); });
-    motion.addEventListener('change', () => { if (motion.matches) { paused = true; updateButton(); } });
-    updateButton();
-    const timer = setInterval(() => {
-      if (!root.isConnected) { clearInterval(timer); return; }
-      if (!paused && !document.hidden && !root.matches(':hover, :focus-within')) show(1);
-    }, 5000);
+    root.addEventListener('focusin', event => {
+      if (event.target instanceof HTMLElement && event.target.matches(':focus-visible')) setPlaying(false);
+    });
+    root.addEventListener('pointerleave', () => { requested = false; });
+    pause.addEventListener('click', () => {
+      const playing = timer === undefined;
+      setPlaying(playing, playing);
+      if (playing) void show(1, { announce: true, automatic: true });
+    });
+    motion.addEventListener('change', () => { if (motion.matches) setPlaying(false); });
+    setPlaying(!motion.matches);
   });
 </script>

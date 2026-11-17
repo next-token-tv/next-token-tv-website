@@ -17,11 +17,6 @@
     transition-duration: 0.01ms !important;
   }
 
-  [data-reveal] {
-    opacity: 1;
-    transform: none;
-  }
-
   .pan-if-cropped {
     animation: none;
     object-position: center;
