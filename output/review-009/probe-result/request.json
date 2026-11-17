@@ -1,0 +1,1 @@
+{"model": "gpt-6-luna", "provider": "codex", "backend": "openai", "reasoning_effort": "medium", "task": "review", "prompt": "只核对词语的实体含义。源文Day One表示从第一天起，Browser Use是浏览器操作能力。候选未链接Day One，Browser Use归术语。检查是否合理。", "items": [{"id": "probe", "text": "我们 Day One 就是这样做的。它有 Computer Use 和那个浏览器，Browser Use。", "final_text": "Day One 不作为产品；Browser Use 作为通用浏览器操作术语。"}]}

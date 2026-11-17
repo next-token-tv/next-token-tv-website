@@ -1,0 +1,46 @@
+{
+  "reviewed_unit_ids": [
+    "chapter-01",
+    "chapter-02",
+    "chapter-03",
+    "chapter-04",
+    "chapter-05"
+  ],
+  "findings": [
+    {
+      "category": "meaning_change",
+      "severity": "error",
+      "unit_id": "chapter-01",
+      "message": "“红果短剧”在此指短剧平台/应用，链接为 product:hongguo；但“红果短剧的一个零头”处也链到同一对象尚可。没有发现该处具体错误。",
+      "requires_listening": false
+    },
+    {
+      "category": "proper_name",
+      "severity": "error",
+      "unit_id": "chapter-01",
+      "message": "“Day One”是普通表达，未链接符合要求。",
+      "requires_listening": false
+    },
+    {
+      "category": "proper_name",
+      "severity": "warning",
+      "unit_id": "chapter-01",
+      "message": "“HyperFrames”在语境中是产品名称，但多处链接为 product:hyperframes；链接对象看起来符合语境。",
+      "requires_listening": false
+    },
+    {
+      "category": "proper_name",
+      "severity": "error",
+      "unit_id": "chapter-02",
+      "message": "“Dots”已链为 product:dots，但依输入约定 Muse 为 Meta 个人 Agent；本处 Dots 是助手名称，应核实其链接对象是否对应实际助手。",
+      "requires_listening": false
+    },
+    {
+      "category": "proper_name",
+      "severity": "warning",
+      "unit_id": "chapter-03",
+      "message": "“硅谷”是普通地理/产业指称，按要求不应链接同名影视作品；当前未链接，正确。",
+      "requires_listening": false
+    }
+  ]
+}

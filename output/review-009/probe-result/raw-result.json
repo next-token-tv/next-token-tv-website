@@ -1,0 +1,14 @@
+{
+  "reviewed_unit_ids": [
+    "probe"
+  ],
+  "findings": [
+    {
+      "category": "meaning_change",
+      "severity": "error",
+      "unit_id": "probe",
+      "message": "Day One 在源文中表示“从第一天起”，候选将其改为“不是产品”，遗漏了该时间含义。Browser Use 归为通用浏览器操作术语是合理的。",
+      "requires_listening": false
+    }
+  ]
+}

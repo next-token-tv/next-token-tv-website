@@ -1,0 +1,152 @@
+{
+  "reviewed_unit_ids": [
+    "part-1",
+    "part-2",
+    "part-3",
+    "part-4",
+    "part-5",
+    "part-6"
+  ],
+  "findings": [
+    {
+      "category": "omission",
+      "severity": "error",
+      "unit_id": "part-1",
+      "message": "原文提及 Cola、Opus（包括 Opus One Shot）、Demo、剪映和 nexttoken.tv 等具名产品或站点；清单未收录 Cola、Opus、Demo 或 Next Token 网站。Cola 与 ColaOS 名称相近，但不能据此自动视为同一产品。",
+      "requires_listening": false
+    },
+    {
+      "category": "omission",
+      "severity": "warning",
+      "unit_id": "part-1",
+      "message": "明确出现的小宇宙、哔哩哔哩、抖音、微信，以及中信书店、朝阳大悦城未完整关联到资料库；其中前三个产品只在后段清单中出现，微信也仅以平台名出现，但作为全期实体清单应保证覆盖。",
+      "requires_listening": false
+    },
+    {
+      "category": "omission",
+      "severity": "error",
+      "unit_id": "part-1",
+      "message": "原文明确介绍节目主理人杨攀、嘉宾橘子、歸藏、向阳乔木，清单只部分收录人物，遗漏杨攀、橘子、歸藏和向阳乔木。",
+      "requires_listening": false
+    },
+    {
+      "category": "omission",
+      "severity": "warning",
+      "unit_id": "part-1",
+      "message": "原文重点讨论 FDE、Vibe Coding、Agent、Demo、成就页等概念；已有 FDE、Vibe Coding、Agent 条目，但 Demo、成就页可作为讨论相关术语收录。",
+      "requires_listening": false
+    },
+    {
+      "category": "omission",
+      "severity": "error",
+      "unit_id": "part-2",
+      "message": "遗漏明确提及的 Super Agent（作为框架/智能体产品名称）、Grok Bot、Muse、OpenCode、WorkBuddy、豆包工作、TRAE、Qoder、DSH Go、ChatCut、HyperFrames、Claude、Next.js、Astro、Solid、React、Tailwind CSS、Red Hat、Debian，以及抖音、B站、X、QQ、小红书等产品或平台；这些实体未都出现在现有清单中。",
+      "requires_listening": false
+    },
+    {
+      "category": "proper_name",
+      "severity": "warning",
+      "unit_id": "part-2",
+      "message": "“小明”仅是未经确认的指代；清单将其补全为“明超平”并列为人物，缺少原文证据。应移除该人物条目，除非有额外可靠证据确认身份。",
+      "requires_listening": false
+    },
+    {
+      "category": "omission",
+      "severity": "warning",
+      "unit_id": "part-2",
+      "message": "原文使用“Skill”“模板”“桌宠”“Meme/二创”等概念讨论插件传播与使用，术语表已有 Agent Skills、Meme，但遗漏模板、桌宠等对理解有帮助的概念。",
+      "requires_listening": false
+    },
+    {
+      "category": "omission",
+      "severity": "error",
+      "unit_id": "part-3",
+      "message": "遗漏原文明确提及的 AIHOT.news（清单仅有 AIHOT，名称未完整关联）、Cola（不宜仅以 ColaOS 代替）、Muse、Dots、Grok Bot、Codex、Claude Code、DeepSeek V4.1 Flash、Notion，以及明确提及的 Super Agent、Router、Project、Session、Sub Agent、Personal Database、Work Database 等。",
+      "requires_listening": false
+    },
+    {
+      "category": "omission",
+      "severity": "warning",
+      "unit_id": "part-3",
+      "message": "MIT、Astra、千问/Qwen、GPT-6、Simon Willison 均在原文的模型权重与实验讨论中明确出现；清单虽有 MIT、Qwen、Simon Willison、GPT，但缺少 Astra，且 GPT-6 仅以 GPT 泛称关联，名称未完整覆盖。",
+      "requires_listening": false
+    },
+    {
+      "category": "meaning_change",
+      "severity": "warning",
+      "unit_id": "part-3",
+      "message": "Simon Willison 被误写为“Simon Wilson”；清单录为 Simon Willison。清单实体与原文拼写不一致，建议按原文所指的 Simon Willison 规范关联，并将该处转写拼写差异视为待核项。",
+      "requires_listening": true
+    },
+    {
+      "category": "omission",
+      "severity": "error",
+      "unit_id": "part-4",
+      "message": "本段有递归自我改进（RSI）、模型权重、模型推理、数据中心、杰文斯悖论、B300 等核心术语或产品讨论；已有部分条目，但漏掉果蝇、蒸汽轮机、数据中心建设等有助理解的核心对象，并且 B300 条目只写 NVIDIA B300，无法判断是否准确指代。",
+      "requires_listening": false
+    },
+    {
+      "category": "number",
+      "severity": "warning",
+      "unit_id": "part-4",
+      "message": "原文称 Anthropic 的研发产出“是 2015 年 10 月的 1.9 倍”，又提及 2015、Model 2/4、Opus 5.5、2 万亿估值等；清单未覆盖这些重要版本/数量实体。",
+      "requires_listening": false
+    },
+    {
+      "category": "omission",
+      "severity": "error",
+      "unit_id": "part-4",
+      "message": "遗漏 OpenAI、SpaceX、特斯拉、星舰、荷兰、德州、币安/币安事件主体、任天堂、塞尔达传说：时之笛、Steam、App Store、macOS 等明确提及的品牌、产品、人物或地点；其中部分虽然出现在其他段的清单里，也应在全期统一覆盖。",
+      "requires_listening": false
+    },
+    {
+      "category": "meaning_change",
+      "severity": "warning",
+      "unit_id": "part-4",
+      "message": "“NVIDIA DLSS”虽列入清单，但原文没有提及 DLSS；这属于清单中的无依据条目。清单还包含多项与所给全期素材无关的品牌、产品、人物及术语（如 Apple、NVIDIA、Epic Games、METR、Steam 以外的多款设备和游戏），应从本期实体清单中剔除。",
+      "requires_listening": false
+    },
+    {
+      "category": "omission",
+      "severity": "error",
+      "unit_id": "part-5",
+      "message": "遗漏本段明确提及的 PokéBonk、Steam、Unreal Engine、起点中文网、番茄小说、微博、App Store，以及影之刃零、鬼武者、黑神话：悟空、剪映、Cola、Opus、Grok Bot、YouTube、GPT Image 2.0。部分产品虽在既有清单中出现，但仍有名称未完整对应的情况。",
+      "requires_listening": false
+    },
+    {
+      "category": "over_editing",
+      "severity": "warning",
+      "unit_id": "part-5",
+      "message": "清单包含本段未提及的诸多产品、品牌、人物和术语，显然混入其他材料或扩大了范围；本任务要求按所给全期文字中的明确提及与核心术语建立清单，应删除无文本依据的条目。",
+      "requires_listening": false
+    },
+    {
+      "category": "omission",
+      "severity": "error",
+      "unit_id": "part-6",
+      "message": "遗漏明确提及的 Opus 5.5、DeepSeek V4.1 Flash 1017、Epic Games CEO（Tim Sweeney）、UE 5.6、WebGL、Stripe、OpenClaw、吉考斯工业、iPad mini、iPhone Duo、iPhone Air、Kindle Paperwhite 5、M5Stack、ESP32 等。型号家族可合并，但名称应能完整关联这些提及。",
+      "requires_listening": false
+    },
+    {
+      "category": "speaker",
+      "severity": "warning",
+      "unit_id": "part-6",
+      "message": "原文提到“西蒙”并称其为机核 CEO，清单中的“赵夏（西蒙）”与该处身份是否一致无法由原文确认；不应直接合并身份。",
+      "requires_listening": true
+    },
+    {
+      "category": "omission",
+      "severity": "warning",
+      "unit_id": "part-6",
+      "message": "原文明确涉及许愿式编程、降噪、AI-First、WebGL、3D 打印、PIN/引脚、eSIM、Vibe Coding 等术语；术语表覆盖了部分，但遗漏许愿式编程、降噪及 AI-First。",
+      "requires_listening": false
+    },
+    {
+      "category": "meaning_change",
+      "severity": "warning",
+      "unit_id": "part-1",
+      "message": "清单将“Opus”条目缺失，同时把 Claude 列为模型家族、Claude Code 列为 Agent；原文说的是 Opus 产品/模型系列及“Opus Vibe Coding”，不应据此误关联到清单中的 Claude Code。",
+      "requires_listening": false
+    }
+  ]
+}
