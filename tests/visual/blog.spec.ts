@@ -117,6 +117,11 @@ test('English blogs use the published Chinese transcript when no English edition
   await expect(link).toHaveText('Read the Chinese transcript →');
   expect((await request.get('/weekly/009/transcript')).status()).toBe(200);
   await expect(page.locator('a[href*="/en/weekly/009/transcript"]')).toHaveCount(0);
+  const fallbackExport = await (await request.get('/en/blog/personal-agent-portable-context.md')).text();
+  expect(fallbackExport).toContain('[Weekly #009 Chinese transcript](https://nexttoken.tv/weekly/009/transcript)');
+  expect(fallbackExport).not.toContain('https://nexttoken.tv/en/weekly/009/transcript');
   await page.goto('/en/blog/jev-structured-decisions');
   await expect(page.locator('.article-actions a[href="/en/weekly/003/transcript"]')).toBeVisible();
+  const englishExport = await (await request.get('/en/blog/jev-structured-decisions.md')).text();
+  expect(englishExport).toContain('[Weekly #003 full transcript](https://nexttoken.tv/en/weekly/003/transcript)');
 });
