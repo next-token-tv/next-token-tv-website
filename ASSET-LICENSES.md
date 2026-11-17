@@ -62,6 +62,12 @@ Relevant upstream notices and source pages:
 
 Apple and Apple Podcasts are trademarks of Apple Inc., registered in the U.S. and other countries.
 
+## Co-host brand lockup
+
+- `public/assets/brand-kit/hosts-grid-transparent-1024.png`: unchanged delivery copy of `next-token/people/hosts/group/hosts-grid-transparent-1024.png`. Source and layout are documented in `people/hosts/group/sources.zh-Hans.md` and `hosts-grid.manifest.json` in the production repository.
+- `public/assets/brand-kit/logo-hosts-video.png`: unchanged 364×168 delivery copy of the video program mark at `next-token/shows/weekly/episodes/007/03-post-production/b-roll/selected-2026-10-25/motion-sample-v1/program-marks.png`. Logo and portrait canvases are 168×168 with a 28px gap.
+- These are Next Token brand/portrait assets for authorized brand identification; their availability is not a general stock-image license.
+
 ## Media and community wordmarks
 
 - `public/assets/brand-kit/next-token-media-lockup*.svg`: Next Token square mark with League Spartan Black English lettering and Glow Sans SC Normal Heavy v0.93 Chinese lettering. All lettering is outlined; no external fonts are required. Co-host variants embed the four existing host portrait WebP assets, preserving their order and square-corner grid layout; other variants contain no raster images.
