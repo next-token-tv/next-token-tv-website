@@ -24,7 +24,7 @@ test('transcript is directly discoverable and only links to available locales', 
       const expectedCount = path === '/' ? 1 + Number(numbers.includes(latestEpisode.number)) : path === '/weekly' ? numbers.length + 1 : 1;
       await expect(page.locator('.episode-transcript-cta')).toHaveCount(expectedCount);
       const link = page.locator('main > section').first().locator('.episode-transcript-cta');
-      const number = path.startsWith('/weekly/00') ? path.split('/').pop() : numbers[0];
+      const number = path.match(/^\/weekly\/(\d{3})$/)?.[1] ?? numbers[0];
       await expect(link).toHaveAttribute('href', `${prefix}/weekly/${number}/transcript`);
       await link.click();
       await expect(page.locator('.transcript-body')).toBeVisible();
