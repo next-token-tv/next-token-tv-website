@@ -8,6 +8,8 @@ import { load } from 'js-yaml';
 import { episodeReleaseErrors } from './lib/episode-release.mjs';
 import { needsRecordingScheduleRefresh } from './lib/announcement-schedule.mjs';
 import { createLocalLinkChecker } from './lib/local-link-check.mjs';
+import { createHash } from 'node:crypto';
+import { auditTranscriptRelease } from './lib/transcript-release.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 await assertCommunityRelease(root);
@@ -83,28 +85,17 @@ if (llms) {
   }
 }
 
-const publishedTranscriptEpisodes = new Set();
+const transcriptRecords = [];
 const transcriptDirectory = resolve(root, 'src/content/imported/transcripts');
 for (const name of await readdir(transcriptDirectory)) {
   if (!name.endsWith('.json')) continue;
-  const transcript = JSON.parse(await readFile(resolve(transcriptDirectory, name), 'utf8'));
-  if (transcript.publicationStatus === 'published' && transcript.provenance?.sourceState === 'committed') publishedTranscriptEpisodes.add(transcript.episodeId);
-  const number = transcript.episodeId?.match(/--(\d{3})$/)?.[1];
-  if (!number) {
-    errors.push(`${name}: invalid transcript episode ID`);
-    continue;
-  }
-  const markdownPath = resolve(dist, `weekly/${number}/transcript.md`);
-  const markdownUrl = `https://nexttoken.tv/weekly/${number}/transcript.md`;
-  let markdownExists = true;
-  try { await stat(markdownPath); } catch { markdownExists = false; }
-  if (transcript.publicationStatus === 'published' && !markdownExists) {
-    errors.push(`${name}: published transcript is missing Markdown output`);
-  }
-  if (transcript.publicationStatus === 'review-draft' && (markdownExists || llms.includes(markdownUrl))) {
-    errors.push(`${name}: review draft is exposed through a public machine-readable route`);
-  }
+  const bytes = await readFile(resolve(transcriptDirectory, name));
+  transcriptRecords.push({ name, transcript: JSON.parse(bytes), sha256: createHash('sha256').update(bytes).digest('hex') });
 }
+const outputFiles = new Set(Array.from(publishedText.keys(), (path) => path.slice(dist.length + 1)));
+const transcriptAudit = auditTranscriptRelease(transcriptRecords, outputFiles, llms);
+const publishedTranscriptEpisodes = transcriptAudit.publishedEpisodes;
+errors.push(...transcriptAudit.errors);
 
 const apiPayloads = new Map();
 for (const collection of ['brands', 'products', 'people', 'terms']) {

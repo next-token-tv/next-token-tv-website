@@ -25,6 +25,7 @@ Retired entity URLs with a known successor have explicit 301 rules before generi
 
 The built-site audit requires:
 
+- The English translation importer accepts `--publish` when the English Markdown, approval manifest, and independent review report are committed and unchanged. It checks the exact published Chinese snapshot and its source hash before importing.
 - Published episode and transcript snapshots come from committed production sources. Importers reject dirty or untracked release inputs and do not serialize raw working-tree status into website data.
 - Internal destinations and fragment anchors exist, including entity links.
 - Each episode has Chinese and English detail routes.
