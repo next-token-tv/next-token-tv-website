@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 2,
+  "episodeId": "next-token-weekly--011",
+  "show": "next-token-weekly",
+  "number": "011",
+  "status": "published",
+  "language": "zh-Hans",
+  "recordedAt": "2026-11-20",
+  "releaseDate": "2026-11-21",
+  "recordingMode": "in-person",
+  "recordingLocation": {
+    "zh-Hans": "北京 · 象外空间",
+    "en": "Xanadu Why Space · Beijing"
+  },
+  "imageKind": "artwork",
+  "imageDimensions": {
+    "width": 3000,
+    "height": 3000
+  },
+  "participants": [
+    {
+      "person": "guizang",
+      "role": "duty-host"
+    },
+    {
+      "person": "orange",
+      "role": "co-host"
+    },
+    {
+      "person": "yangpan",
+      "role": "co-host"
+    },
+    {
+      "person": "xiangyang-qiaomu",
+      "role": "co-host"
+    }
+  ],
+  "guestNames": [],
+  "images": {
+    "480": "/assets/weekly-011-cover-square-480.webp",
+    "720": "/assets/weekly-011-cover-square-720.webp",
+    "960": "/assets/weekly-011-cover-square-960.webp",
+    "1440": "/assets/weekly-011-cover-square-1440.webp",
+    "1920": "/assets/weekly-011-cover-square-1920.webp"
+  },
+  "provenance": {
+    "productionCommit": "eed41769af8015773d8c5896b4375bd110f77a86",
+    "sources": [
+      {
+        "path": "shows/weekly/episodes/011/04-release/artwork/cover-square.jpg",
+        "sha256": "5d138120f7f9ef2c395e7f070b8eb0e2d593724e3fa3d86f8570ef28a6925af9"
+      },
+      {
+        "path": "shows/weekly/episodes/011/credits.json",
+        "sha256": "2310ab4f88892cb10062f9f64f62250a3e0ff353776bb4f8da490d8e7bce1b2d"
+      },
+      {
+        "path": "shows/weekly/episodes/011/04-release/copy/website-release.json",
+        "sha256": "a64254e0dd0d21827d4374bb64aa811ddab508a74fa561c2acab3dd38e24e984"
+      }
+    ]
+  }
+}

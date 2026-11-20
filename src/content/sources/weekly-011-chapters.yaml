@@ -1,0 +1,66 @@
+episodeId: next-token-weekly--011
+status: local-review
+sourceRepository: next-token
+chapters:
+  path: shows/weekly/episodes/011/04-release/copy/website-chapters.json
+  timeline: release
+  english:
+    sections:
+      - Hands-on with frontier models
+      - Model evaluation and the tools around it
+      - Tencent’s earnings and the divide in personal agents
+      - Qwen 4, Hunyuan Hy4 flash, and Anthropic’s IPO
+      - Listener conversations and this week’s finds
+    chapters:
+      - Opening highlights
+      - Opening music
+      - Opening introduction
+      - >-
+        Opening: 610,000 plays across ten episodes, and the website’s new transcript selection and export
+        feature
+      - 'GPT-6.2 Astra and Sol: criticism on X and confusion over review versions'
+      - >-
+        Sol Ultra Fast feels fast and economical; Astra is expensive, struggles with frontend design, and
+        argues
+      - 'Asking Astra to review Fable’s code: why does the review never end?'
+      - >-
+        Three model personalities: experienced engineer Opus, language specialist Neon, and ordinary
+        programmer Astra
+      - Why evaluation is getting harder as expectations rise and everyday coding approaches saturation
+      - 'Two approaches to 3D: Fable 5.2’s atmosphere versus Astra’s detailed Blender modeling'
+      - 'Gemini 4 Carbon, Neon, Argon, and Hydrogen: model relationships and pricing questions'
+      - Carbon and Neon make writing feel human again
+      - 'Native multimodality: understanding and recreating fast animation, with design taste beyond Opus 5.5'
+      - 'DeepMind’s turnaround: printed criticism and Sergey Brin’s return'
+      - Neon joins Google’s $19.99 subscription, easing worries about losing model access
+      - Where can you actually use Carbon?
+      - 'DeepSeek limits free long conversations: fanfiction and roleplay users react while the API speeds up'
+      - 'Why Chinese models struggle to grow token usage: premium overseas models or free access'
+      - 'Advice for model launches: show a complete real project instead of claiming to beat Opus 5.5'
+      - Building video graphics and automatic podcast highlights with Neon
+      - Testing a million-token context window and generating a long article in one pass
+      - 'Strong model, frustrating tools: Antigravity’s caching, permissions, and need for faster iteration'
+      - 'An Antigravity session fails: how do you resume a half-finished project?'
+      - >-
+        WorkBuddy passes 10 million daily users; WeChat’s Xiaowei reaches 30 million but still feels like an
+        older chatbot
+      - Why haven’t Chinese tech companies built a compelling personal agent?
+      - 'Meta Muse reaches 10 million daily users: cross-site shopping and Shopify’s embrace of agents'
+      - Instinct’s everyday use cases and agent updates
+      - 'Agents creating purchasing demand: digital pianos, lactase, and overseas supplements'
+      - 'Privacy and the trust flywheel: useful results encourage users to share health data and browser access'
+      - Apple’s personal-agent plans beyond Siri, and the case for cloud models
+      - Smart-home assumptions and Ant’s different approaches with Lingguang and Afu
+      - From smart-home readings to an assistant that works across devices
+      - Pressure on Tencent and Kuaishou’s profits, compute spending, and the possibility of another ByteDance
+      - 'Why personal agents lag in China: constrained model responses and mobile-internet habits'
+      - 'Subcast: subscribing to video podcasts and clipping highlights'
+      - 'Give employees tokens and ownership: internal startups without large teams and resources'
+      - Qwen4-Max and Hunyuan Hy4 flash compete for position, with WorkBuddy as Hunyuan’s testing ground
+      - Anthropic’s $83 IPO, a valuation approaching $2 trillion, and a comparison with SpaceX
+      - Feedback on last week’s down jackets and thoughtful Xiaoyuzhou comments
+      - A matte-screen iPad mini as a Mac mini display, connected directly or through Tailscale
+      - 'Storage prices rise: a 1 TB SSD moves from ¥1,300 to ¥1,600, and used Android phones look attractive'
+      - 'GTA 6 impressions: PS5 trigger resistance, lively NPC stories, and future AI-powered open worlds'
+      - 'Backup coding options: Factory, Devin, and Google subscriptions'
+      - Closing
