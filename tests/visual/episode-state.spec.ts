@@ -11,7 +11,8 @@ const episodes = readdirSync(episodeDir).filter(name => name.endsWith('.yaml')).
 }));
 const latest = episodes.filter(({ data }) => data.show === 'next-token-weekly' && data.status === 'published')
   .sort((a, b) => Number(b.data.number) - Number(a.data.number))[0]!;
-const upcoming = episodes.filter(({ data }) => data.show === 'next-token-weekly' && data.status === 'announced')
+// Mirror the teaser semantics: release-preview episodes get their own page, not the announcement entry.
+const upcoming = episodes.filter(({ data }) => data.show === 'next-token-weekly' && data.status === 'announced' && data.releasePreview !== true)
   .sort((a, b) => Date.parse(a.data.scheduledAt) - Date.parse(b.data.scheduledAt))[0];
 const transcriptDir = 'src/content/imported/transcripts';
 const transcripts = readdirSync(transcriptDir, { recursive: true }).filter(name => typeof name === 'string' && name.endsWith('.json'))

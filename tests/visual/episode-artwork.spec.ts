@@ -3,7 +3,7 @@ import {readFileSync} from 'node:fs';
 import {episodeData} from './episode-fixture';
 const numbers=episodeData.filter(data=>data.status==='published'
  ? (data.number!=='001' || JSON.parse(readFileSync(`src/content/imported/episodes/${data.productionImport}.json`,'utf8')).imageKind==='artwork')
- : data.detailLayout).map(data=>data.number);
+ : (data.detailLayout && !data.releasePreview)).map(data=>data.number);
 for(const width of [390,1440])for(const prefix of ['','/en'])test(`all episode artwork stays square ${prefix||'zh'} ${width}`,async({page})=>{
  await page.setViewportSize({width,height:900});
  async function check(selector:string){
