@@ -1,7 +1,17 @@
+import {readFileSync} from 'node:fs';
 import {episodeData} from './episode-fixture';
 import { test, expect } from '@playwright/test';
 
 for (const width of [390, 1440]) for (const prefix of ['', '/en']) {
+  // Mirror the site's count: co-hosts participate in every routed episode
+  // (release-preview episodes have no production route and don't count yet).
+  const routed = episodeData.filter(e => e.status === 'published' || e.releasePreview !== true);
+  const coHostEpisodes = routed.filter(e =>
+    (e.mentions?.people ?? []).includes('yangpan') ||
+    (e.status === 'announced'
+      ? (e.participants ?? []).some(p => p.person === 'yangpan')
+      : JSON.parse(readFileSync(`src/content/imported/episodes/${e.productionImport}.json`, 'utf8')).participants.some((p: { person: string }) => p.person === 'yangpan'))
+  ).length;
   test(`people library ${prefix || 'zh'} ${width}`, async ({ page, request }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.goto(`${prefix}/wiki/people`);
@@ -15,7 +25,7 @@ for (const width of [390, 1440]) for (const prefix of ['', '/en']) {
     await page.locator('[data-entity-filter="co-host"]').click();
     await expect(page.locator('.entity-directory-row:visible')).toHaveCount(4);
     await expect(page).toHaveURL(/type=co-host/);
-    await expect(page.locator('.entity-directory-row:visible').first()).toContainText(prefix ? `${episodeData.length} related episodes` : `${episodeData.length} 期相关节目`);
+    await expect(page.locator('.entity-directory-row:visible').first()).toContainText(prefix ? `${coHostEpisodes} related episodes` : `${coHostEpisodes} 期相关节目`);
     await page.locator('[data-entity-filter="mentioned"]').click();
     const mentionedCount = Number(await page.locator('[data-entity-filter="mentioned"] strong').textContent());
     await expect(page.locator('.entity-directory-row:visible')).toHaveCount(mentionedCount);
