@@ -3,14 +3,14 @@ entityType: product
 entity: grok-bot
 locale: zh-Hans
 slot: wiki
-updatedAt: '2026-09-18'
+updatedAt: '2026-11-21'
 seoTitle: 'Grok Bot：运行在持久云端电脑上的自主 Agent｜Next Token Wiki'
-seoDescription: '了解 SpaceXAI 的 Grok Bot：持久云端电脑环境、消息式交互、支持的客户端平台、与 Cursor 的关系，以及 Weekly 节目中的相关讨论。'
+seoDescription: '了解 SpaceXSI 的 Grok Bot：持久云端电脑环境、消息式交互、支持的客户端平台、与 Cursor 的关系，以及 Weekly 节目中的相关讨论。'
 ---
 
 ## Grok Bot 是什么
 
-Grok Bot 是 SpaceXAI 旗下 Grok 产品线的自主 Agent 产品。SpaceXAI 是 xAI 于 2026 年 2 月[宣布并入 SpaceX](https://x.ai/news/xai-joins-spacex)后的品牌。官方[文档](https://docs.x.ai/grok-bot/overview)将其描述为“有名字、有职责、上下文会随时间积累的 AI 队友”：你通过发消息布置任务，Bot 在云端完成跨应用、跨网站的多步工作，需要确认时再回来找你，[官方公告](https://x.ai/news/grok-bot-for-enterprise)称其可以全天候自主推进任务。
+Grok Bot 是 SpaceXSI 旗下 Grok 产品线的自主 Agent 产品。SpaceXSI 是 xAI 于 2026 年 2 月[宣布并入 SpaceX](https://x.ai/news/xai-joins-spacex)后的品牌。官方[文档](https://docs.x.ai/grok-bot/overview)将其描述为“有名字、有职责、上下文会随时间积累的 AI 队友”：你通过发消息布置任务，Bot 在云端完成跨应用、跨网站的多步工作，需要确认时再回来找你，[官方公告](https://x.ai/news/grok-bot-for-enterprise)称其可以全天候自主推进任务。
 
 它属于"云端常驻环境"这一层级：[官方文档](https://docs.x.ai/grok-bot/overview)说明每个 Bot 运行在一台持久的云端电脑上，配有浏览器、文件系统和终端，这些电脑运行在 Cursor 的云中。这与自托管的 [OpenClaw](/wiki/products/openclaw)（跑在你自己设备上）、框架型的 [DeepSeek Harness](/wiki/products/deepseek-harness) 和桌面办公产品 [WorkBuddy](/wiki/products/workbuddy) 在形态上不同。
 
@@ -30,7 +30,7 @@ Weekly #002 的[Grok Bot / Muse：为什么 Agent 需要云电脑](/weekly/002/t
 
 ### Grok Bot 是什么？
 
-它是 SpaceXAI（Grok 产品线）推出的自主 Agent：通过消息交互的"AI 队友"，在一台持久云端电脑上用浏览器、文件系统和终端完成跨应用的多步任务。见[官方公告](https://x.ai/news/grok-bot-for-enterprise)与[文档](https://docs.x.ai/grok-bot/overview)。
+它是 SpaceXSI（Grok 产品线）推出的自主 Agent：通过消息交互的"AI 队友"，在一台持久云端电脑上用浏览器、文件系统和终端完成跨应用的多步任务。见[官方公告](https://x.ai/news/grok-bot-for-enterprise)与[文档](https://docs.x.ai/grok-bot/overview)。
 
 ### Grok Bot 怎么收费，有免费额度吗？
 
@@ -54,6 +54,6 @@ Weekly #002 的[Grok Bot / Muse：为什么 Agent 需要云电脑](/weekly/002/t
 
 ## 来源
 
-- [Grok Bot 官方公告（SpaceXAI）](https://x.ai/news/grok-bot-for-enterprise)
+- [Grok Bot 官方公告（SpaceXSI）](https://x.ai/news/grok-bot-for-enterprise)
 - [Grok Bot 官方文档概览](https://docs.x.ai/grok-bot/overview)
 - [xAI 并入 SpaceX 公告](https://x.ai/news/xai-joins-spacex)

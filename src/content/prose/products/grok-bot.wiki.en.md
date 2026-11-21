@@ -3,14 +3,14 @@ entityType: product
 entity: grok-bot
 locale: en
 slot: wiki
-updatedAt: '2026-09-18'
+updatedAt: '2026-11-21'
 seoTitle: 'Grok Bot: autonomous agents on a persistent cloud computer | Next Token Wiki'
-seoDescription: "What SpaceXAI's Grok Bot is: its persistent cloud computer, message-based interaction, supported clients, relation to Cursor, and Weekly show discussion."
+seoDescription: "What SpaceXSI's Grok Bot is: its persistent cloud computer, message-based interaction, supported clients, relation to Cursor, and Weekly show discussion."
 ---
 
 ## What is Grok Bot
 
-Grok Bot is an autonomous agent product in the Grok line from SpaceXAI — the brand that xAI became after SpaceX [announced its acquisition in February 2026](https://x.ai/news/xai-joins-spacex). The official [documentation](https://docs.x.ai/grok-bot/overview) describes the product as "AI teammates with names, jobs, and context that compounds over time": you assign tasks by messaging, the Bot carries multi-step work across apps and websites in the cloud, and returns when your approval is needed, working autonomously around the clock.
+Grok Bot is an autonomous agent product in the Grok line from SpaceXSI — the brand that xAI became after SpaceX [announced its acquisition in February 2026](https://x.ai/news/xai-joins-spacex). The official [documentation](https://docs.x.ai/grok-bot/overview) describes the product as "AI teammates with names, jobs, and context that compounds over time": you assign tasks by messaging, the Bot carries multi-step work across apps and websites in the cloud, and returns when your approval is needed, working autonomously around the clock.
 
 It occupies the "persistent cloud environment" layer: per the [official documentation](https://docs.x.ai/grok-bot/overview), each Bot runs on a persistent cloud computer equipped with a browser, filesystem, and terminal, and those computers run in Cursor's cloud. That is a different shape from the self-hosted [OpenClaw](/en/wiki/products/openclaw) (which runs on your own devices), the framework-oriented [DeepSeek Harness](/en/wiki/products/deepseek-harness), and the desktop office product [WorkBuddy](/en/wiki/products/workbuddy).
 
@@ -30,7 +30,7 @@ In Weekly #002's chapter [Grok Bot / Muse: why agents need a cloud computer](/we
 
 ### What is Grok Bot?
 
-It is an autonomous agent from SpaceXAI (Grok product line): message-driven "AI teammates" that complete multi-step, cross-app work on a persistent cloud computer with a browser, filesystem, and terminal. See the [official announcement](https://x.ai/news/grok-bot-for-enterprise) and [documentation](https://docs.x.ai/grok-bot/overview).
+It is an autonomous agent from SpaceXSI (Grok product line): message-driven "AI teammates" that complete multi-step, cross-app work on a persistent cloud computer with a browser, filesystem, and terminal. See the [official announcement](https://x.ai/news/grok-bot-for-enterprise) and [documentation](https://docs.x.ai/grok-bot/overview).
 
 ### How is Grok Bot priced, and is there a free tier?
 
@@ -54,6 +54,6 @@ The official positioning is multi-step work across apps and websites: operating 
 
 ## Sources
 
-- [Grok Bot announcement (SpaceXAI)](https://x.ai/news/grok-bot-for-enterprise)
+- [Grok Bot announcement (SpaceXSI)](https://x.ai/news/grok-bot-for-enterprise)
 - [Grok Bot documentation overview](https://docs.x.ai/grok-bot/overview)
 - [Announcement: xAI joins SpaceX](https://x.ai/news/xai-joins-spacex)

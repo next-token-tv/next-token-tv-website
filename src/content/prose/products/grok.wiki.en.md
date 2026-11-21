@@ -3,14 +3,14 @@ entityType: product
 entity: grok
 locale: en
 slot: wiki
-updatedAt: '2026-09-18'
-seoTitle: "Grok: SpaceXAI's Model and Assistant Family, and How It Differs from Grok Bot｜Next Token Wiki"
+updatedAt: '2026-11-21'
+seoTitle: "Grok: SpaceXSI's Model and Assistant Family, and How It Differs from Grok Bot | Next Token Wiki"
 seoDescription: 'What Grok is, its assistant product forms, developer API and SuperGrok subscription model, and how it differs from the Grok Bot cloud agent product.'
 ---
 
 ## What Grok is
 
-Grok is the frontier-model and AI-assistant family from xAI. After xAI [announced its merger into SpaceX](https://x.ai/news/xai-joins-spacex) in February 2026, the company's site has operated under the SpaceXAI brand, with Grok covering reasoning, code, voice, images, and video. The name refers to two related things: the [Grok assistant](https://x.ai/grok/) for everyday users (chat, search, image and video generation, voice conversations), and the model API for developers. This page covers the family as a whole; Grok Bot, the always-on cloud agent, is a separate product on the same line — see [Grok Bot](/en/wiki/products/grok-bot).
+Grok is the frontier-model and AI-assistant family from xAI. After xAI [announced its merger into SpaceX](https://x.ai/news/xai-joins-spacex) in February 2026, the company's site has operated under the SpaceXSI brand, with Grok covering reasoning, code, voice, images, and video. The name refers to two related things: the [Grok assistant](https://x.ai/grok/) for everyday users (chat, search, image and video generation, voice conversations), and the model API for developers. This page covers the family as a whole; Grok Bot, the always-on cloud agent, is a separate product on the same line — see [Grok Bot](/en/wiki/products/grok-bot).
 
 ## Product forms and usage
 
@@ -32,11 +32,11 @@ Other passages tagged Grok in Weekly #001 and #002 actually discuss Grok Bot —
 
 ### What is Grok?
 
-Grok is the frontier-model and AI-assistant family from SpaceXAI (the brand xAI operates under after merging into SpaceX), offering web and mobile assistants, an entry inside X, and a developer API. See the [official introduction](https://x.ai/grok/).
+Grok is the frontier-model and AI-assistant family from SpaceXSI (the brand xAI operates under after merging into SpaceX), offering web and mobile assistants, an entry inside X, and a developer API. See the [official introduction](https://x.ai/grok/).
 
 ### Who makes Grok?
 
-Grok is developed by xAI; xAI announced its merger into SpaceX in February 2026 and the site now runs under the SpaceXAI name. See the [announcement](https://x.ai/news/xai-joins-spacex).
+Grok is developed by xAI; xAI announced its merger into SpaceX in February 2026 and the site now runs under the SpaceXSI name. See the [announcement](https://x.ai/news/xai-joins-spacex).
 
 ### What is the difference between Grok and Grok Bot?
 
@@ -56,7 +56,7 @@ Yes. As an English word, "grok" comes from Robert Heinlein's 1961 science-fictio
 
 ## Sources
 
-- [SpaceXAI official site (Grok product line)](https://x.ai/)
+- [SpaceXSI official site (Grok product line)](https://x.ai/)
 - [Official Grok assistant introduction](https://x.ai/grok/)
 - [xAI joins SpaceX announcement](https://x.ai/news/xai-joins-spacex)
 - [Official Grok documentation](https://docs.x.ai/)

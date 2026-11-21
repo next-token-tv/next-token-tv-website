@@ -31,7 +31,7 @@ Fireworks AI、硅基流动的品牌条目介绍公司主体及业务；两者�
 | Herdr、Three.js、Pi、Dia | 只收录产品，不添加重复的项目品牌 |
 | Runta、OpenRouter、fal.ai、X | 只收录平台产品 |
 | Qwen、混元、WorkBuddy | 只收录对应模型或应用产品 |
-| SpaceXAI | 品牌；xAI、X.AI 为别名，与 X 平台分开 |
+| SpaceXSI | 品牌；xAI、X.AI、SpaceXAI 为别名，与 X 平台分开 |
 | 观猹 | 媒体与社区品牌；观猹大会作为品牌活动介绍，不另建独立条目 |
 | WaytoAGI | 媒体与社区，分类为 `media-community-brand` |
 | Y Combinator | 品牌使用全称，YC 为别名 |

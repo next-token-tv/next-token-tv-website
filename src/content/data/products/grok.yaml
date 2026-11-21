@@ -4,8 +4,8 @@ name:
   zh-Hans: Grok
   en: Grok
 summary:
-  zh-Hans: SpaceXAI 的通用人工智能模型与助手家族。
-  en: SpaceXAI's family of general-purpose AI models and assistants.
+  zh-Hans: SpaceXSI 的通用人工智能模型与助手家族。
+  en: SpaceXSI's family of general-purpose AI models and assistants.
 aliases:
   - Grok 4.7
 status: available

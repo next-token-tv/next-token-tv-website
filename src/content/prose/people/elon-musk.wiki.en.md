@@ -3,14 +3,14 @@ entityType: person
 entity: elon-musk
 locale: en
 slot: wiki
-updatedAt: '2026-09-21'
+updatedAt: '2026-11-21'
 seoTitle: 'Elon Musk: Tesla and SpaceX CEO | Next Token Wiki'
 seoDescription: 'Elon Musk’s career: from Zip2 and PayPal to leading SpaceX and Tesla, founding xAI, acquiring X, and how the show discusses him.'
 ---
 
 ## Elon Musk
 
-Elon Musk is an American entrepreneur who serves as chief executive officer (CEO) of Tesla and SpaceX and is the largest individual shareholder of both companies. He is known for reusable rockets and commercial spaceflight at SpaceX, electric vehicles at Tesla, acquiring the social platform [X](/en/wiki/products/x), and founding the AI company xAI, which merged into SpaceX and now operates under the SpaceXAI brand (see [SpaceXAI](/en/wiki/brands/xai)).
+Elon Musk is an American entrepreneur who serves as chief executive officer (CEO) of Tesla and SpaceX and is the largest individual shareholder of both companies. He is known for reusable rockets and commercial spaceflight at SpaceX, electric vehicles at Tesla, acquiring the social platform [X](/en/wiki/products/x), and founding the AI company xAI, which merged into SpaceX and now operates under the SpaceXSI brand (see [SpaceXSI](/en/wiki/brands/xai)).
 
 ## Career and milestones
 
@@ -44,7 +44,7 @@ Tesla was founded in 2003 by Martin Eberhard and Marc Tarpenning. Musk led the S
 
 ### What is Elon Musk's role at xAI?
 
-He founded xAI in July 2023; it develops the Grok model family and became a subsidiary of SpaceX in 2026, operating under the SpaceXAI brand.
+He founded xAI in July 2023; it develops the Grok model family and became a subsidiary of SpaceX in 2026, operating under the SpaceXSI brand.
 
 ### Has Elon Musk held a government position?
 
@@ -54,5 +54,5 @@ From January to May 2025, he was Senior Advisor to the President in the second T
 
 - [English Wikipedia: Elon Musk](https://en.wikipedia.org/wiki/Elon_Musk)
 - [xAI official website](https://x.ai/)
-- [SpaceXAI brand page](/en/wiki/brands/xai)
+- [SpaceXSI brand page](/en/wiki/brands/xai)
 - [X product page](/en/wiki/products/x)

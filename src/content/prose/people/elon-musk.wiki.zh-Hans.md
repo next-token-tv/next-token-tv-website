@@ -3,14 +3,14 @@ entityType: person
 entity: elon-musk
 locale: zh-Hans
 slot: wiki
-updatedAt: '2026-09-21'
+updatedAt: '2026-11-21'
 seoTitle: 'Elon Musk（埃隆·马斯克）：Tesla 与 SpaceX 的 CEO｜Next Token Wiki'
 seoDescription: 'Elon Musk 的经历：Zip2、PayPal 到 SpaceX 与 Tesla，创立并合并 xAI，收购 X 平台，以及节目中的相关讨论。'
 ---
 
 ## Elon Musk（埃隆·马斯克）
 
-Elon Musk（埃隆·马斯克）是美国企业家，担任 Tesla 与 SpaceX 的首席执行官（CEO），也是这两家公司最大的个人股东。他以可回收火箭与商业航天（SpaceX）、电动车（Tesla）等业务为人所知，并收购了社交平台 [X](/wiki/products/x)，创立了 AI 公司 xAI（并入 SpaceX 后现以 SpaceXAI 品牌运营，见 [SpaceXAI](/wiki/brands/xai)）。
+Elon Musk（埃隆·马斯克）是美国企业家，担任 Tesla 与 SpaceX 的首席执行官（CEO），也是这两家公司最大的个人股东。他以可回收火箭与商业航天（SpaceX）、电动车（Tesla）等业务为人所知，并收购了社交平台 [X](/wiki/products/x)，创立了 AI 公司 xAI（并入 SpaceX 后现以 SpaceXSI 品牌运营，见 [SpaceXSI](/wiki/brands/xai)）。
 
 ## 经历与代表作品
 
@@ -44,7 +44,7 @@ Tesla 于 2003 年由 Martin Eberhard 与 Marc Tarpenning 创立。马斯克于 
 
 ### 马斯克与 xAI 是什么关系？
 
-xAI 是他于 2023 年 7 月创立的人工智能公司，开发 Grok 模型系列；2026 年 xAI 成为 SpaceX 子公司，相关业务以 SpaceXAI 品牌运营。
+xAI 是他于 2023 年 7 月创立的人工智能公司，开发 Grok 模型系列；2026 年 xAI 成为 SpaceX 子公司，相关业务以 SpaceXSI 品牌运营。
 
 ### 马斯克担任过政府职务吗？
 
@@ -54,5 +54,5 @@ xAI 是他于 2023 年 7 月创立的人工智能公司，开发 Grok 模型系�
 
 - [Wikipedia（英文）：Elon Musk](https://en.wikipedia.org/wiki/Elon_Musk)
 - [xAI 官方网站](https://x.ai/)
-- [SpaceXAI 品牌页](/wiki/brands/xai)
+- [SpaceXSI 品牌页](/wiki/brands/xai)
 - [X 产品页](/wiki/products/x)

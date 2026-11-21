@@ -3,14 +3,14 @@ entityType: product
 entity: x
 locale: en
 slot: wiki
-updatedAt: '2026-09-18'
+updatedAt: '2026-11-21'
 seoTitle: 'X (formerly Twitter): platform role, ownership history, and how it differs from Grok | Next Token Wiki'
 seoDescription: 'What X is, its path from Twitter to X and through the xAI and SpaceX acquisitions, how it differs from Grok and Grok Bot, and how the show used it.'
 ---
 
 ## What X is
 
-X is a social platform for public posting, real-time conversation, and creator content, formerly known as Twitter, which launched in 2006. Its ownership history consists of completed events: in October 2022, Elon Musk completed his $44 billion acquisition of Twitter; in July 2023 the platform was renamed X, and the domain moved to x.com in May 2024. On March 28, 2025, Musk’s xAI acquired X Corp in an all-stock deal — announced valuations were $33 billion for X ($45 billion including $12 billion in debt) and $80 billion for xAI, combining into X.AI Holdings. After SpaceX acquired xAI in February 2026, X and Grok sit within the SpaceX corporate family (later renamed SpaceXAI). The official introduction is at [about.x.com](https://about.x.com/en).
+X is a social platform for public posting, real-time conversation, and creator content, formerly known as Twitter, which launched in 2006. Its ownership history consists of completed events: in October 2022, Elon Musk completed his $44 billion acquisition of Twitter; in July 2023 the platform was renamed X, and the domain moved to x.com in May 2024. On March 28, 2025, Musk’s xAI acquired X Corp in an all-stock deal — announced valuations were $33 billion for X ($45 billion including $12 billion in debt) and $80 billion for xAI, combining into X.AI Holdings. After SpaceX acquired xAI in February 2026, X and Grok sit within the SpaceX corporate family (its AI business now operating as SpaceXSI). The official introduction is at [about.x.com](https://about.x.com/en).
 
 ## How X differs from Grok and Grok Bot
 
@@ -38,7 +38,7 @@ The platform’s web entry is [x.com](https://x.com/); the corporate introductio
 
 ### Who owns X now?
 
-The timeline: Elon Musk completed the acquisition in October 2022; on March 28, 2025, xAI acquired X Corp and the two combined into X.AI Holdings; after SpaceX acquired xAI in February 2026, X and Grok belong to the SpaceX corporate family (later renamed SpaceXAI).
+The timeline: Elon Musk completed the acquisition in October 2022; on March 28, 2025, xAI acquired X Corp and the two combined into X.AI Holdings; after SpaceX acquired xAI in February 2026, X and Grok belong to the SpaceX corporate family (its AI business now operating as SpaceXSI).
 
 ### What is the relationship between X and Grok?
 

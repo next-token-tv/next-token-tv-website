@@ -3,14 +3,14 @@ entityType: product
 entity: grok
 locale: zh-Hans
 slot: wiki
-updatedAt: '2026-09-18'
-seoTitle: 'Grok：SpaceXAI 的模型与助手家族，及其与 Grok Bot 的区别｜Next Token Wiki'
+updatedAt: '2026-11-21'
+seoTitle: 'Grok：SpaceXSI 的模型与助手家族，及其与 Grok Bot 的区别｜Next Token Wiki'
 seoDescription: '了解 Grok 的定位、助手产品形态、开发者 API 与 SuperGrok 订阅口径，以及它与 Grok Bot 云端 Agent 产品的区别。'
 ---
 
 ## Grok 是什么
 
-Grok 是 xAI 推出的前沿模型与 AI 助手产品家族。xAI 于 2026 年 2 月[宣布并入 SpaceX](https://x.ai/news/xai-joins-spacex)后，官网以 SpaceXAI 品牌运营，Grok 覆盖推理、代码、语音、图像与视频等模态。它同时指两类东西：面向普通用户的 [Grok 助手](https://x.ai/grok/)（聊天、搜索、图像与视频生成、语音对话），以及供开发者调用的模型 API。本文整体介绍这个家族；云端常驻的自主 Agent 产品 Grok Bot 是同一条产品线下的独立产品，见 [Grok Bot](/wiki/products/grok-bot)。
+Grok 是 xAI 推出的前沿模型与 AI 助手产品家族。xAI 于 2026 年 2 月[宣布并入 SpaceX](https://x.ai/news/xai-joins-spacex)后，官网以 SpaceXSI 品牌运营，Grok 覆盖推理、代码、语音、图像与视频等模态。它同时指两类东西：面向普通用户的 [Grok 助手](https://x.ai/grok/)（聊天、搜索、图像与视频生成、语音对话），以及供开发者调用的模型 API。本文整体介绍这个家族；云端常驻的自主 Agent 产品 Grok Bot 是同一条产品线下的独立产品，见 [Grok Bot](/wiki/products/grok-bot)。
 
 ## 产品形态与使用方式
 
@@ -32,11 +32,11 @@ Weekly #001 与 #002 中被标记为 Grok 的其他讨论实际围绕 Grok Bot �
 
 ### Grok 是什么？
 
-Grok 是 SpaceXAI（xAI 并入 SpaceX 后的品牌）旗下的前沿模型与 AI 助手家族，提供网页与移动端助手、X 平台内入口和开发者 API。见[官方介绍](https://x.ai/grok/)。
+Grok 是 SpaceXSI（xAI 并入 SpaceX 后的品牌）旗下的前沿模型与 AI 助手家族，提供网页与移动端助手、X 平台内入口和开发者 API。见[官方介绍](https://x.ai/grok/)。
 
 ### Grok 是哪家公司的？
 
-Grok 由 xAI 研发；xAI 于 2026 年 2 月宣布并入 SpaceX，此后官网以 SpaceXAI 名义运营。见[并入公告](https://x.ai/news/xai-joins-spacex)。
+Grok 由 xAI 研发；xAI 于 2026 年 2 月宣布并入 SpaceX，此后官网以 SpaceXSI 名义运营。见[并入公告](https://x.ai/news/xai-joins-spacex)。
 
 ### Grok 和 Grok Bot 有什么区别？
 
@@ -56,7 +56,7 @@ Grok 是模型与助手家族（聊天、搜索、生成、API）；Grok Bot 是
 
 ## 来源
 
-- [SpaceXAI 官网（Grok 产品线）](https://x.ai/)
+- [SpaceXSI 官网（Grok 产品线）](https://x.ai/)
 - [Grok 助手官方介绍](https://x.ai/grok/)
 - [xAI 并入 SpaceX 公告](https://x.ai/news/xai-joins-spacex)
 - [Grok 官方文档站](https://docs.x.ai/)

@@ -3,14 +3,14 @@ entityType: product
 entity: x
 locale: zh-Hans
 slot: wiki
-updatedAt: '2026-09-18'
+updatedAt: '2026-11-21'
 seoTitle: 'X（原 Twitter）：平台定位、归属沿革与 Grok 的区别｜Next Token Wiki'
 seoDescription: '了解 X 的定位、从 Twitter 到 X 的更名与归属沿革、与 Grok 和 Grok Bot 的区别，以及节目中对 X 的使用。'
 ---
 
 ## X 定位
 
-X 是一个提供公开发帖、实时讨论与创作者内容的社交平台，前身为 2006 年上线的 Twitter。归属沿革均为已发生的事实：2022 年 10 月，埃隆·马斯克以 440 亿美元完成对 Twitter 的收购；2023 年 7 月平台更名为 X，域名于 2024 年 5 月迁移至 x.com；2025 年 3 月 28 日，马斯克旗下的 xAI 以全股票交易收购 X Corp，公告口径对 X 估值 330 亿美元（计入 120 亿美元债务为 450 亿美元）、对 xAI 估值 800 亿美元，双方合并为 X.AI Holdings；2026 年 2 月 SpaceX 收购 xAI 后，X 与 Grok 同属 SpaceX 体系（公司后更名为 SpaceXAI）。官方介绍见 [about.x.com](https://about.x.com/en)。
+X 是一个提供公开发帖、实时讨论与创作者内容的社交平台，前身为 2006 年上线的 Twitter。归属沿革均为已发生的事实：2022 年 10 月，埃隆·马斯克以 440 亿美元完成对 Twitter 的收购；2023 年 7 月平台更名为 X，域名于 2024 年 5 月迁移至 x.com；2025 年 3 月 28 日，马斯克旗下的 xAI 以全股票交易收购 X Corp，公告口径对 X 估值 330 亿美元（计入 120 亿美元债务为 450 亿美元）、对 xAI 估值 800 亿美元，双方合并为 X.AI Holdings；2026 年 2 月 SpaceX 收购 xAI 后，X 与 Grok 同属 SpaceX 体系（其 AI 业务现以 SpaceXSI 品牌运营）。官方介绍见 [about.x.com](https://about.x.com/en)。
 
 ## 与 Grok、Grok Bot 的区别
 
@@ -38,7 +38,7 @@ X 就是 Twitter：平台 2006 年上线，2023 年 7 月更名为 X，2024 年 
 
 ### X 现在归谁所有？
 
-归属按时间线为：2022 年 10 月马斯克完成收购；2025 年 3 月 28 日 xAI 收购 X Corp 并合并为 X.AI Holdings；2026 年 2 月 SpaceX 收购 xAI 后，X 与 Grok 同属 SpaceX 体系（后更名 SpaceXAI）。
+归属按时间线为：2022 年 10 月马斯克完成收购；2025 年 3 月 28 日 xAI 收购 X Corp 并合并为 X.AI Holdings；2026 年 2 月 SpaceX 收购 xAI 后，X 与 Grok 同属 SpaceX 体系（后更名 SpaceXSI）。
 
 ### X 和 Grok 是什么关系？
 
