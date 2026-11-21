@@ -9,7 +9,7 @@ for (const width of [390, 1440]) for (const prefix of ['', '/en']) {
   const coHostEpisodes = routed.filter(e =>
     (e.mentions?.people ?? []).includes('yangpan') ||
     (e.status === 'announced'
-      ? (e.participants ?? []).some(p => p.person === 'yangpan')
+      ? (e.participants ?? []).some((p: { person: string }) => p.person === 'yangpan')
       : JSON.parse(readFileSync(`src/content/imported/episodes/${e.productionImport}.json`, 'utf8')).participants.some((p: { person: string }) => p.person === 'yangpan'))
   ).length;
   test(`people library ${prefix || 'zh'} ${width}`, async ({ page, request }) => {
