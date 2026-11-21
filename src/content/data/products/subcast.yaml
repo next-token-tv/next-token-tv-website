@@ -1,0 +1,21 @@
+kind: application
+name:
+  zh-Hans: 声渡 SubCast
+  en: SubCast
+aliases:
+  - 声渡
+summary:
+  zh-Hans: 向阳乔木开发的开源播客与 YouTube 桌面播放器，支持订阅、双语字幕和 AI 精读。
+  en: An open-source desktop player for podcasts and YouTube by Xiangyang Qiaomu, with subscriptions, bilingual subtitles, and AI-assisted reading.
+official:
+  website: https://subcast.qiaomu.ai/
+  repository: https://github.com/joeseesun/subcast
+sources:
+  - label:
+      zh-Hans: SubCast 项目说明
+      en: SubCast project README
+    href: https://github.com/joeseesun/subcast#readme
+lastVerifiedAt: '2026-11-21'
+socialSummary:
+  zh-Hans: 开源播客播放器与双语字幕
+  en: Open-source podcast player with bilingual subtitles

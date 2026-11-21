@@ -1,0 +1,25 @@
+kind: model-family
+brand: google-deepmind
+name:
+  zh-Hans: Genie
+  en: Genie
+aliases:
+  - Genie 4
+summary:
+  zh-Hans: Google DeepMind 的世界模型家族，用文本或图像作为提示生成可交互的环境。
+  en: Google DeepMind’s world model family for generating interactive environments from prompts such as text and images.
+official:
+  website: https://deepmind.google/models/genie/
+sources:
+  - label:
+      zh-Hans: Genie 4 官方介绍
+      en: Genie 4 official overview
+    href: https://deepmind.google/models/genie/
+  - label:
+      zh-Hans: Genie 原始研究
+      en: Original Genie research
+    href: https://deepmind.google/research/publications/60474/
+lastVerifiedAt: '2026-11-21'
+socialSummary:
+  zh-Hans: Google DeepMind 的交互式世界模型
+  en: Google DeepMind’s interactive world model

@@ -1,0 +1,21 @@
+kind: application
+brand: ant-group
+name:
+  zh-Hans: 蚂蚁阿福
+  en: Ant Afu
+aliases:
+  - 阿福
+  - Afu
+  - AQ
+summary:
+  zh-Hans: 蚂蚁集团的 AI 健康应用，原名 AQ，提供健康问答、报告解读和健康服务入口。
+  en: Ant Group’s AI health app, formerly AQ, offers health Q&A, report explanations, and access to health services.
+sources:
+  - label:
+      zh-Hans: 蚂蚁集团产品更名公告
+      en: Ant Group’s AQ and Afu announcement
+    href: https://www.antgroup.com/press-releases/1765785600000
+lastVerifiedAt: '2026-11-21'
+socialSummary:
+  zh-Hans: 蚂蚁集团的 AI 健康应用
+  en: Ant Group’s AI health app

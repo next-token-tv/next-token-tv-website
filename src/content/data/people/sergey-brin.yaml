@@ -1,0 +1,27 @@
+kind: business
+name:
+  zh-Hans: 谢尔盖·布林
+  en: Sergey Brin
+aliases:
+  - 谢尔盖布林
+bio:
+  zh-Hans: Google 联合创始人，与拉里·佩奇共同开发早期搜索引擎 Backrub。
+  en: Google co-founder who developed the early search engine Backrub with Larry Page.
+sources:
+  - label:
+      zh-Hans: Google 公司历史
+      en: Google’s company history
+    href: https://about.google/company-info/our-story/
+relations:
+  - entityType: brand
+    entity: google
+    role:
+      zh-Hans: 联合创始人
+      en: Co-founder
+    sources:
+      - label:
+          zh-Hans: Google 公司历史
+          en: Google’s company history
+        href: https://about.google/company-info/our-story/
+    lastVerifiedAt: '2026-11-21'
+lastVerifiedAt: '2026-11-21'

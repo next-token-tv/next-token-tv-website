@@ -1,0 +1,19 @@
+kind: tool
+name:
+  zh-Hans: Tailscale
+  en: Tailscale
+summary:
+  zh-Hans: 基于 WireGuard 的组网工具，让不同网络上的设备通过加密的私有网络互相访问。
+  en: A WireGuard-based networking tool that connects devices across networks through an encrypted private network.
+official:
+  website: https://tailscale.com/
+  documentation: https://tailscale.com/docs/concepts/what-is-tailscale
+sources:
+  - label:
+      zh-Hans: Tailscale 官方概念说明
+      en: Tailscale documentation
+    href: https://tailscale.com/docs/concepts/what-is-tailscale
+lastVerifiedAt: '2026-11-21'
+socialSummary:
+  zh-Hans: 基于 WireGuard 的私有组网工具
+  en: Private networking built on WireGuard

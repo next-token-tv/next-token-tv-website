@@ -1,0 +1,26 @@
+kind: agent
+name:
+  zh-Hans: Factory Droid
+  en: Factory Droid
+aliases:
+  - Factory
+  - Droid CLI
+summary:
+  zh-Hans: Factory 的软件开发智能体，可通过终端和桌面应用处理代码修改、测试与审查。
+  en: Factory’s software development agent for editing, testing, and reviewing code through terminal and desktop interfaces.
+official:
+  website: https://factory.ai/product/desktop
+  documentation: https://docs.factory.com/droid-cli/overview
+sources:
+  - label:
+      zh-Hans: Droid CLI 官方文档
+      en: Droid CLI documentation
+    href: https://docs.factory.com/droid-cli/overview
+  - label:
+      zh-Hans: Factory 桌面产品说明
+      en: Factory Desktop product page
+    href: https://factory.ai/product/desktop
+lastVerifiedAt: '2026-11-21'
+socialSummary:
+  zh-Hans: Factory 的软件开发智能体
+  en: Factory’s software development agent

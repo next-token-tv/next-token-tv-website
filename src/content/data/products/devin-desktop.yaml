@@ -1,0 +1,27 @@
+kind: developer-tool
+brand: cognition
+name:
+  zh-Hans: Devin Desktop
+  en: Devin Desktop
+aliases:
+  - Windsurf
+  - Windsurf Editor
+summary:
+  zh-Hans: Cognition 的桌面开发环境，前身为 Windsurf，可在集成编辑器中使用代码和本地或云端智能体。
+  en: Cognition’s desktop development environment, formerly Windsurf, with an integrated editor and support for local and cloud agents.
+official:
+  website: https://devin.ai/desktop
+  documentation: https://docs.devin.ai/desktop/getting-started
+sources:
+  - label:
+      zh-Hans: Devin Desktop 产品与更名说明
+      en: Devin Desktop product and rename FAQ
+    href: https://devin.ai/desktop
+  - label:
+      zh-Hans: Devin Desktop 入门文档
+      en: Devin Desktop getting started
+    href: https://docs.devin.ai/desktop/getting-started
+lastVerifiedAt: '2026-11-21'
+socialSummary:
+  zh-Hans: 原 Windsurf 桌面开发环境
+  en: The desktop IDE formerly called Windsurf

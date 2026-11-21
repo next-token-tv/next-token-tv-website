@@ -1,0 +1,21 @@
+kind: internet-software-brand
+name:
+  zh-Hans: 快手科技
+  en: Kuaishou Technology
+aliases:
+  - 快手
+  - Kuaishou
+summary:
+  zh-Hans: 运营短视频和直播平台的互联网公司，业务包括在线营销、电商与直播。
+  en: An internet company operating short video and livestreaming platforms, with businesses in online marketing, e-commerce, and live streaming.
+official:
+  website: https://www.kuaishou.com/
+sources:
+  - label:
+      zh-Hans: 快手科技投资者常见问题
+      en: Kuaishou investor FAQ
+    href: https://ir.kuaishou.com/investor-resources/investor-faqs/
+lastVerifiedAt: '2026-11-21'
+socialSummary:
+  zh-Hans: 短视频、直播与电商
+  en: Short video, livestreaming, and commerce

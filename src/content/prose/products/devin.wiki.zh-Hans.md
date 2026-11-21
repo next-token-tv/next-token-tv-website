@@ -14,7 +14,7 @@ Devin 是 [Cognition](/wiki/brands/cognition) 推出的软件工程智能体（A
 
 ## 用途与使用边界
 
-官方站点列出的典型用途覆盖日常工程工作：代码迁移与重构（如遗留系统迁移）、issue 分诊与修复、PR 审查与可视化 QA、生成文档、按计划执行的例行维护，以及并行运行多个 Devin 处理跨数周的大任务。接入方式包括网页应用（app.devin.ai）、Slack 与 Teams 中直接 @Devin、GitHub/Linear 等工具集成、命令行工具和 API；文档中的会话 Workspace 提供可观察和介入的 Shell、编辑器与浏览器。计费采用额度制：提供免费层和多个付费订阅档位，超额部分按 API 费率计费，具体档位与额度见[官方价格页](https://devin.ai/pricing)。
+官方站点列出的典型用途覆盖日常工程工作：代码迁移与重构（如遗留系统迁移）、issue 分诊与修复、PR 审查与可视化 QA、生成文档、按计划执行的例行维护，以及并行运行多个 Devin 处理跨数周的大任务。接入方式包括网页应用（app.devin.ai）、[桌面客户端 Devin Desktop](/wiki/products/devin-desktop)、Slack 与 Teams 中直接 @Devin、GitHub/Linear 等工具集成、命令行工具和 API；文档中的会话 Workspace 提供可观察和介入的 Shell、编辑器与浏览器。计费采用额度制：提供免费层和多个付费订阅档位，超额部分按 API 费率计费，具体档位与额度见[官方价格页](https://devin.ai/pricing)。
 
 使用边界方面：Devin 在自己的云端环境执行任务，产出仍需人工验收；它能连接的仓库、工单和消息系统取决于用户的集成授权。与 [Claude Code](/wiki/products/claude-code)、[Codex](/wiki/products/codex) 等主要在本地终端工作的编码 Agent 相比，Devin 的差异点在于独立云端环境和团队协作集成；与 [Manus](/wiki/products/manus) 等通用 Agent 相比，它专注于软件工程场景。
 

@@ -1,0 +1,15 @@
+name:
+  zh-Hans: 多模态
+  en: Multimodality
+aliases:
+  - multimodal
+summary:
+  zh-Hans: 模型处理文字、图像、音频、视频等多种信息形式的能力。
+  en: A model’s ability to work with multiple forms of information, such as text, images, audio, and video.
+status: published
+sources:
+  - label:
+      zh-Hans: Google DeepMind：Gemini 多模态模型技术报告
+      en: 'Google DeepMind: Gemini multimodal model technical report'
+    href: https://deepmind.google/gemini/gemini_1_report.pdf
+lastVerifiedAt: '2026-11-21'

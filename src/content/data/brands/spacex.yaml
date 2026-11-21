@@ -1,0 +1,24 @@
+kind: other-brand
+name:
+  zh-Hans: SpaceX
+  en: SpaceX
+aliases:
+  - Space Exploration Technologies
+summary:
+  zh-Hans: 研发与运营火箭、航天器及 Starlink 卫星网络的航天和通信公司。
+  en: A space and communications company that develops and operates rockets, spacecraft, and the Starlink satellite network.
+official:
+  website: https://www.spacex.com/
+sources:
+  - label:
+      zh-Hans: SpaceX 公司与任务介绍
+      en: SpaceX mission overview
+    href: https://www.spacex.com/mission/
+  - label:
+      zh-Hans: SpaceX 收购 xAI 公告
+      en: SpaceX acquisition of xAI
+    href: https://x.ai/news/xai-joins-spacex
+lastVerifiedAt: '2026-11-21'
+socialSummary:
+  zh-Hans: 火箭、航天器与卫星通信
+  en: Rockets, spacecraft, and satellite connectivity

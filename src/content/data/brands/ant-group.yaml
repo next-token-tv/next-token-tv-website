@@ -1,0 +1,24 @@
+kind: internet-software-brand
+name:
+  zh-Hans: 蚂蚁集团
+  en: Ant Group
+aliases:
+  - 蚂蚁
+summary:
+  zh-Hans: 以支付宝为起点发展起来的科技公司，业务覆盖移动支付、数字生活服务和 AI 应用。
+  en: A technology company that grew out of Alipay, with businesses in mobile payments, digital services, and AI applications.
+official:
+  website: https://www.antgroup.com/
+sources:
+  - label:
+      zh-Hans: 蚂蚁集团公司资料
+      en: Ant Group company profile
+    href: https://www.antgroup.com/en/home
+  - label:
+      zh-Hans: 灵光 2.0 公告
+      en: LingGuang 2.0 announcement
+    href: https://www.antgroup.com/en/news-media/press-releases/1793066400000
+lastVerifiedAt: '2026-11-21'
+socialSummary:
+  zh-Hans: 移动支付、数字生活与 AI 应用
+  en: Payments, digital services, and AI apps
