@@ -1,4 +1,5 @@
 kind: agent
+brand: ant-group
 name:
   zh-Hans: 灵光
   en: Lingguang
@@ -9,9 +10,13 @@ aliases:
   - 蚂蚁灵光
 sources:
   - label:
+      zh-Hans: 蚂蚁集团灵光 2.0 公告
+      en: Ant Group’s LingGuang 2.0 announcement
+    href: https://www.antgroup.com/en/news-media/press-releases/1793066400000
+  - label:
       zh-Hans: 官方或本人资料
       en: Official or author source
     href: https://www.lingguang.com/
-lastVerifiedAt: '2026-10-19'
+lastVerifiedAt: '2026-11-21'
 official:
   website: https://www.lingguang.com/

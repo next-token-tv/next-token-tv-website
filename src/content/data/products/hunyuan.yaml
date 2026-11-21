@@ -9,11 +9,17 @@ summary:
 aliases:
   - Hunyuan 4 Preview
   - Hy4 preview
+  - Hy4 flash
+  - hy4-flash
   - 腾讯混元
   - Tencent Hunyuan
   - 混元
-lastVerifiedAt: '2026-09-10'
+lastVerifiedAt: '2026-11-21'
 sources:
+  - label:
+      zh-Hans: 腾讯云混元模型文档
+      en: Tencent Cloud Hunyuan model documentation
+    href: https://cloud.tencent.com/document/product/1823/132252
   - label:
       zh-Hans: Hunyuan 4 Preview 官方资料
       en: Hunyuan 4 Preview official information

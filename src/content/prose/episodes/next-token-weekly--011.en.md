@@ -11,13 +11,13 @@ Welcome to Next Token #011. The hosts compare the latest frontier models, discus
 
 1. **GPT-6.2 Astra and Sol: why the backlash?** Sol’s Ultra Fast mode feels quick and dependable, while Astra draws criticism for its price, frontend design, and argumentative responses. Astra’s detailed Blender modeling offers a different strength from Fable 5.2’s sense of composition and atmosphere. As everyday coding becomes easier, a one-prompt demo reveals less about the gap between models.
 
-2. **Gemini 4’s comeback: Neon’s writing and design.** The hosts describe Carbon and Neon’s more natural writing, strong frontend design, and native understanding of animated references. They discuss a million-token context window, Neon’s ability to replace Opus 5.5 in real projects, and its availability in Google’s $19.99 subscription. Sergey Brin’s return comes up alongside the remaining frustrations with Antigravity’s harness.
+2. **Gemini 4’s comeback: Neon’s writing and design.** The hosts describe Carbon and Neon’s more natural writing, strong frontend design, and native understanding of animated references. They discuss a [million-token context window](/en/wiki/terms/context), Neon’s ability to replace Opus 5.5 in real projects, and its availability in Google’s $19.99 subscription. [Sergey Brin](/en/wiki/people/sergey-brin)’s return comes up alongside the remaining frustrations with Antigravity’s harness.
 
-3. **DeepSeek’s free limits and the problem of token demand.** Tighter limits on free long conversations upset fanfiction and roleplay users, while API speed improves. The hosts ask why Chinese models struggle to attract paying usage when people earning money with AI pay for stronger overseas models and casual users seek free access.
+3. **DeepSeek’s free limits and the problem of token demand.** Tighter limits on free long conversations in the [DeepSeek app](/en/wiki/products/deepseek-chat) upset fanfiction and roleplay users, while API speed improves. The hosts ask why Chinese models struggle to attract paying usage when people earning money with AI pay for stronger overseas models and casual users seek free access.
 
 4. **Two products with 10 million daily users: WorkBuddy and Meta Muse.** Tencent’s enterprise assistant and Meta’s personal agent illustrate different approaches. The discussion moves from cross-site shopping, shared browser context, and health advice to Apple’s personal-agent plans. The hosts ask why Chinese companies concentrate on office tasks and how compliance constraints and super-app habits affect consumer agents.
 
-5. **Qwen 4, Hunyuan Hy4 flash, and Anthropic’s IPO.** Qwen4-Max and Hunyuan Hy4 flash arrive on the same day. WorkBuddy gives Hunyuan’s fast, inexpensive model a place to reach users. The closing market discussion covers Anthropic’s $83 offering price and valuation approaching $2 trillion, with SpaceX providing a comparison for concentrated wealth and the changing value of human work.
+5. **Qwen 4, Hunyuan Hy4 flash, and Anthropic’s [IPO](/en/wiki/terms/ipo).** Qwen4-Max and Hunyuan Hy4 flash arrive on the same day. WorkBuddy gives Hunyuan’s fast, inexpensive model a place to reach users. The closing market discussion covers Anthropic’s $83 offering price and valuation approaching $2 trillion, with [SpaceX](/en/wiki/brands/spacex) providing a comparison for concentrated wealth and the changing value of human work.
 
 ## 🎙️ Hosts and participants
 
@@ -57,23 +57,23 @@ Recorded at Xanadu Why Space in Beijing on November 20, 2026.
 - 42:05 Advice for model launches: show a complete real project instead of claiming to beat Opus 5.5
 - 46:08 Building video graphics and automatic podcast highlights with Neon
 - 48:40 Testing a million-token context window and generating a long article in one pass
-- 49:27 Strong model, frustrating tools: Antigravity’s caching, permissions, and need for faster iteration
+- 49:27 Strong model, frustrating tools: Antigravity’s caching and permissions, and why the former [Windsurf](/en/wiki/products/devin-desktop) team needs faster feedback
 - 50:39 An Antigravity session fails: how do you resume a half-finished project?
 
 ### Tencent’s earnings and the divide in personal agents
 
-- 53:52 WorkBuddy passes 10 million daily users; WeChat’s Xiaowei reaches 30 million but still feels like an older chatbot
+- 53:52 WorkBuddy passes 10 million daily users; [WeChat’s Xiaowei](/en/wiki/products/xiaowei) reaches 30 million but still feels like an older chatbot
 - 57:23 Why haven’t Chinese tech companies built a compelling personal agent?
 - 58:36 Meta Muse reaches 10 million daily users: cross-site shopping and Shopify’s embrace of agents
 - 59:16 Instinct’s everyday use cases and agent updates
 - 01:01:57 Agents creating purchasing demand: digital pianos, lactase, and overseas supplements
 - 01:05:03 Privacy and the trust flywheel: useful results encourage users to share health data and browser access
-- 01:08:19 Apple’s personal-agent plans beyond Siri, and the case for cloud models
-- 01:09:21 Smart-home assumptions and Ant’s different approaches with Lingguang and Afu
+- 01:08:19 Apple’s personal-agent plans beyond [Siri](/en/wiki/products/siri), and the case for cloud models
+- 01:09:21 Smart-home assumptions and [Ant Group](/en/wiki/brands/ant-group)’s different approaches with [Lingguang](/en/wiki/products/lingguang) and [Afu](/en/wiki/products/ant-afu)
 - 01:10:58 From smart-home readings to an assistant that works across devices
-- 01:13:01 Pressure on Tencent and Kuaishou’s profits, compute spending, and the possibility of another ByteDance
+- 01:13:01 Pressure on Tencent and [Kuaishou](/en/wiki/brands/kuaishou)’s profits, compute spending, and the possibility of another ByteDance
 - 01:15:49 Why personal agents lag in China: constrained model responses and mobile-internet habits
-- 01:17:26 Subcast: subscribing to video podcasts and clipping highlights
+- 01:17:26 [SubCast](/en/wiki/products/subcast): subscribing to video podcasts and clipping highlights
 - 01:18:01 Give employees tokens and ownership: internal startups without large teams and resources
 
 ### Qwen 4, Hunyuan Hy4 flash, and Anthropic’s IPO
@@ -83,11 +83,11 @@ Recorded at Xanadu Why Space in Beijing on November 20, 2026.
 
 ### Listener conversations and this week’s finds
 
-- 01:25:06 Feedback on last week’s down jackets and thoughtful Xiaoyuzhou comments
-- 01:27:11 A matte-screen iPad mini as a Mac mini display, connected directly or through Tailscale
+- 01:25:06 Feedback on last week’s down jackets and thoughtful [Xiaoyuzhou](/en/wiki/products/xiaoyuzhou) comments
+- 01:27:11 A matte-screen iPad mini as a Mac mini display, connected directly or through [Tailscale](/en/wiki/products/tailscale)
 - 01:30:23 Storage prices rise: a 1 TB SSD moves from ¥1,300 to ¥1,600, and used Android phones look attractive
-- 01:31:48 GTA 6 impressions: PS5 trigger resistance, lively NPC stories, and future AI-powered open worlds
-- 01:35:50 Backup coding options: Factory, Devin, and Google subscriptions
+- 01:31:48 GTA 6 impressions: [PS5](/en/wiki/products/playstation-5) trigger resistance, lively NPC stories, and future AI-powered open worlds
+- 01:35:50 Backup coding options: [Factory](/en/wiki/products/factory-droid), [Devin](/en/wiki/products/devin), and Google subscriptions
 
 - 01:36:50 Closing
 
@@ -111,18 +111,20 @@ Comparing digital pianos against someone’s actual requirements tests whether a
 
 ## 🧩 Concepts
 
-- **Multimodality** means working with text, images, audio, or video. An animation example tests whether a model understands how a visual changes over time.
+- [**Multimodality**](/en/wiki/terms/multimodality) means working with text, images, audio, or video. An animation example tests whether a model understands how a visual changes over time.
 - [**Harness**](/en/wiki/terms/harness) refers to the environment that organizes a model’s tools, sessions, context, and task execution. The hosts discuss whether work can continue after a long session fails.
 - [**Personal agent**](/en/wiki/terms/personal-agent) describes an assistant for ongoing individual use, drawing on preferences and context shared with permission to help with specific tasks.
 - [**Trust flywheel**](/en/wiki/terms/trust-flywheel) describes a repeated process: useful results encourage continued use and more context, creating opportunities for more relevant help.
 
 ## 🔗 Tools and references discussed
 
+- [**Next Token Skill**](/en/skill) and [**Next Token Grok Bot**](/en/grok-bot) · Tools introduced at the start of the episode for finding and citing past discussions.
+- [**Genie 4**](/en/wiki/products/genie) · Google DeepMind’s interactive world model, discussed in the segment on the team’s recent releases.
 - [**GPT-6.2**](/en/wiki/products/gpt) and [**Fable 5.2**](/en/wiki/products/claude) · Speed, code review, and 3D creation.
 - [**Carbon and Neon**](/en/wiki/products/gemini), and [**Antigravity**](/en/wiki/products/antigravity) · Writing, video graphics, editing features, and session management.
-- [**DeepSeek**](/en/wiki/products/deepseek) and [**WorkBuddy**](/en/wiki/products/workbuddy) · Response speed, free access, and bringing models into office work.
+- [**DeepSeek**](/en/wiki/products/deepseek) and [**WorkBuddy**](/en/wiki/products/workbuddy) · Response speed, free access, and bringing models into office work. The hosts also discuss [DeepSeek Harness](/en/wiki/products/deepseek-harness) as an alternative to the chat app.
 - [**Instinct**](/en/wiki/products/instinct), [**Muse**](/en/wiki/products/muse-agent), and [**Grok Bot**](/en/wiki/products/grok-bot) · Everyday personal-agent tasks, context, and continued use.
-- **Subcast** · Video podcast subscriptions and highlight clips. The hosts also explain selecting multiple transcript passages on the Next Token website and giving the selection to an agent.
+- [**SubCast**](/en/wiki/products/subcast) · Video podcast subscriptions and highlight clips. The hosts also explain selecting multiple transcript passages on the Next Token website and giving the selection to an agent.
 
 ## 🔁 Related episode
 

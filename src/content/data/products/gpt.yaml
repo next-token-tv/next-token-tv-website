@@ -27,8 +27,16 @@ aliases:
   - GPT 6 Sol
   - GPT-6 Sol
   - 6 Sol
-lastVerifiedAt: '2026-09-10'
+  - GPT-6.2
+  - GPT 6.2
+  - GPT-6.2 Astra
+  - GPT-6.2 Sol
+lastVerifiedAt: '2026-11-21'
 sources:
+  - label:
+      zh-Hans: GPT-6.2 Astra 与 Sol 官方发布
+      en: GPT-6.2 Astra and Sol announcement
+    href: https://openai.com/index/introducing-gpt-6-2-astra-sol/
   - label:
       zh-Hans: GPT-5.6 Luna 官方资料
       en: GPT-5.6 Luna official information

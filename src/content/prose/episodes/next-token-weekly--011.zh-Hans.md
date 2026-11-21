@@ -13,16 +13,16 @@ slot: show-notes
    腰部模型 Sol 的 Ultra Fast 模式又快又稳，旗舰 Astra 却贵、前端审美拉垮，还加重了“不说人话、爱抬杠”的老毛病。它唯一的偏科长板是死磕 Blender 单主体精细建模，和 Fable 5.2 靠整体审美塑造场景走出了两条路。日常 Coding 逼近饱和后，靠一句话 Demo 已经很难再测出新模型的代差。
 
 2. **Gemini 4 系列逆袭：Neon 凭什么拿下审美与写作第一？**\
-   Carbon 与 Neon 在文字人味儿、前端设计和原生多模态动效理解上断档领先，网文圈实测甚至测不出 AI 痕迹。靠着扎实的 100 万上下文和产品设计感，Neon 在真实项目里已经能平替 Opus 5.5，还直接下放到了 19.99 美元会员套餐。谢尔盖·布林下场整合团队见了成效，目前只剩 Antigravity 的 Harness 体验还在拖后腿。
+   Carbon 与 Neon 在文字人味儿、前端设计和原生多模态动效理解上断档领先，网文圈实测甚至测不出 AI 痕迹。靠着扎实的 [100 万上下文](/wiki/terms/context)和产品设计感，Neon 在真实项目里已经能平替 Opus 5.5，还直接下放到了 19.99 美元会员套餐。[谢尔盖·布林](/wiki/people/sergey-brin)下场整合团队见了成效，目前只剩 Antigravity 的 Harness 体验还在拖后腿。
 
 3. **DeepSeek 限额风波，与国产模型的 Token 消耗困局**\
-   DeepSeek 收紧 App 免费长对话额度，引爆了写同人和做角色陪伴的重度用户，换来了 API 提速。这也揭开了国内商业化 Token 消耗上不去的根因：真靠 AI 赚钱的人贵五倍也会买海外顶配模型，应付交差的人只找免费羊毛薅，国产模型两边不靠，数据飞轮转不起来。
+   [DeepSeek 对话应用](/wiki/products/deepseek-chat)收紧免费长对话额度，引爆了写同人和做角色陪伴的重度用户，换来了 API 提速。这也揭开了国内商业化 Token 消耗上不去的根因：真靠 AI 赚钱的人贵五倍也会买海外顶配模型，应付交差的人只找免费羊毛薅，国产模型两边不靠，数据飞轮转不起来。
 
 4. **两个“千万日活”：腾讯财报与中美 Personal Agent 分野**\
-   腾讯企业端 WorkBuddy 与海外个人 Agent 产品 Meta Muse 双双突破 1,000 万日活，走出了截然不同的两条路。海外 Muse 靠跨站购物、全渠道共享上下文的浏览器插件和健康建议跑通了信任飞轮，苹果也正式立项个人 Agent 准备翻篇 Siri；反观国内大厂全在卷办公，受限于合规模型“不说人话”和超级 App 路径依赖，至今没人做出像样的 Personal Agent。
+   腾讯企业端 WorkBuddy 与海外个人 Agent 产品 Meta Muse 双双突破 1,000 万日活，走出了截然不同的两条路。海外 Muse 靠跨站购物、全渠道共享上下文的浏览器插件和健康建议跑通了信任飞轮，苹果也正式立项个人 Agent 准备翻篇 [Siri](/wiki/products/siri)；反观国内大厂全在卷办公，受限于合规模型“不说人话”和超级 App 路径依赖，至今没人做出像样的 Personal Agent。
 
 5. **千问 4、混元 Hy4 flash 与 Anthropic 敲钟上市**\
-   阿里 Qwen4-Max 与腾讯混元 Hy4 flash 同日登场，12B 激活参数的 Hy4 flash 靠低价高速配合 WorkBuddy 找到了落地试验场。压轴聊了 Anthropic 以 83 美元发行价 IPO、盘中市值逼近 2 万亿美元抽干美股流动性，对比 5,300 人撑起 1.5 万亿估值的 SpaceX，算力巨头的财富集中与“拿走人类工作”的寒意越来越真实。
+   阿里 Qwen4-Max 与腾讯混元 Hy4 flash 同日登场，12B 激活参数的 Hy4 flash 靠低价高速配合 WorkBuddy 找到了落地试验场。压轴聊了 Anthropic 以 83 美元发行价 [IPO](/wiki/terms/ipo)、盘中市值逼近 2 万亿美元抽干美股流动性，对比 5,300 人撑起 1.5 万亿估值的 [SpaceX](/wiki/brands/spacex)，算力巨头的财富集中与“拿走人类工作”的寒意越来越真实。
 
 ## 🎙️ 本期主持人和参与者
 
@@ -62,23 +62,23 @@ slot: show-notes
 - 42:05 给国产模型宣发的建议：别再喊口号“打败 Opus 5.5”，拿真实完整项目说话
 - 46:08 实战检验：用 Neon 做视频包装组件与播客自动高光剪辑，产品感让人惊喜
 - 48:40 真 100 万上下文大海捞针与一次性万字长文直出
-- 49:27 模型强、工具拉：Antigravity 缓存命中率低、权限弹窗傻，Windsurf 班底亟待正反馈迭代
+- 49:27 模型强、工具拉：Antigravity 缓存命中率低、权限弹窗傻，[Windsurf](/wiki/products/devin-desktop) 班底亟待正反馈迭代
 - 50:39 Antigravity 会话出错，做了一半的项目怎么接着跑
 
 ### 腾讯财报与中美 Personal Agent 大分野
 
-- 53:52 腾讯财报亮点：企业端 WorkBuddy 日活破 1,000 万，微信“小微”日活 3,000 万但体验仍像旧 Chatbot
+- 53:52 腾讯财报亮点：企业端 WorkBuddy 日活破 1,000 万，[微信“小微”](/wiki/products/xiaowei)日活 3,000 万但体验仍像旧 Chatbot
 - 57:23 为什么国内大厂至今没做出一个像样的 Personal Agent？
 - 58:36 Meta Muse 日活破 1,000 万：最大需求竟是跨站海淘，Shopify 全面拥抱 Agent
 - 59:16 Instinct 的生活场景与 Agent 功能更新
 - 01:01:57 Agent 如何创造真实消费需求：从家里买电钢琴调研，到推荐口服乳糖酶与海淘补剂
 - 01:05:03 隐私与信任飞轮：只要真能解决问题，用户愿意主动交出健康数据与浏览器权限
 - 01:08:19 苹果立项 Personal Agent 告别 Siri，本地模型热潮退去后终局仍在云端
-- 01:09:21 国内智能家居切入点的误区，以及蚂蚁“灵光”与“阿福”偏向生活健康的差异化路线
+- 01:09:21 国内智能家居切入点的误区，以及[蚂蚁](/wiki/brands/ant-group)“[灵光](/wiki/products/lingguang)”与“[阿福](/wiki/products/ant-afu)”偏向生活健康的差异化路线
 - 01:10:58 从智能家居读数聊到跨设备的生活助理
-- 01:13:01 腾讯与快手财报利润承压、恒生科技腰斩：算力投入错配下，AI 时代还能长出新字节吗？
+- 01:13:01 腾讯与[快手](/wiki/brands/kuaishou)财报利润承压、恒生科技腰斩：算力投入错配下，AI 时代还能长出新字节吗？
 - 01:15:49 国内缺席个人 Agent 的底层原因：合规模型“不说人话”与移动互联网路径依赖
-- 01:17:26 Subcast，订阅视频播客和剪高光片段
+- 01:17:26 [SubCast](/wiki/products/subcast)，订阅视频播客和剪高光片段
 - 01:18:01 给员工发 Token 自负盈亏：AI 时代的大厂内部创业不再需要重资源堆砌
 
 ### 千问 4、混元 Hy4 flash 与 Anthropic IPO
@@ -88,11 +88,11 @@ slot: show-notes
 
 ### 听友互动与本周好物
 
-- 01:25:06 上期羽绒服带货反馈与小宇宙高质量评论区共创
-- 01:27:11 好物一：iPad mini 柔光屏版，直连或用 Tailscale 远程充当 Mac mini 屏幕与出差轻办公终端
+- 01:25:06 上期羽绒服带货反馈与[小宇宙](/wiki/products/xiaoyuzhou)高质量评论区共创
+- 01:27:11 好物一：iPad mini 柔光屏版，直连或用 [Tailscale](/wiki/products/tailscale) 远程充当 Mac mini 屏幕与出差轻办公终端
 - 01:30:23 好物二：存储涨价追踪，1 TB 固态从 1,300 涨到 1,600，二手高配安卓机性价比凸显
-- 01:31:48 好物三：《GTA 6》上手震撼，PS5 扳机油门/卧推阻尼与鲜活 NPC 支线，畅想 AI 加持下的下一代开放世界
-- 01:35:50 编码工具替补建议：Factory、Devin 与 Google 套餐
+- 01:31:48 好物三：《GTA 6》上手震撼，[PS5](/wiki/products/playstation-5) 扳机油门/卧推阻尼与鲜活 NPC 支线，畅想 AI 加持下的下一代开放世界
+- 01:35:50 编码工具替补建议：[Factory](/wiki/products/factory-droid)、[Devin](/wiki/products/devin) 与 Google 套餐
 
 - 01:36:50 片尾
 
@@ -116,18 +116,20 @@ slot: show-notes
 
 ## 🧩 概念解释
 
-- **多模态** 指模型可以处理文字、图像、音频或视频等多种输入。本期用参考动效的例子，讨论模型能否理解画面随时间发生的变化。
+- [**多模态**](/wiki/terms/multimodality) 指模型可以处理文字、图像、音频或视频等多种输入。本期用参考动效的例子，讨论模型能否理解画面随时间发生的变化。
 - [**Harness**](/wiki/terms/harness) 是围绕模型组织工具、会话、上下文和任务执行的运行环境。本期谈到长会话中断后能否继续工作。
 - [**Personal Agent**](/wiki/terms/personal-agent) 是面向个人长期使用的智能体，可以结合用户授权提供的偏好和上下文，协助完成具体任务。
 - [**信任飞轮**](/wiki/terms/trust-flywheel) 描述的是反复发生的过程。Agent 先把事情办好，用户更愿意继续使用并补充上下文，Agent 也因此有机会提供更贴合需求的帮助。
 
 ## 🔗 本期提到的工具与信息源
 
+- [**Next Token Skill**](/skill) 与 [**Next Token Grok Bot**](/grok-bot) · 开场介绍的两种节目检索和引用工具。
+- [**Genie 4**](/wiki/products/genie) · 谈到 Google DeepMind 近期发布时，节目也讨论了这个可交互的世界模型。
 - [**GPT-6.2**](/wiki/products/gpt)、[**Fable 5.2**](/wiki/products/claude) 用于讨论响应速度、代码审查与 3D 创作的取舍。
 - [**Carbon、Neon**](/wiki/products/gemini)、[**Antigravity**](/wiki/products/antigravity) 分别出现在写作、视频包装与剪辑功能、会话管理的试用分享中。
-- [**DeepSeek**](/wiki/products/deepseek)、[**WorkBuddy**](/wiki/products/workbuddy) 从响应速度和免费入口聊到办公用户如何用上模型。
+- [**DeepSeek**](/wiki/products/deepseek)、[**WorkBuddy**](/wiki/products/workbuddy) 从响应速度和免费入口聊到办公用户如何用上模型。节目也讨论了用 [DeepSeek Harness](/wiki/products/deepseek-harness) 作为长对话的另一个入口。
 - [**Instinct**](/wiki/products/instinct)、[**Muse**](/wiki/products/muse-agent)、[**Grok Bot**](/wiki/products/grok-bot) 用来讨论个人 Agent 的生活场景、上下文和持续使用。
-- **Subcast** 用于订阅视频播客和剪辑高光片段。本期也介绍了在 Next Token 官网多选字幕，再把选段交给 Agent 的用法。
+- [**声渡 SubCast**](/wiki/products/subcast) 用于订阅视频播客和剪辑高光片段。本期也介绍了在 Next Token 官网多选字幕，再把选段交给 Agent 的用法。
 
 ## 🔁 相关往期
 

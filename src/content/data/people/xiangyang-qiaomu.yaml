@@ -38,3 +38,15 @@ socials:
     handle: 向阳乔木
 
 kind: creator-community
+relations:
+  - entityType: product
+    entity: subcast
+    role:
+      zh-Hans: 开发者
+      en: Developer
+    sources:
+      - label:
+          zh-Hans: SubCast 项目仓库
+          en: SubCast project repository
+        href: https://github.com/joeseesun/subcast
+    lastVerifiedAt: '2026-11-21'

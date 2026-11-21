@@ -24,6 +24,8 @@ participants:
   - person: xiangyang-qiaomu
     role: co-host
 mentions:
+  people:
+    - sergey-brin
   brands:
     - openai
     - anthropic
@@ -33,30 +35,64 @@ mentions:
     - meta
     - apple
     - alibaba
+    - bytedance
+    - ant-group
+    - kuaishou
+    - spacex
   products:
+    - xiaoyuzhou
+    - youtube
+    - next-token-skill
+    - grok-bot
     - gpt
+    - codex
     - claude
     - blender
     - gemini
+    - genie
     - antigravity
     - deepseek
+    - deepseek-chat
+    - deepseek-harness
+    - devin-desktop
+    - doubao-work
+    - pi
     - workbuddy
+    - wechat
+    - xiaowei
     - instinct
     - muse-agent
     - shopify
+    - siri
+    - lingguang
+    - ant-afu
+    - subcast
     - qwen
     - hunyuan
-    - grok-bot
     - ipad
     - mac-mini
+    - tailscale
+    - mac-studio
+    - android
+    - playstation-5
     - grand-theft-auto-vi
+    - factory-droid
     - devin
   terms:
     - '3d'
+    - multimodality
+    - context
     - harness
+    - api
+    - cache
+    - chatbot
     - personal-agent
     - trust-flywheel
+    - smart-home
     - token
+    - ipo
+    - ssh
+    - vps
 preview:
   images:
     '960': /assets/weekly-011-960.webp

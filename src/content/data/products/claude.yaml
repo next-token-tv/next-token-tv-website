@@ -19,14 +19,20 @@ aliases:
   - Mythos 5.1
   - Claude Opus 4.8
   - Opus 4.8
+  - Claude Opus 5.5
+  - Opus 5.5
   - Haiku
   - Claude Haiku
 status: available
 official:
   website: https://www.anthropic.com/claude
   documentation: https://docs.anthropic.com/en/docs/about-claude/models/overview
-lastVerifiedAt: '2026-11-15'
+lastVerifiedAt: '2026-11-21'
 sources:
+  - label:
+      zh-Hans: Claude Opus 5.5 官方发布
+      en: Claude Opus 5.5 announcement
+    href: https://www.anthropic.com/claude-opus-5-5
   - label:
       zh-Hans: Claude 3.5 官方资料
       en: Claude 3.5 official information
