@@ -12,6 +12,7 @@
     "dev": "node scripts/dev.mjs",
     "import:episode": "node scripts/import-episode.mjs",
     "import:transcript": "node scripts/import-transcript.mjs",
+    "import:transcript-translation": "node scripts/import-transcript-translation.mjs",
     "generate:og": "node scripts/generate-og.mjs",
     "build": "npm run generate:og && npm run check:chapters && npm run test:transcript && npm run test:community && astro check && astro build",
     "build:assets": "npm run generate:og && astro build",

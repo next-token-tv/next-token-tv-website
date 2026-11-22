@@ -104,7 +104,7 @@ async function inspectSourceProvenance(path) {
   ]);
   const sourceState = !tracked ? "untracked" : statusOutput.trim() ? "modified" : "committed";
   const sourceRevision = sourceState === "committed"
-    ? (await execFileAsync("git", ["-C", repositoryRoot, "rev-parse", "HEAD"])).stdout.trim()
+    ? (await execFileAsync("git", ["-C", repositoryRoot, "log", "-1", "--format=%H", "--", repositoryPath])).stdout.trim()
     : null;
 
   return {

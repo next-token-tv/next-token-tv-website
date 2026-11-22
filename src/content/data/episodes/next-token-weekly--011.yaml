@@ -1,31 +1,14 @@
 schemaVersion: 1
 number: '011'
 show: next-token-weekly
-status: announced
-phase: post-production
-detailLayout: true
-releasePreview: true
+status: published
 title:
   zh-Hans: '#011 Gemini 4 王者归来，GPT 6.2 全网群嘲，WorkBuddy 日活千万'
   en: '#011 Gemini 4 Returns, GPT 6.2 Faces a Backlash, and WorkBuddy Reaches 10 Million Daily Users'
-scheduledAt: '2026-11-20'
-timeZone: Asia/Shanghai
-recordingMode: in-person
 recordingLocation:
   zh-Hans: 北京 · 象外空间
   en: Xanadu Why Space · Beijing
-participants:
-  - person: guizang
-    role: duty-host
-  - person: yangpan
-    role: co-host
-  - person: orange
-    role: co-host
-  - person: xiangyang-qiaomu
-    role: co-host
 mentions:
-  people:
-    - sergey-brin
   brands:
     - openai
     - anthropic
@@ -78,8 +61,11 @@ mentions:
     - grand-theft-auto-vi
     - factory-droid
     - devin
+    - colaos
+    - xbox
+    - kimi
   terms:
-    - '3d'
+    - 3d
     - multimodality
     - context
     - harness
@@ -93,40 +79,46 @@ mentions:
     - ipo
     - ssh
     - vps
-preview:
-  images:
-    '960': /assets/weekly-011-960.webp
-    '1440': /assets/weekly-011-1440.webp
-    '1920': /assets/weekly-011-1920.webp
-  imageDimensions:
-    width: 3000
-    height: 3000
-  eyebrow:
-    zh-Hans: 第 011 期
-    en: Episode 011
-  heading:
-    zh-Hans:
+  people:
+    - sergey-brin
+productionImport: next-token-weekly--011.production
+transcriptPublishedAt: '2026-11-21'
+media:
+  audio: false
+  video: false
+platforms: []
+homepage:
+  zh-Hans:
+    eyebrow: 第 011 期
+    heading:
       - Gemini 4 王者归来，GPT 6.2 全网群嘲
       - WorkBuddy 日活千万
-    en:
-      - Gemini 4 Returns, GPT 6.2 Faces a Backlash
-      - WorkBuddy Reaches 10 Million Daily Users
-  summary:
-    zh-Hans: 从 GPT-6.2 与 Gemini 4 的实测分歧，聊到 DeepSeek 免费额度、WorkBuddy 千万日活，以及个人 Agent 怎样在购物、健康和日常生活里积累信任。
-    en: From hands-on comparisons of GPT-6.2 and Gemini 4 to DeepSeek’s free limits and WorkBuddy’s growth, the hosts discuss how personal agents earn trust through shopping, health, and everyday tasks.
-  topics:
-    zh-Hans:
+    lede: 从 GPT-6.2 与 Gemini 4 的实测分歧，聊到 DeepSeek 免费额度、WorkBuddy 千万日活，以及个人 Agent 怎样在购物、健康和日常生活里积累信任。
+    copy: 从 GPT-6.2 与 Gemini 4 的实测分歧，聊到 DeepSeek 免费额度、WorkBuddy 千万日活，以及个人 Agent 怎样在购物、健康和日常生活里积累信任。
+    imageAlt: '#011 Gemini 4 王者归来，GPT 6.2 全网群嘲，WorkBuddy 日活千万'
+    topicsLabel: 本期话题
+    topics:
       - GPT-6.2 Astra 与 Sol
       - Gemini 4 Carbon 与 Neon
       - DeepSeek 免费额度
       - WorkBuddy 与 Personal Agent
       - 千问 4、混元与 Anthropic IPO
-    en:
+    listenAction: 立即收听
+    watchAction: 立即观看
+  en:
+    eyebrow: Episode 011
+    heading:
+      - Gemini 4 Returns, GPT 6.2 Faces a Backlash
+      - WorkBuddy Reaches 10 Million Daily Users
+    lede: From hands-on comparisons of GPT-6.2 and Gemini 4 to DeepSeek’s free limits and WorkBuddy’s growth, the hosts discuss how personal agents earn trust through shopping, health, and everyday tasks.
+    copy: From hands-on comparisons of GPT-6.2 and Gemini 4 to DeepSeek’s free limits and WorkBuddy’s growth, the hosts discuss how personal agents earn trust through shopping, health, and everyday tasks.
+    imageAlt: '#011 Gemini 4 Returns, GPT 6.2 Faces a Backlash, and WorkBuddy Reaches 10 Million Daily Users'
+    topicsLabel: Topics in this episode
+    topics:
       - GPT-6.2 Astra and Sol
       - Gemini 4 Carbon and Neon
       - DeepSeek’s free limits
       - WorkBuddy and personal agents
       - Qwen 4, Hunyuan, and Anthropic’s IPO
-  note:
-    zh-Hans: 2026 年 11 月 20 日录制于北京象外空间，向阳乔木远程参与。
-    en: Recorded at Xanadu Why Space in Beijing on November 20, 2026, with Xiangyang Qiaomu joining remotely.
+    listenAction: Listen now
+    watchAction: Watch now

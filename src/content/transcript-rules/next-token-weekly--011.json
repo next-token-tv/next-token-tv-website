@@ -1,0 +1,82 @@
+{
+  "locale": "zh-Hans",
+  "titleFromEpisode": true,
+  "resolutions": {
+    "Next Token Weekly": {
+      "entityType": "show",
+      "id": "next-token-weekly"
+    },
+    "DeepSeek": {
+      "entityType": "product",
+      "id": "deepseek"
+    },
+    "Muse": {
+      "entityType": "product",
+      "id": "muse-agent"
+    },
+    "Grok Bot": {
+      "entityType": "product",
+      "id": "grok-bot"
+    },
+    "亚马逊": {
+      "entityType": "brand",
+      "id": "amazon"
+    },
+    "Amazon": {
+      "entityType": "brand",
+      "id": "amazon"
+    },
+    "赛博禅心": {
+      "entityType": "person",
+      "id": "cyber-zen"
+    },
+    "Cyber Zen": {
+      "entityType": "person",
+      "id": "cyber-zen"
+    },
+    "MiniMax": {
+      "entityType": "product",
+      "id": "minimax"
+    }
+  },
+  "excludedEntities": [
+    "brand:netease-youdao",
+    "brand:ted",
+    "product:go",
+    "product:diandian"
+  ],
+  "termReferences": [
+    {
+      "id": "3d",
+      "aliases": [
+        "3D"
+      ]
+    },
+    {
+      "id": "personal-agent",
+      "aliases": [
+        "Personal Agent",
+        "个人智能体"
+      ]
+    },
+    {
+      "id": "trust-flywheel",
+      "aliases": [
+        "信任飞轮"
+      ]
+    },
+    {
+      "id": "harness",
+      "aliases": [
+        "Harness"
+      ]
+    }
+  ],
+  "scopedAliases": [
+    {
+      "entityType": "product",
+      "id": "muse-agent",
+      "alias": "Muse"
+    }
+  ]
+}

@@ -30,6 +30,8 @@ Recorded at Xanadu Why Space in Beijing on November 20, 2026.
 
 ## ⏱️ Chapters
 
+<!-- chapters:website-en:start -->
+
 - 00:00 Opening highlights
 - 01:53 Opening music
 - 02:03 Opening introduction
@@ -57,23 +59,23 @@ Recorded at Xanadu Why Space in Beijing on November 20, 2026.
 - 42:05 Advice for model launches: show a complete real project instead of claiming to beat Opus 5.5
 - 46:08 Building video graphics and automatic podcast highlights with Neon
 - 48:40 Testing a million-token context window and generating a long article in one pass
-- 49:27 Strong model, frustrating tools: Antigravity’s caching and permissions, and why the former [Windsurf](/en/wiki/products/devin-desktop) team needs faster feedback
+- 49:27 Strong model, frustrating tools: Antigravity’s caching, permissions, and need for faster iteration
 - 50:39 An Antigravity session fails: how do you resume a half-finished project?
 
 ### Tencent’s earnings and the divide in personal agents
 
-- 53:52 WorkBuddy passes 10 million daily users; [WeChat’s Xiaowei](/en/wiki/products/xiaowei) reaches 30 million but still feels like an older chatbot
+- 53:52 WorkBuddy passes 10 million daily users; WeChat’s Xiaowei reaches 30 million but still feels like an older chatbot
 - 57:23 Why haven’t Chinese tech companies built a compelling personal agent?
 - 58:36 Meta Muse reaches 10 million daily users: cross-site shopping and Shopify’s embrace of agents
 - 59:16 Instinct’s everyday use cases and agent updates
 - 01:01:57 Agents creating purchasing demand: digital pianos, lactase, and overseas supplements
 - 01:05:03 Privacy and the trust flywheel: useful results encourage users to share health data and browser access
-- 01:08:19 Apple’s personal-agent plans beyond [Siri](/en/wiki/products/siri), and the case for cloud models
-- 01:09:21 Smart-home assumptions and [Ant Group](/en/wiki/brands/ant-group)’s different approaches with [Lingguang](/en/wiki/products/lingguang) and [Afu](/en/wiki/products/ant-afu)
+- 01:08:19 Apple’s personal-agent plans beyond Siri, and the case for cloud models
+- 01:09:21 Smart-home assumptions and Ant’s different approaches with Lingguang and Afu
 - 01:10:58 From smart-home readings to an assistant that works across devices
-- 01:13:01 Pressure on Tencent and [Kuaishou](/en/wiki/brands/kuaishou)’s profits, compute spending, and the possibility of another ByteDance
+- 01:13:01 Pressure on Tencent and Kuaishou’s profits, compute spending, and the possibility of another ByteDance
 - 01:15:49 Why personal agents lag in China: constrained model responses and mobile-internet habits
-- 01:17:26 [SubCast](/en/wiki/products/subcast): subscribing to video podcasts and clipping highlights
+- 01:17:26 Subcast: subscribing to video podcasts and clipping highlights
 - 01:18:01 Give employees tokens and ownership: internal startups without large teams and resources
 
 ### Qwen 4, Hunyuan Hy4 flash, and Anthropic’s IPO
@@ -83,13 +85,14 @@ Recorded at Xanadu Why Space in Beijing on November 20, 2026.
 
 ### Listener conversations and this week’s finds
 
-- 01:25:06 Feedback on last week’s down jackets and thoughtful [Xiaoyuzhou](/en/wiki/products/xiaoyuzhou) comments
-- 01:27:11 A matte-screen iPad mini as a Mac mini display, connected directly or through [Tailscale](/en/wiki/products/tailscale)
+- 01:25:06 Feedback on last week’s down jackets and thoughtful Xiaoyuzhou comments
+- 01:27:11 A matte-screen iPad mini as a Mac mini display, connected directly or through Tailscale
 - 01:30:23 Storage prices rise: a 1 TB SSD moves from ¥1,300 to ¥1,600, and used Android phones look attractive
-- 01:31:48 GTA 6 impressions: [PS5](/en/wiki/products/playstation-5) trigger resistance, lively NPC stories, and future AI-powered open worlds
-- 01:35:50 Backup coding options: [Factory](/en/wiki/products/factory-droid), [Devin](/en/wiki/products/devin), and Google subscriptions
+- 01:31:48 GTA 6 impressions: PS5 trigger resistance, lively NPC stories, and future AI-powered open worlds
+- 01:35:50 Backup coding options: Factory, Devin, and Google subscriptions
 
 - 01:36:50 Closing
+<!-- chapters:website-en:end -->
 
 ## 💡 Questions from the episode
 
@@ -117,6 +120,8 @@ Comparing digital pianos against someone’s actual requirements tests whether a
 - [**Trust flywheel**](/en/wiki/terms/trust-flywheel) describes a repeated process: useful results encourage continued use and more context, creating opportunities for more relevant help.
 
 ## 🔗 Tools and references discussed
+
+More in the Wiki: [Windsurf](/en/wiki/products/devin-desktop), [WeChat’s Xiaowei](/en/wiki/products/xiaowei), [Siri](/en/wiki/products/siri), [Ant Group](/en/wiki/brands/ant-group), [Lingguang](/en/wiki/products/lingguang), [Afu](/en/wiki/products/ant-afu), [Kuaishou](/en/wiki/brands/kuaishou), [SubCast](/en/wiki/products/subcast), [Xiaoyuzhou](/en/wiki/products/xiaoyuzhou), [Tailscale](/en/wiki/products/tailscale), [PS5](/en/wiki/products/playstation-5), [Factory](/en/wiki/products/factory-droid), [Devin](/en/wiki/products/devin).
 
 - [**Next Token Skill**](/en/skill) and [**Next Token Grok Bot**](/en/grok-bot) · Tools introduced at the start of the episode for finding and citing past discussions.
 - [**Genie 4**](/en/wiki/products/genie) · Google DeepMind’s interactive world model, discussed in the segment on the team’s recent releases.

@@ -35,6 +35,8 @@ slot: show-notes
 
 ## ⏱️ 章节时间戳
 
+<!-- chapters:website-zh-Hans:start -->
+
 - 00:00 精彩预告
 - 01:53 片头音乐
 - 02:03 片头口播
@@ -62,23 +64,23 @@ slot: show-notes
 - 42:05 给国产模型宣发的建议：别再喊口号“打败 Opus 5.5”，拿真实完整项目说话
 - 46:08 实战检验：用 Neon 做视频包装组件与播客自动高光剪辑，产品感让人惊喜
 - 48:40 真 100 万上下文大海捞针与一次性万字长文直出
-- 49:27 模型强、工具拉：Antigravity 缓存命中率低、权限弹窗傻，[Windsurf](/wiki/products/devin-desktop) 班底亟待正反馈迭代
+- 49:27 模型强、工具拉：Antigravity 缓存命中率低、权限弹窗傻，Windsurf 班底亟待正反馈迭代
 - 50:39 Antigravity 会话出错，做了一半的项目怎么接着跑
 
 ### 腾讯财报与中美 Personal Agent 大分野
 
-- 53:52 腾讯财报亮点：企业端 WorkBuddy 日活破 1,000 万，[微信“小微”](/wiki/products/xiaowei)日活 3,000 万但体验仍像旧 Chatbot
+- 53:52 腾讯财报亮点：企业端 WorkBuddy 日活破 1,000 万，微信“小微”日活 3,000 万但体验仍像旧 Chatbot
 - 57:23 为什么国内大厂至今没做出一个像样的 Personal Agent？
 - 58:36 Meta Muse 日活破 1,000 万：最大需求竟是跨站海淘，Shopify 全面拥抱 Agent
 - 59:16 Instinct 的生活场景与 Agent 功能更新
 - 01:01:57 Agent 如何创造真实消费需求：从家里买电钢琴调研，到推荐口服乳糖酶与海淘补剂
 - 01:05:03 隐私与信任飞轮：只要真能解决问题，用户愿意主动交出健康数据与浏览器权限
 - 01:08:19 苹果立项 Personal Agent 告别 Siri，本地模型热潮退去后终局仍在云端
-- 01:09:21 国内智能家居切入点的误区，以及[蚂蚁](/wiki/brands/ant-group)“[灵光](/wiki/products/lingguang)”与“[阿福](/wiki/products/ant-afu)”偏向生活健康的差异化路线
+- 01:09:21 国内智能家居切入点的误区，以及蚂蚁“灵光”与“阿福”偏向生活健康的差异化路线
 - 01:10:58 从智能家居读数聊到跨设备的生活助理
-- 01:13:01 腾讯与[快手](/wiki/brands/kuaishou)财报利润承压、恒生科技腰斩：算力投入错配下，AI 时代还能长出新字节吗？
+- 01:13:01 腾讯与快手财报利润承压、恒生科技腰斩：算力投入错配下，AI 时代还能长出新字节吗？
 - 01:15:49 国内缺席个人 Agent 的底层原因：合规模型“不说人话”与移动互联网路径依赖
-- 01:17:26 [SubCast](/wiki/products/subcast)，订阅视频播客和剪高光片段
+- 01:17:26 Subcast，订阅视频播客和剪高光片段
 - 01:18:01 给员工发 Token 自负盈亏：AI 时代的大厂内部创业不再需要重资源堆砌
 
 ### 千问 4、混元 Hy4 flash 与 Anthropic IPO
@@ -88,13 +90,14 @@ slot: show-notes
 
 ### 听友互动与本周好物
 
-- 01:25:06 上期羽绒服带货反馈与[小宇宙](/wiki/products/xiaoyuzhou)高质量评论区共创
-- 01:27:11 好物一：iPad mini 柔光屏版，直连或用 [Tailscale](/wiki/products/tailscale) 远程充当 Mac mini 屏幕与出差轻办公终端
+- 01:25:06 上期羽绒服带货反馈与小宇宙高质量评论区共创
+- 01:27:11 好物一：iPad mini 柔光屏版，直连或用 Tailscale 远程充当 Mac mini 屏幕与出差轻办公终端
 - 01:30:23 好物二：存储涨价追踪，1 TB 固态从 1,300 涨到 1,600，二手高配安卓机性价比凸显
-- 01:31:48 好物三：《GTA 6》上手震撼，[PS5](/wiki/products/playstation-5) 扳机油门/卧推阻尼与鲜活 NPC 支线，畅想 AI 加持下的下一代开放世界
-- 01:35:50 编码工具替补建议：[Factory](/wiki/products/factory-droid)、[Devin](/wiki/products/devin) 与 Google 套餐
+- 01:31:48 好物三：《GTA 6》上手震撼，PS5 扳机油门/卧推阻尼与鲜活 NPC 支线，畅想 AI 加持下的下一代开放世界
+- 01:35:50 编码工具替补建议：Factory、Devin 与 Google 套餐
 
 - 01:36:50 片尾
+<!-- chapters:website-zh-Hans:end -->
 
 ## 💡 本期值得带走的几个问题
 
@@ -122,6 +125,8 @@ slot: show-notes
 - [**信任飞轮**](/wiki/terms/trust-flywheel) 描述的是反复发生的过程。Agent 先把事情办好，用户更愿意继续使用并补充上下文，Agent 也因此有机会提供更贴合需求的帮助。
 
 ## 🔗 本期提到的工具与信息源
+
+更多资料：[Windsurf](/wiki/products/devin-desktop)、[微信“小微”](/wiki/products/xiaowei)、[蚂蚁](/wiki/brands/ant-group)、[灵光](/wiki/products/lingguang)、[阿福](/wiki/products/ant-afu)、[快手](/wiki/brands/kuaishou)、[SubCast](/wiki/products/subcast)、[小宇宙](/wiki/products/xiaoyuzhou)、[Tailscale](/wiki/products/tailscale)、[PS5](/wiki/products/playstation-5)、[Factory](/wiki/products/factory-droid)、[Devin](/wiki/products/devin)。
 
 - [**Next Token Skill**](/skill) 与 [**Next Token Grok Bot**](/grok-bot) · 开场介绍的两种节目检索和引用工具。
 - [**Genie 4**](/wiki/products/genie) · 谈到 Google DeepMind 近期发布时，节目也讨论了这个可交互的世界模型。
