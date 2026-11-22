@@ -54,8 +54,7 @@
     "dev:start": "node scripts/dev.mjs --background",
     "dev:stop": "node scripts/dev.mjs stop",
     "dev:status": "node scripts/dev.mjs status",
-    "test:dev": "node --test tests/development-preview.test.mjs",
-    "import:transcript-translation": "node scripts/import-transcript-translation.mjs"
+    "test:dev": "node --test tests/development-preview.test.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
