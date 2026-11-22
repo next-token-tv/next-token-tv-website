@@ -12,7 +12,7 @@ for (const prefix of ['', '/en']) test(`public design system ${prefix || 'zh'}`,
   for (const icon of await page.locator('#icons [data-interface-icon]').evaluateAll(icons => icons.map(icon => icon.outerHTML))) {
     expect(productionIcons).toContain(icon);
   }
-  await expect(page.locator('#icons [data-icon-group="platform"] img')).toHaveCount(8);
+  await expect(page.locator('#icons [data-icon-group="platform"] img')).toHaveCount(7);
   await expect(page.locator('#icons [data-icon-group="platform"] img[src$=".png"]')).toHaveCount(2);
   for (const src of await page.locator('#icons img').evaluateAll(images => images.map(image => image.getAttribute('src')!))) {
     expect((await page.request.get(src)).ok(), src).toBe(true);

@@ -21,9 +21,19 @@ test('published video evidence overrides stale mode and contributes to episode v
   assert.deepEqual(plan.platforms[0].action, mediaActions.both);
   assert.deepEqual(planPlatformSync(plan, publication({ ...record, audio_status: 'published', video_status: 'published' })), plan);
 });
-test('Spotify video-only publication counts as video, not audio', () => {
-  const plan = planPlatformSync(blank, { platforms: { spotify: { status: 'published', public_url: 'https://open.spotify.com/episode/example', video_status: 'published' } } });
+test('video-only publication on a mixed platform counts as video, not audio', () => {
+  const plan = planPlatformSync(blank, publication({ ...record, mode: undefined, video_status: 'published' }));
   assert.deepEqual(plan.media, { audio: false, video: true });
+});
+test('historical Spotify records do not restore website playback entries', () => {
+  const plan = planPlatformSync(blank, {
+    platforms: {
+      xiaoyuzhou: record,
+      spotify: { status: 'published', public_url: 'https://open.spotify.com/episode/example', video_status: 'published' },
+    },
+  });
+  assert.deepEqual(plan.platforms.map(({ platform }) => platform), ['xiaoyuzhou']);
+  assert.deepEqual(plan.media, { audio: true, video: false });
 });
 test('unknown mixed availability and removal require reconciliation', () => {
   assert.throws(() => planPlatformSync(blank, publication({ ...record, mode: undefined })), /evidence/);

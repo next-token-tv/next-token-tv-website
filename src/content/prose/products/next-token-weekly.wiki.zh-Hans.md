@@ -28,7 +28,7 @@ Next Token Weekly 是视频播客品牌 [Next Token｜词元之外](/wiki/brands
 
 ## 在哪里收听收看
 
-音频版发布在小宇宙、Apple Podcasts 与 Spotify，视频版发布在哔哩哔哩与 YouTube；各期对应的具体入口集中在[节目主页](https://nexttoken.tv/weekly)与各期节目页。往期节目、录制预告与文字稿都从官网进入。
+音频版发布在小宇宙和 Apple Podcasts，视频版发布在哔哩哔哩与 YouTube；各期对应的具体入口集中在[节目主页](https://nexttoken.tv/weekly)与各期节目页。往期节目、录制预告与文字稿都从官网进入。
 
 ## 常见问题
 
@@ -38,7 +38,7 @@ Next Token｜词元之外的旗舰周播圆桌：四位联合主理人杨攀、�
 
 ### 在哪些平台可以收听或收看 Next Token Weekly？
 
-音频在小宇宙、Apple Podcasts 与 Spotify 发布，视频在哔哩哔哩与 YouTube 发布；每期的具体链接见[节目主页](https://nexttoken.tv/weekly)。
+音频在小宇宙和 Apple Podcasts 发布，视频在哔哩哔哩与 YouTube 发布；每期的具体链接见[节目主页](https://nexttoken.tv/weekly)。
 
 ### 收听 Next Token Weekly 要付费吗？
 

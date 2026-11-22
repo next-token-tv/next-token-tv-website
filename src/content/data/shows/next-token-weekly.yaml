@@ -44,9 +44,6 @@ subscriptions:
   - platform: youtube
     label: { zh-Hans: YouTube, en: YouTube }
     href: https://www.youtube.com/channel/UC_9pr_usdNG29RauPFwIFQw
-  - platform: spotify
-    label: { zh-Hans: Spotify, en: Spotify }
-    href: https://open.spotify.com/show/2xCECrt8be0mcGmnlpL9Au
   - platform: apple-podcasts
     label: { zh-Hans: Apple Podcasts, en: Apple Podcasts }
     href: https://podcasts.apple.com/us/podcast/id6809305832

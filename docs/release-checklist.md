@@ -51,6 +51,8 @@ External playback, regional restrictions, and account permissions require manual
 
 # Platform release synchronization
 
+Spotify is no longer a Weekly distribution channel. The website omits its show subscriptions and episode playback entries.
+
 `node scripts/sync-episode-release.mjs NNN` plans platform changes before writing. Platform names, icons, allowed hosts, and action labels are defined in `src/data/platforms.mjs`. Audio and video availability are evaluated per platform; uploaded or review-pending video does not establish public availability. Mixed-media platforms resolve audio and video evidence independently. Missing medium fields may inherit website-confirmed availability only for the same platform and exact public URL. Legacy `audio-only` records still establish audio when published video is added. Historical aggregate `video-reviewing` records may preserve an existing live URL, but cannot introduce a new one. Explicit medium statuses take precedence over compatibility fallbacks.
 
 Synchronization rejects removal of an existing live link or a downgrade of confirmed media. Reconcile the production publication record against actual publication evidence before retrying; do not change website action labels just to bypass a conflict. Conflicts leave episode metadata and production snapshots untouched. Source hashes are not refreshed by platform synchronization.

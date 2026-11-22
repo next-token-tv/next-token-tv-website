@@ -37,10 +37,6 @@ platforms:
     label: { zh-Hans: Apple Podcasts, en: Apple Podcasts }
     href: https://podcasts.apple.com/us/podcast/id6809305832?i=1000789331360
     action: { zh-Hans: 立即收听, en: Listen now }
-  - platform: spotify
-    label: { zh-Hans: Spotify, en: Spotify }
-    href: https://open.spotify.com/episode/0TgZM7cjwGXlNyTH1rbJK0
-    action: { zh-Hans: 收听 / 收看, en: Listen / watch }
   - platform: bilibili
     label: { zh-Hans: 哔哩哔哩, en: Bilibili }
     href: https://www.bilibili.com/video/BV1tWYC6HEqM/

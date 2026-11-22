@@ -15,7 +15,8 @@ for(const width of [390,1440])for(const prefix of ['','/en'])test(`005 published
  await expect(page.locator('.episode-show-notes')).toContainText('1:12:54');
  await expect(page.locator('.episode-detail-platforms a[href*="xiaoyuzhoufm.com/episode/"]')).toHaveAttribute('href','https://www.xiaoyuzhoufm.com/episode/6ac6dabe195d838e2aee61a0');
  await expect(page.locator('main .community-qr')).toHaveAttribute('src',community.qrImage);
- for (const host of ['xiaoyuzhoufm.com/episode/', 'open.spotify.com/episode/']) await expect(page.locator(`.episode-detail-platforms a[href*="${host}"]`)).toContainText(prefix ? 'Listen / watch' : '收听 / 观看');
+ await expect(page.locator('.episode-detail-platforms a[href*="xiaoyuzhoufm.com/episode/"]')).toContainText(prefix ? 'Listen / watch' : '收听 / 观看');
+ await expect(page.locator('.episode-detail-platforms a[href*="spotify.com"]')).toHaveCount(0);
  await expect(page.locator('.episode-detail-platforms a[href*="youtube.com/watch"]')).toHaveAttribute('href','https://www.youtube.com/watch?v=rvMDDqqkiaM');
  await expect(page.locator('.episode-detail-platforms a[href*="podcasts.apple.com"]')).toContainText(prefix ? 'Listen now' : '立即收听');
  await expect(page.locator('.episode-detail-platforms a[href*="xhslink"], .episode-detail-platforms a[href*="xiaohongshu"]')).toHaveCount(0);

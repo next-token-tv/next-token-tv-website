@@ -28,7 +28,7 @@ Each episode ships with a full Chinese transcript organized by chapters — see 
 
 ## Where to listen and watch
 
-The audio edition is published on Xiaoyuzhou, Apple Podcasts, and Spotify; the video edition on Bilibili and YouTube. Per-episode links are collected on the [show page](https://nexttoken.tv/weekly) and on each episode page, which also carry show notes and transcripts.
+The audio edition is published on Xiaoyuzhou and Apple Podcasts; the video edition on Bilibili and YouTube. Per-episode links are collected on the [show page](https://nexttoken.tv/weekly) and on each episode page, which also carry show notes and transcripts.
 
 ## Frequently asked questions
 
@@ -38,7 +38,7 @@ The flagship weekly roundtable of Next Token｜词元之外: co-hosts Pan YANG, 
 
 ### Which platforms carry Next Token Weekly?
 
-Audio is on Xiaoyuzhou, Apple Podcasts, and Spotify; video is on Bilibili and YouTube. Per-episode links are on the [show page](https://nexttoken.tv/weekly).
+Audio is on Xiaoyuzhou and Apple Podcasts; video is on Bilibili and YouTube. Per-episode links are on the [show page](https://nexttoken.tv/weekly).
 
 ### Is listening to Next Token Weekly free?
 

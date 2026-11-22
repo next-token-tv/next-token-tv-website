@@ -16,7 +16,7 @@ Next Token (词元之外) is a video podcast covering AI technology, products, e
 
 Next Token is the umbrella brand, and its flagship weekly show is [Next Token Weekly](/en/wiki/products/next-token-weekly): four co-hosts — Yang Pan, Guizang, Orange, and Xiangyang Qiaomu — meet each week in a roundtable to review the week's major AI news, published through video, audio, and show notes. Brand and show are separate levels: Weekly is the show's name and does not replace the official program name on podcast platforms.
 
-In the intro of episode 001, the show describes itself as "a video podcast focused on AI technology, products, and real-world impact, also available as audio" ([episode 001 intro, Chinese transcript](/weekly/001/transcript#chapter-01)). Listening and viewing entry points are collected on the [show page](https://nexttoken.tv/weekly); audio is published on Xiaoyuzhou, Apple Podcasts, and Spotify, and video on Bilibili and YouTube. Offline, the show records in partnership with venues including AGI Bar, one of its [venue partners](https://nexttoken.tv/partners/agi-bar); see the [AGI Bar profile](/en/wiki/brands/agi-bar).
+In the intro of episode 001, the show describes itself as "a video podcast focused on AI technology, products, and real-world impact, also available as audio" ([episode 001 intro, Chinese transcript](/weekly/001/transcript#chapter-01)). Listening and viewing entry points are collected on the [show page](https://nexttoken.tv/weekly); audio is published on Xiaoyuzhou and Apple Podcasts, and video on Bilibili and YouTube. Offline, the show records in partnership with venues including AGI Bar, one of its [venue partners](https://nexttoken.tv/partners/agi-bar); see the [AGI Bar profile](/en/wiki/brands/agi-bar).
 
 ## Discussion in the show
 
@@ -36,7 +36,7 @@ The official site is [nexttoken.tv](https://nexttoken.tv/), with the show page a
 
 ### Where can I listen to or watch Next Token Weekly?
 
-Audio is published on Xiaoyuzhou, Apple Podcasts, and Spotify; video is published on Bilibili and YouTube. Per-episode links are listed on the [show page](https://nexttoken.tv/weekly).
+Audio is published on Xiaoyuzhou and Apple Podcasts; video is published on Bilibili and YouTube. Per-episode links are listed on the [show page](https://nexttoken.tv/weekly).
 
 ### What is the relationship between Next Token and Next Token Weekly?
 

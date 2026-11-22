@@ -154,14 +154,6 @@ platforms:
     action:
       zh-Hans: 立即收听
       en: Listen now
-  - platform: spotify
-    label:
-      zh-Hans: Spotify
-      en: Spotify
-    href: https://open.spotify.com/episode/47rgaESek4Vl1jHD7OwcEc
-    action:
-      zh-Hans: 收听 / 观看
-      en: Listen / watch
   - platform: youtube
     label:
       zh-Hans: YouTube

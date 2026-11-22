@@ -202,7 +202,7 @@ export async function getDetailEpisode(episodeId: string) {
   const homepage = { "zh-Hans": homepageFor("zh-Hans"), en: homepageFor("en") };
   const platforms = ([
     ["xiaoyuzhou", "小宇宙", "Xiaoyuzhou"], ["apple-podcasts", "Apple Podcasts", "Apple Podcasts"],
-    ["spotify", "Spotify", "Spotify"], ["bilibili", "哔哩哔哩", "Bilibili"], ["youtube", "YouTube", "YouTube"],
+    ["bilibili", "哔哩哔哩", "Bilibili"], ["youtube", "YouTube", "YouTube"],
   ] as const).map(([platform, zh, en]) => ({ platform, label: { "zh-Hans": zh, en }, href: undefined as string | undefined, action: undefined as Record<Locale, string> | undefined }));
   return { ...episode, data: { ...data, homepage, platforms,
     recordedAt: data.scheduledAt.slice(0, 10), releaseDate: undefined,

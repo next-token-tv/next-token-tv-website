@@ -47,16 +47,15 @@ for (const width of [390, 768, 1280, 1320, 1440, 1920, 2560]) {
         const latestTranscriptNumber = publishedTranscripts.filter(t => t.locale === (prefix ? 'en' : 'zh-Hans')).map(t => t.episodeId.split('--')[1]).sort((a, b) => Number(b) - Number(a))[0];
         const ctaOnLatest = hasTranscript && latestTranscriptNumber === latest.number ? 1 : 0;
         await expect(page.locator(`a[href*="/${latest.number}/transcript"]`)).toHaveCount(!hasTranscript ? 0 : 1 + ctaOnLatest);
-        await expect(page.locator('.platform-list a[href*="spotify.com"]')).toHaveAttribute('href', /\/show\//);
+        await expect(page.locator('.platform-list a[href*="spotify.com"]')).toHaveCount(0);
         if (!prefix && hasTranscript) await expect(page.locator('main > section').first().locator(`a[href="/weekly/${latestTranscriptNumber}/transcript"]`)).toContainText('#'+latestTranscriptNumber);
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       }
       await page.goto(`${prefix}/weekly/002`);
       const links = page.locator('.episode-detail-platforms .platform-list a');
-      await expect(links).toHaveCount(5);
+      await expect(links).toHaveCount(4);
       for (const url of [
         'https://www.xiaoyuzhoufm.com/episode/6aa68040492687f6aad92b15',
-        'https://open.spotify.com/episode/0TgZM7cjwGXlNyTH1rbJK0',
         'https://podcasts.apple.com/us/podcast/id6809305832?i=1000789331360',
         'https://www.bilibili.com/video/BV1tWYC6HEqM/',
         'https://youtu.be/hsppRLQF3wc',

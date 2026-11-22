@@ -16,7 +16,7 @@ Next Token｜词元之外是一档关注 AI 技术、产品、创业与创作的
 
 Next Token｜词元之外是总品牌，旗下旗舰周播栏目是 [Next Token Weekly](/wiki/products/next-token-weekly)：由杨攀、歸藏、橘子和向阳乔木四位联合主理人每周以圆桌形式回顾一周的 AI 大事，通过视频、音频与 Show Notes 发布。品牌与栏目是两个层级：Weekly 是节目名，不替代平台上的正式节目名。
 
-节目在第 001 期片头中的自我介绍是"这是一档关注 AI 技术、产品与现实影响的视频播客，同时提供音频版"（[第 001 期节目片头](/weekly/001/transcript#chapter-01)）。收看和收听入口集中在官网节目页 [nexttoken.tv/weekly](https://nexttoken.tv/weekly)，音频发布在小宇宙、Apple Podcasts 与 Spotify，视频发布在哔哩哔哩与 YouTube。线下方面，节目与象外空间、AGI Bar 等场地合作录制，[AGI Bar](/wiki/brands/agi-bar) 是其场地合作伙伴之一。
+节目在第 001 期片头中的自我介绍是"这是一档关注 AI 技术、产品与现实影响的视频播客，同时提供音频版"（[第 001 期节目片头](/weekly/001/transcript#chapter-01)）。收看和收听入口集中在官网节目页 [nexttoken.tv/weekly](https://nexttoken.tv/weekly)，音频发布在小宇宙和 Apple Podcasts，视频发布在哔哩哔哩与 YouTube。线下方面，节目与象外空间、AGI Bar 等场地合作录制，[AGI Bar](/wiki/brands/agi-bar) 是其场地合作伙伴之一。
 
 ## 节目中的讨论
 
@@ -36,7 +36,7 @@ Next Token｜词元之外是一档关注 AI 技术、产品、创业与创作的
 
 ### 在哪些平台可以收听或收看 Next Token Weekly？
 
-音频在小宇宙、Apple Podcasts 与 Spotify 发布，视频在哔哩哔哩与 YouTube 发布，具体各期入口见[节目主页](https://nexttoken.tv/weekly)。
+音频在小宇宙和 Apple Podcasts 发布，视频在哔哩哔哩与 YouTube 发布，具体各期入口见[节目主页](https://nexttoken.tv/weekly)。
 
 ### Next Token 和 Next Token Weekly 是什么关系？
 
