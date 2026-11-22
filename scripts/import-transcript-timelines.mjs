@@ -9,16 +9,23 @@ import { timestampVideoUrl } from "../src/data/video-timestamps.mjs";
 
 const website = resolve(import.meta.dirname, "..");
 const production = resolve(website, "../next-token");
-const episodes = process.argv.slice(2);
-if (!episodes.length || episodes.some(number => !/^\d{3}$/.test(number))) {
-  throw new Error("Usage: node --experimental-strip-types scripts/import-transcript-timelines.mjs NNN [NNN ...]");
+const args = process.argv.slice(2);
+const publicationFlags = args.filter(arg => arg.startsWith("--publication="));
+const episodes = args.filter(arg => !arg.startsWith("--publication="));
+if (!episodes.length || episodes.some(number => !/^\d{3}$/.test(number)) ||
+    (publicationFlags.length && (publicationFlags.length !== 1 || episodes.length !== 1 || !publicationFlags[0].slice(14)))) {
+  throw new Error("Usage: node --experimental-strip-types scripts/import-transcript-timelines.mjs NNN [NNN ...] [--publication=path]");
 }
 
 const git = (...args) => execFileSync("git", ["-C", production, ...args], { encoding: "utf8" }).trim();
 const readJson = async path => JSON.parse(await readFile(path, "utf8"));
 const revision = git("rev-parse", "HEAD");
 
-async function committedSource(path) {
+async function committedSource(path, sourceRevision = revision) {
+  if (sourceRevision !== revision) {
+    const text = execFileSync("git", ["-C", production, "show", `${sourceRevision}:${path}`], { encoding: "utf8" });
+    return { text, source: { path, revision: sourceRevision, sha256: createHash("sha256").update(text).digest("hex") } };
+  }
   git("ls-files", "--error-unmatch", "--", path);
   if (git("status", "--porcelain", "--", path)) {
     throw new Error(`Timing source must be committed: ${path}`);
@@ -61,7 +68,10 @@ for (const number of new Set(episodes)) {
   const episodeDir = `shows/weekly/episodes/${number}`;
   const releaseDir = `${episodeDir}/04-release`;
   const transcript = await readJson(resolve(website, `src/content/imported/transcripts/${episodeId}.zh-Hans.json`));
-  const publication = await readJson(resolve(production, releaseDir, "platforms/publication.json"));
+  const publication = await readJson(publicationFlags.length
+    ? resolve(publicationFlags[0].slice(14))
+    : resolve(production, releaseDir, "platforms/publication.json"));
+  if (publication.episode_id !== number) throw new Error(`Publication evidence is for a different episode: ${number}`);
   if (transcript.publicationStatus !== "published") throw new Error(`No published transcript for ${episodeId}`);
   const ids = getParagraphAnchorIds(transcript.chapters);
   const tracks = new Map();
@@ -88,7 +98,7 @@ for (const number of new Set(episodes)) {
     const { path, sha256 } = platform === "youtube"
       ? await youtubeCaptionSource(episodeDir, record)
       : { path: `${episodeDir}/${edition?.sourcePath ?? `04-release/video/${edition?.filename ?? "subtitles.zh-Hans.srt"}`}` };
-    const { text, source } = tracks.get(path) ?? await committedSource(path);
+    const { text, source } = tracks.get(path) ?? await committedSource(path, edition?.sourceRevision);
     if (sha256 && source.sha256 !== sha256) throw new Error(`Published YouTube caption digest changed: ${path}`);
     if (edition && edition.sha256 !== source.sha256) {
       console.warn(`${number}: Bilibili timing withheld because the release caption digest changed`);

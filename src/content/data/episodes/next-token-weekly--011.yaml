@@ -84,9 +84,25 @@ mentions:
 productionImport: next-token-weekly--011.production
 transcriptPublishedAt: '2026-11-21'
 media:
-  audio: false
-  video: false
-platforms: []
+  audio: true
+  video: true
+platforms:
+  - platform: xiaoyuzhou
+    label:
+      zh-Hans: 小宇宙
+      en: Xiaoyuzhou
+    href: https://www.xiaoyuzhoufm.com/episode/6b00a07b77e5b18a33306fa8
+    action:
+      zh-Hans: 收听 / 收看
+      en: Listen / watch
+  - platform: bilibili
+    label:
+      zh-Hans: 哔哩哔哩
+      en: Bilibili
+    href: https://www.bilibili.com/video/BV147yVz5EXS/
+    action:
+      zh-Hans: 立即观看
+      en: Watch now
 homepage:
   zh-Hans:
     eyebrow: 第 011 期

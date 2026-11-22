@@ -25,6 +25,15 @@ const editions = {
       },
     },
   },
+  "011": {
+    BV147yVz5EXS: {
+      43821698552: {
+        sourcePath: "03-post-production/transcripts/speaker-aligned/release-reference.zh-Hans.srt",
+        sourceRevision: "eed41769af8015773d8c5896b4375bd110f77a86",
+        sha256: "72d888ff2c9395dc3b3e8bffe91c85095d8065497be698614da8e47dcaa8d627",
+      },
+    },
+  },
 };
 
 export const hasBilibiliTimingEditions = number => Object.hasOwn(editions, number);
